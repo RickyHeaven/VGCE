@@ -1,5 +1,5 @@
 <script setup lang="ts">
-	import WebtopoSvgEdit from '@/components/webtopo-svg-edit/index.vue'
+	import SvgEditor from '@/components/svg-editor/index.vue'
 	import { useStore } from '@/stores/main'
 	import { useRouter } from 'vue-router'
 	import { configCenter } from '@/config-center'
@@ -28,7 +28,7 @@
 </script>
 
 <template>
-	<WebtopoSvgEdit
+	<SvgEditor
 		:dataModel="(store.dataModel && JSON.stringify(store.dataModel)) || ''"
 		:customToolBar="configCenter"
 		@onPreview="preview"

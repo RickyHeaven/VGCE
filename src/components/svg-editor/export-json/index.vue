@@ -5,7 +5,7 @@
 	import { useGlobalStore } from '@/stores/global'
 	import { useSvgEditLayoutStore } from '@/stores/svg-edit-layout'
 	import { useConfigStore } from '@/stores/config'
-	import { IDataModel } from '@/components/webtopo-svg-edit/types'
+	import { IDataModel } from '@/components/svg-editor/types'
 	const content = ref('')
 	const globalStore = useGlobalStore()
 	const svgEditLayoutStore = useSvgEditLayoutStore()
@@ -13,7 +13,7 @@
 	onMounted(() => {
 		const export_json: IDataModel = {
 			layout_center: svgEditLayoutStore.center_offset,
-			config: configStore.svg,
+			config: configStore.$state,
 			done_json: globalStore.done_json
 		}
 		content.value = JSON.stringify(export_json, null, 2)

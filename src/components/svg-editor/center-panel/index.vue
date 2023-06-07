@@ -23,10 +23,10 @@
 		calculateRightTop,
 		calculateTop
 	} from '@/utils/scale-core'
-	import HandlePanel from '@/components/webtopo-svg-edit/handle-panel/index.vue'
-	import ConnectionPanel from '@/components/webtopo-svg-edit/connection-panel/index.vue'
+	import HandlePanel from '@/components/svg-editor/handle-panel/index.vue'
+	import ConnectionPanel from '@/components/svg-editor/connection-panel/index.vue'
 	import { EDoneJsonType, IConfigItem } from '@/config-center/types'
-	import ConnectionLine from '@/components/webtopo-svg-edit/connection-line/index.vue'
+	import ConnectionLine from '@/components/svg-editor/connection-line/index.vue'
 	import { IVisiableInfo } from './types'
 	import { ComponentImport } from '@/config-center'
 	import { useContextMenuStore, useEditPrivateStore } from '@/stores/system'
@@ -488,9 +488,11 @@
 	 * @returns
 	 */
 	const onCanvasContextMenuEvent = (e: MouseEvent) => {
+		e.stopPropagation()
 		e.preventDefault() //禁用浏览器右键
 	}
 	const onSvgContextMenuEvent = (select_item: IDoneJson, index: number, e: MouseEvent) => {
+		console.log(globalStore.intention)
 		if (globalStore.intention === EGlobalStoreIntention.Connection) {
 			return
 		}

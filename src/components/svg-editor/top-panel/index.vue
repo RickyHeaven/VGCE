@@ -19,7 +19,7 @@
 	const onPreviewClick = () => {
 		const data_model: IDataModel = {
 			layout_center: svgEditLayoutStore.center_offset,
-			config: configStore.svg,
+			config: configStore.$state,
 			done_json: globalStore.done_json
 		}
 		emits('onPreview', data_model)
@@ -27,7 +27,7 @@
 	const onSaveClick = () => {
 		const data_model: IDataModel = {
 			layout_center: svgEditLayoutStore.center_offset,
-			config: configStore.svg,
+			config: configStore.$state,
 			done_json: globalStore.done_json
 		}
 		emits('onSave', data_model)

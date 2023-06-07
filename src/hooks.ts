@@ -1,4 +1,4 @@
-import type { IDataModel } from '@/components/webtopo-svg-edit/types'
+import type { IDataModel } from '@/components/svg-editor/types'
 import { useConfigStore } from '@/stores/config'
 import { useGlobalStore } from '@/stores/global'
 import type { IDoneJson } from '@/stores/global/types'
@@ -33,7 +33,7 @@ export const useImportDataModel = (model_str: string) => {
 			ElMessage.error('请导入正确的数据模型！')
 			return
 		}
-		configStore.svg = json.config
+		configStore.$state = json.config
 		svgEditLayoutStore.center_offset = json.layout_center
 		globalStore.setDoneJson(json.done_json)
 	} catch (error) {

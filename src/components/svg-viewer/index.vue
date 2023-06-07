@@ -5,10 +5,10 @@
 	import { prosToVBind, setArrItemByID, getCommonClass } from '@/utils'
 
 	import { EDoneJsonType } from '@/config-center/types'
-	import ConnectionLine from '@/components/webtopo-svg-edit/connection-line/index.vue'
+	import ConnectionLine from '@/components/svg-editor/connection-line/index.vue'
 
 	import { ComponentImport } from '@/config-center'
-	import { IDataModel } from '../webtopo-svg-edit/types'
+	import { IDataModel } from '../svg-editor/types'
 	import 'element-plus/dist/index.css'
 	import 'animate.css'
 	//注册所有组件
@@ -35,15 +35,17 @@
 				y: 0
 			},
 			config: {
-				background_color: '#fff',
-				scale: 1,
-				position_center: {
-					x: -333,
-					y: -113
-				},
-				svg_position_center: {
-					x: 50,
-					y: 50
+				svg: {
+					background_color: '#fff',
+					scale: 1,
+					position_center: {
+						x: -333,
+						y: -113
+					},
+					svg_position_center: {
+						x: 50,
+						y: 50
+					}
 				}
 			},
 			done_json: []
@@ -136,14 +138,14 @@
 	<div class="canvas" @mousedown="onCanvasMouseDown" @mousemove="onCanvasMouseMove" @mouseup="onCanvasMouseUp">
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
-			:style="{ backgroundColor: preview_data.config.background_color }"
+			:style="{ backgroundColor: preview_data.config.svg.background_color }"
 			width="100%"
 			height="100%"
 		>
 			<g
-				:transform="`translate(${preview_data.config.position_center.x + preview_data.layout_center.x},${
-					preview_data.config.position_center.y + preview_data.layout_center.y
-				})rotate(${0})scale(${preview_data.config.scale})`"
+				:transform="`translate(${preview_data.config.svg.position_center.x + preview_data.layout_center.x},${
+					preview_data.config.svg.position_center.y + preview_data.layout_center.y
+				})rotate(${0})scale(${preview_data.config.svg.scale})`"
 			>
 				<g
 					v-for="item in preview_data.done_json"

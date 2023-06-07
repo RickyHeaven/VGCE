@@ -17,7 +17,7 @@
 	import { EGlobalStoreIntention, IDoneJson } from '@/stores/global/types'
 	import DynamicElFormItem from './dynamic-el-form-item.vue'
 	import CommonAnimate from './common-animate.vue'
-	import ComponentTree from '@/components/webtopo-svg-edit/component-tree/index.vue'
+	import ComponentTree from '@/components/svg-editor/component-tree/index.vue'
 
 	const configStore = useConfigStore()
 	const globalStore = useGlobalStore()
@@ -30,6 +30,13 @@
 			item.common_animations.val = val
 		}
 	}
+
+	configStore.$subscribe((mutation, state) => {
+		console.log(mutation)
+		if (mutation.storeId === 'config-store') {
+			localStorage.setItem('svg-editor-config', JSON.stringify(state))
+		}
+	})
 </script>
 
 <template>
@@ -54,6 +61,14 @@
 				<el-form-item label="缩放" size="small">
 					<el-input-number v-model="configStore.svg.scale" :step="0.1" step-strictly></el-input-number>
 				</el-form-item>
+			</el-form>
+		</el-tab-pane>
+		<el-tab-pane label="连线" name="line">
+			<el-form label-width="60px" label-position="left" v-if="configStore.connection_line.props">
+				<dynamic-el-form-item :obj-info="configStore.connection_line.props" :hide="['point_position']" />
+			</el-form>
+			<el-form label-width="60px" label-position="left" v-if="configStore.connection_line.animations">
+				<dynamic-el-form-item :obj-info="configStore.connection_line.animations" />
 			</el-form>
 		</el-tab-pane>
 		<el-tab-pane label="结构" name="tree">

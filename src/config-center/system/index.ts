@@ -43,7 +43,7 @@ export const straight_line_system: ISystemStraightLine = Object.seal({
 		end: null
 	}
 })
-export const connection_line_system: ISystemStraightLine = Object.freeze({
+export const connection_line_system: ISystemStraightLine = {
 	name: 'connection_line',
 	title: '连接线',
 	type: EDoneJsonType.ConnectionLine,
@@ -108,7 +108,7 @@ export const connection_line_system: ISystemStraightLine = Object.freeze({
 		start: null,
 		end: null
 	}
-})
+}
 export const common_animate_list = [
 	{
 		label: '进入',

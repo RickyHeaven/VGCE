@@ -1,5 +1,6 @@
 import type { IPositionCenterSvg } from '@/stores/config/types'
 import type { IDoneJson } from '@/stores/global/types'
+import type { ISystemStraightLine } from '@/config-center/system/types'
 
 export type IVisibleConf = {
 	[key in EVisibleConfKey]: boolean
@@ -14,6 +15,6 @@ export interface IDataModel {
 		x: number
 		y: number
 	}
-	config: IPositionCenterSvg
+	config: { svg: IPositionCenterSvg; connection_line: ISystemStraightLine }
 	done_json: IDoneJson[]
 }
