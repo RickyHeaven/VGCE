@@ -13,7 +13,7 @@ import { svg_bot_12 } from './bot-12'
 
 export const stateless_group: IConfigComponentGroup = {
 	groupType: 'stateless',
-	title: '无状态',
+	title: '静态图标',
 	list: [
 		alternator_svg_file,
 		traction_transformer_svg_file,

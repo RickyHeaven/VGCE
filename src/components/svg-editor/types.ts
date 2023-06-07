@@ -1,6 +1,6 @@
 import type { IPositionCenterSvg } from '@/stores/config/types'
 import type { IDoneJson } from '@/stores/global/types'
-import type { ISystemStraightLine } from '@/config-center/system/types'
+import type { ISystemStraightLine } from '@/components/config/types'
 
 export type IVisibleConf = {
 	[key in EVisibleConfKey]: boolean

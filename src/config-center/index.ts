@@ -1,23 +1,25 @@
-import { svgfile_config_center } from './svg-file'
-import type { IComponentImport, IConfigCenter } from './types'
-import customSvgText from '@/components/custom-svg/custom-svg-text/index.vue'
-import switchDemo from '@/components/custom-svg/switch-demo/index.vue'
-import { vue_config_center } from './vue'
+import type {IComponentImport, IConfigCenter} from './types'
+import {svg_config_center} from './svg'
+import {vue_config_center} from './vue'
+
 // @ts-ignore
-import { ElButton, ElTag } from 'element-plus'
-import CommonTable from '@/components/custom-vue/common-table/index.vue'
-import NowTime from '@/components/custom-vue/now-time/index.vue'
-import PieCharts from '@/components/echarts/pie-charts/index.vue'
-export const configCenter: IConfigCenter = {
-	svg: svgfile_config_center,
-	vue: vue_config_center
-}
+import {ElButton, ElTag} from 'element-plus'
+import SwitchA from '@/config-center/files/switch-a.vue'
+import SvgText from '@/config-center/files/svg-text.vue'
+import CommonTable from '@/config-center/files/common-table.vue'
+import NowTime from '@/config-center/files/now-time.vue'
+import PieCharts from '@/config-center/files/pie-charts.vue'
+
+
 export const ComponentImport: IComponentImport = {
-	'custom-svg-text': customSvgText,
-	'el-button': ElButton,
-	'el-tag': ElTag,
-	'custom-vue-common-table': CommonTable,
-	'pie-charts': PieCharts,
-	'switch-demo': switchDemo,
-	'custom-vue-now-time': NowTime
+  'svg-text': SvgText,
+  'el-button': ElButton,
+  'el-tag': ElTag,
+  'common-table': CommonTable,
+  'pie-charts': PieCharts,
+  'switch-demo': SwitchA,
+  'now-time': NowTime
 }
+
+
+export const configCenter: IConfigCenter = [...svg_config_center, ...vue_config_center]

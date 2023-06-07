@@ -4,79 +4,76 @@
  * @property {string} title 组件分组标题
  * @property {Array} list 分组包含的组件项列表
  * @export
- * @interface IComponentGroup
+ * @interface IConfigComponentGroup
  */
 export interface IConfigComponentGroup {
-	groupType: string
-	title: string
-	list: Array<IConfigItem>
+  groupType: string
+  title: string
+  list: Array<IConfigItem>
 }
 
-export interface IConfigCenter {
-	[key: string]: IConfigComponentGroup[]
-}
+export type IConfigCenter = IConfigComponentGroup[]
+
 export interface IConfigItem {
-	name: string
-	title: string
-	display: boolean
-	props: IConfigItemProps
-	type: EDoneJsonType
-	config: IDoneJsonConfig
-	common_animations?: IConfigItemPropsCommonAnimations
-	animations?: IConfigItemProps //自定义动画效果
-	tag?: any
-	state?: IConfigItemState //通过一个属性去控制多个属性就是有状态组件
-	tag_slot?: string
+  name: string
+  title: string
+  display: boolean
+  props: IConfigItemProps
+  type: EDoneJsonType
+  config: IDoneJsonConfig
+  common_animations?: IConfigItemPropsCommonAnimations
+  animations?: IConfigItemProps //自定义动画效果
+  tag?: any
+  state?: IConfigItemState //通过一个属性去控制多个属性就是有状态组件
+  tag_slot?: string
 }
+
 export interface IConfigItemPropsCommonAnimations {
-	val: string
-	delay: string
-	speed: string
-	repeat: string
+  val: string
+  delay: string
+  speed: string
+  repeat: string
 }
+
 export interface IConfigItemProps {
-	[key: string]: {
-		title: string
-		type: EConfigItemPropsType
-		val: any
-		options?: any
-		disabled?: boolean
-	}
+  [key: string]: {
+    title: string
+    type: EConfigItemPropsType
+    val: any
+    options?: any
+    disabled?: boolean
+  }
 }
 
 export enum EConfigAnimationsType {
-	None = 'None',
-	Electricity = 'Electricity', //电流效果
-	WaterDrop = 'WaterDrop', //水珠
-	Track = 'Track' //轨迹
+  None = 'None', Electricity = 'Electricity', //电流效果
+  WaterDrop = 'WaterDrop', //水珠
+  Track = 'Track' //轨迹
 }
+
 export enum EConfigItemPropsType {
-	Input = 'Input',
-	Color = 'Color',
-	InputNumber = 'InputNumber',
-	Switch = 'Switch', //此类型option默认索引0为关闭
-	JsonEdit = 'JsonEdit',
-	Select = 'Select'
+  Input = 'Input', Color = 'Color', InputNumber = 'InputNumber', Switch = 'Switch', //此类型option默认索引0为关闭
+  JsonEdit = 'JsonEdit', Select = 'Select'
 }
+
 export enum EDoneJsonType {
-	File = 'File',
-	StraightLine = 'StraightLine',
-	ConnectionLine = 'ConnectionLine',
-	CustomSvg = 'CustomSvg',
-	Vue = 'Vue'
+  File = 'File', StraightLine = 'StraightLine', ConnectionLine = 'ConnectionLine', CustomSvg = 'CustomSvg', Vue = 'Vue'
 }
+
 interface IDoneJsonConfig {
-	can_zoom: boolean
-	have_anchor: boolean
-	actual_rect: boolean
+  can_zoom: boolean
+  have_anchor: boolean
+  actual_rect: boolean
 }
+
 export interface IComponentImport {
-	[key: string]: any
+  [key: string]: any
 }
+
 export interface IConfigItemState {
-	OnOff?: {
-		title: string
-		default: false
-		props: { [key: string]: { openVal: any; closeVal: any } }
-	}
+  OnOff?: {
+    title: string
+    default: false
+    props: { [key: string]: { openVal: any; closeVal: any } }
+  }
 }

@@ -66,13 +66,13 @@
 	}
 
 	const onImportFile = (f) => {
-		console.log(f)
 		if (['text/plain', 'application/json'].indexOf(f.type) < 0) {
 			ElMessage.error('仅支持的格式：txt、json')
 			return false
 		}
 		fileRead(f).then((r) => {
 			importJsonRef.value?.setVal(r)
+      ElMessage.success('文件读取成功！')
 		})
 		return false
 	}
@@ -130,7 +130,7 @@
 				</el-aside>
 			</el-container>
 		</el-container>
-		<el-dialog v-model="visible_conf.ImportJson" title="导入" width="60%" destroy-on-close>
+		<el-dialog v-model="visible_conf.ImportJson" title="导入数据" width="60%" destroy-on-close>
 			<import-json ref="importJsonRef"></import-json>
 			<template #footer>
 				<span class="dialog-footer">
@@ -141,9 +141,9 @@
 						:show-file-list="false"
 						:limit="1"
 					>
-						<el-button @click="changeVisible(EVisibleConfKey.ImportFile, true)">导入文件</el-button>
+						<el-button @click="changeVisible(EVisibleConfKey.ImportFile, true)">读取文件</el-button>
 					</el-upload>
-					<el-button type="primary" @click="onImportJson">确定</el-button>
+					<el-button type="primary" @click="onImportJson">导入数据</el-button>
 				</span>
 			</template>
 		</el-dialog>

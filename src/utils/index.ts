@@ -1,4 +1,4 @@
-import { ELineBindAnchors } from '@/config-center/system/types'
+import { ELineBindAnchors } from '@/components/config/types'
 import { EDoneJsonType } from '@/config-center/types'
 import type { IConfigItem } from '@/config-center/types'
 import type { IDoneJson } from '@/stores/global/types'

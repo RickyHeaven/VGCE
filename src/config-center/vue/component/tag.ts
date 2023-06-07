@@ -1,7 +1,7 @@
 import { EConfigItemPropsType, EDoneJsonType } from '@/config-center/types'
 import type { IConfigItem } from '@/config-center/types'
 
-export const el_tag_vue: IConfigItem = {
+export const el_tag: IConfigItem = {
 	name: 'el-tag',
 	tag: 'el-tag',
 	title: '标签',

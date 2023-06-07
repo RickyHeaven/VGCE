@@ -1,10 +1,10 @@
 import { EConfigItemPropsType, EDoneJsonType } from '@/config-center/types'
 import type { IConfigItem } from '@/config-center/types'
 
-export const custom_vue_now_time: IConfigItem = {
-	name: 'custom-vue-now-time',
+export const now_time: IConfigItem = {
+	name: 'now-time',
 	title: '当前时间',
-	tag: 'custom-vue-now-time',
+	tag: 'now-time',
 	type: EDoneJsonType.Vue,
 	config: {
 		can_zoom: true,

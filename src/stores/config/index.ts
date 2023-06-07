@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { objectDeepClone } from '@/utils'
-import { connection_line_system } from '@/config-center/system'
+import { connection_line_system } from '@/components/config'
 
 let l = localStorage.getItem('svg-editor-config')
 let s: any

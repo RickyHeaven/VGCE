@@ -1,10 +1,10 @@
 import { EConfigItemPropsType, EDoneJsonType } from '@/config-center/types'
 import type { IConfigItem } from '@/config-center/types'
 
-export const custom_vue_common_table: IConfigItem = {
-	name: 'custom-vue-common-table',
+export const common_table: IConfigItem = {
+	name: 'common-table',
 	title: '通用表格',
-	tag: 'custom-vue-common-table',
+	tag: 'common-table',
 	type: EDoneJsonType.Vue,
 	config: {
 		can_zoom: true,

@@ -1,7 +1,7 @@
 import { EConfigItemPropsType, EDoneJsonType } from '@/config-center/types'
 import type { IConfigItem } from '@/config-center/types'
 
-export const el_button_vue: IConfigItem = {
+export const el_button: IConfigItem = {
 	name: 'el-button',
 	tag: 'el-button',
 	title: '按钮',

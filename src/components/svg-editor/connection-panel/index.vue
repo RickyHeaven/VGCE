@@ -1,8 +1,8 @@
 <!-- 连线组件 -->
 <script lang="ts" setup>
 	// import { IConfigItem } from '@/config-center/types';
-	import { straight_line_system } from '@/config-center/system'
-	import { ELineBindAnchors, ISystemStraightLine } from '@/config-center/system/types'
+	import { straight_line_system } from '@/components/config'
+	import { ELineBindAnchors, ISystemStraightLine } from '@/components/config/types'
 	import { useConfigStore } from '@/stores/config'
 	import { PropType, ref } from 'vue'
 	import { useGlobalStore } from '@/stores/global'
