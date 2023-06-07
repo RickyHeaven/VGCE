@@ -1,7 +1,23 @@
 {
-  "name": "vgce",
+  "name": "@zhangqingcq/vgce",
   "version": "0.0.1",
   "description": "Vector graphics configure editor. svg组态编辑器。基于vue3.3+ts+element-plus+vite+webtopo-svg-edit",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/vgce.umd.cjs",
+  "module": "./dist/vgce.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vgce.js",
+      "require": "./dist/vgce.umd.cjs"
+    },
+    "./dist/style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
+    }
+  },
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check build-only",
@@ -10,6 +26,30 @@
     "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false",
     "lib": "vue-tsc --noEmit --skipLibCheck && vite build --mode lib"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RickyHeaven/VGCE.git"
+  },
+  "keywords": [
+    "vue",
+    "pinia",
+    "echarts",
+    "svg",
+    "vector",
+    "graphics",
+    "editor",
+    "element",
+    "vite",
+    "webtopo",
+    "ricky",
+    "zhangqingcq"
+  ],
+  "author": "RickyHeaven",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RickyHeaven/VGCE/issues"
+  },
+  "homepage": "https://github.com/RickyHeaven/VGCE#readme",
   "dependencies": {
     "ace-builds": "^1.14.0",
     "animate.css": "^4.1.1",
@@ -36,5 +76,10 @@
     "vite-plugin-windicss": "^1.9.0",
     "vue-tsc": "^1.6.4",
     "windicss": "^3.5.6"
+  },
+  "engines": {
+    "node": ">=18.16.0",
+    "npm": ">=9.5.1",
+    "pnpm": ">=8.6.0"
   }
 }
