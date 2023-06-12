@@ -1,11 +1,11 @@
-import { objectDeepClone, randomString } from '@/utils'
-import { defineStore } from 'pinia'
-import { useGlobalStore } from '../global'
-import { EGlobalStoreIntention } from '../global/types'
-import type { IDoneJson } from '../global/types'
-import { EContextMenuInfoType } from './types'
-import type { ContextMenuStoreState, EditPrivateStoreState } from './types'
-import { useHistoryRecord } from '@/hooks'
+import {objectDeepClone, randomString} from '@/utils'
+import {defineStore} from 'pinia'
+import {useGlobalStore} from '../global'
+import type {IDoneJson} from '../global/types'
+import {EGlobalStoreIntention} from '../global/types'
+import type {ContextMenuStoreState, EditPrivateStoreState} from './types'
+import {EContextMenuInfoType} from './types'
+import {useHistoryRecord} from '@/hooks'
 
 /**
  * 编辑器私有状态
@@ -112,6 +112,7 @@ export const useContextMenuStore = defineStore('context-menu-store', {
 					globalStore.spliceDoneJson(globalStore.handle_svg_info.index)
 					this.display = false
 					globalStore.setHandleSvgInfo(null)
+          globalStore.intention = EGlobalStoreIntention.None
 					break
 				case EContextMenuInfoType.MoveUpOneLevel:
 					if (

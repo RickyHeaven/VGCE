@@ -1,10 +1,10 @@
 import { EConfigItemPropsType, EDoneJsonType } from '@/config-center/types'
 import type { IConfigItem } from '@/config-center/types'
 
-export const custom_svg_text: IConfigItem = {
-	name: 'custom-svg-text',
+export const svg_text: IConfigItem = {
+	name: 'svg-text',
 	title: '文字',
-	tag: 'custom-svg-text',
+	tag: 'svg-text',
 	type: EDoneJsonType.CustomSvg,
 	display: true,
 	config: {

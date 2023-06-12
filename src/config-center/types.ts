@@ -25,7 +25,8 @@ export interface IConfigItem {
   animations?: IConfigItemProps //自定义动画效果
   tag?: any
   state?: IConfigItemState //通过一个属性去控制多个属性就是有状态组件
-  tag_slot?: string
+  tag_slot?: string,
+  events?: IEventsItem[]
 }
 
 export interface IConfigItemPropsCommonAnimations {
@@ -76,4 +77,24 @@ export interface IConfigItemState {
     default: false
     props: { [key: string]: { openVal: any; closeVal: any } }
   }
+}
+
+export enum EEventType {
+  Click = 'Click', Change = 'Change'
+}
+export enum EEventAction {
+  ChangeAttr = 'ChangeAttr', JavaScript = 'JavaScript'
+}
+
+export interface IAttrItem{
+  key:string,
+  val:string
+}
+
+export interface IEventsItem {
+  type: EEventType,
+  action:EEventAction,
+  target:string,
+  attrs?:IAttrItem[]
+  scripts:string
 }

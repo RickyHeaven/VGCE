@@ -22,7 +22,7 @@
     'stateful', 'stateless', 'have_animation', 'custom_svg_group', 'element-ui', 'custom-vue', 'echarts'
   ])
   const createBegin = (svg_item: IConfigItem) => {
-    globalStore.setCreateInfo(svg_item)
+    globalStore.setCreateInfo(Object.assign(svg_item, {events: []}))
   }
   const dragEndEvent = (e: DragEvent) => {
     //拖动时记录拖动的svg信息
@@ -36,10 +36,10 @@
 </script>
 <template>
   <div>
-    <el-collapse v-model="activeNames" v-for="item of left_tool_bar" :key="item.title">
-      <el-collapse-item :name="item.groupType">
+    <el-collapse v-model="activeNames">
+      <el-collapse-item :name="item.groupType"  v-for="item of left_tool_bar" :key="item.title">
         <template #title>
-          <div style="font-weight: bolder">{{ item.title }}</div>
+          <div style="font-weight: bold">{{ item.title }}</div>
         </template>
         <div class="component-group flex flex-wrap">
           <div
@@ -52,7 +52,7 @@
           >
             <div class="flex component-item items-center ml-10px">
               <el-icon :size="40" class="flex items-center">
-                <svg-analysis :name="svg_item.name" :props="prosToVBind(svg_item)"></svg-analysis>
+                <svg-analysis :name="svg_item.name" :props="prosToVBind(svg_item)"/>
               </el-icon>
               <div>{{ svg_item.title }}</div>
             </div>

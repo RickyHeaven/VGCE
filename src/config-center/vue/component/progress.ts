@@ -1,22 +1,22 @@
 import { EConfigItemPropsType, EDoneJsonType } from '@/config-center/types'
 import type { IConfigItem } from '@/config-center/types'
 
-export const switch_demo: IConfigItem = {
-	name: 'switch-demo',
-	title: '开关演示',
-	tag: 'switch-demo',
-	type: EDoneJsonType.CustomSvg,
-	display: true,
+export const progress_a: IConfigItem = {
+	name: 'progress-a',
+	tag: 'progress-a',
+	title: '进度条',
+	type: EDoneJsonType.Vue,
 	config: {
 		can_zoom: true,
 		have_anchor: true,
 		actual_rect: true
 	},
+	display: true,
 	props: {
-		isOpen: {
-			title: '开关',
-			type: EConfigItemPropsType.Switch,
-			val: true
+    percentage: {
+			title: '进度',
+			type: EConfigItemPropsType.InputNumber,
+			val: 10
 		}
 	},
 	common_animations: {

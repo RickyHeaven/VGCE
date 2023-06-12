@@ -1,9 +1,9 @@
 import type { IConfigComponentGroup } from '../../types'
-import { custom_svg_text } from './custom-svg-text'
-import { switch_demo } from './switch-demo'
+import { svg_text } from './svg-text'
+import { switch_a } from './switch-a'
 
 export const custom_svg_group: IConfigComponentGroup = {
 	groupType: 'custom_svg_group',
 	title: 'SVG组件',
-	list: [custom_svg_text, switch_demo]
+	list: [svg_text, switch_a]
 }

@@ -4,6 +4,7 @@ import {vue_config_center} from './vue'
 
 // @ts-ignore
 import {ElButton, ElTag} from 'element-plus'
+import Progress from '@/config-center/files/progress.vue'
 import SwitchA from '@/config-center/files/switch-a.vue'
 import SvgText from '@/config-center/files/svg-text.vue'
 import CommonTable from '@/config-center/files/common-table.vue'
@@ -14,10 +15,11 @@ import PieCharts from '@/config-center/files/pie-charts.vue'
 export const ComponentImport: IComponentImport = {
   'svg-text': SvgText,
   'el-button': ElButton,
+  'progress-a': Progress,
   'el-tag': ElTag,
   'common-table': CommonTable,
   'pie-charts': PieCharts,
-  'switch-demo': SwitchA,
+  'switch-a': SwitchA,
   'now-time': NowTime
 }
 
