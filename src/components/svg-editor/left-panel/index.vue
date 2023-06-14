@@ -49,13 +49,11 @@
               draggable="true"
               @dragstart="createBegin(svg_item)"
               @dragend="dragEndEvent"
+              :title="svg_item.title"
           >
-            <div class="flex component-item items-center ml-10px">
-              <el-icon :size="40" class="flex items-center">
-                <svg-analysis :name="svg_item.name" :props="prosToVBind(svg_item)"/>
-              </el-icon>
-              <div>{{ svg_item.title }}</div>
-            </div>
+            <el-icon :size="35" class="flex items-center">
+              <svg-analysis :name="svg_item.name" :props="prosToVBind(svg_item)"/>
+            </el-icon>
           </div>
         </div>
       </el-collapse-item>
@@ -64,19 +62,15 @@
 </template>
 
 <style scoped lang="less">
-  .component-item {
-    width: 110px;
-    height: 30px;
-    border: 1px solid #f0f0f0;
-    border-radius: 4px;
-    box-sizing: border-box;
-    overflow: hidden;
-    margin-bottom: 5px;
-
-    &:hover {
-      cursor: move;
-      // outline: 1px solid #409eff;
-      box-shadow: 0 4px 16px rgb(0 0 0 / 10%);
+  .component-group{
+    .ideal{
+      margin: 5px;
+      border:1px solid transparent;
+      cursor: pointer;
+      &:hover{
+        border-color: #f0a0f8;
+        opacity: .85;
+      }
     }
   }
 

@@ -86,9 +86,23 @@ export enum EEventAction {
   ChangeAttr = 'ChangeAttr', JavaScript = 'JavaScript'
 }
 
+export enum EConditionType{
+  None='None',Relation='Relation'
+}
+
 export interface IAttrItem{
   key:string,
   val:string
+}
+
+export interface ICondition{
+  type:EConditionType,
+  Relation?:{
+    key:string,
+    relation:string,
+    val:string,
+    val2?:string
+  }
 }
 
 export interface IEventsItem {
@@ -96,5 +110,6 @@ export interface IEventsItem {
   action:EEventAction,
   target:string,
   attrs?:IAttrItem[]
-  scripts:string
+  scripts:string,
+  condition?:ICondition
 }

@@ -2,7 +2,7 @@
   import {getCurrentInstance, PropType, reactive} from 'vue'
   import {useGlobalStore} from '@/stores/global'
   import {EGlobalStoreIntention, EMouseInfoState} from '@/stores/global/types'
-  import {prosToVBind, setArrItemByID, getCommonClass} from '@/utils'
+  import {prosToVBind, setArrItemByID, getCommonClass, valFormat} from '@/utils'
 
   import {EDoneJsonType, EEventAction, EEventType} from '@/config-center/types'
   import ConnectionLine from '@/components/svg-editor/connection-line/index.vue'
@@ -133,32 +133,43 @@
       for (let e of root.events) {
         if (e.type === EEventType.Click) {
           if (e.action === EEventAction.ChangeAttr) {
-            if (e.attrs && e.attrs.length > 0 && e.target) {
+            if (e.attrs && e.attrs.length > 0) {
               let t
-              for (let item of globalStore.done_json) {
-                if (item.id === e.target) {
-                  t = item
-                  break
+              if (e.target) {
+                for (let item of globalStore.done_json) {
+                  if (item.id === e.target) {
+                    t = item
+                    break
+                  }
+                }
+
+              }
+              else {
+                t = root
+              }
+
+              if (e.condition && e.condition.type !== 'None') {
+                if (e.condition.type === 'Relation' && e.condition.Relation && e.condition.Relation.relation) {
+                  const k = e.condition.Relation.key
+                  const r = e.condition.Relation.relation
+                  const v = valFormat(e.condition.Relation.val)
+                  const v2 = valFormat(e.condition.Relation.val2)
+
+                  if (root.props.hasOwnProperty(k)) {
+                    const p = root.props[k].val
+                    if (!relationEval(p, r, v, v2)) {
+                      continue
+                    }
+                  }
                 }
               }
-              if (t) {
-                for (let a of e.attrs) {
-                  if (t.state && t.state.hasOwnProperty(a.key)) {
-                    if (/false|true/.test(a.val)) {
-                      t.state[a.key].default = a.val !== 'false'
-                    }
-                    else {
-                      t.state[a.key].default = a.val
-                    }
-                  }
-                  else if (t.props.hasOwnProperty(a.key)) {
-                    if (/false|true/.test(a.val)) {
-                      t.props[a.key].val = a.val !== 'false'
-                    }
-                    else {
-                      t.props[a.key].val = a.val
-                    }
-                  }
+
+              for (let a of e.attrs) {
+                if (t.state && t.state.hasOwnProperty(a.key)) {
+                  t.state[a.key].default = valFormat(a.val)
+                }
+                else if (t.props.hasOwnProperty(a.key)) {
+                  t.props[a.key].val = valFormat(a.val)
                 }
               }
             }
@@ -169,6 +180,27 @@
           }
         }
       }
+    }
+  }
+
+  const relationEval = (a, r, b, c) => {
+    switch (r) {
+      case '>':
+        return a > b
+      case '>=':
+        return a >= b
+      case '<':
+        return a < b
+      case '<=':
+        return a <= b
+      case '==':
+        return a == b
+      case '!=':
+        return a != b
+      case '>=,=<':
+        return a >= b && a <= c
+      case '<,>':
+        return a < b || a > c
     }
   }
 

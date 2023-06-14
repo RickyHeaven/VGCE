@@ -25,6 +25,7 @@
   import ComponentTree from '@/components/svg-editor/component-tree/index.vue'
   import SvgAnalysis from "@/components/svg-analysis/index.vue"
   import List from "@/components/svg-editor/right-panel/list.vue"
+  import Condition from "@/components/svg-editor/right-panel/condition.vue"
 
   const configStore = useConfigStore()
   const globalStore = useGlobalStore()
@@ -51,7 +52,8 @@
       type: '',
       action: '',
       target: '',
-      scripts: 'console.log("234")'
+      scripts: 'console.log("234")',
+      condition: {type: 'None'}
     })
   }
 
@@ -146,8 +148,8 @@
           <el-form label-width="90px" label-position="left">
             <el-form-item label="类型" size="small">
               <el-select v-model="item.type">
-                <el-option value="Click" label="点击"></el-option>
-                <el-option value="Change" label="值改变"></el-option>
+                <el-option value="Click" label="点击" />
+                <el-option value="Change" label="值改变" />
               </el-select>
             </el-form-item>
             <el-form-item label="行为" size="small">
@@ -161,6 +163,7 @@
             </el-form-item>
 
             <list v-if="item.action === 'ChangeAttr'" v-model="item.attrs" />
+            <condition v-model="item.condition" />
           </el-form>
         </el-collapse-item>
       </el-collapse>
@@ -178,28 +181,28 @@
         </el-form-item>
         <el-form-item label="延迟" size="small">
           <el-select v-model="globalStore.handle_svg_info.info.common_animations.delay">
-            <el-option value="delay-0s" label="无"></el-option>
-            <el-option value="delay-1s" label="1秒"></el-option>
-            <el-option value="delay-2s" label="2秒"></el-option>
-            <el-option value="delay-3s" label="3秒"></el-option>
-            <el-option value="delay-4s" label="4秒"></el-option>
-            <el-option value="delay-5s" label="5秒"></el-option>
+            <el-option value="delay-0s" label="无" />
+            <el-option value="delay-1s" label="1秒" />
+            <el-option value="delay-2s" label="2秒" />
+            <el-option value="delay-3s" label="3秒" />
+            <el-option value="delay-4s" label="4秒" />
+            <el-option value="delay-5s" label="5秒" />
           </el-select>
         </el-form-item>
         <el-form-item label="动画速度" size="small">
           <el-select v-model="globalStore.handle_svg_info.info.common_animations.speed">
-            <el-option value="slow" label="慢"></el-option>
-            <el-option value="slower" label="最慢"></el-option>
-            <el-option value="fast" label="快"></el-option>
-            <el-option value="faster" label="最快"></el-option>
+            <el-option value="slow" label="慢" />
+            <el-option value="slower" label="最慢" />
+            <el-option value="fast" label="快" />
+            <el-option value="faster" label="最快" />
           </el-select>
         </el-form-item>
         <el-form-item label="循环次数" size="small">
           <el-select v-model="globalStore.handle_svg_info.info.common_animations.repeat">
-            <el-option value="repeat-1" label="一次"></el-option>
-            <el-option value="repeat-2" label="两次"></el-option>
-            <el-option value="repeat-3" label="三次"></el-option>
-            <el-option value="infinite" label="无限次"></el-option>
+            <el-option value="repeat-1" label="一次" />
+            <el-option value="repeat-2" label="两次" />
+            <el-option value="repeat-3" label="三次" />
+            <el-option value="infinite" label="无限次" />
           </el-select>
         </el-form-item>
       </el-form>
@@ -229,13 +232,12 @@
           <el-form-item label="文字插槽" size="small">
             <el-input v-model="globalStore.handle_svg_info.info.tag_slot" />
           </el-form-item>
-
         </div>
         <dynamic-el-form-item :obj-info="globalStore.handle_svg_info.info.props" code />
       </el-form>
     </el-tab-pane>
     <el-tab-pane label="结构" name="tree">
-      <component-tree></component-tree>
+      <component-tree />
     </el-tab-pane>
   </el-tabs>
 </template>

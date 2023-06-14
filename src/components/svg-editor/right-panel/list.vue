@@ -42,15 +42,15 @@
       <span>key</span>
       <span>value</span>
 
-      <el-icon :size="17" class="bt-Icon" @click="addL">
+      <el-icon :size="16" class="bt-Icon" @click="addL">
         <svg-analysis name="add" />
       </el-icon>
     </div>
     <div class="row-l" v-for="(item,i) of value">
-      <el-input class="content-l" v-model="item.key" />
-      <el-input class="content-l" v-model="item.val" />
+      <el-input class="content-l" v-model="item.key" size="small" placeholder="key"/>
+      <el-input class="content-l" v-model="item.val" size="small" placeholder="value"/>
 
-      <el-icon :size="14" class="bt-Icon" @click="deleteL(i)">
+      <el-icon :size="16" class="bt-Icon" @click="deleteL(i)">
         <svg-analysis name="delete" />
       </el-icon>
     </div>
@@ -59,6 +59,9 @@
 
 <style lang="less" scoped>
   .wall-l {
+    background-color: #f3f6f9;
+    padding:4px 5px 2px 5px;
+    border-radius: 4px;
     .head-l {
       display: flex;
       align-items: center;
@@ -67,10 +70,14 @@
         display: inline-block;
         width: 42%;
         margin-right: 10px;
+        color: #666;
       }
     }
 
     .row-l {
+      display: flex;
+      align-items: center;
+      padding-bottom: 6px;
       .content-l {
         width: 42%;
         margin-right: 10px;

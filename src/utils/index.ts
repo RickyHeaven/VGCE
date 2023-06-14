@@ -125,6 +125,7 @@ export const setSvgActualInfo = (done_json: IDoneJson, resize?: boolean) => {
     let x = 0, y = 0, width = 0, height = 0
     if (done_json.type !== EDoneJsonType.Vue) {
       const BBox = (queryBbox as SVGGraphicsElement).getBBox()
+      console.log(BBox)
       x = BBox.x
       y = BBox.y
       width = BBox.width
@@ -314,7 +315,7 @@ export const numberArray = (l: number) => {
 }
 
 /*获取字符串width*/
-export function getStringWidth(str:string, fontSize = 12) {
+export const getStringWidth=(str:string, fontSize = 12)=> {
   if (str.length > 0) {
     let nodesH = document.createElement('span')
     nodesH.style.fontSize = fontSize + 'px'
@@ -329,4 +330,14 @@ export function getStringWidth(str:string, fontSize = 12) {
     return width
   }
   return 0
+}
+
+export const valFormat = (v:any) => {
+  if (/false|true/.test(v)) {
+    return v !== 'false'
+  }
+  if (/^\d+(\.\d+)?$/.test(v)) {
+    return Number(v)
+  }
+  return v
 }
