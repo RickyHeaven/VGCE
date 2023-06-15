@@ -19,13 +19,14 @@
   import {useGlobalStore} from '@/stores/global'
   import {numberArray} from '@/utils'
   import {EGlobalStoreIntention, IDoneJson} from '@/stores/global/types'
-  import {EEventType} from "@/config-center/types"
   import DynamicElFormItem from './dynamic-el-form-item.vue'
   import CommonAnimate from './common-animate.vue'
   import ComponentTree from '@/components/svg-editor/component-tree/index.vue'
   import SvgAnalysis from "@/components/svg-analysis/index.vue"
   import List from "@/components/svg-editor/right-panel/list.vue"
   import Condition from "@/components/svg-editor/right-panel/condition.vue"
+  import {ElButton,} from "element-plus/es"
+  import CodeEditModal from "@/components/svg-editor/right-panel/code-edit-modal.vue"
 
   const configStore = useConfigStore()
   const globalStore = useGlobalStore()
@@ -40,7 +41,6 @@
   }
 
   configStore.$subscribe((mutation, state) => {
-    console.log(mutation)
     if (mutation.storeId === 'config-store') {
       localStorage.setItem('svg-editor-config', JSON.stringify(state))
     }
@@ -52,7 +52,7 @@
       type: '',
       action: '',
       target: '',
-      scripts: 'console.log("234")',
+      scripts: '',
       condition: {type: 'None'}
     })
   }
@@ -158,11 +158,15 @@
                 <el-option value="JavaScript" label="执行JavaScript"></el-option>
               </el-select>
             </el-form-item>
+
             <el-form-item label="目标" size="small" v-if="item.action === 'ChangeAttr'">
               <el-input v-model="item.target" placeholder="默认自身" />
             </el-form-item>
-
             <list v-if="item.action === 'ChangeAttr'" v-model="item.attrs" />
+
+            <el-form-item label="JavaScript" size="small" v-if="item.action === 'JavaScript'">
+              <code-edit-modal v-model="item.scripts" lang="javascript"/>
+            </el-form-item>
             <condition v-model="item.condition" />
           </el-form>
         </el-collapse-item>

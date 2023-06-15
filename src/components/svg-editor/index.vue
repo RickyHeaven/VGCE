@@ -126,37 +126,21 @@
     <el-dialog customClass="modal-full" v-model="visible_conf.ImportJson" title="导入数据" width="60%" destroy-on-close>
       <import-json ref="importJsonRef"></import-json>
       <template #footer>
-				<span class="dialog-footer">
-					<el-upload
-              :beforeUpload="onImportFile"
-              style="display: inline-flex; margin-right: 12px"
-              :multiple="false"
-              :show-file-list="false"
-              :limit="1"
-          >
-						<el-button @click="changeVisible(EVisibleConfKey.ImportFile, true)">读取文件</el-button>
-					</el-upload>
-					<el-button type="primary" @click="onImportJson">导入数据</el-button>
-				</span>
+        <el-upload
+            :beforeUpload="onImportFile"
+            style="display: inline-flex; margin-right: 12px"
+            :multiple="false"
+            :show-file-list="false"
+            :limit="1"
+        >
+          <el-button @click="changeVisible(EVisibleConfKey.ImportFile, true)">读取文件</el-button>
+        </el-upload>
+        <el-button type="primary" @click="onImportJson">导入数据</el-button>
       </template>
     </el-dialog>
     <el-dialog customClass="modal-full" v-model="visible_conf.ExportJson" title="导出" width="60%" destroy-on-close>
       <export-json></export-json>
-      <template #footer>
-				<span class="dialog-footer">
-					<el-button type="primary" @click="visible_conf.ExportJson = false">关闭</el-button>
-				</span>
-      </template>
     </el-dialog>
-    <el-drawer
-        v-if="visible_conf.ComponentTree"
-        v-model="visible_conf.ComponentTree"
-        title="组件树"
-        direction="ltr"
-        size="30%"
-    >
-      <component-tree></component-tree>
-    </el-drawer>
   </div>
 </template>
 <style scoped lang="less">

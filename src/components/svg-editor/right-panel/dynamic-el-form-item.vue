@@ -11,23 +11,14 @@
     ElSwitch,
     ElTooltip
   } from 'element-plus'
-  import JsonEdit from '@/components/svg-editor/right-panel/json-edit.vue'
   import {getStringWidth} from "@/utils"
+  import CodeEditModal from "@/components/svg-editor/right-panel/code-edit-modal.vue"
 
   const props = withDefaults(defineProps<{ objInfo?: IConfigItemProps; hide?: string[]; code?: boolean }>(), {
     objInfo: () => ({}),
     hide: () => [],
     code: false
   })
-  const updateAttrItemVal = (attr_item: {
-    title: string
-    type: EConfigItemPropsType
-    val: any
-    options?: any
-    disabled?: boolean | undefined
-  }, val: any) => {
-    attr_item.val = val
-  }
 </script>
 
 <template>
@@ -81,12 +72,11 @@
           v-model="attr_item.val"
           :disabled="Boolean(attr_item?.disabled)"
       ></el-switch>
-      <json-edit
+      <code-edit-modal
           v-else-if="attr_item.type === EConfigItemPropsType.JsonEdit"
-          :content-obj="attr_item.val"
+          v-model="attr_item.val"
           :disabled="Boolean(attr_item?.disabled)"
-          @update-attr-item-val="(val) => updateAttrItemVal(attr_item, val)"
-      ></json-edit>
+      />
     </el-form-item>
   </div>
 </template>

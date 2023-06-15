@@ -1,7 +1,10 @@
 import ace from 'ace-builds'
 
-import themeMonokaiUrl from 'ace-builds/src-noconflict/theme-monokai?url'
-ace.config.setModuleUrl('ace/theme/monokai', themeMonokaiUrl)
+import themeUrl from 'ace-builds/src-noconflict/theme-github?url'
+ace.config.setModuleUrl('ace/theme/github', themeUrl)
+
+import themeUrl2 from 'ace-builds/src-noconflict/theme-kr_theme?url'
+ace.config.setModuleUrl('ace/theme/kr_theme', themeUrl2)
 
 import workerBaseUrl from 'ace-builds/src-noconflict/worker-base?url'
 ace.config.setModuleUrl('ace/mode/base', workerBaseUrl)

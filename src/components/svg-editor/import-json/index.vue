@@ -24,7 +24,7 @@
 	<v-ace-editor
 		v-model:value="content"
 		lang="json"
-		theme="monokai"
+		theme="kr_theme"
 		style="height: 400px"
 		:options="{
 			useWorker: true,
