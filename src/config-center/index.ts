@@ -1,9 +1,9 @@
-import type {IComponentImport, IConfigCenter} from './types'
-import {svg_config_center} from './svg'
-import {vue_config_center} from './vue'
+import type { IComponentImport, IConfigCenter } from './types'
+import { svg_config_center } from './svg'
+import { vue_config_center } from './vue'
 
 // @ts-ignore
-import {ElButton, ElTag} from 'element-plus'
+import { ElButton, ElTag } from 'element-plus'
 import Progress from '@/config-center/files/progress.vue'
 import SwitchA from '@/config-center/files/switch-a.vue'
 import SvgText from '@/config-center/files/svg-text.vue'
@@ -12,18 +12,16 @@ import NowTime from '@/config-center/files/now-time.vue'
 import PieCharts from '@/config-center/files/pie-charts.vue'
 import LightA from '@/config-center/files/light-a.vue'
 
-
 export const ComponentImport: IComponentImport = {
-  'svg-text': SvgText,
-  'el-button': ElButton,
-  'progress-a': Progress,
-  'el-tag': ElTag,
-  'common-table': CommonTable,
-  'pie-charts': PieCharts,
-  'switch-a': SwitchA,
-  'now-time': NowTime,
-  'light-a':LightA
+	'svg-text': SvgText,
+	'el-button': ElButton,
+	'progress-a': Progress,
+	'el-tag': ElTag,
+	'common-table': CommonTable,
+	'pie-charts': PieCharts,
+	'switch-a': SwitchA,
+	'now-time': NowTime,
+	'light-a': LightA
 }
-
 
 export const configCenter: IConfigCenter = [...svg_config_center, ...vue_config_center]

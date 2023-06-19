@@ -13,7 +13,7 @@ export const progress_a: IConfigItem = {
 	},
 	display: true,
 	props: {
-    percentage: {
+		percentage: {
 			title: '进度',
 			type: EConfigItemPropsType.InputNumber,
 			val: 10
