@@ -77,13 +77,10 @@
 				border-color: #f0a0f8;
 				opacity: 0.85;
 			}
-		}
-	}
 
-	.source-repo {
-		min-width: 60px;
-		font-weight: bolder;
-		font-style: italic;
-		font-size: 15px;
+			.items-center {
+				font-style: normal;
+			}
+		}
 	}
 </style>

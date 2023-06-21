@@ -41,7 +41,7 @@ export const svg_text: IConfigItem = {
 		fill: {
 			title: '文字颜色',
 			type: EConfigItemPropsType.Color,
-			val: '#FFF200FF'
+			val: '#000'
 		}
 	},
 	common_animations: {

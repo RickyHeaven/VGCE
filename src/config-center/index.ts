@@ -11,6 +11,7 @@ import CommonTable from '@/config-center/files/common-table.vue'
 import NowTime from '@/config-center/files/now-time.vue'
 import PieCharts from '@/config-center/files/pie-charts.vue'
 import LightA from '@/config-center/files/light-a.vue'
+import ClockA from '@/config-center/files/clock-a.vue'
 
 export const ComponentImport: IComponentImport = {
 	'svg-text': SvgText,
@@ -21,7 +22,8 @@ export const ComponentImport: IComponentImport = {
 	'pie-charts': PieCharts,
 	'switch-a': SwitchA,
 	'now-time': NowTime,
-	'light-a': LightA
+	'light-a': LightA,
+	'clock-a': ClockA
 }
 
 export const configCenter: IConfigCenter = [...svg_config_center, ...vue_config_center]

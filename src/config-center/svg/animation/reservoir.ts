@@ -1,6 +1,6 @@
 import { EConfigItemPropsType, EDoneJsonType } from '@/config-center/types'
 import type { IConfigItem } from '@/config-center/types'
-export const reservoir_svg_file: IConfigItem = {
+export const reservoir: IConfigItem = {
 	name: 'reservoir',
 	title: '蓄水池',
 	type: EDoneJsonType.File,
