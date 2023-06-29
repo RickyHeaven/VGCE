@@ -35,7 +35,8 @@ export const useConfigStore = defineStore('config-store', {
 	state: () => {
 		return {
 			svg: s,
-			connection_line: t
+			connection_line: t,
+			net: { mqtt: { url: '', user: '', pwd: '', topics: '' } }
 		}
 	},
 	getters: {},

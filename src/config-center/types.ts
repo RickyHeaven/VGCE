@@ -75,11 +75,6 @@ interface IDoneJsonConfig {
 	have_anchor: boolean
 	actual_rect: boolean
 }
-
-export interface IComponentImport {
-	[key: string]: any
-}
-
 export interface IConfigItemState {
 	OnOff?: {
 		title: string

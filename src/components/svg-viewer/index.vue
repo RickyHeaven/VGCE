@@ -1,5 +1,5 @@
 <script setup lang="ts">
-	import { getCurrentInstance, onMounted, PropType, reactive, watch } from 'vue'
+	import { getCurrentInstance, onMounted, onBeforeUnmount, PropType, reactive } from 'vue'
 	import { useGlobalStore } from '@/stores/global'
 	import { EGlobalStoreIntention, EMouseInfoState } from '@/stores/global/types'
 	import { getCommonClass, prosToVBind, setArrItemByID, valFormat } from '@/utils'
@@ -7,15 +7,19 @@
 	import { EDoneJsonType, EEventAction, EEventType } from '@/config-center/types'
 	import ConnectionLine from '@/components/svg-editor/connection-line/index.vue'
 
-	import { ComponentImport } from '@/config-center'
+	import { svgComp } from '@/config-center'
 	import { IDataModel } from '../svg-editor/types'
 	import 'element-plus/dist/index.css'
 	import 'animate.css'
+
+	import { sub, close } from '@/utils/mqtt-net'
+
 	//注册所有组件
 	const instance = getCurrentInstance()
-	Object.keys(ComponentImport).forEach((key) => {
+	Object.keys(svgComp).forEach((key: string) => {
 		if (!Object.keys(instance?.appContext?.components as any).includes(key)) {
-			instance?.appContext.app.component(key, ComponentImport[key])
+			// @ts-ignore
+			instance?.appContext.app.component(key, svgComp[key])
 		}
 	})
 	const props = defineProps({
@@ -197,6 +201,24 @@
 				return a >= b && a <= c
 			case '<,>':
 				return a < b || a > c
+		}
+	}
+
+	onMounted(() => {
+		connectNet()
+	})
+
+	onBeforeUnmount(close)
+
+	const connectNet = () => {
+		if (preview_data.config.hasOwnProperty('net')) {
+			const m = preview_data.config['net'].mqtt
+			if (m && m.url && m.user && m.pwd && m.topics) {
+				sub(m.url, m.user, m.pwd, m.topics, (topics, message) => {
+					console.log(topics)
+					console.log(message.toString())
+				})
+			}
 		}
 	}
 

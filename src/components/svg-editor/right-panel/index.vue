@@ -99,6 +99,29 @@
 				</el-form-item>
 			</el-form>
 		</el-tab-pane>
+		<el-tab-pane label="通信" name="net">
+			<el-collapse>
+				<el-collapse-item name="MQTT">
+					<template #title>
+						<span style="font-weight: bold">MQTT</span>
+					</template>
+					<el-form label-width="60px" label-position="left">
+						<el-form-item label="URL" size="small">
+							<el-input v-model="configStore.net.mqtt.url" />
+						</el-form-item>
+						<el-form-item label="用户名" size="small">
+							<el-input v-model="configStore.net.mqtt.user" />
+						</el-form-item>
+						<el-form-item label="密码" size="small">
+							<el-input v-model="configStore.net.mqtt.pwd" />
+						</el-form-item>
+						<el-form-item label="Topics" size="small">
+							<el-input v-model="configStore.net.mqtt.topics" />
+						</el-form-item>
+					</el-form>
+				</el-collapse-item>
+			</el-collapse>
+		</el-tab-pane>
 		<el-tab-pane label="连线" name="line">
 			<el-form label-width="60px" label-position="left" v-if="configStore.connection_line.props">
 				<dynamic-el-form-item :obj-info="configStore.connection_line.props" :hide="['point_position']" />

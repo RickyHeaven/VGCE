@@ -57,6 +57,7 @@
     "echarts": "^5.4.1",
     "element-plus": "^2.2.9",
     "lodash": "^4.17.21",
+    "mqtt": "^4.3.7",
     "pinia": "^2.0.36",
     "vue": "^3.3.2",
     "vue-echarts": "^6.5.1",

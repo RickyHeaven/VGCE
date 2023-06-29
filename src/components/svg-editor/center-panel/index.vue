@@ -28,15 +28,16 @@
 	import { EDoneJsonType, IConfigItem } from '@/config-center/types'
 	import ConnectionLine from '@/components/svg-editor/connection-line/index.vue'
 	import { IVisiableInfo } from './types'
-	import { ComponentImport } from '@/config-center'
+	import { svgComp } from '@/config-center'
 	import { useContextMenuStore, useEditPrivateStore } from '@/stores/system'
 	import { EContextMenuInfoType } from '@/stores/system/types'
 	import { useHistoryRecord } from '@/hooks'
 	//注册所有组件
 	const instance = getCurrentInstance()
-	Object.keys(ComponentImport).forEach((key) => {
+	Object.keys(svgComp).forEach((key) => {
 		if (!Object.keys(instance?.appContext?.components as any).includes(key)) {
-			instance?.appContext.app.component(key, ComponentImport[key])
+			// @ts-ignore
+			instance?.appContext.app.component(key, svgComp[key])
 		}
 	})
 	const globalStore = useGlobalStore()

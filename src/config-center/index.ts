@@ -1,4 +1,6 @@
-import type { IComponentImport, IConfigCenter } from './types'
+import type { DefineComponent } from 'vue'
+
+import type { IConfigCenter } from './types'
 import { svg_config_center } from './svg'
 import { vue_config_center } from './vue'
 
@@ -13,7 +15,7 @@ import PieCharts from '@/config-center/files/pie-charts.vue'
 import LightA from '@/config-center/files/light-a.vue'
 import ClockA from '@/config-center/files/clock-a.vue'
 
-export const ComponentImport: IComponentImport = {
+export const svgComp: Record<string, DefineComponent<{}, {}, any>> = {
 	'svg-text': SvgText,
 	'el-button': ElButton,
 	'progress-a': Progress,
