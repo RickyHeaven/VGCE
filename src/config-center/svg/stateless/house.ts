@@ -17,5 +17,6 @@ export const svg_house: IConfigItem = {
 		delay: 'delay-0s',
 		speed: 'slow',
 		repeat: 'infinite'
-	}
+	},
+	events: []
 }

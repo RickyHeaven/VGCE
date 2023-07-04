@@ -91,7 +91,7 @@ export const useContextMenuStore = defineStore('context-menu-store', {
 		}
 	},
 	actions: {
-		onContextMenuClick(type: EContextMenuInfoType) {
+		onContextMenuClick(type: keyof typeof EContextMenuInfoType) {
 			const globalStore = useGlobalStore()
 			if (!globalStore.handle_svg_info) {
 				return

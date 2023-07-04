@@ -119,5 +119,6 @@ export const common_table: IConfigItem = {
 		delay: 'delay-0s',
 		speed: 'slow',
 		repeat: 'infinite'
-	}
+	},
+	events: []
 }

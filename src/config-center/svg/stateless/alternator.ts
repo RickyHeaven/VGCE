@@ -23,5 +23,6 @@ export const alternator_svg_file: IConfigItem = {
 		delay: 'delay-0s',
 		speed: 'slow',
 		repeat: 'infinite'
-	}
+	},
+	events: []
 }

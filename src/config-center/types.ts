@@ -21,15 +21,15 @@ export interface IConfigItem {
 	props: IConfigItemProps
 	type: EDoneJsonType
 	config: IDoneJsonConfig
-	common_animations?: IConfigItemPropsCommonAnimations
+	common_animations?: IAnimations
 	animations?: IConfigItemProps //自定义动画效果
 	tag?: any
 	state?: IConfigItemState //通过一个属性去控制多个属性就是有状态组件
 	tag_slot?: string
-	events?: IEventsItem[]
+	events: Array<IEventsItem>
 }
 
-export interface IConfigItemPropsCommonAnimations {
+export interface IAnimations {
 	val: string
 	delay: string
 	speed: string
@@ -75,6 +75,7 @@ interface IDoneJsonConfig {
 	have_anchor: boolean
 	actual_rect: boolean
 }
+
 export interface IConfigItemState {
 	OnOff?: {
 		title: string
@@ -85,11 +86,14 @@ export interface IConfigItemState {
 
 export enum EEventType {
 	Click = 'Click',
-	Change = 'Change'
+	Change = 'Change',
+	Null = ''
 }
+
 export enum EEventAction {
 	ChangeAttr = 'ChangeAttr',
-	JavaScript = 'JavaScript'
+	JavaScript = 'JavaScript',
+	Null = ''
 }
 
 export enum EConditionType {

@@ -18,7 +18,7 @@
 
 <template>
 	<g :id="props.id" style="cursor: pointer">
-		<symbol id="light-121" viewBox="0 0 1024 1024">
+		<symbol :id="`${props.id}light-121`" viewBox="0 0 1024 1024">
 			<path
 				d="M565.096296 289.185185s-0.948148 0 0 0c-110.933333-20.859259-208.592593 40.77037-237.985185 148.859259-14.222222 53.096296-24.651852 101.451852 44.562963 221.866667 14.222222 25.6 11.377778 70.162963 8.533333 95.762963-1.896296 14.222222 64.474074 36.02963 89.125926 42.666667l95.762963-509.155556z"
 				:fill="props.isOpen ? '#FDB813' : '#cccccc'"
@@ -67,6 +67,6 @@
 				fill="#CEEFF6"
 			/>
 		</symbol>
-		<use xlink:href="#light-121" width="100" height="100" />
+		<use :xlink:href="`#${props.id}light-121`" width="100" height="100" />
 	</g>
 </template>

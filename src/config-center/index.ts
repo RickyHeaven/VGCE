@@ -15,7 +15,7 @@ import PieCharts from '@/config-center/files/pie-charts.vue'
 import LightA from '@/config-center/files/light-a.vue'
 import ClockA from '@/config-center/files/clock-a.vue'
 
-export const svgComp: Record<string, DefineComponent<{}, {}, any>> = {
+export const vueComp: Record<string, DefineComponent<{}, {}, any>> = {
 	'svg-text': SvgText,
 	'el-button': ElButton,
 	'progress-a': Progress,

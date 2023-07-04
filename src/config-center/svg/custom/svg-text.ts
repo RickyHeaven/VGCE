@@ -49,5 +49,6 @@ export const svg_text: IConfigItem = {
 		delay: 'delay-0s',
 		speed: 'slow',
 		repeat: 'infinite'
-	}
+	},
+	events: []
 }

@@ -1,4 +1,39 @@
-<!-- eslint-disable vue/html-indent -->
+<script setup lang="ts">
+	import { EMouseInfoState, IDoneJson } from '@/stores/global/types'
+	import { EGlobalStoreIntention } from '@/stores/global/types'
+	import { positionArrToPath } from '@/utils'
+	import { useGlobalStore } from '@/stores/global'
+	import { EConfigAnimationsType } from '@/config-center/types'
+
+	const props = withDefaults(defineProps<{ itemInfo: IDoneJson; pointVisible: boolean }>(), { pointVisible: false })
+	const globalStore = useGlobalStore()
+	const setConnectionLineNode = (point_index: number, e: MouseEvent, x: number, y: number) => {
+		if (globalStore.intention === EGlobalStoreIntention.Connection) {
+			return
+		}
+		globalStore.setHandleSvgInfo(props.itemInfo)
+		const { clientX, clientY } = e
+		e.stopPropagation()
+		globalStore.connection_line_node_info = {
+			init_pos: {
+				x,
+				y
+			},
+			point_index: point_index
+		}
+		globalStore.intention = EGlobalStoreIntention.SetConnectionLineNode
+		globalStore.setMouseInfo({
+			state: EMouseInfoState.Down,
+			position_x: clientX,
+			position_y: clientY,
+			now_position_x: clientX,
+			now_position_y: clientY,
+			new_position_x: 0,
+			new_position_y: 0
+		})
+	}
+</script>
+
 <template>
 	<g>
 		<path
@@ -71,7 +106,7 @@
 			</animateMotion>
 		</circle>
 		<!-- 更改线段 -->
-		<g v-if="props.pointVisiable">
+		<g v-if="props.pointVisible">
 			<circle
 				v-for="(item, index) in props.itemInfo.props.point_position.val"
 				:key="index"
@@ -83,47 +118,7 @@
 				fill="#fff"
 				style="cursor: pointer"
 				@mousedown="setConnectionLineNode(index, $event, item.x, item.y)"
-		/></g>
+			/>
+		</g>
 	</g>
 </template>
-<script setup lang="ts">
-	import { EMouseInfoState, IDoneJson } from '@/stores/global/types'
-	import { EGlobalStoreIntention } from '@/stores/global/types'
-	import { PropType } from 'vue'
-	import { positionArrToPath } from '@/utils'
-	import { useGlobalStore } from '@/stores/global'
-	import { EConfigAnimationsType } from '@/config-center/types'
-	const props = defineProps({
-		itemInfo: {
-			type: Object as PropType<IDoneJson>,
-			default: () => {}
-		},
-		pointVisiable: {
-			type: Boolean,
-			default: false
-		}
-	})
-	const globalStore = useGlobalStore()
-	const setConnectionLineNode = (point_index: number, e: MouseEvent, x: number, y: number) => {
-		if (globalStore.intention === EGlobalStoreIntention.Connection) {
-			return
-		}
-		globalStore.setHandleSvgInfo(props.itemInfo)
-		const { clientX, clientY } = e
-		e.stopPropagation()
-		globalStore.connection_line_node_info = {
-			init_pos: { x, y },
-			point_index: point_index
-		}
-		globalStore.intention = EGlobalStoreIntention.SetConnectionLineNode
-		globalStore.setMouseInfo({
-			state: EMouseInfoState.Down,
-			position_x: clientX,
-			position_y: clientY,
-			now_position_x: clientX,
-			now_position_y: clientY,
-			new_position_x: 0,
-			new_position_y: 0
-		})
-	}
-</script>

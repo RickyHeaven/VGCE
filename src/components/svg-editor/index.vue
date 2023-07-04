@@ -8,7 +8,6 @@
 		ElScrollbar,
 		ElDialog,
 		ElButton,
-		ElDrawer,
 		ElUpload,
 		ElMessage
 	} from 'element-plus'
@@ -20,7 +19,6 @@
 	import RightPanel from '@/components/svg-editor/right-panel/index.vue'
 	import ExportJson from '@/components/svg-editor/export-json/index.vue'
 	import ImportJson from '@/components/svg-editor/import-json/index.vue'
-	import ComponentTree from '@/components/svg-editor/component-tree/index.vue'
 	import Vue3RulerTool from '@/components/vue3-ruler-tool/index.vue'
 	import { IVisibleConf, EVisibleConfKey } from '@/components/svg-editor/types'
 	import { IConfigCenter } from '@/config-center/types'

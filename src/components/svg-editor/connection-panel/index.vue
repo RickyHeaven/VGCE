@@ -1,20 +1,15 @@
 <!-- 连线组件 -->
 <script lang="ts" setup>
-	// import { IConfigItem } from '@/config-center/types';
 	import { straight_line_system } from '@/components/config'
 	import { ELineBindAnchors, ISystemStraightLine } from '@/components/config/types'
 	import { useConfigStore } from '@/stores/config'
-	import { PropType, ref } from 'vue'
+	import { ref } from 'vue'
 	import { useGlobalStore } from '@/stores/global'
 	import { EGlobalStoreIntention, EMouseInfoState } from '@/stores/global/types'
 	import type { IDoneJson } from '@/stores/global/types'
 	import { getAnchorPosByAnchorType, getCoordinateOffset, objectDeepClone, randomString } from '@/utils'
-	const props = defineProps({
-		itemInfo: {
-			type: Object as PropType<IDoneJson>,
-			default: () => {}
-		}
-	})
+
+	const props = defineProps<{ itemInfo: IDoneJson }>()
 	const globalStore = useGlobalStore()
 	const configStore = useConfigStore()
 	const offset = ref(4)
@@ -32,9 +27,9 @@
 		let create_line_info = objectDeepClone<ISystemStraightLine>(configStore.connection_line)
 		console.log('onConnectionMouseDown', configStore.connection_line, e)
 		//以后顶部可以选择连线是哪种 直线先不做
-		if (false) {
-			create_line_info = straight_line_system
-		}
+		/*if (false) {
+		 create_line_info = straight_line_system
+		 }*/
 		create_line_info.bind_anchors.start = {
 			type: bind_anchor_type,
 			target_id: props.itemInfo.id

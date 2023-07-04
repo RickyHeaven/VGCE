@@ -1,6 +1,6 @@
 <!--左侧工具栏-->
 <script lang="ts" setup>
-	import { PropType, ref } from 'vue'
+	import { ref } from 'vue'
 	import { ElCollapse, ElCollapseItem, ElIcon, ElMessage } from 'element-plus'
 	import { IConfigCenter, IConfigItem } from '@/config-center/types'
 	import { useGlobalStore } from '@/stores/global'
@@ -9,12 +9,7 @@
 	import { prosToVBind } from '@/utils'
 
 	const globalStore = useGlobalStore()
-	const props = defineProps({
-		customToolBar: {
-			type: Object as PropType<IConfigCenter>,
-			default: () => {}
-		}
-	})
+	const props = defineProps<{ customToolBar: IConfigCenter }>()
 	const left_tool_bar = ref(
 		props.customToolBar && Object.keys(props.customToolBar).length > 0 ? props.customToolBar : globalStore.config_center
 	)
@@ -28,7 +23,7 @@
 		'echarts'
 	])
 	const createBegin = (svg_item: IConfigItem) => {
-		globalStore.setCreateInfo(Object.assign(svg_item, { events: [] }))
+		globalStore.setCreateInfo(svg_item)
 	}
 	const dragEndEvent = (e: DragEvent) => {
 		//拖动时记录拖动的svg信息

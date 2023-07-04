@@ -27,17 +27,18 @@
 	import ConnectionPanel from '@/components/svg-editor/connection-panel/index.vue'
 	import { EDoneJsonType, IConfigItem } from '@/config-center/types'
 	import ConnectionLine from '@/components/svg-editor/connection-line/index.vue'
-	import { IVisiableInfo } from './types'
-	import { svgComp } from '@/config-center'
+	import { IVisibleInfo } from './types'
+	import { vueComp } from '@/config-center'
 	import { useContextMenuStore, useEditPrivateStore } from '@/stores/system'
 	import { EContextMenuInfoType } from '@/stores/system/types'
 	import { useHistoryRecord } from '@/hooks'
+
 	//注册所有组件
 	const instance = getCurrentInstance()
-	Object.keys(svgComp).forEach((key) => {
+	Object.keys(vueComp).forEach((key) => {
 		if (!Object.keys(instance?.appContext?.components as any).includes(key)) {
 			// @ts-ignore
-			instance?.appContext.app.component(key, svgComp[key])
+			instance?.appContext.app.component(key, vueComp[key])
 		}
 	})
 	const globalStore = useGlobalStore()
@@ -54,7 +55,7 @@
 			? "url('/src/assets/icons/rotate.svg') 12 12, auto"
 			: 'default'
 	)
-	const visible_info: IVisiableInfo = reactive({
+	const visible_info: IVisibleInfo = reactive({
 		handle_panel: computed(
 			() =>
 				globalStore.intention === EGlobalStoreIntention.Select ||
@@ -502,8 +503,8 @@
 		if (contextMenuRef.value) {
 			globalStore.intention = EGlobalStoreIntention.ContextMenu
 			globalStore.setHandleSvgInfo(select_item, index)
-			contextMenuRef.value.style.left = e.pageX + 'px'
-			contextMenuRef.value.style.top = e.pageY + 'px'
+			contextMenuRef.value!.style.left = e.pageX + 'px'
+			contextMenuRef.value!.style.top = e.pageY + 'px'
 			contextMenuStore.info.MoveUpOneLevel.enable =
 				contextMenuStore.info.MoveUpTopLevel.enable =
 				contextMenuStore.info.MoveDownOneLevel.enable =
@@ -590,7 +591,7 @@
 	}
 
 	const resizeBox = () => {
-		setSvgActualInfo(globalStore.done_json[globalStore.handle_svg_info.index], true)
+		setSvgActualInfo(globalStore.done_json[globalStore.handle_svg_info!.index], true)
 	}
 
 	onMounted(() => {
@@ -652,7 +653,7 @@
 								v-if="item.type === EDoneJsonType.ConnectionLine"
 								:item-info="item"
 								:point-visible="visible_info.connection_line && visible_info.select_item.info?.id == item.id"
-							></connection-line>
+							/>
 							<use
 								v-else-if="item.type === EDoneJsonType.File"
 								:xlink:href="`#svg-${item.name}`"
@@ -681,7 +682,7 @@
 									item.actual_bound.x +
 									item.actual_bound.width / 2
 								)},${-(item.actual_bound.y + item.actual_bound.height / 2)})`"
-							></component>
+							/>
 							<foreignObject
 								v-else-if="item.type === EDoneJsonType.Vue"
 								v-bind="getActualBoundScale(item.actual_bound, item.scale_x, item.scale_y)"
@@ -711,7 +712,7 @@
 								fill="#FF0000"
 								stroke="#FF0000"
 								stroke-width="2"
-							></line>
+							/>
 							<rect
 								v-if="item.config.actual_rect"
 								:id="`rect${item.id}`"
@@ -736,13 +737,13 @@
 										? 'svg-item-select'
 										: ''
 								}`"
-							></rect>
+							/>
 							<handle-panel
 								v-if="
 									globalStore.handle_svg_info?.info.id === item.id && visible_info.handle_panel && item.config.can_zoom
 								"
 								:item-info="item"
-							></handle-panel>
+							/>
 							<connection-panel
 								v-if="
 									visible_info.select_item.info?.id == item.id &&
@@ -753,7 +754,7 @@
 										: true)
 								"
 								:item-info="item"
-							></connection-panel>
+							/>
 						</g>
 					</g>
 				</g>

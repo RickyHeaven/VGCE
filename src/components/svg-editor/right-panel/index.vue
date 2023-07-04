@@ -1,18 +1,18 @@
 <script setup lang="ts">
 	import {
+		ElCollapse,
+		ElCollapseItem,
+		ElColorPicker,
 		ElForm,
 		ElFormItem,
-		ElColorPicker,
-		ElInputNumber,
-		ElTabs,
-		ElTabPane,
 		ElIcon,
 		ElInput,
-		ElSwitch,
-		ElSelect,
+		ElInputNumber,
 		ElOption,
-		ElCollapseItem,
-		ElCollapse
+		ElSelect,
+		ElSwitch,
+		ElTabPane,
+		ElTabs
 	} from 'element-plus'
 	import { ref } from 'vue'
 	import { useConfigStore } from '@/stores/config'
@@ -27,6 +27,7 @@
 	import Condition from '@/components/svg-editor/right-panel/condition.vue'
 	import { ElButton } from 'element-plus/es'
 	import CodeEditModal from '@/components/svg-editor/right-panel/code-edit-modal.vue'
+	import { EConditionType, EEventAction, EEventType, IEventsItem } from '@/config-center/types'
 
 	const configStore = useConfigStore()
 	const globalStore = useGlobalStore()
@@ -47,14 +48,17 @@
 	})
 
 	const eventsActive = ref(numberArray(20))
+	const netActive = ref(['MQTT'])
 	const addEvent = () => {
-		globalStore.handle_svg_info.info.events.push({
-			type: '',
-			action: '',
+		let a: IEventsItem = {
+			type: EEventType.Null,
+			action: EEventAction.Null,
 			target: '',
 			scripts: '',
-			condition: { type: 'None' }
-		})
+			condition: { type: EConditionType.None }
+		}
+
+		globalStore.handle_svg_info?.info?.events!.push(a)
 	}
 
 	const addEventList = (e, item) => {
@@ -70,8 +74,8 @@
 		}
 	}
 
-	const deleteE = (i) => {
-		globalStore.handle_svg_info.info.events.splice(i, 1)
+	const deleteE = (i: number) => {
+		globalStore.handle_svg_info?.info?.events!.splice(i, 1)
 	}
 </script>
 
@@ -100,23 +104,23 @@
 			</el-form>
 		</el-tab-pane>
 		<el-tab-pane label="通信" name="net">
-			<el-collapse>
+			<el-collapse v-model="netActive">
 				<el-collapse-item name="MQTT">
 					<template #title>
 						<span style="font-weight: bold">MQTT</span>
 					</template>
 					<el-form label-width="60px" label-position="left">
 						<el-form-item label="URL" size="small">
-							<el-input v-model="configStore.net.mqtt.url" />
+							<el-input v-model="configStore.net.mqtt.url" placeholder="如 ws://127.0.0.1:4500" />
 						</el-form-item>
 						<el-form-item label="用户名" size="small">
-							<el-input v-model="configStore.net.mqtt.user" />
+							<el-input v-model="configStore.net.mqtt.user" placeholder="username" />
 						</el-form-item>
 						<el-form-item label="密码" size="small">
-							<el-input v-model="configStore.net.mqtt.pwd" />
+							<el-input v-model="configStore.net.mqtt.pwd" placeholder="password" />
 						</el-form-item>
 						<el-form-item label="Topics" size="small">
-							<el-input v-model="configStore.net.mqtt.topics" />
+							<el-input v-model="configStore.net.mqtt.topics" placeholder="topics" />
 						</el-form-item>
 					</el-form>
 				</el-collapse-item>
@@ -142,23 +146,23 @@
 		<el-tab-pane label="外观" name="style">
 			<el-form label-width="60px" label-position="left">
 				<el-form-item label="标题" size="small">
-					<el-input v-model="globalStore.handle_svg_info.info.title" />
+					<el-input v-model="globalStore.handle_svg_info!.info.title" />
 				</el-form-item>
 				<el-form-item label="x坐标" size="small">
-					<el-input-number v-model="globalStore.handle_svg_info.info.x" />
+					<el-input-number v-model="globalStore.handle_svg_info!.info.x" />
 				</el-form-item>
 				<el-form-item label="y坐标" size="small">
-					<el-input-number v-model="globalStore.handle_svg_info.info.y" />
+					<el-input-number v-model="globalStore.handle_svg_info!.info.y" />
 				</el-form-item>
 				<el-form-item label="显示" size="small">
-					<el-switch v-model="globalStore.handle_svg_info.info.display" />
+					<el-switch v-model="globalStore.handle_svg_info!.info.display" />
 				</el-form-item>
 			</el-form>
 		</el-tab-pane>
 		<el-tab-pane label="事件" name="event">
 			<el-button type="primary" style="width: 100%" @click="addEvent">添加事件</el-button>
 			<el-collapse v-model="eventsActive">
-				<el-collapse-item :name="i" v-for="(item, i) of globalStore.handle_svg_info.info?.events" :key="'event' + i">
+				<el-collapse-item :name="i" v-for="(item, i) in globalStore.handle_svg_info!.info!.events" :key="'event' + i">
 					<template #title>
 						<div class="events-title">
 							<span>事件{{ i + 1 }}</span>
@@ -195,18 +199,18 @@
 			</el-collapse>
 		</el-tab-pane>
 		<el-tab-pane label="动效" name="animation">
-			<el-form label-width="60px" label-position="left" v-if="globalStore.handle_svg_info.info.animations">
-				<dynamic-el-form-item :obj-info="globalStore.handle_svg_info.info.animations"></dynamic-el-form-item>
+			<el-form label-width="60px" label-position="left" v-if="globalStore.handle_svg_info?.info.animations">
+				<dynamic-el-form-item :obj-info="globalStore.handle_svg_info!.info.animations"></dynamic-el-form-item>
 			</el-form>
-			<el-form label-width="60px" label-position="left" v-else-if="globalStore.handle_svg_info.info.common_animations">
+			<el-form label-width="60px" label-position="left" v-else-if="globalStore.handle_svg_info!.info.common_animations">
 				<el-form-item label="动画效果" size="small">
 					<common-animate
 						@update-common-ani-val="(val) => updateCommonAniVal(globalStore.handle_svg_info?.info, val)"
-						:val="globalStore.handle_svg_info.info.common_animations.val"
+						:val="globalStore.handle_svg_info!.info.common_animations.val"
 					></common-animate>
 				</el-form-item>
 				<el-form-item label="延迟" size="small">
-					<el-select v-model="globalStore.handle_svg_info.info.common_animations.delay">
+					<el-select v-model="globalStore.handle_svg_info!.info.common_animations.delay">
 						<el-option value="delay-0s" label="无" />
 						<el-option value="delay-1s" label="1秒" />
 						<el-option value="delay-2s" label="2秒" />
@@ -216,7 +220,7 @@
 					</el-select>
 				</el-form-item>
 				<el-form-item label="动画速度" size="small">
-					<el-select v-model="globalStore.handle_svg_info.info.common_animations.speed">
+					<el-select v-model="globalStore.handle_svg_info!.info.common_animations.speed">
 						<el-option value="slow" label="慢" />
 						<el-option value="slower" label="最慢" />
 						<el-option value="fast" label="快" />
@@ -224,7 +228,7 @@
 					</el-select>
 				</el-form-item>
 				<el-form-item label="循环次数" size="small">
-					<el-select v-model="globalStore.handle_svg_info.info.common_animations.repeat">
+					<el-select v-model="globalStore.handle_svg_info!.info.common_animations.repeat">
 						<el-option value="repeat-1" label="一次" />
 						<el-option value="repeat-2" label="两次" />
 						<el-option value="repeat-3" label="三次" />
@@ -236,25 +240,29 @@
 		<el-tab-pane label="数据" name="data">
 			<el-form label-width="90px" label-position="left">
 				<el-form-item label="ID" size="small">
-					<el-input v-model="globalStore.handle_svg_info.info.id" />
+					<el-input v-model="globalStore.handle_svg_info!.info.id" />
 				</el-form-item>
-				<div v-for="(e, k) in globalStore.handle_svg_info.info.state" :key="'state' + k">
+				<div v-for="(e, k) in globalStore.handle_svg_info!.info.state" :key="'state' + k">
 					<el-form-item class="props-row" :label="String(k)" size="small"> {{ e.default }}</el-form-item>
 
-					<el-form-item v-if="k === 'OnOff'" :label="globalStore.handle_svg_info.info.state?.OnOff.title" size="small">
-						<el-switch v-model="globalStore.handle_svg_info.info.state.OnOff.default"></el-switch>
+					<el-form-item
+						v-if="k === 'OnOff'"
+						:label="globalStore.handle_svg_info!.info.state?.OnOff!.title"
+						size="small"
+					>
+						<el-switch v-model="globalStore.handle_svg_info!.info.state!.OnOff!.default"></el-switch>
 					</el-form-item>
 				</div>
 
-				<div v-if="globalStore.handle_svg_info.info?.hasOwnProperty('tag_slot')">
+				<div v-if="globalStore.handle_svg_info!.info?.hasOwnProperty('tag_slot')">
 					<el-form-item class="props-row" label="tag_slot" size="small">
-						{{ globalStore.handle_svg_info.info.tag_slot }}
+						{{ globalStore.handle_svg_info!.info.tag_slot }}
 					</el-form-item>
 					<el-form-item label="文字插槽" size="small">
-						<el-input v-model="globalStore.handle_svg_info.info.tag_slot" />
+						<el-input v-model="globalStore.handle_svg_info!.info.tag_slot" />
 					</el-form-item>
 				</div>
-				<dynamic-el-form-item :obj-info="globalStore.handle_svg_info.info.props" code />
+				<dynamic-el-form-item :obj-info="globalStore.handle_svg_info!.info.props" code />
 			</el-form>
 		</el-tab-pane>
 		<el-tab-pane label="结构" name="tree">

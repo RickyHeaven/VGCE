@@ -33,5 +33,6 @@ export const circuit_breaker_svg_file: IConfigItem = {
 		delay: 'delay-0s',
 		speed: 'slow',
 		repeat: 'infinite'
-	}
+	},
+	events: []
 }

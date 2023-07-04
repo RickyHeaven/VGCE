@@ -1,6 +1,6 @@
 import type { IDoneJson } from '@/stores/global/types'
 
-export interface IVisiableInfo {
+export interface IVisibleInfo {
 	handle_panel: boolean
 	connection_panel: boolean
 	connection_line: boolean

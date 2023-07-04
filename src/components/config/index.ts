@@ -41,7 +41,8 @@ export const straight_line_system: ISystemStraightLine = Object.seal({
 	bind_anchors: {
 		start: null,
 		end: null
-	}
+	},
+	events: []
 })
 export const connection_line_system: ISystemStraightLine = {
 	name: 'connection_line',
@@ -107,7 +108,8 @@ export const connection_line_system: ISystemStraightLine = {
 	bind_anchors: {
 		start: null,
 		end: null
-	}
+	},
+	events: []
 }
 export const common_animate_list = [
 	{

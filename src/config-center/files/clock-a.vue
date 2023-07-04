@@ -9,7 +9,7 @@
 </script>
 <template>
 	<g :id="props.id">
-		<symbol id="clock-a-n" viewBox="0 0 1024 1024">
+		<symbol :id="`${props.id}clock-a-n`" viewBox="0 0 1024 1024">
 			<path d="M512.3 518.9m-469.2 0a469.2 469.2 0 1 0 938.4 0 469.2 469.2 0 1 0-938.4 0Z" fill="#429BCF" />
 			<path d="M512.3 518.9m-392.5 0a392.5 392.5 0 1 0 785 0 392.5 392.5 0 1 0-785 0Z" fill="#FFFFFF" />
 			<path
@@ -61,6 +61,6 @@
 			</path>
 			<path d="M512.3 506.3m-22.8 0a22.8 22.8 0 1 0 45.6 0 22.8 22.8 0 1 0-45.6 0Z" fill="#fff" />
 		</symbol>
-		<use xlink:href="#clock-a-n" width="200" height="200" />
+		<use :xlink:href="`#${props.id}clock-a-n`" width="200" height="200" />
 	</g>
 </template>

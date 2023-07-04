@@ -7,7 +7,7 @@
 	import { EDoneJsonType, EEventAction, EEventType } from '@/config-center/types'
 	import ConnectionLine from '@/components/svg-editor/connection-line/index.vue'
 
-	import { svgComp } from '@/config-center'
+	import { vueComp } from '@/config-center'
 	import { IDataModel } from '../svg-editor/types'
 	import 'element-plus/dist/index.css'
 	import 'animate.css'
@@ -16,10 +16,10 @@
 
 	//注册所有组件
 	const instance = getCurrentInstance()
-	Object.keys(svgComp).forEach((key: string) => {
+	Object.keys(vueComp).forEach((key: string) => {
 		if (!Object.keys(instance?.appContext?.components as any).includes(key)) {
 			// @ts-ignore
-			instance?.appContext.app.component(key, svgComp[key])
+			instance?.appContext.app.component(key, vueComp[key])
 		}
 	})
 	const props = defineProps({
@@ -256,7 +256,7 @@
 								item.actual_bound.height / 2
 							)})`"
 						>
-							<connection-line v-if="item.type === EDoneJsonType.ConnectionLine" :item-info="item"></connection-line>
+							<connection-line v-if="item.type === EDoneJsonType.ConnectionLine" :item-info="item" />
 							<use
 								v-else-if="item.type === EDoneJsonType.File"
 								:xlink:href="`#svg-${item.name}`"
@@ -285,7 +285,7 @@
 									item.actual_bound.x +
 									item.actual_bound.width / 2
 								)},${-(item.actual_bound.y + item.actual_bound.height / 2)})`"
-							></component>
+							/>
 							<foreignObject
 								v-else-if="item.type === EDoneJsonType.Vue"
 								v-bind="getActualBoundScale(item.actual_bound, item.scale_x, item.scale_y)"
