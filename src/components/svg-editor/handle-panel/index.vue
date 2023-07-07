@@ -1,223 +1,66 @@
-<!-- eslint-disable prettier/prettier -->
 <!-- 旋转缩放组件 -->
-<template>
-	<g style="vector-effect: non-scaling-stroke">
-		<rect
-			id="resize_tl"
-			width="8"
-			height="8"
-			:fill="fill"
-			:style="{ cursor: getCursor(0).cursor, 'vector-effect': 'non-scaling-stroke' }"
-			pointer-events="all"
-			:x="
-				props.itemInfo.actual_bound.x -
-				offset -
-				getCoordinateOffset(props.itemInfo.actual_bound.width, props.itemInfo.scale_x)
-			"
-			:y="
-				props.itemInfo.actual_bound.y -
-				offset -
-				getCoordinateOffset(props.itemInfo.actual_bound.height, props.itemInfo.scale_y)
-			"
-			stroke="rgba(0,0,0,0)"
-			@mousedown="onHandleMouseDown(EScaleInfoType.TopLeft, $event)"
-		>
-		</rect>
-		<circle
-			:cx="props.itemInfo.actual_bound.x + props.itemInfo.actual_bound.width / 2"
-			:cy="
-				props.itemInfo.actual_bound.y -
-				offset -
-				getCoordinateOffset(props.itemInfo.actual_bound.height, props.itemInfo.scale_y) -
-				24
-			"
-			:r="4"
-			class="rotate-circle"
-			@mousedown="onRotateCircleMouseDown"
-		/>
-		<line
-			:x1="props.itemInfo.actual_bound.x + props.itemInfo.actual_bound.width / 2"
-			:y1="
-				props.itemInfo.actual_bound.y -
-				offset -
-				getCoordinateOffset(props.itemInfo.actual_bound.height, props.itemInfo.scale_y)
-			"
-			:x2="props.itemInfo.actual_bound.x + props.itemInfo.actual_bound.width / 2"
-			:y2="
-				props.itemInfo.actual_bound.y -
-				offset -
-				getCoordinateOffset(props.itemInfo.actual_bound.height, props.itemInfo.scale_y) -
-				20
-			"
-			:style="{ stroke: fill, 'stroke-width': 2 }"
-		/>
-		<rect
-			id="resize_tc"
-			width="8"
-			height="8"
-			:fill="fill"
-			:style="{ cursor: getCursor(45).cursor, 'vector-effect': 'non-scaling-stroke' }"
-			pointer-events="all"
-			:x="props.itemInfo.actual_bound.x + props.itemInfo.actual_bound.width / 2 - offset"
-			:y="
-				props.itemInfo.actual_bound.y -
-				offset -
-				getCoordinateOffset(props.itemInfo.actual_bound.height, props.itemInfo.scale_y)
-			"
-			stroke="rgba(0,0,0,0)"
-			@mousedown="onHandleMouseDown(EScaleInfoType.TopCenter, $event)"
-		></rect
-		><rect
-			id="resize_tr"
-			width="8"
-			height="8"
-			:fill="fill"
-			:style="{ cursor: getCursor(90).cursor, 'vector-effect': 'non-scaling-stroke' }"
-			pointer-events="all"
-			:x="
-				props.itemInfo.actual_bound.x +
-				props.itemInfo.actual_bound.width -
-				offset +
-				getCoordinateOffset(props.itemInfo.actual_bound.width, props.itemInfo.scale_x)
-			"
-			:y="
-				props.itemInfo.actual_bound.y -
-				offset -
-				getCoordinateOffset(props.itemInfo.actual_bound.height, props.itemInfo.scale_y)
-			"
-			stroke="rgba(0,0,0,0)"
-			@mousedown="onHandleMouseDown(EScaleInfoType.TopRight, $event)"
-		></rect
-		><rect
-			id="resize_l"
-			width="8"
-			height="8"
-			:fill="fill"
-			:style="{ cursor: getCursor(315).cursor, 'vector-effect': 'non-scaling-stroke' }"
-			pointer-events="all"
-			:x="
-				props.itemInfo.actual_bound.x -
-				offset -
-				getCoordinateOffset(props.itemInfo.actual_bound.width, props.itemInfo.scale_x)
-			"
-			:y="
-				props.itemInfo.actual_bound.y -
-				offset +
-				(props.itemInfo.actual_bound.height * props.itemInfo.scale_y) / 2 -
-				getCoordinateOffset(props.itemInfo.actual_bound.height, props.itemInfo.scale_y)
-			"
-			stroke="rgba(0,0,0,0)"
-			@mousedown="onHandleMouseDown(EScaleInfoType.Left, $event)"
-		></rect
-		><rect
-			id="resize_r"
-			width="8"
-			height="8"
-			:fill="fill"
-			:style="{ cursor: getCursor(135).cursor, 'vector-effect': 'non-scaling-stroke' }"
-			pointer-events="all"
-			:x="
-				props.itemInfo.actual_bound.x -
-				offset +
-				props.itemInfo.actual_bound.width +
-				getCoordinateOffset(props.itemInfo.actual_bound.width, props.itemInfo.scale_x)
-			"
-			:y="
-				props.itemInfo.actual_bound.y -
-				offset +
-				(props.itemInfo.actual_bound.height * props.itemInfo.scale_y) / 2 -
-				getCoordinateOffset(props.itemInfo.actual_bound.height, props.itemInfo.scale_y)
-			"
-			stroke="rgba(0,0,0,0)"
-			@mousedown="onHandleMouseDown(EScaleInfoType.Right, $event)"
-		></rect
-		><rect
-			id="resize_bl"
-			width="8"
-			height="8"
-			:fill="fill"
-			:style="{ cursor: getCursor(270).cursor, 'vector-effect': 'non-scaling-stroke' }"
-			pointer-events="all"
-			:x="
-				props.itemInfo.actual_bound.x -
-				offset -
-				getCoordinateOffset(props.itemInfo.actual_bound.width, props.itemInfo.scale_x)
-			"
-			:y="
-				props.itemInfo.actual_bound.y -
-				offset +
-				props.itemInfo.actual_bound.height * props.itemInfo.scale_y -
-				getCoordinateOffset(props.itemInfo.actual_bound.height, props.itemInfo.scale_y)
-			"
-			stroke="rgba(0,0,0,0)"
-			@mousedown="onHandleMouseDown(EScaleInfoType.BottomLeft, $event)"
-		></rect
-		><rect
-			id="resize_bc"
-			width="8"
-			height="8"
-			:fill="fill"
-			:style="{ cursor: getCursor(225).cursor, 'vector-effect': 'non-scaling-stroke' }"
-			pointer-events="all"
-			:x="props.itemInfo.actual_bound.x - offset + props.itemInfo.actual_bound.width / 2"
-			:y="
-				props.itemInfo.actual_bound.y -
-				offset +
-				props.itemInfo.actual_bound.height +
-				getCoordinateOffset(props.itemInfo.actual_bound.height, props.itemInfo.scale_y)
-			"
-			stroke="rgba(0,0,0,0)"
-			@mousedown="onHandleMouseDown(EScaleInfoType.BottomCenter, $event)"
-		></rect
-		><rect
-			id="resize_br"
-			width="8"
-			height="8"
-			:fill="fill"
-			:style="{ cursor: getCursor(180).cursor, 'vector-effect': 'non-scaling-stroke' }"
-			pointer-events="all"
-			:x="
-				props.itemInfo.actual_bound.x -
-				offset +
-				props.itemInfo.actual_bound.width +
-				getCoordinateOffset(props.itemInfo.actual_bound.width, props.itemInfo.scale_x)
-			"
-			:y="
-				props.itemInfo.actual_bound.y -
-				offset +
-				props.itemInfo.actual_bound.height +
-				getCoordinateOffset(props.itemInfo.actual_bound.height, props.itemInfo.scale_y)
-			"
-			stroke="rgba(0,0,0,0)"
-			@mousedown="onHandleMouseDown(EScaleInfoType.BottomRight, $event)"
-		></rect>
-	</g>
-</template>
 <script lang="ts" setup>
 	import { useSvgEditLayoutStore } from '@/stores/svg-edit-layout'
-	import { PropType, ref } from 'vue'
+	import { ref } from 'vue'
 	import { useGlobalStore } from '@/stores/global'
-	import { EGlobalStoreIntention, EMouseInfoState, EScaleInfoType, IDoneJson } from '@/stores/global/types'
+	import { EGlobalStoreIntention, EMouseInfoState, EScaleInfoType } from '@/stores/global/types'
+	import type { IDoneJson } from '@/stores/global/types'
 	import { getCoordinateOffset } from '@/utils'
-	const props = defineProps({
-		itemInfo: {
-			type: Object as PropType<IDoneJson>,
-			default: () => {}
-		}
-	})
+
+	const props = defineProps<{ itemInfo: IDoneJson }>()
 	const globalStore = useGlobalStore()
 	const svgEditLayoutStore = useSvgEditLayoutStore()
 	const offset = ref(4)
 	const fill = ref('#4F80FF')
 	const angle_to_cursor = [
-		{ start: 338, end: 23, cursor: 'nw', type: EScaleInfoType.TopLeft },
-		{ start: 23, end: 68, cursor: 'n', type: EScaleInfoType.TopCenter },
-		{ start: 68, end: 113, cursor: 'ne', type: EScaleInfoType.TopRight },
-		{ start: 293, end: 338, cursor: 'w', type: EScaleInfoType.Left },
-		{ start: 113, end: 158, cursor: 'e', type: EScaleInfoType.Right },
-		{ start: 248, end: 293, cursor: 'sw', type: EScaleInfoType.BottomLeft },
-		{ start: 203, end: 248, cursor: 's', type: EScaleInfoType.BottomCenter },
-		{ start: 158, end: 203, cursor: 'se', type: EScaleInfoType.BottomRight }
+		{
+			start: 338,
+			end: 23,
+			cursor: 'nw',
+			type: EScaleInfoType.TopLeft
+		},
+		{
+			start: 23,
+			end: 68,
+			cursor: 'n',
+			type: EScaleInfoType.TopCenter
+		},
+		{
+			start: 68,
+			end: 113,
+			cursor: 'ne',
+			type: EScaleInfoType.TopRight
+		},
+		{
+			start: 293,
+			end: 338,
+			cursor: 'w',
+			type: EScaleInfoType.Left
+		},
+		{
+			start: 113,
+			end: 158,
+			cursor: 'e',
+			type: EScaleInfoType.Right
+		},
+		{
+			start: 248,
+			end: 293,
+			cursor: 'sw',
+			type: EScaleInfoType.BottomLeft
+		},
+		{
+			start: 203,
+			end: 248,
+			cursor: 's',
+			type: EScaleInfoType.BottomCenter
+		},
+		{
+			start: 158,
+			end: 203,
+			cursor: 'se',
+			type: EScaleInfoType.BottomRight
+		}
 	]
 	const onHandleMouseDown = (type: EScaleInfoType, e: MouseEvent) => {
 		console.log('onHandleMouseDown', e)
@@ -291,6 +134,201 @@
 		}
 	}
 </script>
+
+<template>
+	<g style="vector-effect: non-scaling-stroke">
+		<rect
+			id="resize_tl"
+			width="8"
+			height="8"
+			:fill="fill"
+			:style="{ cursor: getCursor(0).cursor, 'vector-effect': 'non-scaling-stroke' }"
+			pointer-events="all"
+			:x="
+				props.itemInfo.actual_bound.x -
+				offset -
+				getCoordinateOffset(props.itemInfo.actual_bound.width, props.itemInfo.scale_x)
+			"
+			:y="
+				props.itemInfo.actual_bound.y -
+				offset -
+				getCoordinateOffset(props.itemInfo.actual_bound.height, props.itemInfo.scale_y)
+			"
+			stroke="rgba(0,0,0,0)"
+			@mousedown="onHandleMouseDown(EScaleInfoType.TopLeft, $event)"
+		>
+		</rect>
+		<circle
+			:cx="props.itemInfo.actual_bound.x + props.itemInfo.actual_bound.width / 2"
+			:cy="
+				props.itemInfo.actual_bound.y -
+				offset -
+				getCoordinateOffset(props.itemInfo.actual_bound.height, props.itemInfo.scale_y) -
+				24
+			"
+			:r="4"
+			class="rotate-circle"
+			@mousedown="onRotateCircleMouseDown"
+		/>
+		<line
+			:x1="props.itemInfo.actual_bound.x + props.itemInfo.actual_bound.width / 2"
+			:y1="
+				props.itemInfo.actual_bound.y -
+				offset -
+				getCoordinateOffset(props.itemInfo.actual_bound.height, props.itemInfo.scale_y)
+			"
+			:x2="props.itemInfo.actual_bound.x + props.itemInfo.actual_bound.width / 2"
+			:y2="
+				props.itemInfo.actual_bound.y -
+				offset -
+				getCoordinateOffset(props.itemInfo.actual_bound.height, props.itemInfo.scale_y) -
+				20
+			"
+			:style="{ stroke: fill, 'stroke-width': 2 }"
+		/>
+		<rect
+			id="resize_tc"
+			width="8"
+			height="8"
+			:fill="fill"
+			:style="{ cursor: getCursor(45).cursor, 'vector-effect': 'non-scaling-stroke' }"
+			pointer-events="all"
+			:x="props.itemInfo.actual_bound.x + props.itemInfo.actual_bound.width / 2 - offset"
+			:y="
+				props.itemInfo.actual_bound.y -
+				offset -
+				getCoordinateOffset(props.itemInfo.actual_bound.height, props.itemInfo.scale_y)
+			"
+			stroke="rgba(0,0,0,0)"
+			@mousedown="onHandleMouseDown(EScaleInfoType.TopCenter, $event)"
+		></rect>
+		<rect
+			id="resize_tr"
+			width="8"
+			height="8"
+			:fill="fill"
+			:style="{ cursor: getCursor(90).cursor, 'vector-effect': 'non-scaling-stroke' }"
+			pointer-events="all"
+			:x="
+				props.itemInfo.actual_bound.x +
+				props.itemInfo.actual_bound.width -
+				offset +
+				getCoordinateOffset(props.itemInfo.actual_bound.width, props.itemInfo.scale_x)
+			"
+			:y="
+				props.itemInfo.actual_bound.y -
+				offset -
+				getCoordinateOffset(props.itemInfo.actual_bound.height, props.itemInfo.scale_y)
+			"
+			stroke="rgba(0,0,0,0)"
+			@mousedown="onHandleMouseDown(EScaleInfoType.TopRight, $event)"
+		></rect>
+		<rect
+			id="resize_l"
+			width="8"
+			height="8"
+			:fill="fill"
+			:style="{ cursor: getCursor(315).cursor, 'vector-effect': 'non-scaling-stroke' }"
+			pointer-events="all"
+			:x="
+				props.itemInfo.actual_bound.x -
+				offset -
+				getCoordinateOffset(props.itemInfo.actual_bound.width, props.itemInfo.scale_x)
+			"
+			:y="
+				props.itemInfo.actual_bound.y -
+				offset +
+				(props.itemInfo.actual_bound.height * props.itemInfo.scale_y) / 2 -
+				getCoordinateOffset(props.itemInfo.actual_bound.height, props.itemInfo.scale_y)
+			"
+			stroke="rgba(0,0,0,0)"
+			@mousedown="onHandleMouseDown(EScaleInfoType.Left, $event)"
+		></rect>
+		<rect
+			id="resize_r"
+			width="8"
+			height="8"
+			:fill="fill"
+			:style="{ cursor: getCursor(135).cursor, 'vector-effect': 'non-scaling-stroke' }"
+			pointer-events="all"
+			:x="
+				props.itemInfo.actual_bound.x -
+				offset +
+				props.itemInfo.actual_bound.width +
+				getCoordinateOffset(props.itemInfo.actual_bound.width, props.itemInfo.scale_x)
+			"
+			:y="
+				props.itemInfo.actual_bound.y -
+				offset +
+				(props.itemInfo.actual_bound.height * props.itemInfo.scale_y) / 2 -
+				getCoordinateOffset(props.itemInfo.actual_bound.height, props.itemInfo.scale_y)
+			"
+			stroke="rgba(0,0,0,0)"
+			@mousedown="onHandleMouseDown(EScaleInfoType.Right, $event)"
+		></rect>
+		<rect
+			id="resize_bl"
+			width="8"
+			height="8"
+			:fill="fill"
+			:style="{ cursor: getCursor(270).cursor, 'vector-effect': 'non-scaling-stroke' }"
+			pointer-events="all"
+			:x="
+				props.itemInfo.actual_bound.x -
+				offset -
+				getCoordinateOffset(props.itemInfo.actual_bound.width, props.itemInfo.scale_x)
+			"
+			:y="
+				props.itemInfo.actual_bound.y -
+				offset +
+				props.itemInfo.actual_bound.height * props.itemInfo.scale_y -
+				getCoordinateOffset(props.itemInfo.actual_bound.height, props.itemInfo.scale_y)
+			"
+			stroke="rgba(0,0,0,0)"
+			@mousedown="onHandleMouseDown(EScaleInfoType.BottomLeft, $event)"
+		></rect>
+		<rect
+			id="resize_bc"
+			width="8"
+			height="8"
+			:fill="fill"
+			:style="{ cursor: getCursor(225).cursor, 'vector-effect': 'non-scaling-stroke' }"
+			pointer-events="all"
+			:x="props.itemInfo.actual_bound.x - offset + props.itemInfo.actual_bound.width / 2"
+			:y="
+				props.itemInfo.actual_bound.y -
+				offset +
+				props.itemInfo.actual_bound.height +
+				getCoordinateOffset(props.itemInfo.actual_bound.height, props.itemInfo.scale_y)
+			"
+			stroke="rgba(0,0,0,0)"
+			@mousedown="onHandleMouseDown(EScaleInfoType.BottomCenter, $event)"
+		></rect>
+		<rect
+			id="resize_br"
+			width="8"
+			height="8"
+			:fill="fill"
+			:style="{ cursor: getCursor(180).cursor, 'vector-effect': 'non-scaling-stroke' }"
+			pointer-events="all"
+			:x="
+				props.itemInfo.actual_bound.x -
+				offset +
+				props.itemInfo.actual_bound.width +
+				getCoordinateOffset(props.itemInfo.actual_bound.width, props.itemInfo.scale_x)
+			"
+			:y="
+				props.itemInfo.actual_bound.y -
+				offset +
+				props.itemInfo.actual_bound.height +
+				getCoordinateOffset(props.itemInfo.actual_bound.height, props.itemInfo.scale_y)
+			"
+			stroke="rgba(0,0,0,0)"
+			@mousedown="onHandleMouseDown(EScaleInfoType.BottomRight, $event)"
+		></rect>
+	</g>
+</template>
+
 <style scoped>
 	.rotate-circle {
 		stroke: v-bind('fill');

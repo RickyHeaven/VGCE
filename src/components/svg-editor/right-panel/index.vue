@@ -18,16 +18,18 @@
 	import { useConfigStore } from '@/stores/config'
 	import { useGlobalStore } from '@/stores/global'
 	import { numberArray } from '@/utils'
-	import { EGlobalStoreIntention, IDoneJson } from '@/stores/global/types'
+	import { EGlobalStoreIntention } from '@/stores/global/types'
+	import type { IDoneJson } from '@/stores/global/types'
 	import DynamicElFormItem from './dynamic-el-form-item.vue'
 	import CommonAnimate from './common-animate.vue'
 	import ComponentTree from '@/components/svg-editor/component-tree/index.vue'
 	import SvgAnalysis from '@/components/svg-analysis/index.vue'
 	import List from '@/components/svg-editor/right-panel/list.vue'
 	import Condition from '@/components/svg-editor/right-panel/condition.vue'
-	import { ElButton } from 'element-plus/es'
+	import { ElButton } from 'element-plus'
 	import CodeEditModal from '@/components/svg-editor/right-panel/code-edit-modal.vue'
-	import { EConditionType, EEventAction, EEventType, IEventsItem } from '@/config-center/types'
+	import { EConditionType, EEventAction, EEventType } from '@/config-center/types'
+	import type { IEventsItem } from '@/config-center/types'
 
 	const configStore = useConfigStore()
 	const globalStore = useGlobalStore()
@@ -49,7 +51,8 @@
 
 	const eventsActive = ref(numberArray(20))
 	const netActive = ref(['MQTT'])
-	const addEvent = () => {
+	const addEvent = ref()
+	addEvent.value = () => {
 		let a: IEventsItem = {
 			type: EEventType.Null,
 			action: EEventAction.Null,
@@ -61,7 +64,7 @@
 		globalStore.handle_svg_info?.info?.events!.push(a)
 	}
 
-	const addEventList = (e, item) => {
+	const addEventList = (e: string, item: IEventsItem) => {
 		if (e === 'ChangeAttr') {
 			item.attrs = [
 				{
@@ -205,7 +208,7 @@
 			<el-form label-width="60px" label-position="left" v-else-if="globalStore.handle_svg_info!.info.common_animations">
 				<el-form-item label="动画效果" size="small">
 					<common-animate
-						@update-common-ani-val="(val) => updateCommonAniVal(globalStore.handle_svg_info?.info, val)"
+						@update-common-ani-val="(val:string) => updateCommonAniVal(globalStore.handle_svg_info?.info, val)"
 						:val="globalStore.handle_svg_info!.info.common_animations.val"
 					></common-animate>
 				</el-form-item>
@@ -242,8 +245,12 @@
 				<el-form-item label="ID" size="small">
 					<el-input v-model="globalStore.handle_svg_info!.info.id" />
 				</el-form-item>
-				<div v-for="(e, k) in globalStore.handle_svg_info!.info.state" :key="'state' + k">
-					<el-form-item class="props-row" :label="String(k)" size="small"> {{ e.default }}</el-form-item>
+				<div
+					v-for="(e, k) in globalStore.handle_svg_info!.info.state"
+					:key="'state' + k"
+					v-if="globalStore.handle_svg_info!.info.state"
+				>
+					<el-form-item class="props-row" :label="String(k)" size="small"> {{ e?.default }}</el-form-item>
 
 					<el-form-item
 						v-if="k === 'OnOff'"

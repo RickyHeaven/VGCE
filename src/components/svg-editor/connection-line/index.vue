@@ -1,6 +1,6 @@
 <script setup lang="ts">
-	import { EMouseInfoState, IDoneJson } from '@/stores/global/types'
-	import { EGlobalStoreIntention } from '@/stores/global/types'
+	import { EMouseInfoState, EGlobalStoreIntention } from '@/stores/global/types'
+	import type { IDoneJson } from '@/stores/global/types'
 	import { positionArrToPath } from '@/utils'
 	import { useGlobalStore } from '@/stores/global'
 	import { EConfigAnimationsType } from '@/config-center/types'

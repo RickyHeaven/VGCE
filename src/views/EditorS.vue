@@ -6,22 +6,23 @@
 	import { fileWrite } from '@/utils/file-read-write'
 	import { ElMessageBox } from 'element-plus'
 	import { getCurrentInstance } from 'vue'
+	import type { IDataModel } from '@/components/svg-editor/types'
 
 	const { appContext } = getCurrentInstance()!
 	const router = useRouter()
 	const store = useStore()
 
-	function preview(d) {
+	function preview(d: IDataModel) {
 		store.dataModel = d
 		router.push('/Preview')
 	}
 
-	function save(d) {
+	function save(d: IDataModel) {
 		ElMessageBox.prompt('请输入文件名', '保存', {}, appContext)
-			.then((r) => {
+			.then((r: any) => {
 				fileWrite(d, r.value.trim())
 			})
-			.catch((e) => {
+			.catch((e: any) => {
 				console.log(e)
 			})
 	}

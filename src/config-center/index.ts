@@ -4,7 +4,6 @@ import type { IConfigCenter } from './types'
 import { svg_config_center } from './svg'
 import { vue_config_center } from './vue'
 
-// @ts-ignore
 import { ElButton, ElTag } from 'element-plus'
 import Progress from '@/config-center/files/progress.vue'
 import SwitchA from '@/config-center/files/switch-a.vue'
@@ -15,7 +14,7 @@ import PieCharts from '@/config-center/files/pie-charts.vue'
 import LightA from '@/config-center/files/light-a.vue'
 import ClockA from '@/config-center/files/clock-a.vue'
 
-export const vueComp: Record<string, DefineComponent<{}, {}, any>> = {
+export const vueComp = {
 	'svg-text': SvgText,
 	'el-button': ElButton,
 	'progress-a': Progress,

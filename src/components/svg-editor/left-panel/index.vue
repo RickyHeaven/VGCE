@@ -2,7 +2,7 @@
 <script lang="ts" setup>
 	import { ref } from 'vue'
 	import { ElCollapse, ElCollapseItem, ElIcon, ElMessage } from 'element-plus'
-	import { IConfigCenter, IConfigItem } from '@/config-center/types'
+	import type { IConfigCenter, IConfigItem } from '@/config-center/types'
 	import { useGlobalStore } from '@/stores/global'
 	import SvgAnalysis from '@/components/svg-analysis/index.vue'
 	import { EGlobalStoreIntention } from '@/stores/global/types'

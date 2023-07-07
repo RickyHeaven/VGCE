@@ -5,7 +5,6 @@ import type { IDoneJson } from '@/stores/global/types'
 import { useSvgEditLayoutStore } from '@/stores/svg-edit-layout'
 import { useEditPrivateStore } from '@/stores/system'
 
-// @ts-ignore
 import { ElMessage } from 'element-plus'
 
 export const useHistoryRecord = (done_json: IDoneJson[]) => {
@@ -25,20 +24,21 @@ export const useHistoryRecord = (done_json: IDoneJson[]) => {
 }
 export const useImportDataModel = (model_str: string) => {
 	try {
-		const globalStore = useGlobalStore()
-		const svgEditLayoutStore = useSvgEditLayoutStore()
-		const configStore = useConfigStore()
 		const json: IDataModel = JSON.parse(model_str)
 		if (!json.config || !json.layout_center || !json.done_json) {
 			ElMessage.error('请导入正确的数据模型！')
-			return
+			return false
 		}
+		const globalStore = useGlobalStore()
+		const svgEditLayoutStore = useSvgEditLayoutStore()
+		const configStore = useConfigStore()
 		configStore.$state = json.config
 		svgEditLayoutStore.center_offset = json.layout_center
 		globalStore.setDoneJson(json.done_json)
+		return true
 	} catch (error) {
 		ElMessage.error('请导入正确的数据模型！')
 		console.error(error)
-		return
+		return false
 	}
 }

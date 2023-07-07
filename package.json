@@ -5,19 +5,18 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/vgce.umd.cjs",
-  "module": "./dist/vgce.js",
+  "main": "./dist/vgce.umd.js",
+  "module": "./dist/vgce.mjs",
   "exports": {
     ".": {
-      "import": "./dist/vgce.js",
-      "require": "./dist/vgce.umd.cjs"
+      "import": "./dist/vgce.mjs",
+      "require": "./dist/vgce.umd.js"
     },
     "./dist/style.css": {
       "import": "./dist/style.css",
       "require": "./dist/style.css"
     }
   },
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check build-only",
@@ -51,11 +50,12 @@
   },
   "homepage": "https://github.com/RickyHeaven/VGCE#readme",
   "dependencies": {
+    "@types/lodash": "^4.14.182",
     "ace-builds": "^1.14.0",
     "animate.css": "^4.1.1",
     "axios": "^1.4.0",
     "echarts": "^5.4.1",
-    "element-plus": "^2.2.9",
+    "element-plus": "^2.3.7",
     "lodash": "^4.17.21",
     "mqtt": "^4.3.7",
     "pinia": "^2.0.36",

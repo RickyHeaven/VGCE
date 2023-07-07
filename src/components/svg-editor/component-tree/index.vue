@@ -2,7 +2,8 @@
 	import { ref } from 'vue'
 	import { useGlobalStore } from '@/stores/global'
 	import { ElTree } from 'element-plus'
-	import { EGlobalStoreIntention, IDoneJson } from '@/stores/global/types'
+	import { EGlobalStoreIntention } from '@/stores/global/types'
+	import type { IDoneJson } from '@/stores/global/types'
 
 	const global_store = useGlobalStore()
 	const current_node_key = ref(global_store.handle_svg_info?.info.id || '')

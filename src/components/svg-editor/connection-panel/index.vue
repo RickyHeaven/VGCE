@@ -1,7 +1,8 @@
 <!-- 连线组件 -->
 <script lang="ts" setup>
 	import { straight_line_system } from '@/components/config'
-	import { ELineBindAnchors, ISystemStraightLine } from '@/components/config/types'
+	import { ELineBindAnchors } from '@/components/config/types'
+	import type { ISystemStraightLine } from '@/components/config/types'
 	import { useConfigStore } from '@/stores/config'
 	import { ref } from 'vue'
 	import { useGlobalStore } from '@/stores/global'
@@ -194,12 +195,3 @@
 		/>
 	</g>
 </template>
-
-<style scoped>
-	.rotate-circle {
-		stroke: v-bind('fill');
-		stroke-width: 1;
-		fill-opacity: 0;
-		cursor: url('@/assets/icons/rotate.svg') 12 12, auto;
-	}
-</style>

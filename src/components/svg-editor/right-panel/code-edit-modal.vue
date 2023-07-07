@@ -32,7 +32,7 @@
 <template>
 	<div>
 		<el-button @click="open = true">···</el-button>
-		<el-dialog customClass="modal-full" v-model="open" :title="props.title" width="60%">
+		<el-dialog class="modal-full" v-model="open" :title="props.title" width="60%">
 			<v-ace-editor
 				v-model:value="content"
 				:lang="props.lang"

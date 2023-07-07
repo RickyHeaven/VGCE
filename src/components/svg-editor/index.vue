@@ -1,5 +1,5 @@
 <script setup lang="ts">
-	import { onMounted, PropType, reactive, ref, getCurrentInstance } from 'vue'
+	import { onMounted, reactive, ref, getCurrentInstance } from 'vue'
 	import {
 		ElContainer,
 		ElHeader,
@@ -20,9 +20,11 @@
 	import ExportJson from '@/components/svg-editor/export-json/index.vue'
 	import ImportJson from '@/components/svg-editor/import-json/index.vue'
 	import Vue3RulerTool from '@/components/vue3-ruler-tool/index.vue'
-	import { IVisibleConf, EVisibleConfKey } from '@/components/svg-editor/types'
-	import { IConfigCenter } from '@/config-center/types'
-	import { EGlobalStoreIntention, IDoneJson } from '@/stores/global/types'
+	import { EVisibleConfKey } from '@/components/svg-editor/types'
+	import type { IVisibleConf, IDataModel } from '@/components/svg-editor/types'
+	import type { IConfigCenter } from '@/config-center/types'
+	import { EGlobalStoreIntention } from '@/stores/global/types'
+	import type { IDoneJson } from '@/stores/global/types'
 	import { useSvgEditLayoutStore } from '@/stores/svg-edit-layout'
 	import { useImportDataModel } from '@/hooks'
 	import { useGlobalStore } from '@/stores/global'
@@ -30,16 +32,7 @@
 	import { fileRead } from '@/utils/file-read-write'
 
 	const { appContext } = getCurrentInstance()!
-	const props = defineProps({
-		customToolBar: {
-			type: Object as PropType<IConfigCenter>,
-			default: () => {}
-		},
-		dataModel: {
-			type: String,
-			default: ''
-		}
-	})
+	const props = defineProps<{ customToolBar: IConfigCenter; dataModel: string }>()
 	const presetLine = ref([])
 	const input = (list: any) => {
 		presetLine.value = list
@@ -51,25 +44,26 @@
 	const visible_conf: IVisibleConf = reactive({
 		[EVisibleConfKey.ExportJson]: false,
 		[EVisibleConfKey.ImportJson]: false,
-		[EVisibleConfKey.ImportFile]: false,
-		[EVisibleConfKey.ComponentTree]: false
+		[EVisibleConfKey.ImportFile]: false
 	})
 	const emits = defineEmits(['onReturn', 'onPreview', 'onSave'])
 	const changeVisible = (key: EVisibleConfKey, val: boolean) => {
 		visible_conf[key] = val
 	}
-	const onImportJson = () => {
-		importJsonRef.value?.onImportJson()
+
+	const onImportJson = ref()
+	onImportJson.value = () => {
+		importJsonRef.value!.onImportJson()
 		changeVisible(EVisibleConfKey.ImportJson, false)
 	}
 
-	const onImportFile = (f) => {
+	const onImportFile = (f: File) => {
 		if (['text/plain', 'application/json'].indexOf(f.type) < 0) {
 			ElMessage.error('仅支持的格式：txt、json')
 			return false
 		}
 		fileRead(f).then((r) => {
-			importJsonRef.value?.setVal(r)
+			importJsonRef.value!.setVal(r)
 			ElMessage.success('文件读取成功！')
 		})
 		return false
@@ -96,8 +90,8 @@
 				<top-panel
 					@change-visible="changeVisible"
 					@on-return="emits('onReturn')"
-					@on-preview="(val) => emits('onPreview', val)"
-					@on-save="(val) => emits('onSave', val)"
+					@on-preview="(val:IDataModel) => emits('onPreview', val)"
+					@on-save="(val:IDataModel) => emits('onSave', val)"
 				></top-panel>
 			</el-header>
 			<el-container class="middle">
@@ -128,7 +122,7 @@
 				</el-aside>
 			</el-container>
 		</el-container>
-		<el-dialog customClass="modal-full" v-model="visible_conf.ImportJson" title="导入数据" width="60%" destroy-on-close>
+		<el-dialog class="modal-full" v-model="visible_conf.ImportJson" title="导入数据" width="60%" destroy-on-close>
 			<import-json ref="importJsonRef"></import-json>
 			<template #footer>
 				<el-upload
@@ -143,7 +137,7 @@
 				<el-button type="primary" @click="onImportJson">导入数据</el-button>
 			</template>
 		</el-dialog>
-		<el-dialog customClass="modal-full" v-model="visible_conf.ExportJson" title="导出" width="60%" destroy-on-close>
+		<el-dialog class="modal-full" v-model="visible_conf.ExportJson" title="导出" width="60%" destroy-on-close>
 			<export-json></export-json>
 		</el-dialog>
 	</div>

@@ -13,7 +13,5 @@ export const useSvgEditLayoutStore = defineStore('svg-edit-layout-store', {
 				y: 0
 			}
 		}
-	},
-	getters: {},
-	actions: {}
+	}
 })

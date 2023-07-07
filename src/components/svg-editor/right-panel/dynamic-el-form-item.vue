@@ -25,7 +25,12 @@
 	<div v-for="(attr_item, key) in props.objInfo" :key="key">
 		<el-form-item v-if="props.code" class="props-row" size="small">
 			<template #label>
-				<el-tooltip :content="key" v-if="getStringWidth(String(key)) > 78" placement="left" popper-class="props-popper">
+				<el-tooltip
+					:content="String(key)"
+					v-if="getStringWidth(String(key)) > 78"
+					placement="left"
+					popper-class="props-popper"
+				>
 					<div class="one-row-txt" style="width: 78px">{{ key }}</div>
 				</el-tooltip>
 				<span v-else>{{ key }}</span>
@@ -40,7 +45,7 @@
 			</el-tooltip>
 			<span v-else>{{ attr_item.val }}</span>
 		</el-form-item>
-		<el-form-item :label="attr_item.title" size="small" v-if="props.hide.indexOf(key) < 0">
+		<el-form-item :label="attr_item.title" size="small" v-if="props.hide.indexOf(String(key)) < 0">
 			<el-select
 				v-if="attr_item.type === EConfigItemPropsType.Select"
 				v-model="attr_item.val"

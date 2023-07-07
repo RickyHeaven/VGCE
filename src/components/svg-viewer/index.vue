@@ -1,14 +1,15 @@
 <script setup lang="ts">
-	import { getCurrentInstance, onMounted, onBeforeUnmount, PropType, reactive } from 'vue'
+	import { getCurrentInstance, onMounted, onBeforeUnmount, reactive } from 'vue'
 	import { useGlobalStore } from '@/stores/global'
 	import { EGlobalStoreIntention, EMouseInfoState } from '@/stores/global/types'
+	import type { IDoneJson } from '@/stores/global/types'
 	import { getCommonClass, prosToVBind, setArrItemByID, valFormat } from '@/utils'
 
 	import { EDoneJsonType, EEventAction, EEventType } from '@/config-center/types'
 	import ConnectionLine from '@/components/svg-editor/connection-line/index.vue'
 
 	import { vueComp } from '@/config-center'
-	import { IDataModel } from '../svg-editor/types'
+	import type { IDataModel } from '@/components/svg-editor/types'
 	import 'element-plus/dist/index.css'
 	import 'animate.css'
 
@@ -22,15 +23,8 @@
 			instance?.appContext.app.component(key, vueComp[key])
 		}
 	})
-	const props = defineProps({
-		dataModel: {
-			type: [Object, null] as PropType<IDataModel | null>,
-			default: null
-		},
-		canvasDrag: {
-			type: Boolean,
-			default: true
-		}
+	const props = withDefaults(defineProps<{ dataModel?: IDataModel; canvasDrag?: boolean }>(), {
+		canvasDrag: true
 	})
 	const preview_data = reactive(
 		props.dataModel ?? {
@@ -50,7 +44,8 @@
 						x: 50,
 						y: 50
 					}
-				}
+				},
+				net: { mqtt: { url: '', user: '', pwd: '', topics: '' } }
 			},
 			done_json: []
 		}
@@ -67,7 +62,6 @@
 		}
 		if (!props.canvasDrag) {
 			console.log(props.canvasDrag)
-
 			return
 		}
 		const { clientX, clientY } = e
@@ -134,7 +128,7 @@
 	const setNodeAttrByID = (id: string, attr: string, val: any) => {
 		return setArrItemByID(id, attr, val, preview_data.done_json)
 	}
-	const eventHandle = (root) => {
+	const eventHandle = (root: IDoneJson) => {
 		if (root.events?.length > 0) {
 			for (let e of root.events) {
 				if (e.type === EEventType.Click || e.type === EEventType.Change) {
@@ -167,6 +161,10 @@
 								t = root
 							}
 
+							if (!t) {
+								continue
+							}
+
 							for (let a of e.attrs) {
 								if (t.state && t.state.hasOwnProperty(a.key)) {
 									t.state[a.key].default = valFormat(a.val)
@@ -183,7 +181,7 @@
 			}
 		}
 	}
-	const relationEval = (a, r, b, c) => {
+	const relationEval = (a: any, r: string, b: any, c: any) => {
 		switch (r) {
 			case '>':
 				return a > b
@@ -211,14 +209,12 @@
 	onBeforeUnmount(close)
 
 	const connectNet = () => {
-		if (preview_data.config.hasOwnProperty('net')) {
-			const m = preview_data.config['net'].mqtt
-			if (m && m.url && m.user && m.pwd && m.topics) {
-				sub(m.url, m.user, m.pwd, m.topics, (topics, message) => {
-					console.log(topics)
-					console.log(message.toString())
-				})
-			}
+		const m = preview_data.config.net.mqtt
+		if (m && m.url && m.user && m.pwd && m.topics) {
+			sub(m.url, m.user, m.pwd, m.topics, (topics: string, message: string) => {
+				console.log(topics)
+				console.log(message.toString())
+			})
 		}
 	}
 
@@ -270,7 +266,7 @@
 									item.actual_bound.x +
 									item.actual_bound.width / 2
 								)},${-(item.actual_bound.y + item.actual_bound.height / 2)})`"
-							></use>
+							/>
 							<component
 								v-else-if="item.type === EDoneJsonType.CustomSvg"
 								:is="item.tag"

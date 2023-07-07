@@ -17,7 +17,7 @@
 		}
 	})
 
-	const re: { label: string; val: string }[] = [
+	const re: { label: string; val: any }[] = [
 		{
 			label: '大于',
 			val: 'greater'
@@ -52,7 +52,7 @@
 		}
 	]
 
-	const typeChange = (d) => {
+	const typeChange = (d: string) => {
 		if (d !== 'None') {
 			value.value.Relation = {
 				key: '',

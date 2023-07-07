@@ -5,8 +5,10 @@
 	import { ElIcon, ElDivider } from 'element-plus'
 	import SvgAnalysis from '../../svg-analysis/index.vue'
 	import { useSvgEditLayoutStore } from '@/stores/svg-edit-layout'
-	import { EVisibleConfKey, IDataModel } from '../types'
+	import { EVisibleConfKey } from '../types'
+	import type { IDataModel } from '../types'
 	import { EGlobalStoreIntention } from '@/stores/global/types'
+
 	const svgEditLayoutStore = useSvgEditLayoutStore()
 	const globalStore = useGlobalStore()
 	const editPrivateStore = useEditPrivateStore()
@@ -37,7 +39,7 @@
 <template>
 	<div class="flex justify-between" style="width: 100%">
 		<div class="flex items-center justify-between" style="width: 220px">
-			<div class="flex items-center"> <span class="logo-title">组态编辑器</span></div>
+			<div class="flex items-center"><span class="logo-title">组态编辑器</span></div>
 			<el-icon :size="24" class="bt-Icon" @click="svgEditLayoutStore.left_nav = !svgEditLayoutStore.left_nav">
 				<svg-analysis v-if="svgEditLayoutStore.left_nav" name="menu-unfold" />
 				<svg-analysis v-else name="menu-fold" />

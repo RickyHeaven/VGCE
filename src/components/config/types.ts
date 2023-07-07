@@ -11,6 +11,12 @@ export interface IBindAnchors {
 	type: ELineBindAnchors
 	target_id: string
 }
+
+export interface IAnimateConfig {
+	label: string
+	value: string
+}
+
 export enum ELineBindAnchors {
 	TopCenter = 'TopCenter',
 	Left = 'Left',

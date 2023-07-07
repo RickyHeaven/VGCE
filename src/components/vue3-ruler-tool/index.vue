@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { computed, defineComponent, onBeforeUnmount, onMounted, ref } from 'vue'
 	import { useSvgEditLayoutStore } from '@/stores/svg-edit-layout'
+	import type { SubscriptionCallbackMutationDirect, SubscriptionCallbackMutationPatchFunction } from 'pinia'
 
 	export default defineComponent({
 		name: 'V3RulerComponent',
@@ -60,7 +61,7 @@
 		},
 		emits: ['input', 'update:visible'],
 		setup(props, context) {
-			const storeSvgEdit = useSvgEditLayoutStore()
+			const svgEditLayoutStore = useSvgEditLayoutStore()
 			/**
 			 * @description 绑定事件 on(element, event, handler)
 			 */
@@ -130,8 +131,8 @@
 				})
 			})
 
-			storeSvgEdit.$subscribe((m, s) => {
-				if (m.storeId === 'svg-edit-layout-store' && ['right_nav', 'left_nav'].indexOf(m.events.key) > -1) {
+			svgEditLayoutStore.$subscribe((mutation) => {
+				if (mutation.storeId === 'svg-edit-layout-store') {
 					window.setTimeout(init, 420)
 				}
 			})

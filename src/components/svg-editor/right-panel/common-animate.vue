@@ -1,4 +1,27 @@
-<!-- eslint-disable vue/html-indent -->
+<script setup lang="ts">
+	import { ElTag, ElDrawer, ElTabs, ElTabPane, ElScrollbar, ElIcon } from 'element-plus'
+	import { ref, watch } from 'vue'
+	import { common_animate_list } from '@/components/config'
+	import SvgAnalysis from '@/components/svg-analysis/index.vue'
+
+	const props = defineProps<{ val: string }>()
+	const emits = defineEmits(['updateCommonAniVal'])
+	const select_val = ref(props.val)
+	const drawer_visible = ref(false)
+	const activeName = ref('进入')
+	const play_index = ref<null | number>(null)
+	const addAnimation = (val: string) => {
+		emits('updateCommonAniVal', val)
+		drawer_visible.value = false
+	}
+	watch(
+		() => props.val,
+		(new_val) => {
+			select_val.value = new_val
+		}
+	)
+</script>
+
 <template>
 	<div style="height: 100%">
 		<el-tag closable v-if="select_val" @close="addAnimation('')" @click="drawer_visible = true" style="cursor: pointer"
@@ -50,34 +73,7 @@
 		</el-drawer>
 	</div>
 </template>
-<script setup lang="ts">
-	import { ElTag, ElDrawer, ElTabs, ElTabPane, ElScrollbar, ElIcon } from 'element-plus'
-	import { ref, watch } from 'vue'
-	import { common_animate_list } from '@/components/config'
-	import SvgAnalysis from '@/components/svg-analysis/index.vue'
 
-	const props = defineProps({
-		val: {
-			type: String,
-			default: ''
-		}
-	})
-	const emits = defineEmits(['updateCommonAniVal'])
-	const select_val = ref(props.val)
-	const drawer_visible = ref(false)
-	const activeName = ref('进入')
-	const play_index = ref<null | number>(null)
-	const addAnimation = (val: string) => {
-		emits('updateCommonAniVal', val)
-		drawer_visible.value = false
-	}
-	watch(
-		() => props.val,
-		(new_val) => {
-			select_val.value = new_val
-		}
-	)
-</script>
 <style scoped>
 	.animate {
 		cursor: pointer;
@@ -90,8 +86,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		margin: 0 12px;
-		margin-bottom: 10px;
+		margin: 0 12px 10px 12px;
 		font-size: 12px;
 		color: #333;
 		border-radius: 3px;

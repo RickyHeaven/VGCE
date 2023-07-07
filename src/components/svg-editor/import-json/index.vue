@@ -11,8 +11,9 @@
 		content.value = d
 	}
 	const onImportJson = () => {
-		useImportDataModel(content.value)
-		ElMessage.success('导入成功')
+		if (useImportDataModel(content.value)) {
+			ElMessage.success('导入成功')
+		}
 	}
 	defineExpose({
 		setVal,

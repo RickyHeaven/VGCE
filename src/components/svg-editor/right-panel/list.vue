@@ -1,5 +1,5 @@
 <script setup lang="ts">
-	import { IAttrItem } from '@/config-center/types'
+	import type { IAttrItem } from '@/config-center/types'
 	import { ElIcon, ElInput } from 'element-plus'
 	import SvgAnalysis from '@/components/svg-analysis/index.vue'
 	import { computed } from 'vue'
@@ -30,7 +30,7 @@
 		})
 	}
 
-	const deleteL = (i) => {
+	const deleteL = (i: number) => {
 		value.value.splice(i, 1)
 	}
 </script>

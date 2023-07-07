@@ -7,5 +7,4 @@ declare module '*.vue' {
 	export default component
 }
 
-declare module 'lodash'
 declare module 'mqtt/dist/mqtt'

@@ -2,7 +2,8 @@
 	import { computed, getCurrentInstance, onMounted, reactive, ref } from 'vue'
 	import { useConfigStore } from '@/stores/config'
 	import { useGlobalStore } from '@/stores/global'
-	import { EGlobalStoreIntention, EMouseInfoState, EScaleInfoType, IDoneJson } from '@/stores/global/types'
+	import { EGlobalStoreIntention, EMouseInfoState, EScaleInfoType } from '@/stores/global/types'
+	import type { IDoneJson } from '@/stores/global/types'
 	import { useSvgEditLayoutStore } from '@/stores/svg-edit-layout'
 	import {
 		getCenterPoint,
@@ -25,9 +26,10 @@
 	} from '@/utils/scale-core'
 	import HandlePanel from '@/components/svg-editor/handle-panel/index.vue'
 	import ConnectionPanel from '@/components/svg-editor/connection-panel/index.vue'
-	import { EDoneJsonType, IConfigItem } from '@/config-center/types'
+	import { EDoneJsonType } from '@/config-center/types'
+	import type { IConfigItem } from '@/config-center/types'
 	import ConnectionLine from '@/components/svg-editor/connection-line/index.vue'
-	import { IVisibleInfo } from './types'
+	import type { IVisibleInfo } from './types'
 	import { vueComp } from '@/config-center'
 	import { useContextMenuStore, useEditPrivateStore } from '@/stores/system'
 	import { EContextMenuInfoType } from '@/stores/system/types'

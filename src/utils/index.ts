@@ -361,7 +361,7 @@ export const getCommonClass = (item: IDoneJson) => {
 }
 
 export const numberArray = (l: number) => {
-	let t = []
+	let t: number[] = []
 	for (let i = 0; i < l; i++) {
 		t.push(i)
 	}

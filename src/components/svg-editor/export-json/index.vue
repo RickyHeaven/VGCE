@@ -5,7 +5,7 @@
 	import { useGlobalStore } from '@/stores/global'
 	import { useSvgEditLayoutStore } from '@/stores/svg-edit-layout'
 	import { useConfigStore } from '@/stores/config'
-	import { IDataModel } from '@/components/svg-editor/types'
+	import type { IDataModel } from '@/components/svg-editor/types'
 	const content = ref('')
 	const globalStore = useGlobalStore()
 	const svgEditLayoutStore = useSvgEditLayoutStore()
