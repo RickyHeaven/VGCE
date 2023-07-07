@@ -1,7 +1,7 @@
 {
   "name": "@zhangqingcq/vgce",
   "version": "0.0.1",
-  "description": "Vector graphics configure editor. svg组态编辑器。基于vue3.3+ts+element-plus+vite+webtopo-svg-edit",
+  "description": "Vector graphics configure editor. svg组态编辑器。基于vue3.3+ts+element-plus+vite",
   "files": [
     "dist"
   ],
@@ -39,7 +39,6 @@
     "editor",
     "element",
     "vite",
-    "webtopo",
     "ricky",
     "zhangqingcq"
   ],
