@@ -334,6 +334,8 @@
 		stroke: v-bind('fill');
 		stroke-width: 1;
 		fill-opacity: 0;
-		cursor: url('@/assets/icons/rotate.svg') 12 12, auto;
+		cursor:
+			url('@/assets/icons/rotate.svg') 12 12,
+			auto;
 	}
 </style>

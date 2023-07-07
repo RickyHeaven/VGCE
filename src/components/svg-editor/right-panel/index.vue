@@ -208,7 +208,7 @@
 			<el-form label-width="60px" label-position="left" v-else-if="globalStore.handle_svg_info!.info.common_animations">
 				<el-form-item label="动画效果" size="small">
 					<common-animate
-						@update-common-ani-val="(val:string) => updateCommonAniVal(globalStore.handle_svg_info?.info, val)"
+						@update-common-ani-val="(val: string) => updateCommonAniVal(globalStore.handle_svg_info?.info, val)"
 						:val="globalStore.handle_svg_info!.info.common_animations.val"
 					></common-animate>
 				</el-form-item>

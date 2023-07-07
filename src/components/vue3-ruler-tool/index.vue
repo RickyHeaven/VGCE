@@ -424,7 +424,9 @@
 	.vue-ruler-v .n,
 	.vue-ruler-h .n {
 		position: absolute;
-		font: 10px/1 Arial, sans-serif;
+		font:
+			10px/1 Arial,
+			sans-serif;
 		color: #333;
 		cursor: default;
 		top: 1px;

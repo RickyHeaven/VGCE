@@ -90,8 +90,8 @@
 				<top-panel
 					@change-visible="changeVisible"
 					@on-return="emits('onReturn')"
-					@on-preview="(val:IDataModel) => emits('onPreview', val)"
-					@on-save="(val:IDataModel) => emits('onSave', val)"
+					@on-preview="(val: IDataModel) => emits('onPreview', val)"
+					@on-save="(val: IDataModel) => emits('onSave', val)"
 				></top-panel>
 			</el-header>
 			<el-container class="middle">

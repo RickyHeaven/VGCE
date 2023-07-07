@@ -734,11 +734,11 @@
 																				? 'svg-item-move'
 																				: ''
 																		} ${
-									globalStore.intention == EGlobalStoreIntention.Select &&
-									globalStore.handle_svg_info?.info.id == item.id
-										? 'svg-item-select'
-										: ''
-								}`"
+																			globalStore.intention == EGlobalStoreIntention.Select &&
+																			globalStore.handle_svg_info?.info.id == item.id
+																				? 'svg-item-select'
+																				: ''
+																		}`"
 							/>
 							<handle-panel
 								v-if="
