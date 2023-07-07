@@ -1,0 +1,16 @@
+public/
+.idea/
+.git/
+
+
+*.map
+.gitignore
+.prettierignore
+.prettierrc
+env.d.ts
+index.html
+pnpm-lock.json
+tsconfig.json
+tsconfig.node.json
+tsconfig.app.json
+vite.config.ts
