@@ -1,8 +1,8 @@
 <script setup lang="ts">
-	// import SvgEditor from '@/components/svg-editor/index.vue'
-	import { SvgEditor } from '../../dist/vgce.mjs'
 	import '../../dist/style.css'
 	import { useStore } from '@/stores/main'
+	// import SvgEditor from '@/components/svg-editor/index.vue'
+	import { SvgEditor } from '../../dist/vgce.js'
 	import { useRouter } from 'vue-router'
 	import { fileWrite } from '@/utils/file-read-write'
 	import { ElMessageBox } from 'element-plus'
