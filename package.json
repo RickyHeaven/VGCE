@@ -1,12 +1,13 @@
 {
   "name": "@zhangqingcq/vgce",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Vector graphics configure editor. svg组态编辑器。基于vue3.3+ts+element-plus+vite",
   "publishConfig": {
     "access": "public"
   },
   "files": [
-    "dist","types"
+    "dist",
+    "types"
   ],
   "main": "./dist/vgce.umd.cjs",
   "module": "./dist/vgce.js",
