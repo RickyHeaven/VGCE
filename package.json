@@ -8,18 +8,19 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/vgce.umd.js",
-  "module": "./dist/vgce.mjs",
+  "main": "./dist/vgce.umd.cjs",
+  "module": "./dist/vgce.js",
   "exports": {
     ".": {
-      "import": "./dist/vgce.mjs",
-      "require": "./dist/vgce.umd.js"
+      "import": "./dist/vgce.js",
+      "require": "./dist/vgce.umd.cjs"
     },
     "./dist/style.css": {
       "import": "./dist/style.css",
       "require": "./dist/style.css"
     }
   },
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check build-only",
