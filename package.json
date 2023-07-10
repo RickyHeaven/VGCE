@@ -6,7 +6,7 @@
     "access": "public"
   },
   "files": [
-    "dist"
+    "dist","types"
   ],
   "main": "./dist/vgce.umd.cjs",
   "module": "./dist/vgce.js",
