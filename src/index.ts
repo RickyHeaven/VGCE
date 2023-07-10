@@ -1,7 +1,7 @@
 /**
  * @description 库vgce入口
  * @author Ricky email:zhangqingcq@foxmail.com
- * @created 2023.04.27
+ * @created 2023.07.10
  */
 import type { App } from 'vue'
 

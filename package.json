@@ -13,13 +13,15 @@
   "exports": {
     ".": {
       "import": "./dist/vgce.js",
-      "require": "./dist/vgce.umd.cjs"
+      "require": "./dist/vgce.umd.cjs",
+      "types":"./types/index.d.ts"
     },
     "./dist/style.css": {
       "import": "./dist/style.css",
       "require": "./dist/style.css"
     }
   },
+  "types": "types/index.d.ts",
   "type": "module",
   "scripts": {
     "dev": "vite",
