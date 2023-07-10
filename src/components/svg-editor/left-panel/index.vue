@@ -9,7 +9,7 @@
 	import { prosToVBind } from '@/utils'
 
 	const globalStore = useGlobalStore()
-	const props = defineProps<{ customToolBar: IConfigCenter }>()
+	const props = defineProps<{ customToolBar: IConfigCenter | undefined }>()
 	const left_tool_bar = ref(
 		props.customToolBar && Object.keys(props.customToolBar).length > 0 ? props.customToolBar : globalStore.config_center
 	)
@@ -68,6 +68,7 @@
 			margin: 5px;
 			border: 1px solid transparent;
 			cursor: pointer;
+
 			&:hover {
 				border-color: #f0a0f8;
 				opacity: 0.85;

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-	import { onMounted, reactive, ref, getCurrentInstance } from 'vue'
+	import { onMounted, reactive, ref } from 'vue'
 	import {
 		ElContainer,
 		ElHeader,
@@ -31,8 +31,7 @@
 	import { useConfigStore } from '@/stores/config'
 	import { fileRead } from '@/utils/file-read-write'
 
-	const { appContext } = getCurrentInstance()!
-	const props = defineProps<{ customToolBar: IConfigCenter; dataModel: string }>()
+	const props = defineProps<{ customToolBar?: IConfigCenter; dataModel: string }>()
 	const presetLine = ref([])
 	const input = (list: any) => {
 		presetLine.value = list
