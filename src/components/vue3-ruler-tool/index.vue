@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { computed, defineComponent, onBeforeUnmount, onMounted, ref } from 'vue'
-	import { createPinia } from 'pinia'
+	import { pinia } from '@/hooks'
 	import { useSvgEditLayoutStore } from '@/stores/svg-edit-layout'
 
 	export default defineComponent({
@@ -61,7 +61,6 @@
 		},
 		emits: ['input', 'update:visible'],
 		setup(props, context) {
-			const pinia = createPinia()
 			const svgEditLayoutStore = useSvgEditLayoutStore(pinia)
 			/**
 			 * @description 绑定事件 on(element, event, handler)

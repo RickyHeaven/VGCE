@@ -15,7 +15,7 @@
 		ElTabs
 	} from 'element-plus'
 	import { ref } from 'vue'
-	import { createPinia } from 'pinia'
+	import { pinia } from '@/hooks'
 	import { useConfigStore } from '@/stores/config'
 	import { useGlobalStore } from '@/stores/global'
 	import { numberArray } from '@/utils'
@@ -32,7 +32,6 @@
 	import { EConditionType, EEventAction, EEventType } from '@/config-center/types'
 	import type { IEventsItem } from '@/config-center/types'
 
-	const pinia = createPinia()
 	const configStore = useConfigStore(pinia)
 	const globalStore = useGlobalStore(pinia)
 

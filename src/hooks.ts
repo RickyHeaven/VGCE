@@ -8,6 +8,8 @@ import { useEditPrivateStore } from '@/stores/system'
 
 import { ElMessage } from 'element-plus'
 
+export const pinia = createPinia()
+
 export const useHistoryRecord = (done_json: IDoneJson[]) => {
 	const edit_private_store = useEditPrivateStore()
 	if (edit_private_store.is_record_history) {
@@ -30,7 +32,6 @@ export const useImportDataModel = (model_str: string) => {
 			ElMessage.error('请导入正确的数据模型！')
 			return false
 		}
-		const pinia = createPinia()
 		const globalStore = useGlobalStore(pinia)
 		const svgEditLayoutStore = useSvgEditLayoutStore(pinia)
 		const configStore = useConfigStore(pinia)

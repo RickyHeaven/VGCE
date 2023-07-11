@@ -2,13 +2,12 @@
 	import { onMounted, ref } from 'vue'
 	import { VAceEditor } from 'vue3-ace-editor'
 	import '@/components/ace-edit'
-	import { createPinia } from 'pinia'
+	import { pinia } from '@/hooks'
 	import { useGlobalStore } from '@/stores/global'
 	import { useSvgEditLayoutStore } from '@/stores/svg-edit-layout'
 	import { useConfigStore } from '@/stores/config'
 	import type { IDataModel } from '@/components/svg-editor/types'
 	const content = ref('')
-	const pinia = createPinia()
 	const globalStore = useGlobalStore(pinia)
 	const svgEditLayoutStore = useSvgEditLayoutStore(pinia)
 	const configStore = useConfigStore(pinia)

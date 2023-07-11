@@ -3,7 +3,7 @@
 	import { straight_line_system } from '@/components/config'
 	import { ELineBindAnchors } from '@/components/config/types'
 	import type { ISystemStraightLine } from '@/components/config/types'
-	import { createPinia } from 'pinia'
+	import { pinia } from '@/hooks'
 	import { useConfigStore } from '@/stores/config'
 	import { ref } from 'vue'
 	import { useGlobalStore } from '@/stores/global'
@@ -12,7 +12,6 @@
 	import { getAnchorPosByAnchorType, getCoordinateOffset, objectDeepClone, randomString } from '@/utils'
 
 	const props = defineProps<{ itemInfo: IDoneJson }>()
-	const pinia = createPinia()
 	const globalStore = useGlobalStore(pinia)
 	const configStore = useConfigStore(pinia)
 	const offset = ref(4)

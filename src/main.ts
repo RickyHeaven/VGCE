@@ -1,7 +1,7 @@
 import './assets/main.less'
 
 import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+import { pinia } from '@/hooks'
 
 import App from './App.vue'
 import router from './router'
@@ -16,7 +16,7 @@ import 'virtual:svg-icons-register'
 const app = createApp(App)
 
 app.use(router)
-app.use(createPinia())
+app.use(pinia)
 app.use(VGCE)
 
 app.mount('#app')

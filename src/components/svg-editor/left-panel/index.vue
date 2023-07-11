@@ -3,13 +3,12 @@
 	import { ref } from 'vue'
 	import { ElCollapse, ElCollapseItem, ElIcon, ElMessage } from 'element-plus'
 	import type { IConfigCenter, IConfigItem } from '@/config-center/types'
-	import { createPinia } from 'pinia'
+	import { pinia } from '@/hooks'
 	import { useGlobalStore } from '@/stores/global'
 	import SvgAnalysis from '@/components/svg-analysis/index.vue'
 	import { EGlobalStoreIntention } from '@/stores/global/types'
 	import { prosToVBind } from '@/utils'
 
-	const pinia = createPinia()
 	const globalStore = useGlobalStore(pinia)
 	const props = defineProps<{ customToolBar: IConfigCenter | undefined }>()
 	const left_tool_bar = ref(

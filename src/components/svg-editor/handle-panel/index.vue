@@ -1,6 +1,6 @@
 <!-- 旋转缩放组件 -->
 <script lang="ts" setup>
-	import { createPinia } from 'pinia'
+	import { pinia } from '@/hooks'
 	import { useSvgEditLayoutStore } from '@/stores/svg-edit-layout'
 	import { ref } from 'vue'
 	import { useGlobalStore } from '@/stores/global'
@@ -9,7 +9,6 @@
 	import { getCoordinateOffset } from '@/utils'
 
 	const props = defineProps<{ itemInfo: IDoneJson }>()
-	const pinia = createPinia()
 	const globalStore = useGlobalStore(pinia)
 	const svgEditLayoutStore = useSvgEditLayoutStore(pinia)
 	const offset = ref(4)

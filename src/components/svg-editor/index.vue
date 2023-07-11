@@ -25,7 +25,7 @@
 	import type { IConfigCenter } from '@/config-center/types'
 	import { EGlobalStoreIntention } from '@/stores/global/types'
 	import type { IDoneJson } from '@/stores/global/types'
-	import { createPinia } from 'pinia'
+	import { pinia } from '@/hooks'
 	import { useSvgEditLayoutStore } from '@/stores/svg-edit-layout'
 	import { useImportDataModel } from '@/hooks'
 	import { useGlobalStore } from '@/stores/global'
@@ -37,7 +37,6 @@
 	const input = (list: any) => {
 		presetLine.value = list
 	}
-	const pinia = createPinia()
 	const globalStore = useGlobalStore(pinia)
 	const svgEditLayoutStore = useSvgEditLayoutStore(pinia)
 	const configStore = useConfigStore(pinia)

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 	import { computed, getCurrentInstance, onMounted, reactive, ref } from 'vue'
-	import { createPinia } from 'pinia'
+	import { pinia } from '@/hooks'
 	import { useConfigStore } from '@/stores/config'
 	import { useGlobalStore } from '@/stores/global'
 	import { EGlobalStoreIntention, EMouseInfoState, EScaleInfoType } from '@/stores/global/types'
@@ -44,7 +44,6 @@
 			instance?.appContext.app.component(key, vueComp[key])
 		}
 	})
-	const pinia = createPinia()
 	const globalStore = useGlobalStore(pinia)
 	const configStore = useConfigStore(pinia)
 	const svgEditLayoutStore = useSvgEditLayoutStore(pinia)
