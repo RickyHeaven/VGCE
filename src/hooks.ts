@@ -1,4 +1,5 @@
 import type { IDataModel } from '@/components/svg-editor/types'
+import { createPinia } from 'pinia'
 import { useConfigStore } from '@/stores/config'
 import { useGlobalStore } from '@/stores/global'
 import type { IDoneJson } from '@/stores/global/types'
@@ -29,9 +30,10 @@ export const useImportDataModel = (model_str: string) => {
 			ElMessage.error('请导入正确的数据模型！')
 			return false
 		}
-		const globalStore = useGlobalStore()
-		const svgEditLayoutStore = useSvgEditLayoutStore()
-		const configStore = useConfigStore()
+		const pinia = createPinia()
+		const globalStore = useGlobalStore(pinia)
+		const svgEditLayoutStore = useSvgEditLayoutStore(pinia)
+		const configStore = useConfigStore(pinia)
 		configStore.$state = json.config
 		svgEditLayoutStore.center_offset = json.layout_center
 		globalStore.setDoneJson(json.done_json)

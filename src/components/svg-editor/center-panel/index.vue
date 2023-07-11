@@ -1,5 +1,6 @@
 <script setup lang="ts">
 	import { computed, getCurrentInstance, onMounted, reactive, ref } from 'vue'
+	import { createPinia } from 'pinia'
 	import { useConfigStore } from '@/stores/config'
 	import { useGlobalStore } from '@/stores/global'
 	import { EGlobalStoreIntention, EMouseInfoState, EScaleInfoType } from '@/stores/global/types'
@@ -43,11 +44,12 @@
 			instance?.appContext.app.component(key, vueComp[key])
 		}
 	})
-	const globalStore = useGlobalStore()
-	const configStore = useConfigStore()
-	const svgEditLayoutStore = useSvgEditLayoutStore()
-	const editPrivateStore = useEditPrivateStore()
-	const contextMenuStore = useContextMenuStore()
+	const pinia = createPinia()
+	const globalStore = useGlobalStore(pinia)
+	const configStore = useConfigStore(pinia)
+	const svgEditLayoutStore = useSvgEditLayoutStore(pinia)
+	const editPrivateStore = useEditPrivateStore(pinia)
+	const contextMenuStore = useContextMenuStore(pinia)
 	const contextMenuRef = ref<HTMLElement>()
 	const canvasRef = ref<HTMLElement>()
 	const cursor_style = computed(() =>

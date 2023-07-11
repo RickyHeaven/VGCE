@@ -1,5 +1,6 @@
 <script setup lang="ts">
 	import { getCurrentInstance, onMounted, onBeforeUnmount, reactive } from 'vue'
+	import { createPinia } from 'pinia'
 	import { useGlobalStore } from '@/stores/global'
 	import { EGlobalStoreIntention, EMouseInfoState } from '@/stores/global/types'
 	import type { IDoneJson } from '@/stores/global/types'
@@ -50,7 +51,8 @@
 			done_json: []
 		}
 	)
-	const globalStore = useGlobalStore()
+	const pinia = createPinia()
+	const globalStore = useGlobalStore(pinia)
 
 	const onCanvasMouseMove = (e: MouseEvent) => {
 		//如果鼠标不是按下状态 连线除外

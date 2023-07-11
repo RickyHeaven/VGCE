@@ -7,7 +7,7 @@
 	import { ElMessage } from 'element-plus'
 	const content = ref<string>('')
 
-	const setVal = (d) => {
+	const setVal = (d: any) => {
 		content.value = d
 	}
 	const onImportJson = () => {

@@ -2,11 +2,13 @@
 	import { EMouseInfoState, EGlobalStoreIntention } from '@/stores/global/types'
 	import type { IDoneJson } from '@/stores/global/types'
 	import { positionArrToPath } from '@/utils'
+	import { createPinia } from 'pinia'
 	import { useGlobalStore } from '@/stores/global'
 	import { EConfigAnimationsType } from '@/config-center/types'
 
 	const props = withDefaults(defineProps<{ itemInfo: IDoneJson; pointVisible: boolean }>(), { pointVisible: false })
-	const globalStore = useGlobalStore()
+	const pinia = createPinia()
+	const globalStore = useGlobalStore(pinia)
 	const setConnectionLineNode = (point_index: number, e: MouseEvent, x: number, y: number) => {
 		if (globalStore.intention === EGlobalStoreIntention.Connection) {
 			return

@@ -1,11 +1,13 @@
 <script lang="ts" setup>
 	import { ref } from 'vue'
+	import { createPinia } from 'pinia'
 	import { useGlobalStore } from '@/stores/global'
 	import { ElTree } from 'element-plus'
 	import { EGlobalStoreIntention } from '@/stores/global/types'
 	import type { IDoneJson } from '@/stores/global/types'
 
-	const global_store = useGlobalStore()
+	const pinia = createPinia()
+	const global_store = useGlobalStore(pinia)
 	const current_node_key = ref(global_store.handle_svg_info?.info.id || '')
 	const handleNodeClick = (data: IDoneJson) => {
 		global_store.intention = EGlobalStoreIntention.Select

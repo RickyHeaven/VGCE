@@ -1,4 +1,5 @@
 <script setup lang="ts">
+	import { createPinia } from 'pinia'
 	import { useConfigStore } from '@/stores/config'
 	import { useGlobalStore } from '@/stores/global'
 	import { useEditPrivateStore } from '@/stores/system'
@@ -9,10 +10,11 @@
 	import type { IDataModel } from '../types'
 	import { EGlobalStoreIntention } from '@/stores/global/types'
 
-	const svgEditLayoutStore = useSvgEditLayoutStore()
-	const globalStore = useGlobalStore()
-	const editPrivateStore = useEditPrivateStore()
-	const configStore = useConfigStore()
+	const pinia = createPinia()
+	const svgEditLayoutStore = useSvgEditLayoutStore(pinia)
+	const globalStore = useGlobalStore(pinia)
+	const editPrivateStore = useEditPrivateStore(pinia)
+	const configStore = useConfigStore(pinia)
 	const emits = defineEmits(['changeVisible', 'onReturn', 'onPreview', 'onSave'])
 	const onDeleteBtnClick = () => {
 		globalStore.done_json.length <= 0 || globalStore.setDoneJson([])

@@ -25,6 +25,7 @@
 	import type { IConfigCenter } from '@/config-center/types'
 	import { EGlobalStoreIntention } from '@/stores/global/types'
 	import type { IDoneJson } from '@/stores/global/types'
+	import { createPinia } from 'pinia'
 	import { useSvgEditLayoutStore } from '@/stores/svg-edit-layout'
 	import { useImportDataModel } from '@/hooks'
 	import { useGlobalStore } from '@/stores/global'
@@ -36,9 +37,10 @@
 	const input = (list: any) => {
 		presetLine.value = list
 	}
-	const globalStore = useGlobalStore()
-	const svgEditLayoutStore = useSvgEditLayoutStore()
-	const configStore = useConfigStore()
+	const pinia = createPinia()
+	const globalStore = useGlobalStore(pinia)
+	const svgEditLayoutStore = useSvgEditLayoutStore(pinia)
+	const configStore = useConfigStore(pinia)
 	const importJsonRef = ref<InstanceType<typeof ImportJson>>()
 	const visible_conf: IVisibleConf = reactive({
 		[EVisibleConfKey.ExportJson]: false,
