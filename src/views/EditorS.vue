@@ -1,5 +1,5 @@
 <script setup lang="ts">
-	// import SvgEditor from '@/components/svg-editor/index.vue'
+	import SvgEditor from '@/components/svg-editor/index.vue'
 	import { useStore } from '@/stores/main'
 	import { useRouter } from 'vue-router'
 	import { fileWrite } from '@/utils/file-read-write'
