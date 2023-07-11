@@ -6,7 +6,7 @@
 </script>
 
 <template>
-	<svg-viewer :dataModel="store.dataModel" />
+	<svg-viewer :data="store.data" />
 </template>
 
 <style lang="less" scoped></style>

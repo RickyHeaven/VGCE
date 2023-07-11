@@ -1,5 +1,5 @@
 <script setup lang="ts">
-	import { onMounted, reactive, ref } from 'vue'
+	import { getCurrentInstance, onMounted, reactive, ref } from 'vue'
 	import {
 		ElContainer,
 		ElHeader,
@@ -9,7 +9,8 @@
 		ElDialog,
 		ElButton,
 		ElUpload,
-		ElMessage
+		ElMessage,
+		ElMessageBox
 	} from 'element-plus'
 	import 'element-plus/dist/index.css'
 	import 'animate.css'
@@ -30,9 +31,9 @@
 	import { useImportDataModel } from '@/hooks'
 	import { useGlobalStore } from '@/stores/global'
 	import { useConfigStore } from '@/stores/config'
-	import { fileRead } from '@/utils/file-read-write'
+	import { fileRead, fileWrite } from '@/utils/file-read-write'
 
-	const props = defineProps<{ customToolBar?: IConfigCenter; dataModel: string }>()
+	const props = defineProps<{ customToolBar?: IConfigCenter; data: string }>()
 	const presetLine = ref([])
 	const input = (list: any) => {
 		presetLine.value = list
@@ -72,8 +73,8 @@
 		globalStore.setDoneJson(done_json)
 	}
 	onMounted(() => {
-		if (props.dataModel) {
-			useImportDataModel(props.dataModel)
+		if (props.data) {
+			useImportDataModel(props.data)
 		} else {
 			globalStore.setDoneJson([])
 		}
@@ -82,6 +83,19 @@
 	defineExpose({
 		setGraphNodeJson
 	})
+
+	const { appContext } = getCurrentInstance()!
+
+	function save(d: IDataModel) {
+		ElMessageBox.prompt('请输入文件名', '保存', { cancelButtonText: '取消', confirmButtonText: '保存' }, appContext)
+			.then((r: any) => {
+				fileWrite(d, r.value.trim())
+				emits('onSave', d)
+			})
+			.catch((e: any) => {
+				console.log(e)
+			})
+	}
 </script>
 <template>
 	<div>
@@ -91,7 +105,7 @@
 					@change-visible="changeVisible"
 					@on-return="emits('onReturn')"
 					@on-preview="(val: IDataModel) => emits('onPreview', val)"
-					@on-save="(val: IDataModel) => emits('onSave', val)"
+					@on-save="save"
 				></top-panel>
 			</el-header>
 			<el-container class="middle">

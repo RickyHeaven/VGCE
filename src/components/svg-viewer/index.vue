@@ -24,11 +24,11 @@
 			instance?.appContext.app.component(key, vueComp[key])
 		}
 	})
-	const props = withDefaults(defineProps<{ dataModel?: IDataModel; canvasDrag?: boolean }>(), {
+	const props = withDefaults(defineProps<{ data?: IDataModel; canvasDrag?: boolean }>(), {
 		canvasDrag: true
 	})
 	const preview_data = reactive(
-		props.dataModel ?? {
+		props.data ?? {
 			layout_center: {
 				x: 0,
 				y: 0
