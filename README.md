@@ -15,8 +15,8 @@ Vector graphics configure editor. 矢量图组态编辑器。
   import {SvgEditor} from '@zhangqingcq/vgce'
   
   function preview(d: any) {
-	  //save d and send it to SvgViewer's data 
-	}
+    //save d and send it to SvgViewer's data 
+  }
 </script>
 <template>
   <SvgEditor @onPreview="preview"/>
@@ -31,5 +31,17 @@ Vector graphics configure editor. 矢量图组态编辑器。
 </script>
 <template>
   <SvgViewer :data="xxx"/>
+</template>
+```
+
+5.custom toolbar
+copy src/config/ and change as you want
+```
+<script setup lang="ts">
+  import {SvgEditor} from '@zhangqingcq/vgce'
+  import {config} from '@/config'
+</script>
+<template>
+  <SvgEditor @customToolbar="config"/>
 </template>
 ```

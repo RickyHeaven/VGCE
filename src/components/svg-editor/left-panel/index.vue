@@ -2,7 +2,7 @@
 <script lang="ts" setup>
 	import { ref } from 'vue'
 	import { ElCollapse, ElCollapseItem, ElIcon, ElMessage } from 'element-plus'
-	import type { IConfigCenter, IConfigItem } from '@/config-center/types'
+	import type { IConfig, IConfigItem } from '@/config/types'
 	import { pinia } from '@/hooks'
 	import { useGlobalStore } from '@/stores/global'
 	import SvgAnalysis from '@/components/svg-analysis/index.vue'
@@ -10,9 +10,9 @@
 	import { prosToVBind } from '@/utils'
 
 	const globalStore = useGlobalStore(pinia)
-	const props = defineProps<{ customToolBar: IConfigCenter | undefined }>()
+	const props = defineProps<{ customToolbar: IConfig | undefined }>()
 	const left_tool_bar = ref(
-		props.customToolBar && Object.keys(props.customToolBar).length > 0 ? props.customToolBar : globalStore.config_center
+		props.customToolbar && Object.keys(props.customToolbar).length > 0 ? props.customToolbar : globalStore.config_center
 	)
 	const activeNames = ref([
 		'stateful',

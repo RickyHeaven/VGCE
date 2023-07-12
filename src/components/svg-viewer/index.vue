@@ -6,10 +6,10 @@
 	import type { IDoneJson } from '@/stores/global/types'
 	import { getCommonClass, prosToVBind, setArrItemByID, valFormat } from '@/utils'
 
-	import { EDoneJsonType, EEventAction, EEventType } from '@/config-center/types'
+	import { EDoneJsonType, EEventAction, EEventType } from '@/config/types'
 	import ConnectionLine from '@/components/svg-editor/connection-line/index.vue'
 
-	import { vueComp } from '@/config-center'
+	import { vueComp } from '@/config'
 	import type { IDataModel } from '@/components/svg-editor/types'
 	import 'element-plus/dist/index.css'
 	import 'animate.css'

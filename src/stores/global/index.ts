@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { nextTick } from 'vue'
-import { configCenter } from '@/config-center'
-import type { IConfigItem } from '@/config-center/types'
+import { config } from '@/config'
+import type { IConfigItem } from '@/config/types'
 import { isOfType, objectDeepClone, setSvgActualInfo } from '@/utils'
 import { EGlobalStoreIntention, EMouseInfoState, EScaleInfoType } from './types'
 import type { IDoneJson, IGlobalStore, IMouseInfo, IScaleInfo } from './types'
@@ -13,7 +13,7 @@ import { useHistoryRecord } from '@/hooks'
 export const useGlobalStore = defineStore('global-store', {
 	state: (): IGlobalStore => {
 		return {
-			config_center: configCenter,
+			config_center: config,
 			intention: EGlobalStoreIntention.None,
 			create_svg_info: null,
 			done_json: [],

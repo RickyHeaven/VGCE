@@ -29,8 +29,8 @@
 	import Condition from '@/components/svg-editor/right-panel/condition.vue'
 	import { ElButton } from 'element-plus'
 	import CodeEditModal from '@/components/svg-editor/right-panel/code-edit-modal.vue'
-	import { EConditionType, EEventAction, EEventType } from '@/config-center/types'
-	import type { IEventsItem } from '@/config-center/types'
+	import { EConditionType, EEventAction, EEventType } from '@/config/types'
+	import type { IEventsItem } from '@/config/types'
 
 	const configStore = useConfigStore(pinia)
 	const globalStore = useGlobalStore(pinia)

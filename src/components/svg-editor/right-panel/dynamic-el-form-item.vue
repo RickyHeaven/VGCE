@@ -1,6 +1,6 @@
 <script setup lang="ts">
-	import { EConfigItemPropsType } from '@/config-center/types'
-	import type { IConfigItemProps } from '@/config-center/types'
+	import { EConfigItemPropsType } from '@/config/types'
+	import type { IConfigItemProps } from '@/config/types'
 	import {
 		ElFormItem,
 		ElColorPicker,

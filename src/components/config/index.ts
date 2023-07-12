@@ -1,4 +1,4 @@
-import { EConfigAnimationsType, EConfigItemPropsType, EDoneJsonType } from '@/config-center/types'
+import { EConfigAnimationsType, EConfigItemPropsType, EDoneJsonType } from '@/config/types'
 import type { ISystemStraightLine, IAnimateConfig } from './types'
 
 export const straight_line_system: ISystemStraightLine = Object.seal({

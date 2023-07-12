@@ -1,7 +1,7 @@
-import type { IConfigCenter, IConfigItem } from '@/config-center/types'
+import type { IConfig, IConfigItem } from '@/config/types'
 
 export interface IGlobalStore {
-	config_center: IConfigCenter
+	config_center: IConfig
 	intention: EGlobalStoreIntention
 	create_svg_info: IConfigItem | null
 	done_json: IDoneJson[]

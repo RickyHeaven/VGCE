@@ -4,7 +4,7 @@
 	import { positionArrToPath } from '@/utils'
 	import { pinia } from '@/hooks'
 	import { useGlobalStore } from '@/stores/global'
-	import { EConfigAnimationsType } from '@/config-center/types'
+	import { EConfigAnimationsType } from '@/config/types'
 
 	const props = withDefaults(defineProps<{ itemInfo: IDoneJson; pointVisible: boolean }>(), { pointVisible: false })
 	const globalStore = useGlobalStore(pinia)

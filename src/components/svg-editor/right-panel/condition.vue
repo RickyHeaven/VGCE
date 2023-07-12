@@ -1,8 +1,8 @@
 <script setup lang="ts">
 	import { computed } from 'vue'
 	import { ElFormItem, ElInput, ElOption, ElSelect } from 'element-plus/es'
-	import type { ICondition } from '@/config-center/types'
-	import { EConditionType } from '@/config-center/types'
+	import type { ICondition } from '@/config/types'
+	import { EConditionType } from '@/config/types'
 
 	const props = withDefaults(defineProps<{ modelValue: ICondition }>(), {
 		modelValue: () => ({ type: EConditionType.None })

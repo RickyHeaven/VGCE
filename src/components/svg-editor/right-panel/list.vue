@@ -1,5 +1,5 @@
 <script setup lang="ts">
-	import type { IAttrItem } from '@/config-center/types'
+	import type { IAttrItem } from '@/config/types'
 	import { ElIcon, ElInput } from 'element-plus'
 	import SvgAnalysis from '@/components/svg-analysis/index.vue'
 	import { computed } from 'vue'

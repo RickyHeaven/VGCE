@@ -1,6 +1,6 @@
 import { ELineBindAnchors } from '@/components/config/types'
-import { EDoneJsonType } from '@/config-center/types'
-import type { IConfigItem } from '@/config-center/types'
+import { EDoneJsonType } from '@/config/types'
+import type { IConfigItem } from '@/config/types'
 import type { IDoneJson } from '@/stores/global/types'
 
 /**

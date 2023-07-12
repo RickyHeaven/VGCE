@@ -37709,12 +37709,12 @@ const _sfc_main$l = /* @__PURE__ */ defineComponent({
       autoresize: ""
     }, null, 8, ["option"]));
   }
-}), pieCharts_vue_vue_type_style_index_0_scoped_702730c3_lang = "", _export_sfc = (i, n) => {
+}), pieCharts_vue_vue_type_style_index_0_scoped_2dc3e6cb_lang = "", _export_sfc = (i, n) => {
   const r = i.__vccOpts || i;
   for (const [g, k] of n)
     r[g] = k;
   return r;
-}, PieCharts = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["__scopeId", "data-v-702730c3"]]), _hoisted_1$g = ["id"], _hoisted_2$e = ["id"], _hoisted_3$c = ["fill"], _hoisted_4$9 = ["fill"], _hoisted_5$8 = ["fill"], _hoisted_6$5 = /* @__PURE__ */ createElementVNode("path", {
+}, PieCharts = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["__scopeId", "data-v-2dc3e6cb"]]), _hoisted_1$g = ["id"], _hoisted_2$e = ["id"], _hoisted_3$c = ["fill"], _hoisted_4$9 = ["fill"], _hoisted_5$8 = ["fill"], _hoisted_6$5 = /* @__PURE__ */ createElementVNode("path", {
   d: "M375.466667 709.214815l-25.6 137.481481c0 2.844444 1.896296 5.688889 7.585185 10.42963l65.422222 54.992593c5.688889 4.740741 15.17037 8.533333 23.703704 10.429629l36.029629-193.422222-107.14074-19.911111z",
   fill: "#2D4375"
 }, null, -1), _hoisted_7$5 = /* @__PURE__ */ createElementVNode("path", {
@@ -37886,11 +37886,11 @@ const _sfc_main$l = /* @__PURE__ */ defineComponent({
   "now-time": _sfc_main$m,
   "light-a": _sfc_main$k,
   "clock-a": _sfc_main$j
-}, configCenter = [...svg_config_center, ...vue_config_center];
+}, config = [...svg_config_center, ...vue_config_center];
 var EGlobalStoreIntention = /* @__PURE__ */ ((i) => (i.None = "None", i.Create = "Create", i.Move = "Move", i.MoveCanvas = "MoveCanvas", i.Select = "Select", i.Zoom = "Zoom", i.Rotate = "Rotate", i.Connection = "Connection", i.SetConnectionLineNode = "SetConnectionLineNode", i.ContextMenu = "ContextMenu", i))(EGlobalStoreIntention || {}), EMouseInfoState = /* @__PURE__ */ ((i) => (i.Down = "Down", i.Up = "Up", i))(EMouseInfoState || {}), EScaleInfoType = /* @__PURE__ */ ((i) => (i.None = "", i.TopLeft = "TopLeft", i.TopCenter = "TopCenter", i.TopRight = "TopRight", i.Left = "Left", i.Right = "Right", i.BottomLeft = "BottomLeft", i.BottomCenter = "BottomCenter", i.BottomRight = "BottomRight", i))(EScaleInfoType || {});
 const useGlobalStore = defineStore("global-store", {
   state: () => ({
-    config_center: configCenter,
+    config_center: config,
     intention: EGlobalStoreIntention.None,
     create_svg_info: null,
     done_json: [],
@@ -38288,11 +38288,11 @@ const _withScopeId$3 = (i) => (pushScopeId("data-v-b0ad1445"), i = i(), popScope
 }), index_vue_vue_type_style_index_0_scoped_b0ad1445_lang = "", TopPanel = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["__scopeId", "data-v-b0ad1445"]]), _hoisted_1$c = { style: { "font-weight": "bold" } }, _hoisted_2$a = { class: "component-group flex flex-wrap" }, _hoisted_3$9 = ["onDragstart", "title"], _sfc_main$g = /* @__PURE__ */ defineComponent({
   __name: "index",
   props: {
-    customToolBar: {}
+    customToolbar: {}
   },
   setup(i) {
     const n = i, r = useGlobalStore(pinia), g = ref(
-      n.customToolBar && Object.keys(n.customToolBar).length > 0 ? n.customToolBar : r.config_center
+      n.customToolbar && Object.keys(n.customToolbar).length > 0 ? n.customToolbar : r.config_center
     ), k = ref([
       "stateful",
       "stateless",
@@ -38355,7 +38355,7 @@ const _withScopeId$3 = (i) => (pushScopeId("data-v-b0ad1445"), i = i(), popScope
       }, 8, ["modelValue"])
     ]));
   }
-}), index_vue_vue_type_style_index_0_scoped_e50f27fa_lang = "", LeftPanel = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["__scopeId", "data-v-e50f27fa"]]), calculateLeftTop = (i, n, r) => {
+}), index_vue_vue_type_style_index_0_scoped_e00305dc_lang = "", LeftPanel = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["__scopeId", "data-v-e00305dc"]]), calculateLeftTop = (i, n, r) => {
   const g = getCenterPoint(i, n), k = calculateRotatedPointCoordinate(i, g, -r), V = calculateRotatedPointCoordinate(n, g, -r);
   return {
     width: V.x - k.x,
@@ -38907,7 +38907,7 @@ const _withScopeId$3 = (i) => (pushScopeId("data-v-b0ad1445"), i = i(), popScope
       ]);
     };
   }
-}), _withScopeId$2 = (i) => (pushScopeId("data-v-cc758a32"), i = i(), popScopeId(), i), _hoisted_1$8 = /* @__PURE__ */ _withScopeId$2(() => /* @__PURE__ */ createElementVNode("defs", null, [
+}), _withScopeId$2 = (i) => (pushScopeId("data-v-b0d244b1"), i = i(), popScopeId(), i), _hoisted_1$8 = /* @__PURE__ */ _withScopeId$2(() => /* @__PURE__ */ createElementVNode("defs", null, [
   /* @__PURE__ */ createElementVNode("pattern", {
     id: "pattern_grid",
     patternUnits: "userSpaceOnUse",
@@ -38933,7 +38933,7 @@ const _withScopeId$3 = (i) => (pushScopeId("data-v-b0ad1445"), i = i(), popScope
   __name: "index",
   setup(i) {
     useCssVars((Ue) => ({
-      "4438ab04": Ce.value
+      "36a85969": Ce.value
     }));
     const n = getCurrentInstance();
     Object.keys(vueComp).forEach((Ue) => {
@@ -39344,7 +39344,7 @@ const _withScopeId$3 = (i) => (pushScopeId("data-v-b0ad1445"), i = i(), popScope
       ])
     ], 544));
   }
-}), index_vue_vue_type_style_index_0_scoped_cc758a32_lang = "", CenterPanel = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["__scopeId", "data-v-cc758a32"]]);
+}), index_vue_vue_type_style_index_0_scoped_b0d244b1_lang = "", CenterPanel = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["__scopeId", "data-v-b0d244b1"]]);
 var ace$2 = { exports: {} };
 (function(i, n) {
   (function() {
@@ -52681,7 +52681,7 @@ const _sfc_main$b = /* @__PURE__ */ defineComponent({
       }, 1032, ["label"])) : createCommentVNode("", !0)
     ]))), 128));
   }
-}), dynamicElFormItem_vue_vue_type_style_index_0_scoped_fdc5f310_lang = "", dynamicElFormItem_vue_vue_type_style_index_1_lang = "", DynamicElFormItem = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["__scopeId", "data-v-fdc5f310"]]), _hoisted_1$6 = { style: { height: "100%" } }, _hoisted_2$4 = { class: "flex flex-wrap" }, _hoisted_3$3 = ["onMouseenter", "onClick"], _sfc_main$9 = /* @__PURE__ */ defineComponent({
+}), dynamicElFormItem_vue_vue_type_style_index_0_scoped_a1ba665e_lang = "", dynamicElFormItem_vue_vue_type_style_index_1_lang = "", DynamicElFormItem = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["__scopeId", "data-v-a1ba665e"]]), _hoisted_1$6 = { style: { height: "100%" } }, _hoisted_2$4 = { class: "flex flex-wrap" }, _hoisted_3$3 = ["onMouseenter", "onClick"], _sfc_main$9 = /* @__PURE__ */ defineComponent({
   __name: "common-animate",
   props: {
     val: {}
@@ -52796,7 +52796,7 @@ const _sfc_main$b = /* @__PURE__ */ defineComponent({
       "current-node-key": r.value
     }, null, 8, ["data", "current-node-key"]));
   }
-}), _withScopeId$1 = (i) => (pushScopeId("data-v-80b9cb5a"), i = i(), popScopeId(), i), _hoisted_1$5 = { class: "wall-l" }, _hoisted_2$3 = { class: "head-l" }, _hoisted_3$2 = /* @__PURE__ */ _withScopeId$1(() => /* @__PURE__ */ createElementVNode("span", null, "key", -1)), _hoisted_4$1 = /* @__PURE__ */ _withScopeId$1(() => /* @__PURE__ */ createElementVNode("span", null, "value", -1)), _hoisted_5$1 = { class: "row-l" }, _sfc_main$7 = /* @__PURE__ */ defineComponent({
+}), _withScopeId$1 = (i) => (pushScopeId("data-v-8ce989ed"), i = i(), popScopeId(), i), _hoisted_1$5 = { class: "wall-l" }, _hoisted_2$3 = { class: "head-l" }, _hoisted_3$2 = /* @__PURE__ */ _withScopeId$1(() => /* @__PURE__ */ createElementVNode("span", null, "key", -1)), _hoisted_4$1 = /* @__PURE__ */ _withScopeId$1(() => /* @__PURE__ */ createElementVNode("span", null, "value", -1)), _hoisted_5$1 = { class: "row-l" }, _sfc_main$7 = /* @__PURE__ */ defineComponent({
   __name: "list",
   props: {
     modelValue: { default: () => [
@@ -52866,7 +52866,7 @@ const _sfc_main$b = /* @__PURE__ */ defineComponent({
       ]))), 256))
     ]));
   }
-}), list_vue_vue_type_style_index_0_scoped_80b9cb5a_lang = "", List = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["__scopeId", "data-v-80b9cb5a"]]), _hoisted_1$4 = { class: "c-wall-d" }, _sfc_main$6 = /* @__PURE__ */ defineComponent({
+}), list_vue_vue_type_style_index_0_scoped_8ce989ed_lang = "", List = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["__scopeId", "data-v-8ce989ed"]]), _hoisted_1$4 = { class: "c-wall-d" }, _sfc_main$6 = /* @__PURE__ */ defineComponent({
   __name: "condition",
   props: {
     modelValue: { default: () => ({ type: EConditionType.None }) }
@@ -53013,7 +53013,7 @@ const _sfc_main$b = /* @__PURE__ */ defineComponent({
       ]);
     };
   }
-}), condition_vue_vue_type_style_index_0_scoped_78b20d94_lang = "", Condition = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-78b20d94"]]), _withScopeId = (i) => (pushScopeId("data-v-2e831e17"), i = i(), popScopeId(), i), _hoisted_1$3 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ createElementVNode("span", { style: { "font-weight": "bold" } }, "MQTT", -1)), _hoisted_2$2 = { class: "events-title" }, _hoisted_3$1 = { key: 1 }, _sfc_main$5 = /* @__PURE__ */ defineComponent({
+}), condition_vue_vue_type_style_index_0_scoped_a72b6fe7_lang = "", Condition = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-a72b6fe7"]]), _withScopeId = (i) => (pushScopeId("data-v-bdbaeafd"), i = i(), popScopeId(), i), _hoisted_1$3 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ createElementVNode("span", { style: { "font-weight": "bold" } }, "MQTT", -1)), _hoisted_2$2 = { class: "events-title" }, _hoisted_3$1 = { key: 1 }, _sfc_main$5 = /* @__PURE__ */ defineComponent({
   __name: "index",
   setup(i) {
     const n = useConfigStore(pinia), r = useGlobalStore(pinia), g = ref("page"), k = ref("style"), V = (ae, le) => {
@@ -53736,7 +53736,7 @@ const _sfc_main$b = /* @__PURE__ */ defineComponent({
       _: 1
     }, 8, ["modelValue"])) : createCommentVNode("", !0);
   }
-}), index_vue_vue_type_style_index_0_scoped_2e831e17_lang = "", index_vue_vue_type_style_index_1_lang = "", RightPanel = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["__scopeId", "data-v-2e831e17"]]), _sfc_main$4 = /* @__PURE__ */ defineComponent({
+}), index_vue_vue_type_style_index_0_scoped_bdbaeafd_lang = "", index_vue_vue_type_style_index_1_lang = "", RightPanel = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["__scopeId", "data-v-bdbaeafd"]]), _sfc_main$4 = /* @__PURE__ */ defineComponent({
   __name: "index",
   setup(i) {
     const n = ref(""), r = useGlobalStore(pinia), g = useSvgEditLayoutStore(pinia), k = useConfigStore(pinia);
@@ -54073,8 +54073,9 @@ function fileRead(i) {
 const _hoisted_1$1 = { class: "canvas-main-pc" }, _sfc_main$1 = /* @__PURE__ */ defineComponent({
   __name: "index",
   props: {
-    customToolBar: {},
-    data: {}
+    customToolbar: {},
+    data: {},
+    saveFile: { type: Boolean, default: !1 }
   },
   emits: ["onReturn", "onPreview", "onSave"],
   setup(i, { expose: n, emit: r }) {
@@ -54102,11 +54103,11 @@ const _hoisted_1$1 = { class: "canvas-main-pc" }, _sfc_main$1 = /* @__PURE__ */ 
     });
     const { appContext: ue } = getCurrentInstance();
     function Ne(he) {
-      ElMessageBox.prompt("请输入文件名", "保存", { cancelButtonText: "取消", confirmButtonText: "保存" }, ue).then((pe) => {
+      g.saveFile ? ElMessageBox.prompt("请输入文件名", "保存", { cancelButtonText: "取消", confirmButtonText: "保存" }, ue).then((pe) => {
         fileWrite(he, pe.value.trim()), r("onSave", he);
       }).catch((pe) => {
         console.log(pe);
-      });
+      }) : r("onSave", he);
     }
     return (he, pe) => (openBlock(), createElementBlock("div", null, [
       createVNode$1(unref(ElContainer), null, {
@@ -54132,8 +54133,8 @@ const _hoisted_1$1 = { class: "canvas-main-pc" }, _sfc_main$1 = /* @__PURE__ */ 
                     default: withCtx(() => [
                       createVNode$1(LeftPanel, {
                         class: "content-left",
-                        "custom-tool-bar": g.customToolBar
-                      }, null, 8, ["custom-tool-bar"])
+                        "custom-toolbar": g.customToolbar
+                      }, null, 8, ["custom-toolbar"])
                     ]),
                     _: 1
                   })
@@ -54242,7 +54243,7 @@ const _hoisted_1$1 = { class: "canvas-main-pc" }, _sfc_main$1 = /* @__PURE__ */ 
       }, 8, ["modelValue"])
     ]));
   }
-}), index_vue_vue_type_style_index_0_scoped_4da50b34_lang = "", index$1 = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-4da50b34"]]);
+}), index_vue_vue_type_style_index_0_scoped_acde8f01_lang = "", index$1 = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-acde8f01"]]);
 function commonjsRequire(i) {
   throw new Error('Could not dynamically require "' + i + '". Please configure the dynamicRequireTargets or/and ignoreDynamicRequires option of @rollup/plugin-commonjs appropriately for this require call to work.');
 }
@@ -63375,7 +63376,7 @@ const sub = (i, n, r, g, k) => {
       ], 4))
     ], 32));
   }
-}), index_vue_vue_type_style_index_0_scoped_aefb5edf_lang = "", index = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-aefb5edf"]]);
+}), index_vue_vue_type_style_index_0_scoped_a4451d40_lang = "", index = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-a4451d40"]]);
 export {
   index$1 as SvgEditor,
   index as SvgViewer

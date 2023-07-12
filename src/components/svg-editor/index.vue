@@ -23,7 +23,7 @@
 	import Vue3RulerTool from '@/components/vue3-ruler-tool/index.vue'
 	import { EVisibleConfKey } from '@/components/svg-editor/types'
 	import type { IVisibleConf, IDataModel } from '@/components/svg-editor/types'
-	import type { IConfigCenter } from '@/config-center/types'
+	import type { IConfig } from '@/config/types'
 	import { EGlobalStoreIntention } from '@/stores/global/types'
 	import type { IDoneJson } from '@/stores/global/types'
 	import { pinia } from '@/hooks'
@@ -33,7 +33,9 @@
 	import { useConfigStore } from '@/stores/config'
 	import { fileRead, fileWrite } from '@/utils/file-read-write'
 
-	const props = defineProps<{ customToolBar?: IConfigCenter; data: string }>()
+	const props = withDefaults(defineProps<{ customToolbar?: IConfig; data?: string; saveFile?: boolean }>(), {
+		saveFile: false
+	})
 	const presetLine = ref([])
 	const input = (list: any) => {
 		presetLine.value = list
@@ -87,14 +89,18 @@
 	const { appContext } = getCurrentInstance()!
 
 	function save(d: IDataModel) {
-		ElMessageBox.prompt('请输入文件名', '保存', { cancelButtonText: '取消', confirmButtonText: '保存' }, appContext)
-			.then((r: any) => {
-				fileWrite(d, r.value.trim())
-				emits('onSave', d)
-			})
-			.catch((e: any) => {
-				console.log(e)
-			})
+		if (props.saveFile) {
+			ElMessageBox.prompt('请输入文件名', '保存', { cancelButtonText: '取消', confirmButtonText: '保存' }, appContext)
+				.then((r: any) => {
+					fileWrite(d, r.value.trim())
+					emits('onSave', d)
+				})
+				.catch((e: any) => {
+					console.log(e)
+				})
+		} else {
+			emits('onSave', d)
+		}
 	}
 </script>
 <template>
@@ -111,7 +117,7 @@
 			<el-container class="middle">
 				<el-aside class="side-nav" :class="svgEditLayoutStore.left_nav ? 'show-nav' : 'hide-nav'">
 					<el-scrollbar class="el-scroll-pc">
-						<left-panel class="content-left" :custom-tool-bar="props.customToolBar"></left-panel>
+						<left-panel class="content-left" :custom-toolbar="props.customToolbar" />
 					</el-scrollbar>
 				</el-aside>
 				<el-main class="middle main">

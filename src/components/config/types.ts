@@ -1,4 +1,4 @@
-import type { IConfigItem } from '@/config-center/types'
+import type { IConfigItem } from '@/config/types'
 
 export interface ISystemStraightLine extends IConfigItem {
 	//绑定锚点
