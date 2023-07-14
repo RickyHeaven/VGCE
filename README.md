@@ -34,7 +34,7 @@ Vector graphics configure editor. 矢量图组态编辑器。
 </template>
 ```
 
-5.custom toolbar
+5. custom toolbar
 * copy `src/config/` and change as you want
 * put svg files into `src/asset/svgs` , then file name need to be same with config.name
 * put custom parts file into `src/config/files`, then import in `src/config/index.ts`  and export with `vueComp`
@@ -47,3 +47,8 @@ Vector graphics configure editor. 矢量图组态编辑器。
   <SvgEditor @customToolbar="config"/>
 </template>
 ```
+
+6. example
+* download [VGCE](https://github.com/RickyHeaven/VGCE.git)
+* `pnpm i` or `npm i`
+* `pnpm dev` or `npm run dev`
