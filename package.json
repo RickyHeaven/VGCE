@@ -5,8 +5,10 @@
   "publishConfig": {
     "access": "public"
   },
+  "type": "module",
   "files": [
     "dist",
+    "src",
     "types"
   ],
   "main": "./dist/vgce.umd.cjs",
@@ -23,7 +25,6 @@
     }
   },
   "types": "types/index.d.ts",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check build-only",

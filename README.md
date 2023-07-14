@@ -35,7 +35,9 @@ Vector graphics configure editor. 矢量图组态编辑器。
 ```
 
 5.custom toolbar
-copy src/config/ and change as you want
+* copy `src/config/` and change as you want
+* put svg files into `src/asset/svgs` , then file name need to be same with config.name
+* put custom parts file into `src/config/files`, then import in `src/config/index.ts`  and export with `vueComp`
 ```
 <script setup lang="ts">
   import {SvgEditor} from '@zhangqingcq/vgce'

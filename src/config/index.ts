@@ -1,6 +1,6 @@
 import type { IConfig } from './types'
-import { svg_config_center } from './svg'
-import { vue_config_center } from './vue'
+import { svg_config } from './svg'
+import { vue_config } from './vue'
 
 import { ElButton, ElTag } from 'element-plus'
 import Progress from '@/config/files/progress.vue'
@@ -25,4 +25,4 @@ export const vueComp: Record<string, any> = {
 	'clock-a': ClockA
 }
 
-export const config: IConfig = [...svg_config_center, ...vue_config_center]
+export const config: IConfig = [...svg_config, ...vue_config]
