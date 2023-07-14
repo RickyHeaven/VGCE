@@ -18860,7 +18860,7 @@ const useConfigStore = defineStore("config-store", {
   groupType: "custom_svg_group",
   title: "SVG组件",
   list: [svg_text, switch_a, light_a, clock_a]
-}, svg_config_center = Object.seal([
+}, svg_config = Object.seal([
   stateless_group,
   stateful_group,
   animation_group,
@@ -19194,7 +19194,7 @@ const useConfigStore = defineStore("config-store", {
   groupType: "echarts",
   title: "图表",
   list: [pie_charts]
-}, vue_config_center = Object.seal([components, echarts_group]), _sfc_main$q = /* @__PURE__ */ defineComponent({
+}, vue_config = Object.seal([components, echarts_group]), _sfc_main$q = /* @__PURE__ */ defineComponent({
   __name: "progress",
   props: {
     percentage: { default: 10 }
@@ -37886,7 +37886,7 @@ const _sfc_main$l = /* @__PURE__ */ defineComponent({
   "now-time": _sfc_main$m,
   "light-a": _sfc_main$k,
   "clock-a": _sfc_main$j
-}, config = [...svg_config_center, ...vue_config_center];
+}, config = [...svg_config, ...vue_config];
 var EGlobalStoreIntention = /* @__PURE__ */ ((i) => (i.None = "None", i.Create = "Create", i.Move = "Move", i.MoveCanvas = "MoveCanvas", i.Select = "Select", i.Zoom = "Zoom", i.Rotate = "Rotate", i.Connection = "Connection", i.SetConnectionLineNode = "SetConnectionLineNode", i.ContextMenu = "ContextMenu", i))(EGlobalStoreIntention || {}), EMouseInfoState = /* @__PURE__ */ ((i) => (i.Down = "Down", i.Up = "Up", i))(EMouseInfoState || {}), EScaleInfoType = /* @__PURE__ */ ((i) => (i.None = "", i.TopLeft = "TopLeft", i.TopCenter = "TopCenter", i.TopRight = "TopRight", i.Left = "Left", i.Right = "Right", i.BottomLeft = "BottomLeft", i.BottomCenter = "BottomCenter", i.BottomRight = "BottomRight", i))(EScaleInfoType || {});
 const useGlobalStore = defineStore("global-store", {
   state: () => ({
@@ -38094,15 +38094,8 @@ const useEditPrivateStore = defineStore("edit-private-store", {
 }, _hoisted_1$e = { "aria-hidden": "true" }, _hoisted_2$c = ["xlink:href"], _sfc_main$i = /* @__PURE__ */ defineComponent({
   __name: "index",
   props: {
-    name: {
-      type: String,
-      required: !0
-    },
-    props: {
-      type: Object,
-      default: () => {
-      }
-    }
+    name: {},
+    props: { default: () => ({}) }
   },
   setup(i) {
     const n = i, r = computed$1(() => `#svg-${n.name}`);
