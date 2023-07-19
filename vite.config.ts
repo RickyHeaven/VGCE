@@ -4,21 +4,20 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 
-import { resolve } from 'path'
 import WindiCSS from 'vite-plugin-windicss'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 
 // https://vitejs.dev/config/
 export default defineConfig({
 	plugins: [
-		vue(),
-		vueJsx(),
-		WindiCSS(),
-		createSvgIconsPlugin({
+		vue(), vueJsx(), WindiCSS(), createSvgIconsPlugin({
 			// 指定需要缓存的图标文件夹
-			iconDirs: [resolve(process.cwd(), 'src/assets/svgs'), resolve(process.cwd(), 'src/assets/icons')], // 指定symbolId格式
-			symbolId: 'svg-[name]', // 禁用压缩 否则想要修改无状态组件的stroke或者fill会影响到预设样式 例如stroke-width
-			svgoOptions: false,
+			iconDirs: [
+				fileURLToPath(new URL('./src/assets/svgs', import.meta.url)),
+				fileURLToPath(new URL('./src/assets/icons', import.meta.url))
+			],
+			symbolId: 'svg-[name]',  // 指定symbolId格式
+			svgoOptions: false,// 禁用压缩 否则想要修改无状态组件的stroke或者fill会影响到预设样式 例如stroke-width
 			customDomId: '__svg__icons__dom__'
 		})
 	],
@@ -37,7 +36,7 @@ export default defineConfig({
 	},
 	build: {
 		lib: {
-			entry: resolve(__dirname, 'src/index.ts'),
+			entry: fileURLToPath(new URL('./src/index.ts', import.meta.url)),
 			name: 'VGCE',
 			fileName: `vgce`
 		},

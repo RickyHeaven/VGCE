@@ -38,14 +38,42 @@ Vector graphics configure editor. 矢量图组态编辑器。
 * copy `src/config/` and change as you want
 * put svg files into `src/asset/svgs` , then file name need to be same with config.name
 * put custom parts file into `src/config/files`, then import in `src/config/index.ts`  and export with `vueComp`
+* PS: you have to install `vite-plugin-svg-icons` plugin to append your svgs to html dom.
 ```
 <script setup lang="ts">
   import {SvgEditor} from '@zhangqingcq/vgce'
   import {config} from '@/config'
 </script>
 <template>
-  <SvgEditor @customToolbar="config"/>
+  <SvgEditor :customToolbar="config"/>
 </template>
+```
+
+5.1 how to use `vite-plugin-svg-icons`
+*  `npm i vite-plugin-svg-icons -D` or `pnpm add vite-plugin-svg-icons -D`
+*  change `vite.config.ts` 
+```
+import { fileURLToPath, URL } from 'node:url'
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
+
+export default defineConfig({
+  plugins: [
+    xxx,
+    createSvgIconsPlugin({
+      iconDirs: [fileURLToPath(new URL('./src/assets/svgs', import.meta.url))], 
+      symbolId: 'svg-[name]',
+      svgoOptions: false,
+      customDomId: '__svg__icons__dom__'//your id, do not use this id!
+    })
+  ],
+  xxx
+})
+```
+* change `main.ts`
+```
+xxx
+import 'virtual:svg-icons-register'
+xxx
 ```
 
 6. example
