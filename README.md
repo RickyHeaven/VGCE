@@ -75,6 +75,7 @@ xxx
 import 'virtual:svg-icons-register'
 xxx
 ```
+* PS: if there is error: `Cannot find module ‘fast-glob’`,then run `npm i fast-glob -D` or `pnpm add fast-glob -D`
 
 6. example
 * download [VGCE](https://github.com/RickyHeaven/VGCE.git)
