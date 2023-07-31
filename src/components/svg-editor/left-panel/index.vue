@@ -1,6 +1,5 @@
 <!--左侧工具栏-->
 <script lang="ts" setup>
-	import { ref } from 'vue'
 	import { ElCollapse, ElCollapseItem, ElIcon, ElMessage } from 'element-plus'
 	import type { IConfig, IConfigItem } from '@/config/types'
 	import { pinia } from '@/hooks'

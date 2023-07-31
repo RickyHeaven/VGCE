@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-	import { ref } from 'vue'
-
 	const props = withDefaults(defineProps<{ id: string }>(), { id: '' })
 	const nowTime = ref(new Date())
 	const s = nowTime.value.getSeconds()

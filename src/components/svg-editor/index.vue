@@ -1,5 +1,4 @@
 <script setup lang="ts">
-	import { getCurrentInstance, onMounted, reactive, ref } from 'vue'
 	import {
 		ElContainer,
 		ElHeader,

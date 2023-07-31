@@ -1,5 +1,4 @@
 <script setup lang="ts">
-	import { computed } from 'vue'
 	import { ElFormItem, ElInput, ElOption, ElSelect } from 'element-plus/es'
 	import type { ICondition } from '@/config/types'
 	import { EConditionType } from '@/config/types'

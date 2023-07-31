@@ -37,7 +37,7 @@ export interface IAnimations {
 }
 
 export interface IConfigItemProps {
-	[key: string]: {
+	[key: keyof any]: {
 		title: string
 		type: EConfigItemPropsType
 		val: any
@@ -77,7 +77,7 @@ interface IDoneJsonConfig {
 }
 
 export interface IConfigItemState {
-	OnOff?: {
+	[k: keyof any]: {
 		title: string
 		default: false
 		props: { [key: string]: { openVal: any; closeVal: any } }

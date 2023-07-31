@@ -1,5 +1,4 @@
 <script setup lang="ts">
-	import { onMounted, ref } from 'vue'
 	import { VAceEditor } from 'vue3-ace-editor'
 	import '@/components/ace-edit'
 	import { pinia } from '@/hooks'

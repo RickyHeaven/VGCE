@@ -14,7 +14,6 @@
 		ElTabPane,
 		ElTabs
 	} from 'element-plus'
-	import { ref } from 'vue'
 	import { pinia } from '@/hooks'
 	import { useConfigStore } from '@/stores/config'
 	import { useGlobalStore } from '@/stores/global'
@@ -248,7 +247,7 @@
 				</el-form-item>
 				<div
 					v-for="(e, k) in globalStore.handle_svg_info!.info.state"
-					:key="'state' + k"
+					:key="'state' + String(k)"
 					v-if="globalStore.handle_svg_info!.info.state"
 				>
 					<el-form-item class="props-row" :label="String(k)" size="small"> {{ e?.default }}</el-form-item>

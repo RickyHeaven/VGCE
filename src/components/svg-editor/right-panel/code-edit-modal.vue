@@ -2,7 +2,6 @@
 	import { VAceEditor } from 'vue3-ace-editor'
 	import '@/components/ace-edit'
 	import { ElButton, ElDialog } from 'element-plus'
-	import { computed, ref } from 'vue'
 
 	const props = withDefaults(defineProps<{ modelValue: any; lang: string; title: string }>(), {
 		modelValue: () => ({}),

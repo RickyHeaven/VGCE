@@ -1,5 +1,4 @@
 import type { IDataModel } from '@/components/svg-editor/types'
-import { createPinia } from 'pinia'
 import { useConfigStore } from '@/stores/config'
 import { useGlobalStore } from '@/stores/global'
 import type { IDoneJson } from '@/stores/global/types'

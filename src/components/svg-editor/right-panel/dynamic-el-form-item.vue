@@ -59,22 +59,22 @@
 				v-else-if="attr_item.type === EConfigItemPropsType.InputNumber"
 				v-model="attr_item.val"
 				:disabled="Boolean(attr_item?.disabled)"
-			></el-input-number>
+			/>
 			<el-input
 				v-else-if="attr_item.type === EConfigItemPropsType.Input"
 				v-model="attr_item.val"
 				:disabled="Boolean(attr_item?.disabled)"
-			></el-input>
+			/>
 			<el-color-picker
 				v-else-if="attr_item.type === EConfigItemPropsType.Color"
 				v-model="attr_item.val"
 				:disabled="Boolean(attr_item?.disabled)"
-			></el-color-picker>
+			/>
 			<el-switch
 				v-else-if="attr_item.type === EConfigItemPropsType.Switch"
 				v-model="attr_item.val"
 				:disabled="Boolean(attr_item?.disabled)"
-			></el-switch>
+			/>
 			<code-edit-modal
 				v-else-if="attr_item.type === EConfigItemPropsType.JsonEdit"
 				v-model="attr_item.val"

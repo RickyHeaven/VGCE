@@ -4,7 +4,6 @@
 	import { PieChart } from 'echarts/charts'
 	import { TitleComponent, TooltipComponent, LegendComponent } from 'echarts/components'
 	import VChart, { THEME_KEY } from 'vue-echarts'
-	import { watch, provide, reactive } from 'vue'
 	use([SVGRenderer, PieChart, TitleComponent, TooltipComponent, LegendComponent])
 
 	provide(THEME_KEY, 'dark')

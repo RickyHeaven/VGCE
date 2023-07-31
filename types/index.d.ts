@@ -6,4 +6,8 @@
 
 import SvgEditor from '../dist/vgce'
 import SvgViewer from '../dist/vgce'
-export { SvgEditor, SvgViewer }
+
+export namespace VGCE {
+	SvgEditor
+	SvgViewer
+}

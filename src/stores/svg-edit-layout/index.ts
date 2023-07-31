@@ -1,4 +1,3 @@
-import { defineStore } from 'pinia'
 import type { ISvgEditLayoutStore } from './types'
 /**
  * 编辑器布局状态

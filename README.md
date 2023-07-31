@@ -51,7 +51,7 @@ Vector graphics configure editor. 矢量图组态编辑器。
 
 5.1 how to use `vite-plugin-svg-icons`
 *  `npm i vite-plugin-svg-icons -D` or `pnpm add vite-plugin-svg-icons -D`
-*  change `vite.config.ts` 
+*  change `vite.config.ts`
 ```
 import { fileURLToPath, URL } from 'node:url'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'

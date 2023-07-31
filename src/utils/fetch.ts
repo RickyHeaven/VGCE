@@ -3,9 +3,7 @@
  * @author Ricky email:zhangqingcq@foxmail.com
  * @created 2023.06.21
  */
-import axios from 'axios'
 import type { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
-import _ from 'lodash'
 
 import type { Collection } from './types'
 

@@ -1,5 +1,4 @@
 import { objectDeepClone, randomString } from '@/utils'
-import { defineStore } from 'pinia'
 import { useGlobalStore } from '../global'
 import type { IDoneJson } from '../global/types'
 import { EGlobalStoreIntention } from '../global/types'

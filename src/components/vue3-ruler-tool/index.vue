@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { computed, defineComponent, onBeforeUnmount, onMounted, ref } from 'vue'
 	import { pinia } from '@/hooks'
 	import { useSvgEditLayoutStore } from '@/stores/svg-edit-layout'
 

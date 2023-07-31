@@ -1,5 +1,4 @@
 <script setup lang="ts">
-	import { computed, getCurrentInstance, onMounted, reactive, ref } from 'vue'
 	import { pinia } from '@/hooks'
 	import { useConfigStore } from '@/stores/config'
 	import { useGlobalStore } from '@/stores/global'

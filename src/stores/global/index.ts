@@ -1,5 +1,3 @@
-import { defineStore } from 'pinia'
-import { nextTick } from 'vue'
 import { config } from '@/config'
 import type { IConfigItem } from '@/config/types'
 import { isOfType, objectDeepClone, setSvgActualInfo } from '@/utils'

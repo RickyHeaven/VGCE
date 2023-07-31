@@ -2,7 +2,6 @@
 <script lang="ts" setup>
 	import { pinia } from '@/hooks'
 	import { useSvgEditLayoutStore } from '@/stores/svg-edit-layout'
-	import { ref } from 'vue'
 	import { useGlobalStore } from '@/stores/global'
 	import { EGlobalStoreIntention, EMouseInfoState, EScaleInfoType } from '@/stores/global/types'
 	import type { IDoneJson } from '@/stores/global/types'

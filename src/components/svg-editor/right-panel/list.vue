@@ -2,7 +2,6 @@
 	import type { IAttrItem } from '@/config/types'
 	import { ElIcon, ElInput } from 'element-plus'
 	import SvgAnalysis from '@/components/svg-analysis/index.vue'
-	import { computed } from 'vue'
 
 	const props = withDefaults(defineProps<{ modelValue: IAttrItem[] }>(), {
 		modelValue: () => [

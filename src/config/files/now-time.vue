@@ -1,5 +1,4 @@
 <script setup lang="ts">
-	import { computed, onMounted, ref, onUnmounted } from 'vue'
 	const props = defineProps({
 		fontColor: {
 			type: String,

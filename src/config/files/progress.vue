@@ -1,7 +1,6 @@
 <script setup lang="ts">
 	import { ElProgress } from 'element-plus'
 	import type { ProgressColor } from 'element-plus'
-	import { watch } from 'vue'
 
 	const colors: ProgressColor[] = [
 		{

@@ -1,4 +1,3 @@
-import { createApp } from 'vue'
 import { pinia } from '@/hooks'
 
 import App from './App.vue'

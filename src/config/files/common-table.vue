@@ -4,7 +4,6 @@
 	</el-table>
 </template>
 <script setup lang="ts">
-	import { ref, watchEffect } from 'vue'
 	import { ElTable, ElTableColumn } from 'element-plus'
 
 	const props = withDefaults(

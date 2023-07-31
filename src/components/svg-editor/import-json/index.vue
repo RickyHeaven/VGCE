@@ -1,5 +1,4 @@
 <script setup lang="ts">
-	import { ref } from 'vue'
 	import { VAceEditor } from 'vue3-ace-editor'
 	import '@/components/ace-edit'
 

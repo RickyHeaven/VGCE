@@ -1,6 +1,4 @@
 <script setup lang="ts">
-	import { watch } from 'vue'
-
 	const props = withDefaults(defineProps<{ id: string; isOpen: boolean }>(), {
 		id: '',
 		isOpen: false

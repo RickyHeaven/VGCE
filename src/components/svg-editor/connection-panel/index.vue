@@ -5,7 +5,6 @@
 	import type { ISystemStraightLine } from '@/components/config/types'
 	import { pinia } from '@/hooks'
 	import { useConfigStore } from '@/stores/config'
-	import { ref } from 'vue'
 	import { useGlobalStore } from '@/stores/global'
 	import { EGlobalStoreIntention, EMouseInfoState } from '@/stores/global/types'
 	import type { IDoneJson } from '@/stores/global/types'
