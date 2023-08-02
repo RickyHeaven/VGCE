@@ -3,8 +3,8 @@
  * @author Ricky email:zhangqingcq@foxmail.com
  * @created 2023.06.21
  */
+import { isEmpty } from 'lodash-es'
 import type { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
-
 import type { Collection } from './types'
 
 // const host = window.location.origin
@@ -162,7 +162,7 @@ function checkRequest(
 			if (config && config.headers && config.headers['Content-Type'] === 'multipart/form-data') {
 				data_ = data
 			} else {
-				if (data && !_.isEmpty(data)) {
+				if (data && !isEmpty(data)) {
 					if (Array.isArray(data)) {
 						data_ = []
 						for (let e of data) {

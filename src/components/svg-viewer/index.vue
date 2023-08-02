@@ -1,4 +1,4 @@
-<script setup lang='ts'>
+<script setup lang="ts">
 	import { pinia } from '@/hooks'
 	import { useGlobalStore } from '@/stores/global'
 	import { EGlobalStoreIntention, EMouseInfoState } from '@/stores/global/types'
@@ -15,7 +15,7 @@
 
 	import { sub, close } from '@/utils/mqtt-net'
 
-	const emit = defineEmits(['on-message'])
+	const emit = defineEmits(['onMessage'])
 	//注册所有组件
 	const instance = getCurrentInstance()
 	Object.keys(vueComp).forEach((key: string) => {
@@ -27,51 +27,52 @@
 	const props = withDefaults(defineProps<{ data?: IDataModel; canvasDrag?: boolean }>(), {
 		canvasDrag: true
 	})
-	const preview_data = reactive(props.data ?? {
-		layout_center: {
-			x: 0,
-			y: 0
-		},
-		config: {
-			svg: {
-				background_color: '#fff',
-				scale: 1,
-				position_center: {
-					x: -333,
-					y: -113
+	const preview_data = reactive(
+		props.data ?? {
+			layout_center: {
+				x: 0,
+				y: 0
+			},
+			config: {
+				svg: {
+					background_color: '#fff',
+					scale: 1,
+					position_center: {
+						x: -333,
+						y: -113
+					},
+					svg_position_center: {
+						x: 50,
+						y: 50
+					}
 				},
-				svg_position_center: {
-					x: 50,
-					y: 50
+				net: {
+					mqtt: {
+						url: '',
+						user: '',
+						pwd: '',
+						topics: ''
+					}
 				}
 			},
-			net: {
-				mqtt: {
-					url: '',
-					user: '',
-					pwd: '',
-					topics: ''
-				}
-			}
-		},
-		done_json: []
-	})
+			done_json: []
+		}
+	)
 	const globalStore = useGlobalStore(pinia)
 
 	const onCanvasMouseMove = (e: MouseEvent) => {
 		//如果鼠标不是按下状态 连线除外
-		if (globalStore.mouse_info.state != EMouseInfoState.Down && globalStore.intention !==
-			EGlobalStoreIntention.Connection) {
+		if (
+			globalStore.mouse_info.state != EMouseInfoState.Down &&
+			globalStore.intention !== EGlobalStoreIntention.Connection
+		) {
 			return
 		}
 		if (!props.canvasDrag) {
 			console.log(props.canvasDrag)
 			return
 		}
-		const {
-			clientX,
-			clientY
-		} = e
+		const { clientX, clientY } = e
 		globalStore.mouse_info.new_position_x =
 			globalStore.mouse_info.now_position_x + clientX - globalStore.mouse_info.position_x
 		globalStore.mouse_info.new_position_y =
@@ -102,10 +103,7 @@
 	}
 	const onCanvasMouseDown = (e: MouseEvent) => {
 		console.log('onCanvasMouseDown', e)
-		const {
-			clientX,
-			clientY
-		} = e
+		const { clientX, clientY } = e
 		//点击画布 未选中组件 拖动画布
 		globalStore.intention = EGlobalStoreIntention.MoveCanvas
 		globalStore.setMouseInfo({
@@ -118,12 +116,16 @@
 			new_position_y: preview_data.layout_center.y
 		})
 	}
-	const getActualBoundScale = (actual_bound: {
-		x: number
-		y: number
-		width: number
-		height: number
-	}, scale_x: number, scale_y: number) => {
+	const getActualBoundScale = (
+		actual_bound: {
+			x: number
+			y: number
+			width: number
+			height: number
+		},
+		scale_x: number,
+		scale_y: number
+	) => {
 		return {
 			x: actual_bound.x - (actual_bound.width / 2) * scale_x + actual_bound.width / 2,
 			y: actual_bound.y - (actual_bound.height / 2) * scale_y + actual_bound.height / 2,
@@ -163,8 +165,7 @@
 										break
 									}
 								}
-							}
-							else {
+							} else {
 								t = root
 							}
 
@@ -175,14 +176,12 @@
 							for (let a of e.attrs) {
 								if (t.state && t.state.hasOwnProperty(a.key)) {
 									t.state[a.key].default = valFormat(a.val)
-								}
-								else if (t.props.hasOwnProperty(a.key)) {
+								} else if (t.props.hasOwnProperty(a.key)) {
 									t.props[a.key].val = valFormat(a.val)
 								}
 							}
 						}
-					}
-					else if (e.action === EEventAction.JavaScript) {
+					} else if (e.action === EEventAction.JavaScript) {
 						const t = new Function(e.scripts)
 						t()
 					}
@@ -224,7 +223,7 @@
 				console.log(topics)
 				console.log(message.toString())
 				//暂时先暴露给外部，让用户自己处理消息，后期功能会补上
-				emit('on-message', {
+				emit('onMessage', {
 					topics,
 					message
 				})
@@ -238,81 +237,81 @@
 </script>
 
 <template>
-	<div class='canvas' @mousedown='onCanvasMouseDown' @mousemove='onCanvasMouseMove' @mouseup='onCanvasMouseUp'>
+	<div class="canvas" @mousedown="onCanvasMouseDown" @mousemove="onCanvasMouseMove" @mouseup="onCanvasMouseUp">
 		<svg
-			xmlns='http://www.w3.org/2000/svg'
-			:style='{ backgroundColor: preview_data.config.svg.background_color }'
-			width='100%'
-			height='100%'
+			xmlns="http://www.w3.org/2000/svg"
+			:style="{ backgroundColor: preview_data.config.svg.background_color }"
+			width="100%"
+			height="100%"
 		>
 			<g
-				:transform='`translate(${preview_data.config.svg.position_center.x + preview_data.layout_center.x},${
+				:transform="`translate(${preview_data.config.svg.position_center.x + preview_data.layout_center.x},${
 					preview_data.config.svg.position_center.y + preview_data.layout_center.y
-				})rotate(${0})scale(${preview_data.config.svg.scale})`'
+				})rotate(${0})scale(${preview_data.config.svg.scale})`"
 			>
 				<g
-					v-for='item in preview_data.done_json'
-					:key='item.id'
-					:transform='`translate(${item.x},${item.y})rotate(0)scale(1)`'
-					v-show='item.display'
-					@click='eventHandle(item)'
+					v-for="item in preview_data.done_json"
+					:key="item.id"
+					:transform="`translate(${item.x},${item.y})rotate(0)scale(1)`"
+					v-show="item.display"
+					@click="eventHandle(item)"
 				>
-					<g :class='`${getCommonClass(item)}`'>
+					<g :class="`${getCommonClass(item)}`">
 						<g
-							:transform='`translate(${item.actual_bound.x + item.actual_bound.width / 2},${
+							:transform="`translate(${item.actual_bound.x + item.actual_bound.width / 2},${
 								item.actual_bound.y + item.actual_bound.height / 2
 							})rotate(${item.rotate}) scale(1) translate(${-(item.actual_bound.x + item.actual_bound.width / 2)},${-(
 								item.actual_bound.y +
 								item.actual_bound.height / 2
-							)})`'
+							)})`"
 						>
-							<connection-line v-if='item.type === EDoneJsonType.ConnectionLine' :item-info='item' />
+							<connection-line v-if="item.type === EDoneJsonType.ConnectionLine" :item-info="item" />
 							<use
-								v-else-if='item.type === EDoneJsonType.File'
-								:xlink:href='`#svg-${item.name}`'
-								v-bind='prosToVBind(item)'
-								width='100'
-								height='100'
-								:id='item.id'
-								:transform='`translate(${item.actual_bound.x + item.actual_bound.width / 2},${
+								v-else-if="item.type === EDoneJsonType.File"
+								:xlink:href="`#svg-${item.name}`"
+								v-bind="prosToVBind(item)"
+								width="100"
+								height="100"
+								:id="item.id"
+								:transform="`translate(${item.actual_bound.x + item.actual_bound.width / 2},${
 									item.actual_bound.y + item.actual_bound.height / 2
 								}) scale(${item.scale_x},${item.scale_y}) translate(${-(
 									item.actual_bound.x +
 									item.actual_bound.width / 2
-								)},${-(item.actual_bound.y + item.actual_bound.height / 2)})`'
+								)},${-(item.actual_bound.y + item.actual_bound.height / 2)})`"
 							/>
 							<component
-								v-else-if='item.type === EDoneJsonType.CustomSvg'
-								:is='item.tag'
-								v-bind='prosToVBind(item)'
-								width='100'
-								height='100'
-								:id='item.id'
-								@on-change='eventHandle(item)'
-								:transform='`translate(${item.actual_bound.x + item.actual_bound.width / 2},${
+								v-else-if="item.type === EDoneJsonType.CustomSvg"
+								:is="item.tag"
+								v-bind="prosToVBind(item)"
+								width="100"
+								height="100"
+								:id="item.id"
+								@on-change="eventHandle(item)"
+								:transform="`translate(${item.actual_bound.x + item.actual_bound.width / 2},${
 									item.actual_bound.y + item.actual_bound.height / 2
 								}) scale(${item.scale_x},${item.scale_y}) translate(${-(
 									item.actual_bound.x +
 									item.actual_bound.width / 2
-								)},${-(item.actual_bound.y + item.actual_bound.height / 2)})`'
+								)},${-(item.actual_bound.y + item.actual_bound.height / 2)})`"
 							/>
 							<foreignObject
-								v-else-if='item.type === EDoneJsonType.Vue'
-								v-bind='getActualBoundScale(item.actual_bound, item.scale_x, item.scale_y)'
-								:id='`foreign-object${item.id}`'
+								v-else-if="item.type === EDoneJsonType.Vue"
+								v-bind="getActualBoundScale(item.actual_bound, item.scale_x, item.scale_y)"
+								:id="`foreign-object${item.id}`"
 							>
 								<component
-									:is='item.tag'
-									v-bind='prosToVBind(item)'
-									:id='item.id'
-									@on-change='eventHandle(item)'
-									:transform='`translate(${item.actual_bound.x + item.actual_bound.width / 2},${
+									:is="item.tag"
+									v-bind="prosToVBind(item)"
+									:id="item.id"
+									@on-change="eventHandle(item)"
+									:transform="`translate(${item.actual_bound.x + item.actual_bound.width / 2},${
 										item.actual_bound.y + item.actual_bound.height / 2
 									}) scale(${item.scale_x},${item.scale_y}) translate(${-(
 										item.actual_bound.x +
 										item.actual_bound.width / 2
-									)},${-(item.actual_bound.y + item.actual_bound.height / 2)})`'
-								>{{ item.tag_slot }}
+									)},${-(item.actual_bound.y + item.actual_bound.height / 2)})`"
+									>{{ item.tag_slot }}
 								</component>
 							</foreignObject>
 						</g>
@@ -323,7 +322,7 @@
 	</div>
 </template>
 
-<style lang='less' scoped>
+<style lang="less" scoped>
 	.canvas {
 		width: 100%;
 		height: 100vh;

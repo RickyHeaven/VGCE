@@ -57,10 +57,6 @@ export default defineConfig({
           axios: [
             // default imports
             ['default', 'axios'] // import { default as axios } from 'axios',
-          ],
-          lodash: [
-            // default imports
-            ['default', '_']
           ]
           /*'[package-name]': [
            '[import-names]',

@@ -62956,52 +62956,51 @@ const sub = (i, n, r, g, k) => {
     data: {},
     canvasDrag: { type: Boolean, default: !0 }
   },
-  emits: ["on-message"],
+  emits: ["onMessage"],
   setup(i, { expose: n, emit: r }) {
     const g = i, k = getCurrentInstance();
     Object.keys(vueComp).forEach((ue) => {
       var Ne;
       Object.keys((Ne = k == null ? void 0 : k.appContext) == null ? void 0 : Ne.components).includes(ue) || k == null || k.appContext.app.component(ue, vueComp[ue]);
     });
-    const V = reactive(g.data ?? {
-      layout_center: {
-        x: 0,
-        y: 0
-      },
-      config: {
-        svg: {
-          background_color: "#fff",
-          scale: 1,
-          position_center: {
-            x: -333,
-            y: -113
+    const V = reactive(
+      g.data ?? {
+        layout_center: {
+          x: 0,
+          y: 0
+        },
+        config: {
+          svg: {
+            background_color: "#fff",
+            scale: 1,
+            position_center: {
+              x: -333,
+              y: -113
+            },
+            svg_position_center: {
+              x: 50,
+              y: 50
+            }
           },
-          svg_position_center: {
-            x: 50,
-            y: 50
+          net: {
+            mqtt: {
+              url: "",
+              user: "",
+              pwd: "",
+              topics: ""
+            }
           }
         },
-        net: {
-          mqtt: {
-            url: "",
-            user: "",
-            pwd: "",
-            topics: ""
-          }
-        }
-      },
-      done_json: []
-    }), $ = useGlobalStore(pinia), oe = (ue) => {
+        done_json: []
+      }
+    ), $ = useGlobalStore(pinia), oe = (ue) => {
       if ($.mouse_info.state != EMouseInfoState.Down && $.intention !== EGlobalStoreIntention.Connection)
         return;
       if (!g.canvasDrag) {
         console.log(g.canvasDrag);
         return;
       }
-      const {
-        clientX: Ne,
-        clientY: he
-      } = ue;
+      const { clientX: Ne, clientY: he } = ue;
       $.mouse_info.new_position_x = $.mouse_info.now_position_x + Ne - $.mouse_info.position_x, $.mouse_info.new_position_y = $.mouse_info.now_position_y + he - $.mouse_info.position_y, $.intention == EGlobalStoreIntention.MoveCanvas && (V.layout_center.x = $.mouse_info.new_position_x, V.layout_center.y = $.mouse_info.new_position_y);
     }, re = () => {
       $.mouse_info.state == EMouseInfoState.Down && ($.intention != EGlobalStoreIntention.Select && ($.intention = EGlobalStoreIntention.None), $.setMouseInfo({
@@ -63015,10 +63014,7 @@ const sub = (i, n, r, g, k) => {
       }));
     }, Ce = (ue) => {
       console.log("onCanvasMouseDown", ue);
-      const {
-        clientX: Ne,
-        clientY: he
-      } = ue;
+      const { clientX: Ne, clientY: he } = ue;
       $.intention = EGlobalStoreIntention.MoveCanvas, $.setMouseInfo({
         state: EMouseInfoState.Down,
         position_x: Ne,
@@ -63092,7 +63088,7 @@ const sub = (i, n, r, g, k) => {
     const de = () => {
       const ue = V.config.net.mqtt;
       ue && ue.url && ue.user && ue.pwd && ue.topics && sub(ue.url, ue.user, ue.pwd, ue.topics, (Ne, he) => {
-        console.log(Ne), console.log(he.toString()), r("on-message", {
+        console.log(Ne), console.log(he.toString()), r("onMessage", {
           topics: Ne,
           message: he
         });
@@ -63166,7 +63162,7 @@ const sub = (i, n, r, g, k) => {
       ], 4))
     ], 32));
   }
-}), index_vue_vue_type_style_index_0_scoped_33e19188_lang = "", index = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-33e19188"]]);
+}), index_vue_vue_type_style_index_0_scoped_fad321b8_lang = "", index = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-fad321b8"]]);
 export {
   index$1 as SvgEditor,
   index as SvgViewer
