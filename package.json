@@ -1,6 +1,6 @@
 {
   "name": "@zhangqingcq/vgce",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "Vector graphics configure editor. svg组态编辑器。基于vue3.3+ts+element-plus+vite",
   "publishConfig": {
     "access": "public"
