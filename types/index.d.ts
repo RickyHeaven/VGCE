@@ -4,19 +4,17 @@
  * @created 2023.07.10
  */
 import { DefineComponent } from 'vue'
-import type { IConfig } from '../src/config/types'
-import type { IDataModel } from '../src/components/svg-editor/types'
 
 export declare const SvgEditor: DefineComponent<{
 	data?: string
-	customToolbar?: IConfig
+	customToolbar?: any[]
 	saveFile?: boolean
-	onOnPreview?: (d: IDataModel) => void
-	onOnSave?: (d: IDataModel) => void
+	onOnPreview?: (d: Record<string, any>) => void
+	onOnSave?: (d: Record<string, any>) => void
 	onOnReturn?: () => void
 }>
 export declare const SvgViewer: DefineComponent<{
-	data?: IDataModel
+	data?: Record<string, any>
 	canvasDrag?: boolean
 	onOnMessage?: (d: { topics: string, message: string }) => void
 }>
