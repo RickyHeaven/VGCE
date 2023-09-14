@@ -11,6 +11,7 @@ export interface IGlobalStore {
 	rotate_info: IRotateInfo
 	connection_line_node_info: IConnectionLineNodeInfo
 }
+
 export interface IDoneJson extends IConfigItem {
 	id: string
 	x: number
@@ -35,19 +36,26 @@ export interface IDoneJson extends IConfigItem {
 		bc: ICoordinate
 		br: ICoordinate
 	}
+	selected?: boolean
+	oldPosition?: { x: number; y: number }
+	centerPosition: { x: number; y: number }
 }
+
 export enum EGlobalStoreIntention {
 	None = 'None',
 	Create = 'Create',
 	Move = 'Move',
+	GroupMove = 'GroupMove',
 	MoveCanvas = 'MoveCanvas',
 	Select = 'Select',
 	Zoom = 'Zoom',
 	Rotate = 'Rotate',
 	Connection = 'Connection',
 	SetConnectionLineNode = 'SetConnectionLineNode',
-	ContextMenu = 'ContextMenu'
+	ContextMenu = 'ContextMenu',
+	SelectArea = 'SelectArea'
 }
+
 export interface IMouseInfo {
 	state: EMouseInfoState
 	position_x: number //鼠标指针坐标
@@ -57,14 +65,17 @@ export interface IMouseInfo {
 	new_position_x: number //移动之后目标的坐标
 	new_position_y: number
 }
+
 export enum EMouseInfoState {
 	Down = 'Down',
 	Up = 'Up'
 }
+
 export interface IHandleSvgInfo {
 	info: IDoneJson
 	index: number
 }
+
 /**
  * 缩放信息
  */
@@ -85,12 +96,14 @@ export interface IScaleInfo {
 		y: number
 	}
 }
+
 /**
  * 旋转信息
  */
 export interface IRotateInfo {
 	angle: number
 }
+
 export enum EScaleInfoType {
 	None = '',
 	TopLeft = 'TopLeft',
@@ -102,10 +115,12 @@ export enum EScaleInfoType {
 	BottomCenter = 'BottomCenter',
 	BottomRight = 'BottomRight'
 }
+
 export interface ICoordinate {
 	x: number
 	y: number
 }
+
 export interface IConnectionLineNodeInfo {
 	init_pos: {
 		x: number

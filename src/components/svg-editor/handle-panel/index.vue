@@ -6,12 +6,14 @@
 	import { EGlobalStoreIntention, EMouseInfoState, EScaleInfoType } from '@/stores/global/types'
 	import type { IDoneJson } from '@/stores/global/types'
 	import { getCoordinateOffset } from '@/utils'
+	import { useConfigStore } from '@/stores/config'
 
 	const props = defineProps<{ itemInfo: IDoneJson }>()
 	const globalStore = useGlobalStore(pinia)
+	const configStore = useConfigStore(pinia)
 	const svgEditLayoutStore = useSvgEditLayoutStore(pinia)
 	const offset = ref(4)
-	const fill = ref('#4F80FF')
+	const fill = ref('#ab712e')
 	const angle_to_cursor = [
 		{
 			start: 338,
@@ -63,20 +65,26 @@
 		}
 	]
 	const onHandleMouseDown = (type: EScaleInfoType, e: MouseEvent) => {
-		console.log('onHandleMouseDown', e)
+		console.log('handMousedown', e)
 		const { clientX, clientY } = e
 		e.stopPropagation()
 		globalStore.intention = EGlobalStoreIntention.Zoom
-		globalStore.setMouseInfo({
+		const x = Math.round(
+			(clientX - svgEditLayoutStore.canvasInfo.left) / configStore.svg.scale - svgEditLayoutStore.center_offset.x
+		)
+		const y = Math.round(
+			(clientY - svgEditLayoutStore.canvasInfo.top) / configStore.svg.scale - svgEditLayoutStore.center_offset.y
+		)
+		globalStore.mouse_info = {
 			state: EMouseInfoState.Down,
-			position_x: clientX - svgEditLayoutStore.center_offset.x,
-			position_y: clientY - svgEditLayoutStore.center_offset.y,
-			now_position_x: clientX - svgEditLayoutStore.center_offset.x,
-			now_position_y: clientY - svgEditLayoutStore.center_offset.y,
+			position_x: x,
+			position_y: y,
+			now_position_x: x,
+			now_position_y: y,
 			new_position_x: 0,
 			new_position_y: 0
-		})
-		globalStore.setScaleInfo({
+		}
+		globalStore.scale_info = {
 			type: type,
 			scale_times: {
 				x: props.itemInfo.scale_x,
@@ -87,33 +95,33 @@
 				y: props.itemInfo.y
 			},
 			symmetric_point: {
-				x:
-					props.itemInfo.client.x +
-					Math.abs(clientX - svgEditLayoutStore.center_offset.x - props.itemInfo.client.x) *
-						(clientX - svgEditLayoutStore.center_offset.x < props.itemInfo.client.x ? 1 : -1),
-				y:
-					props.itemInfo.client.y +
-					Math.abs(clientY - svgEditLayoutStore.center_offset.y - props.itemInfo.client.y) *
-						(clientY - svgEditLayoutStore.center_offset.y < props.itemInfo.client.y ? 1 : -1)
+				x: x + Math.abs(x - props.itemInfo.centerPosition.x) * 2 * (x > props.itemInfo.centerPosition.x ? -1 : 1),
+				y: y + Math.abs(y - props.itemInfo.centerPosition.y) * 2 * (y > props.itemInfo.centerPosition.y ? -1 : 1)
 			}
-		})
+		}
 	}
 	const onRotateCircleMouseDown = (e: MouseEvent) => {
 		const { clientX, clientY } = e
+		const x = Math.round(
+			(clientX - svgEditLayoutStore.canvasInfo.left) / configStore.svg.scale - svgEditLayoutStore.center_offset.x
+		)
+		const y = Math.round(
+			(clientY - svgEditLayoutStore.canvasInfo.top) / configStore.svg.scale - svgEditLayoutStore.center_offset.y
+		)
 		e.stopPropagation()
 		globalStore.intention = EGlobalStoreIntention.Rotate
 		globalStore.rotate_info = {
 			angle: props.itemInfo.rotate
 		}
-		globalStore.setMouseInfo({
+		globalStore.mouse_info = {
 			state: EMouseInfoState.Down,
-			position_x: clientX - svgEditLayoutStore.center_offset.x,
-			position_y: clientY - svgEditLayoutStore.center_offset.y,
-			now_position_x: clientX - svgEditLayoutStore.center_offset.x,
-			now_position_y: clientY - svgEditLayoutStore.center_offset.y,
+			position_x: x,
+			position_y: y,
+			now_position_x: x,
+			now_position_y: y,
 			new_position_x: 0,
 			new_position_y: 0
-		})
+		}
 	}
 	/**
 	 * 获取旋转之后的光标样式

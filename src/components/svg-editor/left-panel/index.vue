@@ -37,10 +37,10 @@
 </script>
 <template>
 	<div>
-		<el-collapse v-model="activeNames">
+		<el-collapse v-model="activeNames" style="border-top: none">
 			<el-collapse-item :name="item.groupType" v-for="item of left_tool_bar" :key="item.title">
 				<template #title>
-					<div style="font-weight: bold">{{ item.title }}</div>
+					<div>{{ item.title }}</div>
 				</template>
 				<div class="component-group flex flex-wrap">
 					<div

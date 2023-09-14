@@ -3,6 +3,6 @@ import { reservoir } from './reservoir'
 
 export const animation_group: IConfigComponentGroup = {
 	groupType: 'have_animation',
-	title: '动画图标',
+	title: '动画SVG',
 	list: [reservoir]
 }

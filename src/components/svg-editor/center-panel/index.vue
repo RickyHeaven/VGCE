@@ -1,18 +1,19 @@
 <script setup lang="ts">
-	import { pinia } from '@/hooks'
+	import { pinia, useHistoryRecord } from '@/hooks'
 	import { useConfigStore } from '@/stores/config'
 	import { useGlobalStore } from '@/stores/global'
-	import { EGlobalStoreIntention, EMouseInfoState, EScaleInfoType } from '@/stores/global/types'
 	import type { IDoneJson } from '@/stores/global/types'
+	import { EGlobalStoreIntention, EMouseInfoState, EScaleInfoType } from '@/stores/global/types'
 	import { useSvgEditLayoutStore } from '@/stores/svg-edit-layout'
 	import {
+		createLine,
 		getCenterPoint,
-		randomString,
+		getCommonClass,
 		getSvgNowPosition,
-		setSvgActualInfo,
-		prosToVBind,
 		objectDeepClone,
-		getCommonClass
+		prosToVBind,
+		randomString,
+		setSvgActualInfo
 	} from '@/utils'
 	import {
 		calculateBottom,
@@ -26,14 +27,14 @@
 	} from '@/utils/scale-core'
 	import HandlePanel from '@/components/svg-editor/handle-panel/index.vue'
 	import ConnectionPanel from '@/components/svg-editor/connection-panel/index.vue'
-	import { EDoneJsonType } from '@/config/types'
 	import type { IConfigItem } from '@/config/types'
+	import { EDoneJsonType } from '@/config/types'
 	import ConnectionLine from '@/components/svg-editor/connection-line/index.vue'
 	import type { IVisibleInfo } from './types'
 	import { vueComp } from '@/config'
 	import { useContextMenuStore, useEditPrivateStore } from '@/stores/system'
 	import { EContextMenuInfoType } from '@/stores/system/types'
-	import { useHistoryRecord } from '@/hooks'
+	import { computed } from 'vue'
 
 	//注册所有组件
 	const instance = getCurrentInstance()
@@ -50,13 +51,18 @@
 	const contextMenuStore = useContextMenuStore(pinia)
 	const contextMenuRef = ref<HTMLElement>()
 	const canvasRef = ref<HTMLElement>()
-	const cursor_style = computed(() =>
-		globalStore.intention == EGlobalStoreIntention.MoveCanvas
-			? 'grab'
-			: globalStore.intention == EGlobalStoreIntention.Rotate
-			? "url('/src/assets/icons/rotate.svg') 12 12, auto"
-			: 'default'
-	)
+	const ct: Record<string, any> = {
+		MoveCanvas: 'grab',
+		Rotate: "url('/src/assets/icons/rotate.svg') 12 12, auto",
+		Connection: 'crosshair'
+	}
+	const cursor_style = computed(() => {
+		if (Object.keys(ct).indexOf(globalStore.intention) > -1) {
+			return ct[globalStore.intention]
+		} else {
+			return 'default'
+		}
+	})
 	const visible_info: IVisibleInfo = reactive({
 		handle_panel: computed(
 			() =>
@@ -71,7 +77,47 @@
 			index: -1
 		}
 	})
-	const dropEvent = (e: DragEvent) => {
+
+	const area = ref<Record<string, any>>({
+		a: {
+			x: 0,
+			y: 0
+		},
+		b: {
+			x: 0,
+			y: 0
+		}
+	})
+	const selectRect = computed(() => {
+		if (globalStore.intention === EGlobalStoreIntention.SelectArea && area.value.b.x && area.value.b.y) {
+			return {
+				with: Math.abs(area.value.b.x - area.value.a.x),
+				height: Math.abs(area.value.b.y - area.value.a.y),
+				x: area.value.a.x < area.value.b.x ? area.value.a.x : area.value.b.x,
+				y: area.value.a.y < area.value.b.y ? area.value.a.y : area.value.b.y
+			}
+		}
+		return {
+			with: 0,
+			height: 0,
+			x: 0,
+			y: 0
+		}
+	})
+
+	const isGroup = computed(() => {
+		let t = 0
+		for (let e of globalStore.done_json) {
+			if (e.selected) {
+				t++
+			}
+		}
+		return t > 1
+	})
+
+	let groupMoved = false
+
+	const dropEvent = (e: Record<string, any>) => {
 		if (globalStore.intention == EGlobalStoreIntention.None) {
 			return
 		} else if (globalStore.intention == EGlobalStoreIntention.Create) {
@@ -80,8 +126,8 @@
 				return
 			}
 
-			const _x = Math.floor(e.clientX - svgEditLayoutStore.center_offset.x)
-			const _y = Math.floor(e.clientY - svgEditLayoutStore.center_offset.y)
+			const _x = Math.floor(e.offsetX / configStore.svg.scale - svgEditLayoutStore.center_offset.x)
+			const _y = Math.floor(e.offsetY / configStore.svg.scale - svgEditLayoutStore.center_offset.y)
 
 			const done_item_json: IDoneJson = {
 				id: randomString(),
@@ -99,6 +145,10 @@
 					y: 0,
 					width: 0,
 					height: 0
+				},
+				centerPosition: {
+					x: 0,
+					y: 0
 				},
 				point_coordinate: {
 					tl: {
@@ -134,6 +184,7 @@
 						y: 0
 					}
 				},
+				selected: false,
 				...objectDeepClone<IConfigItem>(globalStore.create_svg_info)
 			}
 			globalStore.setHandleSvgInfo(done_item_json, globalStore.done_json.length)
@@ -157,18 +208,73 @@
 		}
 		e.preventDefault()
 		e.stopPropagation()
-		//鼠标在画布上的组件按下记录选中的组件信息和鼠标位置信息等
-		globalStore.intention = EGlobalStoreIntention.Select
-		globalStore.setHandleSvgInfo(select_item, index)
-		globalStore.setMouseInfo({
-			state: EMouseInfoState.Down,
-			position_x: e.clientX,
-			position_y: e.clientY,
-			now_position_x: select_item.x,
-			now_position_y: select_item.y,
-			new_position_x: select_item.x,
-			new_position_y: select_item.y
-		})
+		if (e.ctrlKey && e.button === 0) {
+			//ctrl+鼠标左键 多选组件
+			select_item.selected = !select_item.selected
+		} else if (isGroup.value) {
+			//有框选的组件
+			globalStore.intention = EGlobalStoreIntention.GroupMove
+			globalStore.mouse_info = {
+				state: EMouseInfoState.Down,
+				position_x: (e.clientX - svgEditLayoutStore.canvasInfo.left) / configStore.svg.scale,
+				position_y: (e.clientY - svgEditLayoutStore.canvasInfo.top) / configStore.svg.scale,
+				now_position_x: 0,
+				now_position_y: 0,
+				new_position_x: 0,
+				new_position_y: 0
+			}
+			for (let e of globalStore.done_json) {
+				if (e.selected) {
+					e.oldPosition = {
+						x: e.x,
+						y: e.y
+					}
+				}
+			}
+		} else {
+			//鼠标在画布上的组件按下记录选中的组件信息和鼠标位置信息等
+			globalStore.intention = EGlobalStoreIntention.Select
+			globalStore.setHandleSvgInfo(select_item, index)
+			globalStore.mouse_info = {
+				state: EMouseInfoState.Down,
+				position_x: (e.clientX - svgEditLayoutStore.canvasInfo.left) / configStore.svg.scale,
+				position_y: (e.clientY - svgEditLayoutStore.canvasInfo.top) / configStore.svg.scale,
+				now_position_x: select_item.x,
+				now_position_y: select_item.y,
+				new_position_x: 0,
+				new_position_y: 0
+			}
+		}
+	}
+
+	const onSvgMouseUp = (select_item: IDoneJson, index: number, e: MouseEvent) => {
+		if (
+			globalStore.intention === EGlobalStoreIntention.Connection ||
+			globalStore.mouse_info.state != EMouseInfoState.Down
+		) {
+			return
+		}
+		if (isGroup.value && !groupMoved && ['SelectArea', 'Move', 'Select'].indexOf(globalStore.intention) < 0) {
+			//在有框选组件的情况下点击单个组件，鼠标在画布上的组件弹起记录选中的组件信息和鼠标位置信息等
+			for (let e of globalStore.done_json) {
+				e.selected = false
+				e.oldPosition = {
+					x: 0,
+					y: 0
+				}
+			}
+			globalStore.intention = EGlobalStoreIntention.Select
+			globalStore.setHandleSvgInfo(select_item, index)
+			globalStore.mouse_info = {
+				state: EMouseInfoState.Down,
+				position_x: (e.clientX - svgEditLayoutStore.canvasInfo.left) / configStore.svg.scale,
+				position_y: (e.clientY - svgEditLayoutStore.canvasInfo.top) / configStore.svg.scale,
+				now_position_x: select_item.x,
+				now_position_y: select_item.y,
+				new_position_x: 0,
+				new_position_y: 0
+			}
+		}
 	}
 	const onSvgMouseEnter = (select_item: IDoneJson, index: number, e: MouseEvent) => {
 		e.preventDefault()
@@ -209,34 +315,68 @@
 			return
 		}
 		const { clientX, clientY } = e
-		globalStore.mouse_info.new_position_x =
-			globalStore.mouse_info.now_position_x + clientX - globalStore.mouse_info.position_x
-		globalStore.mouse_info.new_position_y =
-			globalStore.mouse_info.now_position_y + clientY - globalStore.mouse_info.position_y
+		globalStore.mouse_info.new_position_x = Math.round(
+			(clientX - svgEditLayoutStore.canvasInfo.left) / configStore.svg.scale
+		)
+		globalStore.mouse_info.new_position_y = Math.round(
+			(clientY - svgEditLayoutStore.canvasInfo.top) / configStore.svg.scale
+		)
+		const x = Math.round(
+			globalStore.mouse_info.new_position_x - globalStore.mouse_info.position_x + globalStore.mouse_info.now_position_x
+		)
+		const y = Math.round(
+			globalStore.mouse_info.new_position_y - globalStore.mouse_info.position_y + globalStore.mouse_info.now_position_y
+		)
 		if (
 			globalStore.handle_svg_info?.info &&
-			(globalStore.intention == EGlobalStoreIntention.Select || globalStore.intention == EGlobalStoreIntention.Move)
+			(globalStore.intention === EGlobalStoreIntention.Select || globalStore.intention === EGlobalStoreIntention.Move)
 		) {
 			//有选中组件 移动组件
-			globalStore.handle_svg_info.info.x = globalStore.mouse_info.new_position_x
-			globalStore.handle_svg_info.info.y = globalStore.mouse_info.new_position_y
+			globalStore.handle_svg_info.info.x = x
+
+			globalStore.handle_svg_info.info.y = y
+
 			globalStore.handle_svg_info.info.client = {
-				x: globalStore.mouse_info.new_position_x,
-				y: globalStore.mouse_info.new_position_y
+				x: x,
+				y: y
 			}
 			globalStore.intention = EGlobalStoreIntention.Move
-		} else if (globalStore.intention == EGlobalStoreIntention.MoveCanvas) {
+		} else if (globalStore.intention === EGlobalStoreIntention.MoveCanvas) {
 			//移动画布
-			svgEditLayoutStore.center_offset.x = globalStore.mouse_info.new_position_x
-			svgEditLayoutStore.center_offset.y = globalStore.mouse_info.new_position_y
+			svgEditLayoutStore.center_offset.x = x
+			svgEditLayoutStore.center_offset.y = y
+		} else if (globalStore.intention === EGlobalStoreIntention.SelectArea) {
+			//框选
+			area.value.b.x = globalStore.mouse_info.new_position_x - svgEditLayoutStore.center_offset.x
+			area.value.b.y = globalStore.mouse_info.new_position_y - svgEditLayoutStore.center_offset.y
+		} else if (globalStore.intention === EGlobalStoreIntention.GroupMove) {
+			//群组移动
+			groupMoved = true
+			for (let e of globalStore.done_json) {
+				if (e.selected && e.oldPosition) {
+					const tx = Math.round(
+						globalStore.mouse_info.new_position_x - globalStore.mouse_info.position_x + e.oldPosition.x
+					)
+					const ty = Math.round(
+						globalStore.mouse_info.new_position_y - globalStore.mouse_info.position_y + e.oldPosition.y
+					)
+					e.x = tx
+					e.y = ty
+					e.client = {
+						x: tx,
+						y: ty
+					}
+				}
+			}
 		} else if (globalStore.intention === EGlobalStoreIntention.Zoom) {
+			//缩放单个组件
 			if (!globalStore.handle_svg_info) {
 				return
 			}
-			//当前鼠标坐标
+			//当前鼠标在画布中的坐标
 			const curPosition = {
-				x: e.clientX - svgEditLayoutStore.center_offset.x,
-				y: e.clientY - svgEditLayoutStore.center_offset.y
+				x: globalStore.mouse_info.new_position_x - svgEditLayoutStore.center_offset.x,
+				y: globalStore.mouse_info.new_position_y - svgEditLayoutStore.center_offset.y
 			}
 			let new_length = {
 				width: 0,
@@ -298,35 +438,13 @@
 				)
 			}
 
-			//缩放
-			// const move_length_x =
-			//   globalStore.scale_info.type === EScaleInfoType.TopLeft ||
-			//   globalStore.scale_info.type === EScaleInfoType.Left ||
-			//   globalStore.scale_info.type === EScaleInfoType.BottomLeft
-			//     ? -(newTopLeftPoint.x - globalStore.mouse_info.now_position_x)
-			//     : globalStore.scale_info.type === EScaleInfoType.TopRight ||
-			//       globalStore.scale_info.type === EScaleInfoType.Right ||
-			//       globalStore.scale_info.type === EScaleInfoType.BottomRight
-			//     ? globalStore.mouse_info.now_position_x - newTopLeftPoint.x
-			//     : 0;
-			// const move_length_y =
-			//   globalStore.scale_info.type === EScaleInfoType.TopLeft ||
-			//   globalStore.scale_info.type === EScaleInfoType.TopCenter ||
-			//   globalStore.scale_info.type === EScaleInfoType.TopRight
-			//     ? newTopLeftPoint.y - globalStore.mouse_info.now_position_y
-			//     : globalStore.scale_info.type === EScaleInfoType.BottomLeft ||
-			//       globalStore.scale_info.type === EScaleInfoType.BottomCenter ||
-			//       globalStore.scale_info.type === EScaleInfoType.BottomRight
-			//     ? globalStore.mouse_info.now_position_y - newTopLeftPoint.y
-			//     : 0;
-
 			//算出缩放倍数
 			if (globalStore.handle_svg_info && new_length.width > 0 && new_length.height > 0) {
 				const scale_x = !new_length.is_old_width
-					? new_length.width / globalStore.handle_svg_info.info.actual_bound.width
+					? parseFloat((new_length.width / globalStore.handle_svg_info.info.actual_bound.width).toFixed(3))
 					: 1
 				const scale_y = !new_length.is_old_height
-					? new_length.height / globalStore.handle_svg_info.info.actual_bound.height
+					? parseFloat((new_length.height / globalStore.handle_svg_info.info.actual_bound.height).toFixed(3))
 					: 1
 				const newCenterPoint = getCenterPoint(curPosition, globalStore.scale_info.symmetric_point)
 				if (
@@ -335,10 +453,12 @@
 					globalStore.scale_info.type !== EScaleInfoType.BottomCenter
 				) {
 					globalStore.handle_svg_info.info.scale_x = scale_x
-					globalStore.handle_svg_info.info.x = getSvgNowPosition(
-						globalStore.handle_svg_info.info.client.x,
-						newCenterPoint.x,
-						globalStore.scale_info.scale_item_info.x
+					globalStore.handle_svg_info.info.x = Math.round(
+						getSvgNowPosition(
+							globalStore.handle_svg_info.info.centerPosition.x,
+							newCenterPoint.x,
+							globalStore.handle_svg_info.info.client.x
+						)
 					)
 				}
 				if (
@@ -347,10 +467,12 @@
 					globalStore.scale_info.type !== EScaleInfoType.Right
 				) {
 					globalStore.handle_svg_info.info.scale_y = scale_y
-					globalStore.handle_svg_info.info.y = getSvgNowPosition(
-						globalStore.handle_svg_info.info.client.y,
-						newCenterPoint.y,
-						globalStore.scale_info.scale_item_info.y
+					globalStore.handle_svg_info.info.y = Math.round(
+						getSvgNowPosition(
+							globalStore.handle_svg_info.info.centerPosition.y,
+							newCenterPoint.y,
+							globalStore.handle_svg_info.info.client.y
+						)
 					)
 				}
 			}
@@ -360,17 +482,23 @@
 			}
 			const rotateDegreeBefore =
 				Math.atan2(
-					globalStore.mouse_info.position_y - globalStore.handle_svg_info.info.client.y,
-					globalStore.mouse_info.position_x - globalStore.handle_svg_info.info.client.x
+					globalStore.mouse_info.position_y - globalStore.handle_svg_info.info.y,
+					globalStore.mouse_info.position_x - globalStore.handle_svg_info.info.x
 				) /
 				(Math.PI / 180)
 			const rotateDegreeAfter =
 				Math.atan2(
-					clientY - svgEditLayoutStore.center_offset.y - globalStore.handle_svg_info.info.client.y,
-					clientX - svgEditLayoutStore.center_offset.x - globalStore.handle_svg_info.info.client.x
+					globalStore.mouse_info.new_position_y -
+						svgEditLayoutStore.center_offset.y -
+						globalStore.handle_svg_info.info.y,
+					globalStore.mouse_info.new_position_x -
+						svgEditLayoutStore.center_offset.x -
+						globalStore.handle_svg_info.info.x
 				) /
 				(Math.PI / 180)
-			globalStore.handle_svg_info.info.rotate = globalStore.rotate_info.angle + rotateDegreeAfter - rotateDegreeBefore
+			globalStore.handle_svg_info.info.rotate = parseFloat(
+				(globalStore.rotate_info.angle + rotateDegreeAfter - rotateDegreeBefore).toFixed(2)
+			)
 		} else if (globalStore.intention === EGlobalStoreIntention.Connection && globalStore.handle_svg_info) {
 			globalStore.handle_svg_info.info.props.point_position.val[
 				globalStore.handle_svg_info?.info.props.point_position.val.length - 1
@@ -408,14 +536,16 @@
 			return
 		}
 		if (globalStore.handle_svg_info?.info && globalStore.intention == EGlobalStoreIntention.Move) {
-			globalStore.done_json[globalStore.handle_svg_info.index].x = globalStore.mouse_info.new_position_x
-			globalStore.done_json[globalStore.handle_svg_info.index].y = globalStore.mouse_info.new_position_y
-			// globalStore.setDoneJson(globalStore.done_json);
 			setSvgActualInfo(globalStore.done_json[globalStore.handle_svg_info.index])
 			globalStore.intention = EGlobalStoreIntention.None
 			//记录历史记录
 			globalStore.setDoneJson(globalStore.done_json)
-			// globalStore.setHandleSvgInfo(undefined, 0);
+		} else if (globalStore.intention == EGlobalStoreIntention.GroupMove) {
+			if (groupMoved) {
+				//群组移动了
+				groupMoved = false
+				globalStore.intention = EGlobalStoreIntention.None
+			}
 		} else if (globalStore.handle_svg_info?.info && globalStore.intention == EGlobalStoreIntention.Zoom) {
 			//缩放完成后重置中点 新版本中点就是组件坐标
 			// const newCenterPoint = getCenterPoint(
@@ -434,12 +564,20 @@
 			setSvgActualInfo(globalStore.done_json[globalStore.handle_svg_info.index])
 			//记录历史记录
 			globalStore.setDoneJson(globalStore.done_json)
+			globalStore.intention = EGlobalStoreIntention.None
 		} else if (globalStore.intention === EGlobalStoreIntention.Connection) {
 			return
+		} else if (globalStore.intention === EGlobalStoreIntention.SelectArea) {
+			//框选
+			for (let e of globalStore.done_json) {
+				const t = selectRect.value
+				e.selected = e.x > t.x && e.x < t.x + t.with && e.y > t.y && e.y < t.y + t.height
+			}
+			globalStore.intention = EGlobalStoreIntention.None
 		} else if (globalStore.intention != EGlobalStoreIntention.Select) {
 			globalStore.intention = EGlobalStoreIntention.None
 		}
-		globalStore.setMouseInfo({
+		globalStore.mouse_info = {
 			state: EMouseInfoState.Up,
 			position_x: 0,
 			position_y: 0,
@@ -447,46 +585,91 @@
 			now_position_y: 0,
 			new_position_x: 0,
 			new_position_y: 0
-		})
+		}
 		contextMenuStore.display = false
 	}
 	const onCanvasMouseDown = (e: MouseEvent) => {
 		const { clientX, clientY } = e
-		if (globalStore.intention === EGlobalStoreIntention.Connection && globalStore.handle_svg_info) {
-			if (e.button === 0) {
-				//鼠标左键创建新线段
-				globalStore.handle_svg_info.info.props.point_position.val.push({
-					x: getSvgNowPosition(
-						globalStore.mouse_info.position_x,
-						clientX,
-						globalStore.handle_svg_info?.info.props.point_position.val[0].x
-					),
-					y: getSvgNowPosition(
-						globalStore.mouse_info.position_y,
-						clientY,
-						globalStore.handle_svg_info?.info.props.point_position.val[0].y
-					)
-				})
+		if (globalStore.intention === EGlobalStoreIntention.Connection) {
+			if (globalStore.handle_svg_info) {
+				if (e.button === 0) {
+					//鼠标左键创建新线段
+					globalStore.handle_svg_info.info.props.point_position.val.push({
+						x: getSvgNowPosition(
+							globalStore.mouse_info.position_x,
+							clientX,
+							globalStore.handle_svg_info?.info.props.point_position.val[0].x
+						),
+						y: getSvgNowPosition(
+							globalStore.mouse_info.position_y,
+							clientY,
+							globalStore.handle_svg_info?.info.props.point_position.val[0].y
+						)
+					})
+				} else if (e.button === 2) {
+					//鼠标右键结束线段绘制
+					globalStore.intention = EGlobalStoreIntention.None
+					setSvgActualInfo(globalStore.done_json[globalStore.handle_svg_info.index])
+				}
+				return
+			} else {
+				createLine(e)
 			}
-			if (e.button === 2) {
-				//鼠标右键结束线段绘制
-				globalStore.intention = EGlobalStoreIntention.None
-				setSvgActualInfo(globalStore.done_json[globalStore.handle_svg_info.index])
-			}
-			return
 		}
-		//点击画布 未选中组件 拖动画布
-		globalStore.intention = EGlobalStoreIntention.MoveCanvas
-		globalStore.setMouseInfo({
-			state: EMouseInfoState.Down,
-			position_x: clientX,
-			position_y: clientY,
-			now_position_x: svgEditLayoutStore.center_offset.x,
-			now_position_y: svgEditLayoutStore.center_offset.y,
-			new_position_x: svgEditLayoutStore.center_offset.x,
-			new_position_y: svgEditLayoutStore.center_offset.y
-		})
+		if (e.button === 0) {
+			//左键点击画布 未选中组件 框选
+			globalStore.intention = EGlobalStoreIntention.SelectArea
+
+			globalStore.mouse_info = {
+				state: EMouseInfoState.Down,
+				position_x: Math.round(
+					(clientX - svgEditLayoutStore.canvasInfo.left) / configStore.svg.scale - svgEditLayoutStore.center_offset.x
+				),
+				position_y: Math.round(
+					(clientY - svgEditLayoutStore.canvasInfo.top) / configStore.svg.scale - svgEditLayoutStore.center_offset.y
+				),
+				now_position_x: 0,
+				now_position_y: 0,
+				new_position_x: 0,
+				new_position_y: 0
+			}
+
+			area.value = {
+				a: {
+					x: globalStore.mouse_info.position_x,
+					y: globalStore.mouse_info.position_y
+				},
+				b: {
+					x: 0,
+					y: 0
+				}
+			}
+		} else if (e.button === 2) {
+			//右键点击画布 未选中组件 拖动画布
+			globalStore.intention = EGlobalStoreIntention.MoveCanvas
+
+			globalStore.mouse_info = {
+				state: EMouseInfoState.Down,
+				position_x: (clientX - svgEditLayoutStore.canvasInfo.left) / configStore.svg.scale,
+				position_y: (clientY - svgEditLayoutStore.canvasInfo.top) / configStore.svg.scale,
+				now_position_x: svgEditLayoutStore.center_offset.x,
+				now_position_y: svgEditLayoutStore.center_offset.y,
+				new_position_x: 0,
+				new_position_y: 0
+			}
+		}
 	}
+
+	function onMousewheel(e: any) {
+		if (e?.wheelDelta) {
+			if (e.wheelDelta > 0) {
+				configStore.svg.scale = parseFloat((configStore.svg.scale + 0.1).toFixed(1))
+			} else {
+				configStore.svg.scale = parseFloat((configStore.svg.scale - 0.1).toFixed(1))
+			}
+		}
+	}
+
 	/**
 	 * 鼠标右键事件
 	 * @param e
@@ -497,7 +680,6 @@
 		e.preventDefault() //禁用浏览器右键
 	}
 	const onSvgContextMenuEvent = (select_item: IDoneJson, index: number, e: MouseEvent) => {
-		console.log(globalStore.intention)
 		if (globalStore.intention === EGlobalStoreIntention.Connection) {
 			return
 		}
@@ -532,14 +714,13 @@
 		scale_y: number
 	) => {
 		return {
-			x: actual_bound.x - (actual_bound.width / 2) * scale_x + actual_bound.width / 2,
-			y: actual_bound.y - (actual_bound.height / 2) * scale_y + actual_bound.height / 2,
-			width: actual_bound.width * scale_x,
-			height: actual_bound.height * scale_y
+			x: parseFloat((actual_bound.x - (actual_bound.width / 2) * scale_x + actual_bound.width / 2).toFixed(1)),
+			y: parseFloat((actual_bound.y - (actual_bound.height / 2) * scale_y + actual_bound.height / 2).toFixed(1)),
+			width: parseFloat((actual_bound.width * scale_x).toFixed(1)),
+			height: parseFloat((actual_bound.height * scale_y).toFixed(1))
 		}
 	}
 	const onHandleKeyDown = (e: KeyboardEvent) => {
-		console.log(e, 733)
 		e.preventDefault()
 		if (globalStore.handle_svg_info && !e.ctrlKey && e.key == 'ArrowUp') {
 			globalStore.done_json[globalStore.handle_svg_info.index].y -= 1
@@ -598,6 +779,15 @@
 
 	onMounted(() => {
 		canvasRef.value?.focus()
+		nextTick(function () {
+			const d = canvasRef.value?.getBoundingClientRect()
+			svgEditLayoutStore.canvasInfo = {
+				height: d?.height || 0,
+				with: d?.width || 0,
+				top: d?.top || 0,
+				left: d?.left || 0
+			}
+		})
 	})
 </script>
 
@@ -614,6 +804,7 @@
 		@mouseup="onCanvasMouseUp"
 		@contextmenu="onCanvasContextMenuEvent"
 		@keydown="onHandleKeyDown"
+		@mousewheel="onMousewheel"
 	>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -622,14 +813,17 @@
 			height="100%"
 		>
 			<defs>
-				<pattern id="pattern_grid" patternUnits="userSpaceOnUse" x="0" y="0" width="10" height="10">
-					<rect width="1" height="1" rx="1" ry="1" fill="#aaaaaa" />
+				<pattern id="pattern_grid" patternUnits="userSpaceOnUse" x="0" y="0" width="20" height="20">
+					<line x1="0" y1="0" x2="0" y2="20" :stroke="configStore.svg.grid_color" />
+					<line x1="10" y1="0" x2="10" y2="20" :stroke="configStore.svg.grid_color" />
+					<line x1="0" y1="0" x2="20" y2="0" :stroke="configStore.svg.grid_color" />
+					<line x1="0" y1="10" x2="20" y2="10" :stroke="configStore.svg.grid_color" />
 				</pattern>
 			</defs>
 			<rect v-if="configStore.svg.grid" width="100%" height="100%" fill="url(#pattern_grid)" />
 			<g
-				:transform="`translate(${configStore.svg.position_center.x + svgEditLayoutStore.center_offset.x},${
-					configStore.svg.position_center.y + svgEditLayoutStore.center_offset.y
+				:transform="`translate(${svgEditLayoutStore.center_offset.x * configStore.svg.scale},${
+					svgEditLayoutStore.center_offset.y * configStore.svg.scale
 				})rotate(${0})scale(${configStore.svg.scale})`"
 			>
 				<g
@@ -647,6 +841,7 @@
 								item.actual_bound.height / 2
 							)})`"
 							@mousedown="onSvgMouseDown(item, index, $event)"
+							@mouseup="onSvgMouseUp(item, index, $event)"
 							@mouseenter="onSvgMouseEnter(item, index, $event)"
 							@mouseleave="onSvgMouseLeave(item, index, $event)"
 							@contextmenu="onSvgContextMenuEvent(item, index, $event)"
@@ -669,7 +864,7 @@
 									item.actual_bound.x +
 									item.actual_bound.width / 2
 								)},${-(item.actual_bound.y + item.actual_bound.height / 2)})`"
-							></use>
+							/>
 							<component
 								v-else-if="item.type === EDoneJsonType.CustomSvg"
 								:is="item.tag"
@@ -722,24 +917,21 @@
 								fill-opacity="0"
 								v-bind="getActualBoundScale(item.actual_bound, item.scale_x, item.scale_y)"
 								style="stroke: none; stroke-width: 2; stroke-miterlimit: 10"
-								:class="`${
-									globalStore.intention == EGlobalStoreIntention.None ||
-									globalStore.intention == EGlobalStoreIntention.Select
-										? 'svg-item-none'
-										: ''
-								}
-                                    ${
-																			globalStore.intention == EGlobalStoreIntention.Move &&
-																			globalStore.handle_svg_info?.info.id == item.id
-																				? 'svg-item-move'
-																				: ''
-																		} ${
-																			globalStore.intention == EGlobalStoreIntention.Select &&
-																			globalStore.handle_svg_info?.info.id == item.id
-																				? 'svg-item-select'
-																				: ''
-																		}`"
+								:class="{
+									'svg-item-none':
+										!item.selected &&
+										(globalStore.intention == EGlobalStoreIntention.None ||
+											globalStore.intention == EGlobalStoreIntention.Select),
+									'svg-item-move':
+										globalStore.intention == EGlobalStoreIntention.Move &&
+										globalStore.handle_svg_info?.info.id == item.id,
+									'svg-item-select':
+										globalStore.intention == EGlobalStoreIntention.Select &&
+										globalStore.handle_svg_info?.info.id == item.id,
+									'svg-item-in-group': item.selected
+								}"
 							/>
+
 							<handle-panel
 								v-if="
 									globalStore.handle_svg_info?.info.id === item.id && visible_info.handle_panel && item.config.can_zoom
@@ -748,9 +940,11 @@
 							/>
 							<connection-panel
 								v-if="
+									!item.selected &&
 									visible_info.select_item.info?.id == item.id &&
 									visible_info.connection_panel &&
 									item.config.have_anchor &&
+									globalStore.intention !== EGlobalStoreIntention.SelectArea &&
 									(globalStore.intention === EGlobalStoreIntention.Select
 										? item.id !== globalStore.handle_svg_info?.info.id
 										: true)
@@ -760,6 +954,16 @@
 						</g>
 					</g>
 				</g>
+				<!--框选-->
+				<rect
+					:x="selectRect.x"
+					:y="selectRect.y"
+					:height="selectRect.height"
+					:width="selectRect.with"
+					stroke="#107cec"
+					fill="#107cec"
+					fill-opacity=".2"
+				/>
 			</g>
 		</svg>
 		<!-- 右键菜单 -->
@@ -793,18 +997,22 @@
 		cursor: move;
 
 		&:hover {
-			outline: 1px solid #0cf;
+			outline: 1px solid #f8d032;
 		}
 	}
 
 	.svg-item-move {
 		cursor: move;
-		outline: 1px dashed rgb(23, 222, 30);
+		outline: 1px dashed rgb(222, 123, 23);
 	}
 
 	.svg-item-select {
 		cursor: move;
-		outline: 1px solid rgb(23, 222, 30);
+		outline: 1px solid rgb(222, 123, 23);
+	}
+
+	.svg-item-in-group {
+		outline: 1px solid rgb(222, 123, 23);
 	}
 
 	.contextMenu {

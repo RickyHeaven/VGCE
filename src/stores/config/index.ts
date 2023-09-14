@@ -14,15 +14,8 @@ if (l) {
 	s = {
 		background_color: '#fff',
 		scale: 1,
-		position_center: {
-			x: -333,
-			y: -113
-		},
-		svg_position_center: {
-			x: 50,
-			y: 50
-		},
 		grid: true,
+		grid_color: '#ebebeb',
 		ruler: true
 	}
 }

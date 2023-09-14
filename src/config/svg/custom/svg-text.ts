@@ -15,8 +15,8 @@ export const svg_text: IConfigItem = {
 	props: {
 		text: {
 			title: '文字内容',
-			type: EConfigItemPropsType.Input,
-			val: '文字'
+			type: EConfigItemPropsType.Textarea,
+			val: '文字内容'
 		},
 		fontFamily: {
 			title: '字体',

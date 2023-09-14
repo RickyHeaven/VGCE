@@ -55,6 +55,7 @@ export enum EConfigAnimationsType {
 
 export enum EConfigItemPropsType {
 	Input = 'Input',
+	Textarea = 'Textarea',
 	Color = 'Color',
 	InputNumber = 'InputNumber',
 	Switch = 'Switch', //此类型option默认索引0为关闭

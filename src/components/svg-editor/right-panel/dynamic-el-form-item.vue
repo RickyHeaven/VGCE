@@ -65,6 +65,13 @@
 				v-model="attr_item.val"
 				:disabled="Boolean(attr_item?.disabled)"
 			/>
+			<el-input
+				v-else-if="attr_item.type === EConfigItemPropsType.Textarea"
+				v-model="attr_item.val"
+				autosize
+				type="textarea"
+				:disabled="Boolean(attr_item?.disabled)"
+			/>
 			<el-color-picker
 				v-else-if="attr_item.type === EConfigItemPropsType.Color"
 				v-model="attr_item.val"

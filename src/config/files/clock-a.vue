@@ -59,6 +59,6 @@
 			</path>
 			<path d="M512.3 506.3m-22.8 0a22.8 22.8 0 1 0 45.6 0 22.8 22.8 0 1 0-45.6 0Z" fill="#fff" />
 		</symbol>
-		<use :xlink:href="`#${props.id}clock-a-n`" width="200" height="200" />
+		<use :xlink:href="`#${props.id}clock-a-n`" width="100" height="100" />
 	</g>
 </template>

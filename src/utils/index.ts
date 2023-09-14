@@ -1,7 +1,14 @@
 import { ELineBindAnchors } from '@/components/config/types'
+import type { ISystemStraightLine } from '@/components/config/types'
 import { EDoneJsonType } from '@/config/types'
 import type { IConfigItem } from '@/config/types'
 import type { IDoneJson } from '@/stores/global/types'
+import { straight_line_system } from '@/components/config'
+import { EGlobalStoreIntention, EMouseInfoState } from '@/stores/global/types'
+import { useGlobalStore } from '@/stores/global'
+import { pinia } from '@/hooks'
+import { useConfigStore } from '@/stores/config'
+import { useSvgEditLayoutStore } from '@/stores/svg-edit-layout'
 
 /**
  * 生成随机字符串
@@ -99,9 +106,9 @@ export const positionArrToPath = (position_arr: { x: number; y: number }[]) => {
 }
 /**
  * 获取相对于svg最新的坐标
- * @param init_pos 相对于页面的初始坐标
- * @param finally_pos 相对于页面的最终坐标
- * @param svg_init_pos 相对于svg的初始坐标
+ * @param init_pos 原中心坐标
+ * @param finally_pos 新中心坐标
+ * @param svg_init_pos 在画布中的的原坐标
  * @returns svg最新的坐标
  */
 export const getSvgNowPosition = (init_pos: number, finally_pos: number, svg_init_pos: number) => {
@@ -113,7 +120,7 @@ export const getSvgNowPosition = (init_pos: number, finally_pos: number, svg_ini
  * @param default_val
  * @returns
  */
-export const objectDeepClone = <T>(object: object, default_val: any = {}) => {
+export const objectDeepClone = <T>(object: Record<keyof any, any>, default_val: any = {}) => {
 	if (!object) {
 		return default_val as T
 	}
@@ -134,11 +141,10 @@ export const setSvgActualInfo = (done_json: IDoneJson, resize?: boolean) => {
 			height = 0
 		if (done_json.type !== EDoneJsonType.Vue) {
 			const BBox = (queryBbox as SVGGraphicsElement).getBBox()
-			console.log(BBox)
-			x = BBox.x
-			y = BBox.y
-			width = BBox.width
-			height = BBox.height
+			x = parseFloat(BBox.x.toFixed(0))
+			y = parseFloat(BBox.y.toFixed(0))
+			width = parseFloat(BBox.width.toFixed(0))
+			height = parseFloat(BBox.height.toFixed(0))
 		} else {
 			width = (queryBbox as HTMLElement).offsetWidth
 			height = (queryBbox as HTMLElement).offsetHeight
@@ -187,6 +193,7 @@ export const setSvgActualInfo = (done_json: IDoneJson, resize?: boolean) => {
 				height
 			}
 		}
+		done_json.centerPosition = { x: done_json.x + width / 2, y: done_json.y + height / 2 }
 		done_json.point_coordinate.tl = {
 			x: done_json.x - (width * done_json.scale_x) / 2,
 			y: done_json.y - (height * done_json.scale_y) / 2
@@ -247,70 +254,14 @@ export const getAnchorPosByAnchorType = (anchor_type: ELineBindAnchors, done_jso
  */
 export const setAfterRotationPointCoordinate = (item: IDoneJson) => {
 	item.point_coordinate = {
-		tl: calculateRotatedPointCoordinate(
-			item.point_coordinate.tl,
-			{
-				x: item.x,
-				y: item.y
-			},
-			item.rotate
-		),
-		tc: calculateRotatedPointCoordinate(
-			item.point_coordinate.tc,
-			{
-				x: item.x,
-				y: item.y
-			},
-			item.rotate
-		),
-		tr: calculateRotatedPointCoordinate(
-			item.point_coordinate.tr,
-			{
-				x: item.x,
-				y: item.y
-			},
-			item.rotate
-		),
-		l: calculateRotatedPointCoordinate(
-			item.point_coordinate.l,
-			{
-				x: item.x,
-				y: item.y
-			},
-			item.rotate
-		),
-		r: calculateRotatedPointCoordinate(
-			item.point_coordinate.r,
-			{
-				x: item.x,
-				y: item.y
-			},
-			item.rotate
-		),
-		bl: calculateRotatedPointCoordinate(
-			item.point_coordinate.bl,
-			{
-				x: item.x,
-				y: item.y
-			},
-			item.rotate
-		),
-		bc: calculateRotatedPointCoordinate(
-			item.point_coordinate.bc,
-			{
-				x: item.x,
-				y: item.y
-			},
-			item.rotate
-		),
-		br: calculateRotatedPointCoordinate(
-			item.point_coordinate.br,
-			{
-				x: item.x,
-				y: item.y
-			},
-			item.rotate
-		)
+		tl: calculateRotatedPointCoordinate(item.point_coordinate.tl, item.centerPosition, item.rotate),
+		tc: calculateRotatedPointCoordinate(item.point_coordinate.tc, item.centerPosition, item.rotate),
+		tr: calculateRotatedPointCoordinate(item.point_coordinate.tr, item.centerPosition, item.rotate),
+		l: calculateRotatedPointCoordinate(item.point_coordinate.l, item.centerPosition, item.rotate),
+		r: calculateRotatedPointCoordinate(item.point_coordinate.r, item.centerPosition, item.rotate),
+		bl: calculateRotatedPointCoordinate(item.point_coordinate.bl, item.centerPosition, item.rotate),
+		bc: calculateRotatedPointCoordinate(item.point_coordinate.bc, item.centerPosition, item.rotate),
+		br: calculateRotatedPointCoordinate(item.point_coordinate.br, item.centerPosition, item.rotate)
 	}
 }
 
@@ -394,4 +345,113 @@ export const valFormat = (v: any) => {
 		return Number(v)
 	}
 	return v
+}
+/**
+ * 创建连线
+ * @param bind_anchor_type 绑定锚点类型
+ * @param itemInfo 组件（锚点创建线时）
+ * @param e
+ */
+export const createLine = (e: MouseEvent, bind_anchor_type?: ELineBindAnchors, itemInfo?: IDoneJson) => {
+	e.preventDefault()
+
+	const globalStore = useGlobalStore(pinia)
+	const configStore = useConfigStore(pinia)
+	const svgEditLayoutStore = useSvgEditLayoutStore(pinia)
+
+	const { clientX, clientY } = e
+	let create_line_info = objectDeepClone<ISystemStraightLine>(configStore.connection_line)
+	//以后顶部可以选择连线是哪种 直线先不做
+	/*if (false) {
+	 create_line_info = straight_line_system
+	 }*/
+	let x: number = 0
+	let y: number = 0
+	if (bind_anchor_type && itemInfo) {
+		create_line_info.bind_anchors.start = {
+			type: bind_anchor_type,
+			target_id: itemInfo.id
+		}
+		let t = getAnchorPosByAnchorType(bind_anchor_type, itemInfo)
+		x = t.x
+		y = t.y
+	} else {
+		x = Math.round(
+			(clientX - svgEditLayoutStore.canvasInfo.left) / configStore.svg.scale - svgEditLayoutStore.center_offset.x
+		)
+		y = Math.round(
+			(clientY - svgEditLayoutStore.canvasInfo.top) / configStore.svg.scale - svgEditLayoutStore.center_offset.y
+		)
+	}
+	const done_item_json = {
+		id: straight_line_system.name + randomString(),
+		x: x,
+		y: y,
+		client: {
+			x: x,
+			y: y
+		},
+		scale_x: 1,
+		scale_y: 1,
+		rotate: 0,
+		actual_bound: {
+			x: 0,
+			y: 0,
+			width: 0,
+			height: 0
+		},
+		centerPosition: { x: 0, y: 0 },
+		point_coordinate: {
+			tl: {
+				x: 0,
+				y: 0
+			},
+			tc: {
+				x: 0,
+				y: 0
+			},
+			tr: {
+				x: 0,
+				y: 0
+			},
+			l: {
+				x: 0,
+				y: 0
+			},
+			r: {
+				x: 0,
+				y: 0
+			},
+			bl: {
+				x: 0,
+				y: 0
+			},
+			bc: {
+				x: 0,
+				y: 0
+			},
+			br: {
+				x: 0,
+				y: 0
+			}
+		},
+		...create_line_info
+	}
+	done_item_json.props.point_position.val.push({
+		x: 50,
+		y: 50
+	})
+	globalStore.setHandleSvgInfo(done_item_json, globalStore.done_json.length)
+	globalStore.setDoneJson(done_item_json)
+
+	globalStore.intention = EGlobalStoreIntention.Connection
+	globalStore.mouse_info = {
+		state: EMouseInfoState.Down,
+		position_x: x,
+		position_y: y,
+		now_position_x: x,
+		now_position_y: y,
+		new_position_x: 0,
+		new_position_y: 0
+	}
 }

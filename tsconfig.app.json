@@ -11,6 +11,7 @@
     "strictNullChecks": true,
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "types": ["vite-plugin-svg-icons/client"]
   }
 }

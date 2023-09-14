@@ -8,6 +8,10 @@
 	const global_store = useGlobalStore(pinia)
 	const current_node_key = ref(global_store.handle_svg_info?.info.id || '')
 	const handleNodeClick = (data: IDoneJson) => {
+		for (let e of global_store.done_json) {
+			e.selected = false
+			e.oldPosition = { x: 0, y: 0 }
+		}
 		global_store.intention = EGlobalStoreIntention.Select
 		global_store.setHandleSvgInfo(data)
 	}

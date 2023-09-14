@@ -5,4 +5,5 @@ export interface ISvgEditLayoutStore {
 		x: number
 		y: number
 	}
+	canvasInfo: { with: number; height: number; top: number; left: number }
 }

@@ -6,7 +6,7 @@ Vector graphics configure editor. 矢量图组态编辑器。
 
 1. `npm i @zhangqingcq/vgce` or `pnpm add @zhangqingcq/vgce`
 
-2. `import '@zhangqingcq/vgce/style'` in main.ts
+2. `import '@zhangqingcq/vgce/dist/style.css'` in main.ts
 
 3. editor
     ```

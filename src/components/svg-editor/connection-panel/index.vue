@@ -1,197 +1,114 @@
 <!-- 连线组件 -->
 <script lang="ts" setup>
-	import { straight_line_system } from '@/components/config'
 	import { ELineBindAnchors } from '@/components/config/types'
-	import type { ISystemStraightLine } from '@/components/config/types'
-	import { pinia } from '@/hooks'
-	import { useConfigStore } from '@/stores/config'
-	import { useGlobalStore } from '@/stores/global'
-	import { EGlobalStoreIntention, EMouseInfoState } from '@/stores/global/types'
 	import type { IDoneJson } from '@/stores/global/types'
-	import { getAnchorPosByAnchorType, getCoordinateOffset, objectDeepClone, randomString } from '@/utils'
+	import { getCoordinateOffset, createLine } from '@/utils'
 
-	const props = defineProps<{ itemInfo: IDoneJson }>()
-	const globalStore = useGlobalStore(pinia)
-	const configStore = useConfigStore(pinia)
+	const props = defineProps<{
+		itemInfo: IDoneJson
+	}>()
 	const offset = ref(4)
-	const fill = ref('#4F80FF')
+	const fill = ref('#ab712e')
 	const radius = ref(4)
-	/**
-	 * 点了连线
-	 * @param bind_anchor_type 绑定锚点类型
-	 * @param e
-	 */
-	const onConnectionMouseDown = (bind_anchor_type: ELineBindAnchors, e: MouseEvent) => {
-		e.preventDefault()
+	const outRadius = ref(12)
 
-		const { clientX, clientY } = e
-		let create_line_info = objectDeepClone<ISystemStraightLine>(configStore.connection_line)
-		console.log('onConnectionMouseDown', configStore.connection_line, e)
-		//以后顶部可以选择连线是哪种 直线先不做
-		/*if (false) {
-		 create_line_info = straight_line_system
-		 }*/
-		create_line_info.bind_anchors.start = {
-			type: bind_anchor_type,
-			target_id: props.itemInfo.id
-		}
-		const { x, y } = getAnchorPosByAnchorType(bind_anchor_type, props.itemInfo)
-		const done_item_json = {
-			id: straight_line_system.name + randomString(),
-			x: x,
-			y: y,
-			client: {
-				x: clientX,
-				y: clientY
-			},
-			scale_x: 1,
-			scale_y: 1,
-			rotate: 0,
-			actual_bound: {
-				x: 0,
-				y: 0,
-				width: 0,
-				height: 0
-			},
-			point_coordinate: {
-				tl: {
-					x: 0,
-					y: 0
-				},
-				tc: {
-					x: 0,
-					y: 0
-				},
-				tr: {
-					x: 0,
-					y: 0
-				},
-				l: {
-					x: 0,
-					y: 0
-				},
-				r: {
-					x: 0,
-					y: 0
-				},
-				bl: {
-					x: 0,
-					y: 0
-				},
-				bc: {
-					x: 0,
-					y: 0
-				},
-				br: {
-					x: 0,
-					y: 0
-				}
-			},
-			...create_line_info
-		}
-		done_item_json.props.point_position.val.push({
-			x: configStore.svg.svg_position_center.x,
-			y: configStore.svg.svg_position_center.y
-		})
-		globalStore.setHandleSvgInfo(done_item_json, globalStore.done_json.length)
-		globalStore.setDoneJson(done_item_json)
+	const cxT = computed(
+		() => props.itemInfo.actual_bound.x + props.itemInfo.actual_bound.width / 2 - offset.value + radius.value
+	)
 
-		globalStore.intention = EGlobalStoreIntention.Connection
-		globalStore.setMouseInfo({
-			state: EMouseInfoState.Down,
-			position_x: clientX,
-			position_y: clientY,
-			now_position_x: clientX,
-			now_position_y: clientY,
-			new_position_x: 0,
-			new_position_y: 0
-		})
-	}
+	const cyT = computed(
+		() =>
+			props.itemInfo.actual_bound.y -
+			offset.value -
+			getCoordinateOffset(props.itemInfo.actual_bound.height, props.itemInfo.scale_y) +
+			radius.value
+	)
+
+	const cxR = computed(
+		() =>
+			props.itemInfo.actual_bound.x -
+			offset.value +
+			props.itemInfo.actual_bound.width +
+			getCoordinateOffset(props.itemInfo.actual_bound.width, props.itemInfo.scale_x) +
+			radius.value
+	)
+
+	const cyR = computed(
+		() =>
+			props.itemInfo.actual_bound.y -
+			offset.value +
+			(props.itemInfo.actual_bound.height * props.itemInfo.scale_y) / 2 -
+			getCoordinateOffset(props.itemInfo.actual_bound.height, props.itemInfo.scale_y) +
+			radius.value
+	)
+
+	const cxB = computed(
+		() => props.itemInfo.actual_bound.x - offset.value + props.itemInfo.actual_bound.width / 2 + radius.value
+	)
+	const cyB = computed(
+		() =>
+			props.itemInfo.actual_bound.y -
+			offset.value +
+			props.itemInfo.actual_bound.height +
+			getCoordinateOffset(props.itemInfo.actual_bound.height, props.itemInfo.scale_y) +
+			radius.value
+	)
+
+	const cxL = computed(
+		() =>
+			props.itemInfo.actual_bound.x -
+			offset.value -
+			getCoordinateOffset(props.itemInfo.actual_bound.width, props.itemInfo.scale_x) +
+			radius.value
+	)
+	const cyL = computed(
+		() =>
+			props.itemInfo.actual_bound.y -
+			offset.value +
+			(props.itemInfo.actual_bound.height * props.itemInfo.scale_y) / 2 -
+			getCoordinateOffset(props.itemInfo.actual_bound.height, props.itemInfo.scale_y) +
+			radius.value
+	)
 </script>
 
 <template>
-	<g style="vector-effect: non-scaling-stroke">
-		<circle
-			id="connection_tc"
-			:cx="props.itemInfo.actual_bound.x + props.itemInfo.actual_bound.width / 2 - offset + radius"
-			:cy="
-				props.itemInfo.actual_bound.y -
-				offset -
-				getCoordinateOffset(props.itemInfo.actual_bound.height, props.itemInfo.scale_y) +
-				radius
-			"
-			:r="radius"
-			stroke="rgba(0,0,0,0)"
-			stroke-width="2"
-			:fill="fill"
-			:style="{ 'vector-effect': 'non-scaling-stroke', cursor: 'pointer' }"
-			pointer-events="all"
-			@mousedown="onConnectionMouseDown(ELineBindAnchors.TopCenter, $event)"
-		/>
-		<circle
-			id="connection_l"
-			:cx="
-				props.itemInfo.actual_bound.x -
-				offset -
-				getCoordinateOffset(props.itemInfo.actual_bound.width, props.itemInfo.scale_x) +
-				radius
-			"
-			:cy="
-				props.itemInfo.actual_bound.y -
-				offset +
-				(props.itemInfo.actual_bound.height * props.itemInfo.scale_y) / 2 -
-				getCoordinateOffset(props.itemInfo.actual_bound.height, props.itemInfo.scale_y) +
-				radius
-			"
-			:r="radius"
-			stroke="rgba(0,0,0,0)"
-			stroke-width="2"
-			:fill="fill"
-			:style="{ 'vector-effect': 'non-scaling-stroke', cursor: 'pointer' }"
-			pointer-events="all"
-			@mousedown="onConnectionMouseDown(ELineBindAnchors.Left, $event)"
-		/>
-		<circle
-			id="connection_r"
-			:cx="
-				props.itemInfo.actual_bound.x -
-				offset +
-				props.itemInfo.actual_bound.width +
-				getCoordinateOffset(props.itemInfo.actual_bound.width, props.itemInfo.scale_x) +
-				radius
-			"
-			:cy="
-				props.itemInfo.actual_bound.y -
-				offset +
-				(props.itemInfo.actual_bound.height * props.itemInfo.scale_y) / 2 -
-				getCoordinateOffset(props.itemInfo.actual_bound.height, props.itemInfo.scale_y) +
-				radius
-			"
-			:r="radius"
-			stroke="rgba(0,0,0,0)"
-			stroke-width="2"
-			:fill="fill"
-			:style="{ 'vector-effect': 'non-scaling-stroke', cursor: 'pointer' }"
-			pointer-events="all"
-			@mousedown="onConnectionMouseDown(ELineBindAnchors.Right, $event)"
-		/>
-		<circle
-			id="connection_bc"
-			:cx="props.itemInfo.actual_bound.x - offset + props.itemInfo.actual_bound.width / 2 + radius"
-			:cy="
-				props.itemInfo.actual_bound.y -
-				offset +
-				props.itemInfo.actual_bound.height +
-				getCoordinateOffset(props.itemInfo.actual_bound.height, props.itemInfo.scale_y) +
-				radius
-			"
-			:r="radius"
-			stroke="rgba(0,0,0,0)"
-			stroke-width="2"
-			:fill="fill"
-			:style="{ 'vector-effect': 'non-scaling-stroke', cursor: 'pointer' }"
-			pointer-events="all"
-			@mousedown="onConnectionMouseDown(ELineBindAnchors.BottomCenter, $event)"
-		/>
+	<g
+		style="vector-effect: non-scaling-stroke"
+		class="connect-points"
+		:fill="fill"
+		stroke-width="2"
+		stroke="rgba(0,0,0,0)"
+	>
+		<g @mousedown="createLine($event, ELineBindAnchors.TopCenter, itemInfo)">
+			<circle class="out-circle" :cx="cxT" :cy="cyT" :r="outRadius" fill-opacity=".3" />
+			<circle id="connection_tc" :cx="cxT" :cy="cyT" :r="radius" pointer-events="all" />
+		</g>
+		<g @mousedown="createLine($event, ELineBindAnchors.Left, itemInfo)">
+			<circle class="out-circle" :cx="cxL" :cy="cyL" :r="outRadius" fill-opacity=".3" />
+			<circle id="connection_l" :cx="cxL" :cy="cyL" :r="radius" :style="{ cursor: 'crosshair' }" pointer-events="all" />
+		</g>
+		<g @mousedown="createLine($event, ELineBindAnchors.Right, itemInfo)">
+			<circle class="out-circle" :cx="cxR" :cy="cyR" :r="outRadius" fill-opacity=".3" />
+			<circle id="connection_r" :cx="cxR" :cy="cyR" :r="radius" pointer-events="all" />
+		</g>
+		<g @mousedown="createLine($event, ELineBindAnchors.BottomCenter, itemInfo)">
+			<circle class="out-circle" :cx="cxB" :cy="cyB" :r="outRadius" fill-opacity=".3" />
+			<circle id="connection_bc" :cx="cxB" :cy="cyB" :r="radius" pointer-events="all" />
+		</g>
 	</g>
 </template>
+<style lang="less" scoped>
+	.connect-points g {
+		cursor: crosshair;
+
+		&:hover {
+			.out-circle {
+				visibility: visible;
+			}
+		}
+
+		.out-circle {
+			visibility: hidden;
+		}
+	}
+</style>

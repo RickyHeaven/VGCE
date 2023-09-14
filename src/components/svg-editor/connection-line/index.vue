@@ -23,7 +23,7 @@
 			point_index: point_index
 		}
 		globalStore.intention = EGlobalStoreIntention.SetConnectionLineNode
-		globalStore.setMouseInfo({
+		globalStore.mouse_info = {
 			state: EMouseInfoState.Down,
 			position_x: clientX,
 			position_y: clientY,
@@ -31,7 +31,7 @@
 			now_position_y: clientY,
 			new_position_x: 0,
 			new_position_y: 0
-		})
+		}
 	}
 </script>
 

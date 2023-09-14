@@ -3,12 +3,14 @@
 	import { useConfigStore } from '@/stores/config'
 	import { useGlobalStore } from '@/stores/global'
 	import { useEditPrivateStore } from '@/stores/system'
-	import { ElIcon, ElDivider } from 'element-plus'
+	import { ElIcon, ElDivider, ElDialog, ElScrollbar } from 'element-plus'
 	import SvgAnalysis from '../../svg-analysis/index.vue'
 	import { useSvgEditLayoutStore } from '@/stores/svg-edit-layout'
 	import { EVisibleConfKey } from '../types'
 	import type { IDataModel } from '../types'
 	import { EGlobalStoreIntention } from '@/stores/global/types'
+	import { VAceEditor } from 'vue3-ace-editor'
+	import LeftPanel from '@/components/svg-editor/left-panel/index.vue'
 
 	const svgEditLayoutStore = useSvgEditLayoutStore(pinia)
 	const globalStore = useGlobalStore(pinia)
@@ -35,13 +37,27 @@
 		}
 		emits('onSave', data_model)
 	}
+
+	const open = ref(false)
+
+	const connection_line = computed({
+		get: () => globalStore.intention === EGlobalStoreIntention.Connection,
+		set(v: any) {
+			globalStore.intention = v ? EGlobalStoreIntention.Connection : EGlobalStoreIntention.None
+		}
+	})
 </script>
 
 <template>
 	<div class="flex justify-between" style="width: 100%">
-		<div class="flex items-center justify-between" style="width: 220px">
-			<div class="flex items-center"><span class="logo-title">组态编辑器</span></div>
-			<el-icon :size="24" class="bt-Icon" @click="svgEditLayoutStore.left_nav = !svgEditLayoutStore.left_nav">
+		<div class="flex items-center justify-between" style="width: 250px">
+			<div class="flex items-center"><span class="logo-title">Svg Editor</span></div>
+			<el-icon
+				:size="24"
+				class="bt-Icon"
+				@click="svgEditLayoutStore.left_nav = !svgEditLayoutStore.left_nav"
+				:title="svgEditLayoutStore.left_nav ? '隐藏左侧菜单' : '显示左侧菜单'"
+			>
 				<svg-analysis v-if="svgEditLayoutStore.left_nav" name="menu-unfold" />
 				<svg-analysis v-else name="menu-fold" />
 			</el-icon>
@@ -50,65 +66,79 @@
 			<div class="flex items-center">
 				<el-icon
 					title="撤销 ctrl+z"
-					:size="20"
+					:size="24"
 					:class="`${editPrivateStore.getTopBtnUndoStatus ? 'bt-Icon' : 'icon-disable'} ml-20px`"
 					@click="() => editPrivateStore.topUndoBtnClick()"
 				>
-					<svg-analysis name="undo" />
+					<svg-analysis :name="editPrivateStore.getTopBtnUndoStatus ? 'undo' : 'undo-gray'" />
 				</el-icon>
 				<el-icon
 					title="重做 ctrl+shift+z"
 					:class="`${editPrivateStore.getTopBtnRedoStatus ? 'bt-Icon' : 'icon-disable'} ml-5px`"
-					:size="20"
+					:size="24"
 					@click="() => editPrivateStore.topRedoBtnClick()"
 				>
-					<svg-analysis name="redo" />
+					<svg-analysis :name="editPrivateStore.getTopBtnRedoStatus ? 'redo' : 'redo-gray'" />
 				</el-icon>
 				<el-divider direction="vertical"></el-divider>
 				<el-icon
 					title="清空 ctrl+delete"
-					:class="`${globalStore.done_json.length > 0 ? 'bt-Icon' : 'icon-disable'}`"
-					:size="20"
+					:class="globalStore.done_json.length > 0 ? 'bt-Icon' : 'icon-disable'"
+					:size="24"
 					@click="onDeleteBtnClick"
 				>
-					<svg-analysis name="delete" />
+					<svg-analysis :name="globalStore.done_json.length > 0 ? 'delete' : 'delete-gray'" />
 				</el-icon>
 				<el-divider direction="vertical" />
 				<el-icon
 					title="导入数据模型"
 					class="bt-Icon"
-					:size="20"
+					:size="24"
 					@click="emits('changeVisible', EVisibleConfKey.ImportJson, true)"
 				>
 					<svg-analysis name="import" />
 				</el-icon>
 				<el-icon
 					title="导出数据模型"
-					:size="20"
+					:size="24"
 					class="bt-Icon ml-5px"
 					@click="emits('changeVisible', EVisibleConfKey.ExportJson, true)"
 				>
 					<svg-analysis name="export" />
 				</el-icon>
+				<el-divider direction="vertical" />
+				<el-icon
+					title="创建连线"
+					class="bt-Icon"
+					:class="{ active: connection_line }"
+					:size="24"
+					@click="connection_line = !connection_line"
+				>
+					<svg-analysis :name="connection_line ? 'line-active' : 'line'" />
+				</el-icon>
+				<el-divider direction="vertical" />
+				<el-icon title="说明" class="bt-Icon" :size="24" @click="open = !open">
+					<svg-analysis name="question" />
+				</el-icon>
 				<!-- <el-divider direction="vertical"></el-divider>
-        <el-icon title="组合" class="bt-Icon" :size="20">
+        <el-icon title="组合" class="bt-Icon" :size="24">
           <svg-analysis name="group"/>
         </el-icon>
         <el-divider direction="vertical"></el-divider>
-        <el-icon title="取消组合" class="bt-Icon" :size="20">
+        <el-icon title="取消组合" class="bt-Icon" :size="24">
           <svg-analysis name="ungroup"/>
         </el-icon>
         <el-divider direction="vertical"></el-divider>
-        <el-icon title="锁定" class="bt-Icon" :size="20">
+        <el-icon title="锁定" class="bt-Icon" :size="24">
           <svg-analysis name="lock"/>
         </el-icon> -->
 			</div>
 			<div class="flex items-center mr-20px">
-				<el-icon title="返回" class="bt-Icon" :size="20" @click="emits('onReturn')">
+				<el-icon title="返回" class="bt-Icon" :size="24" @click="emits('onReturn')">
 					<svg-analysis name="return" />
 				</el-icon>
 				<el-divider direction="vertical"></el-divider>
-				<el-icon title="保存" class="bt-Icon" :size="20" @click="onSaveClick">
+				<el-icon title="保存" class="bt-Icon" :size="24" @click="onSaveClick">
 					<svg-analysis name="save" />
 				</el-icon>
 				<el-divider direction="vertical"></el-divider>
@@ -117,23 +147,47 @@
 				</el-icon>
 			</div>
 		</div>
-		<div class="flex items-center" style="width: 220px">
-			<el-icon :size="24" class="bt-Icon" @click="svgEditLayoutStore.right_nav = !svgEditLayoutStore.right_nav">
+		<div class="flex items-center" style="width: 250px">
+			<el-icon
+				:size="24"
+				class="bt-Icon"
+				@click="svgEditLayoutStore.right_nav = !svgEditLayoutStore.right_nav"
+				:title="svgEditLayoutStore.right_nav ? '隐藏右侧菜单' : '显示右侧菜单'"
+			>
 				<svg-analysis v-if="svgEditLayoutStore.right_nav" name="menu-fold" />
 				<svg-analysis v-else name="menu-unfold" />
 			</el-icon>
 		</div>
 	</div>
+	<el-dialog v-model="open" title="使用说明" width="60%">
+		<el-scrollbar max-height="60vh">
+			<div class="font-bold mb-10px text-15px">多选</div>
+			<div>鼠标按住左键可以框选，也可以按住ctrl+鼠标左键点图形进行多选</div>
+			<div class="el-divider el-divider--horizontal" role="separator" style="--el-border-style: solid"> </div>
+			<div class="font-bold mb-10px text-15px">拖动画布</div>
+			<div>右键画布然后拖动即可，右侧面板‘图纸栏’可微调或重置位置</div>
+			<div class="el-divider el-divider--horizontal" role="separator" style="--el-border-style: solid"> </div>
+			<div class="font-bold mb-10px text-15px">画布缩放</div>
+			<div>使用鼠标滚轮或者右侧面板‘图纸栏’可控制画布缩放</div>
+			<div class="el-divider el-divider--horizontal" role="separator" style="--el-border-style: solid"> </div>
+			<div class="font-bold mb-10px text-15px">标尺辅助线</div>
+			<div>在标尺区域按住鼠标左键并拖动即可创建标尺辅助线，将标尺辅助线拖动到标尺区域即可删除标尺辅助线</div>
+			<div class="el-divider el-divider--horizontal" role="separator" style="--el-border-style: solid"> </div>
+			<div class="font-bold mb-10px text-15px">横线和竖线</div>
+			<div>画线的时候按住ctrl即可画竖线，按住shift即可画横线</div>
+			<div class="el-divider el-divider--horizontal" role="separator" style="--el-border-style: solid"> </div>
+			<div class="font-bold mb-10px text-15px">线段选中</div>
+			<div>
+				若是线段绑定了图形锚点，此时移动图形线段即可跟随移动。若是想单独选中线段进行移动，需要先选中线段，在右侧属性里配置解除绑定
+			</div>
+		</el-scrollbar>
+	</el-dialog>
 </template>
 
 <style scoped lang="less">
 	.logo-title {
-		font-size: 15px;
-		font-weight: 600;
-	}
-
-	.icon-disable {
-		cursor: not-allowed;
-		color: #ccc;
+		font-size: 16px;
+		color: #555;
+		font-weight: 500;
 	}
 </style>

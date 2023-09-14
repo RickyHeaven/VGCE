@@ -20,7 +20,6 @@
 	const instance = getCurrentInstance()
 	Object.keys(vueComp).forEach((key: string) => {
 		if (!Object.keys(instance?.appContext?.components as any).includes(key)) {
-			// @ts-ignore
 			instance?.appContext.app.component(key, vueComp[key])
 		}
 	})
@@ -37,14 +36,7 @@
 				svg: {
 					background_color: '#fff',
 					scale: 1,
-					position_center: {
-						x: -333,
-						y: -113
-					},
-					svg_position_center: {
-						x: 50,
-						y: 50
-					}
+					grid_color: '#ebebeb'
 				},
 				net: {
 					mqtt: {
@@ -60,6 +52,7 @@
 	)
 	const globalStore = useGlobalStore(pinia)
 
+	const cursor_style = computed(() => (globalStore.intention == EGlobalStoreIntention.MoveCanvas ? 'grab' : 'default'))
 	const onCanvasMouseMove = (e: MouseEvent) => {
 		//如果鼠标不是按下状态 连线除外
 		if (
@@ -91,7 +84,7 @@
 		if (globalStore.intention != EGlobalStoreIntention.Select) {
 			globalStore.intention = EGlobalStoreIntention.None
 		}
-		globalStore.setMouseInfo({
+		globalStore.mouse_info = {
 			state: EMouseInfoState.Up,
 			position_x: 0,
 			position_y: 0,
@@ -99,14 +92,13 @@
 			now_position_y: 0,
 			new_position_x: 0,
 			new_position_y: 0
-		})
+		}
 	}
 	const onCanvasMouseDown = (e: MouseEvent) => {
-		console.log('onCanvasMouseDown', e)
 		const { clientX, clientY } = e
 		//点击画布 未选中组件 拖动画布
 		globalStore.intention = EGlobalStoreIntention.MoveCanvas
-		globalStore.setMouseInfo({
+		globalStore.mouse_info = {
 			state: EMouseInfoState.Down,
 			position_x: clientX,
 			position_y: clientY,
@@ -114,8 +106,19 @@
 			now_position_y: preview_data.layout_center.y,
 			new_position_x: preview_data.layout_center.x,
 			new_position_y: preview_data.layout_center.y
-		})
+		}
 	}
+
+	function onMousewheel(e: any) {
+		if (e?.wheelDelta) {
+			if (e.wheelDelta > 0) {
+				preview_data.config.svg.scale = parseFloat((preview_data.config.svg.scale + 0.1).toFixed(1))
+			} else {
+				preview_data.config.svg.scale = parseFloat((preview_data.config.svg.scale - 0.1).toFixed(1))
+			}
+		}
+	}
+
 	const getActualBoundScale = (
 		actual_bound: {
 			x: number
@@ -237,7 +240,13 @@
 </script>
 
 <template>
-	<div class="canvas" @mousedown="onCanvasMouseDown" @mousemove="onCanvasMouseMove" @mouseup="onCanvasMouseUp">
+	<div
+		class="canvas"
+		@mousedown="onCanvasMouseDown"
+		@mousemove="onCanvasMouseMove"
+		@mouseup="onCanvasMouseUp"
+		@mousewheel="onMousewheel"
+	>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			:style="{ backgroundColor: preview_data.config.svg.background_color }"
@@ -245,9 +254,9 @@
 			height="100%"
 		>
 			<g
-				:transform="`translate(${preview_data.config.svg.position_center.x + preview_data.layout_center.x},${
-					preview_data.config.svg.position_center.y + preview_data.layout_center.y
-				})rotate(${0})scale(${preview_data.config.svg.scale})`"
+				:transform="`translate(${preview_data.layout_center.x},${preview_data.layout_center.y})rotate(${0})scale(${
+					preview_data.config.svg.scale
+				})`"
 			>
 				<g
 					v-for="item in preview_data.done_json"
@@ -326,24 +335,25 @@
 	.canvas {
 		width: 100%;
 		height: 100vh;
+		cursor: v-bind('cursor_style');
 	}
 
 	.svg-item-none {
 		cursor: move;
 
 		&:hover {
-			outline: 1px solid #0cf;
+			outline: 1px solid #f8d032;
 		}
 	}
 
 	.svg-item-move {
 		cursor: move;
-		outline: 1px dashed rgb(23, 222, 30);
+		outline: 1px dashed rgb(149, 23, 222);
 	}
 
 	.svg-item-select {
 		cursor: move;
-		outline: 1px solid rgb(23, 222, 30);
+		outline: 1px solid rgb(149, 23, 222);
 	}
 
 	.common-ani {

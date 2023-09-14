@@ -52,7 +52,6 @@ export const useGlobalStore = defineStore('global-store', {
 			}
 		}
 	},
-	getters: {},
 	actions: {
 		setCreateInfo(create_svg_info: IConfigItem | null) {
 			this.intention = EGlobalStoreIntention.Create
@@ -74,9 +73,6 @@ export const useGlobalStore = defineStore('global-store', {
 				useHistoryRecord(objectDeepClone<IDoneJson[]>(this.done_json))
 			})
 		},
-		setMouseInfo(mouse_info: IMouseInfo) {
-			this.mouse_info = mouse_info
-		},
 		setHandleSvgInfo(info: IDoneJson | null, index?: number) {
 			let current_index = index
 			if (info) {
@@ -92,9 +88,6 @@ export const useGlobalStore = defineStore('global-store', {
 				this.handle_svg_info = info
 			}
 		},
-		setScaleInfo(info: IScaleInfo) {
-			this.scale_info = info
-		},
 		spliceDoneJson(index: number) {
 			const globalStore = useGlobalStore()
 			globalStore.done_json.splice(index, 1)
@@ -102,6 +95,3 @@ export const useGlobalStore = defineStore('global-store', {
 		}
 	}
 })
-// useGlobalStore().$subscribe((mutation, state) => {
-//   console.log(mutation, state, 102);
-// });

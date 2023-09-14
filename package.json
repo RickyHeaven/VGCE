@@ -19,10 +19,8 @@
       "require": "./dist/vgce.umd.cjs",
       "types": "./types/index.d.ts"
     },
-    "./style": {
-      "import": "./dist/style.css",
-      "require": "./dist/style.css"
-    }
+    "./dist/style.css": "./dist/style.css",
+    "./*": "./*"
   },
   "types": "types/index.d.ts",
   "scripts": {
@@ -57,6 +55,7 @@
   },
   "homepage": "https://github.com/RickyHeaven/VGCE#readme",
   "dependencies": {
+    "@element-plus/icons-vue": "^2.1.0",
     "@types/lodash-es": "^4.17.8",
     "ace-builds": "^1.14.0",
     "animate.css": "^4.1.1",
@@ -82,7 +81,6 @@
     "prettier": "3.0.0",
     "typescript": "~5.0.4",
     "unplugin-auto-import": "^0.16.6",
-    "unplugin-vue-components": "^0.25.1",
     "vite": "^4.3.9",
     "vite-plugin-svg-icons": "^2.0.1",
     "vite-plugin-windicss": "^1.9.0",

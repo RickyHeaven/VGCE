@@ -35,10 +35,6 @@
 	const props = withDefaults(defineProps<{ customToolbar?: IConfig; data?: string; saveFile?: boolean }>(), {
 		saveFile: false
 	})
-	const presetLine = ref([])
-	const input = (list: any) => {
-		presetLine.value = list
-	}
 	const globalStore = useGlobalStore(pinia)
 	const svgEditLayoutStore = useSvgEditLayoutStore(pinia)
 	const configStore = useConfigStore(pinia)
@@ -114,27 +110,27 @@
 				></top-panel>
 			</el-header>
 			<el-container class="middle">
-				<el-aside class="side-nav" :class="svgEditLayoutStore.left_nav ? 'show-nav' : 'hide-nav'">
+				<el-aside
+					class="side-nav"
+					:class="svgEditLayoutStore.left_nav ? 'show-nav' : 'hide-nav'"
+					style="border-right: 1px solid #efefef"
+				>
 					<el-scrollbar class="el-scroll-pc">
 						<left-panel class="content-left" :custom-toolbar="props.customToolbar" />
 					</el-scrollbar>
 				</el-aside>
 				<el-main class="middle main">
 					<div class="canvas-main-pc">
-						<Vue3RulerTool
-							class="canvas-main-pc"
-							:value="presetLine"
-							:step-length="50"
-							:parent="true"
-							:is-scale-revise="false"
-							v-model:visible="configStore.svg.ruler"
-							@input="input"
-						>
-							<center-panel></center-panel>
+						<Vue3RulerTool class="canvas-main-pc" :visible="configStore.svg.ruler">
+							<center-panel />
 						</Vue3RulerTool>
 					</div>
 				</el-main>
-				<el-aside class="side-nav" :class="svgEditLayoutStore.right_nav ? 'show-nav' : 'hide-nav'">
+				<el-aside
+					class="side-nav"
+					:class="svgEditLayoutStore.right_nav ? 'show-nav' : 'hide-nav'"
+					style="border-left: 1px solid #efefef"
+				>
 					<el-scrollbar class="el-scroll-pc">
 						<right-panel></right-panel>
 					</el-scrollbar>
@@ -177,9 +173,9 @@
 		height: calc(100vh - @headerHeight - 1px);
 
 		&.main {
-			margin: 0 5px;
 			background-color: #ffffff;
-			padding: 0 2px;
+			padding: 0;
+			overflow: hidden;
 		}
 
 		.side-nav {
@@ -188,8 +184,6 @@
 			position: relative;
 			overflow: inherit;
 			transition: all 0.5s;
-			// background-color: rgb(250, 251, 253);
-			box-shadow: 0 0 2px #dfcfcf;
 
 			.content-left {
 				overflow: hidden;
@@ -214,8 +208,7 @@
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-		box-shadow: 0 0 2px #dfcfcf;
-		margin-bottom: 1px;
+		border-bottom: 1px solid #efefef;
 		height: @headerHeight;
 	}
 

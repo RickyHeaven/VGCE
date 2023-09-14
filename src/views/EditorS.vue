@@ -13,5 +13,5 @@
 </script>
 
 <template>
-	<SvgEditor :data="(store.data && JSON.stringify(store.data)) || ''" @onPreview="preview" />
+	<SvgEditor :data="(store.data && JSON.stringify(store.data)) || ''" @onPreview="preview" saveFile />
 </template>

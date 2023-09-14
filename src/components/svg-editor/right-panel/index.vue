@@ -1,5 +1,6 @@
 <script setup lang="ts">
 	import {
+		ElButton,
 		ElCollapse,
 		ElCollapseItem,
 		ElColorPicker,
@@ -14,25 +15,27 @@
 		ElTabPane,
 		ElTabs
 	} from 'element-plus'
+	import { Aim } from '@element-plus/icons-vue'
 	import { pinia } from '@/hooks'
 	import { useConfigStore } from '@/stores/config'
 	import { useGlobalStore } from '@/stores/global'
 	import { numberArray } from '@/utils'
-	import { EGlobalStoreIntention } from '@/stores/global/types'
 	import type { IDoneJson } from '@/stores/global/types'
+	import { EGlobalStoreIntention } from '@/stores/global/types'
 	import DynamicElFormItem from './dynamic-el-form-item.vue'
 	import CommonAnimate from './common-animate.vue'
 	import ComponentTree from '@/components/svg-editor/component-tree/index.vue'
 	import SvgAnalysis from '@/components/svg-analysis/index.vue'
 	import List from '@/components/svg-editor/right-panel/list.vue'
 	import Condition from '@/components/svg-editor/right-panel/condition.vue'
-	import { ElButton } from 'element-plus'
 	import CodeEditModal from '@/components/svg-editor/right-panel/code-edit-modal.vue'
-	import { EConditionType, EEventAction, EEventType } from '@/config/types'
 	import type { IEventsItem } from '@/config/types'
+	import { EConditionType, EEventAction, EEventType } from '@/config/types'
+	import { useSvgEditLayoutStore } from '@/stores/svg-edit-layout'
 
 	const configStore = useConfigStore(pinia)
 	const globalStore = useGlobalStore(pinia)
+	const svgEditLayoutStore = useSvgEditLayoutStore(pinia)
 
 	const activeName = ref('page')
 	const activeNameB = ref('style')
@@ -80,6 +83,13 @@
 	const deleteE = (i: number) => {
 		globalStore.handle_svg_info?.info?.events!.splice(i, 1)
 	}
+
+	const resetCanvas = () => {
+		svgEditLayoutStore.center_offset = {
+			x: 0,
+			y: 0
+		}
+	}
 </script>
 
 <template>
@@ -89,21 +99,50 @@
 				<el-form-item label="背景色" size="small">
 					<el-color-picker v-model="configStore.svg.background_color" />
 				</el-form-item>
-				<el-form-item label="x原点" size="small">
-					<el-input-number v-model="configStore.svg.position_center.x" />
+				<el-form-item label="画布" size="small">
+					<el-button size="small" @click="resetCanvas" :icon="Aim">重置位置</el-button>
 				</el-form-item>
-				<el-form-item label="y原点" size="small">
-					<el-input-number v-model="configStore.svg.position_center.y" />
+				<el-form-item label="X轴偏移" size="small">
+					<el-input-number v-model="svgEditLayoutStore.center_offset.x" />
 				</el-form-item>
-				<el-form-item label="网格" size="small">
-					<el-switch v-model="configStore.svg.grid" />
-				</el-form-item>
-				<el-form-item label="标尺" size="small">
-					<el-switch v-model="configStore.svg.ruler" />
+				<el-form-item label="Y轴偏移" size="small">
+					<el-input-number v-model="svgEditLayoutStore.center_offset.y" />
 				</el-form-item>
 				<el-form-item label="缩放" size="small">
 					<el-input-number v-model="configStore.svg.scale" :step="0.1" step-strictly />
 				</el-form-item>
+				<el-form-item label="标尺" size="small">
+					<el-switch v-model="configStore.svg.ruler" />
+				</el-form-item>
+				<el-form-item label="网格" size="small">
+					<el-switch v-model="configStore.svg.grid" />
+				</el-form-item>
+				<el-form-item label="网格颜色" size="small" v-if="configStore.svg.grid">
+					<el-color-picker v-model="configStore.svg.grid_color" />
+				</el-form-item>
+			</el-form>
+		</el-tab-pane>
+		<el-tab-pane label="连线" name="line">
+			<el-form label-width="60px" label-position="left" v-if="configStore.connection_line.props">
+				<dynamic-el-form-item :obj-info="configStore.connection_line.props" :hide="['point_position']" />
+			</el-form>
+			<el-form label-width="60px" label-position="left" v-if="configStore.connection_line.animations">
+				<el-form-item :label="configStore.connection_line.animations.type.title" size="small">
+					<el-select v-model="configStore.connection_line.animations.type.val" placeholder="Select" size="small">
+						<el-option
+							v-for="item in configStore.connection_line.animations.type.options"
+							:key="item.value"
+							:label="item.label"
+							:value="item.value"
+						/>
+					</el-select>
+				</el-form-item>
+
+				<dynamic-el-form-item
+					:obj-info="configStore.connection_line.animations"
+					v-if="configStore.connection_line.animations.type.val !== 'None'"
+					:hide="['type', 'repeatCount']"
+				/>
 			</el-form>
 		</el-tab-pane>
 		<el-tab-pane label="通信" name="net">
@@ -129,14 +168,6 @@
 				</el-collapse-item>
 			</el-collapse>
 		</el-tab-pane>
-		<el-tab-pane label="连线" name="line">
-			<el-form label-width="60px" label-position="left" v-if="configStore.connection_line.props">
-				<dynamic-el-form-item :obj-info="configStore.connection_line.props" :hide="['point_position']" />
-			</el-form>
-			<el-form label-width="60px" label-position="left" v-if="configStore.connection_line.animations">
-				<dynamic-el-form-item :obj-info="configStore.connection_line.animations" />
-			</el-form>
-		</el-tab-pane>
 		<el-tab-pane label="结构" name="tree">
 			<component-tree />
 		</el-tab-pane>
@@ -151,15 +182,56 @@
 				<el-form-item label="标题" size="small">
 					<el-input v-model="globalStore.handle_svg_info!.info.title" />
 				</el-form-item>
-				<el-form-item label="x坐标" size="small">
+				<el-form-item label="X坐标" size="small">
 					<el-input-number v-model="globalStore.handle_svg_info!.info.x" />
 				</el-form-item>
-				<el-form-item label="y坐标" size="small">
+				<el-form-item label="Y坐标" size="small">
 					<el-input-number v-model="globalStore.handle_svg_info!.info.y" />
+				</el-form-item>
+				<el-form-item label="X缩放" size="small">
+					<el-input-number v-model="globalStore.handle_svg_info!.info.scale_x" />
+				</el-form-item>
+				<el-form-item label="Y缩放" size="small">
+					<el-input-number v-model="globalStore.handle_svg_info!.info.scale_y" />
+				</el-form-item>
+				<el-form-item label="旋转" size="small">
+					<el-input-number v-model="globalStore.handle_svg_info!.info.rotate" />
 				</el-form-item>
 				<el-form-item label="显示" size="small">
 					<el-switch v-model="globalStore.handle_svg_info!.info.display" />
 				</el-form-item>
+			</el-form>
+		</el-tab-pane>
+		<el-tab-pane label="数据" name="data">
+			<el-form label-width="90px" label-position="left">
+				<el-form-item label="ID" size="small">
+					<el-input v-model="globalStore.handle_svg_info!.info.id" />
+				</el-form-item>
+				<div
+					v-for="(e, k) in globalStore.handle_svg_info!.info.state"
+					:key="'state' + String(k)"
+					v-if="globalStore.handle_svg_info!.info.state"
+				>
+					<el-form-item class="props-row" :label="String(k)" size="small"> {{ e?.default }}</el-form-item>
+
+					<el-form-item
+						v-if="k === 'OnOff'"
+						:label="globalStore.handle_svg_info!.info.state?.OnOff!.title"
+						size="small"
+					>
+						<el-switch v-model="globalStore.handle_svg_info!.info.state!.OnOff!.default"></el-switch>
+					</el-form-item>
+				</div>
+
+				<div v-if="globalStore.handle_svg_info!.info?.hasOwnProperty('tag_slot')">
+					<el-form-item class="props-row" label="tag_slot" size="small">
+						{{ globalStore.handle_svg_info!.info.tag_slot }}
+					</el-form-item>
+					<el-form-item label="文字插槽" size="small">
+						<el-input v-model="globalStore.handle_svg_info!.info.tag_slot" />
+					</el-form-item>
+				</div>
+				<dynamic-el-form-item :obj-info="globalStore.handle_svg_info!.info.props" code />
 			</el-form>
 		</el-tab-pane>
 		<el-tab-pane label="事件" name="event">
@@ -238,38 +310,6 @@
 						<el-option value="infinite" label="无限次" />
 					</el-select>
 				</el-form-item>
-			</el-form>
-		</el-tab-pane>
-		<el-tab-pane label="数据" name="data">
-			<el-form label-width="90px" label-position="left">
-				<el-form-item label="ID" size="small">
-					<el-input v-model="globalStore.handle_svg_info!.info.id" />
-				</el-form-item>
-				<div
-					v-for="(e, k) in globalStore.handle_svg_info!.info.state"
-					:key="'state' + String(k)"
-					v-if="globalStore.handle_svg_info!.info.state"
-				>
-					<el-form-item class="props-row" :label="String(k)" size="small"> {{ e?.default }}</el-form-item>
-
-					<el-form-item
-						v-if="k === 'OnOff'"
-						:label="globalStore.handle_svg_info!.info.state?.OnOff!.title"
-						size="small"
-					>
-						<el-switch v-model="globalStore.handle_svg_info!.info.state!.OnOff!.default"></el-switch>
-					</el-form-item>
-				</div>
-
-				<div v-if="globalStore.handle_svg_info!.info?.hasOwnProperty('tag_slot')">
-					<el-form-item class="props-row" label="tag_slot" size="small">
-						{{ globalStore.handle_svg_info!.info.tag_slot }}
-					</el-form-item>
-					<el-form-item label="文字插槽" size="small">
-						<el-input v-model="globalStore.handle_svg_info!.info.tag_slot" />
-					</el-form-item>
-				</div>
-				<dynamic-el-form-item :obj-info="globalStore.handle_svg_info!.info.props" code />
 			</el-form>
 		</el-tab-pane>
 		<el-tab-pane label="结构" name="tree">

@@ -115,6 +115,7 @@ export const calculateTop = (
  * @param curPosition 按住的缩放按钮的坐标
  * @param symmetricPoint 缩放前对称点的坐标
  * @param rotate 旋转角度
+ * @param curPoint
  * @returns
  */
 export const calculateRight = (
