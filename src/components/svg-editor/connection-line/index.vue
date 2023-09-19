@@ -5,9 +5,13 @@
 	import { pinia } from '@/hooks'
 	import { useGlobalStore } from '@/stores/global'
 	import { EConfigAnimationsType } from '@/config/types'
+	import { useConfigStore } from '@/stores/config'
+	import { useSvgEditLayoutStore } from '@/stores/svg-edit-layout'
 
 	const props = withDefaults(defineProps<{ itemInfo: IDoneJson; pointVisible: boolean }>(), { pointVisible: false })
 	const globalStore = useGlobalStore(pinia)
+	const configStore = useConfigStore(pinia)
+	const svgEditLayoutStore = useSvgEditLayoutStore(pinia)
 	const setConnectionLineNode = (point_index: number, e: MouseEvent, x: number, y: number) => {
 		if (globalStore.intention === EGlobalStoreIntention.Connection) {
 			return
@@ -25,10 +29,10 @@
 		globalStore.intention = EGlobalStoreIntention.SetConnectionLineNode
 		globalStore.mouse_info = {
 			state: EMouseInfoState.Down,
-			position_x: clientX,
-			position_y: clientY,
-			now_position_x: clientX,
-			now_position_y: clientY,
+			position_x: Math.round((clientX - svgEditLayoutStore.canvasInfo.left) / configStore.svg.scale),
+			position_y: Math.round((clientY - svgEditLayoutStore.canvasInfo.top) / configStore.svg.scale),
+			now_position_x: 0,
+			now_position_y: 0,
 			new_position_x: 0,
 			new_position_y: 0
 		}
@@ -47,7 +51,7 @@
 					: props.itemInfo.props.stroke.val
 			"
 			:stroke-width="props.itemInfo.props['stroke-width'].val"
-			style="cursor: move"
+			:style="{ cursor: globalStore.intention === EGlobalStoreIntention.Connection ? 'crosshair' : 'move' }"
 			stroke-dashoffset="0"
 			:stroke-dasharray="
 				props.itemInfo.animations?.type.val === EConfigAnimationsType.Electricity

@@ -1,10 +1,10 @@
-import { ELineBindAnchors } from '@/components/config/types'
 import type { ISystemStraightLine } from '@/components/config/types'
+import { ELineBindAnchors } from '@/components/config/types'
+import type { ICondition, IConfigItem } from '@/config/types'
 import { EDoneJsonType } from '@/config/types'
-import type { IConfigItem } from '@/config/types'
-import type { IDoneJson } from '@/stores/global/types'
-import { straight_line_system } from '@/components/config'
+import type { ICoordinate, IDoneJson, IPointCoordinate } from '@/stores/global/types'
 import { EGlobalStoreIntention, EMouseInfoState } from '@/stores/global/types'
+import { straight_line_system } from '@/components/config'
 import { useGlobalStore } from '@/stores/global'
 import { pinia } from '@/hooks'
 import { useConfigStore } from '@/stores/config'
@@ -49,10 +49,10 @@ export const angleToRadian = (angle: number) => {
 }
 /**
  * 计算根据圆心旋转后的点的坐标
- * @param   {Object}  point  旋转前的点坐标
- * @param   {Object}  center 旋转中心
- * @param   {Number}  rotate 旋转的角度
- * @return  {Object}         旋转后的坐标
+ * @param    point  旋转前的点坐标
+ * @param    center 旋转中心
+ * @param     rotate 旋转的角度
+ * @return         旋转后的坐标
  * https://www.zhihu.com/question/67425734/answer/252724399 旋转矩阵公式
  */
 export const calculateRotatedPointCoordinate = (
@@ -71,14 +71,20 @@ export const calculateRotatedPointCoordinate = (
 	 */
 
 	return {
-		x:
-			(point.x - center.x) * Math.cos(angleToRadian(rotate)) -
-			(point.y - center.y) * Math.sin(angleToRadian(rotate)) +
-			center.x,
-		y:
-			(point.x - center.x) * Math.sin(angleToRadian(rotate)) +
-			(point.y - center.y) * Math.cos(angleToRadian(rotate)) +
-			center.y
+		x: parseFloat(
+			(
+				(point.x - center.x) * Math.cos(angleToRadian(rotate)) -
+				(point.y - center.y) * Math.sin(angleToRadian(rotate)) +
+				center.x
+			).toFixed(1)
+		),
+		y: parseFloat(
+			(
+				(point.x - center.x) * Math.sin(angleToRadian(rotate)) +
+				(point.y - center.y) * Math.cos(angleToRadian(rotate)) +
+				center.y
+			).toFixed(1)
+		)
 	}
 }
 // 求两点之间的中点坐标
@@ -193,41 +199,99 @@ export const setSvgActualInfo = (done_json: IDoneJson, resize?: boolean) => {
 				height
 			}
 		}
-		done_json.centerPosition = { x: done_json.x + width / 2, y: done_json.y + height / 2 }
+		done_json.center_position = {
+			x: done_json.x + done_json.actual_bound.x + width / 2,
+			y: done_json.y + done_json.actual_bound.y + height / 2
+		}
 		done_json.point_coordinate.tl = {
-			x: done_json.x - (width * done_json.scale_x) / 2,
-			y: done_json.y - (height * done_json.scale_y) / 2
+			x: done_json.center_position.x - (width * done_json.scale_x) / 2,
+			y: done_json.center_position.y - (height * done_json.scale_y) / 2
 		}
 		done_json.point_coordinate.tc = {
-			x: done_json.x,
-			y: done_json.y - (height * done_json.scale_y) / 2
+			x: done_json.center_position.x,
+			y: done_json.center_position.y - (height * done_json.scale_y) / 2
 		}
 		done_json.point_coordinate.tr = {
-			x: done_json.x + (width * done_json.scale_x) / 2,
-			y: done_json.y - (height * done_json.scale_y) / 2
+			x: done_json.center_position.x + (width * done_json.scale_x) / 2,
+			y: done_json.center_position.y - (height * done_json.scale_y) / 2
 		}
 		done_json.point_coordinate.l = {
-			x: done_json.x - (width * done_json.scale_x) / 2,
-			y: done_json.y
+			x: done_json.center_position.x - (width * done_json.scale_x) / 2,
+			y: done_json.center_position.y
 		}
 		done_json.point_coordinate.r = {
-			x: done_json.x + (width * done_json.scale_x) / 2,
-			y: done_json.y
+			x: done_json.center_position.x + (width * done_json.scale_x) / 2,
+			y: done_json.center_position.y
 		}
 		done_json.point_coordinate.bl = {
-			x: done_json.x - (width * done_json.scale_x) / 2,
-			y: done_json.y + (height * done_json.scale_y) / 2
+			x: done_json.center_position.x - (width * done_json.scale_x) / 2,
+			y: done_json.center_position.y + (height * done_json.scale_y) / 2
 		}
 		done_json.point_coordinate.bc = {
-			x: done_json.x,
-			y: done_json.y + (height * done_json.scale_y) / 2
+			x: done_json.center_position.x,
+			y: done_json.center_position.y + (height * done_json.scale_y) / 2
 		}
 		done_json.point_coordinate.br = {
-			x: done_json.x + (width * done_json.scale_x) / 2,
-			y: done_json.y + (height * done_json.scale_y) / 2
+			x: done_json.center_position.x + (width * done_json.scale_x) / 2,
+			y: done_json.center_position.y + (height * done_json.scale_y) / 2
 		}
 		if (done_json.rotate !== 0) {
 			setAfterRotationPointCoordinate(done_json)
+		}
+		moveAnchors(done_json)
+	}
+}
+/**
+ * 重置旧八点坐标
+ * @param done_json
+ */
+export const resetHandlePointOld = (done_json: IDoneJson) => {
+	for (const k of Object.keys(done_json.point_coordinate)) {
+		if (done_json.point_coordinate_old) {
+			done_json.point_coordinate_old[k as keyof IPointCoordinate].x = 0
+			done_json.point_coordinate_old[k as keyof IPointCoordinate].y = 0
+		}
+	}
+}
+
+/**
+ * 移动八点坐标
+ * @param done_json 当前组件
+ * @param x x轴移动量
+ * @param y y轴移动量
+ */
+export const moveHandlePoint = (done_json: IDoneJson, x?: number, y?: number) => {
+	const globalStore = useGlobalStore(pinia)
+	const _x = x ?? globalStore.mouse_info.new_position_x - globalStore.mouse_info.position_x
+	const _y = y ?? globalStore.mouse_info.new_position_y - globalStore.mouse_info.position_y
+	for (const k of Object.keys(done_json.point_coordinate)) {
+		if (x !== undefined && y !== undefined) {
+			done_json.point_coordinate[k as keyof IPointCoordinate].x += _x
+			done_json.point_coordinate[k as keyof IPointCoordinate].y += _y
+		} else if (done_json.point_coordinate_old) {
+			done_json.point_coordinate[k as keyof IPointCoordinate].x =
+				done_json.point_coordinate_old[k as keyof IPointCoordinate].x + _x
+			done_json.point_coordinate[k as keyof IPointCoordinate].y =
+				done_json.point_coordinate_old[k as keyof IPointCoordinate].y + _y
+		}
+	}
+}
+/**
+ * 移动绑定锚点的线
+ * @param done_json
+ */
+export const moveAnchors = (done_json: IDoneJson) => {
+	const globalStore = useGlobalStore(pinia)
+	for (let d of globalStore.done_json) {
+		if (d.type === EDoneJsonType.ConnectionLine) {
+			if (d.bind_anchors?.start?.target_id === done_json.id) {
+				const a = getAnchorPosByAnchorType(d.bind_anchors.start.type, done_json)
+				d.props.point_position.val[0] = { x: a.x - d.x, y: a.y - d.y }
+			}
+			if (d.bind_anchors?.end?.target_id === done_json.id) {
+				const a = getAnchorPosByAnchorType(d.bind_anchors.end.type, done_json)
+				d.props.point_position.val[d.props.point_position.val.length - 1] = { x: a.x - d.x, y: a.y - d.y }
+			}
 		}
 	}
 }
@@ -254,14 +318,14 @@ export const getAnchorPosByAnchorType = (anchor_type: ELineBindAnchors, done_jso
  */
 export const setAfterRotationPointCoordinate = (item: IDoneJson) => {
 	item.point_coordinate = {
-		tl: calculateRotatedPointCoordinate(item.point_coordinate.tl, item.centerPosition, item.rotate),
-		tc: calculateRotatedPointCoordinate(item.point_coordinate.tc, item.centerPosition, item.rotate),
-		tr: calculateRotatedPointCoordinate(item.point_coordinate.tr, item.centerPosition, item.rotate),
-		l: calculateRotatedPointCoordinate(item.point_coordinate.l, item.centerPosition, item.rotate),
-		r: calculateRotatedPointCoordinate(item.point_coordinate.r, item.centerPosition, item.rotate),
-		bl: calculateRotatedPointCoordinate(item.point_coordinate.bl, item.centerPosition, item.rotate),
-		bc: calculateRotatedPointCoordinate(item.point_coordinate.bc, item.centerPosition, item.rotate),
-		br: calculateRotatedPointCoordinate(item.point_coordinate.br, item.centerPosition, item.rotate)
+		tl: calculateRotatedPointCoordinate(item.point_coordinate.tl, item.center_position, item.rotate),
+		tc: calculateRotatedPointCoordinate(item.point_coordinate.tc, item.center_position, item.rotate),
+		tr: calculateRotatedPointCoordinate(item.point_coordinate.tr, item.center_position, item.rotate),
+		l: calculateRotatedPointCoordinate(item.point_coordinate.l, item.center_position, item.rotate),
+		r: calculateRotatedPointCoordinate(item.point_coordinate.r, item.center_position, item.rotate),
+		bl: calculateRotatedPointCoordinate(item.point_coordinate.bl, item.center_position, item.rotate),
+		bc: calculateRotatedPointCoordinate(item.point_coordinate.bc, item.center_position, item.rotate),
+		br: calculateRotatedPointCoordinate(item.point_coordinate.br, item.center_position, item.rotate)
 	}
 }
 
@@ -348,11 +412,11 @@ export const valFormat = (v: any) => {
 }
 /**
  * 创建连线
- * @param bind_anchor_type 绑定锚点类型
- * @param itemInfo 组件（锚点创建线时）
- * @param e
+ * @param e 事件对象
+ * @param type 锚点位置
+ * @param itemInfo 被绑定组件
  */
-export const createLine = (e: MouseEvent, bind_anchor_type?: ELineBindAnchors, itemInfo?: IDoneJson) => {
+export const createLine = (e: MouseEvent, type?: ELineBindAnchors, itemInfo?: IDoneJson) => {
 	e.preventDefault()
 
 	const globalStore = useGlobalStore(pinia)
@@ -367,12 +431,12 @@ export const createLine = (e: MouseEvent, bind_anchor_type?: ELineBindAnchors, i
 	 }*/
 	let x: number = 0
 	let y: number = 0
-	if (bind_anchor_type && itemInfo) {
+	if (type && itemInfo) {
 		create_line_info.bind_anchors.start = {
-			type: bind_anchor_type,
+			type: type,
 			target_id: itemInfo.id
 		}
-		let t = getAnchorPosByAnchorType(bind_anchor_type, itemInfo)
+		let t = getAnchorPosByAnchorType(type, itemInfo)
 		x = t.x
 		y = t.y
 	} else {
@@ -400,7 +464,7 @@ export const createLine = (e: MouseEvent, bind_anchor_type?: ELineBindAnchors, i
 			width: 0,
 			height: 0
 		},
-		centerPosition: { x: 0, y: 0 },
+		center_position: { x: 0, y: 0 },
 		point_coordinate: {
 			tl: {
 				x: 0,
@@ -438,11 +502,11 @@ export const createLine = (e: MouseEvent, bind_anchor_type?: ELineBindAnchors, i
 		...create_line_info
 	}
 	done_item_json.props.point_position.val.push({
-		x: 50,
-		y: 50
+		x: 0,
+		y: 0
 	})
-	globalStore.setHandleSvgInfo(done_item_json, globalStore.done_json.length)
 	globalStore.setDoneJson(done_item_json)
+	globalStore.setHandleSvgInfo(done_item_json, globalStore.done_json.length - 1)
 
 	globalStore.intention = EGlobalStoreIntention.Connection
 	globalStore.mouse_info = {

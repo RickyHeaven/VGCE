@@ -424,10 +424,9 @@
 
 	.vue-ruler-ref-dot-h {
 		width: 100%;
-		height: 3px;
-		background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAMAAABFaP0WAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRFf39/////F3PnHQAAAAJ0Uk5T/wDltzBKAAAAEElEQVR42mJgYGRgZAQIMAAADQAExkizYQAAAABJRU5ErkJggg==)
-			repeat-x left 1px;
+		height: 4px;
 		cursor: n-resize;
+		border-top: 1px dashed #999;
 		span {
 			left: 30px;
 			top: 3px;
@@ -435,12 +434,11 @@
 	}
 
 	.vue-ruler-ref-dot-v {
-		width: 3px;
+		width: 4px;
 		height: 100%;
 		_height: 9999px;
-		background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAMAAABFaP0WAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRFf39/////F3PnHQAAAAJ0Uk5T/wDltzBKAAAAEElEQVR42mJgYGRgZAQIMAAADQAExkizYQAAAABJRU5ErkJggg==)
-			repeat-y 1px top;
 		cursor: w-resize;
+		border-left: 1px dashed #999;
 		span {
 			top: 30px;
 			left: 7px;

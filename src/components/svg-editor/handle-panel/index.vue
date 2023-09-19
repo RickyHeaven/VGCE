@@ -95,8 +95,8 @@
 				y: props.itemInfo.y
 			},
 			symmetric_point: {
-				x: x + Math.abs(x - props.itemInfo.centerPosition.x) * 2 * (x > props.itemInfo.centerPosition.x ? -1 : 1),
-				y: y + Math.abs(y - props.itemInfo.centerPosition.y) * 2 * (y > props.itemInfo.centerPosition.y ? -1 : 1)
+				x: x + Math.abs(x - props.itemInfo.center_position.x) * 2 * (x > props.itemInfo.center_position.x ? -1 : 1),
+				y: y + Math.abs(y - props.itemInfo.center_position.y) * 2 * (y > props.itemInfo.center_position.y ? -1 : 1)
 			}
 		}
 	}

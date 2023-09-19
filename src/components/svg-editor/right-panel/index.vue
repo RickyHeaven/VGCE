@@ -19,7 +19,7 @@
 	import { pinia } from '@/hooks'
 	import { useConfigStore } from '@/stores/config'
 	import { useGlobalStore } from '@/stores/global'
-	import { numberArray } from '@/utils'
+	import { moveAnchors, numberArray, setSvgActualInfo } from '@/utils'
 	import type { IDoneJson } from '@/stores/global/types'
 	import { EGlobalStoreIntention } from '@/stores/global/types'
 	import DynamicElFormItem from './dynamic-el-form-item.vue'
@@ -30,8 +30,9 @@
 	import Condition from '@/components/svg-editor/right-panel/condition.vue'
 	import CodeEditModal from '@/components/svg-editor/right-panel/code-edit-modal.vue'
 	import type { IEventsItem } from '@/config/types'
-	import { EConditionType, EEventAction, EEventType } from '@/config/types'
+	import { EConditionType, EDoneJsonType, EEventAction, EEventType } from '@/config/types'
 	import { useSvgEditLayoutStore } from '@/stores/svg-edit-layout'
+	import BindAnchor from '@/components/svg-editor/right-panel/bind-anchor.vue'
 
 	const configStore = useConfigStore(pinia)
 	const globalStore = useGlobalStore(pinia)
@@ -88,6 +89,16 @@
 		svgEditLayoutStore.center_offset = {
 			x: 0,
 			y: 0
+		}
+	}
+
+	const changHandle = () => {
+		if (globalStore.handle_svg_info) {
+			const done_json = globalStore.done_json[globalStore.handle_svg_info.index]
+			nextTick(function () {
+				setSvgActualInfo(done_json)
+				moveAnchors(done_json)
+			})
 		}
 	}
 </script>
@@ -183,19 +194,19 @@
 					<el-input v-model="globalStore.handle_svg_info!.info.title" />
 				</el-form-item>
 				<el-form-item label="X坐标" size="small">
-					<el-input-number v-model="globalStore.handle_svg_info!.info.x" />
+					<el-input-number v-model="globalStore.handle_svg_info!.info.x" @change="changHandle" />
 				</el-form-item>
 				<el-form-item label="Y坐标" size="small">
-					<el-input-number v-model="globalStore.handle_svg_info!.info.y" />
+					<el-input-number v-model="globalStore.handle_svg_info!.info.y" @change="changHandle" />
 				</el-form-item>
 				<el-form-item label="X缩放" size="small">
-					<el-input-number v-model="globalStore.handle_svg_info!.info.scale_x" />
+					<el-input-number v-model="globalStore.handle_svg_info!.info.scale_x" @change="changHandle" />
 				</el-form-item>
 				<el-form-item label="Y缩放" size="small">
-					<el-input-number v-model="globalStore.handle_svg_info!.info.scale_y" />
+					<el-input-number v-model="globalStore.handle_svg_info!.info.scale_y" @change="changHandle" />
 				</el-form-item>
 				<el-form-item label="旋转" size="small">
-					<el-input-number v-model="globalStore.handle_svg_info!.info.rotate" />
+					<el-input-number v-model="globalStore.handle_svg_info!.info.rotate" @change="changHandle" />
 				</el-form-item>
 				<el-form-item label="显示" size="small">
 					<el-switch v-model="globalStore.handle_svg_info!.info.display" />
@@ -232,6 +243,16 @@
 					</el-form-item>
 				</div>
 				<dynamic-el-form-item :obj-info="globalStore.handle_svg_info!.info.props" code />
+				<bind-anchor
+					v-if="globalStore.handle_svg_info?.info.type === EDoneJsonType.ConnectionLine"
+					v-model="globalStore.handle_svg_info!.info!.bind_anchors!.start"
+					title="绑定起点"
+				/>
+				<bind-anchor
+					v-if="globalStore.handle_svg_info?.info.type === EDoneJsonType.ConnectionLine"
+					v-model="globalStore.handle_svg_info!.info!.bind_anchors!.end"
+					title="绑定终点"
+				/>
 			</el-form>
 		</el-tab-pane>
 		<el-tab-pane label="事件" name="event">

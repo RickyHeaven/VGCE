@@ -44,6 +44,9 @@
 		get: () => globalStore.intention === EGlobalStoreIntention.Connection,
 		set(v: any) {
 			globalStore.intention = v ? EGlobalStoreIntention.Connection : EGlobalStoreIntention.None
+			if (v) {
+				globalStore.setHandleSvgInfo(null)
+			}
 		}
 	})
 </script>
@@ -178,7 +181,7 @@
 			<div class="el-divider el-divider--horizontal" role="separator" style="--el-border-style: solid"> </div>
 			<div class="font-bold mb-10px text-15px">线段选中</div>
 			<div>
-				若是线段绑定了图形锚点，此时移动图形线段即可跟随移动。若是想单独选中线段进行移动，需要先选中线段，在右侧属性里配置解除绑定
+				若线段绑定了锚点，移动线段，绑定的锚点不会移动。若是想将线段整体移动，需要先选中线段，在右侧‘数据’面板里解除绑定
 			</div>
 		</el-scrollbar>
 	</el-dialog>

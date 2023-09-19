@@ -10,9 +10,12 @@
 		getCenterPoint,
 		getCommonClass,
 		getSvgNowPosition,
+		moveAnchors,
+		moveHandlePoint,
 		objectDeepClone,
 		prosToVBind,
 		randomString,
+		resetHandlePointOld,
 		setSvgActualInfo
 	} from '@/utils'
 	import {
@@ -53,7 +56,7 @@
 	const canvasRef = ref<HTMLElement>()
 	const ct: Record<string, any> = {
 		MoveCanvas: 'grab',
-		Rotate: "url('/src/assets/icons/rotate.svg') 12 12, auto",
+		Rotate: "url('/src/assets/icons/rotate.svg'), auto",
 		Connection: 'crosshair'
 	}
 	const cursor_style = computed(() => {
@@ -112,7 +115,7 @@
 				t++
 			}
 		}
-		return t > 1
+		return t > 0
 	})
 
 	let groupMoved = false
@@ -146,7 +149,7 @@
 					width: 0,
 					height: 0
 				},
-				centerPosition: {
+				center_position: {
 					x: 0,
 					y: 0
 				},
@@ -187,8 +190,8 @@
 				selected: false,
 				...objectDeepClone<IConfigItem>(globalStore.create_svg_info)
 			}
-			globalStore.setHandleSvgInfo(done_item_json, globalStore.done_json.length)
 			globalStore.setDoneJson(done_item_json)
+			globalStore.setHandleSvgInfo(done_item_json, globalStore.done_json.length)
 			globalStore.intention = EGlobalStoreIntention.None
 		}
 		canvasRef.value?.focus()
@@ -210,14 +213,18 @@
 		e.stopPropagation()
 		if (e.ctrlKey && e.button === 0) {
 			//ctrl+鼠标左键 多选组件
-			select_item.selected = !select_item.selected
+			if (globalStore.handle_svg_info?.index) {
+				globalStore.done_json[globalStore.handle_svg_info.index].selected = true
+				globalStore.setHandleSvgInfo(null)
+				select_item.selected = !select_item.selected
+			}
 		} else if (isGroup.value) {
 			//有框选的组件
 			globalStore.intention = EGlobalStoreIntention.GroupMove
 			globalStore.mouse_info = {
 				state: EMouseInfoState.Down,
-				position_x: (e.clientX - svgEditLayoutStore.canvasInfo.left) / configStore.svg.scale,
-				position_y: (e.clientY - svgEditLayoutStore.canvasInfo.top) / configStore.svg.scale,
+				position_x: Math.round((e.clientX - svgEditLayoutStore.canvasInfo.left) / configStore.svg.scale),
+				position_y: Math.round((e.clientY - svgEditLayoutStore.canvasInfo.top) / configStore.svg.scale),
 				now_position_x: 0,
 				now_position_y: 0,
 				new_position_x: 0,
@@ -225,25 +232,27 @@
 			}
 			for (let e of globalStore.done_json) {
 				if (e.selected) {
-					e.oldPosition = {
+					e.old_position = {
 						x: e.x,
 						y: e.y
 					}
+					e.point_coordinate_old = objectDeepClone(e.point_coordinate)
 				}
 			}
 		} else {
-			//鼠标在画布上的组件按下记录选中的组件信息和鼠标位置信息等
+			//鼠标在画布上的组件按下,记录选中的组件信息和鼠标位置信息等
 			globalStore.intention = EGlobalStoreIntention.Select
 			globalStore.setHandleSvgInfo(select_item, index)
 			globalStore.mouse_info = {
 				state: EMouseInfoState.Down,
-				position_x: (e.clientX - svgEditLayoutStore.canvasInfo.left) / configStore.svg.scale,
-				position_y: (e.clientY - svgEditLayoutStore.canvasInfo.top) / configStore.svg.scale,
+				position_x: Math.round((e.clientX - svgEditLayoutStore.canvasInfo.left) / configStore.svg.scale),
+				position_y: Math.round((e.clientY - svgEditLayoutStore.canvasInfo.top) / configStore.svg.scale),
 				now_position_x: select_item.x,
 				now_position_y: select_item.y,
 				new_position_x: 0,
 				new_position_y: 0
 			}
+			select_item.point_coordinate_old = objectDeepClone(select_item.point_coordinate)
 		}
 	}
 
@@ -258,17 +267,18 @@
 			//在有框选组件的情况下点击单个组件，鼠标在画布上的组件弹起记录选中的组件信息和鼠标位置信息等
 			for (let e of globalStore.done_json) {
 				e.selected = false
-				e.oldPosition = {
+				e.old_position = {
 					x: 0,
 					y: 0
 				}
+				resetHandlePointOld(e)
 			}
 			globalStore.intention = EGlobalStoreIntention.Select
 			globalStore.setHandleSvgInfo(select_item, index)
 			globalStore.mouse_info = {
 				state: EMouseInfoState.Down,
-				position_x: (e.clientX - svgEditLayoutStore.canvasInfo.left) / configStore.svg.scale,
-				position_y: (e.clientY - svgEditLayoutStore.canvasInfo.top) / configStore.svg.scale,
+				position_x: Math.round((e.clientX - svgEditLayoutStore.canvasInfo.left) / configStore.svg.scale),
+				position_y: Math.round((e.clientY - svgEditLayoutStore.canvasInfo.top) / configStore.svg.scale),
 				now_position_x: select_item.x,
 				now_position_y: select_item.y,
 				new_position_x: 0,
@@ -331,7 +341,7 @@
 			globalStore.handle_svg_info?.info &&
 			(globalStore.intention === EGlobalStoreIntention.Select || globalStore.intention === EGlobalStoreIntention.Move)
 		) {
-			//有选中组件 移动组件
+			//有选中组件 移动单个组件
 			globalStore.handle_svg_info.info.x = x
 
 			globalStore.handle_svg_info.info.y = y
@@ -341,6 +351,34 @@
 				y: y
 			}
 			globalStore.intention = EGlobalStoreIntention.Move
+
+			moveHandlePoint(globalStore.handle_svg_info.info)
+			moveAnchors(globalStore.handle_svg_info.info)
+			if (globalStore.handle_svg_info.info.type === EDoneJsonType.ConnectionLine) {
+				//移动连线自己绑定过的锚点到绑定位置
+				if (globalStore.handle_svg_info.info.bind_anchors?.start) {
+					let _done_json: any = null
+					for (let t of globalStore.done_json) {
+						if (t.id === globalStore.handle_svg_info.info.bind_anchors?.start?.target_id) {
+							_done_json = t
+						}
+					}
+					if (_done_json) {
+						moveAnchors(_done_json)
+					}
+				}
+				if (globalStore.handle_svg_info.info.bind_anchors?.end) {
+					let _done_json: any = null
+					for (let t of globalStore.done_json) {
+						if (t.id === globalStore.handle_svg_info.info.bind_anchors?.end?.target_id) {
+							_done_json = t
+						}
+					}
+					if (_done_json) {
+						moveAnchors(_done_json)
+					}
+				}
+			}
 		} else if (globalStore.intention === EGlobalStoreIntention.MoveCanvas) {
 			//移动画布
 			svgEditLayoutStore.center_offset.x = x
@@ -353,18 +391,32 @@
 			//群组移动
 			groupMoved = true
 			for (let e of globalStore.done_json) {
-				if (e.selected && e.oldPosition) {
+				if (e.selected && e.old_position) {
 					const tx = Math.round(
-						globalStore.mouse_info.new_position_x - globalStore.mouse_info.position_x + e.oldPosition.x
+						globalStore.mouse_info.new_position_x - globalStore.mouse_info.position_x + e.old_position.x
 					)
 					const ty = Math.round(
-						globalStore.mouse_info.new_position_y - globalStore.mouse_info.position_y + e.oldPosition.y
+						globalStore.mouse_info.new_position_y - globalStore.mouse_info.position_y + e.old_position.y
 					)
 					e.x = tx
 					e.y = ty
 					e.client = {
 						x: tx,
 						y: ty
+					}
+					moveHandlePoint(e)
+					moveAnchors(e)
+					if (e.type === EDoneJsonType.ConnectionLine && e.bind_anchors?.end) {
+						//移动连线自己绑定过的锚点到绑定位置
+						let _done_json: any = null
+						for (let t of globalStore.done_json) {
+							if (t.id === e.bind_anchors?.end?.target_id) {
+								_done_json = t
+							}
+						}
+						if (_done_json) {
+							moveAnchors(_done_json)
+						}
 					}
 				}
 			}
@@ -455,7 +507,7 @@
 					globalStore.handle_svg_info.info.scale_x = scale_x
 					globalStore.handle_svg_info.info.x = Math.round(
 						getSvgNowPosition(
-							globalStore.handle_svg_info.info.centerPosition.x,
+							globalStore.handle_svg_info.info.center_position.x,
 							newCenterPoint.x,
 							globalStore.handle_svg_info.info.client.x
 						)
@@ -469,7 +521,7 @@
 					globalStore.handle_svg_info.info.scale_y = scale_y
 					globalStore.handle_svg_info.info.y = Math.round(
 						getSvgNowPosition(
-							globalStore.handle_svg_info.info.centerPosition.y,
+							globalStore.handle_svg_info.info.center_position.y,
 							newCenterPoint.y,
 							globalStore.handle_svg_info.info.client.y
 						)
@@ -500,31 +552,29 @@
 				(globalStore.rotate_info.angle + rotateDegreeAfter - rotateDegreeBefore).toFixed(2)
 			)
 		} else if (globalStore.intention === EGlobalStoreIntention.Connection && globalStore.handle_svg_info) {
-			globalStore.handle_svg_info.info.props.point_position.val[
-				globalStore.handle_svg_info?.info.props.point_position.val.length - 1
-			] = {
-				x: getSvgNowPosition(
-					globalStore.mouse_info.position_x,
-					clientX,
-					globalStore.handle_svg_info?.info.props.point_position.val[0].x
-				),
-				y: getSvgNowPosition(
-					globalStore.mouse_info.position_y,
-					clientY,
-					globalStore.handle_svg_info?.info.props.point_position.val[0].y
-				)
+			//鼠标移动的实时位置（相对于连线起始点，只在创建第一个点时记录了鼠标原始位置）
+			const l = globalStore.handle_svg_info?.info.props.point_position.val.length
+			const _x =
+				globalStore.mouse_info.new_position_x - globalStore.mouse_info.position_x - svgEditLayoutStore.center_offset.x
+			const _y =
+				globalStore.mouse_info.new_position_y - globalStore.mouse_info.position_y - svgEditLayoutStore.center_offset.y
+			const brotherPoint = globalStore.handle_svg_info.info.props.point_position.val[l - 2]
+			let ox = brotherPoint.x < _x ? -5 : brotherPoint.x > _x ? 5 : 0
+			let oy = brotherPoint.y < _y ? -5 : brotherPoint.y > _y ? 5 : 0
+			globalStore.handle_svg_info.info.props.point_position.val[l - 1] = {
+				x: _x + ox,
+				y: _y + oy
 			}
-			// console.log('连线', start_x, start_y, end_x, end_y, clientX, clientY);
 		} else if (globalStore.intention === EGlobalStoreIntention.SetConnectionLineNode && globalStore.handle_svg_info) {
 			globalStore.handle_svg_info.info.props.point_position.val[globalStore.connection_line_node_info.point_index] = {
 				x: getSvgNowPosition(
 					globalStore.mouse_info.position_x,
-					clientX,
+					globalStore.mouse_info.new_position_x,
 					globalStore.connection_line_node_info.init_pos.x
 				),
 				y: getSvgNowPosition(
 					globalStore.mouse_info.position_y,
-					clientY,
+					globalStore.mouse_info.new_position_y,
 					globalStore.connection_line_node_info.init_pos.y
 				)
 			}
@@ -569,6 +619,7 @@
 			return
 		} else if (globalStore.intention === EGlobalStoreIntention.SelectArea) {
 			//框选
+			globalStore.setHandleSvgInfo(null)
 			for (let e of globalStore.done_json) {
 				const t = selectRect.value
 				e.selected = e.x > t.x && e.x < t.x + t.with && e.y > t.y && e.y < t.y + t.height
@@ -589,32 +640,43 @@
 		contextMenuStore.display = false
 	}
 	const onCanvasMouseDown = (e: MouseEvent) => {
+		//todo 画横线或垂线
 		const { clientX, clientY } = e
 		if (globalStore.intention === EGlobalStoreIntention.Connection) {
+			if (!globalStore.handle_svg_info) {
+				//空白地方画线
+				createLine(e)
+			}
 			if (globalStore.handle_svg_info) {
 				if (e.button === 0) {
 					//鼠标左键创建新线段
-					globalStore.handle_svg_info.info.props.point_position.val.push({
-						x: getSvgNowPosition(
-							globalStore.mouse_info.position_x,
-							clientX,
-							globalStore.handle_svg_info?.info.props.point_position.val[0].x
-						),
-						y: getSvgNowPosition(
-							globalStore.mouse_info.position_y,
-							clientY,
-							globalStore.handle_svg_info?.info.props.point_position.val[0].y
-						)
-					})
+					if (globalStore.handle_svg_info.info.props.point_position.val.length !== 1) {
+						//鼠标移动后的实时位置（相对于起始点，只在创建第一个点时记录了鼠标原始位置）
+						globalStore.handle_svg_info.info.props.point_position.val.push({
+							x:
+								globalStore.mouse_info.new_position_x -
+								globalStore.mouse_info.position_x -
+								svgEditLayoutStore.center_offset.x,
+							y:
+								globalStore.mouse_info.new_position_y -
+								globalStore.mouse_info.position_y -
+								svgEditLayoutStore.center_offset.y
+						})
+					} else {
+						//第二个点，在鼠标没有移动的情况下，就是起始点
+						globalStore.handle_svg_info.info.props.point_position.val.push({
+							x: 0,
+							y: 0
+						})
+					}
 				} else if (e.button === 2) {
 					//鼠标右键结束线段绘制
 					globalStore.intention = EGlobalStoreIntention.None
 					setSvgActualInfo(globalStore.done_json[globalStore.handle_svg_info.index])
+					globalStore.setHandleSvgInfo(null)
 				}
-				return
-			} else {
-				createLine(e)
 			}
+			return
 		}
 		if (e.button === 0) {
 			//左键点击画布 未选中组件 框选
@@ -650,8 +712,8 @@
 
 			globalStore.mouse_info = {
 				state: EMouseInfoState.Down,
-				position_x: (clientX - svgEditLayoutStore.canvasInfo.left) / configStore.svg.scale,
-				position_y: (clientY - svgEditLayoutStore.canvasInfo.top) / configStore.svg.scale,
+				position_x: Math.round((clientX - svgEditLayoutStore.canvasInfo.left) / configStore.svg.scale),
+				position_y: Math.round((clientY - svgEditLayoutStore.canvasInfo.top) / configStore.svg.scale),
 				now_position_x: svgEditLayoutStore.center_offset.x,
 				now_position_y: svgEditLayoutStore.center_offset.y,
 				new_position_x: 0,
@@ -722,17 +784,54 @@
 	}
 	const onHandleKeyDown = (e: KeyboardEvent) => {
 		e.preventDefault()
-		if (globalStore.handle_svg_info && !e.ctrlKey && e.key == 'ArrowUp') {
-			globalStore.done_json[globalStore.handle_svg_info.index].y -= 1
+		let mGroup: number[] = []
+		if (!e.ctrlKey && ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].indexOf(e.key) > -1) {
+			if (isGroup.value) {
+				//群体移动
+				mGroup = globalStore.done_json
+					.map((e, i) => ({
+						selected: e.selected,
+						i: i
+					}))
+					.filter((e) => e.selected)
+					.map((e) => e.i)
+			} else {
+				if (globalStore.handle_svg_info) {
+					mGroup.push(globalStore.handle_svg_info.index)
+				}
+			}
+		}
+		if (!e.ctrlKey && e.key == 'ArrowUp') {
+			for (let i of mGroup) {
+				globalStore.done_json[i].y -= 1
+				globalStore.done_json[i].client.y -= 1
+				moveHandlePoint(globalStore.done_json[i], 0, -1)
+				moveAnchors(globalStore.done_json[i])
+			}
 			useHistoryRecord(globalStore.done_json)
-		} else if (globalStore.handle_svg_info && !e.ctrlKey && e.key == 'ArrowDown') {
-			globalStore.handle_svg_info.info.y += 1
+		} else if (!e.ctrlKey && e.key == 'ArrowDown') {
+			for (let i of mGroup) {
+				globalStore.done_json[i].y += 1
+				globalStore.done_json[i].client.y += 1
+				moveHandlePoint(globalStore.done_json[i], 0, 1)
+				moveAnchors(globalStore.done_json[i])
+			}
 			useHistoryRecord(globalStore.done_json)
-		} else if (globalStore.handle_svg_info && !e.ctrlKey && e.key == 'ArrowLeft') {
-			globalStore.handle_svg_info.info.x -= 1
+		} else if (!e.ctrlKey && e.key == 'ArrowLeft') {
+			for (let i of mGroup) {
+				globalStore.done_json[i].x -= 1
+				globalStore.done_json[i].client.x -= 1
+				moveHandlePoint(globalStore.done_json[i], -1, 0)
+				moveAnchors(globalStore.done_json[i])
+			}
 			useHistoryRecord(globalStore.done_json)
-		} else if (globalStore.handle_svg_info && !e.ctrlKey && e.key == 'ArrowRight') {
-			globalStore.handle_svg_info.info.x += 1
+		} else if (!e.ctrlKey && e.key == 'ArrowRight') {
+			for (let i of mGroup) {
+				globalStore.done_json[i].x += 1
+				globalStore.done_json[i].client.x += 1
+				moveHandlePoint(globalStore.done_json[i], 1, 0)
+				moveAnchors(globalStore.done_json[i])
+			}
 			useHistoryRecord(globalStore.done_json)
 		}
 		//ctrl  c
@@ -741,7 +840,16 @@
 		}
 		//deleted
 		else if (!e.ctrlKey && e.key == 'Delete') {
-			contextMenuStore.onContextMenuClick(EContextMenuInfoType.Delete)
+			if (isGroup.value) {
+				//有框选组件,批量删除
+				globalStore.setDoneJson(globalStore.done_json.filter((e) => !e.selected))
+				globalStore.setHandleSvgInfo(
+					globalStore.done_json[globalStore.done_json.length - 1],
+					globalStore.done_json.length - 1
+				)
+			} else {
+				contextMenuStore.onContextMenuClick(EContextMenuInfoType.Delete)
+			}
 		}
 		//上移一层
 		else if (e.ctrlKey && e.key == 'ArrowUp') {
@@ -939,6 +1047,7 @@
 								:item-info="item"
 							/>
 							<connection-panel
+								@contextmenu="onCanvasContextMenuEvent"
 								v-if="
 									!item.selected &&
 									visible_info.select_item.info?.id == item.id &&
@@ -1012,7 +1121,8 @@
 	}
 
 	.svg-item-in-group {
-		outline: 1px solid rgb(222, 123, 23);
+		//outline: 1px solid rgb(222, 123, 23);
+		outline: 1px solid rgb(222, 69, 23);
 	}
 
 	.contextMenu {

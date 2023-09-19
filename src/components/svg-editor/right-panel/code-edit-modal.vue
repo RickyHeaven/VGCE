@@ -3,7 +3,7 @@
 	import '@/components/ace-edit'
 	import { ElButton, ElDialog } from 'element-plus'
 
-	const props = withDefaults(defineProps<{ modelValue: any; lang: string; title: string }>(), {
+	const props = withDefaults(defineProps<{ modelValue: any; lang?: string; title?: string }>(), {
 		modelValue: () => ({}),
 		lang: 'json',
 		title: '编辑'

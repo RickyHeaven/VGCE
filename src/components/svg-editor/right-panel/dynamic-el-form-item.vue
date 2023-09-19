@@ -36,7 +36,7 @@
 				<span v-else>{{ key }}</span>
 			</template>
 			<el-tooltip
-				:content="attr_item.val"
+				:content="JSON.stringify(attr_item.val)"
 				v-if="getStringWidth(String(attr_item.val)) > 145"
 				placement="left"
 				popper-class="props-popper"

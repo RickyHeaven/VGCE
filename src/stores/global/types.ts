@@ -1,4 +1,5 @@
 import type { IConfig, IConfigItem } from '@/config/types'
+import type { IBindAnchors } from '@/components/config/types'
 
 export interface IGlobalStore {
 	config_center: IConfig
@@ -10,6 +11,17 @@ export interface IGlobalStore {
 	scale_info: IScaleInfo
 	rotate_info: IRotateInfo
 	connection_line_node_info: IConnectionLineNodeInfo
+}
+
+export interface IPointCoordinate {
+	tl: ICoordinate
+	tc: ICoordinate
+	tr: ICoordinate
+	l: ICoordinate
+	r: ICoordinate
+	bl: ICoordinate
+	bc: ICoordinate
+	br: ICoordinate
 }
 
 export interface IDoneJson extends IConfigItem {
@@ -26,19 +38,15 @@ export interface IDoneJson extends IConfigItem {
 		width: number
 		height: number
 	}
-	point_coordinate: {
-		tl: ICoordinate
-		tc: ICoordinate
-		tr: ICoordinate
-		l: ICoordinate
-		r: ICoordinate
-		bl: ICoordinate
-		bc: ICoordinate
-		br: ICoordinate
-	}
+	point_coordinate: IPointCoordinate
+	point_coordinate_old?: IPointCoordinate
 	selected?: boolean
-	oldPosition?: { x: number; y: number }
-	centerPosition: { x: number; y: number }
+	old_position?: { x: number; y: number }
+	center_position: { x: number; y: number }
+	bind_anchors?: {
+		start: IBindAnchors | null
+		end: IBindAnchors | null
+	}
 }
 
 export enum EGlobalStoreIntention {
