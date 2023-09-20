@@ -54599,7 +54599,7 @@ const _hoisted_1$1 = { class: "canvas-main-pc" }, _sfc_main$1 = /* @__PURE__ */ 
       }, 8, ["modelValue"])
     ]));
   }
-}), index_vue_vue_type_style_index_0_scoped_ad4c8816_lang = "", index$1 = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-ad4c8816"]]);
+}), index_vue_vue_type_style_index_0_scoped_52a9749a_lang = "", index$1 = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-52a9749a"]]);
 function commonjsRequire(i) {
   throw new Error('Could not dynamically require "' + i + '". Please configure the dynamicRequireTargets or/and ignoreDynamicRequires option of @rollup/plugin-commonjs appropriately for this require call to work.');
 }

@@ -72,7 +72,7 @@
 		globalStore.setDoneJson(done_json)
 	}
 	onMounted(() => {
-		//清除外部传入不同数据，形成历史记录的问题
+		//清除历史记录，解决外部传入不同数据，形成历史记录的问题
 		editPrivateStore.history_doneComponent = []
 		editPrivateStore.history_now_index = 0
 		if (props.data) {
