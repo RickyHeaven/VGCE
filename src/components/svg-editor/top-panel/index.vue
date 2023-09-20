@@ -162,26 +162,31 @@
 			</el-icon>
 		</div>
 	</div>
-	<el-dialog v-model="open" title="使用说明" width="60%">
+	<el-dialog v-model="open" title="使用说明" width="60%" class="guide-dialog">
 		<el-scrollbar max-height="60vh">
-			<div class="font-bold mb-10px text-15px">多选</div>
+			<div class="font-bold mb-10px text-15px guide-title" style="padding-top: 16px">多选</div>
 			<div>鼠标按住左键可以框选，也可以按住ctrl+鼠标左键点图形进行多选</div>
 			<div class="el-divider el-divider--horizontal" role="separator" style="--el-border-style: solid"> </div>
-			<div class="font-bold mb-10px text-15px">拖动画布</div>
-			<div>右键画布然后拖动即可，右侧面板‘图纸栏’可微调或重置位置</div>
+			<div class="font-bold mb-10px text-15px guide-title">拖动画布</div>
+			<div>右键画布然后拖动即可，右侧面板‘图纸’栏可微调或重置位置</div>
 			<div class="el-divider el-divider--horizontal" role="separator" style="--el-border-style: solid"> </div>
-			<div class="font-bold mb-10px text-15px">画布缩放</div>
-			<div>使用鼠标滚轮或者右侧面板‘图纸栏’可控制画布缩放</div>
+			<div class="font-bold mb-10px text-15px guide-title">画布缩放</div>
+			<div>使用鼠标滚轮或者右侧面板‘图纸’栏可控制画布缩放</div>
 			<div class="el-divider el-divider--horizontal" role="separator" style="--el-border-style: solid"> </div>
-			<div class="font-bold mb-10px text-15px">标尺辅助线</div>
+			<div class="font-bold mb-10px text-15px guide-title">标尺辅助线</div>
 			<div>在标尺区域按住鼠标左键并拖动即可创建标尺辅助线，将标尺辅助线拖动到标尺区域即可删除标尺辅助线</div>
 			<div class="el-divider el-divider--horizontal" role="separator" style="--el-border-style: solid"> </div>
-			<div class="font-bold mb-10px text-15px">横线和竖线</div>
+			<div class="font-bold mb-10px text-15px guide-title">连线样式</div>
+			<div
+				>在右侧‘连线’栏可以统一配置连线样式，配置后先增加的线会应用新样式，之前的线样式不变，如需改变，可选中线手动更改或删除重画</div
+			>
+			<div class="el-divider el-divider--horizontal" role="separator" style="--el-border-style: solid"> </div>
+			<div class="font-bold mb-10px text-15px guide-title">横线和竖线</div>
 			<div>画线的时候按住ctrl即可画竖线，按住shift即可画横线</div>
 			<div class="el-divider el-divider--horizontal" role="separator" style="--el-border-style: solid"> </div>
-			<div class="font-bold mb-10px text-15px">线段选中</div>
-			<div>
-				若线段绑定了锚点，移动线段，绑定的锚点不会移动。若是想将线段整体移动，需要先选中线段，在右侧‘数据’面板里解除绑定
+			<div class="font-bold mb-10px text-15px guide-title">线段选中</div>
+			<div style="padding-bottom: 14px">
+				若线段绑定了锚点，移动线段，绑定的锚点不会移动。若是想将线段整体移动，需要先选中线段，在右侧‘数据’栏里解除绑定
 			</div>
 		</el-scrollbar>
 	</el-dialog>
@@ -192,5 +197,27 @@
 		font-size: 16px;
 		color: #555;
 		font-weight: 500;
+	}
+
+	.guide-title {
+		color: #99a;
+	}
+
+	.el-divider {
+		border-color: #f1f1f5;
+	}
+</style>
+<style lang="less">
+	.guide-dialog {
+		.el-dialog__header {
+			background-color: #f1f1f5;
+			margin-right: 0;
+			padding-right: 16px;
+		}
+		.el-dialog__body {
+			padding-top: 0;
+			padding-bottom: 8px;
+			padding-right: 8px;
+		}
 	}
 </style>

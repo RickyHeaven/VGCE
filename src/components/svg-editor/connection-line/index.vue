@@ -111,7 +111,7 @@
 			</animateMotion>
 		</circle>
 		<!-- 更改线段 -->
-		<g v-if="props.pointVisible">
+		<g>
 			<circle
 				v-for="(item, index) in props.itemInfo.props.point_position.val"
 				:key="index"

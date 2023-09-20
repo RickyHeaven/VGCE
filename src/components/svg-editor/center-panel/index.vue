@@ -561,9 +561,23 @@
 			const brotherPoint = globalStore.handle_svg_info.info.props.point_position.val[l - 2]
 			let ox = brotherPoint.x < _x ? -5 : brotherPoint.x > _x ? 5 : 0
 			let oy = brotherPoint.y < _y ? -5 : brotherPoint.y > _y ? 5 : 0
-			globalStore.handle_svg_info.info.props.point_position.val[l - 1] = {
-				x: _x + ox,
-				y: _y + oy
+			if (e.ctrlKey) {
+				//画竖线
+				globalStore.handle_svg_info.info.props.point_position.val[l - 1] = {
+					x: brotherPoint.x,
+					y: _y + oy
+				}
+			} else if (e.shiftKey) {
+				//画横线
+				globalStore.handle_svg_info.info.props.point_position.val[l - 1] = {
+					x: _x + ox,
+					y: brotherPoint.y
+				}
+			} else {
+				globalStore.handle_svg_info.info.props.point_position.val[l - 1] = {
+					x: _x + ox,
+					y: _y + oy
+				}
 			}
 		} else if (globalStore.intention === EGlobalStoreIntention.SetConnectionLineNode && globalStore.handle_svg_info) {
 			globalStore.handle_svg_info.info.props.point_position.val[globalStore.connection_line_node_info.point_index] = {
