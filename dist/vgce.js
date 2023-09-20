@@ -54441,44 +54441,44 @@ const _hoisted_1$1 = { class: "canvas-main-pc" }, _sfc_main$1 = /* @__PURE__ */ 
   },
   emits: ["onReturn", "onPreview", "onSave"],
   setup(i, { expose: n, emit: r }) {
-    const g = i, V = useGlobalStore(pinia), k = useSvgEditLayoutStore(pinia), $ = useConfigStore(pinia), oe = ref(), re = reactive({
+    const g = i, V = useGlobalStore(pinia), k = useSvgEditLayoutStore(pinia), $ = useConfigStore(pinia), oe = useEditPrivateStore(pinia), re = ref(), Ce = reactive({
       [EVisibleConfKey.ExportJson]: !1,
       [EVisibleConfKey.ImportJson]: !1,
       [EVisibleConfKey.ImportFile]: !1
-    }), Ce = (ue, Ne) => {
-      re[ue] = Ne;
-    }, ie = ref();
-    ie.value = () => {
-      oe.value.onImportJson(), Ce(EVisibleConfKey.ImportJson, !1);
+    }), ie = (Ne, he) => {
+      Ce[Ne] = he;
+    }, ae = ref();
+    ae.value = () => {
+      re.value.onImportJson(), ie(EVisibleConfKey.ImportJson, !1);
     };
-    const ae = (ue) => ["text/plain", "application/json"].indexOf(ue.type) < 0 ? (ElMessage.error("仅支持的格式：txt、json"), !1) : (fileRead(ue).then((Ne) => {
-      oe.value.setVal(Ne), ElMessage.success("文件读取成功！");
-    }), !1), le = (ue) => {
-      V.setDoneJson(ue);
+    const le = (Ne) => ["text/plain", "application/json"].indexOf(Ne.type) < 0 ? (ElMessage.error("仅支持的格式：txt、json"), !1) : (fileRead(Ne).then((he) => {
+      re.value.setVal(he), ElMessage.success("文件读取成功！");
+    }), !1), Ie = (Ne) => {
+      V.setDoneJson(Ne);
     };
     onMounted(() => {
-      g.data ? useImportDataModel(g.data) : V.setDoneJson([]), V.intention = EGlobalStoreIntention.None;
-    }), n({
-      setGraphNodeJson: le
+      oe.history_doneComponent = [], oe.history_now_index = 0, g.data ? useImportDataModel(g.data) : V.setDoneJson([]), V.intention = EGlobalStoreIntention.None;
     });
-    const { appContext: Ie } = getCurrentInstance();
-    function de(ue) {
-      g.saveFile ? ElMessageBox.prompt("请输入文件名", "保存", { cancelButtonText: "取消", confirmButtonText: "保存" }, Ie).then((Ne) => {
-        fileWrite(ue, Ne.value.trim()), r("onSave", ue);
-      }).catch((Ne) => {
-        console.log(Ne);
-      }) : r("onSave", ue);
+    const { appContext: de } = getCurrentInstance();
+    function ue(Ne) {
+      g.saveFile ? ElMessageBox.prompt("请输入文件名", "保存", { cancelButtonText: "取消", confirmButtonText: "保存" }, de).then((he) => {
+        fileWrite(Ne, he.value.trim()), r("onSave", Ne);
+      }).catch((he) => {
+        console.log(he);
+      }) : r("onSave", Ne);
     }
-    return (ue, Ne) => (openBlock(), createElementBlock("div", null, [
+    return n({
+      setGraphNodeJson: Ie
+    }), (Ne, he) => (openBlock(), createElementBlock("div", null, [
       createVNode$1(unref(ElContainer), null, {
         default: withCtx(() => [
           createVNode$1(unref(ElHeader), { class: "top-el-header" }, {
             default: withCtx(() => [
               createVNode$1(TopPanel, {
-                onChangeVisible: Ce,
-                onOnReturn: Ne[0] || (Ne[0] = (he) => r("onReturn")),
-                onOnPreview: Ne[1] || (Ne[1] = (he) => r("onPreview", he)),
-                onOnSave: de
+                onChangeVisible: ie,
+                onOnReturn: he[0] || (he[0] = (ze) => r("onReturn")),
+                onOnPreview: he[1] || (he[1] = (ze) => r("onPreview", ze)),
+                onOnSave: ue
               })
             ]),
             _: 1
@@ -54540,15 +54540,15 @@ const _hoisted_1$1 = { class: "canvas-main-pc" }, _sfc_main$1 = /* @__PURE__ */ 
       }),
       createVNode$1(unref(ElDialog), {
         class: "modal-full",
-        modelValue: unref(re).ImportJson,
-        "onUpdate:modelValue": Ne[3] || (Ne[3] = (he) => unref(re).ImportJson = he),
+        modelValue: unref(Ce).ImportJson,
+        "onUpdate:modelValue": he[3] || (he[3] = (ze) => unref(Ce).ImportJson = ze),
         title: "导入数据",
         width: "60%",
         "destroy-on-close": ""
       }, {
         footer: withCtx(() => [
           createVNode$1(unref(ElUpload), {
-            beforeUpload: ae,
+            beforeUpload: le,
             style: { display: "inline-flex", "margin-right": "12px" },
             multiple: !1,
             "show-file-list": !1,
@@ -54556,7 +54556,7 @@ const _hoisted_1$1 = { class: "canvas-main-pc" }, _sfc_main$1 = /* @__PURE__ */ 
           }, {
             default: withCtx(() => [
               createVNode$1(unref(ElButton), {
-                onClick: Ne[2] || (Ne[2] = (he) => Ce(unref(EVisibleConfKey).ImportFile, !0))
+                onClick: he[2] || (he[2] = (ze) => ie(unref(EVisibleConfKey).ImportFile, !0))
               }, {
                 default: withCtx(() => [
                   createTextVNode("读取文件")
@@ -54568,7 +54568,7 @@ const _hoisted_1$1 = { class: "canvas-main-pc" }, _sfc_main$1 = /* @__PURE__ */ 
           }),
           createVNode$1(unref(ElButton), {
             type: "primary",
-            onClick: unref(ie)
+            onClick: unref(ae)
           }, {
             default: withCtx(() => [
               createTextVNode("导入数据")
@@ -54579,15 +54579,15 @@ const _hoisted_1$1 = { class: "canvas-main-pc" }, _sfc_main$1 = /* @__PURE__ */ 
         default: withCtx(() => [
           createVNode$1(_sfc_main$3, {
             ref_key: "importJsonRef",
-            ref: oe
+            ref: re
           }, null, 512)
         ]),
         _: 1
       }, 8, ["modelValue"]),
       createVNode$1(unref(ElDialog), {
         class: "modal-full",
-        modelValue: unref(re).ExportJson,
-        "onUpdate:modelValue": Ne[4] || (Ne[4] = (he) => unref(re).ExportJson = he),
+        modelValue: unref(Ce).ExportJson,
+        "onUpdate:modelValue": he[4] || (he[4] = (ze) => unref(Ce).ExportJson = ze),
         title: "导出",
         width: "60%",
         "destroy-on-close": ""
@@ -54599,7 +54599,7 @@ const _hoisted_1$1 = { class: "canvas-main-pc" }, _sfc_main$1 = /* @__PURE__ */ 
       }, 8, ["modelValue"])
     ]));
   }
-}), index_vue_vue_type_style_index_0_scoped_5dff6b8d_lang = "", index$1 = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-5dff6b8d"]]);
+}), index_vue_vue_type_style_index_0_scoped_ad4c8816_lang = "", index$1 = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-ad4c8816"]]);
 function commonjsRequire(i) {
   throw new Error('Could not dynamically require "' + i + '". Please configure the dynamicRequireTargets or/and ignoreDynamicRequires option of @rollup/plugin-commonjs appropriately for this require call to work.');
 }

@@ -31,6 +31,7 @@
 	import { useGlobalStore } from '@/stores/global'
 	import { useConfigStore } from '@/stores/config'
 	import { fileRead, fileWrite } from '@/utils/file-read-write'
+	import { useEditPrivateStore } from '@/stores/system'
 
 	const props = withDefaults(defineProps<{ customToolbar?: IConfig; data?: string; saveFile?: boolean }>(), {
 		saveFile: false
@@ -38,6 +39,7 @@
 	const globalStore = useGlobalStore(pinia)
 	const svgEditLayoutStore = useSvgEditLayoutStore(pinia)
 	const configStore = useConfigStore(pinia)
+	const editPrivateStore = useEditPrivateStore(pinia)
 	const importJsonRef = ref<InstanceType<typeof ImportJson>>()
 	const visible_conf: IVisibleConf = reactive({
 		[EVisibleConfKey.ExportJson]: false,
@@ -70,15 +72,15 @@
 		globalStore.setDoneJson(done_json)
 	}
 	onMounted(() => {
+		//清除外部传入不同数据，形成历史记录的问题
+		editPrivateStore.history_doneComponent = []
+		editPrivateStore.history_now_index = 0
 		if (props.data) {
 			useImportDataModel(props.data)
 		} else {
 			globalStore.setDoneJson([])
 		}
 		globalStore.intention = EGlobalStoreIntention.None
-	})
-	defineExpose({
-		setGraphNodeJson
 	})
 
 	const { appContext } = getCurrentInstance()!
@@ -97,6 +99,10 @@
 			emits('onSave', d)
 		}
 	}
+
+	defineExpose({
+		setGraphNodeJson
+	})
 </script>
 <template>
 	<div>
