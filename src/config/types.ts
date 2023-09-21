@@ -80,7 +80,7 @@ interface IDoneJsonConfig {
 export interface IConfigItemState {
 	[k: keyof any]: {
 		title: string
-		default: false
+		default: any
 		props: { [key: string]: { openVal: any; closeVal: any } }
 	}
 }

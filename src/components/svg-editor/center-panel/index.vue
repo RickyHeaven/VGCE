@@ -344,6 +344,7 @@
 			(globalStore.intention === EGlobalStoreIntention.Select || globalStore.intention === EGlobalStoreIntention.Move)
 		) {
 			//有选中组件 移动单个组件
+			//todo 对齐功能开发
 			globalStore.handle_svg_info.info.x = x
 
 			globalStore.handle_svg_info.info.y = y

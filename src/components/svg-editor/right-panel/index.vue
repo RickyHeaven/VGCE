@@ -219,11 +219,11 @@
 					<el-input v-model="globalStore.handle_svg_info!.info.id" />
 				</el-form-item>
 				<div
-					v-for="(e, k) in globalStore.handle_svg_info!.info.state"
+					v-for="(e, k) of globalStore.handle_svg_info!.info.state"
 					:key="'state' + String(k)"
 					v-if="globalStore.handle_svg_info!.info.state"
 				>
-					<el-form-item class="props-row" :label="String(k)" size="small"> {{ e?.default }}</el-form-item>
+					<el-form-item class="props-row" :label="String(k)" size="small"> {{ e!.default }}</el-form-item>
 
 					<el-form-item
 						v-if="k === 'OnOff'"
