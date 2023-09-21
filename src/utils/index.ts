@@ -286,15 +286,39 @@ export const moveAnchors = (done_json: IDoneJson) => {
 		if (d.type === EDoneJsonType.ConnectionLine) {
 			if (d.bind_anchors?.start?.target_id === done_json.id) {
 				const a = getAnchorPosByAnchorType(d.bind_anchors.start.type, done_json)
-				d.props.point_position.val[0] = { x: a.x - d.x, y: a.y - d.y }
+				d.props.point_position.val[0] = {
+					x: a.x - d.x,
+					y: a.y - d.y
+				}
 			}
 			if (d.bind_anchors?.end?.target_id === done_json.id) {
 				const a = getAnchorPosByAnchorType(d.bind_anchors.end.type, done_json)
-				d.props.point_position.val[d.props.point_position.val.length - 1] = { x: a.x - d.x, y: a.y - d.y }
+				d.props.point_position.val[d.props.point_position.val.length - 1] = {
+					x: a.x - d.x,
+					y: a.y - d.y
+				}
 			}
 		}
 	}
 }
+/**
+ * 解绑连线的锚点
+ * @param id 被绑定的组件的id
+ */
+export const unbindAnchors = (id: string) => {
+	const globalStore = useGlobalStore(pinia)
+	for (let d of globalStore.done_json) {
+		if (d.type === EDoneJsonType.ConnectionLine) {
+			if (d.bind_anchors?.start?.target_id === id) {
+				d.bind_anchors.start = null
+			}
+			if (d.bind_anchors?.end?.target_id === id) {
+				d.bind_anchors.end = null
+			}
+		}
+	}
+}
+
 /**
  * 根据锚点类型获取锚点坐标
  * @param anchor_type
@@ -464,7 +488,10 @@ export const createLine = (e: MouseEvent, type?: ELineBindAnchors, itemInfo?: ID
 			width: 0,
 			height: 0
 		},
-		center_position: { x: 0, y: 0 },
+		center_position: {
+			x: 0,
+			y: 0
+		},
 		point_coordinate: {
 			tl: {
 				x: 0,

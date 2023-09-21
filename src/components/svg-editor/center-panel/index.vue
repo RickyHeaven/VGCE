@@ -57,7 +57,8 @@
 	const ct: Record<string, any> = {
 		MoveCanvas: 'grab',
 		Rotate: "url('/src/assets/icons/rotate.svg'), auto",
-		Connection: 'crosshair'
+		Connection: 'crosshair',
+		SetConnectionLineNode: 'crosshair'
 	}
 	const cursor_style = computed(() => {
 		if (Object.keys(ct).indexOf(globalStore.intention) > -1) {
@@ -119,6 +120,7 @@
 	})
 
 	let groupMoved = false
+	let lineNodeMoved = false
 
 	const dropEvent = (e: Record<string, any>) => {
 		if (globalStore.intention == EGlobalStoreIntention.None) {
@@ -559,8 +561,9 @@
 			const _y =
 				globalStore.mouse_info.new_position_y - globalStore.mouse_info.position_y - svgEditLayoutStore.center_offset.y
 			const brotherPoint = globalStore.handle_svg_info.info.props.point_position.val[l - 2]
-			let ox = brotherPoint.x < _x ? -5 : brotherPoint.x > _x ? 5 : 0
-			let oy = brotherPoint.y < _y ? -5 : brotherPoint.y > _y ? 5 : 0
+			const pr = globalStore.handle_svg_info?.info.props.point_r?.val + 2 || 4
+			let ox = brotherPoint.x < _x ? -pr : brotherPoint.x > _x ? pr : 0
+			let oy = brotherPoint.y < _y ? -pr : brotherPoint.y > _y ? pr : 0
 			if (e.ctrlKey) {
 				//画竖线
 				globalStore.handle_svg_info.info.props.point_position.val[l - 1] = {
@@ -580,17 +583,32 @@
 				}
 			}
 		} else if (globalStore.intention === EGlobalStoreIntention.SetConnectionLineNode && globalStore.handle_svg_info) {
+			if (
+				!lineNodeMoved &&
+				(globalStore.connection_line_node_info.point_index ===
+					globalStore.handle_svg_info.info.props.point_position.val.length - 1 ||
+					globalStore.connection_line_node_info.point_index === 0)
+			) {
+				lineNodeMoved = true
+			}
+			const l = globalStore.handle_svg_info?.info.props.point_position.val.length
+			const _x = getSvgNowPosition(
+				globalStore.mouse_info.position_x,
+				globalStore.mouse_info.new_position_x,
+				globalStore.connection_line_node_info.init_pos.x
+			)
+			const _y = getSvgNowPosition(
+				globalStore.mouse_info.position_y,
+				globalStore.mouse_info.new_position_y,
+				globalStore.connection_line_node_info.init_pos.y
+			)
+			const brotherPoint = globalStore.handle_svg_info.info.props.point_position.val[l - 2]
+			const pr = globalStore.handle_svg_info?.info.props.point_r?.val + 2 || 4
+			let ox = brotherPoint.x < _x ? -pr : brotherPoint.x > _x ? pr : 0
+			let oy = brotherPoint.y < _y ? -pr : brotherPoint.y > _y ? pr : 0
 			globalStore.handle_svg_info.info.props.point_position.val[globalStore.connection_line_node_info.point_index] = {
-				x: getSvgNowPosition(
-					globalStore.mouse_info.position_x,
-					globalStore.mouse_info.new_position_x,
-					globalStore.connection_line_node_info.init_pos.x
-				),
-				y: getSvgNowPosition(
-					globalStore.mouse_info.position_y,
-					globalStore.mouse_info.new_position_y,
-					globalStore.connection_line_node_info.init_pos.y
-				)
+				x: _x + ox,
+				y: _y + oy
 			}
 		}
 	}
@@ -631,6 +649,17 @@
 			globalStore.intention = EGlobalStoreIntention.None
 		} else if (globalStore.intention === EGlobalStoreIntention.Connection) {
 			return
+		} else if (globalStore.intention === EGlobalStoreIntention.SetConnectionLineNode) {
+			//解绑锚点
+			if (lineNodeMoved && globalStore.handle_svg_info?.info.bind_anchors) {
+				if (globalStore.connection_line_node_info.point_index === 0) {
+					globalStore.handle_svg_info.info.bind_anchors.start = null
+				} else {
+					globalStore.handle_svg_info.info.bind_anchors.end = null
+				}
+			}
+			globalStore.intention = EGlobalStoreIntention.None
+			lineNodeMoved = false
 		} else if (globalStore.intention === EGlobalStoreIntention.SelectArea) {
 			//框选
 			globalStore.setHandleSvgInfo(null)
@@ -654,7 +683,6 @@
 		contextMenuStore.display = false
 	}
 	const onCanvasMouseDown = (e: MouseEvent) => {
-		//todo 画横线或垂线
 		const { clientX, clientY } = e
 		if (globalStore.intention === EGlobalStoreIntention.Connection) {
 			if (!globalStore.handle_svg_info) {

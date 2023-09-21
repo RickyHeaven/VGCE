@@ -173,12 +173,30 @@
 			</div>
 			<div class="el-divider el-divider--horizontal" role="separator" style="--el-border-style: solid"></div>
 			<div class="font-bold mb-10px text-15px guide-title">横线和竖线</div>
-			<div>画线的时候按住ctrl即可画竖线，按住shift即可画横线</div>
+			<div class="guide-text"
+				><p>
+					点击编辑器顶部连线按钮会进入连线状态，该状态下在画板点击鼠标左键即可开始画线，移动并再次点击左键创建新的节点，右键结束画线并退出连线状态；</p
+				>
+				<p>画线的时候按住ctrl即可画竖线，按住shift即可画横线</p></div
+			>
+			<div class="el-divider el-divider--horizontal" role="separator" style="--el-border-style: solid"></div>
+			<div class="font-bold mb-10px text-15px guide-title">绑定锚点</div>
+			<div class="guide-text">
+				<p
+					>组件在未选中时，鼠标经过组件时会出现锚点，鼠标悬浮在锚点上时，会有交互样式，点击左键即可以锚点为起点创建连线；</p
+				>
+				<p>同样，在连线时鼠标经过锚点时，会出现锚点交互样式，点击左键即可以锚点为连线终点结束连线；</p>
+				<p>这两种情况下的连线会绑定组件上的锚点，如需解绑，参考下面的‘锚点解绑’；</p>
+				<p>同样，也可先画线，再选中连线绑定想要绑定的组件锚点（连线只有首尾节点可以绑定锚点）</p>
+			</div>
 			<div class="el-divider el-divider--horizontal" role="separator" style="--el-border-style: solid"></div>
 			<div class="font-bold mb-10px text-15px guide-title">线段选中</div>
-			<div style="padding-bottom: 14px">
-				若线段绑定了锚点，移动线段，绑定的锚点不会移动。若是想将线段整体移动，需要先选中线段，在右侧‘数据’栏里解除绑定
+			<div>
+				若线段绑定了锚点，移动线段，绑定的锚点不会移动。若是想将线段整体移动，需要先解绑，参考下面的‘锚点解绑’
 			</div>
+			<div class="el-divider el-divider--horizontal" role="separator" style="--el-border-style: solid"></div>
+			<div class="font-bold mb-10px text-15px guide-title">锚点解绑</div>
+			<div style="padding-bottom: 14px"> 选中线段，在右侧‘数据’栏里解除绑定；或者鼠标左键拖拽连线上需要解绑的节点</div>
 		</el-scrollbar>
 	</el-dialog>
 </template>
@@ -196,6 +214,12 @@
 
 	.el-divider {
 		border-color: #f1f1f5;
+	}
+
+	.guide-text {
+		p {
+			line-height: 1.9;
+		}
 	}
 </style>
 <style lang="less">

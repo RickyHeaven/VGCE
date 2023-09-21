@@ -73,11 +73,40 @@
 			getCoordinateOffset(props.itemInfo.actual_bound.height, props.itemInfo.scale_y) +
 			radius.value
 	)
+
+	const anchorUp = (e: any, type: ELineBindAnchors) => {
+		if (globalStore.intention === EGlobalStoreIntention.SetConnectionLineNode) {
+			//移动连线首尾节点，绑定锚点
+			e.stopPropagation()
+			if (globalStore.handle_svg_info?.info.bind_anchors && globalStore.connection_line_node_info) {
+				if (globalStore.connection_line_node_info.point_index === 0) {
+					globalStore.handle_svg_info.info.bind_anchors.start = {
+						type: type,
+						target_id: props.itemInfo.id
+					}
+				} else if (
+					globalStore.connection_line_node_info.point_index ===
+					globalStore.handle_svg_info.info.props.point_position.val.length - 1
+				) {
+					globalStore.handle_svg_info.info.bind_anchors.end = {
+						type: type,
+						target_id: props.itemInfo.id
+					}
+				}
+
+				globalStore.intention = EGlobalStoreIntention.None
+				globalStore.setHandleSvgInfo(null)
+				nextTick(function () {
+					moveAnchors(props.itemInfo)
+				})
+			}
+		}
+	}
 	const bindAnchor = (e: any, type: ELineBindAnchors) => {
 		if (globalStore.intention === EGlobalStoreIntention.None) {
 			createLine(e, type, props.itemInfo)
 		} else if (globalStore.intention === EGlobalStoreIntention.Connection) {
-			//点击锚上在连线的情况下点击结束连线并绑定锚点
+			//在连线的情况下，点击锚点，结束连线并绑定锚点
 			e.stopPropagation()
 			if (globalStore.handle_svg_info?.info.bind_anchors) {
 				globalStore.handle_svg_info.info.bind_anchors.end = {
@@ -102,19 +131,25 @@
 		stroke-width="2"
 		stroke="rgba(0,0,0,0)"
 	>
-		<g @mousedown="bindAnchor($event, ELineBindAnchors.TopCenter)">
+		<g
+			@mousedown="bindAnchor($event, ELineBindAnchors.TopCenter)"
+			@mouseup="anchorUp($event, ELineBindAnchors.TopCenter)"
+		>
 			<circle class="out-circle" :cx="cxT" :cy="cyT" :r="outRadius" fill-opacity=".3" />
 			<circle id="connection_tc" :cx="cxT" :cy="cyT" :r="radius" pointer-events="all" />
 		</g>
-		<g @mousedown="bindAnchor($event, ELineBindAnchors.Right)">
+		<g @mousedown="bindAnchor($event, ELineBindAnchors.Right)" @mouseup="anchorUp($event, ELineBindAnchors.Right)">
 			<circle class="out-circle" :cx="cxR" :cy="cyR" :r="outRadius" fill-opacity=".3" />
 			<circle id="connection_r" :cx="cxR" :cy="cyR" :r="radius" pointer-events="all" />
 		</g>
-		<g @mousedown="bindAnchor($event, ELineBindAnchors.BottomCenter)">
+		<g
+			@mousedown="bindAnchor($event, ELineBindAnchors.BottomCenter)"
+			@mouseup="anchorUp($event, ELineBindAnchors.BottomCenter)"
+		>
 			<circle class="out-circle" :cx="cxB" :cy="cyB" :r="outRadius" fill-opacity=".3" />
 			<circle id="connection_bc" :cx="cxB" :cy="cyB" :r="radius" pointer-events="all" />
 		</g>
-		<g @mousedown="bindAnchor($event, ELineBindAnchors.Left)">
+		<g @mousedown="bindAnchor($event, ELineBindAnchors.Left)" @mouseup="anchorUp($event, ELineBindAnchors.Left)">
 			<circle class="out-circle" :cx="cxL" :cy="cyL" :r="outRadius" fill-opacity=".3" />
 			<circle id="connection_l" :cx="cxL" :cy="cyL" :r="radius" :style="{ cursor: 'crosshair' }" pointer-events="all" />
 		</g>

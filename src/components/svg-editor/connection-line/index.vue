@@ -117,7 +117,7 @@
 				:key="index"
 				:cx="item.x"
 				:cy="item.y"
-				r="6"
+				:r="props.itemInfo.props.point_r.val"
 				stroke-width="1"
 				:stroke="props.itemInfo.props.stroke.val"
 				fill="#fff"

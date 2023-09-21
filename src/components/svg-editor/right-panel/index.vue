@@ -243,6 +243,26 @@
 					</el-form-item>
 				</div>
 				<dynamic-el-form-item :obj-info="globalStore.handle_svg_info!.info.props" code />
+				<el-form-item
+					:label="globalStore.handle_svg_info!.info.animations.type.title"
+					size="small"
+					v-if="globalStore.handle_svg_info!.info.animations"
+				>
+					<el-select v-model="globalStore.handle_svg_info!.info.animations.type.val" placeholder="Select" size="small">
+						<el-option
+							v-for="item in globalStore.handle_svg_info!.info.animations.type.options"
+							:key="item.value"
+							:label="item.label"
+							:value="item.value"
+						/>
+					</el-select>
+				</el-form-item>
+
+				<dynamic-el-form-item
+					:obj-info="globalStore.handle_svg_info!.info.animations"
+					v-if="globalStore.handle_svg_info!.info.animations?.type.val !== 'None'"
+					:hide="['type', 'repeatCount']"
+				/>
 				<bind-anchor
 					v-if="globalStore.handle_svg_info?.info.type === EDoneJsonType.ConnectionLine"
 					v-model="globalStore.handle_svg_info!.info!.bind_anchors!.start"

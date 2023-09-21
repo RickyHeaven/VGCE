@@ -65,6 +65,11 @@ export const connection_line_system: ISystemStraightLine = {
 			type: EConfigItemPropsType.InputNumber,
 			val: 2
 		},
+		point_r: {
+			title: '节点半径',
+			type: EConfigItemPropsType.InputNumber,
+			val: 4
+		},
 		point_position: {
 			title: '点坐标',
 			type: EConfigItemPropsType.JsonEdit,

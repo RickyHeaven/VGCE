@@ -1,6 +1,6 @@
 import { config } from '@/config'
 import type { IConfigItem } from '@/config/types'
-import { isOfType, objectDeepClone, setSvgActualInfo } from '@/utils'
+import { isOfType, objectDeepClone, setSvgActualInfo, unbindAnchors } from '@/utils'
 import { EGlobalStoreIntention, EMouseInfoState, EScaleInfoType } from './types'
 import type { IDoneJson, IGlobalStore, IMouseInfo, IScaleInfo } from './types'
 import { useHistoryRecord } from '@/hooks'
@@ -90,7 +90,9 @@ export const useGlobalStore = defineStore('global-store', {
 		},
 		spliceDoneJson(index: number) {
 			const globalStore = useGlobalStore()
-			globalStore.done_json.splice(index, 1)
+			const t = globalStore.done_json.splice(index, 1)
+			const item = t[0]
+			unbindAnchors(item.id)
 			useHistoryRecord(globalStore.done_json)
 		}
 	}
