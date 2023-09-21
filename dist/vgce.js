@@ -38835,7 +38835,7 @@ const _withScopeId$2 = (i) => (pushScopeId("data-v-64ac5be6"), i = i(), popScope
   __name: "index",
   setup(i) {
     useCssVars((jt) => ({
-      "0f010360": ie.value
+      "7007d8eb": ie.value
     }));
     const n = getCurrentInstance();
     Object.keys(vueComp).forEach((jt) => {
@@ -39301,161 +39301,163 @@ const _withScopeId$2 = (i) => (pushScopeId("data-v-64ac5be6"), i = i(), popScope
           left: (ti == null ? void 0 : ti.left) || 0
         };
       });
-    }), (jt, ti) => (openBlock(), createElementBlock("div", {
-      class: "canvas",
-      tabindex: "0",
-      ref_key: "canvasRef",
-      ref: ae,
-      onDrop: Ne,
-      onDragenter: he,
-      onDragover: pe,
-      onMousedown: Fe,
-      onMousemove: At,
-      onMouseup: $e,
-      onContextmenu: Ve,
-      onKeydown: kt,
-      onMousewheel: Ue
-    }, [
-      (openBlock(), createElementBlock("svg", {
-        xmlns: "http://www.w3.org/2000/svg",
-        style: normalizeStyle$1({ backgroundColor: unref(g).svg.background_color }),
-        width: "100%",
-        height: "100%"
+    }), (jt, ti) => (openBlock(), createElementBlock(Fragment, null, [
+      createElementVNode("div", {
+        class: "canvas",
+        tabindex: "0",
+        ref_key: "canvasRef",
+        ref: ae,
+        onDrop: Ne,
+        onDragenter: he,
+        onDragover: pe,
+        onMousedown: Fe,
+        onMousemove: At,
+        onMouseup: $e,
+        onContextmenu: Ve,
+        onKeydown: kt,
+        onMousewheel: Ue
       }, [
-        createElementVNode("defs", null, [
-          createElementVNode("pattern", _hoisted_1$8, [
-            createElementVNode("line", {
-              x1: "0",
-              y1: "0",
-              x2: "0",
-              y2: "20",
-              stroke: unref(g).svg.grid_color
-            }, null, 8, _hoisted_2$6),
-            createElementVNode("line", {
-              x1: "10",
-              y1: "0",
-              x2: "10",
-              y2: "20",
-              stroke: unref(g).svg.grid_color
-            }, null, 8, _hoisted_3$6),
-            createElementVNode("line", {
-              x1: "0",
-              y1: "0",
-              x2: "20",
-              y2: "0",
-              stroke: unref(g).svg.grid_color
-            }, null, 8, _hoisted_4$4),
-            createElementVNode("line", {
-              x1: "0",
-              y1: "10",
-              x2: "20",
-              y2: "10",
-              stroke: unref(g).svg.grid_color
-            }, null, 8, _hoisted_5$2)
-          ])
-        ]),
-        unref(g).svg.grid ? (openBlock(), createElementBlock("rect", _hoisted_6)) : createCommentVNode("", !0),
-        createElementVNode("g", {
-          transform: `translate(${unref(V).center_offset.x * unref(g).svg.scale},${unref(V).center_offset.y * unref(g).svg.scale})rotate(0)scale(${unref(g).svg.scale})`
+        (openBlock(), createElementBlock("svg", {
+          xmlns: "http://www.w3.org/2000/svg",
+          style: normalizeStyle$1({ backgroundColor: unref(g).svg.background_color }),
+          width: "100%",
+          height: "100%"
         }, [
-          (openBlock(!0), createElementBlock(Fragment, null, renderList(unref(r).done_json, (Lt, Pt) => {
-            var ni, ri, di, Ci, gi, ui;
-            return withDirectives((openBlock(), createElementBlock("g", {
-              key: Lt.id,
-              transform: `translate(${Lt.x},${Lt.y})rotate(0)scale(1)`
-            }, [
-              createElementVNode("g", {
-                class: normalizeClass(`${unref(getCommonClass)(Lt)}`)
+          createElementVNode("defs", null, [
+            createElementVNode("pattern", _hoisted_1$8, [
+              createElementVNode("line", {
+                x1: "0",
+                y1: "0",
+                x2: "0",
+                y2: "20",
+                stroke: unref(g).svg.grid_color
+              }, null, 8, _hoisted_2$6),
+              createElementVNode("line", {
+                x1: "10",
+                y1: "0",
+                x2: "10",
+                y2: "20",
+                stroke: unref(g).svg.grid_color
+              }, null, 8, _hoisted_3$6),
+              createElementVNode("line", {
+                x1: "0",
+                y1: "0",
+                x2: "20",
+                y2: "0",
+                stroke: unref(g).svg.grid_color
+              }, null, 8, _hoisted_4$4),
+              createElementVNode("line", {
+                x1: "0",
+                y1: "10",
+                x2: "20",
+                y2: "10",
+                stroke: unref(g).svg.grid_color
+              }, null, 8, _hoisted_5$2)
+            ])
+          ]),
+          unref(g).svg.grid ? (openBlock(), createElementBlock("rect", _hoisted_6)) : createCommentVNode("", !0),
+          createElementVNode("g", {
+            transform: `translate(${unref(V).center_offset.x * unref(g).svg.scale},${unref(V).center_offset.y * unref(g).svg.scale})rotate(0)scale(${unref(g).svg.scale})`
+          }, [
+            (openBlock(!0), createElementBlock(Fragment, null, renderList(unref(r).done_json, (Lt, Pt) => {
+              var ni, ri, di, Ci, gi, ui;
+              return withDirectives((openBlock(), createElementBlock("g", {
+                key: Lt.id,
+                transform: `translate(${Lt.x},${Lt.y})rotate(0)scale(1)`
               }, [
                 createElementVNode("g", {
-                  transform: `translate(${Lt.actual_bound.x + Lt.actual_bound.width / 2},${Lt.actual_bound.y + Lt.actual_bound.height / 2})rotate(${Lt.rotate}) scale(1) translate(${-(Lt.actual_bound.x + Lt.actual_bound.width / 2)},${-(Lt.actual_bound.y + Lt.actual_bound.height / 2)})`,
-                  onMousedown: (hi) => ze(Lt, Pt, hi),
-                  onMouseup: (hi) => xe(Lt, Pt, hi),
-                  onMouseenter: (hi) => Oe(Lt, Pt, hi),
-                  onMouseleave: (hi) => _e(Lt, Pt, hi),
-                  onContextmenu: (hi) => Dt(Lt, Pt, hi)
+                  class: normalizeClass(`${unref(getCommonClass)(Lt)}`)
                 }, [
-                  Lt.type === unref(EDoneJsonType).ConnectionLine ? (openBlock(), createBlock(_sfc_main$e, {
-                    key: 0,
-                    "item-info": Lt,
-                    "point-visible": unref(re).connection_line && ((ni = unref(re).select_item.info) == null ? void 0 : ni.id) == Lt.id
-                  }, null, 8, ["item-info", "point-visible"])) : Lt.type === unref(EDoneJsonType).File ? (openBlock(), createElementBlock("use", mergeProps({
-                    key: 1,
-                    "xlink:href": `#svg-${Lt.name}`
-                  }, unref(prosToVBind)(Lt), {
-                    width: "100",
-                    height: "100",
-                    id: Lt.id,
-                    transform: `translate(${Lt.actual_bound.x + Lt.actual_bound.width / 2},${Lt.actual_bound.y + Lt.actual_bound.height / 2}) scale(${Lt.scale_x},${Lt.scale_y}) translate(${-(Lt.actual_bound.x + Lt.actual_bound.width / 2)},${-(Lt.actual_bound.y + Lt.actual_bound.height / 2)})`
-                  }), null, 16, _hoisted_10)) : Lt.type === unref(EDoneJsonType).CustomSvg ? (openBlock(), createBlock(resolveDynamicComponent(Lt.tag), mergeProps({ key: 2 }, unref(prosToVBind)(Lt), {
-                    width: "100",
-                    height: "100",
-                    id: Lt.id,
-                    onResize: Et,
-                    transform: `translate(${Lt.actual_bound.x + Lt.actual_bound.width / 2},${Lt.actual_bound.y + Lt.actual_bound.height / 2}) scale(${Lt.scale_x},${Lt.scale_y}) translate(${-(Lt.actual_bound.x + Lt.actual_bound.width / 2)},${-(Lt.actual_bound.y + Lt.actual_bound.height / 2)})`
-                  }), null, 16, ["id", "transform"])) : Lt.type === unref(EDoneJsonType).Vue ? (openBlock(), createElementBlock("foreignObject", mergeProps({ key: 3 }, qe(Lt.actual_bound, Lt.scale_x, Lt.scale_y), {
-                    id: `foreign-object${Lt.id}`
-                  }), [
-                    (openBlock(), createBlock(resolveDynamicComponent(Lt.tag), mergeProps(unref(prosToVBind)(Lt), {
+                  createElementVNode("g", {
+                    transform: `translate(${Lt.actual_bound.x + Lt.actual_bound.width / 2},${Lt.actual_bound.y + Lt.actual_bound.height / 2})rotate(${Lt.rotate}) scale(1) translate(${-(Lt.actual_bound.x + Lt.actual_bound.width / 2)},${-(Lt.actual_bound.y + Lt.actual_bound.height / 2)})`,
+                    onMousedown: (hi) => ze(Lt, Pt, hi),
+                    onMouseup: (hi) => xe(Lt, Pt, hi),
+                    onMouseenter: (hi) => Oe(Lt, Pt, hi),
+                    onMouseleave: (hi) => _e(Lt, Pt, hi),
+                    onContextmenu: (hi) => Dt(Lt, Pt, hi)
+                  }, [
+                    Lt.type === unref(EDoneJsonType).ConnectionLine ? (openBlock(), createBlock(_sfc_main$e, {
+                      key: 0,
+                      "item-info": Lt,
+                      "point-visible": unref(re).connection_line && ((ni = unref(re).select_item.info) == null ? void 0 : ni.id) == Lt.id
+                    }, null, 8, ["item-info", "point-visible"])) : Lt.type === unref(EDoneJsonType).File ? (openBlock(), createElementBlock("use", mergeProps({
+                      key: 1,
+                      "xlink:href": `#svg-${Lt.name}`
+                    }, unref(prosToVBind)(Lt), {
+                      width: "100",
+                      height: "100",
                       id: Lt.id,
                       transform: `translate(${Lt.actual_bound.x + Lt.actual_bound.width / 2},${Lt.actual_bound.y + Lt.actual_bound.height / 2}) scale(${Lt.scale_x},${Lt.scale_y}) translate(${-(Lt.actual_bound.x + Lt.actual_bound.width / 2)},${-(Lt.actual_bound.y + Lt.actual_bound.height / 2)})`
-                    }), {
-                      default: withCtx(() => [
-                        createTextVNode(toDisplayString(Lt.tag_slot), 1)
-                      ]),
-                      _: 2
-                    }, 1040, ["id", "transform"]))
-                  ], 16, _hoisted_11)) : Lt.type === unref(EDoneJsonType).StraightLine ? (openBlock(), createElementBlock("line", {
-                    key: 4,
-                    id: Lt.id,
-                    x1: Lt.props.start_x.val,
-                    y1: Lt.props.start_y.val,
-                    x2: Lt.props.end_x.val,
-                    y2: Lt.props.end_y.val,
-                    fill: "#FF0000",
-                    stroke: "#FF0000",
-                    "stroke-width": "2"
-                  }, null, 8, _hoisted_12)) : createCommentVNode("", !0),
-                  Lt.config.actual_rect ? (openBlock(), createElementBlock("rect", mergeProps({
-                    key: 5,
-                    id: `rect${Lt.id}`,
-                    fill: "black",
-                    "fill-opacity": "0"
-                  }, qe(Lt.actual_bound, Lt.scale_x, Lt.scale_y), {
-                    style: { stroke: "none", "stroke-width": "2", "stroke-miterlimit": "10" },
-                    class: {
-                      "svg-item-none": !Lt.selected && (unref(r).intention == unref(EGlobalStoreIntention).None || unref(r).intention == unref(EGlobalStoreIntention).Select),
-                      "svg-item-move": unref(r).intention == unref(EGlobalStoreIntention).Move && ((ri = unref(r).handle_svg_info) == null ? void 0 : ri.info.id) == Lt.id,
-                      "svg-item-select": unref(r).intention == unref(EGlobalStoreIntention).Select && ((di = unref(r).handle_svg_info) == null ? void 0 : di.info.id) == Lt.id,
-                      "svg-item-in-group": Lt.selected
-                    }
-                  }), null, 16, _hoisted_13)) : createCommentVNode("", !0),
-                  ((Ci = unref(r).handle_svg_info) == null ? void 0 : Ci.info.id) === Lt.id && unref(re).handle_panel && Lt.config.can_zoom ? (openBlock(), createBlock(HandlePanel, {
-                    key: 6,
-                    "item-info": Lt
-                  }, null, 8, ["item-info"])) : createCommentVNode("", !0),
-                  !Lt.selected && ((gi = unref(re).select_item.info) == null ? void 0 : gi.id) == Lt.id && unref(re).connection_panel && Lt.config.have_anchor && unref(r).intention !== unref(EGlobalStoreIntention).SelectArea && (unref(r).intention !== unref(EGlobalStoreIntention).Select || Lt.id !== ((ui = unref(r).handle_svg_info) == null ? void 0 : ui.info.id)) ? (openBlock(), createBlock(ConnectionPanel, {
-                    key: 7,
-                    onContextmenu: Ve,
-                    "item-info": Lt
-                  }, null, 8, ["item-info"])) : createCommentVNode("", !0)
-                ], 40, _hoisted_9)
-              ], 2)
-            ], 8, _hoisted_8)), [
-              [vShow, Lt.display]
-            ]);
-          }), 128)),
-          createElementVNode("rect", {
-            x: Ie.value.x,
-            y: Ie.value.y,
-            height: Ie.value.height,
-            width: Ie.value.with,
-            stroke: "#107cec",
-            fill: "#107cec",
-            "fill-opacity": ".2"
-          }, null, 8, _hoisted_14)
-        ], 8, _hoisted_7)
-      ], 4)),
+                    }), null, 16, _hoisted_10)) : Lt.type === unref(EDoneJsonType).CustomSvg ? (openBlock(), createBlock(resolveDynamicComponent(Lt.tag), mergeProps({ key: 2 }, unref(prosToVBind)(Lt), {
+                      width: "100",
+                      height: "100",
+                      id: Lt.id,
+                      onResize: Et,
+                      transform: `translate(${Lt.actual_bound.x + Lt.actual_bound.width / 2},${Lt.actual_bound.y + Lt.actual_bound.height / 2}) scale(${Lt.scale_x},${Lt.scale_y}) translate(${-(Lt.actual_bound.x + Lt.actual_bound.width / 2)},${-(Lt.actual_bound.y + Lt.actual_bound.height / 2)})`
+                    }), null, 16, ["id", "transform"])) : Lt.type === unref(EDoneJsonType).Vue ? (openBlock(), createElementBlock("foreignObject", mergeProps({ key: 3 }, qe(Lt.actual_bound, Lt.scale_x, Lt.scale_y), {
+                      id: `foreign-object${Lt.id}`
+                    }), [
+                      (openBlock(), createBlock(resolveDynamicComponent(Lt.tag), mergeProps(unref(prosToVBind)(Lt), {
+                        id: Lt.id,
+                        transform: `translate(${Lt.actual_bound.x + Lt.actual_bound.width / 2},${Lt.actual_bound.y + Lt.actual_bound.height / 2}) scale(${Lt.scale_x},${Lt.scale_y}) translate(${-(Lt.actual_bound.x + Lt.actual_bound.width / 2)},${-(Lt.actual_bound.y + Lt.actual_bound.height / 2)})`
+                      }), {
+                        default: withCtx(() => [
+                          createTextVNode(toDisplayString(Lt.tag_slot), 1)
+                        ]),
+                        _: 2
+                      }, 1040, ["id", "transform"]))
+                    ], 16, _hoisted_11)) : Lt.type === unref(EDoneJsonType).StraightLine ? (openBlock(), createElementBlock("line", {
+                      key: 4,
+                      id: Lt.id,
+                      x1: Lt.props.start_x.val,
+                      y1: Lt.props.start_y.val,
+                      x2: Lt.props.end_x.val,
+                      y2: Lt.props.end_y.val,
+                      fill: "#FF0000",
+                      stroke: "#FF0000",
+                      "stroke-width": "2"
+                    }, null, 8, _hoisted_12)) : createCommentVNode("", !0),
+                    Lt.config.actual_rect ? (openBlock(), createElementBlock("rect", mergeProps({
+                      key: 5,
+                      id: `rect${Lt.id}`,
+                      fill: "black",
+                      "fill-opacity": "0"
+                    }, qe(Lt.actual_bound, Lt.scale_x, Lt.scale_y), {
+                      style: { stroke: "none", "stroke-width": "2", "stroke-miterlimit": "10" },
+                      class: {
+                        "svg-item-none": !Lt.selected && (unref(r).intention == unref(EGlobalStoreIntention).None || unref(r).intention == unref(EGlobalStoreIntention).Select),
+                        "svg-item-move": unref(r).intention == unref(EGlobalStoreIntention).Move && ((ri = unref(r).handle_svg_info) == null ? void 0 : ri.info.id) == Lt.id,
+                        "svg-item-select": unref(r).intention == unref(EGlobalStoreIntention).Select && ((di = unref(r).handle_svg_info) == null ? void 0 : di.info.id) == Lt.id,
+                        "svg-item-in-group": Lt.selected
+                      }
+                    }), null, 16, _hoisted_13)) : createCommentVNode("", !0),
+                    ((Ci = unref(r).handle_svg_info) == null ? void 0 : Ci.info.id) === Lt.id && unref(re).handle_panel && Lt.config.can_zoom ? (openBlock(), createBlock(HandlePanel, {
+                      key: 6,
+                      "item-info": Lt
+                    }, null, 8, ["item-info"])) : createCommentVNode("", !0),
+                    !Lt.selected && ((gi = unref(re).select_item.info) == null ? void 0 : gi.id) == Lt.id && unref(re).connection_panel && Lt.config.have_anchor && unref(r).intention !== unref(EGlobalStoreIntention).SelectArea && (unref(r).intention !== unref(EGlobalStoreIntention).Select || Lt.id !== ((ui = unref(r).handle_svg_info) == null ? void 0 : ui.info.id)) ? (openBlock(), createBlock(ConnectionPanel, {
+                      key: 7,
+                      onContextmenu: Ve,
+                      "item-info": Lt
+                    }, null, 8, ["item-info"])) : createCommentVNode("", !0)
+                  ], 40, _hoisted_9)
+                ], 2)
+              ], 8, _hoisted_8)), [
+                [vShow, Lt.display]
+              ]);
+            }), 128)),
+            createElementVNode("rect", {
+              x: Ie.value.x,
+              y: Ie.value.y,
+              height: Ie.value.height,
+              width: Ie.value.with,
+              stroke: "#107cec",
+              fill: "#107cec",
+              "fill-opacity": ".2"
+            }, null, 8, _hoisted_14)
+          ], 8, _hoisted_7)
+        ], 4))
+      ], 544),
       withDirectives(createElementVNode("ul", {
         ref_key: "contextMenuRef",
         ref: oe,
@@ -39475,9 +39477,9 @@ const _withScopeId$2 = (i) => (pushScopeId("data-v-64ac5be6"), i = i(), popScope
       ], 512), [
         [vShow, unref($).display]
       ])
-    ], 544));
+    ], 64));
   }
-}), index_vue_vue_type_style_index_0_scoped_6ab802ed_lang = "", CenterPanel = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["__scopeId", "data-v-6ab802ed"]]);
+}), index_vue_vue_type_style_index_0_scoped_a0b7be17_lang = "", CenterPanel = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["__scopeId", "data-v-a0b7be17"]]);
 var ace$2 = { exports: {} };
 (function(i, n) {
   (function() {

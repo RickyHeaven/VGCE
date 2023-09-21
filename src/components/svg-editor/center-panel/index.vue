@@ -1089,20 +1089,20 @@
 				/>
 			</g>
 		</svg>
-		<!-- 右键菜单 -->
-		<ul ref="contextMenuRef" class="contextMenu" v-show="contextMenuStore.display">
-			<li
-				v-for="(item, key) in contextMenuStore.info"
-				:key="item.title"
-				@click="contextMenuStore.onContextMenuClick(key)"
-			>
-				<p :class="item.enable ? '' : 'disabled'">
-					{{ item.title }}
-					<span class="shortcut">{{ item.hot_key }}</span>
-				</p>
-			</li>
-		</ul>
 	</div>
+	<!-- 右键菜单 -->
+	<ul ref="contextMenuRef" class="contextMenu" v-show="contextMenuStore.display">
+		<li
+			v-for="(item, key) in contextMenuStore.info"
+			:key="item.title"
+			@click="contextMenuStore.onContextMenuClick(key)"
+		>
+			<p :class="item.enable ? '' : 'disabled'">
+				{{ item.title }}
+				<span class="shortcut">{{ item.hot_key }}</span>
+			</p>
+		</li>
+	</ul>
 </template>
 
 <style lang="less" scoped>
