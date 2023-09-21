@@ -85,9 +85,24 @@
 
 	const { appContext } = getCurrentInstance()!
 
+	function onReturnClick(d: IDataModel) {
+		emits('onReturn', {
+			data: d,
+			isChange: editPrivateStore.getTopBtnUndoStatus
+		})
+	}
+
 	function save(d: IDataModel) {
 		if (props.saveFile) {
-			ElMessageBox.prompt('请输入文件名', '保存', { cancelButtonText: '取消', confirmButtonText: '保存' }, appContext)
+			ElMessageBox.prompt(
+				'请输入文件名',
+				'保存',
+				{
+					cancelButtonText: '取消',
+					confirmButtonText: '保存'
+				},
+				appContext
+			)
 				.then((r: any) => {
 					fileWrite(d, r.value.trim())
 					emits('onSave', d)
@@ -110,7 +125,7 @@
 			<el-header class="top-el-header">
 				<top-panel
 					@change-visible="changeVisible"
-					@on-return="emits('onReturn')"
+					@on-return="onReturnClick"
 					@on-preview="(val: IDataModel) => emits('onPreview', val)"
 					@on-save="save"
 				></top-panel>

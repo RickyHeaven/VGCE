@@ -2,16 +2,20 @@
 	import SvgEditor from '@/components/svg-editor/index.vue'
 	import { useStore } from '@/stores/main'
 	import type { IDataModel } from '@/components/svg-editor/types'
+	import Preview from './Preview.vue'
 
-	const router = useRouter()
 	const store = useStore()
 
-	function preview(d: IDataModel) {
+	const previewShow = ref(false)
+	function previewHandle(d: IDataModel) {
 		store.data = d
-		router.push('/Preview')
+		nextTick(function () {
+			previewShow.value = true
+		})
 	}
 </script>
 
 <template>
-	<SvgEditor :data="(store.data && JSON.stringify(store.data)) || ''" @onPreview="preview" saveFile />
+	<SvgEditor :data="(store.data && JSON.stringify(store.data)) || ''" @onPreview="previewHandle" saveFile />
+	<Preview v-if="previewShow" @back="previewShow = false" />
 </template>

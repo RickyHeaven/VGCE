@@ -57,7 +57,7 @@
 
 <style lang="less" scoped>
 	.wall-l {
-		background-color: #f3f6f9;
+		background-color: #f5f8fb;
 		padding: 4px 5px 2px 5px;
 		border-radius: 4px;
 		.head-l {

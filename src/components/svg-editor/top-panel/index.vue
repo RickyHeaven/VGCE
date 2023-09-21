@@ -9,8 +9,6 @@
 	import { EVisibleConfKey } from '../types'
 	import type { IDataModel } from '../types'
 	import { EGlobalStoreIntention } from '@/stores/global/types'
-	import { VAceEditor } from 'vue3-ace-editor'
-	import LeftPanel from '@/components/svg-editor/left-panel/index.vue'
 
 	const svgEditLayoutStore = useSvgEditLayoutStore(pinia)
 	const globalStore = useGlobalStore(pinia)
@@ -21,21 +19,14 @@
 		globalStore.done_json.length <= 0 || globalStore.setDoneJson([])
 		globalStore.intention = EGlobalStoreIntention.None
 	}
-	const onPreviewClick = () => {
+
+	const dataBtnClick = (d: 'onReturn' | 'onPreview' | 'onSave') => {
 		const data_model: IDataModel = {
 			layout_center: svgEditLayoutStore.center_offset,
 			config: configStore.$state,
 			done_json: globalStore.done_json
 		}
-		emits('onPreview', data_model)
-	}
-	const onSaveClick = () => {
-		const data_model: IDataModel = {
-			layout_center: svgEditLayoutStore.center_offset,
-			config: configStore.$state,
-			done_json: globalStore.done_json
-		}
-		emits('onSave', data_model)
+		emits(d, data_model)
 	}
 
 	const open = ref(false)
@@ -137,15 +128,15 @@
         </el-icon> -->
 			</div>
 			<div class="flex items-center mr-20px">
-				<el-icon title="返回" class="bt-Icon" :size="24" @click="emits('onReturn')">
+				<el-icon title="返回" class="bt-Icon" :size="24" @click="dataBtnClick('onReturn')">
 					<svg-analysis name="return" />
 				</el-icon>
 				<el-divider direction="vertical"></el-divider>
-				<el-icon title="保存" class="bt-Icon" :size="24" @click="onSaveClick">
+				<el-icon title="保存" class="bt-Icon" :size="24" @click="dataBtnClick('onSave')">
 					<svg-analysis name="save" />
 				</el-icon>
 				<el-divider direction="vertical"></el-divider>
-				<el-icon title="预览" class="bt-Icon" :size="22" @click="onPreviewClick">
+				<el-icon title="预览" class="bt-Icon" :size="22" @click="dataBtnClick('onPreview')">
 					<svg-analysis name="preview" />
 				</el-icon>
 			</div>
@@ -166,24 +157,24 @@
 		<el-scrollbar max-height="60vh">
 			<div class="font-bold mb-10px text-15px guide-title" style="padding-top: 16px">多选</div>
 			<div>鼠标按住左键可以框选，也可以按住ctrl+鼠标左键点图形进行多选</div>
-			<div class="el-divider el-divider--horizontal" role="separator" style="--el-border-style: solid"> </div>
+			<div class="el-divider el-divider--horizontal" role="separator" style="--el-border-style: solid"></div>
 			<div class="font-bold mb-10px text-15px guide-title">拖动画布</div>
 			<div>右键画布然后拖动即可，右侧面板‘图纸’栏可微调或重置位置</div>
-			<div class="el-divider el-divider--horizontal" role="separator" style="--el-border-style: solid"> </div>
+			<div class="el-divider el-divider--horizontal" role="separator" style="--el-border-style: solid"></div>
 			<div class="font-bold mb-10px text-15px guide-title">画布缩放</div>
 			<div>使用鼠标滚轮或者右侧面板‘图纸’栏可控制画布缩放</div>
-			<div class="el-divider el-divider--horizontal" role="separator" style="--el-border-style: solid"> </div>
+			<div class="el-divider el-divider--horizontal" role="separator" style="--el-border-style: solid"></div>
 			<div class="font-bold mb-10px text-15px guide-title">标尺辅助线</div>
 			<div>在标尺区域按住鼠标左键并拖动即可创建标尺辅助线，将标尺辅助线拖动到标尺区域即可删除标尺辅助线</div>
-			<div class="el-divider el-divider--horizontal" role="separator" style="--el-border-style: solid"> </div>
+			<div class="el-divider el-divider--horizontal" role="separator" style="--el-border-style: solid"></div>
 			<div class="font-bold mb-10px text-15px guide-title">连线样式</div>
 			<div
-				>在右侧‘连线’栏可以统一配置连线样式，配置后先增加的线会应用新样式，之前的线样式不变，如需改变，可选中线手动更改或删除重画</div
-			>
-			<div class="el-divider el-divider--horizontal" role="separator" style="--el-border-style: solid"> </div>
+				>在右侧‘连线’栏可以统一配置连线样式，配置后先增加的线会应用新样式，之前的线样式不变，如需改变，可选中线手动更改或删除重画
+			</div>
+			<div class="el-divider el-divider--horizontal" role="separator" style="--el-border-style: solid"></div>
 			<div class="font-bold mb-10px text-15px guide-title">横线和竖线</div>
 			<div>画线的时候按住ctrl即可画竖线，按住shift即可画横线</div>
-			<div class="el-divider el-divider--horizontal" role="separator" style="--el-border-style: solid"> </div>
+			<div class="el-divider el-divider--horizontal" role="separator" style="--el-border-style: solid"></div>
 			<div class="font-bold mb-10px text-15px guide-title">线段选中</div>
 			<div style="padding-bottom: 14px">
 				若线段绑定了锚点，移动线段，绑定的锚点不会移动。若是想将线段整体移动，需要先选中线段，在右侧‘数据’栏里解除绑定
@@ -214,6 +205,7 @@
 			margin-right: 0;
 			padding-right: 16px;
 		}
+
 		.el-dialog__body {
 			padding-top: 0;
 			padding-bottom: 8px;

@@ -12,11 +12,6 @@ const router = createRouter({
 			path: '/EditorS',
 			name: 'EditorS',
 			component: EditorS
-		},
-		{
-			path: '/Preview',
-			name: 'Preview',
-			component: () => import('@/views/Preview.vue')
 		}
 	]
 })

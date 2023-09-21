@@ -62,7 +62,6 @@
 			return
 		}
 		if (!props.canvasDrag) {
-			console.log(props.canvasDrag)
 			return
 		}
 		const { clientX, clientY } = e
@@ -138,6 +137,19 @@
 	}
 	const setNodeAttrByID = (id: string, attr: string, val: any) => {
 		return setArrItemByID(id, attr, val, preview_data.done_json)
+	}
+
+	const getStyle = (root: IDoneJson) => {
+		let t = false
+		if (root.events?.length > 0) {
+			for (let e of root.events) {
+				if (e.type === EEventType.Click) {
+					t = true
+					break
+				}
+			}
+		}
+		return { cursor: t ? 'pointer' : 'default' }
 	}
 	const eventHandle = (root: IDoneJson) => {
 		if (root.events?.length > 0) {
@@ -263,6 +275,7 @@
 					:key="item.id"
 					:transform="`translate(${item.x},${item.y})rotate(0)scale(1)`"
 					v-show="item.display"
+					:style="getStyle(item)"
 					@click="eventHandle(item)"
 				>
 					<g :class="`${getCommonClass(item)}`">
