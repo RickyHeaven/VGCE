@@ -38891,7 +38891,7 @@ const _withScopeId$2 = (i) => (pushScopeId("data-v-383da0a2"), i = i(), popScope
   __name: "index",
   setup(i) {
     useCssVars((ti) => ({
-      f379ff00: ie.value
+      "421a96ac": ie.value
     }));
     const n = getCurrentInstance();
     Object.keys(vueComp).forEach((ti) => {
@@ -39542,7 +39542,7 @@ const _withScopeId$2 = (i) => (pushScopeId("data-v-383da0a2"), i = i(), popScope
       ])
     ], 64));
   }
-}), index_vue_vue_type_style_index_0_scoped_e433e349_lang = "", CenterPanel = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["__scopeId", "data-v-e433e349"]]);
+}), index_vue_vue_type_style_index_0_scoped_a6a55932_lang = "", CenterPanel = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["__scopeId", "data-v-a6a55932"]]);
 var ace$2 = { exports: {} };
 (function(i, n) {
   (function() {
@@ -53359,7 +53359,7 @@ const _sfc_main$c = /* @__PURE__ */ defineComponent({
       })) : createCommentVNode("", !0)
     ], 64));
   }
-}), _withScopeId = (i) => (pushScopeId("data-v-ceb83558"), i = i(), popScopeId(), i), _hoisted_1$3 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ createElementVNode("span", { style: { "font-weight": "bold" } }, "MQTT", -1)), _hoisted_2$2 = { key: 1 }, _hoisted_3$2 = { class: "events-title" }, _sfc_main$5 = /* @__PURE__ */ defineComponent({
+}), _withScopeId = (i) => (pushScopeId("data-v-e838d4f0"), i = i(), popScopeId(), i), _hoisted_1$3 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ createElementVNode("span", { style: { "font-weight": "bold" } }, "MQTT", -1)), _hoisted_2$2 = { key: 1 }, _hoisted_3$2 = { class: "events-title" }, _sfc_main$5 = /* @__PURE__ */ defineComponent({
   __name: "index",
   setup(i) {
     const n = useConfigStore(pinia), r = useGlobalStore(pinia), g = useSvgEditLayoutStore(pinia), V = ref("page"), k = ref("style"), $ = (de, ue) => {
@@ -53831,7 +53831,7 @@ const _sfc_main$c = /* @__PURE__ */ defineComponent({
                         size: "small"
                       }, {
                         default: withCtx(() => [
-                          createTextVNode(toDisplayString(xe == null ? void 0 : xe.default), 1)
+                          createTextVNode(toDisplayString(xe.default), 1)
                         ]),
                         _: 2
                       }, 1032, ["label"]),
@@ -54232,7 +54232,7 @@ const _sfc_main$c = /* @__PURE__ */ defineComponent({
       _: 1
     }, 8, ["modelValue"])) : createCommentVNode("", !0);
   }
-}), index_vue_vue_type_style_index_0_scoped_ceb83558_lang = "", index_vue_vue_type_style_index_1_lang = "", RightPanel = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["__scopeId", "data-v-ceb83558"]]), _sfc_main$4 = /* @__PURE__ */ defineComponent({
+}), index_vue_vue_type_style_index_0_scoped_e838d4f0_lang = "", index_vue_vue_type_style_index_1_lang = "", RightPanel = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["__scopeId", "data-v-e838d4f0"]]), _sfc_main$4 = /* @__PURE__ */ defineComponent({
   __name: "index",
   setup(i) {
     const n = ref(""), r = useGlobalStore(pinia), g = useSvgEditLayoutStore(pinia), V = useConfigStore(pinia);
