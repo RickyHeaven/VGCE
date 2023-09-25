@@ -9,7 +9,7 @@
 		title: '编辑'
 	})
 	const open = ref(false)
-	const emits = defineEmits(['update:modelValue'])
+	const emits = defineEmits(['update:modelValue', 'change'])
 
 	const content = computed({
 		get() {
@@ -43,6 +43,7 @@
 					enableSnippets: true,
 					enableLiveAutocompletion: true
 				}"
+				@change="emits('change')"
 			/>
 		</el-dialog>
 	</div>

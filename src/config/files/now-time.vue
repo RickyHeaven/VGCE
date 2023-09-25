@@ -11,26 +11,24 @@
 		const year = now_date.value.getFullYear()
 		const month = now_date.value.getMonth() + 1
 		const day = now_date.value.getDate()
-		const time = year.toString() + '年' + month.toString() + '月' + day.toString() + '日'
-		return time
+		return year.toString() + '年' + month.toString() + '月' + day.toString() + '日'
 	})
 	const week = computed(() => {
 		const d = now_date.value.getDay()
 		const weekday = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
-		const time = weekday[d]
-		return time
+		return weekday[d]
 	})
 	const time = computed(() => {
 		const hour = now_date.value.getHours()
 		const minute = now_date.value.getMinutes()
 		const second = now_date.value.getSeconds()
-		const time =
+		return (
 			(hour < 10 ? '0' + hour.toString() : hour.toString()) +
 			':' +
 			(minute < 10 ? '0' + minute.toString() : minute.toString()) +
 			':' +
 			(second < 10 ? '0' + second.toString() : second.toString())
-		return time
+		)
 	})
 	onMounted(() => {
 		timer.value = setInterval(() => {
@@ -42,7 +40,7 @@
 	})
 </script>
 <template>
-	<div>
+	<div class="now-time">
 		<div class="text-12px font-bold" :style="{ color: props.fontColor }">{{ date }}</div>
 		<div class="flex mt-5px">
 			<div class="text-12px font-bold" :style="{ color: props.fontColor }">{{ week }}</div>
@@ -50,3 +48,9 @@
 		</div>
 	</div>
 </template>
+<style scoped>
+	.now-time {
+		min-height: 40px;
+		min-width: 100px;
+	}
+</style>

@@ -13,13 +13,13 @@
 	} from 'element-plus'
 	import 'element-plus/dist/index.css'
 	import 'animate.css'
-	import TopPanel from '@/components/svg-editor/top-panel/index.vue'
-	import LeftPanel from '@/components/svg-editor/left-panel/index.vue'
-	import CenterPanel from '@/components/svg-editor/center-panel/index.vue'
-	import RightPanel from '@/components/svg-editor/right-panel/index.vue'
-	import ExportJson from '@/components/svg-editor/export-json/index.vue'
-	import ImportJson from '@/components/svg-editor/import-json/index.vue'
-	import Vue3RulerTool from '@/components/vue3-ruler-tool/index.vue'
+	import TopPanel from '@/components/svg-editor/top-panel.vue'
+	import LeftPanel from '@/components/svg-editor/left-panel.vue'
+	import CenterPanel from '@/components/svg-editor/center-panel.vue'
+	import RightPanel from '@/components/svg-editor/right-panel.vue'
+	import ExportJson from '@/components/svg-editor/export-json.vue'
+	import ImportJson from '@/components/svg-editor/import-json.vue'
+	import Vue3RulerTool from '@/components/vue3-ruler-tool.vue'
 	import { EVisibleConfKey } from '@/components/svg-editor/types'
 	import type { IVisibleConf, IDataModel } from '@/components/svg-editor/types'
 	import type { IConfig } from '@/config/types'
@@ -33,6 +33,7 @@
 	import { fileRead, fileWrite } from '@/utils/file-read-write'
 	import { useEditPrivateStore } from '@/stores/system'
 
+	//todo 优化自带组件使用体验
 	const props = withDefaults(defineProps<{ customToolbar?: IConfig; data?: string; saveFile?: boolean }>(), {
 		saveFile: false
 	})

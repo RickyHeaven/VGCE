@@ -1,7 +1,7 @@
 <script setup lang="ts">
 	import type { IAttrItem } from '@/config/types'
 	import { ElIcon, ElInput } from 'element-plus'
-	import SvgAnalysis from '@/components/svg-analysis/index.vue'
+	import SvgAnalysis from '@/components/svg-analysis.vue'
 
 	const props = withDefaults(defineProps<{ modelValue: IAttrItem[] }>(), {
 		modelValue: () => [

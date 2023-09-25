@@ -6,7 +6,7 @@
 	import { getCommonClass, prosToVBind, setArrItemByID, valFormat } from '@/utils'
 
 	import { EDoneJsonType, EEventAction, EEventType } from '@/config/types'
-	import ConnectionLine from '@/components/svg-editor/connection-line/index.vue'
+	import ConnectionLine from '@/components/svg-editor/connection-line.vue'
 
 	import { vueComp } from '@/config'
 	import type { IDataModel } from '@/components/svg-editor/types'
@@ -151,10 +151,10 @@
 		}
 		return { cursor: t ? 'pointer' : 'default' }
 	}
-	const eventHandle = (root: IDoneJson) => {
+	const eventHandle = (root: IDoneJson, type: EEventType) => {
 		if (root.events?.length > 0) {
 			for (let e of root.events) {
-				if (e.type === EEventType.Click || e.type === EEventType.Change) {
+				if (e.type === type) {
 					if (e.condition && e.condition.type !== 'None') {
 						if (e.condition.type === 'Relation' && e.condition.Relation && e.condition.Relation.relation) {
 							const k = e.condition.Relation.key
@@ -187,6 +187,8 @@
 							if (!t) {
 								continue
 							}
+
+							console.log(t, e)
 
 							for (let a of e.attrs) {
 								if (t.state && t.state.hasOwnProperty(a.key)) {
@@ -276,7 +278,7 @@
 					:transform="`translate(${item.x},${item.y})rotate(0)scale(1)`"
 					v-show="item.display"
 					:style="getStyle(item)"
-					@click="eventHandle(item)"
+					@click="eventHandle(item, EEventType.Click)"
 				>
 					<g :class="`${getCommonClass(item)}`">
 						<g
@@ -309,7 +311,7 @@
 								width="100"
 								height="100"
 								:id="item.id"
-								@on-change="eventHandle(item)"
+								@on-change="eventHandle(item, EEventType.Change)"
 								:transform="`translate(${item.actual_bound.x + item.actual_bound.width / 2},${
 									item.actual_bound.y + item.actual_bound.height / 2
 								}) scale(${item.scale_x},${item.scale_y}) translate(${-(
@@ -326,7 +328,7 @@
 									:is="item.tag"
 									v-bind="prosToVBind(item)"
 									:id="item.id"
-									@on-change="eventHandle(item)"
+									@on-change="eventHandle(item, EEventType.Change)"
 									:transform="`translate(${item.actual_bound.x + item.actual_bound.width / 2},${
 										item.actual_bound.y + item.actual_bound.height / 2
 									}) scale(${item.scale_x},${item.scale_y}) translate(${-(

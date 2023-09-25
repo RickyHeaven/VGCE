@@ -4,10 +4,10 @@
 	import { useGlobalStore } from '@/stores/global'
 	import { useEditPrivateStore } from '@/stores/system'
 	import { ElIcon, ElDivider, ElDialog, ElScrollbar } from 'element-plus'
-	import SvgAnalysis from '../../svg-analysis/index.vue'
+	import SvgAnalysis from '../svg-analysis.vue'
 	import { useSvgEditLayoutStore } from '@/stores/svg-edit-layout'
-	import { EVisibleConfKey } from '../types'
-	import type { IDataModel } from '../types'
+	import { EVisibleConfKey } from './types'
+	import type { IDataModel } from './types'
 	import { EGlobalStoreIntention } from '@/stores/global/types'
 
 	const svgEditLayoutStore = useSvgEditLayoutStore(pinia)

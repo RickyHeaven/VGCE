@@ -1,5 +1,5 @@
 <script setup lang="ts">
-	import SvgViewer from '@/components/svg-viewer/index.vue'
+	import SvgViewer from '@/components/svg-viewer.vue'
 	import { ElButton } from 'element-plus'
 	import { ArrowLeftBold } from '@element-plus/icons-vue'
 	import { useStore } from '@/stores/main'

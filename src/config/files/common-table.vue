@@ -1,8 +1,3 @@
-<template>
-	<el-table v-bind="table_props">
-		<el-table-column v-for="item in props.colConfig" :key="item.prop" v-bind="item"></el-table-column>
-	</el-table>
-</template>
 <script setup lang="ts">
 	import { ElTable, ElTableColumn } from 'element-plus'
 
@@ -16,8 +11,8 @@
 			border: boolean
 			size: string
 			fit: boolean
-			operateDisplay: boolean
-			selectionData: any[]
+			operateDisplay?: boolean
+			selectionData?: any[]
 		}>(),
 		{
 			colConfig: () => [],
@@ -31,7 +26,6 @@
 	)
 	const table_props = ref({})
 	watchEffect(() => {
-		// eslint-disable-next-line @typescript-eslint/no-unused-vars
 		const { colConfig, ...temp_props } = props
 		table_props.value = temp_props
 	})
@@ -45,4 +39,16 @@
 		'show-overflow-tooltip': boolean
 	}
 </script>
-<style scoped lang="scss"></style>
+
+<template>
+	<el-table v-bind="table_props" class="table-wall-c">
+		<el-table-column v-for="item in props.colConfig" :key="item.prop" v-bind="item"></el-table-column>
+	</el-table>
+</template>
+
+<style scoped lang="less">
+	.table-wall-c {
+		min-width: 500px;
+		min-height: 200px;
+	}
+</style>

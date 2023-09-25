@@ -36,7 +36,7 @@ export const svg_text: IConfigItem = {
 		fontSize: {
 			title: '文字大小',
 			type: EConfigItemPropsType.InputNumber,
-			val: 15
+			val: 18
 		},
 		fill: {
 			title: '文字颜色',

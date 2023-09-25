@@ -4,7 +4,7 @@ import { vue_config } from './vue'
 
 import { ElButton, ElTag } from 'element-plus'
 import Progress from '@/config/files/progress.vue'
-import SwitchA from '@/config/files/switch-a.vue'
+import SwitchR from '@/config/files/switch-r.vue'
 import SvgText from '@/config/files/svg-text.vue'
 import CommonTable from '@/config/files/common-table.vue'
 import NowTime from '@/config/files/now-time.vue'
@@ -19,7 +19,7 @@ export const vueComp: Record<string, any> = {
 	'el-tag': ElTag,
 	'common-table': CommonTable,
 	'pie-charts': PieCharts,
-	'switch-a': SwitchA,
+	'switch-r': SwitchR,
 	'now-time': NowTime,
 	'light-a': LightA,
 	'clock-a': ClockA

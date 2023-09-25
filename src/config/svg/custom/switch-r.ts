@@ -1,25 +1,22 @@
 import { EConfigItemPropsType, EDoneJsonType } from '@/config/types'
 import type { IConfigItem } from '@/config/types'
-export const reservoir: IConfigItem = {
-	name: 'reservoir',
-	title: '蓄水池',
-	type: EDoneJsonType.File,
+
+export const switch_r: IConfigItem = {
+	name: 'switch-r',
+	title: '开关',
+	tag: 'switch-r',
+	type: EDoneJsonType.CustomSvg,
+	display: true,
 	config: {
 		can_zoom: true,
 		have_anchor: true,
 		actual_rect: true
 	},
-	display: true,
 	props: {
-		fill: {
-			title: '水流颜色',
-			type: EConfigItemPropsType.Color,
-			val: '#37cfe7'
-		},
-		stroke: {
-			title: '边框颜色',
-			type: EConfigItemPropsType.Color,
-			val: '#000'
+		isOpen: {
+			title: '开关',
+			type: EConfigItemPropsType.Switch,
+			val: false
 		}
 	},
 	common_animations: {

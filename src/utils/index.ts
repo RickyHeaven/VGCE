@@ -145,13 +145,7 @@ export const setSvgActualInfo = (done_json: IDoneJson, resize?: boolean) => {
 			y = 0,
 			width = 0,
 			height = 0
-		if (done_json.type !== EDoneJsonType.Vue) {
-			const BBox = (queryBbox as SVGGraphicsElement).getBBox()
-			x = parseFloat(BBox.x.toFixed(0))
-			y = parseFloat(BBox.y.toFixed(0))
-			width = parseFloat(BBox.width.toFixed(0))
-			height = parseFloat(BBox.height.toFixed(0))
-		} else {
+		if (done_json.type === EDoneJsonType.Vue) {
 			width = (queryBbox as HTMLElement).offsetWidth
 			height = (queryBbox as HTMLElement).offsetHeight
 			width = width === 0 ? 100 : width
@@ -161,23 +155,31 @@ export const setSvgActualInfo = (done_json: IDoneJson, resize?: boolean) => {
 			const foreignObjectBox = document.querySelector(`#foreign-object${done_json.id}`)
 			if (
 				foreignObjectBox &&
-				foreignObjectBox.getAttribute('x') === '0' &&
-				foreignObjectBox.getAttribute('y') === '0' &&
-				foreignObjectBox.getAttribute('width') === '0' &&
-				foreignObjectBox.getAttribute('height') === '0'
+				((foreignObjectBox.getAttribute('x') === '0' &&
+					foreignObjectBox.getAttribute('y') === '0' &&
+					foreignObjectBox.getAttribute('width') === '0' &&
+					foreignObjectBox.getAttribute('height') === '0') ||
+					resize)
 			) {
 				foreignObjectBox.setAttribute('x', x.toString())
 				foreignObjectBox.setAttribute('y', y.toString())
 				foreignObjectBox.setAttribute('width', width.toString())
 				foreignObjectBox.setAttribute('height', height.toString())
 			}
+		} else {
+			const BBox = (queryBbox as SVGGraphicsElement).getBBox()
+			x = parseFloat(BBox.x.toFixed(0))
+			y = parseFloat(BBox.y.toFixed(0))
+			width = parseFloat(BBox.width.toFixed(0))
+			height = parseFloat(BBox.height.toFixed(0))
 		}
 		if (
 			rectBBox &&
-			rectBBox.getAttribute('x') === '0' &&
-			rectBBox.getAttribute('y') === '0' &&
-			rectBBox.getAttribute('width') === '0' &&
-			rectBBox.getAttribute('height') === '0'
+			((rectBBox.getAttribute('x') === '0' &&
+				rectBBox.getAttribute('y') === '0' &&
+				rectBBox.getAttribute('width') === '0' &&
+				rectBBox.getAttribute('height') === '0') ||
+				resize)
 		) {
 			rectBBox.setAttribute('x', x.toString())
 			rectBBox.setAttribute('y', y.toString())
@@ -371,8 +373,11 @@ export const prosToVBind = (item: IConfigItem) => {
 			}
 		}
 	}
+	const t = ['height', 'max-height']
 	for (const key in item.props) {
-		temp = { ...temp, ...{ [key]: item.props[key].val } }
+		if (t.indexOf(key) < 0) {
+			temp = { ...temp, ...{ [key]: item.props[key].val } }
+		}
 	}
 	return temp
 }

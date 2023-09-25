@@ -1,7 +1,7 @@
 <script setup lang="ts">
 	import { ElTag, ElDrawer, ElTabs, ElTabPane, ElScrollbar, ElIcon } from 'element-plus'
 	import { common_animate_list } from '@/components/config'
-	import SvgAnalysis from '@/components/svg-analysis/index.vue'
+	import SvgAnalysis from '@/components/svg-analysis.vue'
 
 	const props = defineProps<{ val: string }>()
 	const emits = defineEmits(['updateCommonAniVal'])

@@ -72,12 +72,12 @@ export const common_table: IConfigItem = {
 		height: {
 			title: '高度',
 			type: EConfigItemPropsType.InputNumber,
-			val: null
+			val: 200
 		},
 		'max-height': {
 			title: '最大高度',
 			type: EConfigItemPropsType.InputNumber,
-			val: null
+			val: 300
 		},
 		stripe: {
 			title: '斑马纹',

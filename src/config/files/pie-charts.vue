@@ -66,6 +66,7 @@
 
 <style scoped>
 	.chart {
-		height: 400px;
+		min-height: 300px;
+		min-width: 400px;
 	}
 </style>

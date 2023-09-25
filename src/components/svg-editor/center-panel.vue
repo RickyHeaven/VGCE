@@ -28,12 +28,12 @@
 		calculateRightTop,
 		calculateTop
 	} from '@/utils/scale-core'
-	import HandlePanel from '@/components/svg-editor/handle-panel/index.vue'
-	import ConnectionPanel from '@/components/svg-editor/connection-panel/index.vue'
+	import HandlePanel from '@/components/svg-editor/handle-panel.vue'
+	import ConnectionPanel from '@/components/svg-editor/connection-panel.vue'
 	import type { IConfigItem } from '@/config/types'
 	import { EDoneJsonType } from '@/config/types'
-	import ConnectionLine from '@/components/svg-editor/connection-line/index.vue'
-	import type { IVisibleInfo } from './types'
+	import ConnectionLine from '@/components/svg-editor/connection-line.vue'
+	import type { IVisibleInfo } from '../config'
 	import { vueComp } from '@/config'
 	import { useContextMenuStore, useEditPrivateStore } from '@/stores/system'
 	import { EContextMenuInfoType } from '@/stores/system/types'
@@ -1035,6 +1035,7 @@
 								v-else-if="item.type === EDoneJsonType.Vue"
 								v-bind="getActualBoundScale(item.actual_bound, item.scale_x, item.scale_y)"
 								:id="`foreign-object${item.id}`"
+								class="foreignObject"
 							>
 								<component
 									:is="item.tag"
@@ -1164,8 +1165,15 @@
 	}
 
 	.svg-item-in-group {
-		//outline: 1px solid rgb(222, 123, 23);
 		outline: 1px solid rgb(222, 69, 23);
+	}
+
+	.foreignObject {
+		> span {
+			/*解决span标签显示不完整的问题*/
+			position: relative;
+			bottom: 2px;
+		}
 	}
 
 	.contextMenu {

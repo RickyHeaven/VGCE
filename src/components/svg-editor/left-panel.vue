@@ -4,7 +4,7 @@
 	import type { IConfig, IConfigItem } from '@/config/types'
 	import { pinia } from '@/hooks'
 	import { useGlobalStore } from '@/stores/global'
-	import SvgAnalysis from '@/components/svg-analysis/index.vue'
+	import SvgAnalysis from '@/components/svg-analysis.vue'
 	import { EGlobalStoreIntention } from '@/stores/global/types'
 	import { prosToVBind } from '@/utils'
 

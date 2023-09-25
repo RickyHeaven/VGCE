@@ -16,7 +16,7 @@ export const progress_a: IConfigItem = {
 		percentage: {
 			title: '进度',
 			type: EConfigItemPropsType.InputNumber,
-			val: 10
+			val: 50
 		}
 	},
 	common_animations: {

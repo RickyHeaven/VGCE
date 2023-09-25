@@ -22,10 +22,10 @@
 	import { moveAnchors, numberArray, setSvgActualInfo } from '@/utils'
 	import type { IDoneJson } from '@/stores/global/types'
 	import { EGlobalStoreIntention } from '@/stores/global/types'
-	import DynamicElFormItem from './dynamic-el-form-item.vue'
-	import CommonAnimate from './common-animate.vue'
-	import ComponentTree from '@/components/svg-editor/component-tree/index.vue'
-	import SvgAnalysis from '@/components/svg-analysis/index.vue'
+	import DynamicElFormItem from './right-panel/dynamic-el-form-item.vue'
+	import CommonAnimate from './right-panel/common-animate.vue'
+	import ComponentTree from '@/components/svg-editor/component-tree.vue'
+	import SvgAnalysis from '@/components/svg-analysis.vue'
 	import List from '@/components/svg-editor/right-panel/list.vue'
 	import Condition from '@/components/svg-editor/right-panel/condition.vue'
 	import CodeEditModal from '@/components/svg-editor/right-panel/code-edit-modal.vue'
@@ -92,11 +92,21 @@
 		}
 	}
 
-	const changHandle = () => {
+	/**
+	 * 右侧属性更改，改变画布中对应组件
+	 * @param cur 当前值
+	 * @param pre 之前的值
+	 * @param resize 是否重新获取边框大小
+	 */
+	const changHandle = (cur: any, pre: any, resize?: boolean) => {
 		if (globalStore.handle_svg_info) {
-			const done_json = globalStore.done_json[globalStore.handle_svg_info.index]
 			nextTick(function () {
-				setSvgActualInfo(done_json)
+				const done_json = globalStore.done_json[globalStore.handle_svg_info.index]
+				if (resize) {
+					setSvgActualInfo(done_json, resize)
+				} else {
+					setSvgActualInfo(done_json)
+				}
 				moveAnchors(done_json)
 			})
 		}
@@ -215,9 +225,11 @@
 		</el-tab-pane>
 		<el-tab-pane label="数据" name="data">
 			<el-form label-width="90px" label-position="left">
+				<!--ID-->
 				<el-form-item label="ID" size="small">
 					<el-input v-model="globalStore.handle_svg_info!.info.id" />
 				</el-form-item>
+				<!--state-->
 				<div
 					v-for="(e, k) of globalStore.handle_svg_info!.info.state"
 					:key="'state' + String(k)"
@@ -233,16 +245,22 @@
 						<el-switch v-model="globalStore.handle_svg_info!.info.state!.OnOff!.default"></el-switch>
 					</el-form-item>
 				</div>
-
+				<!--文字插槽-->
 				<div v-if="globalStore.handle_svg_info!.info?.hasOwnProperty('tag_slot')">
 					<el-form-item class="props-row" label="tag_slot" size="small">
 						{{ globalStore.handle_svg_info!.info.tag_slot }}
 					</el-form-item>
 					<el-form-item label="文字插槽" size="small">
-						<el-input v-model="globalStore.handle_svg_info!.info.tag_slot" />
+						<el-input v-model="globalStore.handle_svg_info!.info.tag_slot" @input="changHandle($event, null, true)" />
 					</el-form-item>
 				</div>
-				<dynamic-el-form-item :obj-info="globalStore.handle_svg_info!.info.props" code />
+				<!--props-->
+				<dynamic-el-form-item
+					:obj-info="globalStore.handle_svg_info!.info.props"
+					code
+					@change="changHandle($event, true)"
+				/>
+				<!--连线动画效果-->
 				<el-form-item
 					:label="globalStore.handle_svg_info!.info.animations.type.title"
 					size="small"
