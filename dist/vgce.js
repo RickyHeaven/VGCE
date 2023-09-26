@@ -64102,7 +64102,7 @@ const sub = (i, n, r, g, V) => {
   setup(i, { expose: n, emit: r }) {
     const g = i;
     useCssVars((pe) => ({
-      d68a5df2: unref(re)
+      "62dc10d1": unref(re)
     }));
     const V = getCurrentInstance();
     Object.keys(vueComp).forEach((pe) => {
@@ -64180,7 +64180,7 @@ const sub = (i, n, r, g, V) => {
       return { cursor: ze ? "pointer" : "default" };
     }, ue = (pe, ze) => {
       var xe;
-      if (((xe = pe.events) == null ? void 0 : xe.length) > 0) {
+      if (console.log(pe.events, ze), ((xe = pe.events) == null ? void 0 : xe.length) > 0) {
         for (let Oe of pe.events)
           if (Oe.type === ze) {
             if (Oe.condition && Oe.condition.type !== "None" && Oe.condition.type === "Relation" && Oe.condition.Relation && Oe.condition.Relation.relation) {
@@ -64195,7 +64195,7 @@ const sub = (i, n, r, g, V) => {
               if (Oe.attrs && Oe.attrs.length > 0) {
                 let _e;
                 if (Oe.target) {
-                  for (let At of $.done_json)
+                  for (let At of k.done_json)
                     if (At.id === Oe.target) {
                       _e = At;
                       break;
@@ -64313,7 +64313,7 @@ const sub = (i, n, r, g, V) => {
       ], 4))
     ], 32));
   }
-}), svgViewer_vue_vue_type_style_index_0_scoped_a5b349ba_lang = "", svgViewer = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-a5b349ba"]]);
+}), svgViewer_vue_vue_type_style_index_0_scoped_afb9c18a_lang = "", svgViewer = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-afb9c18a"]]);
 export {
   index as SvgEditor,
   svgViewer as SvgViewer

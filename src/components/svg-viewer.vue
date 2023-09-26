@@ -152,6 +152,7 @@
 		return { cursor: t ? 'pointer' : 'default' }
 	}
 	const eventHandle = (root: IDoneJson, type: EEventType) => {
+		console.log(root.events, type)
 		if (root.events?.length > 0) {
 			for (let e of root.events) {
 				if (e.type === type) {
@@ -174,7 +175,7 @@
 						if (e.attrs && e.attrs.length > 0) {
 							let t
 							if (e.target) {
-								for (let item of globalStore.done_json) {
+								for (let item of preview_data.done_json) {
 									if (item.id === e.target) {
 										t = item
 										break
