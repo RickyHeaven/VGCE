@@ -16,7 +16,8 @@
 		prosToVBind,
 		randomString,
 		resetHandlePointOld,
-		setSvgActualInfo
+		setSvgActualInfo,
+		stopEvent
 	} from '@/utils'
 	import {
 		calculateBottom,
@@ -982,6 +983,7 @@
 					:key="item.id"
 					:transform="`translate(${item.x},${item.y})rotate(0)scale(1)`"
 					v-show="item.display"
+					@mousewheel="stopEvent"
 				>
 					<g :class="`${getCommonClass(item)}`">
 						<g

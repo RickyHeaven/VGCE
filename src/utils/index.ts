@@ -11,6 +11,10 @@ import { useConfigStore } from '@/stores/config'
 import { useSvgEditLayoutStore } from '@/stores/svg-edit-layout'
 import { kebabCase } from 'lodash-es'
 
+export const stopEvent = (e: any) => {
+	e.stopPropagation()
+}
+
 /**
  * 生成随机字符串
  * @param len 生成个数
@@ -471,7 +475,7 @@ export const createLine = (e: MouseEvent, type?: ELineBindAnchors, itemInfo?: ID
 		)
 	}
 	const done_item_json = {
-		id: straight_line_system.name + randomString(),
+		id: randomString(),
 		x: x,
 		y: y,
 		client: {

@@ -99,7 +99,7 @@ export const useContextMenuStore = defineStore('context-menu-store', {
 			switch (type) {
 				case EContextMenuInfoType.Copy:
 					const temp_item = objectDeepClone<IDoneJson>(globalStore.handle_svg_info.info)
-					temp_item.id = temp_item.name + randomString()
+					temp_item.id = randomString()
 					temp_item.title += '-copy'
 					temp_item.x += 10
 					temp_item.y += 10

@@ -3,7 +3,7 @@
 	import { useGlobalStore } from '@/stores/global'
 	import { EGlobalStoreIntention, EMouseInfoState } from '@/stores/global/types'
 	import type { IDoneJson } from '@/stores/global/types'
-	import { getCommonClass, prosToVBind, setArrItemByID, valFormat } from '@/utils'
+	import { getCommonClass, prosToVBind, setArrItemByID, stopEvent, valFormat } from '@/utils'
 
 	import { EDoneJsonType, EEventAction, EEventType } from '@/config/types'
 	import ConnectionLine from '@/components/svg-editor/connection-line.vue'
@@ -226,12 +226,6 @@
 		}
 	}
 
-	onMounted(() => {
-		connectNet()
-	})
-
-	onBeforeUnmount(close)
-
 	const connectNet = () => {
 		const m = preview_data.config.net.mqtt
 		if (m && m.url && m.user && m.pwd && m.topics) {
@@ -246,6 +240,12 @@
 			})
 		}
 	}
+
+	onMounted(() => {
+		connectNet()
+	})
+
+	onBeforeUnmount(close)
 
 	defineExpose({
 		setNodeAttrByID
@@ -278,6 +278,10 @@
 					v-show="item.display"
 					:style="getStyle(item)"
 					@click="eventHandle(item, EEventType.Click)"
+					@mousedown="stopEvent"
+					@mousemove="stopEvent"
+					@mouseup="stopEvent"
+					@mousewheel="stopEvent"
 				>
 					<g :class="`${getCommonClass(item)}`">
 						<g

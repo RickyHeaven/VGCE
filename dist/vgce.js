@@ -3480,10 +3480,10 @@ function Qt(i) {
     for (var V = r.mainAxis, k = V === void 0 ? !0 : V, $ = r.altAxis, re = $ === void 0 ? !0 : $, oe = r.fallbackPlacements, Ce = r.padding, ie = r.boundary, ae = r.rootBoundary, le = r.altBoundary, Ie = r.flipVariations, de = Ie === void 0 ? !0 : Ie, ue = r.allowedAutoPlacements, Ne = n.options.placement, he = q(Ne), pe = he === Ne, ze = oe || (pe || !de ? [be(Ne)] : Kt(Ne)), xe = [Ne].concat(ze).reduce(function(ai, ui) {
       return ai.concat(q(ui) === me ? Jt(n, { placement: ui, boundary: ie, rootBoundary: ae, padding: Ce, flipVariations: de, allowedAutoPlacements: ue }) : ui);
     }, []), Oe = n.rects.reference, _e = n.rects.popper, At = /* @__PURE__ */ new Map(), $e = !0, Fe = xe[0], Ue = 0; Ue < xe.length; Ue++) {
-      var Ve = xe[Ue], Dt = q(Ve), qe = te(Ve) === U$2, kt = [E$2, R].indexOf(Dt) >= 0, jt = kt ? "width" : "height", Pt = ne(n, { placement: Ve, boundary: ie, rootBoundary: ae, altBoundary: le, padding: Ce }), ti = kt ? qe ? W : P$1 : qe ? R : E$2;
+      var Ve = xe[Ue], Dt = q(Ve), qe = te(Ve) === U$2, kt = [E$2, R].indexOf(Dt) >= 0, jt = kt ? "width" : "height", ei = ne(n, { placement: Ve, boundary: ie, rootBoundary: ae, altBoundary: le, padding: Ce }), ti = kt ? qe ? W : P$1 : qe ? R : E$2;
       Oe[jt] > _e[jt] && (ti = be(ti));
-      var ei = be(ti), Et = [];
-      if (k && Et.push(Pt[Dt] <= 0), re && Et.push(Pt[ti] <= 0, Pt[ei] <= 0), Et.every(function(ai) {
+      var Pt = be(ti), Et = [];
+      if (k && Et.push(ei[Dt] <= 0), re && Et.push(ei[ti] <= 0, ei[Pt] <= 0), Et.every(function(ai) {
         return ai;
       })) {
         Fe = Ve, $e = !1;
@@ -3494,16 +3494,16 @@ function Qt(i) {
     if ($e)
       for (var ni = de ? 3 : 1, ri = function(ai) {
         var ui = xe.find(function(hi) {
-          var ci = At.get(hi);
-          if (ci)
-            return ci.slice(0, ai).every(function(Ai) {
+          var Ii = At.get(hi);
+          if (Ii)
+            return Ii.slice(0, ai).every(function(Ai) {
               return Ai;
             });
         });
         if (ui)
           return Fe = ui, "break";
-      }, Ii = ni; Ii > 0; Ii--) {
-        var wi = ri(Ii);
+      }, ci = ni; ci > 0; ci--) {
+        var wi = ri(ci);
         if (wi === "break")
           break;
       }
@@ -3547,7 +3547,7 @@ function on(i) {
   var n = i.state, r = i.options, g = i.name, V = r.mainAxis, k = V === void 0 ? !0 : V, $ = r.altAxis, re = $ === void 0 ? !1 : $, oe = r.boundary, Ce = r.rootBoundary, ie = r.altBoundary, ae = r.padding, le = r.tether, Ie = le === void 0 ? !0 : le, de = r.tetherOffset, ue = de === void 0 ? 0 : de, Ne = ne(n, { boundary: oe, rootBoundary: Ce, padding: ae, altBoundary: ie }), he = q(n.placement), pe = te(n.placement), ze = !pe, xe = Le(he), Oe = rn(xe), _e = n.modifiersData.popperOffsets, At = n.rects.reference, $e = n.rects.popper, Fe = typeof ue == "function" ? ue(Object.assign({}, n.rects, { placement: n.placement })) : ue, Ue = typeof Fe == "number" ? { mainAxis: Fe, altAxis: Fe } : Object.assign({ mainAxis: 0, altAxis: 0 }, Fe), Ve = n.modifiersData.offset ? n.modifiersData.offset[n.placement] : null, Dt = { x: 0, y: 0 };
   if (_e) {
     if (k) {
-      var qe, kt = xe === "y" ? E$2 : P$1, jt = xe === "y" ? R : W, Pt = xe === "y" ? "height" : "width", ti = _e[xe], ei = ti + Ne[kt], Et = ti - Ne[jt], ni = Ie ? -$e[Pt] / 2 : 0, ri = pe === U$2 ? At[Pt] : $e[Pt], Ii = pe === U$2 ? -$e[Pt] : -At[Pt], wi = n.elements.arrow, ai = Ie && wi ? ke(wi) : { width: 0, height: 0 }, ui = n.modifiersData["arrow#persistent"] ? n.modifiersData["arrow#persistent"].padding : st(), hi = ui[kt], ci = ui[jt], Ai = fe(0, At[Pt], ai[Pt]), yi = ze ? At[Pt] / 2 - ni - Ai - hi - Ue.mainAxis : ri - Ai - hi - Ue.mainAxis, di = ze ? -At[Pt] / 2 + ni + Ai + ci + Ue.mainAxis : Ii + Ai + ci + Ue.mainAxis, Ci = n.elements.arrow && se(n.elements.arrow), zi = Ci ? xe === "y" ? Ci.clientTop || 0 : Ci.clientLeft || 0 : 0, Mi = (qe = Ve == null ? void 0 : Ve[xe]) != null ? qe : 0, Ni = ti + yi - Mi - zi, mi = ti + di - Mi, Si = fe(Ie ? ve(ei, Ni) : ei, ti, Ie ? X$1(Et, mi) : Et);
+      var qe, kt = xe === "y" ? E$2 : P$1, jt = xe === "y" ? R : W, ei = xe === "y" ? "height" : "width", ti = _e[xe], Pt = ti + Ne[kt], Et = ti - Ne[jt], ni = Ie ? -$e[ei] / 2 : 0, ri = pe === U$2 ? At[ei] : $e[ei], ci = pe === U$2 ? -$e[ei] : -At[ei], wi = n.elements.arrow, ai = Ie && wi ? ke(wi) : { width: 0, height: 0 }, ui = n.modifiersData["arrow#persistent"] ? n.modifiersData["arrow#persistent"].padding : st(), hi = ui[kt], Ii = ui[jt], Ai = fe(0, At[ei], ai[ei]), yi = ze ? At[ei] / 2 - ni - Ai - hi - Ue.mainAxis : ri - Ai - hi - Ue.mainAxis, di = ze ? -At[ei] / 2 + ni + Ai + Ii + Ue.mainAxis : ci + Ai + Ii + Ue.mainAxis, Ci = n.elements.arrow && se(n.elements.arrow), zi = Ci ? xe === "y" ? Ci.clientTop || 0 : Ci.clientLeft || 0 : 0, Mi = (qe = Ve == null ? void 0 : Ve[xe]) != null ? qe : 0, Ni = ti + yi - Mi - zi, mi = ti + di - Mi, Si = fe(Ie ? ve(Pt, Ni) : Pt, ti, Ie ? X$1(Et, mi) : Et);
       _e[xe] = Si, Dt[xe] = Si - ti;
     }
     if (re) {
@@ -5061,15 +5061,15 @@ const _hoisted_1$I = ["role", "aria-labelledby"], __default__$D = defineComponen
     const Ne = computed$1(() => {
       if ((V == null ? void 0 : V.labelPosition) === "top")
         return {};
-      const ci = addUnit(r.labelWidth || (V == null ? void 0 : V.labelWidth) || "");
-      return ci ? { width: ci } : {};
+      const Ii = addUnit(r.labelWidth || (V == null ? void 0 : V.labelWidth) || "");
+      return Ii ? { width: Ii } : {};
     }), he = computed$1(() => {
       if ((V == null ? void 0 : V.labelPosition) === "top" || V != null && V.inline)
         return {};
       if (!r.label && !r.labelWidth && Fe)
         return {};
-      const ci = addUnit(r.labelWidth || (V == null ? void 0 : V.labelWidth) || "");
-      return !r.label && !g.label ? { marginLeft: ci } : {};
+      const Ii = addUnit(r.labelWidth || (V == null ? void 0 : V.labelWidth) || "");
+      return !r.label && !g.label ? { marginLeft: Ii } : {};
     }), pe = computed$1(() => [
       re.b(),
       re.m($.value),
@@ -5084,69 +5084,69 @@ const _hoisted_1$I = ["role", "aria-labelledby"], __default__$D = defineComponen
       re.e("error"),
       { [re.em("error", "inline")]: ze.value }
     ]), Oe = computed$1(() => r.prop ? isString$1(r.prop) ? r.prop : r.prop.join(".") : ""), _e = computed$1(() => !!(r.label || g.label)), At = computed$1(() => r.for || Ce.value.length === 1 ? Ce.value[0] : void 0), $e = computed$1(() => !At.value && _e.value), Fe = !!k, Ue = computed$1(() => {
-      const ci = V == null ? void 0 : V.model;
-      if (!(!ci || !r.prop))
-        return getProp(ci, r.prop).value;
+      const Ii = V == null ? void 0 : V.model;
+      if (!(!Ii || !r.prop))
+        return getProp(Ii, r.prop).value;
     }), Ve = computed$1(() => {
-      const { required: ci } = r, Ai = [];
+      const { required: Ii } = r, Ai = [];
       r.rules && Ai.push(...castArray(r.rules));
       const yi = V == null ? void 0 : V.rules;
       if (yi && r.prop) {
         const di = getProp(yi, r.prop).value;
         di && Ai.push(...castArray(di));
       }
-      if (ci !== void 0) {
+      if (Ii !== void 0) {
         const di = Ai.map((Ci, zi) => [Ci, zi]).filter(([Ci]) => Object.keys(Ci).includes("required"));
         if (di.length > 0)
           for (const [Ci, zi] of di)
-            Ci.required !== ci && (Ai[zi] = { ...Ci, required: ci });
+            Ci.required !== Ii && (Ai[zi] = { ...Ci, required: Ii });
         else
-          Ai.push({ required: ci });
+          Ai.push({ required: Ii });
       }
       return Ai;
-    }), Dt = computed$1(() => Ve.value.length > 0), qe = (ci) => Ve.value.filter((yi) => !yi.trigger || !ci ? !0 : Array.isArray(yi.trigger) ? yi.trigger.includes(ci) : yi.trigger === ci).map(({ trigger: yi, ...di }) => di), kt = computed$1(() => Ve.value.some((ci) => ci.required)), jt = computed$1(() => {
-      var ci;
-      return ae.value === "error" && r.showMessage && ((ci = V == null ? void 0 : V.showMessage) != null ? ci : !0);
-    }), Pt = computed$1(() => `${r.label || ""}${(V == null ? void 0 : V.labelSuffix) || ""}`), ti = (ci) => {
-      ie.value = ci;
-    }, ei = (ci) => {
+    }), Dt = computed$1(() => Ve.value.length > 0), qe = (Ii) => Ve.value.filter((yi) => !yi.trigger || !Ii ? !0 : Array.isArray(yi.trigger) ? yi.trigger.includes(Ii) : yi.trigger === Ii).map(({ trigger: yi, ...di }) => di), kt = computed$1(() => Ve.value.some((Ii) => Ii.required)), jt = computed$1(() => {
+      var Ii;
+      return ae.value === "error" && r.showMessage && ((Ii = V == null ? void 0 : V.showMessage) != null ? Ii : !0);
+    }), ei = computed$1(() => `${r.label || ""}${(V == null ? void 0 : V.labelSuffix) || ""}`), ti = (Ii) => {
+      ie.value = Ii;
+    }, Pt = (Ii) => {
       var Ai, yi;
-      const { errors: di, fields: Ci } = ci;
-      (!di || !Ci) && console.error(ci), ti("error"), le.value = di ? (yi = (Ai = di == null ? void 0 : di[0]) == null ? void 0 : Ai.message) != null ? yi : `${r.prop} is required` : "", V == null || V.emit("validate", r.prop, !1, le.value);
+      const { errors: di, fields: Ci } = Ii;
+      (!di || !Ci) && console.error(Ii), ti("error"), le.value = di ? (yi = (Ai = di == null ? void 0 : di[0]) == null ? void 0 : Ai.message) != null ? yi : `${r.prop} is required` : "", V == null || V.emit("validate", r.prop, !1, le.value);
     }, Et = () => {
       ti("success"), V == null || V.emit("validate", r.prop, !0, "");
-    }, ni = async (ci) => {
+    }, ni = async (Ii) => {
       const Ai = Oe.value;
       return new Schema({
-        [Ai]: ci
-      }).validate({ [Ai]: Ue.value }, { firstFields: !0 }).then(() => (Et(), !0)).catch((di) => (ei(di), Promise.reject(di)));
-    }, ri = async (ci, Ai) => {
+        [Ai]: Ii
+      }).validate({ [Ai]: Ue.value }, { firstFields: !0 }).then(() => (Et(), !0)).catch((di) => (Pt(di), Promise.reject(di)));
+    }, ri = async (Ii, Ai) => {
       if (ue || !r.prop)
         return !1;
       const yi = isFunction$2(Ai);
       if (!Dt.value)
         return Ai == null || Ai(!1), !1;
-      const di = qe(ci);
+      const di = qe(Ii);
       return di.length === 0 ? (Ai == null || Ai(!0), !0) : (ti("validating"), ni(di).then(() => (Ai == null || Ai(!0), !0)).catch((Ci) => {
         const { fields: zi } = Ci;
         return Ai == null || Ai(!1, zi), yi ? !1 : Promise.reject(zi);
       }));
-    }, Ii = () => {
+    }, ci = () => {
       ti(""), le.value = "", ue = !1;
     }, wi = async () => {
-      const ci = V == null ? void 0 : V.model;
-      if (!ci || !r.prop)
+      const Ii = V == null ? void 0 : V.model;
+      if (!Ii || !r.prop)
         return;
-      const Ai = getProp(ci, r.prop);
-      ue = !0, Ai.value = clone$3(de), await nextTick(), Ii(), ue = !1;
-    }, ai = (ci) => {
-      Ce.value.includes(ci) || Ce.value.push(ci);
-    }, ui = (ci) => {
-      Ce.value = Ce.value.filter((Ai) => Ai !== ci);
+      const Ai = getProp(Ii, r.prop);
+      ue = !0, Ai.value = clone$3(de), await nextTick(), ci(), ue = !1;
+    }, ai = (Ii) => {
+      Ce.value.includes(Ii) || Ce.value.push(Ii);
+    }, ui = (Ii) => {
+      Ce.value = Ce.value.filter((Ai) => Ai !== Ii);
     };
-    watch(() => r.error, (ci) => {
-      le.value = ci || "", ti(ci ? "error" : "");
-    }, { immediate: !0 }), watch(() => r.validateStatus, (ci) => ti(ci || ""));
+    watch(() => r.error, (Ii) => {
+      le.value = Ii || "", ti(Ii ? "error" : "");
+    }, { immediate: !0 }), watch(() => r.validateStatus, (Ii) => ti(Ii || ""));
     const hi = reactive({
       ...toRefs(r),
       $el: Ie,
@@ -5159,7 +5159,7 @@ const _hoisted_1$I = ["role", "aria-labelledby"], __default__$D = defineComponen
       addInputId: ai,
       removeInputId: ui,
       resetField: wi,
-      clearValidate: Ii,
+      clearValidate: ci,
       validate: ri
     });
     return provide(formItemContextKey, hi), onMounted(() => {
@@ -5171,9 +5171,9 @@ const _hoisted_1$I = ["role", "aria-labelledby"], __default__$D = defineComponen
       validateMessage: le,
       validateState: ie,
       validate: ri,
-      clearValidate: Ii,
+      clearValidate: ci,
       resetField: wi
-    }), (ci, Ai) => {
+    }), (Ii, Ai) => {
       var yi;
       return openBlock(), createElementBlock("div", {
         ref_key: "formItemRef",
@@ -5195,8 +5195,8 @@ const _hoisted_1$I = ["role", "aria-labelledby"], __default__$D = defineComponen
               style: normalizeStyle$1(unref(Ne))
             }, {
               default: withCtx(() => [
-                renderSlot(ci.$slots, "label", { label: unref(Pt) }, () => [
-                  createTextVNode(toDisplayString(unref(Pt)), 1)
+                renderSlot(Ii.$slots, "label", { label: unref(ei) }, () => [
+                  createTextVNode(toDisplayString(unref(ei)), 1)
                 ])
               ]),
               _: 3
@@ -5208,12 +5208,12 @@ const _hoisted_1$I = ["role", "aria-labelledby"], __default__$D = defineComponen
           class: normalizeClass(unref(re).e("content")),
           style: normalizeStyle$1(unref(he))
         }, [
-          renderSlot(ci.$slots, "default"),
+          renderSlot(Ii.$slots, "default"),
           createVNode$1(TransitionGroup, {
             name: `${unref(re).namespace.value}-zoom-in-top`
           }, {
             default: withCtx(() => [
-              unref(jt) ? renderSlot(ci.$slots, "error", {
+              unref(jt) ? renderSlot(Ii.$slots, "error", {
                 key: 0,
                 error: le.value
               }, () => [
@@ -5420,16 +5420,16 @@ const inputProps = buildProps({
     }), qe = computed$1(() => {
       var pi;
       return (pi = ie == null ? void 0 : ie.statusIcon) != null ? pi : !1;
-    }), kt = computed$1(() => (ae == null ? void 0 : ae.validateState) || ""), jt = computed$1(() => kt.value && ValidateComponentsMap[kt.value]), Pt = computed$1(() => Oe.value ? view_default : hide_default), ti = computed$1(() => [
+    }), kt = computed$1(() => (ae == null ? void 0 : ae.validateState) || ""), jt = computed$1(() => kt.value && ValidateComponentsMap[kt.value]), ei = computed$1(() => Oe.value ? view_default : hide_default), ti = computed$1(() => [
       V.style,
       g.inputStyle
-    ]), ei = computed$1(() => [
+    ]), Pt = computed$1(() => [
       g.inputStyle,
       At.value,
       { resize: g.resize }
-    ]), Et = computed$1(() => isNil(g.modelValue) ? "" : String(g.modelValue)), ni = computed$1(() => g.clearable && !de.value && !g.readonly && !!Et.value && (Ue.value || ze.value)), ri = computed$1(() => g.showPassword && !de.value && !g.readonly && !!Et.value && (!!Et.value || Ue.value)), Ii = computed$1(() => g.showWordLimit && !!Ce.value.maxlength && (g.type === "text" || g.type === "textarea") && !de.value && !g.readonly && !g.showPassword), wi = computed$1(() => Et.value.length), ai = computed$1(() => !!Ii.value && wi.value > Number(Ce.value.maxlength)), ui = computed$1(() => !!k.suffix || !!g.suffixIcon || ni.value || g.showPassword || Ii.value || !!kt.value && qe.value), [hi, ci] = useCursor(he);
+    ]), Et = computed$1(() => isNil(g.modelValue) ? "" : String(g.modelValue)), ni = computed$1(() => g.clearable && !de.value && !g.readonly && !!Et.value && (Ue.value || ze.value)), ri = computed$1(() => g.showPassword && !de.value && !g.readonly && !!Et.value && (!!Et.value || Ue.value)), ci = computed$1(() => g.showWordLimit && !!Ce.value.maxlength && (g.type === "text" || g.type === "textarea") && !de.value && !g.readonly && !g.showPassword), wi = computed$1(() => Et.value.length), ai = computed$1(() => !!ci.value && wi.value > Number(Ce.value.maxlength)), ui = computed$1(() => !!k.suffix || !!g.suffixIcon || ni.value || g.showPassword || ci.value || !!kt.value && qe.value), [hi, Ii] = useCursor(he);
     useResizeObserver(pe, (pi) => {
-      if (di(), !Ii.value || g.resize !== "both")
+      if (di(), !ci.value || g.resize !== "both")
         return;
       const bi = pi[0], { width: xi } = bi.contentRect;
       _e.value = {
@@ -5470,7 +5470,7 @@ const inputProps = buildProps({
           Ci();
           return;
         }
-        r(UPDATE_MODEL_EVENT, bi), r("input", bi), await nextTick(), Ci(), ci();
+        r(UPDATE_MODEL_EVENT, bi), r("input", bi), await nextTick(), Ci(), Ii();
       }
     }, Mi = (pi) => {
       r("change", pi.target.value);
@@ -5514,7 +5514,7 @@ const inputProps = buildProps({
       input: he,
       textarea: pe,
       ref: $e,
-      textareaStyle: ei,
+      textareaStyle: Pt,
       autosize: toRef(g, "autosize"),
       focus: si,
       blur: li,
@@ -5596,7 +5596,7 @@ const inputProps = buildProps({
             createElementVNode("span", {
               class: normalizeClass(unref(ue).e("suffix-inner"))
             }, [
-              !unref(ni) || !unref(ri) || !unref(Ii) ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
+              !unref(ni) || !unref(ri) || !unref(ci) ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
                 renderSlot(pi.$slots, "suffix"),
                 pi.suffixIcon ? (openBlock(), createBlock(unref(ElIcon), {
                   key: 0,
@@ -5625,11 +5625,11 @@ const inputProps = buildProps({
                 onClick: Ti
               }, {
                 default: withCtx(() => [
-                  (openBlock(), createBlock(resolveDynamicComponent(unref(Pt))))
+                  (openBlock(), createBlock(resolveDynamicComponent(unref(ei))))
                 ]),
                 _: 1
               }, 8, ["class"])) : createCommentVNode("v-if", !0),
-              unref(Ii) ? (openBlock(), createElementBlock("span", {
+              unref(ci) ? (openBlock(), createElementBlock("span", {
                 key: 3,
                 class: normalizeClass(unref(ue).e("count"))
               }, [
@@ -5672,7 +5672,7 @@ const inputProps = buildProps({
           disabled: unref(de),
           readonly: pi.readonly,
           autocomplete: pi.autocomplete,
-          style: unref(ei),
+          style: unref(Pt),
           "aria-label": pi.label,
           placeholder: pi.placeholder,
           form: g.form,
@@ -5685,7 +5685,7 @@ const inputProps = buildProps({
           onChange: Mi,
           onKeydown: ii
         }), null, 16, _hoisted_3$n),
-        unref(Ii) ? (openBlock(), createElementBlock("span", {
+        unref(ci) ? (openBlock(), createElementBlock("span", {
           key: 0,
           style: normalizeStyle$1(_e.value),
           class: normalizeClass(unref(ue).e("count"))
@@ -6697,13 +6697,13 @@ const DEFAULT_ARROW_OFFSET = 0, usePopperContent = (i) => {
     return onMounted(() => {
       watch(() => g.triggerTargetEl, (qe, kt) => {
         Ue == null || Ue(), Ue = void 0;
-        const jt = unref(qe || Ie.value), Pt = unref(kt || Ie.value);
+        const jt = unref(qe || Ie.value), ei = unref(kt || Ie.value);
         isElement(jt) && (Ue = watch([Ne, () => g.ariaLabel, pe, () => g.id], (ti) => {
-          ["role", "aria-label", "aria-modal", "id"].forEach((ei, Et) => {
-            isNil(ti[Et]) ? jt.removeAttribute(ei) : jt.setAttribute(ei, ti[Et]);
+          ["role", "aria-label", "aria-modal", "id"].forEach((Pt, Et) => {
+            isNil(ti[Et]) ? jt.removeAttribute(Pt) : jt.setAttribute(Pt, ti[Et]);
           });
-        }, { immediate: !0 })), Pt !== jt && isElement(Pt) && ["role", "aria-label", "aria-modal", "id"].forEach((ti) => {
-          Pt.removeAttribute(ti);
+        }, { immediate: !0 })), ei !== jt && isElement(ei) && ["role", "aria-label", "aria-modal", "id"].forEach((ti) => {
+          ei.removeAttribute(ti);
         });
       }, { immediate: !0 }), watch(() => g.visible, Dt, { immediate: !0 });
     }), onBeforeUnmount(() => {
@@ -6880,12 +6880,12 @@ const __default__$v = defineComponent({
     }), Ve = composeEventHandlers(Fe, () => {
       unref(ie) === "hover" && ae();
     }), Dt = () => {
-      var ti, ei;
-      (ei = (ti = k.value) == null ? void 0 : ti.updatePopper) == null || ei.call(ti), ue == null || ue();
+      var ti, Pt;
+      (Pt = (ti = k.value) == null ? void 0 : ti.updatePopper) == null || Pt.call(ti), ue == null || ue();
     }, qe = () => {
       Ne == null || Ne();
     }, kt = () => {
-      Ie(), Pt = onClickOutside(computed$1(() => {
+      Ie(), ei = onClickOutside(computed$1(() => {
         var ti;
         return (ti = k.value) == null ? void 0 : ti.popperContentRef;
       }), () => {
@@ -6896,17 +6896,17 @@ const __default__$v = defineComponent({
     }, jt = () => {
       r.virtualTriggering || ae();
     };
-    let Pt;
+    let ei;
     return watch(() => unref(Ce), (ti) => {
-      ti || Pt == null || Pt();
+      ti || ei == null || ei();
     }, {
       flush: "post"
     }), watch(() => r.content, () => {
-      var ti, ei;
-      (ei = (ti = k.value) == null ? void 0 : ti.updatePopper) == null || ei.call(ti);
+      var ti, Pt;
+      (Pt = (ti = k.value) == null ? void 0 : ti.updatePopper) == null || Pt.call(ti);
     }), n({
       contentRef: k
-    }), (ti, ei) => (openBlock(), createBlock(Teleport, {
+    }), (ti, Pt) => (openBlock(), createBlock(Teleport, {
       disabled: !ti.teleported,
       to: unref(Oe)
     }, [
@@ -9396,8 +9396,8 @@ const _hoisted_1$z = ["id", "aria-label", "aria-labelledby", "aria-description",
     function Fe(Et, ni) {
       if (!(Et instanceof Color))
         throw new TypeError("color should be instance of _color Class");
-      const { r: ri, g: Ii, b: wi } = Et.toRgb();
-      return ni ? `rgba(${ri}, ${Ii}, ${wi}, ${Et.get("alpha") / 100})` : `rgb(${ri}, ${Ii}, ${wi})`;
+      const { r: ri, g: ci, b: wi } = Et.toRgb();
+      return ni ? `rgba(${ri}, ${ci}, ${wi}, ${Et.get("alpha") / 100})` : `rgb(${ri}, ${ci}, ${wi})`;
     }
     function Ue(Et) {
       he.value = Et;
@@ -9419,7 +9419,7 @@ const _hoisted_1$z = ["id", "aria-label", "aria-labelledby", "aria-description",
     function jt() {
       oe.value || Ve(!he.value);
     }
-    function Pt() {
+    function ei() {
       Ne.fromString(ze.value);
     }
     function ti() {
@@ -9433,7 +9433,7 @@ const _hoisted_1$z = ["id", "aria-label", "aria-labelledby", "aria-description",
         Ne.compare(ni) || kt();
       });
     }
-    function ei() {
+    function Pt() {
       Ve(!1), r(UPDATE_MODEL_EVENT, null), r("change", null), g.modelValue !== null && g.validateEvent && ($ == null || $.validate("change").catch((Et) => debugWarn(Et))), kt();
     }
     return onMounted(() => {
@@ -9511,15 +9511,15 @@ const _hoisted_1$z = ["id", "aria-label", "aria-labelledby", "aria-description",
                 "onUpdate:modelValue": ni[0] || (ni[0] = (ri) => ze.value = ri),
                 "validate-event": !1,
                 size: "small",
-                onKeyup: withKeys(Pt, ["enter"]),
-                onBlur: Pt
+                onKeyup: withKeys(ei, ["enter"]),
+                onBlur: ei
               }, null, 8, ["modelValue", "onKeyup"])
             ], 2),
             createVNode$1(unref(ElButton), {
               class: normalizeClass(unref(k).be("dropdown", "link-btn")),
               text: "",
               size: "small",
-              onClick: ei
+              onClick: Pt
             }, {
               default: withCtx(() => [
                 createTextVNode(toDisplayString(unref(V)("el.colorpicker.clear")), 1)
@@ -10434,8 +10434,8 @@ const ElDrawer = withInstall(Drawer), inputNumberProps = buildProps({
       if (isUndefined(kt) && (kt = ae.value), kt === 0)
         return Math.round(qe);
       let jt = String(qe);
-      const Pt = jt.indexOf(".");
-      if (Pt === -1 || !jt.replace(".", "").split("")[Pt + kt])
+      const ei = jt.indexOf(".");
+      if (ei === -1 || !jt.replace(".", "").split("")[ei + kt])
         return qe;
       const Et = jt.length;
       return jt.charAt(Et - 1) === "5" && (jt = `${jt.slice(0, Math.max(0, Et - 1))}6`), Number.parseFloat(Number(jt).toFixed(kt));
@@ -10443,8 +10443,8 @@ const ElDrawer = withInstall(Drawer), inputNumberProps = buildProps({
       if (isNil(qe))
         return 0;
       const kt = qe.toString(), jt = kt.indexOf(".");
-      let Pt = 0;
-      return jt !== -1 && (Pt = kt.length - jt - 1), Pt;
+      let ei = 0;
+      return jt !== -1 && (ei = kt.length - jt - 1), ei;
     }, pe = (qe, kt = 1) => isNumber$1(qe) ? Ne(qe + g.step * kt) : re.currentValue, ze = () => {
       if (g.readonly || de.value || ie.value)
         return;
@@ -10456,25 +10456,25 @@ const ElDrawer = withInstall(Drawer), inputNumberProps = buildProps({
       const qe = Number(ue.value) || 0, kt = pe(qe, -1);
       _e(kt), r(INPUT_EVENT, re.currentValue);
     }, Oe = (qe, kt) => {
-      const { max: jt, min: Pt, step: ti, precision: ei, stepStrictly: Et, valueOnClear: ni } = g;
-      jt < Pt && throwError$1("InputNumber", "min should not be greater than max.");
+      const { max: jt, min: ei, step: ti, precision: Pt, stepStrictly: Et, valueOnClear: ni } = g;
+      jt < ei && throwError$1("InputNumber", "min should not be greater than max.");
       let ri = Number(qe);
       if (isNil(qe) || Number.isNaN(ri))
         return null;
       if (qe === "") {
         if (ni === null)
           return null;
-        ri = isString$1(ni) ? { min: Pt, max: jt }[ni] : ni;
+        ri = isString$1(ni) ? { min: ei, max: jt }[ni] : ni;
       }
-      return Et && (ri = Ne(Math.round(ri / ti) * ti, ei)), isUndefined(ei) || (ri = Ne(ri, ei)), (ri > jt || ri < Pt) && (ri = ri > jt ? jt : Pt, kt && r(UPDATE_MODEL_EVENT, ri)), ri;
+      return Et && (ri = Ne(Math.round(ri / ti) * ti, Pt)), isUndefined(Pt) || (ri = Ne(ri, Pt)), (ri > jt || ri < ei) && (ri = ri > jt ? jt : ei, kt && r(UPDATE_MODEL_EVENT, ri)), ri;
     }, _e = (qe, kt = !0) => {
       var jt;
-      const Pt = re.currentValue, ti = Oe(qe);
+      const ei = re.currentValue, ti = Oe(qe);
       if (!kt) {
         r(UPDATE_MODEL_EVENT, ti);
         return;
       }
-      Pt !== ti && (re.userInput = null, r(UPDATE_MODEL_EVENT, ti), r(CHANGE_EVENT, ti, Pt), g.validateEvent && ((jt = oe == null ? void 0 : oe.validate) == null || jt.call(oe, "change").catch((ei) => debugWarn(ei))), re.currentValue = ti);
+      ei !== ti && (re.userInput = null, r(UPDATE_MODEL_EVENT, ti), r(CHANGE_EVENT, ti, ei), g.validateEvent && ((jt = oe == null ? void 0 : oe.validate) == null || jt.call(oe, "change").catch((Pt) => debugWarn(Pt))), re.currentValue = ti);
     }, At = (qe) => {
       re.userInput = qe;
       const kt = qe === "" ? null : Number(qe);
@@ -10499,10 +10499,10 @@ const ElDrawer = withInstall(Drawer), inputNumberProps = buildProps({
       !isNumber$1(kt) && (!kt || kt !== jt) && (re.currentValue = jt, re.userInput = null);
     }, { immediate: !0 }), onMounted(() => {
       var qe;
-      const { min: kt, max: jt, modelValue: Pt } = g, ti = (qe = $.value) == null ? void 0 : qe.input;
-      if (ti.setAttribute("role", "spinbutton"), Number.isFinite(jt) ? ti.setAttribute("aria-valuemax", String(jt)) : ti.removeAttribute("aria-valuemax"), Number.isFinite(kt) ? ti.setAttribute("aria-valuemin", String(kt)) : ti.removeAttribute("aria-valuemin"), ti.setAttribute("aria-valuenow", String(re.currentValue)), ti.setAttribute("aria-disabled", String(de.value)), !isNumber$1(Pt) && Pt != null) {
-        let ei = Number(Pt);
-        Number.isNaN(ei) && (ei = null), r(UPDATE_MODEL_EVENT, ei);
+      const { min: kt, max: jt, modelValue: ei } = g, ti = (qe = $.value) == null ? void 0 : qe.input;
+      if (ti.setAttribute("role", "spinbutton"), Number.isFinite(jt) ? ti.setAttribute("aria-valuemax", String(jt)) : ti.removeAttribute("aria-valuemax"), Number.isFinite(kt) ? ti.setAttribute("aria-valuemin", String(kt)) : ti.removeAttribute("aria-valuemin"), ti.setAttribute("aria-valuenow", String(re.currentValue)), ti.setAttribute("aria-disabled", String(de.value)), !isNumber$1(ei) && ei != null) {
+        let Pt = Number(ei);
+        Number.isNaN(Pt) && (Pt = null), r(UPDATE_MODEL_EVENT, Pt);
       }
     }), onUpdated(() => {
       var qe;
@@ -10780,7 +10780,7 @@ const useSelect = (i, n, r) => {
   }), Dt = computed$1(() => Array.from(n.cachedOptions.values())), qe = computed$1(() => {
     const vi = Ve.value.filter((Di) => !Di.created).some((Di) => Di.currentLabel === n.query);
     return i.filterable && i.allowCreate && n.query !== "" && !vi;
-  }), kt = useFormSize(), jt = computed$1(() => ["small"].includes(kt.value) ? "small" : "default"), Pt = computed$1({
+  }), kt = useFormSize(), jt = computed$1(() => ["small"].includes(kt.value) ? "small" : "default"), ei = computed$1({
     get() {
       return n.visible && Ue.value !== !1;
     },
@@ -10795,13 +10795,13 @@ const useSelect = (i, n, r) => {
   }), watch(() => i.placeholder, (vi) => {
     n.cachedPlaceHolder = n.currentPlaceholder = vi, i.multiple && Array.isArray(i.modelValue) && i.modelValue.length > 0 && (n.currentPlaceholder = "");
   }), watch(() => i.modelValue, (vi, Di) => {
-    i.multiple && (ti(), vi && vi.length > 0 || $.value && n.query !== "" ? n.currentPlaceholder = "" : n.currentPlaceholder = n.cachedPlaceHolder, i.filterable && !i.reserveKeyword && (n.query = "", ei(n.query))), ri(), i.filterable && !i.multiple && (n.inputLength = 20), !isEqual(vi, Di) && i.validateEvent && (ze == null || ze.validate("change").catch((Yi) => debugWarn(Yi)));
+    i.multiple && (ti(), vi && vi.length > 0 || $.value && n.query !== "" ? n.currentPlaceholder = "" : n.currentPlaceholder = n.cachedPlaceHolder, i.filterable && !i.reserveKeyword && (n.query = "", Pt(n.query))), ri(), i.filterable && !i.multiple && (n.inputLength = 20), !isEqual(vi, Di) && i.validateEvent && (ze == null || ze.validate("change").catch((Yi) => debugWarn(Yi)));
   }, {
     flush: "post",
     deep: !0
   }), watch(() => n.visible, (vi) => {
     var Di, Yi, Ri, Ei, Xi;
-    vi ? ((Yi = (Di = oe.value) == null ? void 0 : Di.updatePopper) == null || Yi.call(Di), i.filterable && (n.filteredOptionsCount = n.optionsCount, n.query = i.remote ? "" : n.selectedLabel, (Ei = (Ri = re.value) == null ? void 0 : Ri.focus) == null || Ei.call(Ri), i.multiple ? (Xi = $.value) == null || Xi.focus() : n.selectedLabel && (n.currentPlaceholder = `${n.selectedLabel}`, n.selectedLabel = ""), ei(n.query), !i.multiple && !i.remote && (de.value.query = "", triggerRef(de), triggerRef(ue)))) : (i.filterable && (isFunction$2(i.filterMethod) && i.filterMethod(""), isFunction$2(i.remoteMethod) && i.remoteMethod("")), $.value && $.value.blur(), n.query = "", n.previousQuery = null, n.selectedLabel = "", n.inputLength = 20, n.menuVisibleOnFocus = !1, wi(), nextTick(() => {
+    vi ? ((Yi = (Di = oe.value) == null ? void 0 : Di.updatePopper) == null || Yi.call(Di), i.filterable && (n.filteredOptionsCount = n.optionsCount, n.query = i.remote ? "" : n.selectedLabel, (Ei = (Ri = re.value) == null ? void 0 : Ri.focus) == null || Ei.call(Ri), i.multiple ? (Xi = $.value) == null || Xi.focus() : n.selectedLabel && (n.currentPlaceholder = `${n.selectedLabel}`, n.selectedLabel = ""), Pt(n.query), !i.multiple && !i.remote && (de.value.query = "", triggerRef(de), triggerRef(ue)))) : (i.filterable && (isFunction$2(i.filterMethod) && i.filterMethod(""), isFunction$2(i.remoteMethod) && i.remoteMethod("")), $.value && $.value.blur(), n.query = "", n.previousQuery = null, n.selectedLabel = "", n.inputLength = 20, n.menuVisibleOnFocus = !1, wi(), nextTick(() => {
       $.value && $.value.value === "" && n.selected.length === 0 && (n.currentPlaceholder = n.cachedPlaceHolder);
     }), i.multiple || (n.selected && (i.filterable && i.allowCreate && n.createdSelected && n.createdLabel ? n.selectedLabel = n.createdLabel : n.selectedLabel = n.selected.currentLabel, i.filterable && (n.query = n.selectedLabel)), i.filterable && (n.currentPlaceholder = n.cachedPlaceHolder))), r.emit("visible-change", vi);
   }), watch(() => n.options.entries(), () => {
@@ -10828,7 +10828,7 @@ const useSelect = (i, n, r) => {
       const Ri = ie.value, Ei = getComponentSize(kt.value || (pe == null ? void 0 : pe.size)), Xi = kt.value || Ei === he || he <= 0 ? Ei : he;
       !(Yi.offsetParent === null) && (Yi.style.height = `${(n.selected.length === 0 ? Xi : Math.max(Ri ? Ri.clientHeight + (Ri.clientHeight > Xi ? 6 : 0) : 0, Xi)) - 2}px`), n.visible && Ue.value !== !1 && ((Di = (vi = oe.value) == null ? void 0 : vi.updatePopper) == null || Di.call(vi));
     });
-  }, ei = async (vi) => {
+  }, Pt = async (vi) => {
     if (!(n.previousQuery === vi || n.isOnComposition)) {
       if (n.previousQuery === null && (isFunction$2(i.filterMethod) || isFunction$2(i.remoteMethod))) {
         n.previousQuery = vi;
@@ -10852,17 +10852,17 @@ const useSelect = (i, n, r) => {
     if (i.multiple)
       n.selectedLabel = "";
     else {
-      const Yi = Ii(i.modelValue);
+      const Yi = ci(i.modelValue);
       (vi = Yi.props) != null && vi.created ? (n.createdLabel = Yi.props.value, n.createdSelected = !0) : n.createdSelected = !1, n.selectedLabel = Yi.currentLabel, n.selected = Yi, i.filterable && (n.query = n.selectedLabel);
       return;
     }
     const Di = [];
     Array.isArray(i.modelValue) && i.modelValue.forEach((Yi) => {
-      Di.push(Ii(Yi));
+      Di.push(ci(Yi));
     }), n.selected = Di, nextTick(() => {
       ti();
     });
-  }, Ii = (vi) => {
+  }, ci = (vi) => {
     let Di;
     const Yi = toRawType(vi).toLowerCase() === "object", Ri = toRawType(vi).toLowerCase() === "null", Ei = toRawType(vi).toLowerCase() === "undefined";
     for (let Qi = n.cachedOptions.size - 1; Qi >= 0; Qi--) {
@@ -10895,11 +10895,11 @@ const useSelect = (i, n, r) => {
     var vi;
     n.inputWidth = (vi = k.value) == null ? void 0 : vi.$el.offsetWidth;
   }, hi = () => {
-    i.filterable && n.query !== n.selectedLabel && (n.query = n.selectedLabel, ei(n.query));
-  }, ci = debounce(() => {
+    i.filterable && n.query !== n.selectedLabel && (n.query = n.selectedLabel, Pt(n.query));
+  }, Ii = debounce(() => {
     hi();
   }, Fe.value), Ai = debounce((vi) => {
-    ei(vi.target.value);
+    Pt(vi.target.value);
   }, Fe.value), yi = (vi) => {
     isEqual(i.modelValue, vi) || r.emit(CHANGE_EVENT, vi);
   }, di = (vi) => {
@@ -10928,7 +10928,7 @@ const useSelect = (i, n, r) => {
     var Di;
     if (i.multiple) {
       const Yi = (i.modelValue || []).slice(), Ri = Ni(Yi, vi.value);
-      Ri > -1 ? Yi.splice(Ri, 1) : (i.multipleLimit <= 0 || Yi.length < i.multipleLimit) && Yi.push(vi.value), r.emit(UPDATE_MODEL_EVENT, Yi), yi(Yi), vi.created && (n.query = "", ei(""), n.inputLength = 20), i.filterable && ((Di = $.value) == null || Di.focus());
+      Ri > -1 ? Yi.splice(Ri, 1) : (i.multipleLimit <= 0 || Yi.length < i.multipleLimit) && Yi.push(vi.value), r.emit(UPDATE_MODEL_EVENT, Yi), yi(Yi), vi.created && (n.query = "", Pt(""), n.inputLength = 20), i.filterable && ((Di = $.value) == null || Di.focus());
     } else
       r.emit(UPDATE_MODEL_EVENT, vi.value), yi(vi.value), n.visible = !1;
     mi(), !n.visible && nextTick(() => {
@@ -10971,7 +10971,7 @@ const useSelect = (i, n, r) => {
   }, Lt = (vi) => {
     const Di = vi.target.value;
     if (vi.type === "compositionend")
-      n.isOnComposition = !1, nextTick(() => ei(Di));
+      n.isOnComposition = !1, nextTick(() => Pt(Di));
     else {
       const Yi = Di[Di.length - 1] || "";
       n.isOnComposition = !isKorean(Yi);
@@ -11019,7 +11019,7 @@ const useSelect = (i, n, r) => {
     optionsArray: Ve,
     selectSize: kt,
     handleResize: ai,
-    debouncedOnInputChange: ci,
+    debouncedOnInputChange: Ii,
     debouncedQueryChange: Ai,
     deletePrevTag: di,
     deleteTag: Ci,
@@ -11057,7 +11057,7 @@ const useSelect = (i, n, r) => {
       var Yi, Ri;
       Ci(vi, Di), (Ri = (Yi = Ce.value) == null ? void 0 : Yi.updatePopper) == null || Ri.call(Yi);
     },
-    dropMenuVisible: Pt,
+    dropMenuVisible: ei,
     queryChange: de,
     groupQueryChange: ue,
     showTagList: Vi,
@@ -11257,18 +11257,18 @@ const COMPONENT_NAME$5 = "ElSelect", _sfc_main$I = defineComponent({
       resetInputState: qe,
       handleComposition: kt,
       onOptionCreate: jt,
-      onOptionDestroy: Pt,
+      onOptionDestroy: ei,
       handleMenuEnter: ti,
-      handleFocus: ei,
+      handleFocus: Pt,
       blur: Et,
       handleBlur: ni,
       handleClearClick: ri,
-      handleClose: Ii,
+      handleClose: ci,
       handleKeydownEscape: wi,
       toggleMenu: ai,
       selectOption: ui,
       getValueKey: hi,
-      navigateOptions: ci,
+      navigateOptions: Ii,
       handleDeleteTooltipTag: Ai,
       dropMenuVisible: yi,
       reference: di,
@@ -11340,7 +11340,7 @@ const COMPONENT_NAME$5 = "ElSelect", _sfc_main$I = defineComponent({
       hoverIndex: Zi,
       handleOptionSelect: he,
       onOptionCreate: jt,
-      onOptionDestroy: Pt,
+      onOptionDestroy: ei,
       selectWrapper: Si,
       selected: bi,
       setSelected: ze,
@@ -11402,16 +11402,16 @@ const COMPONENT_NAME$5 = "ElSelect", _sfc_main$I = defineComponent({
       resetInputState: qe,
       handleComposition: kt,
       handleMenuEnter: ti,
-      handleFocus: ei,
+      handleFocus: Pt,
       blur: Et,
       handleBlur: ni,
       handleClearClick: ri,
-      handleClose: Ii,
+      handleClose: ci,
       handleKeydownEscape: wi,
       toggleMenu: ai,
       selectOption: ui,
       getValueKey: hi,
-      navigateOptions: ci,
+      navigateOptions: Ii,
       dropMenuVisible: yi,
       focus: fi,
       reference: di,
@@ -12663,8 +12663,8 @@ function useTree(i) {
       _e.forEach((Dt) => {
         const qe = $e[Dt], kt = { ...xe[Dt] };
         if (kt.expanded = Ue(qe, Dt), kt.lazy) {
-          const { loaded: jt = !1, loading: Pt = !1 } = qe || {};
-          kt.loaded = !!jt, kt.loading = !!Pt, Fe.push(Dt);
+          const { loaded: jt = !1, loading: ei = !1 } = qe || {};
+          kt.loaded = !!jt, kt.loading = !!ei, Fe.push(Dt);
         }
         At[Dt] = kt;
       });
@@ -12676,11 +12676,11 @@ function useTree(i) {
             throw new Error("[ElTable]children must be an empty array.");
           At[Dt].children = kt;
         } else {
-          const { loaded: jt = !1, loading: Pt = !1 } = qe || {};
+          const { loaded: jt = !1, loading: ei = !1 } = qe || {};
           At[Dt] = {
             lazy: !0,
             loaded: !!jt,
-            loading: !!Pt,
+            loading: !!ei,
             expanded: Ue(qe, Dt),
             children: kt,
             level: ""
@@ -12759,7 +12759,7 @@ function useWatcher$1() {
     (Zi = Oi.children) == null || Zi.forEach((Wi) => {
       Wi.fixed = Oi.fixed, jt(Wi);
     });
-  }, Pt = () => {
+  }, ei = () => {
     re.value.forEach((ki) => {
       jt(ki);
     }), ie.value = re.value.filter((ki) => ki.fixed === !0 || ki.fixed === "left"), ae.value = re.value.filter((ki) => ki.fixed === "right"), ie.value.length > 0 && re.value[0] && re.value[0].type === "selection" && !re.value[0].fixed && (re.value[0].fixed = !0, ie.value.unshift(re.value[0]));
@@ -12768,8 +12768,8 @@ function useWatcher$1() {
     const Zi = doFlattenColumns(Oi), Wi = doFlattenColumns(ie.value), Vi = doFlattenColumns(ae.value);
     Ne.value = Zi.length, he.value = Wi.length, pe.value = Vi.length, Ce.value = [].concat(Wi).concat(Zi).concat(Vi), $.value = ie.value.length > 0 || ae.value.length > 0;
   }, ti = (Oi, Zi = !1) => {
-    Oi && Pt(), Zi ? n.state.doLayout() : n.state.debouncedUpdateLayout();
-  }, ei = (Oi) => xe.value.includes(Oi), Et = () => {
+    Oi && ei(), Zi ? n.state.doLayout() : n.state.debouncedUpdateLayout();
+  }, Pt = (Oi) => xe.value.includes(Oi), Et = () => {
     ze.value = !1, xe.value.length && (xe.value = [], n.emit("selection-change", []));
   }, ni = () => {
     let Oi;
@@ -12784,7 +12784,7 @@ function useWatcher$1() {
       const Zi = xe.value.filter((Wi) => !Oi.includes(Wi));
       xe.value = Zi, n.emit("selection-change", Zi.slice());
     }
-  }, ri = () => (xe.value || []).slice(), Ii = (Oi, Zi = void 0, Wi = !0) => {
+  }, ri = () => (xe.value || []).slice(), ci = (Oi, Zi = void 0, Wi = !0) => {
     if (toggleRowStatus(xe.value, Oi, Zi)) {
       const ki = (xe.value || []).slice();
       Wi && n.emit("select", ki, Oi), n.emit("selection-change", ki);
@@ -12838,7 +12838,7 @@ function useWatcher$1() {
     return ki && (Vi += ki.length, ki.forEach((Hi) => {
       Vi += hi(Hi);
     })), Vi;
-  }, ci = (Oi, Zi) => {
+  }, Ii = (Oi, Zi) => {
     Array.isArray(Oi) || (Oi = [Oi]);
     const Wi = {};
     return Oi.forEach((Vi) => {
@@ -12926,18 +12926,18 @@ function useWatcher$1() {
   });
   return {
     assertRowKey: kt,
-    updateColumns: Pt,
+    updateColumns: ei,
     scheduleLayout: ti,
-    isSelected: ei,
+    isSelected: Pt,
     clearSelection: Et,
     cleanSelection: ni,
     getSelectionRows: ri,
-    toggleRowSelection: Ii,
+    toggleRowSelection: ci,
     _toggleAllSelection: wi,
     toggleAllSelection: null,
     updateSelectionByRowKey: ai,
     updateAllSelected: ui,
-    updateFilters: ci,
+    updateFilters: Ii,
     updateCurrentRow: pi,
     updateSort: Ai,
     execFilter: yi,
@@ -13844,8 +13844,8 @@ function useEvents(i) {
       if (ze) {
         const jt = getColumnByCell({
           columns: i.store.states.columns.value
-        }, ze, xe), Pt = pe.hoverState = { cell: ze, column: jt, row: ue };
-        pe == null || pe.emit("cell-mouse-enter", Pt.row, Pt.column, Pt.cell, de);
+        }, ze, xe), ei = pe.hoverState = { cell: ze, column: jt, row: ue };
+        pe == null || pe.emit("cell-mouse-enter", ei.row, ei.column, ei.cell, de);
       }
       if (!Ne)
         return;
@@ -13951,13 +13951,13 @@ function useRender$1(i) {
     const Fe = n.props.rowKey;
     return Fe ? getRowIdentity(At, Fe) : $e;
   }, xe = (At, $e, Fe, Ue = !1) => {
-    const { tooltipEffect: Ve, tooltipOptions: Dt, store: qe } = i, { indent: kt, columns: jt } = qe.states, Pt = Ie(At, $e);
+    const { tooltipEffect: Ve, tooltipOptions: Dt, store: qe } = i, { indent: kt, columns: jt } = qe.states, ei = Ie(At, $e);
     let ti = !0;
-    return Fe && (Pt.push(r.em("row", `level-${Fe.level}`)), ti = Fe.display), h$1("tr", {
+    return Fe && (ei.push(r.em("row", `level-${Fe.level}`)), ti = Fe.display), h$1("tr", {
       style: [ti ? null : {
         display: "none"
       }, le(At, $e)],
-      class: Pt,
+      class: ei,
       key: ze(At, $e),
       onDblclick: (Et) => g(Et, At),
       onClick: (Et) => V(Et, At),
@@ -13965,11 +13965,11 @@ function useRender$1(i) {
       onMouseenter: () => $($e),
       onMouseleave: re
     }, jt.value.map((Et, ni) => {
-      const { rowspan: ri, colspan: Ii } = Ne(At, Et, $e, ni);
-      if (!ri || !Ii)
+      const { rowspan: ri, colspan: ci } = Ne(At, Et, $e, ni);
+      if (!ri || !ci)
         return null;
       const wi = { ...Et };
-      wi.realWidth = he(jt.value, Ii, ni);
+      wi.realWidth = he(jt.value, ci, ni);
       const ai = {
         store: i.store,
         _self: i.context || n,
@@ -13983,42 +13983,42 @@ function useRender$1(i) {
         indent: Fe.level * kt.value,
         level: Fe.level
       }, typeof Fe.expanded == "boolean" && (ai.treeNode.expanded = Fe.expanded, "loading" in Fe && (ai.treeNode.loading = Fe.loading), "noLazyChildren" in Fe && (ai.treeNode.noLazyChildren = Fe.noLazyChildren)));
-      const ui = `${$e},${ni}`, hi = wi.columnKey || wi.rawColumnKey || "", ci = Oe(ni, Et, ai), Ai = Et.showOverflowTooltip && merge$2({
+      const ui = `${$e},${ni}`, hi = wi.columnKey || wi.rawColumnKey || "", Ii = Oe(ni, Et, ai), Ai = Et.showOverflowTooltip && merge$2({
         effect: Ve
       }, Dt, Et.showOverflowTooltip);
       return h$1("td", {
         style: de($e, ni, At, Et),
-        class: ue($e, ni, At, Et, Ii - 1),
+        class: ue($e, ni, At, Et, ci - 1),
         key: `${hi}${ui}`,
         rowspan: ri,
-        colspan: Ii,
+        colspan: ci,
         onMouseenter: (yi) => oe(yi, At, Ai),
         onMouseleave: Ce
-      }, [ci]);
+      }, [Ii]);
     }));
   }, Oe = (At, $e, Fe) => $e.renderCell(Fe);
   return {
     wrappedRowRender: (At, $e) => {
-      const Fe = i.store, { isRowExpanded: Ue, assertRowKey: Ve } = Fe, { treeData: Dt, lazyTreeNodeMap: qe, childrenColumnName: kt, rowKey: jt } = Fe.states, Pt = Fe.states.columns.value;
-      if (Pt.some(({ type: ei }) => ei === "expand")) {
-        const ei = Ue(At), Et = xe(At, $e, void 0, ei), ni = n.renderExpanded;
-        return ei ? ni ? [
+      const Fe = i.store, { isRowExpanded: Ue, assertRowKey: Ve } = Fe, { treeData: Dt, lazyTreeNodeMap: qe, childrenColumnName: kt, rowKey: jt } = Fe.states, ei = Fe.states.columns.value;
+      if (ei.some(({ type: Pt }) => Pt === "expand")) {
+        const Pt = Ue(At), Et = xe(At, $e, void 0, Pt), ni = n.renderExpanded;
+        return Pt ? ni ? [
           [
             Et,
             h$1("tr", {
               key: `expanded-row__${Et.key}`
             }, [
               h$1("td", {
-                colspan: Pt.length,
+                colspan: ei.length,
                 class: `${r.e("cell")} ${r.e("expanded-cell")}`
-              }, [ni({ row: At, $index: $e, store: Fe, expanded: ei })])
+              }, [ni({ row: At, $index: $e, store: Fe, expanded: Pt })])
             ])
           ]
         ] : (console.error("[Element Error]renderExpanded is required."), Et) : [[Et]];
       } else if (Object.keys(Dt.value).length) {
         Ve();
-        const ei = getRowIdentity(At, jt.value);
-        let Et = Dt.value[ei], ni = null;
+        const Pt = getRowIdentity(At, jt.value);
+        let Et = Dt.value[Pt], ni = null;
         Et && (ni = {
           expanded: Et.expanded,
           level: Et.level,
@@ -14026,26 +14026,26 @@ function useRender$1(i) {
         }, typeof Et.lazy == "boolean" && (typeof Et.loaded == "boolean" && Et.loaded && (ni.noLazyChildren = !(Et.children && Et.children.length)), ni.loading = Et.loading));
         const ri = [xe(At, $e, ni)];
         if (Et) {
-          let Ii = 0;
+          let ci = 0;
           const wi = (ui, hi) => {
-            ui && ui.length && hi && ui.forEach((ci) => {
+            ui && ui.length && hi && ui.forEach((Ii) => {
               const Ai = {
                 display: hi.display && hi.expanded,
                 level: hi.level + 1,
                 expanded: !1,
                 noLazyChildren: !1,
                 loading: !1
-              }, yi = getRowIdentity(ci, jt.value);
+              }, yi = getRowIdentity(Ii, jt.value);
               if (yi == null)
                 throw new Error("For nested data item, row-key is required.");
-              if (Et = { ...Dt.value[yi] }, Et && (Ai.expanded = Et.expanded, Et.level = Et.level || Ai.level, Et.display = !!(Et.expanded && Ai.display), typeof Et.lazy == "boolean" && (typeof Et.loaded == "boolean" && Et.loaded && (Ai.noLazyChildren = !(Et.children && Et.children.length)), Ai.loading = Et.loading)), Ii++, ri.push(xe(ci, $e + Ii, Ai)), Et) {
-                const di = qe.value[yi] || ci[kt.value];
+              if (Et = { ...Dt.value[yi] }, Et && (Ai.expanded = Et.expanded, Et.level = Et.level || Ai.level, Et.display = !!(Et.expanded && Ai.display), typeof Et.lazy == "boolean" && (typeof Et.loaded == "boolean" && Et.loaded && (Ai.noLazyChildren = !(Et.children && Et.children.length)), Ai.loading = Et.loading)), ci++, ri.push(xe(Ii, $e + ci, Ai)), Et) {
+                const di = qe.value[yi] || Ii[kt.value];
                 wi(di, Et);
               }
             });
           };
           Et.display = !0;
-          const ai = qe.value[ei] || At[kt.value];
+          const ai = qe.value[Pt] || At[kt.value];
           wi(ai, Et);
         }
         return ri;
@@ -14307,8 +14307,8 @@ function useStyle(i, n, r, g) {
   const he = () => {
     g.store.commit("setHoverRow", null), g.hoverState && (g.hoverState = null);
   }, pe = (Et, ni) => {
-    const { pixelX: ri, pixelY: Ii } = ni;
-    Math.abs(ri) >= Math.abs(Ii) && (g.refs.bodyWrapper.scrollLeft += ni.pixelX / 5);
+    const { pixelX: ri, pixelY: ci } = ni;
+    Math.abs(ri) >= Math.abs(ci) && (g.refs.bodyWrapper.scrollLeft += ni.pixelX / 5);
   }, ze = computed$1(() => i.height || i.maxHeight || r.states.fixedColumns.value.length > 0 || r.states.rightFixedColumns.value.length > 0), xe = computed$1(() => ({
     width: n.bodyWidth.value ? `${n.bodyWidth.value}px` : ""
   })), Oe = () => {
@@ -14332,7 +14332,7 @@ function useStyle(i, n, r, g) {
   const _e = (Et, ni) => {
     if (!Et)
       return;
-    const ri = Array.from(Et.classList).filter((Ii) => !Ii.startsWith("is-scrolling-"));
+    const ri = Array.from(Et.classList).filter((ci) => !ci.startsWith("is-scrolling-"));
     ri.push(n.scrollX.value ? ni : "is-scrolling-none"), Et.className = ri.join(" ");
   }, At = (Et) => {
     const { tableWrapper: ni } = g.refs;
@@ -14351,9 +14351,9 @@ function useStyle(i, n, r, g) {
     const Et = g.refs.scrollBarRef.wrapRef;
     if (!Et)
       return;
-    const { scrollLeft: ni, offsetWidth: ri, scrollWidth: Ii } = Et, { headerWrapper: wi, footerWrapper: ai } = g.refs;
+    const { scrollLeft: ni, offsetWidth: ri, scrollWidth: ci } = Et, { headerWrapper: wi, footerWrapper: ai } = g.refs;
     wi && (wi.scrollLeft = ni), ai && (ai.scrollLeft = ni);
-    const ui = Ii - ri - 1;
+    const ui = ci - ri - 1;
     ni >= ui ? At("is-scrolling-right") : At(ni === 0 ? "is-scrolling-left" : "is-scrolling-middle");
   }, Ue = () => {
     g.refs.scrollBarRef && (g.refs.scrollBarRef.wrapRef && useEventListener(g.refs.scrollBarRef.wrapRef, "scroll", Fe, {
@@ -14363,7 +14363,7 @@ function useStyle(i, n, r, g) {
       Ve(), (ni = (Et = g.refs) == null ? void 0 : Et.scrollBarRef) == null || ni.update();
     }));
   }, Ve = () => {
-    var Et, ni, ri, Ii;
+    var Et, ni, ri, ci;
     const wi = g.vnode.el;
     if (!g.$ready || !wi)
       return;
@@ -14371,13 +14371,13 @@ function useStyle(i, n, r, g) {
     const {
       width: ui,
       height: hi,
-      headerHeight: ci
+      headerHeight: Ii
     } = oe.value, Ai = ae.value = wi.offsetWidth;
     ui !== Ai && (ai = !0);
     const yi = wi.offsetHeight;
     (i.height || ze.value) && hi !== yi && (ai = !0);
     const di = i.tableLayout === "fixed" ? g.refs.headerWrapper : (Et = g.refs.tableHeaderRef) == null ? void 0 : Et.$el;
-    i.showHeader && (di == null ? void 0 : di.offsetHeight) !== ci && (ai = !0), le.value = ((ni = g.refs.tableWrapper) == null ? void 0 : ni.scrollHeight) || 0, de.value = (di == null ? void 0 : di.scrollHeight) || 0, ue.value = ((ri = g.refs.footerWrapper) == null ? void 0 : ri.offsetHeight) || 0, Ne.value = ((Ii = g.refs.appendWrapper) == null ? void 0 : Ii.offsetHeight) || 0, Ie.value = le.value - de.value - ue.value - Ne.value, ai && (oe.value = {
+    i.showHeader && (di == null ? void 0 : di.offsetHeight) !== Ii && (ai = !0), le.value = ((ni = g.refs.tableWrapper) == null ? void 0 : ni.scrollHeight) || 0, de.value = (di == null ? void 0 : di.scrollHeight) || 0, ue.value = ((ri = g.refs.footerWrapper) == null ? void 0 : ri.offsetHeight) || 0, Ne.value = ((ci = g.refs.appendWrapper) == null ? void 0 : ci.offsetHeight) || 0, Ie.value = le.value - de.value - ue.value - Ne.value, ai && (oe.value = {
       width: Ai,
       height: yi,
       headerHeight: i.showHeader && (di == null ? void 0 : di.offsetHeight) || 0
@@ -14395,7 +14395,7 @@ function useStyle(i, n, r, g) {
       width: ni ? `${ni}px` : "",
       height: Et
     };
-  }), Pt = computed$1(() => i.height ? {
+  }), ei = computed$1(() => i.height ? {
     height: Number.isNaN(Number(i.height)) ? i.height : `${i.height}px`
   } : i.maxHeight ? {
     maxHeight: Number.isNaN(Number(i.maxHeight)) ? i.maxHeight : `${i.maxHeight}px`
@@ -14418,8 +14418,8 @@ function useStyle(i, n, r, g) {
     handleFixedMousewheel: (Et, ni) => {
       const ri = g.refs.bodyWrapper;
       if (Math.abs(ni.spinY) > 0) {
-        const Ii = ri.scrollTop;
-        ni.pixelY < 0 && Ii !== 0 && Et.preventDefault(), ni.pixelY > 0 && ri.scrollHeight - ri.clientHeight > Ii && Et.preventDefault(), ri.scrollTop += Math.ceil(ni.pixelY / 5);
+        const ci = ri.scrollTop;
+        ni.pixelY < 0 && ci !== 0 && Et.preventDefault(), ni.pixelY > 0 && ri.scrollHeight - ri.clientHeight > ci && Et.preventDefault(), ri.scrollTop += Math.ceil(ni.pixelY / 5);
       } else
         ri.scrollLeft += Math.ceil(ni.pixelX / 5);
     },
@@ -14430,7 +14430,7 @@ function useStyle(i, n, r, g) {
     tableBodyStyles: xe,
     tableLayout: kt,
     scrollbarViewStyle: ie,
-    tableInnerStyle: Pt,
+    tableInnerStyle: ei,
     scrollbarStyle: ti
   };
 }
@@ -14612,14 +14612,14 @@ const _sfc_main$D = defineComponent({
       tableBodyStyles: qe,
       tableLayout: kt,
       scrollbarViewStyle: jt,
-      tableInnerStyle: Pt,
+      tableInnerStyle: ei,
       scrollbarStyle: ti
-    } = useStyle(i, k, V, g), { scrollBarRef: ei, scrollTo: Et, setScrollLeft: ni, setScrollTop: ri } = useScrollbar(), Ii = debounce(Dt, 50), wi = `${r.namespace.value}-table_${tableIdSeed++}`;
+    } = useStyle(i, k, V, g), { scrollBarRef: Pt, scrollTo: Et, setScrollLeft: ni, setScrollTop: ri } = useScrollbar(), ci = debounce(Dt, 50), wi = `${r.namespace.value}-table_${tableIdSeed++}`;
     g.tableId = wi, g.state = {
       isGroup: ze,
       resizeState: Ve,
       doLayout: Dt,
-      debouncedUpdateLayout: Ii
+      debouncedUpdateLayout: ci
     };
     const ai = computed$1(() => i.sumText || n("el.table.sumText")), ui = computed$1(() => i.emptyText || n("el.table.emptyText"));
     return useKeyRender(g), {
@@ -14639,7 +14639,7 @@ const _sfc_main$D = defineComponent({
       bodyWidth: Ue,
       tableBodyStyles: qe,
       emptyBlockStyle: At,
-      debouncedUpdateLayout: Ii,
+      debouncedUpdateLayout: ci,
       handleFixedMousewheel: $e,
       setCurrentRow: re,
       getSelectionRows: oe,
@@ -14658,9 +14658,9 @@ const _sfc_main$D = defineComponent({
       computedEmptyText: ui,
       tableLayout: kt,
       scrollbarViewStyle: jt,
-      tableInnerStyle: Pt,
+      tableInnerStyle: ei,
       scrollbarStyle: ti,
-      scrollBarRef: ei,
+      scrollBarRef: Pt,
       scrollTo: Et,
       setScrollLeft: ni,
       setScrollTop: ri
@@ -15355,9 +15355,9 @@ const tabNavProps = buildProps({
       const Ue = ie.value.querySelector(".is-active");
       if (!Ue)
         return;
-      const Ve = oe.value, Dt = ["top", "bottom"].includes(V.props.tabPosition), qe = Ue.getBoundingClientRect(), kt = Ve.getBoundingClientRect(), jt = Dt ? Fe.offsetWidth - kt.width : Fe.offsetHeight - kt.height, Pt = Ie.value;
-      let ti = Pt;
-      Dt ? (qe.left < kt.left && (ti = Pt - (kt.left - qe.left)), qe.right > kt.right && (ti = Pt + qe.right - kt.right)) : (qe.top < kt.top && (ti = Pt - (kt.top - qe.top)), qe.bottom > kt.bottom && (ti = Pt + (qe.bottom - kt.bottom))), ti = Math.max(ti, 0), Ie.value = Math.min(ti, jt);
+      const Ve = oe.value, Dt = ["top", "bottom"].includes(V.props.tabPosition), qe = Ue.getBoundingClientRect(), kt = Ve.getBoundingClientRect(), jt = Dt ? Fe.offsetWidth - kt.width : Fe.offsetHeight - kt.height, ei = Ie.value;
+      let ti = ei;
+      Dt ? (qe.left < kt.left && (ti = ei - (kt.left - qe.left)), qe.right > kt.right && (ti = ei + qe.right - kt.right)) : (qe.top < kt.top && (ti = ei - (kt.top - qe.top)), qe.bottom > kt.bottom && (ti = ei + (qe.bottom - kt.bottom))), ti = Math.max(ti, 0), Ie.value = Math.min(ti, jt);
     }, Oe = () => {
       var Fe;
       if (!Ce.value || !oe.value)
@@ -15374,9 +15374,9 @@ const tabNavProps = buildProps({
       } = EVENT_CODE;
       if (![Ve, Dt, qe, kt].includes(Ue))
         return;
-      const jt = Array.from(Fe.currentTarget.querySelectorAll("[role=tab]:not(.is-disabled)")), Pt = jt.indexOf(Fe.target);
+      const jt = Array.from(Fe.currentTarget.querySelectorAll("[role=tab]:not(.is-disabled)")), ei = jt.indexOf(Fe.target);
       let ti;
-      Ue === qe || Ue === Ve ? Pt === 0 ? ti = jt.length - 1 : ti = Pt - 1 : Pt < jt.length - 1 ? ti = Pt + 1 : ti = 0, jt[ti].focus({
+      Ue === qe || Ue === Ve ? ei === 0 ? ti = jt.length - 1 : ti = ei - 1 : ei < jt.length - 1 ? ti = ei + 1 : ti = 0, jt[ti].focus({
         preventScroll: !0
       }), jt[ti].click(), At();
     }, At = () => {
@@ -15404,18 +15404,18 @@ const tabNavProps = buildProps({
       }, [createVNode$1(ElIcon, null, {
         default: () => [createVNode$1(arrow_right_default, null, null)]
       })])] : null, Ue = i.panes.map((Ve, Dt) => {
-        var qe, kt, jt, Pt;
-        const ti = Ve.uid, ei = Ve.props.disabled, Et = (kt = (qe = Ve.props.name) != null ? qe : Ve.index) != null ? kt : `${Dt}`, ni = !ei && (Ve.isClosable || i.editable);
+        var qe, kt, jt, ei;
+        const ti = Ve.uid, Pt = Ve.props.disabled, Et = (kt = (qe = Ve.props.name) != null ? qe : Ve.index) != null ? kt : `${Dt}`, ni = !Pt && (Ve.isClosable || i.editable);
         Ve.index = `${Dt}`;
         const ri = ni ? createVNode$1(ElIcon, {
           class: "is-icon-close",
           onClick: (ai) => r("tabRemove", Ve, ai)
         }, {
           default: () => [createVNode$1(close_default, null, null)]
-        }) : null, Ii = ((Pt = (jt = Ve.slots).label) == null ? void 0 : Pt.call(jt)) || Ve.props.label, wi = !ei && Ve.active ? 0 : -1;
+        }) : null, ci = ((ei = (jt = Ve.slots).label) == null ? void 0 : ei.call(jt)) || Ve.props.label, wi = !Pt && Ve.active ? 0 : -1;
         return createVNode$1("div", {
           ref: `tab-${ti}`,
-          class: [k.e("item"), k.is(V.props.tabPosition), k.is("active", Ve.active), k.is("disabled", ei), k.is("closable", ni), k.is("focus", de.value)],
+          class: [k.e("item"), k.is(V.props.tabPosition), k.is("active", Ve.active), k.is("disabled", Pt), k.is("closable", ni), k.is("focus", de.value)],
           id: `tab-${Et}`,
           key: `tab-${ti}`,
           "aria-controls": `pane-${Et}`,
@@ -15430,7 +15430,7 @@ const tabNavProps = buildProps({
           onKeydown: (ai) => {
             ni && (ai.code === EVENT_CODE.delete || ai.code === EVENT_CODE.backspace) && r("tabRemove", Ve, ai);
           }
-        }, [Ii, ri]);
+        }, [ci, ri]);
       });
       return createVNode$1("div", {
         ref: ie,
@@ -16522,7 +16522,7 @@ const _sfc_main$y = defineComponent({
     useKeydown({ el$: re }, V);
     const ae = computed$1(() => {
       const { childNodes: ti } = k.value;
-      return !ti || ti.length === 0 || ti.every(({ visible: ei }) => !ei);
+      return !ti || ti.length === 0 || ti.every(({ visible: Pt }) => !Pt);
     });
     watch(() => i.currentNodeKey, (ti) => {
       V.value.setCurrentNodeKey(ti);
@@ -16542,15 +16542,15 @@ const _sfc_main$y = defineComponent({
     }, Ie = (ti) => getNodeKey(i.nodeKey, ti.data), de = (ti) => {
       if (!i.nodeKey)
         throw new Error("[Tree] nodeKey is required in getNodePath");
-      const ei = V.value.getNode(ti);
-      if (!ei)
+      const Pt = V.value.getNode(ti);
+      if (!Pt)
         return [];
-      const Et = [ei.data];
-      let ni = ei.parent;
+      const Et = [Pt.data];
+      let ni = Pt.parent;
       for (; ni && ni !== k.value; )
         Et.push(ni.data), ni = ni.parent;
       return Et.reverse();
-    }, ue = (ti, ei) => V.value.getCheckedNodes(ti, ei), Ne = (ti) => V.value.getCheckedKeys(ti), he = () => {
+    }, ue = (ti, Pt) => V.value.getCheckedNodes(ti, Pt), Ne = (ti) => V.value.getCheckedKeys(ti), he = () => {
       const ti = V.value.getCurrentNode();
       return ti ? ti.data : null;
     }, pe = () => {
@@ -16558,38 +16558,38 @@ const _sfc_main$y = defineComponent({
         throw new Error("[Tree] nodeKey is required in getCurrentKey");
       const ti = he();
       return ti ? ti[i.nodeKey] : null;
-    }, ze = (ti, ei) => {
+    }, ze = (ti, Pt) => {
       if (!i.nodeKey)
         throw new Error("[Tree] nodeKey is required in setCheckedNodes");
-      V.value.setCheckedNodes(ti, ei);
-    }, xe = (ti, ei) => {
+      V.value.setCheckedNodes(ti, Pt);
+    }, xe = (ti, Pt) => {
       if (!i.nodeKey)
         throw new Error("[Tree] nodeKey is required in setCheckedKeys");
-      V.value.setCheckedKeys(ti, ei);
-    }, Oe = (ti, ei, Et) => {
-      V.value.setChecked(ti, ei, Et);
-    }, _e = () => V.value.getHalfCheckedNodes(), At = () => V.value.getHalfCheckedKeys(), $e = (ti, ei = !0) => {
+      V.value.setCheckedKeys(ti, Pt);
+    }, Oe = (ti, Pt, Et) => {
+      V.value.setChecked(ti, Pt, Et);
+    }, _e = () => V.value.getHalfCheckedNodes(), At = () => V.value.getHalfCheckedKeys(), $e = (ti, Pt = !0) => {
       if (!i.nodeKey)
         throw new Error("[Tree] nodeKey is required in setCurrentNode");
-      handleCurrentChange(V, n.emit, () => V.value.setUserCurrentNode(ti, ei));
-    }, Fe = (ti, ei = !0) => {
+      handleCurrentChange(V, n.emit, () => V.value.setUserCurrentNode(ti, Pt));
+    }, Fe = (ti, Pt = !0) => {
       if (!i.nodeKey)
         throw new Error("[Tree] nodeKey is required in setCurrentKey");
-      handleCurrentChange(V, n.emit, () => V.value.setCurrentNodeKey(ti, ei));
+      handleCurrentChange(V, n.emit, () => V.value.setCurrentNodeKey(ti, Pt));
     }, Ue = (ti) => V.value.getNode(ti), Ve = (ti) => {
       V.value.remove(ti);
-    }, Dt = (ti, ei) => {
-      V.value.append(ti, ei);
-    }, qe = (ti, ei) => {
-      V.value.insertBefore(ti, ei);
-    }, kt = (ti, ei) => {
-      V.value.insertAfter(ti, ei);
-    }, jt = (ti, ei, Et) => {
-      Ce(ei), n.emit("node-expand", ti, ei, Et);
-    }, Pt = (ti, ei) => {
+    }, Dt = (ti, Pt) => {
+      V.value.append(ti, Pt);
+    }, qe = (ti, Pt) => {
+      V.value.insertBefore(ti, Pt);
+    }, kt = (ti, Pt) => {
+      V.value.insertAfter(ti, Pt);
+    }, jt = (ti, Pt, Et) => {
+      Ce(Pt), n.emit("node-expand", ti, Pt, Et);
+    }, ei = (ti, Pt) => {
       if (!i.nodeKey)
         throw new Error("[Tree] nodeKey is required in updateKeyChild");
-      V.value.updateChildren(ti, ei);
+      V.value.updateChildren(ti, Pt);
     };
     return provide("RootTree", {
       ctx: n,
@@ -16628,7 +16628,7 @@ const _sfc_main$y = defineComponent({
       insertBefore: qe,
       insertAfter: kt,
       handleNodeExpand: jt,
-      updateKeyChildren: Pt
+      updateKeyChildren: ei
     };
   }
 });
@@ -17741,10 +17741,10 @@ const ElMessage = withInstallFunction(message, "$message"), _sfc_main$s = define
     watch(() => Ce.inputValue, async (jt) => {
       await nextTick(), i.boxType === "prompt" && jt !== null && Ve();
     }, { immediate: !0 }), watch(() => oe.value, (jt) => {
-      var Pt, ti;
-      jt && (i.boxType !== "prompt" && (Ce.autofocus ? he.value = (ti = (Pt = ze.value) == null ? void 0 : Pt.$el) != null ? ti : ue.value : he.value = ue.value), Ce.zIndex = re()), i.boxType === "prompt" && (jt ? nextTick().then(() => {
-        var ei;
-        pe.value && pe.value.$el && (Ce.autofocus ? he.value = (ei = Dt()) != null ? ei : ue.value : he.value = ue.value);
+      var ei, ti;
+      jt && (i.boxType !== "prompt" && (Ce.autofocus ? he.value = (ti = (ei = ze.value) == null ? void 0 : ei.$el) != null ? ti : ue.value : he.value = ue.value), Ce.zIndex = re()), i.boxType === "prompt" && (jt ? nextTick().then(() => {
+        var Pt;
+        pe.value && pe.value.$el && (Ce.autofocus ? he.value = (Pt = Dt()) != null ? Pt : ue.value : he.value = ue.value);
       }) : (Ce.editorErrorMessage = "", Ce.validateError = !1));
     });
     const Oe = computed$1(() => i.draggable);
@@ -17764,16 +17764,16 @@ const ElMessage = withInstallFunction(message, "$message"), _sfc_main$s = define
       if (Ce.inputType !== "textarea")
         return jt.preventDefault(), Ue("confirm");
     }, Ue = (jt) => {
-      var Pt;
-      i.boxType === "prompt" && jt === "confirm" && !Ve() || (Ce.action = jt, Ce.beforeClose ? (Pt = Ce.beforeClose) == null || Pt.call(Ce, jt, Ce, _e) : _e());
+      var ei;
+      i.boxType === "prompt" && jt === "confirm" && !Ve() || (Ce.action = jt, Ce.beforeClose ? (ei = Ce.beforeClose) == null || ei.call(Ce, jt, Ce, _e) : _e());
     }, Ve = () => {
       if (i.boxType === "prompt") {
         const jt = Ce.inputPattern;
         if (jt && !jt.test(Ce.inputValue || ""))
           return Ce.editorErrorMessage = Ce.inputErrorMessage || $("el.messagebox.error"), Ce.validateError = !0, !1;
-        const Pt = Ce.inputValidator;
-        if (typeof Pt == "function") {
-          const ti = Pt(Ce.inputValue);
+        const ei = Ce.inputValidator;
+        if (typeof ei == "function") {
+          const ti = ei(Ce.inputValue);
           if (ti === !1)
             return Ce.editorErrorMessage = Ce.inputErrorMessage || $("el.messagebox.error"), Ce.validateError = !0, !1;
           if (typeof ti == "string")
@@ -18081,456 +18081,7 @@ _MessageBox.install = (i) => {
 };
 const ElMessageBox = _MessageBox, index$2 = "", animate = "";
 var ELineBindAnchors = /* @__PURE__ */ ((i) => (i.TopCenter = "TopCenter", i.Left = "Left", i.Right = "Right", i.BottomCenter = "BottomCenter", i))(ELineBindAnchors || {}), EConfigAnimationsType = /* @__PURE__ */ ((i) => (i.None = "None", i.Electricity = "Electricity", i.WaterDrop = "WaterDrop", i.Track = "Track", i))(EConfigAnimationsType || {}), EConfigItemPropsType = /* @__PURE__ */ ((i) => (i.Input = "Input", i.Textarea = "Textarea", i.Color = "Color", i.InputNumber = "InputNumber", i.Switch = "Switch", i.JsonEdit = "JsonEdit", i.Select = "Select", i))(EConfigItemPropsType || {}), EDoneJsonType = /* @__PURE__ */ ((i) => (i.File = "File", i.StraightLine = "StraightLine", i.ConnectionLine = "ConnectionLine", i.CustomSvg = "CustomSvg", i.Vue = "Vue", i))(EDoneJsonType || {}), EEventType = /* @__PURE__ */ ((i) => (i.Click = "Click", i.Change = "Change", i.Null = "", i))(EEventType || {}), EEventAction = /* @__PURE__ */ ((i) => (i.ChangeAttr = "ChangeAttr", i.JavaScript = "JavaScript", i.Null = "", i))(EEventAction || {}), EConditionType = /* @__PURE__ */ ((i) => (i.None = "None", i.Relation = "Relation", i))(EConditionType || {}), EGlobalStoreIntention = /* @__PURE__ */ ((i) => (i.None = "None", i.Create = "Create", i.Move = "Move", i.GroupMove = "GroupMove", i.MoveCanvas = "MoveCanvas", i.Select = "Select", i.Zoom = "Zoom", i.Rotate = "Rotate", i.Connection = "Connection", i.SetConnectionLineNode = "SetConnectionLineNode", i.ContextMenu = "ContextMenu", i.SelectArea = "SelectArea", i))(EGlobalStoreIntention || {}), EMouseInfoState = /* @__PURE__ */ ((i) => (i.Down = "Down", i.Up = "Up", i))(EMouseInfoState || {}), EScaleInfoType = /* @__PURE__ */ ((i) => (i.None = "", i.TopLeft = "TopLeft", i.TopCenter = "TopCenter", i.TopRight = "TopRight", i.Left = "Left", i.Right = "Right", i.BottomLeft = "BottomLeft", i.BottomCenter = "BottomCenter", i.BottomRight = "BottomRight", i))(EScaleInfoType || {});
-const straight_line_system = Object.seal({
-  name: "straight-line",
-  title: "直线",
-  type: EDoneJsonType.StraightLine,
-  config: {
-    can_zoom: !1,
-    have_anchor: !1,
-    actual_rect: !1
-  },
-  display: !0,
-  props: {
-    fill: {
-      title: "填充色",
-      type: EConfigItemPropsType.Color,
-      val: "#ff0000"
-    },
-    start_x: {
-      title: "起点x坐标",
-      type: EConfigItemPropsType.InputNumber,
-      val: 0
-    },
-    start_y: {
-      title: "起点y坐标",
-      type: EConfigItemPropsType.InputNumber,
-      val: 0
-    },
-    end_x: {
-      title: "终点x坐标",
-      type: EConfigItemPropsType.InputNumber,
-      val: 0
-    },
-    end_y: {
-      title: "终点y坐标",
-      type: EConfigItemPropsType.InputNumber,
-      val: 0
-    }
-  },
-  bind_anchors: {
-    start: null,
-    end: null
-  },
-  events: []
-}), connection_line_system = {
-  name: "connection_line",
-  title: "连接线",
-  type: EDoneJsonType.ConnectionLine,
-  config: {
-    can_zoom: !1,
-    have_anchor: !1,
-    actual_rect: !1
-  },
-  display: !0,
-  props: {
-    stroke: {
-      title: "线条颜色",
-      type: EConfigItemPropsType.Color,
-      val: "#ff0000"
-    },
-    "stroke-width": {
-      title: "线条宽度",
-      type: EConfigItemPropsType.InputNumber,
-      val: 2
-    },
-    point_r: {
-      title: "节点半径",
-      type: EConfigItemPropsType.InputNumber,
-      val: 4
-    },
-    point_position: {
-      title: "点坐标",
-      type: EConfigItemPropsType.JsonEdit,
-      val: []
-    }
-  },
-  animations: {
-    type: {
-      title: "动画类型",
-      type: EConfigItemPropsType.Select,
-      val: EConfigAnimationsType.None,
-      options: [
-        {
-          label: "无",
-          value: EConfigAnimationsType.None
-        },
-        {
-          label: "电流",
-          value: EConfigAnimationsType.Electricity
-        },
-        {
-          label: "轨迹",
-          value: EConfigAnimationsType.Track
-        },
-        {
-          label: "水珠",
-          value: EConfigAnimationsType.WaterDrop
-        }
-      ]
-    },
-    dur: {
-      title: "持续时间",
-      type: EConfigItemPropsType.InputNumber,
-      val: 20
-    },
-    repeatCount: {
-      title: "循环次数",
-      type: EConfigItemPropsType.Input,
-      val: "indefinite",
-      disabled: !0
-    },
-    color: {
-      title: "颜色",
-      type: EConfigItemPropsType.Color,
-      val: "#0a7ae2"
-    },
-    reverse: {
-      title: "反转动画",
-      type: EConfigItemPropsType.Switch,
-      val: !1
-    }
-  },
-  bind_anchors: {
-    start: null,
-    end: null
-  },
-  events: []
-}, common_animate_list = [
-  {
-    label: "进入",
-    children: [
-      {
-        label: "渐显",
-        value: "fadeIn"
-      },
-      {
-        label: "向右进入",
-        value: "fadeInLeft"
-      },
-      {
-        label: "向左进入",
-        value: "fadeInRight"
-      },
-      {
-        label: "向上进入",
-        value: "fadeInUp"
-      },
-      {
-        label: "向下进入",
-        value: "fadeInDown"
-      },
-      {
-        label: "向右长距进入",
-        value: "fadeInLeftBig"
-      },
-      {
-        label: "向左长距进入",
-        value: "fadeInRightBig"
-      },
-      {
-        label: "向上长距进入",
-        value: "fadeInUpBig"
-      },
-      {
-        label: "向下长距进入",
-        value: "fadeInDownBig"
-      },
-      {
-        label: "旋转进入",
-        value: "rotateIn"
-      },
-      {
-        label: "左顺时针旋转",
-        value: "rotateInDownLeft"
-      },
-      {
-        label: "右逆时针旋转",
-        value: "rotateInDownRight"
-      },
-      {
-        label: "左逆时针旋转",
-        value: "rotateInUpLeft"
-      },
-      {
-        label: "右逆时针旋转",
-        value: "rotateInUpRight"
-      },
-      {
-        label: "弹入",
-        value: "bounceIn"
-      },
-      {
-        label: "向右弹入",
-        value: "bounceInLeft"
-      },
-      {
-        label: "向左弹入",
-        value: "bounceInRight"
-      },
-      {
-        label: "向上弹入",
-        value: "bounceInUp"
-      },
-      {
-        label: "向下弹入",
-        value: "bounceInDown"
-      },
-      {
-        label: "光速从右进入",
-        value: "lightSpeedInRight"
-      },
-      {
-        label: "光速从左进入",
-        value: "lightSpeedInLeft"
-      },
-      {
-        label: "光速从右退出",
-        value: "lightSpeedOutRight"
-      },
-      {
-        label: "光速从左退出",
-        value: "lightSpeedOutLeft"
-      },
-      {
-        label: "Y轴旋转",
-        value: "flip"
-      },
-      {
-        label: "中心X轴旋转",
-        value: "flipInX"
-      },
-      {
-        label: "中心Y轴旋转",
-        value: "flipInY"
-      },
-      {
-        label: "左长半径旋转",
-        value: "rollIn"
-      },
-      {
-        label: "由小变大进入",
-        value: "zoomIn"
-      },
-      {
-        label: "左变大进入",
-        value: "zoomInLeft"
-      },
-      {
-        label: "右变大进入",
-        value: "zoomInRight"
-      },
-      {
-        label: "向上变大进入",
-        value: "zoomInUp"
-      },
-      {
-        label: "向下变大进入",
-        value: "zoomInDown"
-      },
-      {
-        label: "向右滑动展开",
-        value: "slideInLeft"
-      },
-      {
-        label: "向左滑动展开",
-        value: "slideInRight"
-      },
-      {
-        label: "向上滑动展开",
-        value: "slideInUp"
-      },
-      {
-        label: "向下滑动展开",
-        value: "slideInDown"
-      }
-    ]
-  },
-  {
-    label: "强调",
-    children: [
-      {
-        label: "弹跳",
-        value: "bounce"
-      },
-      {
-        label: "闪烁",
-        value: "flash"
-      },
-      {
-        label: "放大缩小",
-        value: "pulse"
-      },
-      {
-        label: "放大缩小弹簧",
-        value: "rubberBand"
-      },
-      {
-        label: "左右晃动",
-        value: "headShake"
-      },
-      {
-        label: "左右扇形摇摆",
-        value: "swing"
-      },
-      {
-        label: "放大晃动缩小",
-        value: "tada"
-      },
-      {
-        label: "扇形摇摆",
-        value: "wobble"
-      },
-      {
-        label: "左右上下晃动",
-        value: "jello"
-      },
-      {
-        label: "Y轴旋转",
-        value: "flip"
-      }
-    ]
-  },
-  {
-    label: "退出",
-    children: [
-      {
-        label: "渐隐",
-        value: "fadeOut"
-      },
-      {
-        label: "向左退出",
-        value: "fadeOutLeft"
-      },
-      {
-        label: "向右退出",
-        value: "fadeOutRight"
-      },
-      {
-        label: "向上退出",
-        value: "fadeOutUp"
-      },
-      {
-        label: "向下退出",
-        value: "fadeOutDown"
-      },
-      {
-        label: "向左长距退出",
-        value: "fadeOutLeftBig"
-      },
-      {
-        label: "向右长距退出",
-        value: "fadeOutRightBig"
-      },
-      {
-        label: "向上长距退出",
-        value: "fadeOutUpBig"
-      },
-      {
-        label: "向下长距退出",
-        value: "fadeOutDownBig"
-      },
-      {
-        label: "旋转退出",
-        value: "rotateOut"
-      },
-      {
-        label: "左顺时针旋转",
-        value: "rotateOutDownLeft"
-      },
-      {
-        label: "右逆时针旋转",
-        value: "rotateOutDownRight"
-      },
-      {
-        label: "左逆时针旋转",
-        value: "rotateOutUpLeft"
-      },
-      {
-        label: "右逆时针旋转",
-        value: "rotateOutUpRight"
-      },
-      {
-        label: "弹出",
-        value: "bounceOut"
-      },
-      {
-        label: "向左弹出",
-        value: "bounceOutLeft"
-      },
-      {
-        label: "向右弹出",
-        value: "bounceOutRight"
-      },
-      {
-        label: "向上弹出",
-        value: "bounceOutUp"
-      },
-      {
-        label: "向下弹出",
-        value: "bounceOutDown"
-      },
-      {
-        label: "中心X轴旋转",
-        value: "flipOutX"
-      },
-      {
-        label: "中心Y轴旋转",
-        value: "flipOutY"
-      },
-      {
-        label: "左长半径旋转",
-        value: "rollOut"
-      },
-      {
-        label: "由小变大退出",
-        value: "zoomOut"
-      },
-      {
-        label: "左变大退出",
-        value: "zoomOutLeft"
-      },
-      {
-        label: "右变大退出",
-        value: "zoomOutRight"
-      },
-      {
-        label: "向上变大退出",
-        value: "zoomOutUp"
-      },
-      {
-        label: "向下变大退出",
-        value: "zoomOutDown"
-      },
-      {
-        label: "向左滑动收起",
-        value: "slideOutLeft"
-      },
-      {
-        label: "向右滑动收起",
-        value: "slideOutRight"
-      },
-      {
-        label: "向上滑动收起",
-        value: "slideOutUp"
-      },
-      {
-        label: "向下滑动收起",
-        value: "slideOutDown"
-      }
-    ]
-  }
-], svg_alert_light = {
+const svg_alert_light = {
   name: "alert-light",
   title: "警示灯",
   type: EDoneJsonType.File,
@@ -18941,6 +18492,11 @@ const straight_line_system = Object.seal({
     },
     height: {
       title: "高度",
+      type: EConfigItemPropsType.InputNumber,
+      val: 200
+    },
+    maxHeight: {
+      title: "最大高度",
       type: EConfigItemPropsType.InputNumber,
       val: 200
     },
@@ -20382,10 +19938,10 @@ function makeEventPacket(i, n, r) {
     wheelDelta: r.zrDelta,
     zrByTouch: r.zrByTouch,
     which: r.which,
-    stop: stopEvent
+    stop: stopEvent$1
   };
 }
-function stopEvent() {
+function stopEvent$1() {
   stop(this.event);
 }
 var EmptyProxy = function(i) {
@@ -23707,8 +23263,8 @@ function parseRichText(i, n) {
   }
   re < i.length && pushTokens(r, i.substring(re, i.length), n, $);
   var ie = [], ae = 0, le = 0, Ie = n.padding, de = k === "truncate", ue = n.lineOverflow === "truncate";
-  function Ne(ei, Et, ni) {
-    ei.width = Et, ei.lineHeight = ni, ae += ni, le = Math.max(le, Et);
+  function Ne(Pt, Et, ni) {
+    Pt.width = Et, Pt.lineHeight = ni, ae += ni, le = Math.max(le, Et);
   }
   e:
     for (var he = 0; he < r.lines.length; he++) {
@@ -23728,8 +23284,8 @@ function parseRichText(i, n) {
             var kt = At.backgroundColor, jt = kt && kt.image;
             jt && (jt = findExistImage(jt), isImageReady(jt) && (_e.width = Math.max(_e.width, jt.width * Ve / jt.height)));
           }
-          var Pt = de && g != null ? g - xe : null;
-          Pt != null && Pt < _e.width ? !qe || Pt < Fe ? (_e.text = "", _e.width = _e.contentWidth = 0) : (_e.text = truncateText(_e.text, Pt - Fe, Ue, n.ellipsis, { minChar: n.truncateMinChar }), _e.width = _e.contentWidth = getWidth(_e.text, Ue)) : _e.contentWidth = getWidth(_e.text, Ue);
+          var ei = de && g != null ? g - xe : null;
+          ei != null && ei < _e.width ? !qe || ei < Fe ? (_e.text = "", _e.width = _e.contentWidth = 0) : (_e.text = truncateText(_e.text, ei - Fe, Ue, n.ellipsis, { minChar: n.truncateMinChar }), _e.width = _e.contentWidth = getWidth(_e.text, Ue)) : _e.contentWidth = getWidth(_e.text, Ue);
         }
         _e.width += Fe, xe += _e.width, At && (ze = Math.max(ze, _e.lineHeight));
       }
@@ -24146,8 +23702,8 @@ var PathProxy = function() {
           break;
         case CMD$2.R: {
           re = k = n[le++], oe = $ = n[le++];
-          var jt = n[le++], Pt = n[le++];
-          ue = jt * 2 + Pt * 2;
+          var jt = n[le++], ei = n[le++];
+          ue = jt * 2 + ei * 2;
           break;
         }
         case CMD$2.Z: {
@@ -24190,42 +23746,42 @@ var PathProxy = function() {
               break;
             }
             case CMD$2.C: {
-              var kt = g[_e++], jt = g[_e++], Pt = g[_e++], ti = g[_e++], ei = g[_e++], Et = g[_e++];
+              var kt = g[_e++], jt = g[_e++], ei = g[_e++], ti = g[_e++], Pt = g[_e++], Et = g[_e++];
               if (Ie) {
                 var Ve = de[he++];
                 if (Ne + Ve > pe) {
                   var Dt = (pe - Ne) / Ve;
-                  cubicSubdivide(Ce, kt, Pt, ei, Dt, tmpOutX), cubicSubdivide(ie, jt, ti, Et, Dt, tmpOutY), n.bezierCurveTo(tmpOutX[1], tmpOutY[1], tmpOutX[2], tmpOutY[2], tmpOutX[3], tmpOutY[3]);
+                  cubicSubdivide(Ce, kt, ei, Pt, Dt, tmpOutX), cubicSubdivide(ie, jt, ti, Et, Dt, tmpOutY), n.bezierCurveTo(tmpOutX[1], tmpOutY[1], tmpOutX[2], tmpOutY[2], tmpOutX[3], tmpOutY[3]);
                   break e;
                 }
                 Ne += Ve;
               }
-              n.bezierCurveTo(kt, jt, Pt, ti, ei, Et), Ce = ei, ie = Et;
+              n.bezierCurveTo(kt, jt, ei, ti, Pt, Et), Ce = Pt, ie = Et;
               break;
             }
             case CMD$2.Q: {
-              var kt = g[_e++], jt = g[_e++], Pt = g[_e++], ti = g[_e++];
+              var kt = g[_e++], jt = g[_e++], ei = g[_e++], ti = g[_e++];
               if (Ie) {
                 var Ve = de[he++];
                 if (Ne + Ve > pe) {
                   var Dt = (pe - Ne) / Ve;
-                  quadraticSubdivide(Ce, kt, Pt, Dt, tmpOutX), quadraticSubdivide(ie, jt, ti, Dt, tmpOutY), n.quadraticCurveTo(tmpOutX[1], tmpOutY[1], tmpOutX[2], tmpOutY[2]);
+                  quadraticSubdivide(Ce, kt, ei, Dt, tmpOutX), quadraticSubdivide(ie, jt, ti, Dt, tmpOutY), n.quadraticCurveTo(tmpOutX[1], tmpOutY[1], tmpOutX[2], tmpOutY[2]);
                   break e;
                 }
                 Ne += Ve;
               }
-              n.quadraticCurveTo(kt, jt, Pt, ti), Ce = Pt, ie = ti;
+              n.quadraticCurveTo(kt, jt, ei, ti), Ce = ei, ie = ti;
               break;
             }
             case CMD$2.A:
-              var ni = g[_e++], ri = g[_e++], Ii = g[_e++], wi = g[_e++], ai = g[_e++], ui = g[_e++], hi = g[_e++], ci = !g[_e++], Ai = Ii > wi ? Ii : wi, yi = mathAbs$1(Ii - wi) > 1e-3, di = ai + ui, Ci = !1;
+              var ni = g[_e++], ri = g[_e++], ci = g[_e++], wi = g[_e++], ai = g[_e++], ui = g[_e++], hi = g[_e++], Ii = !g[_e++], Ai = ci > wi ? ci : wi, yi = mathAbs$1(ci - wi) > 1e-3, di = ai + ui, Ci = !1;
               if (Ie) {
                 var Ve = de[he++];
                 Ne + Ve > pe && (di = ai + ui * (pe - Ne) / Ve, Ci = !0), Ne += Ve;
               }
-              if (yi && n.ellipse ? n.ellipse(ni, ri, Ii, wi, hi, ai, di, ci) : n.arc(ni, ri, Ai, ai, di, ci), Ci)
+              if (yi && n.ellipse ? n.ellipse(ni, ri, ci, wi, hi, ai, di, Ii) : n.arc(ni, ri, Ai, ai, di, Ii), Ci)
                 break e;
-              $e && (re = mathCos$3(ai) * Ii + ni, oe = mathSin$3(ai) * wi + ri), Ce = mathCos$3(di) * Ii + ni, ie = mathSin$3(di) * wi + ri;
+              $e && (re = mathCos$3(ai) * ci + ni, oe = mathSin$3(ai) * wi + ri), Ce = mathCos$3(di) * ci + ni, ie = mathSin$3(di) * wi + ri;
               break;
             case CMD$2.R:
               re = Ce = g[_e], oe = ie = g[_e + 1], ae = g[_e++], le = g[_e++];
@@ -24904,8 +24460,8 @@ var DEFAULT_RICH_TEXT_COLOR = {
     }
     xe += Ie / 2, V && (ze = getTextXForPadding(ue, he, V), pe === "top" ? xe += V[0] : pe === "bottom" && (xe -= V[2]));
     for (var At = 0, $e = !1, Fe = getFill("fill" in r ? r.fill : ($e = !0, de.fill)), Ue = getStroke("stroke" in r ? r.stroke : !oe && (!de.autoStroke || $e) ? (At = DEFAULT_STROKE_LINE_WIDTH, de.stroke) : null), Ve = r.textShadowBlur > 0, Dt = r.width != null && (r.overflow === "truncate" || r.overflow === "break" || r.overflow === "breakAll"), qe = $.calculatedLineHeight, kt = 0; kt < le.length; kt++) {
-      var jt = this._getOrCreateChild(TSpan$1), Pt = jt.createStyle();
-      jt.useStyle(Pt), Pt.text = le[kt], Pt.x = ze, Pt.y = xe, he && (Pt.textAlign = he), Pt.textBaseline = "middle", Pt.opacity = r.opacity, Pt.strokeFirst = !0, Ve && (Pt.shadowBlur = r.textShadowBlur || 0, Pt.shadowColor = r.textShadowColor || "transparent", Pt.shadowOffsetX = r.textShadowOffsetX || 0, Pt.shadowOffsetY = r.textShadowOffsetY || 0), Pt.stroke = Ue, Pt.fill = Fe, Ue && (Pt.lineWidth = r.lineWidth || At, Pt.lineDash = r.lineDash, Pt.lineDashOffset = r.lineDashOffset || 0), Pt.font = g, setSeparateFont(Pt, r), xe += Ie, Dt && jt.setBoundingRect(new BoundingRect$1(adjustTextX(Pt.x, r.width, Pt.textAlign), adjustTextY(Pt.y, qe, Pt.textBaseline), ae, qe));
+      var jt = this._getOrCreateChild(TSpan$1), ei = jt.createStyle();
+      jt.useStyle(ei), ei.text = le[kt], ei.x = ze, ei.y = xe, he && (ei.textAlign = he), ei.textBaseline = "middle", ei.opacity = r.opacity, ei.strokeFirst = !0, Ve && (ei.shadowBlur = r.textShadowBlur || 0, ei.shadowColor = r.textShadowColor || "transparent", ei.shadowOffsetX = r.textShadowOffsetX || 0, ei.shadowOffsetY = r.textShadowOffsetY || 0), ei.stroke = Ue, ei.fill = Fe, Ue && (ei.lineWidth = r.lineWidth || At, ei.lineDash = r.lineDash, ei.lineDashOffset = r.lineDashOffset || 0), ei.font = g, setSeparateFont(ei, r), xe += Ie, Dt && jt.setBoundingRect(new BoundingRect$1(adjustTextX(ei.x, r.width, ei.textAlign), adjustTextY(ei.y, qe, ei.textBaseline), ae, qe));
     }
   }, n.prototype._updateRichTexts = function() {
     var r = this.style, g = getStyleText(r), V = parseRichText(g, r), k = V.width, $ = V.outerWidth, re = V.outerHeight, oe = r.padding, Ce = r.x || 0, ie = r.y || 0, ae = this._defaultStyle, le = r.align || ae.align, Ie = r.verticalAlign || ae.verticalAlign, de = adjustTextX(Ce, $, le), ue = adjustTextY(ie, re, Ie), Ne = de, he = ue;
@@ -25620,33 +25176,33 @@ function buildPath$1(i, n) {
       else if (Ie > PI2$2 - e)
         i.moveTo(ie + g * mathCos$1(oe), ae + g * mathSin$1(oe)), i.arc(ie, ae, g, oe, Ce, !le), V > e && (i.moveTo(ie + V * mathCos$1(Ce), ae + V * mathSin$1(Ce)), i.arc(ie, ae, V, Ce, oe, le));
       else {
-        var ue = void 0, Ne = void 0, he = void 0, pe = void 0, ze = void 0, xe = void 0, Oe = void 0, _e = void 0, At = void 0, $e = void 0, Fe = void 0, Ue = void 0, Ve = void 0, Dt = void 0, qe = void 0, kt = void 0, jt = g * mathCos$1(oe), Pt = g * mathSin$1(oe), ti = V * mathCos$1(Ce), ei = V * mathSin$1(Ce), Et = Ie > e;
+        var ue = void 0, Ne = void 0, he = void 0, pe = void 0, ze = void 0, xe = void 0, Oe = void 0, _e = void 0, At = void 0, $e = void 0, Fe = void 0, Ue = void 0, Ve = void 0, Dt = void 0, qe = void 0, kt = void 0, jt = g * mathCos$1(oe), ei = g * mathSin$1(oe), ti = V * mathCos$1(Ce), Pt = V * mathSin$1(Ce), Et = Ie > e;
         if (Et) {
           var ni = n.cornerRadius;
           ni && (r = normalizeCornerRadius(ni), ue = r[0], Ne = r[1], he = r[2], pe = r[3]);
           var ri = mathAbs(g - V) / 2;
           if (ze = mathMin$1(ri, he), xe = mathMin$1(ri, pe), Oe = mathMin$1(ri, ue), _e = mathMin$1(ri, Ne), Fe = At = mathMax$1(ze, xe), Ue = $e = mathMax$1(Oe, _e), (At > e || $e > e) && (Ve = g * mathCos$1(Ce), Dt = g * mathSin$1(Ce), qe = V * mathCos$1(oe), kt = V * mathSin$1(oe), Ie < PI$3)) {
-            var Ii = intersect(jt, Pt, qe, kt, Ve, Dt, ti, ei);
-            if (Ii) {
-              var wi = jt - Ii[0], ai = Pt - Ii[1], ui = Ve - Ii[0], hi = Dt - Ii[1], ci = 1 / mathSin$1(mathACos((wi * ui + ai * hi) / (mathSqrt(wi * wi + ai * ai) * mathSqrt(ui * ui + hi * hi))) / 2), Ai = mathSqrt(Ii[0] * Ii[0] + Ii[1] * Ii[1]);
-              Fe = mathMin$1(At, (g - Ai) / (ci + 1)), Ue = mathMin$1($e, (V - Ai) / (ci - 1));
+            var ci = intersect(jt, ei, qe, kt, Ve, Dt, ti, Pt);
+            if (ci) {
+              var wi = jt - ci[0], ai = ei - ci[1], ui = Ve - ci[0], hi = Dt - ci[1], Ii = 1 / mathSin$1(mathACos((wi * ui + ai * hi) / (mathSqrt(wi * wi + ai * ai) * mathSqrt(ui * ui + hi * hi))) / 2), Ai = mathSqrt(ci[0] * ci[0] + ci[1] * ci[1]);
+              Fe = mathMin$1(At, (g - Ai) / (Ii + 1)), Ue = mathMin$1($e, (V - Ai) / (Ii - 1));
             }
           }
         }
         if (!Et)
-          i.moveTo(ie + jt, ae + Pt);
+          i.moveTo(ie + jt, ae + ei);
         else if (Fe > e) {
-          var yi = mathMin$1(he, Fe), di = mathMin$1(pe, Fe), Ci = computeCornerTangents(qe, kt, jt, Pt, g, yi, le), zi = computeCornerTangents(Ve, Dt, ti, ei, g, di, le);
+          var yi = mathMin$1(he, Fe), di = mathMin$1(pe, Fe), Ci = computeCornerTangents(qe, kt, jt, ei, g, yi, le), zi = computeCornerTangents(Ve, Dt, ti, Pt, g, di, le);
           i.moveTo(ie + Ci.cx + Ci.x0, ae + Ci.cy + Ci.y0), Fe < At && yi === di ? i.arc(ie + Ci.cx, ae + Ci.cy, Fe, mathATan2(Ci.y0, Ci.x0), mathATan2(zi.y0, zi.x0), !le) : (yi > 0 && i.arc(ie + Ci.cx, ae + Ci.cy, yi, mathATan2(Ci.y0, Ci.x0), mathATan2(Ci.y1, Ci.x1), !le), i.arc(ie, ae, g, mathATan2(Ci.cy + Ci.y1, Ci.cx + Ci.x1), mathATan2(zi.cy + zi.y1, zi.cx + zi.x1), !le), di > 0 && i.arc(ie + zi.cx, ae + zi.cy, di, mathATan2(zi.y1, zi.x1), mathATan2(zi.y0, zi.x0), !le));
         } else
-          i.moveTo(ie + jt, ae + Pt), i.arc(ie, ae, g, oe, Ce, !le);
+          i.moveTo(ie + jt, ae + ei), i.arc(ie, ae, g, oe, Ce, !le);
         if (!(V > e) || !Et)
-          i.lineTo(ie + ti, ae + ei);
+          i.lineTo(ie + ti, ae + Pt);
         else if (Ue > e) {
-          var yi = mathMin$1(ue, Ue), di = mathMin$1(Ne, Ue), Ci = computeCornerTangents(ti, ei, Ve, Dt, V, -di, le), zi = computeCornerTangents(jt, Pt, qe, kt, V, -yi, le);
+          var yi = mathMin$1(ue, Ue), di = mathMin$1(Ne, Ue), Ci = computeCornerTangents(ti, Pt, Ve, Dt, V, -di, le), zi = computeCornerTangents(jt, ei, qe, kt, V, -yi, le);
           i.lineTo(ie + Ci.cx + Ci.x0, ae + Ci.cy + Ci.y0), Ue < $e && yi === di ? i.arc(ie + Ci.cx, ae + Ci.cy, Ue, mathATan2(Ci.y0, Ci.x0), mathATan2(zi.y0, zi.x0), !le) : (di > 0 && i.arc(ie + Ci.cx, ae + Ci.cy, di, mathATan2(Ci.y0, Ci.x0), mathATan2(Ci.y1, Ci.x1), !le), i.arc(ie, ae, V, mathATan2(Ci.cy + Ci.y1, Ci.cx + Ci.x1), mathATan2(zi.cy + zi.y1, zi.cx + zi.x1), le), yi > 0 && i.arc(ie + zi.cx, ae + zi.cy, yi, mathATan2(zi.y1, zi.x1), mathATan2(zi.y0, zi.x0), !le));
         } else
-          i.lineTo(ie + ti, ae + ei), i.arc(ie, ae, V, Ce, oe, le);
+          i.lineTo(ie + ti, ae + Pt), i.arc(ie, ae, V, Ce, oe, le);
       }
       i.closePath();
     }
@@ -31179,10 +30735,10 @@ function createOrUpdatePatternFromDecal(i, n) {
       Ve *= kt;
       var jt = xe * ze.length * pe.length;
       if (process.env.NODE_ENV !== "production") {
-        var Pt = function(ti) {
+        var ei = function(ti) {
           console.warn("Calculated decal size is greater than " + ti + " due to decal option settings so " + ti + " is used for the decal size. Please consider changing the decal option to make a smaller decal or set " + ti + " to be larger to avoid incontinuity.");
         };
-        Ve > $.maxTileWidth && Pt("maxTileWidth"), jt > $.maxTileHeight && Pt("maxTileHeight");
+        Ve > $.maxTileWidth && ei("maxTileWidth"), jt > $.maxTileHeight && ei("maxTileHeight");
       }
       return {
         width: Math.max(1, Math.min(Ve, $.maxTileWidth)),
@@ -31195,20 +30751,20 @@ function createOrUpdatePatternFromDecal(i, n) {
         Ve += he[Dt];
       if (Ve <= 0)
         return;
-      for (var qe = -xe, kt = 0, jt = 0, Pt = 0; qe < At.height; ) {
+      for (var qe = -xe, kt = 0, jt = 0, ei = 0; qe < At.height; ) {
         if (kt % 2 === 0) {
-          for (var ti = jt / 2 % pe.length, ei = 0, Et = 0, ni = 0; ei < At.width * 2; ) {
-            for (var ri = 0, Dt = 0; Dt < Ne[Pt].length; ++Dt)
-              ri += Ne[Pt][Dt];
+          for (var ti = jt / 2 % pe.length, Pt = 0, Et = 0, ni = 0; Pt < At.width * 2; ) {
+            for (var ri = 0, Dt = 0; Dt < Ne[ei].length; ++Dt)
+              ri += Ne[ei][Dt];
             if (ri <= 0)
               break;
             if (Et % 2 === 0) {
-              var Ii = (1 - $.symbolSize) * 0.5, wi = ei + Ne[Pt][Et] * Ii, ai = qe + he[kt] * Ii, ui = Ne[Pt][Et] * $.symbolSize, hi = he[kt] * $.symbolSize, ci = ni / 2 % pe[ti].length;
-              Ai(wi, ai, ui, hi, pe[ti][ci]);
+              var ci = (1 - $.symbolSize) * 0.5, wi = Pt + Ne[ei][Et] * ci, ai = qe + he[kt] * ci, ui = Ne[ei][Et] * $.symbolSize, hi = he[kt] * $.symbolSize, Ii = ni / 2 % pe[ti].length;
+              Ai(wi, ai, ui, hi, pe[ti][Ii]);
             }
-            ei += Ne[Pt][Et], ++ni, ++Et, Et === Ne[Pt].length && (Et = 0);
+            Pt += Ne[ei][Et], ++ni, ++Et, Et === Ne[ei].length && (Et = 0);
           }
-          ++Pt, Pt === Ne.length && (Pt = 0);
+          ++ei, ei === Ne.length && (ei = 0);
         }
         qe += he[kt], ++jt, ++kt, kt === he.length && (kt = 0);
       }
@@ -31915,8 +31471,8 @@ var prepare, prepareView, updateDirectly, updateMethods, doConvertPixel, updateS
         var $e = [], Fe, Ue = isSelectChangePayload(ae), Ve = isHighDownPayload(ae);
         if (Ve && allLeaveBlur(this._api), each$4(_e, function(kt) {
           if (Fe = he.action(kt, Ie._model, Ie._api), Fe = Fe || extend({}, kt), Fe.type = pe.event || Fe.type, $e.push(Fe), Ve) {
-            var jt = preParseFinder(ae), Pt = jt.queryOptionMap, ti = jt.mainTypeSpecified, ei = ti ? Pt.keys()[0] : "series";
-            updateDirectly(Ie, xe, kt, ei), markStatusToUpdate(Ie);
+            var jt = preParseFinder(ae), ei = jt.queryOptionMap, ti = jt.mainTypeSpecified, Pt = ti ? ei.keys()[0] : "series";
+            updateDirectly(Ie, xe, kt, Pt), markStatusToUpdate(Ie);
           } else
             Ue ? (updateDirectly(Ie, xe, kt, "series"), markStatusToUpdate(Ie)) : Oe && updateDirectly(Ie, xe, kt, Oe.main, Oe.sub);
         }), xe !== "none" && !Ve && !Ue && !Oe)
@@ -32890,15 +32446,15 @@ function prepareSeriesDataSchema(i, n) {
     var jt = ae.get(Ue);
     if (jt !== !1) {
       if (jt = normalizeToArray(jt), !jt.length)
-        for (var Pt = 0; Pt < (Ve && Ve.length || 1); Pt++) {
+        for (var ei = 0; ei < (Ve && Ve.length || 1); ei++) {
           for (; ue < $ && de(ue).coordDim != null; )
             ue++;
           ue < $ && jt.push(ue++);
         }
-      each$4(jt, function(ti, ei) {
+      each$4(jt, function(ti, Pt) {
         var Et = de(ti);
-        if (oe && qe.type != null && (Et.type = qe.type), Ne(defaults(Et, qe), Ue, ei), Et.name == null && Ve) {
-          var ni = Ve[ei];
+        if (oe && qe.type != null && (Et.type = qe.type), Ne(defaults(Et, qe), Ue, Pt), Et.name == null && Ve) {
+          var ni = Ve[Pt];
           !isObject$2(ni) && (ni = {
             name: ni
           }), Et.name = Et.displayName = ni.name, Et.defaultTooltip = ni.defaultTooltip;
@@ -33194,13 +32750,13 @@ function shiftLayout(i, n, r, g, V, k) {
       var jt = Math.min(Math.abs($e) / Ve, Fe);
       if ($e > 0)
         for (var Dt = 0; Dt < $ - 1; Dt++) {
-          var Pt = Ue[Dt] * jt;
-          Oe(Pt, 0, Dt + 1);
+          var ei = Ue[Dt] * jt;
+          Oe(ei, 0, Dt + 1);
         }
       else
         for (var Dt = $ - 1; Dt > 0; Dt--) {
-          var Pt = Ue[Dt - 1] * jt;
-          Oe(-Pt, Dt, $);
+          var ei = Ue[Dt - 1] * jt;
+          Oe(-ei, Dt, $);
         }
     }
   }
@@ -33532,26 +33088,26 @@ function createCSSAnimation(i, n, r, g) {
     for (var qe in Oe) {
       var kt = {};
       copyTransform(kt, i), extend(kt, Oe[qe]);
-      var jt = getSRTTransformString(kt), Pt = Oe[qe][$e];
+      var jt = getSRTTransformString(kt), ei = Oe[qe][$e];
       At[qe] = jt ? {
         transform: jt
-      } : {}, setTransformOrigin(At[qe], kt), Pt && (At[qe][$e] = Pt);
+      } : {}, setTransformOrigin(At[qe], kt), ei && (At[qe][$e] = ei);
     }
-    var ti, ei = !0;
+    var ti, Pt = !0;
     for (var qe in _e) {
       At[qe] = At[qe] || {};
-      var Et = !ti, Pt = _e[qe][$e];
+      var Et = !ti, ei = _e[qe][$e];
       Et && (ti = new PathProxy$1());
       var ni = ti.len();
       ti.reset(), At[qe].d = buildPathString(i, _e[qe], ti);
       var ri = ti.len();
       if (!Et && ni !== ri) {
-        ei = !1;
+        Pt = !1;
         break;
       }
-      Pt && (At[qe][$e] = Pt);
+      ei && (At[qe][$e] = ei);
     }
-    if (!ei)
+    if (!Pt)
       for (var qe in At)
         delete At[qe].d;
     if (!g)
@@ -33561,8 +33117,8 @@ function createCSSAnimation(i, n, r, g) {
           return ANIMATE_STYLE_MAP[Ci];
         });
       }
-    for (var Ii = keys(At), wi = !0, ai, Ue = 1; Ue < Ii.length; Ue++) {
-      var ui = Ii[Ue - 1], hi = Ii[Ue];
+    for (var ci = keys(At), wi = !0, ai, Ue = 1; Ue < ci.length; Ue++) {
+      var ui = ci[Ue - 1], hi = ci[Ue];
       if (At[ui][transformOriginKey] !== At[hi][transformOriginKey]) {
         wi = !1;
         break;
@@ -33574,11 +33130,11 @@ function createCSSAnimation(i, n, r, g) {
         At[qe][transformOriginKey] && delete At[qe][transformOriginKey];
       n[transformOriginKey] = ai;
     }
-    if (filter(Ii, function(Ai) {
+    if (filter(ci, function(Ai) {
       return keys(At[Ai]).length > 0;
     }).length) {
-      var ci = addAnimation(At, r);
-      return ci + " " + pe[0] + " both";
+      var Ii = addAnimation(At, r);
+      return Ii + " " + pe[0] + " both";
     }
   }
   for (var Ne in oe) {
@@ -34243,26 +33799,26 @@ function pieLabelLayout(i) {
     return !1;
   }
   n.each(function(_e) {
-    var At = n.getItemGraphicEl(_e), $e = At.shape, Fe = At.getTextContent(), Ue = At.getTextGuideLine(), Ve = n.getItemModel(_e), Dt = Ve.getModel("label"), qe = Dt.get("position") || Ve.get(["emphasis", "label", "position"]), kt = Dt.get("distanceToLabelLine"), jt = Dt.get("alignTo"), Pt = parsePercent(Dt.get("edgeDistance"), Ce), ti = Dt.get("bleedMargin"), ei = Ve.getModel("labelLine"), Et = ei.get("length");
+    var At = n.getItemGraphicEl(_e), $e = At.shape, Fe = At.getTextContent(), Ue = At.getTextGuideLine(), Ve = n.getItemModel(_e), Dt = Ve.getModel("label"), qe = Dt.get("position") || Ve.get(["emphasis", "label", "position"]), kt = Dt.get("distanceToLabelLine"), jt = Dt.get("alignTo"), ei = parsePercent(Dt.get("edgeDistance"), Ce), ti = Dt.get("bleedMargin"), Pt = Ve.getModel("labelLine"), Et = Pt.get("length");
     Et = parsePercent(Et, Ce);
-    var ni = ei.get("length2");
+    var ni = Pt.get("length2");
     if (ni = parsePercent(ni, Ce), Math.abs($e.endAngle - $e.startAngle) < $) {
       each$4(Fe.states, Ie), Fe.ignore = !0, Ue && (each$4(Ue.states, Ie), Ue.ignore = !0);
       return;
     }
     if (de(Fe)) {
-      var ri = ($e.startAngle + $e.endAngle) / 2, Ii = Math.cos(ri), wi = Math.sin(ri), ai, ui, hi, ci;
+      var ri = ($e.startAngle + $e.endAngle) / 2, ci = Math.cos(ri), wi = Math.sin(ri), ai, ui, hi, Ii;
       g = $e.cx, V = $e.cy;
       var Ai = qe === "inside" || qe === "inner";
       if (qe === "center")
-        ai = $e.cx, ui = $e.cy, ci = "center";
+        ai = $e.cx, ui = $e.cy, Ii = "center";
       else {
-        var yi = (Ai ? ($e.r + $e.r0) / 2 * Ii : $e.r * Ii) + g, di = (Ai ? ($e.r + $e.r0) / 2 * wi : $e.r * wi) + V;
-        if (ai = yi + Ii * 3, ui = di + wi * 3, !Ai) {
-          var Ci = yi + Ii * (Et + oe - $e.r), zi = di + wi * (Et + oe - $e.r), Mi = Ci + (Ii < 0 ? -1 : 1) * ni, Ni = zi;
-          jt === "edge" ? ai = Ii < 0 ? ie + Pt : ie + Ce - Pt : ai = Mi + (Ii < 0 ? -kt : kt), ui = Ni, hi = [[yi, di], [Ci, zi], [Mi, Ni]];
+        var yi = (Ai ? ($e.r + $e.r0) / 2 * ci : $e.r * ci) + g, di = (Ai ? ($e.r + $e.r0) / 2 * wi : $e.r * wi) + V;
+        if (ai = yi + ci * 3, ui = di + wi * 3, !Ai) {
+          var Ci = yi + ci * (Et + oe - $e.r), zi = di + wi * (Et + oe - $e.r), Mi = Ci + (ci < 0 ? -1 : 1) * ni, Ni = zi;
+          jt === "edge" ? ai = ci < 0 ? ie + ei : ie + Ce - ei : ai = Mi + (ci < 0 ? -kt : kt), ui = Ni, hi = [[yi, di], [Ci, zi], [Mi, Ni]];
         }
-        ci = Ai ? "center" : jt === "edge" ? Ii > 0 ? "right" : "left" : Ii > 0 ? "left" : "right";
+        Ii = Ai ? "center" : jt === "edge" ? ci > 0 ? "right" : "left" : ci > 0 ? "left" : "right";
       }
       var mi = Math.PI, Si = 0, Ti = Dt.get("rotate");
       if (isNumber(Ti))
@@ -34270,10 +33826,10 @@ function pieLabelLayout(i) {
       else if (qe === "center")
         Si = 0;
       else if (Ti === "radial" || Ti === !0) {
-        var si = Ii < 0 ? -ri + mi : -ri;
+        var si = ci < 0 ? -ri + mi : -ri;
         Si = si;
       } else if (Ti === "tangential" && qe !== "outside" && qe !== "outer") {
-        var li = Math.atan2(Ii, wi);
+        var li = Math.atan2(ci, wi);
         li < 0 && (li = mi * 2 + li);
         var oi = wi > 0;
         oi && (li = mi + li), Si = li - mi;
@@ -34282,7 +33838,7 @@ function pieLabelLayout(i) {
         verticalAlign: "middle"
       }), Ai) {
         Fe.setStyle({
-          align: ci
+          align: Ii
         });
         var gi = Fe.states.select;
         gi && (gi.x += Fe.x, gi.y += Fe.y);
@@ -34296,14 +33852,14 @@ function pieLabelLayout(i) {
           position: qe,
           len: Et,
           len2: ni,
-          minTurnAngle: ei.get("minTurnAngle"),
-          maxSurfaceAngle: ei.get("maxSurfaceAngle"),
-          surfaceNormal: new Point$1(Ii, wi),
+          minTurnAngle: Pt.get("minTurnAngle"),
+          maxSurfaceAngle: Pt.get("maxSurfaceAngle"),
+          surfaceNormal: new Point$1(ci, wi),
           linePoints: hi,
-          textAlign: ci,
+          textAlign: Ii,
           labelDistance: kt,
           labelAlignTo: jt,
-          edgeDistance: Pt,
+          edgeDistance: ei,
           bleedMargin: ti,
           rect: Lt,
           unconstrainedWidth: Lt.width,
@@ -37594,11 +37150,11 @@ if (customElements.get(tag) == null) {
           var jt = Fe;
           if (kt.indexOf("zr:") === 0 && (jt = Fe.getZr(), kt = kt.substring(3)), qe.__once__) {
             delete qe.__once__;
-            var Pt = qe;
+            var ei = qe;
             qe = function() {
-              for (var ti = [], ei = 0; ei < arguments.length; ei++)
-                ti[ei] = arguments[ei];
-              Pt.apply(void 0, ti), jt.off(kt, qe);
+              for (var ti = [], Pt = 0; Pt < arguments.length; Pt++)
+                ti[Pt] = arguments[Pt];
+              ei.apply(void 0, ti), jt.off(kt, qe);
             };
           }
           jt.on(kt, qe);
@@ -37639,9 +37195,9 @@ if (customElements.get(tag) == null) {
   }(V, le, Ie), function($e, Fe, Ue) {
     var Ve = null;
     watch([Ue, $e, Fe], function(Dt, qe, kt) {
-      var jt = Dt[0], Pt = Dt[1], ti = Dt[2];
-      jt && Pt && ti && (Ve = throttle$1(function() {
-        Pt.resize();
+      var jt = Dt[0], ei = Dt[1], ti = Dt[2];
+      jt && ei && ti && (Ve = throttle$1(function() {
+        ei.resize();
       }, 100), addListener(jt, Ve)), kt(function() {
         Ve && jt && removeListener(jt, Ve);
       });
@@ -37966,7 +37522,9 @@ const _sfc_main$m = /* @__PURE__ */ defineComponent({
       left: 0
     }
   })
-}), randomString = (i) => {
+}), stopEvent = (i) => {
+  i.stopPropagation();
+}, randomString = (i) => {
   i = i || 10;
   const n = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789", r = n.length;
   let g = "";
@@ -38133,7 +37691,7 @@ const _sfc_main$m = /* @__PURE__ */ defineComponent({
       (re - k.canvasInfo.top) / V.svg.scale - k.center_offset.y
     );
   const ae = {
-    id: straight_line_system.name + randomString(),
+    id: randomString(),
     x: Ce,
     y: ie,
     client: {
@@ -38202,6 +37760,457 @@ const _sfc_main$m = /* @__PURE__ */ defineComponent({
     new_position_y: 0
   };
 };
+Object.seal({
+  name: "straight-line",
+  title: "直线",
+  type: EDoneJsonType.StraightLine,
+  config: {
+    can_zoom: !1,
+    have_anchor: !1,
+    actual_rect: !1
+  },
+  display: !0,
+  props: {
+    fill: {
+      title: "填充色",
+      type: EConfigItemPropsType.Color,
+      val: "#ff0000"
+    },
+    start_x: {
+      title: "起点x坐标",
+      type: EConfigItemPropsType.InputNumber,
+      val: 0
+    },
+    start_y: {
+      title: "起点y坐标",
+      type: EConfigItemPropsType.InputNumber,
+      val: 0
+    },
+    end_x: {
+      title: "终点x坐标",
+      type: EConfigItemPropsType.InputNumber,
+      val: 0
+    },
+    end_y: {
+      title: "终点y坐标",
+      type: EConfigItemPropsType.InputNumber,
+      val: 0
+    }
+  },
+  bind_anchors: {
+    start: null,
+    end: null
+  },
+  events: []
+});
+const connection_line_system = {
+  name: "connection_line",
+  title: "连接线",
+  type: EDoneJsonType.ConnectionLine,
+  config: {
+    can_zoom: !1,
+    have_anchor: !1,
+    actual_rect: !1
+  },
+  display: !0,
+  props: {
+    stroke: {
+      title: "线条颜色",
+      type: EConfigItemPropsType.Color,
+      val: "#ff0000"
+    },
+    "stroke-width": {
+      title: "线条宽度",
+      type: EConfigItemPropsType.InputNumber,
+      val: 2
+    },
+    point_r: {
+      title: "节点半径",
+      type: EConfigItemPropsType.InputNumber,
+      val: 4
+    },
+    point_position: {
+      title: "点坐标",
+      type: EConfigItemPropsType.JsonEdit,
+      val: []
+    }
+  },
+  animations: {
+    type: {
+      title: "动画类型",
+      type: EConfigItemPropsType.Select,
+      val: EConfigAnimationsType.None,
+      options: [
+        {
+          label: "无",
+          value: EConfigAnimationsType.None
+        },
+        {
+          label: "电流",
+          value: EConfigAnimationsType.Electricity
+        },
+        {
+          label: "轨迹",
+          value: EConfigAnimationsType.Track
+        },
+        {
+          label: "水珠",
+          value: EConfigAnimationsType.WaterDrop
+        }
+      ]
+    },
+    dur: {
+      title: "持续时间",
+      type: EConfigItemPropsType.InputNumber,
+      val: 20
+    },
+    repeatCount: {
+      title: "循环次数",
+      type: EConfigItemPropsType.Input,
+      val: "indefinite",
+      disabled: !0
+    },
+    color: {
+      title: "颜色",
+      type: EConfigItemPropsType.Color,
+      val: "#0a7ae2"
+    },
+    reverse: {
+      title: "反转动画",
+      type: EConfigItemPropsType.Switch,
+      val: !1
+    }
+  },
+  bind_anchors: {
+    start: null,
+    end: null
+  },
+  events: []
+}, common_animate_list = [
+  {
+    label: "进入",
+    children: [
+      {
+        label: "渐显",
+        value: "fadeIn"
+      },
+      {
+        label: "向右进入",
+        value: "fadeInLeft"
+      },
+      {
+        label: "向左进入",
+        value: "fadeInRight"
+      },
+      {
+        label: "向上进入",
+        value: "fadeInUp"
+      },
+      {
+        label: "向下进入",
+        value: "fadeInDown"
+      },
+      {
+        label: "向右长距进入",
+        value: "fadeInLeftBig"
+      },
+      {
+        label: "向左长距进入",
+        value: "fadeInRightBig"
+      },
+      {
+        label: "向上长距进入",
+        value: "fadeInUpBig"
+      },
+      {
+        label: "向下长距进入",
+        value: "fadeInDownBig"
+      },
+      {
+        label: "旋转进入",
+        value: "rotateIn"
+      },
+      {
+        label: "左顺时针旋转",
+        value: "rotateInDownLeft"
+      },
+      {
+        label: "右逆时针旋转",
+        value: "rotateInDownRight"
+      },
+      {
+        label: "左逆时针旋转",
+        value: "rotateInUpLeft"
+      },
+      {
+        label: "右逆时针旋转",
+        value: "rotateInUpRight"
+      },
+      {
+        label: "弹入",
+        value: "bounceIn"
+      },
+      {
+        label: "向右弹入",
+        value: "bounceInLeft"
+      },
+      {
+        label: "向左弹入",
+        value: "bounceInRight"
+      },
+      {
+        label: "向上弹入",
+        value: "bounceInUp"
+      },
+      {
+        label: "向下弹入",
+        value: "bounceInDown"
+      },
+      {
+        label: "光速从右进入",
+        value: "lightSpeedInRight"
+      },
+      {
+        label: "光速从左进入",
+        value: "lightSpeedInLeft"
+      },
+      {
+        label: "光速从右退出",
+        value: "lightSpeedOutRight"
+      },
+      {
+        label: "光速从左退出",
+        value: "lightSpeedOutLeft"
+      },
+      {
+        label: "Y轴旋转",
+        value: "flip"
+      },
+      {
+        label: "中心X轴旋转",
+        value: "flipInX"
+      },
+      {
+        label: "中心Y轴旋转",
+        value: "flipInY"
+      },
+      {
+        label: "左长半径旋转",
+        value: "rollIn"
+      },
+      {
+        label: "由小变大进入",
+        value: "zoomIn"
+      },
+      {
+        label: "左变大进入",
+        value: "zoomInLeft"
+      },
+      {
+        label: "右变大进入",
+        value: "zoomInRight"
+      },
+      {
+        label: "向上变大进入",
+        value: "zoomInUp"
+      },
+      {
+        label: "向下变大进入",
+        value: "zoomInDown"
+      },
+      {
+        label: "向右滑动展开",
+        value: "slideInLeft"
+      },
+      {
+        label: "向左滑动展开",
+        value: "slideInRight"
+      },
+      {
+        label: "向上滑动展开",
+        value: "slideInUp"
+      },
+      {
+        label: "向下滑动展开",
+        value: "slideInDown"
+      }
+    ]
+  },
+  {
+    label: "强调",
+    children: [
+      {
+        label: "弹跳",
+        value: "bounce"
+      },
+      {
+        label: "闪烁",
+        value: "flash"
+      },
+      {
+        label: "放大缩小",
+        value: "pulse"
+      },
+      {
+        label: "放大缩小弹簧",
+        value: "rubberBand"
+      },
+      {
+        label: "左右晃动",
+        value: "headShake"
+      },
+      {
+        label: "左右扇形摇摆",
+        value: "swing"
+      },
+      {
+        label: "放大晃动缩小",
+        value: "tada"
+      },
+      {
+        label: "扇形摇摆",
+        value: "wobble"
+      },
+      {
+        label: "左右上下晃动",
+        value: "jello"
+      },
+      {
+        label: "Y轴旋转",
+        value: "flip"
+      }
+    ]
+  },
+  {
+    label: "退出",
+    children: [
+      {
+        label: "渐隐",
+        value: "fadeOut"
+      },
+      {
+        label: "向左退出",
+        value: "fadeOutLeft"
+      },
+      {
+        label: "向右退出",
+        value: "fadeOutRight"
+      },
+      {
+        label: "向上退出",
+        value: "fadeOutUp"
+      },
+      {
+        label: "向下退出",
+        value: "fadeOutDown"
+      },
+      {
+        label: "向左长距退出",
+        value: "fadeOutLeftBig"
+      },
+      {
+        label: "向右长距退出",
+        value: "fadeOutRightBig"
+      },
+      {
+        label: "向上长距退出",
+        value: "fadeOutUpBig"
+      },
+      {
+        label: "向下长距退出",
+        value: "fadeOutDownBig"
+      },
+      {
+        label: "旋转退出",
+        value: "rotateOut"
+      },
+      {
+        label: "左顺时针旋转",
+        value: "rotateOutDownLeft"
+      },
+      {
+        label: "右逆时针旋转",
+        value: "rotateOutDownRight"
+      },
+      {
+        label: "左逆时针旋转",
+        value: "rotateOutUpLeft"
+      },
+      {
+        label: "右逆时针旋转",
+        value: "rotateOutUpRight"
+      },
+      {
+        label: "弹出",
+        value: "bounceOut"
+      },
+      {
+        label: "向左弹出",
+        value: "bounceOutLeft"
+      },
+      {
+        label: "向右弹出",
+        value: "bounceOutRight"
+      },
+      {
+        label: "向上弹出",
+        value: "bounceOutUp"
+      },
+      {
+        label: "向下弹出",
+        value: "bounceOutDown"
+      },
+      {
+        label: "中心X轴旋转",
+        value: "flipOutX"
+      },
+      {
+        label: "中心Y轴旋转",
+        value: "flipOutY"
+      },
+      {
+        label: "左长半径旋转",
+        value: "rollOut"
+      },
+      {
+        label: "由小变大退出",
+        value: "zoomOut"
+      },
+      {
+        label: "左变大退出",
+        value: "zoomOutLeft"
+      },
+      {
+        label: "右变大退出",
+        value: "zoomOutRight"
+      },
+      {
+        label: "向上变大退出",
+        value: "zoomOutUp"
+      },
+      {
+        label: "向下变大退出",
+        value: "zoomOutDown"
+      },
+      {
+        label: "向左滑动收起",
+        value: "slideOutLeft"
+      },
+      {
+        label: "向右滑动收起",
+        value: "slideOutRight"
+      },
+      {
+        label: "向上滑动收起",
+        value: "slideOutUp"
+      },
+      {
+        label: "向下滑动收起",
+        value: "slideOutDown"
+      }
+    ]
+  }
+];
 let l = localStorage.getItem("svg-editor-config"), s, t;
 if (l) {
   let i = JSON.parse(l);
@@ -38299,7 +38308,7 @@ const useEditPrivateStore = defineStore("edit-private-store", {
         switch (n.intention = EGlobalStoreIntention.Select, i) {
           case EContextMenuInfoType.Copy:
             const r = objectDeepClone(n.handle_svg_info.info);
-            r.id = r.name + randomString(), r.title += "-copy", r.x += 10, r.y += 10, n.setDoneJson(r), this.display = !1, n.setHandleSvgInfo(r, n.done_json.length);
+            r.id = randomString(), r.title += "-copy", r.x += 10, r.y += 10, n.setDoneJson(r), this.display = !1, n.setHandleSvgInfo(r, n.done_json.length);
             break;
           case EContextMenuInfoType.Delete:
             n.spliceDoneJson(n.handle_svg_info.index), this.display = !1, n.setHandleSvgInfo(null), n.intention = EGlobalStoreIntention.None;
@@ -39322,12 +39331,12 @@ const _withScopeId$2 = (i) => (pushScopeId("data-v-9c05530e"), i = i(), popScope
   __name: "center-panel",
   setup(i) {
     useCssVars((ti) => ({
-      41836022: ie.value
+      "5ecf943b": ie.value
     }));
     const n = getCurrentInstance();
     Object.keys(vueComp).forEach((ti) => {
-      var ei;
-      Object.keys((ei = n == null ? void 0 : n.appContext) == null ? void 0 : ei.components).includes(ti) || n == null || n.appContext.app.component(ti, vueComp[ti]);
+      var Pt;
+      Object.keys((Pt = n == null ? void 0 : n.appContext) == null ? void 0 : Pt.components).includes(ti) || n == null || n.appContext.app.component(ti, vueComp[ti]);
     });
     const r = useGlobalStore(pinia), g = useConfigStore(pinia), V = useSvgEditLayoutStore(pinia), k = useEditPrivateStore(pinia), $ = useContextMenuStore(pinia), re = ref(), oe = ref(), Ce = {
       MoveCanvas: "grab",
@@ -39365,13 +39374,13 @@ const _withScopeId$2 = (i) => (pushScopeId("data-v-9c05530e"), i = i(), popScope
       y: 0
     }), de = computed$1(() => {
       let ti = 0;
-      for (let ei of r.done_json)
-        ei.selected && ti++;
+      for (let Pt of r.done_json)
+        Pt.selected && ti++;
       return ti > 0;
     });
     let ue = !1, Ne = !1;
     const he = (ti) => {
-      var ei;
+      var Pt;
       if (r.intention != EGlobalStoreIntention.None) {
         if (r.intention == EGlobalStoreIntention.Create) {
           if (!r.create_svg_info) {
@@ -39438,13 +39447,13 @@ const _withScopeId$2 = (i) => (pushScopeId("data-v-9c05530e"), i = i(), popScope
           };
           r.setDoneJson(ri), r.setHandleSvgInfo(ri, r.done_json.length), r.intention = EGlobalStoreIntention.None;
         }
-        (ei = oe.value) == null || ei.focus();
+        (Pt = oe.value) == null || Pt.focus();
       }
     }, pe = (ti) => {
       ti.preventDefault();
     }, ze = (ti) => {
       ti.preventDefault();
-    }, xe = (ti, ei, Et) => {
+    }, xe = (ti, Pt, Et) => {
       var ni, ri;
       if ((ni = oe.value) == null || ni.focus(), r.intention !== EGlobalStoreIntention.Connection)
         if (Et.preventDefault(), Et.stopPropagation(), Et.ctrlKey && Et.button === 0)
@@ -39459,13 +39468,13 @@ const _withScopeId$2 = (i) => (pushScopeId("data-v-9c05530e"), i = i(), popScope
             new_position_x: 0,
             new_position_y: 0
           };
-          for (let Ii of r.done_json)
-            Ii.selected && (Ii.old_position = {
-              x: Ii.x,
-              y: Ii.y
-            }, Ii.point_coordinate_old = objectDeepClone(Ii.point_coordinate));
+          for (let ci of r.done_json)
+            ci.selected && (ci.old_position = {
+              x: ci.x,
+              y: ci.y
+            }, ci.point_coordinate_old = objectDeepClone(ci.point_coordinate));
         } else
-          r.intention = EGlobalStoreIntention.Select, r.setHandleSvgInfo(ti, ei), r.mouse_info = {
+          r.intention = EGlobalStoreIntention.Select, r.setHandleSvgInfo(ti, Pt), r.mouse_info = {
             state: EMouseInfoState.Down,
             position_x: Math.round((Et.clientX - V.canvasInfo.left) / g.svg.scale),
             position_y: Math.round((Et.clientY - V.canvasInfo.top) / g.svg.scale),
@@ -39474,14 +39483,14 @@ const _withScopeId$2 = (i) => (pushScopeId("data-v-9c05530e"), i = i(), popScope
             new_position_x: 0,
             new_position_y: 0
           }, ti.point_coordinate_old = objectDeepClone(ti.point_coordinate);
-    }, Oe = (ti, ei, Et) => {
+    }, Oe = (ti, Pt, Et) => {
       if (!(r.intention === EGlobalStoreIntention.Connection || r.mouse_info.state != EMouseInfoState.Down) && de.value && !ue && ["SelectArea", "Move", "Select"].indexOf(r.intention) < 0) {
         for (let ni of r.done_json)
           ni.selected = !1, ni.old_position = {
             x: 0,
             y: 0
           }, resetHandlePointOld(ni);
-        r.intention = EGlobalStoreIntention.Select, r.setHandleSvgInfo(ti, ei), r.mouse_info = {
+        r.intention = EGlobalStoreIntention.Select, r.setHandleSvgInfo(ti, Pt), r.mouse_info = {
           state: EMouseInfoState.Down,
           position_x: Math.round((Et.clientX - V.canvasInfo.left) / g.svg.scale),
           position_y: Math.round((Et.clientY - V.canvasInfo.top) / g.svg.scale),
@@ -39491,17 +39500,17 @@ const _withScopeId$2 = (i) => (pushScopeId("data-v-9c05530e"), i = i(), popScope
           new_position_y: 0
         };
       }
-    }, _e = (ti, ei, Et) => {
-      Et.preventDefault(), Et.stopPropagation(), ae.connection_panel = !0, ae.connection_line = !0, !((r.intention === EGlobalStoreIntention.Connection || r.intention === EGlobalStoreIntention.SetConnectionLineNode) && ti.type === EDoneJsonType.ConnectionLine) && (ae.select_item.info = ti, ae.select_item.index = ei);
-    }, At = (ti, ei, Et) => {
+    }, _e = (ti, Pt, Et) => {
+      Et.preventDefault(), Et.stopPropagation(), ae.connection_panel = !0, ae.connection_line = !0, !((r.intention === EGlobalStoreIntention.Connection || r.intention === EGlobalStoreIntention.SetConnectionLineNode) && ti.type === EDoneJsonType.ConnectionLine) && (ae.select_item.info = ti, ae.select_item.index = Pt);
+    }, At = (ti, Pt, Et) => {
       Et.preventDefault(), Et.stopPropagation(), !((r.intention === EGlobalStoreIntention.Connection || r.intention === EGlobalStoreIntention.SetConnectionLineNode) && ti.type === EDoneJsonType.ConnectionLine) && (ae.connection_panel = !1, ae.connection_line = !1, ae.select_item.info = null, ae.select_item.index = -1);
     }, $e = (ti) => {
-      var Ii, wi, ai, ui, hi, ci, Ai, yi, di, Ci, zi, Mi, Ni, mi, Si, Ti;
+      var ci, wi, ai, ui, hi, Ii, Ai, yi, di, Ci, zi, Mi, Ni, mi, Si, Ti;
       if (r.mouse_info.state != EMouseInfoState.Down && r.intention !== EGlobalStoreIntention.Connection)
         return;
-      const { clientX: ei, clientY: Et } = ti;
+      const { clientX: Pt, clientY: Et } = ti;
       r.mouse_info.new_position_x = Math.round(
-        (ei - V.canvasInfo.left) / g.svg.scale
+        (Pt - V.canvasInfo.left) / g.svg.scale
       ), r.mouse_info.new_position_y = Math.round(
         (Et - V.canvasInfo.top) / g.svg.scale
       );
@@ -39510,7 +39519,7 @@ const _withScopeId$2 = (i) => (pushScopeId("data-v-9c05530e"), i = i(), popScope
       ), ri = Math.round(
         r.mouse_info.new_position_y - r.mouse_info.position_y + r.mouse_info.now_position_y
       );
-      if ((Ii = r.handle_svg_info) != null && Ii.info && (r.intention === EGlobalStoreIntention.Select || r.intention === EGlobalStoreIntention.Move)) {
+      if ((ci = r.handle_svg_info) != null && ci.info && (r.intention === EGlobalStoreIntention.Select || r.intention === EGlobalStoreIntention.Move)) {
         if (r.handle_svg_info.info.x = ni, r.handle_svg_info.info.y = ri, r.handle_svg_info.info.client = {
           x: ni,
           y: ri
@@ -39524,7 +39533,7 @@ const _withScopeId$2 = (i) => (pushScopeId("data-v-9c05530e"), i = i(), popScope
           if ((hi = r.handle_svg_info.info.bind_anchors) != null && hi.end) {
             let si = null;
             for (let li of r.done_json)
-              li.id === ((Ai = (ci = r.handle_svg_info.info.bind_anchors) == null ? void 0 : ci.end) == null ? void 0 : Ai.target_id) && (si = li);
+              li.id === ((Ai = (Ii = r.handle_svg_info.info.bind_anchors) == null ? void 0 : Ii.end) == null ? void 0 : Ai.target_id) && (si = li);
             si && moveAnchors(si);
           }
         }
@@ -39660,13 +39669,13 @@ const _withScopeId$2 = (i) => (pushScopeId("data-v-9c05530e"), i = i(), popScope
         };
       }
     }, Fe = () => {
-      var ti, ei, Et, ni;
+      var ti, Pt, Et, ni;
       if (r.mouse_info.state == EMouseInfoState.Down) {
         if ((ti = r.handle_svg_info) != null && ti.info && r.intention == EGlobalStoreIntention.Move)
           setSvgActualInfo(r.done_json[r.handle_svg_info.index]), r.intention = EGlobalStoreIntention.None, r.setDoneJson(r.done_json);
         else if (r.intention == EGlobalStoreIntention.GroupMove)
           ue && (ue = !1, r.intention = EGlobalStoreIntention.None);
-        else if ((ei = r.handle_svg_info) != null && ei.info && r.intention == EGlobalStoreIntention.Zoom)
+        else if ((Pt = r.handle_svg_info) != null && Pt.info && r.intention == EGlobalStoreIntention.Zoom)
           r.handle_svg_info.info.client = {
             x: r.handle_svg_info.info.x,
             y: r.handle_svg_info.info.y
@@ -39681,8 +39690,8 @@ const _withScopeId$2 = (i) => (pushScopeId("data-v-9c05530e"), i = i(), popScope
           else if (r.intention === EGlobalStoreIntention.SelectArea) {
             r.setHandleSvgInfo(null);
             for (let ri of r.done_json) {
-              const Ii = Ie.value;
-              ri.selected = ri.x > Ii.x && ri.x < Ii.x + Ii.with && ri.y > Ii.y && ri.y < Ii.y + Ii.height;
+              const ci = Ie.value;
+              ri.selected = ri.x > ci.x && ri.x < ci.x + ci.with && ri.y > ci.y && ri.y < ci.y + ci.height;
             }
             r.intention = EGlobalStoreIntention.None;
           } else
@@ -39699,7 +39708,7 @@ const _withScopeId$2 = (i) => (pushScopeId("data-v-9c05530e"), i = i(), popScope
         }, $.display = !1;
       }
     }, Ue = (ti) => {
-      const { clientX: ei, clientY: Et } = ti;
+      const { clientX: Pt, clientY: Et } = ti;
       if (r.intention === EGlobalStoreIntention.Connection) {
         r.handle_svg_info || createLine(ti), r.handle_svg_info && (ti.button === 0 ? r.handle_svg_info.info.props.point_position.val.length !== 1 ? r.handle_svg_info.info.props.point_position.val.push({
           x: r.mouse_info.new_position_x - r.mouse_info.position_x - V.center_offset.x,
@@ -39713,7 +39722,7 @@ const _withScopeId$2 = (i) => (pushScopeId("data-v-9c05530e"), i = i(), popScope
       ti.button === 0 ? (r.intention = EGlobalStoreIntention.SelectArea, r.mouse_info = {
         state: EMouseInfoState.Down,
         position_x: Math.round(
-          (ei - V.canvasInfo.left) / g.svg.scale - V.center_offset.x
+          (Pt - V.canvasInfo.left) / g.svg.scale - V.center_offset.x
         ),
         position_y: Math.round(
           (Et - V.canvasInfo.top) / g.svg.scale - V.center_offset.y
@@ -39733,7 +39742,7 @@ const _withScopeId$2 = (i) => (pushScopeId("data-v-9c05530e"), i = i(), popScope
         }
       }) : ti.button === 2 && (r.intention = EGlobalStoreIntention.MoveCanvas, r.mouse_info = {
         state: EMouseInfoState.Down,
-        position_x: Math.round((ei - V.canvasInfo.left) / g.svg.scale),
+        position_x: Math.round((Pt - V.canvasInfo.left) / g.svg.scale),
         position_y: Math.round((Et - V.canvasInfo.top) / g.svg.scale),
         now_position_x: V.center_offset.x,
         now_position_y: V.center_offset.y,
@@ -39746,33 +39755,33 @@ const _withScopeId$2 = (i) => (pushScopeId("data-v-9c05530e"), i = i(), popScope
     }
     const Dt = (ti) => {
       ti.stopPropagation(), ti.preventDefault();
-    }, qe = (ti, ei, Et) => {
-      r.intention !== EGlobalStoreIntention.Connection && re.value && (r.intention = EGlobalStoreIntention.ContextMenu, r.setHandleSvgInfo(ti, ei), re.value.style.left = Et.pageX + "px", re.value.style.top = Et.pageY + "px", $.info.MoveUpOneLevel.enable = $.info.MoveUpTopLevel.enable = $.info.MoveDownOneLevel.enable = $.info.MoveDownTopLevel.enable = !0, ei === r.done_json.length - 1 && ($.info.MoveUpOneLevel.enable = $.info.MoveUpTopLevel.enable = !1), ei === 0 && ($.info.MoveDownOneLevel.enable = $.info.MoveDownTopLevel.enable = !1), $.display = !0);
-    }, kt = (ti, ei, Et) => ({
-      x: parseFloat((ti.x - ti.width / 2 * ei + ti.width / 2).toFixed(1)),
+    }, qe = (ti, Pt, Et) => {
+      r.intention !== EGlobalStoreIntention.Connection && re.value && (r.intention = EGlobalStoreIntention.ContextMenu, r.setHandleSvgInfo(ti, Pt), re.value.style.left = Et.pageX + "px", re.value.style.top = Et.pageY + "px", $.info.MoveUpOneLevel.enable = $.info.MoveUpTopLevel.enable = $.info.MoveDownOneLevel.enable = $.info.MoveDownTopLevel.enable = !0, Pt === r.done_json.length - 1 && ($.info.MoveUpOneLevel.enable = $.info.MoveUpTopLevel.enable = !1), Pt === 0 && ($.info.MoveDownOneLevel.enable = $.info.MoveDownTopLevel.enable = !1), $.display = !0);
+    }, kt = (ti, Pt, Et) => ({
+      x: parseFloat((ti.x - ti.width / 2 * Pt + ti.width / 2).toFixed(1)),
       y: parseFloat((ti.y - ti.height / 2 * Et + ti.height / 2).toFixed(1)),
-      width: parseFloat((ti.width * ei).toFixed(1)),
+      width: parseFloat((ti.width * Pt).toFixed(1)),
       height: parseFloat((ti.height * Et).toFixed(1))
     }), jt = (ti) => {
       ti.preventDefault();
-      let ei = [];
-      if (!ti.ctrlKey && ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].indexOf(ti.key) > -1 && (de.value ? ei = r.done_json.map((Et, ni) => ({
+      let Pt = [];
+      if (!ti.ctrlKey && ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].indexOf(ti.key) > -1 && (de.value ? Pt = r.done_json.map((Et, ni) => ({
         selected: Et.selected,
         i: ni
-      })).filter((Et) => Et.selected).map((Et) => Et.i) : r.handle_svg_info && ei.push(r.handle_svg_info.index)), !ti.ctrlKey && ti.key == "ArrowUp") {
-        for (let Et of ei)
+      })).filter((Et) => Et.selected).map((Et) => Et.i) : r.handle_svg_info && Pt.push(r.handle_svg_info.index)), !ti.ctrlKey && ti.key == "ArrowUp") {
+        for (let Et of Pt)
           r.done_json[Et].y -= 1, r.done_json[Et].client.y -= 1, moveHandlePoint(r.done_json[Et], 0, -1), moveAnchors(r.done_json[Et]);
         useHistoryRecord(r.done_json);
       } else if (!ti.ctrlKey && ti.key == "ArrowDown") {
-        for (let Et of ei)
+        for (let Et of Pt)
           r.done_json[Et].y += 1, r.done_json[Et].client.y += 1, moveHandlePoint(r.done_json[Et], 0, 1), moveAnchors(r.done_json[Et]);
         useHistoryRecord(r.done_json);
       } else if (!ti.ctrlKey && ti.key == "ArrowLeft") {
-        for (let Et of ei)
+        for (let Et of Pt)
           r.done_json[Et].x -= 1, r.done_json[Et].client.x -= 1, moveHandlePoint(r.done_json[Et], -1, 0), moveAnchors(r.done_json[Et]);
         useHistoryRecord(r.done_json);
       } else if (!ti.ctrlKey && ti.key == "ArrowRight") {
-        for (let Et of ei)
+        for (let Et of Pt)
           r.done_json[Et].x += 1, r.done_json[Et].client.x += 1, moveHandlePoint(r.done_json[Et], 1, 0), moveAnchors(r.done_json[Et]);
         useHistoryRecord(r.done_json);
       } else
@@ -39780,22 +39789,22 @@ const _withScopeId$2 = (i) => (pushScopeId("data-v-9c05530e"), i = i(), popScope
           r.done_json[r.done_json.length - 1],
           r.done_json.length - 1
         )) : $.onContextMenuClick(EContextMenuInfoType.Delete) : ti.ctrlKey && ti.key == "ArrowUp" ? $.onContextMenuClick(EContextMenuInfoType.MoveUpOneLevel) : ti.ctrlKey && ti.key == "ArrowDown" ? $.onContextMenuClick(EContextMenuInfoType.MoveDownOneLevel) : ti.ctrlKey && ti.key == "ArrowLeft" ? $.onContextMenuClick(EContextMenuInfoType.MoveDownTopLevel) : ti.ctrlKey && ti.key == "ArrowRight" ? $.onContextMenuClick(EContextMenuInfoType.MoveUpTopLevel) : ti.ctrlKey && ti.shiftKey && ti.key.toLowerCase() == "z" ? k.topRedoBtnClick() : ti.ctrlKey && ti.key.toLowerCase() == "z" ? k.topUndoBtnClick() : ti.ctrlKey && ti.key.toLowerCase() == "delete" && (r.done_json.length <= 0 || r.setDoneJson([]));
-    }, Pt = () => {
+    }, ei = () => {
       setSvgActualInfo(r.done_json[r.handle_svg_info.index], !0);
     };
     return onMounted(() => {
       var ti;
       (ti = oe.value) == null || ti.focus(), nextTick(function() {
         var Et;
-        const ei = (Et = oe.value) == null ? void 0 : Et.getBoundingClientRect();
+        const Pt = (Et = oe.value) == null ? void 0 : Et.getBoundingClientRect();
         V.canvasInfo = {
-          height: (ei == null ? void 0 : ei.height) || 0,
-          with: (ei == null ? void 0 : ei.width) || 0,
-          top: (ei == null ? void 0 : ei.top) || 0,
-          left: (ei == null ? void 0 : ei.left) || 0
+          height: (Pt == null ? void 0 : Pt.height) || 0,
+          with: (Pt == null ? void 0 : Pt.width) || 0,
+          top: (Pt == null ? void 0 : Pt.top) || 0,
+          left: (Pt == null ? void 0 : Pt.left) || 0
         };
       });
-    }), (ti, ei) => (openBlock(), createElementBlock(Fragment, null, [
+    }), (ti, Pt) => (openBlock(), createElementBlock(Fragment, null, [
       createElementVNode("div", {
         class: "canvas",
         tabindex: "0",
@@ -39854,21 +39863,23 @@ const _withScopeId$2 = (i) => (pushScopeId("data-v-9c05530e"), i = i(), popScope
             transform: `translate(${unref(V).center_offset.x * unref(g).svg.scale},${unref(V).center_offset.y * unref(g).svg.scale})rotate(0)scale(${unref(g).svg.scale})`
           }, [
             (openBlock(!0), createElementBlock(Fragment, null, renderList(unref(r).done_json, (Et, ni) => {
-              var ri, Ii, wi, ai, ui, hi;
+              var ri, ci, wi, ai, ui, hi;
               return withDirectives((openBlock(), createElementBlock("g", {
                 key: Et.id,
-                transform: `translate(${Et.x},${Et.y})rotate(0)scale(1)`
+                transform: `translate(${Et.x},${Et.y})rotate(0)scale(1)`,
+                onMousewheel: Pt[0] || (Pt[0] = //@ts-ignore
+                (...Ii) => unref(stopEvent) && unref(stopEvent)(...Ii))
               }, [
                 createElementVNode("g", {
                   class: normalizeClass(`${unref(getCommonClass)(Et)}`)
                 }, [
                   createElementVNode("g", {
                     transform: `translate(${Et.actual_bound.x + Et.actual_bound.width / 2},${Et.actual_bound.y + Et.actual_bound.height / 2})rotate(${Et.rotate}) scale(1) translate(${-(Et.actual_bound.x + Et.actual_bound.width / 2)},${-(Et.actual_bound.y + Et.actual_bound.height / 2)})`,
-                    onMousedown: (ci) => xe(Et, ni, ci),
-                    onMouseup: (ci) => Oe(Et, ni, ci),
-                    onMouseenter: (ci) => _e(Et, ni, ci),
-                    onMouseleave: (ci) => At(Et, ni, ci),
-                    onContextmenu: (ci) => qe(Et, ni, ci)
+                    onMousedown: (Ii) => xe(Et, ni, Ii),
+                    onMouseup: (Ii) => Oe(Et, ni, Ii),
+                    onMouseenter: (Ii) => _e(Et, ni, Ii),
+                    onMouseleave: (Ii) => At(Et, ni, Ii),
+                    onContextmenu: (Ii) => qe(Et, ni, Ii)
                   }, [
                     Et.type === unref(EDoneJsonType).ConnectionLine ? (openBlock(), createBlock(_sfc_main$e, {
                       key: 0,
@@ -39886,7 +39897,7 @@ const _withScopeId$2 = (i) => (pushScopeId("data-v-9c05530e"), i = i(), popScope
                       width: "100",
                       height: "100",
                       id: Et.id,
-                      onResize: Pt,
+                      onResize: ei,
                       transform: `translate(${Et.actual_bound.x + Et.actual_bound.width / 2},${Et.actual_bound.y + Et.actual_bound.height / 2}) scale(${Et.scale_x},${Et.scale_y}) translate(${-(Et.actual_bound.x + Et.actual_bound.width / 2)},${-(Et.actual_bound.y + Et.actual_bound.height / 2)})`
                     }), null, 16, ["id", "transform"])) : Et.type === unref(EDoneJsonType).Vue ? (openBlock(), createElementBlock("foreignObject", mergeProps({ key: 3 }, kt(Et.actual_bound, Et.scale_x, Et.scale_y), {
                       id: `foreign-object${Et.id}`,
@@ -39921,7 +39932,7 @@ const _withScopeId$2 = (i) => (pushScopeId("data-v-9c05530e"), i = i(), popScope
                       style: { stroke: "none", "stroke-width": "2", "stroke-miterlimit": "10" },
                       class: {
                         "svg-item-none": !Et.selected && (unref(r).intention == unref(EGlobalStoreIntention).None || unref(r).intention == unref(EGlobalStoreIntention).Select),
-                        "svg-item-move": unref(r).intention == unref(EGlobalStoreIntention).Move && ((Ii = unref(r).handle_svg_info) == null ? void 0 : Ii.info.id) == Et.id,
+                        "svg-item-move": unref(r).intention == unref(EGlobalStoreIntention).Move && ((ci = unref(r).handle_svg_info) == null ? void 0 : ci.info.id) == Et.id,
                         "svg-item-select": unref(r).intention == unref(EGlobalStoreIntention).Select && ((wi = unref(r).handle_svg_info) == null ? void 0 : wi.info.id) == Et.id,
                         "svg-item-in-group": Et.selected
                       }
@@ -39937,7 +39948,7 @@ const _withScopeId$2 = (i) => (pushScopeId("data-v-9c05530e"), i = i(), popScope
                     }, null, 8, ["item-info"])) : createCommentVNode("", !0)
                   ], 40, _hoisted_9)
                 ], 2)
-              ], 8, _hoisted_8)), [
+              ], 40, _hoisted_8)), [
                 [vShow, Et.display]
               ]);
             }), 128)),
@@ -39974,7 +39985,7 @@ const _withScopeId$2 = (i) => (pushScopeId("data-v-9c05530e"), i = i(), popScope
       ])
     ], 64));
   }
-}), centerPanel_vue_vue_type_style_index_0_scoped_488735fe_lang = "", CenterPanel = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["__scopeId", "data-v-488735fe"]]);
+}), centerPanel_vue_vue_type_style_index_0_scoped_66b80d0c_lang = "", CenterPanel = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["__scopeId", "data-v-66b80d0c"]]);
 var ace$2 = { exports: {} };
 (function(i, n) {
   (function() {
@@ -41238,18 +41249,18 @@ var ace$2 = { exports: {} };
       _e.className = "ace_text-input", _e.setAttribute("wrap", "off"), _e.setAttribute("autocorrect", "off"), _e.setAttribute("autocapitalize", "off"), _e.setAttribute("spellcheck", !1), _e.style.opacity = "0", xe.insertBefore(_e, xe.firstChild);
       var At = !1, $e = !1, Fe = !1, Ue = !1, Ve = "";
       pe || (_e.style.fontSize = "1px");
-      var Dt = !1, qe = !1, kt = "", jt = 0, Pt = 0, ti = 0;
+      var Dt = !1, qe = !1, kt = "", jt = 0, ei = 0, ti = 0;
       try {
-        var ei = document.activeElement === _e;
+        var Pt = document.activeElement === _e;
       } catch {
       }
       this.setAriaOptions = function(Lt) {
         Lt.activeDescendant ? (_e.setAttribute("aria-haspopup", "true"), _e.setAttribute("aria-autocomplete", "list"), _e.setAttribute("aria-activedescendant", Lt.activeDescendant)) : (_e.setAttribute("aria-haspopup", "false"), _e.setAttribute("aria-autocomplete", "both"), _e.removeAttribute("aria-activedescendant")), Lt.role && _e.setAttribute("role", Lt.role);
       }, this.setAriaOptions({ role: "textbox" }), k.addListener(_e, "blur", function(Lt) {
-        qe || (Oe.onBlur(Lt), ei = !1);
+        qe || (Oe.onBlur(Lt), Pt = !1);
       }, Oe), k.addListener(_e, "focus", function(Lt) {
         if (!qe) {
-          if (ei = !0, $.isEdge)
+          if (Pt = !0, $.isEdge)
             try {
               if (!document.hasFocus())
                 return;
@@ -41279,7 +41290,7 @@ var ace$2 = { exports: {} };
       }, this.blur = function() {
         _e.blur();
       }, this.isFocused = function() {
-        return ei;
+        return Pt;
       }, Oe.on("beforeEndOperation", function() {
         var Lt = Oe.curOp, ii = Lt && Lt.command && Lt.command.name;
         if (ii != "insertstring") {
@@ -41288,17 +41299,17 @@ var ace$2 = { exports: {} };
         }
       });
       var Et = Ne ? function(Lt) {
-        if (!(!ei || At && !Lt || Ue)) {
+        if (!(!Pt || At && !Lt || Ue)) {
           Lt || (Lt = "");
           var ii = `
  ab` + Lt + `cde fg
 `;
           ii != _e.value && (_e.value = kt = ii);
           var gi = 4, fi = 4 + (Lt.length || (Oe.selection.isEmpty() ? 0 : 1));
-          (jt != gi || Pt != fi) && _e.setSelectionRange(gi, fi), jt = gi, Pt = fi;
+          (jt != gi || ei != fi) && _e.setSelectionRange(gi, fi), jt = gi, ei = fi;
         }
       } : function() {
-        if (!(Fe || Ue) && !(!ei && !wi)) {
+        if (!(Fe || Ue) && !(!Pt && !wi)) {
           Fe = !0;
           var Lt = 0, ii = 0, gi = "";
           if (Oe.session) {
@@ -41320,29 +41331,29 @@ var ace$2 = { exports: {} };
           var Bi = gi + `
 
 `;
-          if (Bi != kt && (_e.value = kt = Bi, jt = Pt = Bi.length), wi && (jt = _e.selectionStart, Pt = _e.selectionEnd), Pt != ii || jt != Lt || _e.selectionEnd != Pt)
+          if (Bi != kt && (_e.value = kt = Bi, jt = ei = Bi.length), wi && (jt = _e.selectionStart, ei = _e.selectionEnd), ei != ii || jt != Lt || _e.selectionEnd != ei)
             try {
-              _e.setSelectionRange(Lt, ii), jt = Lt, Pt = ii;
+              _e.setSelectionRange(Lt, ii), jt = Lt, ei = ii;
             } catch {
             }
           Fe = !1;
         }
       };
-      this.resetSelection = Et, ei && Oe.onFocus();
+      this.resetSelection = Et, Pt && Oe.onFocus();
       var ni = function(Lt) {
-        return Lt.selectionStart === 0 && Lt.selectionEnd >= kt.length && Lt.value === kt && kt && Lt.selectionEnd !== Pt;
+        return Lt.selectionStart === 0 && Lt.selectionEnd >= kt.length && Lt.value === kt && kt && Lt.selectionEnd !== ei;
       }, ri = function(Lt) {
         Fe || (At ? At = !1 : ni(_e) ? (Oe.selectAll(), Et()) : pe && _e.selectionStart != jt && Et());
-      }, Ii = null;
+      }, ci = null;
       this.setInputHandler = function(Lt) {
-        Ii = Lt;
+        ci = Lt;
       }, this.getInputHandler = function() {
-        return Ii;
+        return ci;
       };
       var wi = !1, ai = function(Lt, ii) {
         if (wi && (wi = !1), $e)
           return Et(), Lt && Oe.onPaste(Lt), $e = !1, "";
-        for (var gi = _e.selectionStart, fi = _e.selectionEnd, pi = jt, bi = kt.length - Pt, xi = Lt, Gi = Lt.length - gi, Bi = Lt.length - fi, Oi = 0; pi > 0 && kt[Oi] == Lt[Oi]; )
+        for (var gi = _e.selectionStart, fi = _e.selectionEnd, pi = jt, bi = kt.length - ei, xi = Lt, Gi = Lt.length - gi, Bi = Lt.length - fi, Oi = 0; pi > 0 && kt[Oi] == Lt[Oi]; )
           Oi++, pi--;
         for (xi = xi.slice(Oi), Oi = 1; bi > 0 && kt.length - Oi > jt - 1 && kt[kt.length - Oi] == Lt[Lt.length - Oi]; )
           Oi++, bi--;
@@ -41357,7 +41368,7 @@ var ace$2 = { exports: {} };
           extendRight: bi,
           restoreStart: Gi,
           restoreEnd: Bi
-        }), Ue = !1, kt = Lt, jt = gi, Pt = fi, ti = Bi, Wi ? `
+        }), Ue = !1, kt = Lt, jt = gi, ei = fi, ti = Bi, Wi ? `
 ` : xi;
       }, ui = function(Lt) {
         if (Fe)
@@ -41369,7 +41380,7 @@ var ace$2 = { exports: {} };
             return Oe.execCommand("redo");
         }
         var ii = _e.value, gi = ai(ii, !0);
-        (ii.length > Ie + 100 || he.test(gi) || pe && jt < 1 && jt == Pt) && Et();
+        (ii.length > Ie + 100 || he.test(gi) || pe && jt < 1 && jt == ei) && Et();
       }, hi = function(Lt, ii, gi) {
         var fi = Lt.clipboardData || window.clipboardData;
         if (!(!fi || ie)) {
@@ -41381,7 +41392,7 @@ var ace$2 = { exports: {} };
               return hi(bi, ii, !0);
           }
         }
-      }, ci = function(Lt, ii) {
+      }, Ii = function(Lt, ii) {
         var gi = Oe.getCopyText();
         if (!gi)
           return k.preventDefault(Lt);
@@ -41391,9 +41402,9 @@ var ace$2 = { exports: {} };
           At = !1, Et(), ii ? Oe.onCut() : Oe.onCopy();
         }));
       }, Ai = function(Lt) {
-        ci(Lt, !0);
+        Ii(Lt, !0);
       }, yi = function(Lt) {
-        ci(Lt, !1);
+        Ii(Lt, !1);
       }, di = function(Lt) {
         var ii = hi(Lt);
         Ce.pasteCancelled() || (typeof ii == "string" ? (ii && Oe.onPaste(ii, Lt), $.isIE && setTimeout(Et), k.preventDefault(Lt)) : (_e.value = "", $e = !0));
@@ -41416,7 +41427,7 @@ var ace$2 = { exports: {} };
         if (!(Fe || !Oe.onCompositionStart || Oe.$readOnly) && (Fe = {}, !Dt)) {
           Lt.data && (Fe.useTextareaForIME = !1), setTimeout(zi, 0), Oe._signal("compositionStart"), Oe.on("mousedown", Ni);
           var ii = Oe.getSelectionRange();
-          ii.end.row = ii.start.row, ii.end.column = ii.start.column, Fe.markerRange = ii, Fe.selectionStart = jt, Oe.onCompositionStart(Fe), Fe.useTextareaForIME ? (kt = _e.value = "", jt = 0, Pt = 0) : (_e.msGetInputContext && (Fe.context = _e.msGetInputContext()), _e.getInputContext && (Fe.context = _e.getInputContext()));
+          ii.end.row = ii.start.row, ii.end.column = ii.start.column, Fe.markerRange = ii, Fe.selectionStart = jt, Oe.onCompositionStart(Fe), Fe.useTextareaForIME ? (kt = _e.value = "", jt = 0, ei = 0) : (_e.msGetInputContext && (Fe.context = _e.msGetInputContext()), _e.getInputContext && (Fe.context = _e.getInputContext()));
         }
       }, zi = function() {
         if (!(!Fe || !Oe.onCompositionUpdate || Oe.$readOnly)) {
@@ -41426,7 +41437,7 @@ var ace$2 = { exports: {} };
             Oe.onCompositionUpdate(_e.value);
           else {
             var Lt = _e.value;
-            ai(Lt), Fe.markerRange && (Fe.context && (Fe.markerRange.start.column = Fe.selectionStart = Fe.context.compositionStartOffset), Fe.markerRange.end.column = Fe.markerRange.start.column + Pt - Fe.selectionStart + ti);
+            ai(Lt), Fe.markerRange && (Fe.context && (Fe.markerRange.start.column = Fe.selectionStart = Fe.context.compositionStartOffset), Fe.markerRange.end.column = Fe.markerRange.start.column + ei - Fe.selectionStart + ti);
           }
         }
       }, Mi = function(Lt) {
@@ -41437,7 +41448,7 @@ var ace$2 = { exports: {} };
       }
       var mi = oe.delayedCall(zi, 50).schedule.bind(null, null);
       function Si(Lt) {
-        Lt.keyCode == 27 && _e.value.length < _e.selectionStart && (Fe || (kt = _e.value), jt = Pt = -1, Et()), mi();
+        Lt.keyCode == 27 && _e.value.length < _e.selectionStart && (Fe || (kt = _e.value), jt = ei = -1, Et()), mi();
       }
       k.addListener(_e, "compositionstart", Ci, Oe), k.addListener(_e, "compositionupdate", zi, Oe), k.addListener(_e, "keyup", Si, Oe), k.addListener(_e, "keydown", mi, Oe), k.addListener(_e, "compositionend", Mi, Oe), this.getElement = function() {
         return _e;
@@ -41449,7 +41460,7 @@ var ace$2 = { exports: {} };
       }, this.onContextMenu = function(Lt) {
         wi = !0, Et(), Oe._emit("nativecontextmenu", { target: Oe, domEvent: Lt }), this.moveToMouse(Lt, !0);
       }, this.moveToMouse = function(Lt, ii) {
-        Ve || (Ve = _e.style.cssText), _e.style.cssText = (ii ? "z-index:100000;" : "") + ($.isIE ? "opacity:0.1;" : "") + "text-indent: -" + (jt + Pt) * Oe.renderer.characterWidth * 0.5 + "px;";
+        Ve || (Ve = _e.style.cssText), _e.style.cssText = (ii ? "z-index:100000;" : "") + ($.isIE ? "opacity:0.1;" : "") + "text-indent: -" + (jt + ei) * Oe.renderer.characterWidth * 0.5 + "px;";
         var gi = Oe.container.getBoundingClientRect(), fi = re.computedStyle(Oe.container), pi = gi.top + (parseInt(fi.borderTopWidth) || 0), bi = gi.left + (parseInt(gi.borderLeftWidth) || 0), xi = gi.bottom - pi - _e.clientHeight - 2, Gi = function(Bi) {
           re.translate(_e, Bi.clientX - bi - 2, Math.min(Bi.clientY - pi - 2, xi));
         };
@@ -41479,16 +41490,16 @@ var ace$2 = { exports: {} };
         var bi = function(xi) {
           if (document.activeElement === gi && !(pi || Fe || ii.$mouseHandler.isMousePressed) && !At) {
             var Gi = gi.selectionStart, Bi = gi.selectionEnd, Oi = null, Zi = 0;
-            if (Gi == 0 ? Oi = de.up : Gi == 1 ? Oi = de.home : Bi > Pt && kt[Bi] == `
-` ? Oi = de.end : Gi < jt && kt[Gi - 1] == " " ? (Oi = de.left, Zi = ue.option) : Gi < jt || Gi == jt && Pt != jt && Gi == Bi ? Oi = de.left : Bi > Pt && kt.slice(0, Bi).split(`
-`).length > 2 ? Oi = de.down : Bi > Pt && kt[Bi - 1] == " " ? (Oi = de.right, Zi = ue.option) : (Bi > Pt || Bi == Pt && Pt != jt && Gi == Bi) && (Oi = de.right), Gi !== Bi && (Zi |= ue.shift), Oi) {
+            if (Gi == 0 ? Oi = de.up : Gi == 1 ? Oi = de.home : Bi > ei && kt[Bi] == `
+` ? Oi = de.end : Gi < jt && kt[Gi - 1] == " " ? (Oi = de.left, Zi = ue.option) : Gi < jt || Gi == jt && ei != jt && Gi == Bi ? Oi = de.left : Bi > ei && kt.slice(0, Bi).split(`
+`).length > 2 ? Oi = de.down : Bi > ei && kt[Bi - 1] == " " ? (Oi = de.right, Zi = ue.option) : (Bi > ei || Bi == ei && ei != jt && Gi == Bi) && (Oi = de.right), Gi !== Bi && (Zi |= ue.shift), Oi) {
               var Wi = ii.onCommandKey({}, Zi, Oi);
               if (!Wi && ii.commands) {
                 Oi = de.keyCodeToString(Oi);
                 var Vi = ii.commands.findKeyCommand(Zi, Oi);
                 Vi && ii.execCommand(Vi);
               }
-              jt = Gi, Pt = Bi, Et("");
+              jt = Gi, ei = Bi, Et("");
             }
           }
         };
@@ -41787,13 +41798,13 @@ var ace$2 = { exports: {} };
         this.editor.unsetStyle("ace_dragging"), this.editor.renderer.setCursorStyle("");
       }, this.onDragEnter = function(wi) {
         if (!(de.getReadOnly() || !ri(wi.dataTransfer)))
-          return ze = wi.clientX, xe = wi.clientY, pe || ti(), $e++, wi.dataTransfer.dropEffect = Fe = Ii(wi), $.preventDefault(wi);
+          return ze = wi.clientX, xe = wi.clientY, pe || ti(), $e++, wi.dataTransfer.dropEffect = Fe = ci(wi), $.preventDefault(wi);
       }, this.onDragOver = function(wi) {
         if (!(de.getReadOnly() || !ri(wi.dataTransfer)))
-          return ze = wi.clientX, xe = wi.clientY, pe || (ti(), $e++), Et !== null && (Et = null), wi.dataTransfer.dropEffect = Fe = Ii(wi), $.preventDefault(wi);
+          return ze = wi.clientX, xe = wi.clientY, pe || (ti(), $e++), Et !== null && (Et = null), wi.dataTransfer.dropEffect = Fe = ci(wi), $.preventDefault(wi);
       }, this.onDragLeave = function(wi) {
         if ($e--, $e <= 0 && pe)
-          return ei(), Fe = null, $.preventDefault(wi);
+          return Pt(), Fe = null, $.preventDefault(wi);
       }, this.onDrop = function(wi) {
         if (At) {
           var ai = wi.dataTransfer;
@@ -41816,12 +41827,12 @@ var ace$2 = { exports: {} };
               end: de.session.insert(At, ui)
             }, de.focus(), Fe = null;
           }
-          return ei(), $.preventDefault(wi);
+          return Pt(), $.preventDefault(wi);
         }
       }, $.addListener(he, "dragstart", this.onDragStart.bind(Ie), de), $.addListener(he, "dragend", this.onDragEnd.bind(Ie), de), $.addListener(he, "dragenter", this.onDragEnter.bind(Ie), de), $.addListener(he, "dragover", this.onDragOver.bind(Ie), de), $.addListener(he, "dragleave", this.onDragLeave.bind(Ie), de), $.addListener(he, "drop", this.onDrop.bind(Ie), de);
       function kt(wi, ai) {
-        var ui = Date.now(), hi = !ai || wi.row != ai.row, ci = !ai || wi.column != ai.column;
-        if (!Dt || hi || ci)
+        var ui = Date.now(), hi = !ai || wi.row != ai.row, Ii = !ai || wi.column != ai.column;
+        if (!Dt || hi || Ii)
           de.moveCursorToPosition(wi), Dt = ui, qe = { x: ze, y: xe };
         else {
           var Ai = le(qe.x, qe.y, ze, xe);
@@ -41829,7 +41840,7 @@ var ace$2 = { exports: {} };
         }
       }
       function jt(wi, ai) {
-        var ui = Date.now(), hi = de.renderer.layerConfig.lineHeight, ci = de.renderer.layerConfig.characterWidth, Ai = de.renderer.scroller.getBoundingClientRect(), yi = {
+        var ui = Date.now(), hi = de.renderer.layerConfig.lineHeight, Ii = de.renderer.layerConfig.characterWidth, Ai = de.renderer.scroller.getBoundingClientRect(), yi = {
           x: {
             left: ze - Ai.left,
             right: Ai.right - ze
@@ -41839,24 +41850,24 @@ var ace$2 = { exports: {} };
             bottom: Ai.bottom - xe
           }
         }, di = Math.min(yi.x.left, yi.x.right), Ci = Math.min(yi.y.top, yi.y.bottom), zi = { row: wi.row, column: wi.column };
-        di / ci <= 2 && (zi.column += yi.x.left < yi.x.right ? -3 : 2), Ci / hi <= 1 && (zi.row += yi.y.top < yi.y.bottom ? -1 : 1);
+        di / Ii <= 2 && (zi.column += yi.x.left < yi.x.right ? -3 : 2), Ci / hi <= 1 && (zi.row += yi.y.top < yi.y.bottom ? -1 : 1);
         var Mi = wi.row != zi.row, Ni = wi.column != zi.column, mi = !ai || wi.row != ai.row;
         Mi || Ni && !mi ? Ve ? ui - Ve >= oe && de.renderer.scrollCursorIntoView(zi) : Ve = ui : Ve = null;
       }
-      function Pt() {
+      function ei() {
         var wi = At;
         At = de.renderer.screenToTextCoordinates(ze, xe), kt(At, wi), jt(At, wi);
       }
       function ti() {
-        _e = de.selection.toOrientedRange(), pe = de.session.addMarker(_e, "ace_selection", de.getSelectionStyle()), de.clearSelection(), de.isFocused() && de.renderer.$cursorLayer.setBlinking(!1), clearInterval(Oe), Pt(), Oe = setInterval(Pt, 20), $e = 0, $.addListener(document, "mousemove", ni);
+        _e = de.selection.toOrientedRange(), pe = de.session.addMarker(_e, "ace_selection", de.getSelectionStyle()), de.clearSelection(), de.isFocused() && de.renderer.$cursorLayer.setBlinking(!1), clearInterval(Oe), ei(), Oe = setInterval(ei, 20), $e = 0, $.addListener(document, "mousemove", ni);
       }
-      function ei() {
+      function Pt() {
         clearInterval(Oe), de.session.removeMarker(pe), pe = null, de.selection.fromOrientedRange(_e), de.isFocused() && !Ue && de.$resetCursorStyle(), _e = null, At = null, $e = 0, Ve = null, Dt = null, $.removeListener(document, "mousemove", ni);
       }
       var Et = null;
       function ni() {
         Et == null && (Et = setTimeout(function() {
-          Et != null && pe && ei();
+          Et != null && pe && Pt();
         }, 20));
       }
       function ri(wi) {
@@ -41865,14 +41876,14 @@ var ace$2 = { exports: {} };
           return ui == "text/plain" || ui == "Text";
         });
       }
-      function Ii(wi) {
-        var ai = ["copy", "copymove", "all", "uninitialized"], ui = ["move", "copymove", "linkmove", "all", "uninitialized"], hi = re.isMac ? wi.altKey : wi.ctrlKey, ci = "uninitialized";
+      function ci(wi) {
+        var ai = ["copy", "copymove", "all", "uninitialized"], ui = ["move", "copymove", "linkmove", "all", "uninitialized"], hi = re.isMac ? wi.altKey : wi.ctrlKey, Ii = "uninitialized";
         try {
-          ci = wi.dataTransfer.effectAllowed.toLowerCase();
+          Ii = wi.dataTransfer.effectAllowed.toLowerCase();
         } catch {
         }
         var Ai = "none";
-        return hi && ai.indexOf(ci) >= 0 ? Ai = "copy" : ui.indexOf(ci) >= 0 ? Ai = "move" : ai.indexOf(ci) >= 0 && (Ai = "copy"), Ai;
+        return hi && ai.indexOf(Ii) >= 0 ? Ai = "copy" : ui.indexOf(Ii) >= 0 ? Ai = "move" : ai.indexOf(Ii) >= 0 && (Ai = "copy"), Ai;
       }
     }
     (function() {
@@ -41932,22 +41943,22 @@ var ace$2 = { exports: {} };
     g.addTouchListeners = function(oe, Ce) {
       var ie = "scroll", ae, le, Ie, de, ue, Ne, he = 0, pe, ze = 0, xe = 0, Oe = 0, _e, At;
       function $e() {
-        var kt = window.navigator && window.navigator.clipboard, jt = !1, Pt = function() {
-          var ei = Ce.getCopyText(), Et = Ce.session.getUndoManager().hasUndo();
+        var kt = window.navigator && window.navigator.clipboard, jt = !1, ei = function() {
+          var Pt = Ce.getCopyText(), Et = Ce.session.getUndoManager().hasUndo();
           At.replaceChild(re.buildDom(jt ? [
             "span",
-            !ei && ["span", { class: "ace_mobile-button", action: "selectall" }, "Select All"],
-            ei && ["span", { class: "ace_mobile-button", action: "copy" }, "Copy"],
-            ei && ["span", { class: "ace_mobile-button", action: "cut" }, "Cut"],
+            !Pt && ["span", { class: "ace_mobile-button", action: "selectall" }, "Select All"],
+            Pt && ["span", { class: "ace_mobile-button", action: "copy" }, "Copy"],
+            Pt && ["span", { class: "ace_mobile-button", action: "cut" }, "Cut"],
             kt && ["span", { class: "ace_mobile-button", action: "paste" }, "Paste"],
             Et && ["span", { class: "ace_mobile-button", action: "undo" }, "Undo"],
             ["span", { class: "ace_mobile-button", action: "find" }, "Find"],
             ["span", { class: "ace_mobile-button", action: "openCommandPallete" }, "Palette"]
           ] : ["span"]), At.firstChild);
-        }, ti = function(ei) {
-          var Et = ei.target.getAttribute("action");
+        }, ti = function(Pt) {
+          var Et = Pt.target.getAttribute("action");
           if (Et == "more" || !jt)
-            return jt = !jt, Pt();
+            return jt = !jt, ei();
           Et == "paste" ? kt.readText().then(function(ni) {
             Ce.execCommand(Et, ni);
           }) : Et && ((Et == "cut" || Et == "copy") && (kt ? kt.writeText(Ce.getCopyText()) : document.execCommand("copy")), Ce.execCommand(Et)), At.firstChild.style.display = "none", jt = !1, Et != "openCommandPallete" && Ce.focus();
@@ -41956,11 +41967,11 @@ var ace$2 = { exports: {} };
           "div",
           {
             class: "ace_mobile-menu",
-            ontouchstart: function(ei) {
-              ie = "menu", ei.stopPropagation(), ei.preventDefault(), Ce.textInput.focus();
+            ontouchstart: function(Pt) {
+              ie = "menu", Pt.stopPropagation(), Pt.preventDefault(), Ce.textInput.focus();
             },
-            ontouchend: function(ei) {
-              ei.stopPropagation(), ei.preventDefault(), ti(ei);
+            ontouchend: function(Pt) {
+              Pt.stopPropagation(), Pt.preventDefault(), ti(Pt);
             },
             onclick: ti
           },
@@ -41970,8 +41981,8 @@ var ace$2 = { exports: {} };
       }
       function Fe() {
         At || $e();
-        var kt = Ce.selection.cursor, jt = Ce.renderer.textToScreenCoordinates(kt.row, kt.column), Pt = Ce.renderer.textToScreenCoordinates(0, 0).pageX, ti = Ce.renderer.scrollLeft, ei = Ce.container.getBoundingClientRect();
-        At.style.top = jt.pageY - ei.top - 3 + "px", jt.pageX - ei.left < ei.width - 70 ? (At.style.left = "", At.style.right = "10px") : (At.style.right = "", At.style.left = Pt + ti - ei.left + "px"), At.style.display = "", At.firstChild.style.display = "none", Ce.on("input", Ue);
+        var kt = Ce.selection.cursor, jt = Ce.renderer.textToScreenCoordinates(kt.row, kt.column), ei = Ce.renderer.textToScreenCoordinates(0, 0).pageX, ti = Ce.renderer.scrollLeft, Pt = Ce.container.getBoundingClientRect();
+        At.style.top = jt.pageY - Pt.top - 3 + "px", jt.pageX - Pt.left < Pt.width - 70 ? (At.style.left = "", At.style.right = "10px") : (At.style.right = "", At.style.left = ei + ti - Pt.left + "px"), At.style.display = "", At.firstChild.style.display = "none", Ce.on("input", Ue);
       }
       function Ue(kt) {
         At && (At.style.display = "none"), Ce.off("input", Ue);
@@ -41998,45 +42009,45 @@ var ace$2 = { exports: {} };
           return;
         }
         _e = Ce.$mouseHandler.isMousePressed = !0;
-        var Pt = Ce.renderer.layerConfig.lineHeight, ti = Ce.renderer.layerConfig.lineHeight, ei = kt.timeStamp;
-        de = ei;
+        var ei = Ce.renderer.layerConfig.lineHeight, ti = Ce.renderer.layerConfig.lineHeight, Pt = kt.timeStamp;
+        de = Pt;
         var Et = jt[0], ni = Et.clientX, ri = Et.clientY;
-        Math.abs(ae - ni) + Math.abs(le - ri) > Pt && (Ie = -1), ae = kt.clientX = ni, le = kt.clientY = ri, xe = Oe = 0;
-        var Ii = new k(kt, Ce);
-        if (pe = Ii.getDocumentPosition(), ei - Ie < 500 && jt.length == 1 && !he)
+        Math.abs(ae - ni) + Math.abs(le - ri) > ei && (Ie = -1), ae = kt.clientX = ni, le = kt.clientY = ri, xe = Oe = 0;
+        var ci = new k(kt, Ce);
+        if (pe = ci.getDocumentPosition(), Pt - Ie < 500 && jt.length == 1 && !he)
           ze++, kt.preventDefault(), kt.button = 0, Dt();
         else {
           ze = 0;
-          var wi = Ce.selection.cursor, ai = Ce.selection.isEmpty() ? wi : Ce.selection.anchor, ui = Ce.renderer.$cursorLayer.getPixelPosition(wi, !0), hi = Ce.renderer.$cursorLayer.getPixelPosition(ai, !0), ci = Ce.renderer.scroller.getBoundingClientRect(), Ai = Ce.renderer.layerConfig.offset, yi = Ce.renderer.scrollLeft, di = function(Mi, Ni) {
-            return Mi = Mi / ti, Ni = Ni / Pt - 0.75, Mi * Mi + Ni * Ni;
+          var wi = Ce.selection.cursor, ai = Ce.selection.isEmpty() ? wi : Ce.selection.anchor, ui = Ce.renderer.$cursorLayer.getPixelPosition(wi, !0), hi = Ce.renderer.$cursorLayer.getPixelPosition(ai, !0), Ii = Ce.renderer.scroller.getBoundingClientRect(), Ai = Ce.renderer.layerConfig.offset, yi = Ce.renderer.scrollLeft, di = function(Mi, Ni) {
+            return Mi = Mi / ti, Ni = Ni / ei - 0.75, Mi * Mi + Ni * Ni;
           };
-          if (kt.clientX < ci.left) {
+          if (kt.clientX < Ii.left) {
             ie = "zoom";
             return;
           }
-          var Ci = di(kt.clientX - ci.left - ui.left + yi, kt.clientY - ci.top - ui.top + Ai), zi = di(kt.clientX - ci.left - hi.left + yi, kt.clientY - ci.top - hi.top + Ai);
+          var Ci = di(kt.clientX - Ii.left - ui.left + yi, kt.clientY - Ii.top - ui.top + Ai), zi = di(kt.clientX - Ii.left - hi.left + yi, kt.clientY - Ii.top - hi.top + Ai);
           Ci < 3.5 && zi < 3.5 && (ie = Ci > zi ? "cursor" : "anchor"), zi < 3.5 ? ie = "anchor" : Ci < 3.5 ? ie = "cursor" : ie = "scroll", ue = setTimeout(Ve, 450);
         }
-        Ie = ei;
+        Ie = Pt;
       }, Ce), $.addListener(oe, "touchend", function(kt) {
         _e = Ce.$mouseHandler.isMousePressed = !1, Ne && clearInterval(Ne), ie == "zoom" ? (ie = "", he = 0) : ue ? (Ce.selection.moveToPosition(pe), he = 0, Fe()) : ie == "scroll" ? (qe(), Ue()) : Fe(), clearTimeout(ue), ue = null;
       }, Ce), $.addListener(oe, "touchmove", function(kt) {
         ue && (clearTimeout(ue), ue = null);
         var jt = kt.touches;
         if (!(jt.length > 1 || ie == "zoom")) {
-          var Pt = jt[0], ti = ae - Pt.clientX, ei = le - Pt.clientY;
+          var ei = jt[0], ti = ae - ei.clientX, Pt = le - ei.clientY;
           if (ie == "wait")
-            if (ti * ti + ei * ei > 4)
+            if (ti * ti + Pt * Pt > 4)
               ie = "cursor";
             else
               return kt.preventDefault();
-          ae = Pt.clientX, le = Pt.clientY, kt.clientX = Pt.clientX, kt.clientY = Pt.clientY;
+          ae = ei.clientX, le = ei.clientY, kt.clientX = ei.clientX, kt.clientY = ei.clientY;
           var Et = kt.timeStamp, ni = Et - de;
           if (de = Et, ie == "scroll") {
             var ri = new k(kt, Ce);
-            ri.speed = 1, ri.wheelX = ti, ri.wheelY = ei, 10 * Math.abs(ti) < Math.abs(ei) && (ti = 0), 10 * Math.abs(ei) < Math.abs(ti) && (ei = 0), ni != 0 && (xe = ti / ni, Oe = ei / ni), Ce._emit("mousewheel", ri), ri.propagationStopped || (xe = Oe = 0);
+            ri.speed = 1, ri.wheelX = ti, ri.wheelY = Pt, 10 * Math.abs(ti) < Math.abs(Pt) && (ti = 0), 10 * Math.abs(Pt) < Math.abs(ti) && (Pt = 0), ni != 0 && (xe = ti / ni, Oe = Pt / ni), Ce._emit("mousewheel", ri), ri.propagationStopped || (xe = Oe = 0);
           } else {
-            var Ii = new k(kt, Ce), wi = Ii.getDocumentPosition();
+            var ci = new k(kt, Ce), wi = ci.getDocumentPosition();
             ie == "cursor" ? Ce.selection.moveCursorToPosition(wi) : ie == "anchor" && Ce.selection.setSelectionAnchor(wi.row, wi.column), Ce.renderer.scrollCursorIntoView(wi), kt.preventDefault();
           }
         }
@@ -42205,35 +42216,35 @@ var ace$2 = { exports: {} };
       [2, 0, 1, 1, 0, 2, 0],
       [2, 0, 2, 1, 3, 2, 0],
       [2, 0, 2, 33, 3, 1, 1]
-    ], le = 0, Ie = 1, de = 0, ue = 1, Ne = 2, he = 3, pe = 4, ze = 5, xe = 6, Oe = 7, _e = 8, At = 9, $e = 10, Fe = 11, Ue = 12, Ve = 13, Dt = 14, qe = 15, kt = 16, jt = 17, Pt = 18, ti = [
-      Pt,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
+    ], le = 0, Ie = 1, de = 0, ue = 1, Ne = 2, he = 3, pe = 4, ze = 5, xe = 6, Oe = 7, _e = 8, At = 9, $e = 10, Fe = 11, Ue = 12, Ve = 13, Dt = 14, qe = 15, kt = 16, jt = 17, ei = 18, ti = [
+      ei,
+      ei,
+      ei,
+      ei,
+      ei,
+      ei,
+      ei,
+      ei,
+      ei,
       xe,
       ze,
       xe,
       _e,
       ze,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
+      ei,
+      ei,
+      ei,
+      ei,
+      ei,
+      ei,
+      ei,
+      ei,
+      ei,
+      ei,
+      ei,
+      ei,
+      ei,
+      ei,
       ze,
       ze,
       ze,
@@ -42333,39 +42344,39 @@ var ace$2 = { exports: {} };
       pe,
       pe,
       pe,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
+      ei,
+      ei,
+      ei,
+      ei,
+      ei,
+      ei,
       ze,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
-      Pt,
+      ei,
+      ei,
+      ei,
+      ei,
+      ei,
+      ei,
+      ei,
+      ei,
+      ei,
+      ei,
+      ei,
+      ei,
+      ei,
+      ei,
+      ei,
+      ei,
+      ei,
+      ei,
+      ei,
+      ei,
+      ei,
+      ei,
+      ei,
+      ei,
+      ei,
+      ei,
       At,
       pe,
       Fe,
@@ -42379,7 +42390,7 @@ var ace$2 = { exports: {} };
       de,
       pe,
       pe,
-      Pt,
+      ei,
       pe,
       pe,
       Fe,
@@ -42398,7 +42409,7 @@ var ace$2 = { exports: {} };
       pe,
       pe,
       pe
-    ], ei = [
+    ], Pt = [
       _e,
       _e,
       _e,
@@ -42410,9 +42421,9 @@ var ace$2 = { exports: {} };
       _e,
       _e,
       _e,
-      Pt,
-      Pt,
-      Pt,
+      ei,
+      ei,
+      ei,
       de,
       ue,
       pe,
@@ -42497,19 +42508,19 @@ var ace$2 = { exports: {} };
       _e
     ];
     function Et(wi, ai, ui, hi) {
-      var ci = k ? ae : ie, Ai = null, yi = null, di = null, Ci = 0, zi = null, Mi = null, Ni = -1, mi = null, Si = null, Ti = [];
+      var Ii = k ? ae : ie, Ai = null, yi = null, di = null, Ci = 0, zi = null, Mi = null, Ni = -1, mi = null, Si = null, Ti = [];
       if (!hi)
         for (mi = 0, hi = []; mi < ui; mi++)
-          hi[mi] = Ii(wi[mi]);
+          hi[mi] = ci(wi[mi]);
       for ($ = k, re = !1, oe = !1, Ce = !1, Si = 0; Si < ui; Si++) {
-        if (Ai = Ci, Ti[Si] = yi = ri(wi, hi, Ti, Si), Ci = ci[Ai][yi], zi = Ci & 240, Ci &= 15, ai[Si] = di = ci[Ci][5], zi > 0)
+        if (Ai = Ci, Ti[Si] = yi = ri(wi, hi, Ti, Si), Ci = Ii[Ai][yi], zi = Ci & 240, Ci &= 15, ai[Si] = di = Ii[Ci][5], zi > 0)
           if (zi == 16) {
             for (mi = Ni; mi < Si; mi++)
               ai[mi] = 1;
             Ni = -1;
           } else
             Ni = -1;
-        if (Mi = ci[Ci][6], Mi)
+        if (Mi = Ii[Ci][6], Mi)
           Ni == -1 && (Ni = Si);
         else if (Ni > -1) {
           for (mi = Ni; mi < Si; mi++)
@@ -42533,27 +42544,27 @@ var ace$2 = { exports: {} };
           ui.reverse();
           return;
         }
-        for (var hi = ui.length, ci = 0, Ai, yi, di, Ci; ci < hi; ) {
-          if (ai[ci] >= wi) {
-            for (Ai = ci + 1; Ai < hi && ai[Ai] >= wi; )
+        for (var hi = ui.length, Ii = 0, Ai, yi, di, Ci; Ii < hi; ) {
+          if (ai[Ii] >= wi) {
+            for (Ai = Ii + 1; Ai < hi && ai[Ai] >= wi; )
               Ai++;
-            for (yi = ci, di = Ai - 1; yi < di; yi++, di--)
+            for (yi = Ii, di = Ai - 1; yi < di; yi++, di--)
               Ci = ui[yi], ui[yi] = ui[di], ui[di] = Ci;
-            ci = Ai;
+            Ii = Ai;
           }
-          ci++;
+          Ii++;
         }
       }
     }
     function ri(wi, ai, ui, hi) {
-      var ci = ai[hi], Ai, yi, di, Ci;
-      switch (ci) {
+      var Ii = ai[hi], Ai, yi, di, Ci;
+      switch (Ii) {
         case de:
         case ue:
           re = !1;
         case pe:
         case he:
-          return ci;
+          return Ii;
         case Ne:
           return re ? he : Ne;
         case Oe:
@@ -42591,31 +42602,31 @@ var ace$2 = { exports: {} };
         case jt:
         case qe:
           re = !1;
-        case Pt:
+        case ei:
           return pe;
       }
     }
-    function Ii(wi) {
+    function ci(wi) {
       var ai = wi.charCodeAt(0), ui = ai >> 8;
-      return ui == 0 ? ai > 191 ? de : ti[ai] : ui == 5 ? /[\u0591-\u05f4]/.test(wi) ? ue : de : ui == 6 ? /[\u0610-\u061a\u064b-\u065f\u06d6-\u06e4\u06e7-\u06ed]/.test(wi) ? Ue : /[\u0660-\u0669\u066b-\u066c]/.test(wi) ? he : ai == 1642 ? Fe : /[\u06f0-\u06f9]/.test(wi) ? Ne : Oe : ui == 32 && ai <= 8287 ? ei[ai & 255] : ui == 254 && ai >= 65136 ? Oe : pe;
+      return ui == 0 ? ai > 191 ? de : ti[ai] : ui == 5 ? /[\u0591-\u05f4]/.test(wi) ? ue : de : ui == 6 ? /[\u0610-\u061a\u064b-\u065f\u06d6-\u06e4\u06e7-\u06ed]/.test(wi) ? Ue : /[\u0660-\u0669\u066b-\u066c]/.test(wi) ? he : ai == 1642 ? Fe : /[\u06f0-\u06f9]/.test(wi) ? Ne : Oe : ui == 32 && ai <= 8287 ? Pt[ai & 255] : ui == 254 && ai >= 65136 ? Oe : pe;
     }
     g.L = de, g.R = ue, g.EN = Ne, g.ON_R = 3, g.AN = 4, g.R_H = 5, g.B = 6, g.RLE = 7, g.DOT = "·", g.doBidiReorder = function(wi, ai, ui) {
       if (wi.length < 2)
         return {};
-      var hi = wi.split(""), ci = new Array(hi.length), Ai = new Array(hi.length), yi = [];
+      var hi = wi.split(""), Ii = new Array(hi.length), Ai = new Array(hi.length), yi = [];
       k = ui ? Ie : le, Et(hi, yi, hi.length, ai);
-      for (var di = 0; di < ci.length; ci[di] = di, di++)
+      for (var di = 0; di < Ii.length; Ii[di] = di, di++)
         ;
-      ni(2, yi, ci), ni(1, yi, ci);
-      for (var di = 0; di < ci.length - 1; di++)
-        ai[di] === he ? yi[di] = g.AN : yi[di] === ue && (ai[di] > Oe && ai[di] < Ve || ai[di] === pe || ai[di] === Pt) ? yi[di] = g.ON_R : di > 0 && hi[di - 1] === "ل" && /\u0622|\u0623|\u0625|\u0627/.test(hi[di]) && (yi[di - 1] = yi[di] = g.R_H, di++);
+      ni(2, yi, Ii), ni(1, yi, Ii);
+      for (var di = 0; di < Ii.length - 1; di++)
+        ai[di] === he ? yi[di] = g.AN : yi[di] === ue && (ai[di] > Oe && ai[di] < Ve || ai[di] === pe || ai[di] === ei) ? yi[di] = g.ON_R : di > 0 && hi[di - 1] === "ل" && /\u0622|\u0623|\u0625|\u0627/.test(hi[di]) && (yi[di - 1] = yi[di] = g.R_H, di++);
       hi[hi.length - 1] === g.DOT && (yi[hi.length - 1] = g.B), hi[0] === "‫" && (yi[0] = g.RLE);
-      for (var di = 0; di < ci.length; di++)
-        Ai[di] = yi[ci[di]];
-      return { logicalFromVisual: ci, bidiLevels: Ai };
+      for (var di = 0; di < Ii.length; di++)
+        Ai[di] = yi[Ii[di]];
+      return { logicalFromVisual: Ii, bidiLevels: Ai };
     }, g.hasBidiCharacters = function(wi, ai) {
       for (var ui = !1, hi = 0; hi < wi.length; hi++)
-        ai[hi] = Ii(wi.charAt(hi)), !ui && (ai[hi] == ue || ai[hi] == Oe || ai[hi] == he) && (ui = !0);
+        ai[hi] = ci(wi.charAt(hi)), !ui && (ai[hi] == ue || ai[hi] == Oe || ai[hi] == he) && (ui = !0);
       return ui;
     }, g.getVisualFromLogicalIdx = function(wi, ai) {
       for (var ui = 0; ui < ai.logicalFromVisual.length; ui++)
@@ -43353,12 +43364,12 @@ var ace$2 = { exports: {} };
             Ne.clearMaybeInsertedClosing();
             return;
           }
-          var Pt = jt + Oe.getTabString();
+          var ei = jt + Oe.getTabString();
           return {
             text: `
-` + Pt + `
+` + ei + `
 ` + jt + qe,
-            selection: [1, Pt.length, 1, Pt.length]
+            selection: [1, ei.length, 1, ei.length]
           };
         } else
           Ne.clearMaybeInsertedClosing();
@@ -43443,21 +43454,21 @@ var ace$2 = { exports: {} };
           if (Ue !== "" && (Ue.length != 1 || !At[Ue]) && xe.getWrapBehavioursEnabled())
             return ue(Fe, Ue, $e, $e);
           if (!Ue) {
-            var Ve = xe.getCursorPosition(), Dt = Oe.doc.getLine(Ve.row), qe = Dt.substring(Ve.column - 1, Ve.column), kt = Dt.substring(Ve.column, Ve.column + 1), jt = Oe.getTokenAt(Ve.row, Ve.column), Pt = Oe.getTokenAt(Ve.row, Ve.column + 1);
+            var Ve = xe.getCursorPosition(), Dt = Oe.doc.getLine(Ve.row), qe = Dt.substring(Ve.column - 1, Ve.column), kt = Dt.substring(Ve.column, Ve.column + 1), jt = Oe.getTokenAt(Ve.row, Ve.column), ei = Oe.getTokenAt(Ve.row, Ve.column + 1);
             if (qe == "\\" && jt && /escape/.test(jt.type))
               return null;
-            var ti = jt && /string|escape/.test(jt.type), ei = !Pt || /string|escape/.test(Pt.type), Et;
+            var ti = jt && /string|escape/.test(jt.type), Pt = !ei || /string|escape/.test(ei.type), Et;
             if (kt == $e)
-              Et = ti !== ei, Et && /string\.end/.test(Pt.type) && (Et = !1);
+              Et = ti !== Pt, Et && /string\.end/.test(ei.type) && (Et = !1);
             else {
-              if (ti && !ei || ti && ei)
+              if (ti && !Pt || ti && Pt)
                 return null;
               var ni = Oe.$mode.tokenRe;
               ni.lastIndex = 0;
               var ri = ni.test(qe);
               ni.lastIndex = 0;
-              var Ii = ni.test(qe);
-              if (ri || Ii || kt && !/[\s;,.})\]\\]/.test(kt))
+              var ci = ni.test(qe);
+              if (ri || ci || kt && !/[\s;,.})\]\\]/.test(kt))
                 return null;
               var wi = Dt[Ve.column - 2];
               if (qe == $e && (wi == $e || ni.test(wi)))
@@ -43526,22 +43537,22 @@ var ace$2 = { exports: {} };
           else
             var Ue = ie.escapeRegExp(this.lineCommentStart), $e = this.lineCommentStart;
           Ue = new RegExp("^(\\s*)(?:" + Ue + ") ?"), At = ue.getUseSoftTabs();
-          var qe = function(Ii, wi) {
-            var ai = Ii.match(Ue);
+          var qe = function(ci, wi) {
+            var ai = ci.match(Ue);
             if (ai) {
               var ui = ai[1].length, hi = ai[0].length;
-              !Pt(Ii, ui, hi) && ai[0][hi - 1] == " " && hi--, pe.removeInLine(wi, ui, hi);
+              !ei(ci, ui, hi) && ai[0][hi - 1] == " " && hi--, pe.removeInLine(wi, ui, hi);
             }
-          }, jt = $e + " ", Dt = function(Ii, wi) {
-            (!ze || /\S/.test(Ii)) && (Pt(Ii, Oe, Oe) ? pe.insertInLine({ row: wi, column: Oe }, jt) : pe.insertInLine({ row: wi, column: Oe }, $e));
-          }, kt = function(Ii, wi) {
-            return Ue.test(Ii);
-          }, Pt = function(Ii, wi, ai) {
-            for (var ui = 0; wi-- && Ii.charAt(wi) == " "; )
+          }, jt = $e + " ", Dt = function(ci, wi) {
+            (!ze || /\S/.test(ci)) && (ei(ci, Oe, Oe) ? pe.insertInLine({ row: wi, column: Oe }, jt) : pe.insertInLine({ row: wi, column: Oe }, $e));
+          }, kt = function(ci, wi) {
+            return Ue.test(ci);
+          }, ei = function(ci, wi, ai) {
+            for (var ui = 0; wi-- && ci.charAt(wi) == " "; )
               ui++;
             if (ui % _e != 0)
               return !1;
-            for (var ui = 0; Ii.charAt(ai++) == " "; )
+            for (var ui = 0; ci.charAt(ai++) == " "; )
               ui++;
             return _e > 2 ? ui % _e != _e - 1 : ui % _e == 0;
           };
@@ -43556,8 +43567,8 @@ var ace$2 = { exports: {} };
           }, kt = function(Et, ni) {
             if (Ue.test(Et))
               return !0;
-            for (var ri = ue.getTokens(ni), Ii = 0; Ii < ri.length; Ii++)
-              if (ri[Ii].type === "comment")
+            for (var ri = ue.getTokens(ni), ci = 0; ci < ri.length; ci++)
+              if (ri[ci].type === "comment")
                 return !0;
           };
         }
@@ -43565,11 +43576,11 @@ var ace$2 = { exports: {} };
           for (var ni = Ne; ni <= he; ni++)
             Et(pe.getLine(ni), ni);
         }
-        var ei = 1 / 0;
+        var Pt = 1 / 0;
         ti(function(Et, ni) {
           var ri = Et.search(/\S/);
-          ri !== -1 ? (ri < Oe && (Oe = ri), xe && !kt(Et, ni) && (xe = !1)) : ei > Et.length && (ei = Et.length);
-        }), Oe == 1 / 0 && (Oe = ei, ze = !1, xe = !1), At && Oe % _e != 0 && (Oe = Math.floor(Oe / _e) * _e), ti(xe ? qe : Dt);
+          ri !== -1 ? (ri < Oe && (Oe = ri), xe && !kt(Et, ni) && (xe = !1)) : Pt > Et.length && (Pt = Et.length);
+        }), Oe == 1 / 0 && (Oe = Pt, ze = !1, xe = !1), At && Oe % _e != 0 && (Oe = Math.floor(Oe / _e) * _e), ti(xe ? qe : Dt);
       }, this.toggleBlockComment = function(de, ue, Ne, he) {
         var pe = this.blockComment;
         if (pe) {
@@ -45070,9 +45081,9 @@ var ace$2 = { exports: {} };
           while (jt >= 0 && Dt.charAt(jt).match(kt));
           jt++;
         }
-        for (var Pt = Ve; Pt < Dt.length && Dt.charAt(Pt).match(kt); )
-          Pt++;
-        return new le(Ue, jt, Ue, Pt);
+        for (var ei = Ve; ei < Dt.length && Dt.charAt(ei).match(kt); )
+          ei++;
+        return new le(Ue, jt, Ue, ei);
       }, this.getAWordRange = function(Ue, Ve) {
         for (var Dt = this.getWordRange(Ue, Ve), qe = this.getLine(Dt.end.row); qe.charAt(Dt.end.column).match(/[ \t]/); )
           Dt.end.column += 1;
@@ -45146,13 +45157,13 @@ var ace$2 = { exports: {} };
         if (this.$modified || Ue) {
           if (this.$modified = !1, this.$useWrapMode)
             return this.screenWidth = this.$wrapLimit;
-          for (var Ve = this.doc.getAllLines(), Dt = this.$rowLengthCache, qe = 0, kt = 0, jt = this.$foldData[kt], Pt = jt ? jt.start.row : 1 / 0, ti = Ve.length, ei = 0; ei < ti; ei++) {
-            if (ei > Pt) {
-              if (ei = jt.end.row + 1, ei >= ti)
+          for (var Ve = this.doc.getAllLines(), Dt = this.$rowLengthCache, qe = 0, kt = 0, jt = this.$foldData[kt], ei = jt ? jt.start.row : 1 / 0, ti = Ve.length, Pt = 0; Pt < ti; Pt++) {
+            if (Pt > ei) {
+              if (Pt = jt.end.row + 1, Pt >= ti)
                 break;
-              jt = this.$foldData[kt++], Pt = jt ? jt.start.row : 1 / 0;
+              jt = this.$foldData[kt++], ei = jt ? jt.start.row : 1 / 0;
             }
-            Dt[ei] == null && (Dt[ei] = this.$getStringScreenWidth(Ve[ei])[0]), Dt[ei] > qe && (qe = Dt[ei]);
+            Dt[Pt] == null && (Dt[Pt] = this.$getStringScreenWidth(Ve[Pt])[0]), Dt[Pt] > qe && (qe = Dt[Pt]);
           }
           this.screenWidth = qe;
         }
@@ -45195,13 +45206,13 @@ var ace$2 = { exports: {} };
           return Ve ? ti.action !== "insert" : ti.action === "insert";
         }
         for (var qe, kt, jt = 0; jt < Ue.length; jt++) {
-          var Pt = Ue[jt];
-          if (Pt.start) {
+          var ei = Ue[jt];
+          if (ei.start) {
             if (!qe) {
-              Dt(Pt) ? qe = le.fromPoints(Pt.start, Pt.end) : qe = le.fromPoints(Pt.start, Pt.start);
+              Dt(ei) ? qe = le.fromPoints(ei.start, ei.end) : qe = le.fromPoints(ei.start, ei.start);
               continue;
             }
-            Dt(Pt) ? (kt = Pt.start, qe.compare(kt.row, kt.column) == -1 && qe.setStart(kt), kt = Pt.end, qe.compare(kt.row, kt.column) == 1 && qe.setEnd(kt)) : (kt = Pt.start, qe.compare(kt.row, kt.column) == -1 && (qe = le.fromPoints(Pt.start, Pt.start)));
+            Dt(ei) ? (kt = ei.start, qe.compare(kt.row, kt.column) == -1 && qe.setStart(kt), kt = ei.end, qe.compare(kt.row, kt.column) == 1 && qe.setEnd(kt)) : (kt = ei.start, qe.compare(kt.row, kt.column) == -1 && (qe = le.fromPoints(ei.start, ei.start)));
           }
         }
         return qe;
@@ -45211,13 +45222,13 @@ var ace$2 = { exports: {} };
         var qe = this.getTextRange(Ue), kt = this.getFoldsInRange(Ue), jt = le.fromPoints(Ve, Ve);
         if (!Dt) {
           this.remove(Ue);
-          var Pt = Ue.start.row - Ue.end.row, ti = Pt ? -Ue.end.column : Ue.start.column - Ue.end.column;
-          ti && (jt.start.row == Ue.end.row && jt.start.column > Ue.end.column && (jt.start.column += ti), jt.end.row == Ue.end.row && jt.end.column > Ue.end.column && (jt.end.column += ti)), Pt && jt.start.row >= Ue.end.row && (jt.start.row += Pt, jt.end.row += Pt);
+          var ei = Ue.start.row - Ue.end.row, ti = ei ? -Ue.end.column : Ue.start.column - Ue.end.column;
+          ti && (jt.start.row == Ue.end.row && jt.start.column > Ue.end.column && (jt.start.column += ti), jt.end.row == Ue.end.row && jt.end.column > Ue.end.column && (jt.end.column += ti)), ei && jt.start.row >= Ue.end.row && (jt.start.row += ei, jt.end.row += ei);
         }
         if (jt.end = this.insert(jt.start, qe), kt.length) {
-          var ei = Ue.start, Et = jt.start, Pt = Et.row - ei.row, ti = Et.column - ei.column;
-          this.addFolds(kt.map(function(Ii) {
-            return Ii = Ii.clone(), Ii.start.row == ei.row && (Ii.start.column += ti), Ii.end.row == ei.row && (Ii.end.column += ti), Ii.start.row += Pt, Ii.end.row += Pt, Ii;
+          var Pt = Ue.start, Et = jt.start, ei = Et.row - Pt.row, ti = Et.column - Pt.column;
+          this.addFolds(kt.map(function(ci) {
+            return ci = ci.clone(), ci.start.row == Pt.row && (ci.start.column += ti), ci.end.row == Pt.row && (ci.end.column += ti), ci.start.row += ei, ci.end.row += ei, ci;
           }));
         }
         return jt;
@@ -45229,9 +45240,9 @@ var ace$2 = { exports: {} };
         for (var Ve = Ue.collapseRows(), Dt = new le(0, 0, 0, 0), qe = this.getTabSize(), kt = Ve.start.row; kt <= Ve.end.row; ++kt) {
           var jt = this.getLine(kt);
           Dt.start.row = kt, Dt.end.row = kt;
-          for (var Pt = 0; Pt < qe && jt.charAt(Pt) == " "; ++Pt)
+          for (var ei = 0; ei < qe && jt.charAt(ei) == " "; ++ei)
             ;
-          Pt < qe && jt.charAt(Pt) == "	" ? (Dt.start.column = Pt, Dt.end.column = Pt + 1) : (Dt.start.column = 0, Dt.end.column = Pt), this.remove(Dt);
+          ei < qe && jt.charAt(ei) == "	" ? (Dt.start.column = ei, Dt.end.column = ei + 1) : (Dt.start.column = 0, Dt.end.column = ei), this.remove(Dt);
         }
       }, this.$moveLines = function(Ue, Ve, Dt) {
         if (Ue = this.getRowFoldStart(Ue), Ve = this.getRowFoldEnd(Ve), Dt < 0) {
@@ -45248,10 +45259,10 @@ var ace$2 = { exports: {} };
           Ue = this.$clipRowToDocument(Ue), Ve = this.$clipRowToDocument(Ve);
           var kt = Ve - Ue + 1;
         }
-        var jt = new le(Ue, 0, Ve, Number.MAX_VALUE), Pt = this.getFoldsInRange(jt).map(function(ei) {
-          return ei = ei.clone(), ei.start.row += kt, ei.end.row += kt, ei;
+        var jt = new le(Ue, 0, Ve, Number.MAX_VALUE), ei = this.getFoldsInRange(jt).map(function(Pt) {
+          return Pt = Pt.clone(), Pt.start.row += kt, Pt.end.row += kt, Pt;
         }), ti = Dt == 0 ? this.doc.getLines(Ue, Ve) : this.doc.removeFullLines(Ue, Ve);
-        return this.doc.insertFullLines(Ue + kt, ti), Pt.length && this.addFolds(Pt), kt;
+        return this.doc.insertFullLines(Ue + kt, ti), ei.length && this.addFolds(ei), kt;
       }, this.moveLinesUp = function(Ue, Ve) {
         return this.$moveLines(Ue, Ve, -1);
       }, this.moveLinesDown = function(Ue, Ve) {
@@ -45309,23 +45320,23 @@ var ace$2 = { exports: {} };
           max: this.$wrapLimitRange.max
         };
       }, this.$updateInternalDataOnChange = function(Ue) {
-        var Ve = this.$useWrapMode, Dt = Ue.action, qe = Ue.start, kt = Ue.end, jt = qe.row, Pt = kt.row, ti = Pt - jt, ei = null;
+        var Ve = this.$useWrapMode, Dt = Ue.action, qe = Ue.start, kt = Ue.end, jt = qe.row, ei = kt.row, ti = ei - jt, Pt = null;
         if (this.$updating = !0, ti != 0)
           if (Dt === "remove") {
             this[Ve ? "$wrapData" : "$rowLengthCache"].splice(jt, ti);
             var Et = this.$foldData;
-            ei = this.getFoldsInRange(Ue), this.removeFolds(ei);
+            Pt = this.getFoldsInRange(Ue), this.removeFolds(Pt);
             var ni = this.getFoldLine(kt.row), ri = 0;
             if (ni) {
               ni.addRemoveChars(kt.row, kt.column, qe.column - kt.column), ni.shiftRow(-ti);
-              var Ii = this.getFoldLine(jt);
-              Ii && Ii !== ni && (Ii.merge(ni), ni = Ii), ri = Et.indexOf(ni) + 1;
+              var ci = this.getFoldLine(jt);
+              ci && ci !== ni && (ci.merge(ni), ni = ci), ri = Et.indexOf(ni) + 1;
             }
             for (ri; ri < Et.length; ri++) {
               var ni = Et[ri];
               ni.start.row >= kt.row && ni.shiftRow(-ti);
             }
-            Pt = jt;
+            ei = jt;
           } else {
             var wi = Array(ti);
             wi.unshift(jt, 0);
@@ -45334,7 +45345,7 @@ var ace$2 = { exports: {} };
             var Et = this.$foldData, ni = this.getFoldLine(jt), ri = 0;
             if (ni) {
               var ui = ni.range.compareInside(qe.row, qe.column);
-              ui == 0 ? (ni = ni.split(qe.row, qe.column), ni && (ni.shiftRow(ti), ni.addRemoveChars(Pt, 0, kt.column - qe.column))) : ui == -1 && (ni.addRemoveChars(jt, 0, kt.column - qe.column), ni.shiftRow(ti)), ri = Et.indexOf(ni) + 1;
+              ui == 0 ? (ni = ni.split(qe.row, qe.column), ni && (ni.shiftRow(ti), ni.addRemoveChars(ei, 0, kt.column - qe.column))) : ui == -1 && (ni.addRemoveChars(jt, 0, kt.column - qe.column), ni.shiftRow(ti)), ri = Et.indexOf(ni) + 1;
             }
             for (ri; ri < Et.length; ri++) {
               var ni = Et[ri];
@@ -45342,60 +45353,60 @@ var ace$2 = { exports: {} };
             }
           }
         else {
-          ti = Math.abs(Ue.start.column - Ue.end.column), Dt === "remove" && (ei = this.getFoldsInRange(Ue), this.removeFolds(ei), ti = -ti);
+          ti = Math.abs(Ue.start.column - Ue.end.column), Dt === "remove" && (Pt = this.getFoldsInRange(Ue), this.removeFolds(Pt), ti = -ti);
           var ni = this.getFoldLine(jt);
           ni && ni.addRemoveChars(jt, qe.column, ti);
         }
-        return Ve && this.$wrapData.length != this.doc.getLength() && console.error("doc.getLength() and $wrapData.length have to be the same!"), this.$updating = !1, Ve ? this.$updateWrapData(jt, Pt) : this.$updateRowLengthCache(jt, Pt), ei;
+        return Ve && this.$wrapData.length != this.doc.getLength() && console.error("doc.getLength() and $wrapData.length have to be the same!"), this.$updating = !1, Ve ? this.$updateWrapData(jt, ei) : this.$updateRowLengthCache(jt, ei), Pt;
       }, this.$updateRowLengthCache = function(Ue, Ve, Dt) {
         this.$rowLengthCache[Ue] = null, this.$rowLengthCache[Ve] = null;
       }, this.$updateWrapData = function(Ue, Ve) {
-        var Dt = this.doc.getAllLines(), qe = this.getTabSize(), kt = this.$wrapData, jt = this.$wrapLimit, Pt, ti, ei = Ue;
-        for (Ve = Math.min(Ve, Dt.length - 1); ei <= Ve; )
-          ti = this.getFoldLine(ei, ti), ti ? (Pt = [], ti.walk(function(Et, ni, ri, Ii) {
+        var Dt = this.doc.getAllLines(), qe = this.getTabSize(), kt = this.$wrapData, jt = this.$wrapLimit, ei, ti, Pt = Ue;
+        for (Ve = Math.min(Ve, Dt.length - 1); Pt <= Ve; )
+          ti = this.getFoldLine(Pt, ti), ti ? (ei = [], ti.walk(function(Et, ni, ri, ci) {
             var wi;
             if (Et != null) {
-              wi = this.$getDisplayTokens(Et, Pt.length), wi[0] = ze;
+              wi = this.$getDisplayTokens(Et, ei.length), wi[0] = ze;
               for (var ai = 1; ai < wi.length; ai++)
                 wi[ai] = xe;
             } else
-              wi = this.$getDisplayTokens(Dt[ni].substring(Ii, ri), Pt.length);
-            Pt = Pt.concat(wi);
-          }.bind(this), ti.end.row, Dt[ti.end.row].length + 1), kt[ti.start.row] = this.$computeWrapSplits(Pt, jt, qe), ei = ti.end.row + 1) : (Pt = this.$getDisplayTokens(Dt[ei]), kt[ei] = this.$computeWrapSplits(Pt, jt, qe), ei++);
+              wi = this.$getDisplayTokens(Dt[ni].substring(ci, ri), ei.length);
+            ei = ei.concat(wi);
+          }.bind(this), ti.end.row, Dt[ti.end.row].length + 1), kt[ti.start.row] = this.$computeWrapSplits(ei, jt, qe), Pt = ti.end.row + 1) : (ei = this.$getDisplayTokens(Dt[Pt]), kt[Pt] = this.$computeWrapSplits(ei, jt, qe), Pt++);
       };
       var he = 1, pe = 2, ze = 3, xe = 4, Oe = 9, _e = 10, At = 11, $e = 12;
       this.$computeWrapSplits = function(Ue, Ve, Dt) {
         if (Ue.length == 0)
           return [];
-        var qe = [], kt = Ue.length, jt = 0, Pt = 0, ti = this.$wrapAsCode, ei = this.$indentedSoftWrap, Et = Ve <= Math.max(2 * Dt, 8) || ei === !1 ? 0 : Math.floor(Ve / 2);
+        var qe = [], kt = Ue.length, jt = 0, ei = 0, ti = this.$wrapAsCode, Pt = this.$indentedSoftWrap, Et = Ve <= Math.max(2 * Dt, 8) || Pt === !1 ? 0 : Math.floor(Ve / 2);
         function ni() {
           var ui = 0;
           if (Et === 0)
             return ui;
-          if (ei)
+          if (Pt)
             for (var hi = 0; hi < Ue.length; hi++) {
-              var ci = Ue[hi];
-              if (ci == _e)
+              var Ii = Ue[hi];
+              if (Ii == _e)
                 ui += 1;
-              else if (ci == At)
+              else if (Ii == At)
                 ui += Dt;
               else {
-                if (ci == $e)
+                if (Ii == $e)
                   continue;
                 break;
               }
             }
-          return ti && ei !== !1 && (ui += Dt), Math.min(ui, Et);
+          return ti && Pt !== !1 && (ui += Dt), Math.min(ui, Et);
         }
         function ri(ui) {
-          for (var hi = ui - jt, ci = jt; ci < ui; ci++) {
-            var Ai = Ue[ci];
+          for (var hi = ui - jt, Ii = jt; Ii < ui; Ii++) {
+            var Ai = Ue[Ii];
             (Ai === 12 || Ai === 2) && (hi -= 1);
           }
-          qe.length || (Ii = ni(), qe.indent = Ii), Pt += hi, qe.push(Pt), jt = ui;
+          qe.length || (ci = ni(), qe.indent = ci), ei += hi, qe.push(ei), jt = ui;
         }
-        for (var Ii = 0; kt - jt > Ve - Ii; ) {
-          var wi = jt + Ve - Ii;
+        for (var ci = 0; kt - jt > Ve - ci; ) {
+          var wi = jt + Ve - ci;
           if (Ue[wi - 1] >= _e && Ue[wi] >= _e) {
             ri(wi);
             continue;
@@ -45428,7 +45439,7 @@ var ace$2 = { exports: {} };
             ri(++wi);
             continue;
           }
-          wi = jt + Ve, Ue[wi] == pe && wi--, ri(wi - Ii);
+          wi = jt + Ve, Ue[wi] == pe && wi--, ri(wi - ci);
         }
         return qe;
       }, this.$getDisplayTokens = function(Ue, Ve) {
@@ -45438,7 +45449,7 @@ var ace$2 = { exports: {} };
           var jt = Ue.charCodeAt(kt);
           if (jt == 9) {
             qe = this.getScreenTabSize(Dt.length + Ve), Dt.push(At);
-            for (var Pt = 1; Pt < qe; Pt++)
+            for (var ei = 1; ei < qe; ei++)
               Dt.push($e);
           } else
             jt == 32 ? Dt.push(_e) : jt > 39 && jt < 48 || jt > 57 && jt < 64 ? Dt.push(Oe) : jt >= 4352 && Fe(jt) ? Dt.push(he, pe) : Dt.push(he);
@@ -45484,29 +45495,29 @@ var ace$2 = { exports: {} };
       }, this.screenToDocumentPosition = function(Ue, Ve, Dt) {
         if (Ue < 0)
           return { row: 0, column: 0 };
-        var qe, kt = 0, jt = 0, Pt, ti = 0, ei = 0, Et = this.$screenRowCache, ni = this.$getRowCacheIndex(Et, Ue), ri = Et.length;
+        var qe, kt = 0, jt = 0, ei, ti = 0, Pt = 0, Et = this.$screenRowCache, ni = this.$getRowCacheIndex(Et, Ue), ri = Et.length;
         if (ri && ni >= 0)
-          var ti = Et[ni], kt = this.$docRowCache[ni], Ii = Ue > Et[ri - 1];
+          var ti = Et[ni], kt = this.$docRowCache[ni], ci = Ue > Et[ri - 1];
         else
-          var Ii = !ri;
-        for (var wi = this.getLength() - 1, ai = this.getNextFoldLine(kt), ui = ai ? ai.start.row : 1 / 0; ti <= Ue && (ei = this.getRowLength(kt), !(ti + ei > Ue || kt >= wi)); )
-          ti += ei, kt++, kt > ui && (kt = ai.end.row + 1, ai = this.getNextFoldLine(kt, ai), ui = ai ? ai.start.row : 1 / 0), Ii && (this.$docRowCache.push(kt), this.$screenRowCache.push(ti));
+          var ci = !ri;
+        for (var wi = this.getLength() - 1, ai = this.getNextFoldLine(kt), ui = ai ? ai.start.row : 1 / 0; ti <= Ue && (Pt = this.getRowLength(kt), !(ti + Pt > Ue || kt >= wi)); )
+          ti += Pt, kt++, kt > ui && (kt = ai.end.row + 1, ai = this.getNextFoldLine(kt, ai), ui = ai ? ai.start.row : 1 / 0), ci && (this.$docRowCache.push(kt), this.$screenRowCache.push(ti));
         if (ai && ai.start.row <= kt)
           qe = this.getFoldDisplayLine(ai), kt = ai.start.row;
         else {
-          if (ti + ei <= Ue || kt > wi)
+          if (ti + Pt <= Ue || kt > wi)
             return {
               row: wi,
               column: this.getLine(wi).length
             };
           qe = this.getLine(kt), ai = null;
         }
-        var hi = 0, ci = Math.floor(Ue - ti);
+        var hi = 0, Ii = Math.floor(Ue - ti);
         if (this.$useWrapMode) {
           var Ai = this.$wrapData[kt];
-          Ai && (Pt = Ai[ci], ci > 0 && Ai.length && (hi = Ai.indent, jt = Ai[ci - 1] || Ai[Ai.length - 1], qe = qe.substring(jt)));
+          Ai && (ei = Ai[Ii], Ii > 0 && Ai.length && (hi = Ai.indent, jt = Ai[Ii - 1] || Ai[Ai.length - 1], qe = qe.substring(jt)));
         }
-        return Dt !== void 0 && this.$bidiHandler.isBidiRow(ti + ci, kt, ci) && (Ve = this.$bidiHandler.offsetToCol(Dt)), jt += this.$getStringScreenWidth(qe, Ve - hi)[1], this.$useWrapMode && jt >= Pt && (jt = Pt - 1), ai ? ai.idxToPosition(jt) : { row: kt, column: jt };
+        return Dt !== void 0 && this.$bidiHandler.isBidiRow(ti + Ii, kt, Ii) && (Ve = this.$bidiHandler.offsetToCol(Dt)), jt += this.$getStringScreenWidth(qe, Ve - hi)[1], this.$useWrapMode && jt >= ei && (jt = ei - 1), ai ? ai.idxToPosition(jt) : { row: kt, column: jt };
       }, this.documentToScreenPosition = function(Ue, Ve) {
         if (typeof Ve > "u")
           var Dt = this.$clipPositionToDocument(Ue.row, Ue.column);
@@ -45515,29 +45526,29 @@ var ace$2 = { exports: {} };
         Ue = Dt.row, Ve = Dt.column;
         var qe = 0, kt = null, jt = null;
         jt = this.getFoldAt(Ue, Ve, 1), jt && (Ue = jt.start.row, Ve = jt.start.column);
-        var Pt, ti = 0, ei = this.$docRowCache, Et = this.$getRowCacheIndex(ei, Ue), ni = ei.length;
+        var ei, ti = 0, Pt = this.$docRowCache, Et = this.$getRowCacheIndex(Pt, Ue), ni = Pt.length;
         if (ni && Et >= 0)
-          var ti = ei[Et], qe = this.$screenRowCache[Et], ri = Ue > ei[ni - 1];
+          var ti = Pt[Et], qe = this.$screenRowCache[Et], ri = Ue > Pt[ni - 1];
         else
           var ri = !ni;
-        for (var Ii = this.getNextFoldLine(ti), wi = Ii ? Ii.start.row : 1 / 0; ti < Ue; ) {
+        for (var ci = this.getNextFoldLine(ti), wi = ci ? ci.start.row : 1 / 0; ti < Ue; ) {
           if (ti >= wi) {
-            if (Pt = Ii.end.row + 1, Pt > Ue)
+            if (ei = ci.end.row + 1, ei > Ue)
               break;
-            Ii = this.getNextFoldLine(Pt, Ii), wi = Ii ? Ii.start.row : 1 / 0;
+            ci = this.getNextFoldLine(ei, ci), wi = ci ? ci.start.row : 1 / 0;
           } else
-            Pt = ti + 1;
-          qe += this.getRowLength(ti), ti = Pt, ri && (this.$docRowCache.push(ti), this.$screenRowCache.push(qe));
+            ei = ti + 1;
+          qe += this.getRowLength(ti), ti = ei, ri && (this.$docRowCache.push(ti), this.$screenRowCache.push(qe));
         }
         var ai = "";
-        Ii && ti >= wi ? (ai = this.getFoldDisplayLine(Ii, Ue, Ve), kt = Ii.start.row) : (ai = this.getLine(Ue).substring(0, Ve), kt = Ue);
+        ci && ti >= wi ? (ai = this.getFoldDisplayLine(ci, Ue, Ve), kt = ci.start.row) : (ai = this.getLine(Ue).substring(0, Ve), kt = Ue);
         var ui = 0;
         if (this.$useWrapMode) {
           var hi = this.$wrapData[kt];
           if (hi) {
-            for (var ci = 0; ai.length >= hi[ci]; )
-              qe++, ci++;
-            ai = ai.substring(hi[ci - 1] || 0, ai.length), ui = ci > 0 ? hi.indent : 0;
+            for (var Ii = 0; ai.length >= hi[Ii]; )
+              qe++, Ii++;
+            ai = ai.substring(hi[Ii - 1] || 0, ai.length), ui = Ii > 0 ? hi.indent : 0;
           }
         }
         return this.lineWidgets && this.lineWidgets[ti] && this.lineWidgets[ti].rowsAbove && (qe += this.lineWidgets[ti].rowsAbove), {
@@ -45551,9 +45562,9 @@ var ace$2 = { exports: {} };
       }, this.getScreenLength = function() {
         var Ue = 0, Ve = null;
         if (this.$useWrapMode)
-          for (var kt = this.$wrapData.length, jt = 0, qe = 0, Ve = this.$foldData[qe++], Pt = Ve ? Ve.start.row : 1 / 0; jt < kt; ) {
+          for (var kt = this.$wrapData.length, jt = 0, qe = 0, Ve = this.$foldData[qe++], ei = Ve ? Ve.start.row : 1 / 0; jt < kt; ) {
             var ti = this.$wrapData[jt];
-            Ue += ti ? ti.length + 1 : 1, jt++, jt > Pt && (jt = Ve.end.row + 1, Ve = this.$foldData[qe++], Pt = Ve ? Ve.start.row : 1 / 0);
+            Ue += ti ? ti.length + 1 : 1, jt++, jt > ei && (jt = Ve.end.row + 1, Ve = this.$foldData[qe++], ei = Ve ? Ve.start.row : 1 / 0);
           }
         else {
           Ue = this.getLength();
@@ -45816,8 +45827,8 @@ var ace$2 = { exports: {} };
               Ve.push(Dt.index, kt);
             }
             for (var jt = Ve.length - 1; jt >= 0; jt -= 2) {
-              var Pt = Ve[jt - 1], kt = Ve[jt];
-              if (Fe(At, Pt, At, Pt + kt))
+              var ei = Ve[jt - 1], kt = Ve[jt];
+              if (Fe(At, ei, At, ei + kt))
                 return !0;
             }
           };
@@ -47182,8 +47193,8 @@ var ace$2 = { exports: {} };
               }), Ue.$bracketHighlight = null);
               var Ve = Fe.getCursorPosition(), Dt = Fe.getKeyboardHandler(), qe = Dt && Dt.$getDirectionForHighlight && Dt.$getDirectionForHighlight(Fe), kt = Ue.getMatchingBracketRanges(Ve, qe);
               if (!kt) {
-                var jt = new Oe(Ue, Ve.row, Ve.column), Pt = jt.getCurrentToken();
-                if (Pt && /\b(?:tag-open|tag-name)/.test(Pt.type)) {
+                var jt = new Oe(Ue, Ve.row, Ve.column), ei = jt.getCurrentToken();
+                if (ei && /\b(?:tag-open|tag-name)/.test(ei.type)) {
                   var ti = Ue.getMatchingTags(Ve);
                   ti && (kt = [ti.openTagName, ti.closeTagName]);
                 }
@@ -47192,11 +47203,11 @@ var ace$2 = { exports: {} };
                 Fe.getHighlightIndentGuides() && Fe.renderer.$textLayer.$highlightIndentGuide();
                 return;
               }
-              var ei = "ace_bracket";
-              Array.isArray(kt) ? kt.length == 1 && (ei = "ace_error_bracket") : kt = [kt], kt.length == 2 && (Ne.comparePoints(kt[0].end, kt[1].start) == 0 ? kt = [Ne.fromPoints(kt[0].start, kt[1].end)] : Ne.comparePoints(kt[0].start, kt[1].end) == 0 && (kt = [Ne.fromPoints(kt[1].start, kt[0].end)])), Ue.$bracketHighlight = {
+              var Pt = "ace_bracket";
+              Array.isArray(kt) ? kt.length == 1 && (Pt = "ace_error_bracket") : kt = [kt], kt.length == 2 && (Ne.comparePoints(kt[0].end, kt[1].start) == 0 ? kt = [Ne.fromPoints(kt[0].start, kt[1].end)] : Ne.comparePoints(kt[0].start, kt[1].end) == 0 && (kt = [Ne.fromPoints(kt[1].start, kt[0].end)])), Ue.$bracketHighlight = {
                 ranges: kt,
                 markerIds: kt.map(function(Et) {
-                  return Ue.addMarker(Et, ei, "text");
+                  return Ue.addMarker(Et, Pt, "text");
                 })
               }, Fe.getHighlightIndentGuides() && Fe.renderer.$textLayer.$highlightIndentGuide();
             }
@@ -47254,8 +47265,8 @@ var ace$2 = { exports: {} };
               wholeWord: !0,
               caseSensitive: !0,
               needle: kt
-            }), Pt = qe.substring(Ve - 1, Dt + 1);
-            if (jt.test(Pt))
+            }), ei = qe.substring(Ve - 1, Dt + 1);
+            if (jt.test(ei))
               return jt;
           }
         }
@@ -47301,16 +47312,16 @@ var ace$2 = { exports: {} };
         if (!this.inMultiSelectMode || this.inVirtualSelectionMode)
           Ve ? Dt.insert({ row: this.selection.lead.row, column: 0 }, Ue) : this.insert(Ue);
         else if (Ve)
-          this.selection.rangeList.ranges.forEach(function(ei) {
-            Dt.insert({ row: ei.start.row, column: 0 }, Ue);
+          this.selection.rangeList.ranges.forEach(function(Pt) {
+            Dt.insert({ row: Pt.start.row, column: 0 }, Ue);
           });
         else {
           var qe = Ue.split(/\r\n|\r|\n/), kt = this.selection.rangeList.ranges, jt = qe.length == 2 && (!qe[0] || !qe[1]);
           if (qe.length != kt.length || jt)
             return this.commands.exec("insertstring", this, Ue);
-          for (var Pt = kt.length; Pt--; ) {
-            var ti = kt[Pt];
-            ti.isEmpty() || Dt.remove(ti), Dt.insert(ti.start, qe[Pt]);
+          for (var ei = kt.length; ei--; ) {
+            var ti = kt[ei];
+            ti.isEmpty() || Dt.remove(ti), Dt.insert(ti.start, qe[ei]);
           }
         }
       }, this.execCommand = function(Fe, Ue) {
@@ -47336,18 +47347,18 @@ var ace$2 = { exports: {} };
 `) {
           var Et = Ve.getLine(qe.row);
           if (qe.column > Et.search(/\S|$/)) {
-            var Pt = Et.substr(qe.column).search(/\S|$/);
-            Ve.doc.removeInLine(qe.row, qe.column, qe.column + Pt);
+            var ei = Et.substr(qe.column).search(/\S|$/);
+            Ve.doc.removeInLine(qe.row, qe.column, qe.column + ei);
           }
         }
         this.clearSelection();
-        var ti = qe.column, ei = Ve.getState(qe.row), Et = Ve.getLine(qe.row), ni = Dt.checkOutdent(ei, Et, Fe);
+        var ti = qe.column, Pt = Ve.getState(qe.row), Et = Ve.getLine(qe.row), ni = Dt.checkOutdent(Pt, Et, Fe);
         if (Ve.insert(qe, Fe), kt && kt.selection && (kt.selection.length == 2 ? this.selection.setSelectionRange(new Ne(qe.row, ti + kt.selection[0], qe.row, ti + kt.selection[1])) : this.selection.setSelectionRange(new Ne(qe.row + kt.selection[0], kt.selection[1], qe.row + kt.selection[2], kt.selection[3]))), this.$enableAutoIndent) {
           if (Ve.getDocument().isNewLine(Fe)) {
-            var ri = Dt.getNextLineIndent(ei, Et.slice(0, qe.column), Ve.getTabString());
+            var ri = Dt.getNextLineIndent(Pt, Et.slice(0, qe.column), Ve.getTabString());
             Ve.insert({ row: qe.row + 1, column: 0 }, ri);
           }
-          ni && Dt.autoOutdent(ei, Ve, qe.row);
+          ni && Dt.autoOutdent(Pt, Ve, qe.row);
         }
       }, this.autoIndent = function() {
         var Fe = this.session, Ue = Fe.getMode(), Ve, Dt;
@@ -47357,8 +47368,8 @@ var ace$2 = { exports: {} };
           var qe = this.getSelectionRange();
           Ve = qe.start.row, Dt = qe.end.row;
         }
-        for (var kt = "", jt = "", Pt = "", ti, ei, Et, ni = Fe.getTabString(), ri = Ve; ri <= Dt; ri++)
-          ri > 0 && (kt = Fe.getState(ri - 1), jt = Fe.getLine(ri - 1), Pt = Ue.getNextLineIndent(kt, jt, ni)), ti = Fe.getLine(ri), ei = Ue.$getIndent(ti), Pt !== ei && (ei.length > 0 && (Et = new Ne(ri, 0, ri, ei.length), Fe.remove(Et)), Pt.length > 0 && Fe.insert({ row: ri, column: 0 }, Pt)), Ue.autoOutdent(kt, Fe, ri);
+        for (var kt = "", jt = "", ei = "", ti, Pt, Et, ni = Fe.getTabString(), ri = Ve; ri <= Dt; ri++)
+          ri > 0 && (kt = Fe.getState(ri - 1), jt = Fe.getLine(ri - 1), ei = Ue.getNextLineIndent(kt, jt, ni)), ti = Fe.getLine(ri), Pt = Ue.$getIndent(ti), ei !== Pt && (Pt.length > 0 && (Et = new Ne(ri, 0, ri, Pt.length), Fe.remove(Et)), ei.length > 0 && Fe.insert({ row: ri, column: 0 }, ei)), Ue.autoOutdent(kt, Fe, ri);
       }, this.onTextInput = function(Fe, Ue) {
         if (!Ue)
           return this.keyBinding.onTextInput(Fe);
@@ -47513,15 +47524,15 @@ var ace$2 = { exports: {} };
             return;
           }
         }
-        var qe = Fe.getLine(Ue.start.row), kt = Ue.start, jt = Fe.getTabSize(), Pt = Fe.documentToScreenColumn(kt.row, kt.column);
+        var qe = Fe.getLine(Ue.start.row), kt = Ue.start, jt = Fe.getTabSize(), ei = Fe.documentToScreenColumn(kt.row, kt.column);
         if (this.session.getUseSoftTabs())
-          var ti = jt - Pt % jt, ei = oe.stringRepeat(" ", ti);
+          var ti = jt - ei % jt, Pt = oe.stringRepeat(" ", ti);
         else {
-          for (var ti = Pt % jt; qe[Ue.start.column - 1] == " " && ti; )
+          for (var ti = ei % jt; qe[Ue.start.column - 1] == " " && ti; )
             Ue.start.column--, ti--;
-          this.selection.setSelectionRange(Ue), ei = "	";
+          this.selection.setSelectionRange(Ue), Pt = "	";
         }
-        return this.insert(ei);
+        return this.insert(Pt);
       }, this.blockIndent = function() {
         var Fe = this.$getSelectedRows();
         this.session.indentRows(Fe.first, Fe.last, "	");
@@ -47531,8 +47542,8 @@ var ace$2 = { exports: {} };
       }, this.sortLines = function() {
         for (var Fe = this.$getSelectedRows(), Ue = this.session, Ve = [], Dt = Fe.first; Dt <= Fe.last; Dt++)
           Ve.push(Ue.getLine(Dt));
-        Ve.sort(function(jt, Pt) {
-          return jt.toLowerCase() < Pt.toLowerCase() ? -1 : jt.toLowerCase() > Pt.toLowerCase() ? 1 : 0;
+        Ve.sort(function(jt, ei) {
+          return jt.toLowerCase() < ei.toLowerCase() ? -1 : jt.toLowerCase() > ei.toLowerCase() ? 1 : 0;
         });
         for (var qe = new Ne(0, 0, 0, 0), Dt = Fe.first; Dt <= Fe.last; Dt++) {
           var kt = Ue.getLine(Dt);
@@ -47564,10 +47575,10 @@ var ace$2 = { exports: {} };
         if (!isNaN(parseFloat(qe)) && isFinite(qe)) {
           var kt = this.getNumberAt(Ue, Ve);
           if (kt) {
-            var jt = kt.value.indexOf(".") >= 0 ? kt.start + kt.value.indexOf(".") + 1 : kt.end, Pt = kt.start + kt.value.length - jt, ti = parseFloat(kt.value);
-            ti *= Math.pow(10, Pt), jt !== kt.end && Ve < jt ? Fe *= Math.pow(10, kt.end - Ve - 1) : Fe *= Math.pow(10, kt.end - Ve), ti += Fe, ti /= Math.pow(10, Pt);
-            var ei = ti.toFixed(Pt), Et = new Ne(Ue, kt.start, Ue, kt.end);
-            this.session.replace(Et, ei), this.moveCursorTo(Ue, Math.max(kt.start + 1, Ve + ei.length - kt.value.length));
+            var jt = kt.value.indexOf(".") >= 0 ? kt.start + kt.value.indexOf(".") + 1 : kt.end, ei = kt.start + kt.value.length - jt, ti = parseFloat(kt.value);
+            ti *= Math.pow(10, ei), jt !== kt.end && Ve < jt ? Fe *= Math.pow(10, kt.end - Ve - 1) : Fe *= Math.pow(10, kt.end - Ve), ti += Fe, ti /= Math.pow(10, ei);
+            var Pt = ti.toFixed(ei), Et = new Ne(Ue, kt.start, Ue, kt.end);
+            this.session.replace(Et, Pt), this.moveCursorTo(Ue, Math.max(kt.start + 1, Ve + Pt.length - kt.value.length));
           }
         } else
           this.toggleWord();
@@ -47600,36 +47611,36 @@ var ace$2 = { exports: {} };
         this.selection.selectWord();
         var Ve = this.getSelectedText(), Dt = this.selection.getWordRange().start.column, qe = Ve.replace(/([a-z]+|[A-Z]+)(?=[A-Z_]|$)/g, "$1 ").split(/\s/), kt = Ue - Dt - 1;
         kt < 0 && (kt = 0);
-        var jt = 0, Pt = 0, ti = this;
-        Ve.match(/[A-Za-z0-9_]+/) && qe.forEach(function(hi, ci) {
-          Pt = jt + hi.length, kt >= jt && kt <= Pt && (Ve = hi, ti.selection.clearSelection(), ti.moveCursorTo(Fe, jt + Dt), ti.selection.selectTo(Fe, Pt + Dt)), jt = Pt;
+        var jt = 0, ei = 0, ti = this;
+        Ve.match(/[A-Za-z0-9_]+/) && qe.forEach(function(hi, Ii) {
+          ei = jt + hi.length, kt >= jt && kt <= ei && (Ve = hi, ti.selection.clearSelection(), ti.moveCursorTo(Fe, jt + Dt), ti.selection.selectTo(Fe, ei + Dt)), jt = ei;
         });
-        for (var ei = this.$toggleWordPairs, Et, ni = 0; ni < ei.length; ni++)
-          for (var ri = ei[ni], Ii = 0; Ii <= 1; Ii++) {
-            var wi = +!Ii, ai = Ve.match(new RegExp("^\\s?_?(" + oe.escapeRegExp(ri[Ii]) + ")\\s?$", "i"));
+        for (var Pt = this.$toggleWordPairs, Et, ni = 0; ni < Pt.length; ni++)
+          for (var ri = Pt[ni], ci = 0; ci <= 1; ci++) {
+            var wi = +!ci, ai = Ve.match(new RegExp("^\\s?_?(" + oe.escapeRegExp(ri[ci]) + ")\\s?$", "i"));
             if (ai) {
               var ui = Ve.match(new RegExp("([_]|^|\\s)(" + oe.escapeRegExp(ai[1]) + ")($|\\s)", "g"));
-              ui && (Et = Ve.replace(new RegExp(oe.escapeRegExp(ri[Ii]), "i"), function(hi) {
-                var ci = ri[wi];
-                return hi.toUpperCase() == hi ? ci = ci.toUpperCase() : hi.charAt(0).toUpperCase() == hi.charAt(0) && (ci = ci.substr(0, 0) + ri[wi].charAt(0).toUpperCase() + ci.substr(1)), ci;
+              ui && (Et = Ve.replace(new RegExp(oe.escapeRegExp(ri[ci]), "i"), function(hi) {
+                var Ii = ri[wi];
+                return hi.toUpperCase() == hi ? Ii = Ii.toUpperCase() : hi.charAt(0).toUpperCase() == hi.charAt(0) && (Ii = Ii.substr(0, 0) + ri[wi].charAt(0).toUpperCase() + Ii.substr(1)), Ii;
               }), this.insert(Et), Et = "");
             }
           }
       }, this.findLinkAt = function(Fe, Ue) {
         var Ve, Dt, qe = this.session.getLine(Fe), kt = qe.split(/((?:https?|ftp):\/\/[\S]+)/), jt = Ue;
         jt < 0 && (jt = 0);
-        var Pt = 0, ti = 0, ei;
+        var ei = 0, ti = 0, Pt;
         try {
           for (var Et = k(kt), ni = Et.next(); !ni.done; ni = Et.next()) {
             var ri = ni.value;
-            if (ti = Pt + ri.length, jt >= Pt && jt <= ti && ri.match(/((?:https?|ftp):\/\/[\S]+)/)) {
-              ei = ri.replace(/[\s:.,'";}\]]+$/, "");
+            if (ti = ei + ri.length, jt >= ei && jt <= ti && ri.match(/((?:https?|ftp):\/\/[\S]+)/)) {
+              Pt = ri.replace(/[\s:.,'";}\]]+$/, "");
               break;
             }
-            Pt = ti;
+            ei = ti;
           }
-        } catch (Ii) {
-          Ve = { error: Ii };
+        } catch (ci) {
+          Ve = { error: ci };
         } finally {
           try {
             ni && !ni.done && (Dt = Et.return) && Dt.call(Et);
@@ -47638,7 +47649,7 @@ var ace$2 = { exports: {} };
               throw Ve.error;
           }
         }
-        return ei;
+        return Pt;
       }, this.openLink = function() {
         var Fe = this.selection.getCursor(), Ue = this.findLinkAt(Fe.row, Fe.column);
         return Ue && window.open(Ue, "_blank"), Ue != null;
@@ -47672,21 +47683,21 @@ var ace$2 = { exports: {} };
         } else {
           var jt = qe.rangeList.ranges;
           qe.rangeList.detach(this.session), this.inVirtualSelectionMode = !0;
-          for (var Pt = 0, ti = 0, ei = jt.length, Et = 0; Et < ei; Et++) {
+          for (var ei = 0, ti = 0, Pt = jt.length, Et = 0; Et < Pt; Et++) {
             var ni = Et;
-            jt[Et].moveBy(Pt, 0), Ve = this.$getSelectedRows(jt[Et]);
-            for (var ri = Ve.first, Ii = Ve.last; ++Et < ei; ) {
+            jt[Et].moveBy(ei, 0), Ve = this.$getSelectedRows(jt[Et]);
+            for (var ri = Ve.first, ci = Ve.last; ++Et < Pt; ) {
               ti && jt[Et].moveBy(ti, 0);
               var wi = this.$getSelectedRows(jt[Et]);
-              if (Ue && wi.first != Ii)
+              if (Ue && wi.first != ci)
                 break;
-              if (!Ue && wi.first > Ii + 1)
+              if (!Ue && wi.first > ci + 1)
                 break;
-              Ii = wi.last;
+              ci = wi.last;
             }
-            for (Et--, Pt = this.session.$moveLines(ri, Ii, Ue ? 0 : Fe), Ue && Fe == -1 && (ni = Et + 1); ni <= Et; )
-              jt[ni].moveBy(Pt, 0), ni++;
-            Ue || (Pt = 0), ti += Pt;
+            for (Et--, ei = this.session.$moveLines(ri, ci, Ue ? 0 : Fe), Ue && Fe == -1 && (ni = Et + 1); ni <= Et; )
+              jt[ni].moveBy(ei, 0), ni++;
+            Ue || (ei = 0), ti += ei;
           }
           qe.fromOrientedRange(qe.ranges[0]), qe.rangeList.attach(this.session), this.inVirtualSelectionMode = !1;
         }
@@ -47759,7 +47770,7 @@ var ace$2 = { exports: {} };
         qe && qe.type.indexOf("tag-name") !== -1 && (qe = Dt.stepBackward());
         var jt = qe || Dt.stepForward();
         if (jt) {
-          var Pt, ti = !1, ei = {}, Et = Ve.column - jt.start, ni, ri = {
+          var ei, ti = !1, Pt = {}, Et = Ve.column - jt.start, ni, ri = {
             ")": "(",
             "(": "(",
             "]": "[",
@@ -47771,36 +47782,36 @@ var ace$2 = { exports: {} };
             if (jt.value.match(/[{}()\[\]]/g)) {
               for (; Et < jt.value.length && !ti; Et++)
                 if (ri[jt.value[Et]])
-                  switch (ni = ri[jt.value[Et]] + "." + jt.type.replace("rparen", "lparen"), isNaN(ei[ni]) && (ei[ni] = 0), jt.value[Et]) {
+                  switch (ni = ri[jt.value[Et]] + "." + jt.type.replace("rparen", "lparen"), isNaN(Pt[ni]) && (Pt[ni] = 0), jt.value[Et]) {
                     case "(":
                     case "[":
                     case "{":
-                      ei[ni]++;
+                      Pt[ni]++;
                       break;
                     case ")":
                     case "]":
                     case "}":
-                      ei[ni]--, ei[ni] === -1 && (Pt = "bracket", ti = !0);
+                      Pt[ni]--, Pt[ni] === -1 && (ei = "bracket", ti = !0);
                       break;
                   }
             } else
-              jt.type.indexOf("tag-name") !== -1 && (isNaN(ei[jt.value]) && (ei[jt.value] = 0), qe.value === "<" && kt > 1 ? ei[jt.value]++ : qe.value === "</" && ei[jt.value]--, ei[jt.value] === -1 && (Pt = "tag", ti = !0));
+              jt.type.indexOf("tag-name") !== -1 && (isNaN(Pt[jt.value]) && (Pt[jt.value] = 0), qe.value === "<" && kt > 1 ? Pt[jt.value]++ : qe.value === "</" && Pt[jt.value]--, Pt[jt.value] === -1 && (ei = "tag", ti = !0));
             ti || (qe = jt, kt++, jt = Dt.stepForward(), Et = 0);
           } while (jt && !ti);
-          if (Pt) {
-            var Ii, wi;
-            if (Pt === "bracket")
-              Ii = this.session.getBracketRange(Ve), Ii || (Ii = new Ne(Dt.getCurrentTokenRow(), Dt.getCurrentTokenColumn() + Et - 1, Dt.getCurrentTokenRow(), Dt.getCurrentTokenColumn() + Et - 1), wi = Ii.start, (Ue || wi.row === Ve.row && Math.abs(wi.column - Ve.column) < 2) && (Ii = this.session.getBracketRange(wi)));
-            else if (Pt === "tag") {
+          if (ei) {
+            var ci, wi;
+            if (ei === "bracket")
+              ci = this.session.getBracketRange(Ve), ci || (ci = new Ne(Dt.getCurrentTokenRow(), Dt.getCurrentTokenColumn() + Et - 1, Dt.getCurrentTokenRow(), Dt.getCurrentTokenColumn() + Et - 1), wi = ci.start, (Ue || wi.row === Ve.row && Math.abs(wi.column - Ve.column) < 2) && (ci = this.session.getBracketRange(wi)));
+            else if (ei === "tag") {
               if (!jt || jt.type.indexOf("tag-name") === -1)
                 return;
-              if (Ii = new Ne(Dt.getCurrentTokenRow(), Dt.getCurrentTokenColumn() - 2, Dt.getCurrentTokenRow(), Dt.getCurrentTokenColumn() - 2), Ii.compare(Ve.row, Ve.column) === 0) {
+              if (ci = new Ne(Dt.getCurrentTokenRow(), Dt.getCurrentTokenColumn() - 2, Dt.getCurrentTokenRow(), Dt.getCurrentTokenColumn() - 2), ci.compare(Ve.row, Ve.column) === 0) {
                 var ai = this.session.getMatchingTags(Ve);
-                ai && (ai.openTag.contains(Ve.row, Ve.column) ? (Ii = ai.closeTag, wi = Ii.start) : (Ii = ai.openTag, ai.closeTag.start.row === Ve.row && ai.closeTag.start.column === Ve.column ? wi = Ii.end : wi = Ii.start));
+                ai && (ai.openTag.contains(Ve.row, Ve.column) ? (ci = ai.closeTag, wi = ci.start) : (ci = ai.openTag, ai.closeTag.start.row === Ve.row && ai.closeTag.start.column === Ve.column ? wi = ci.end : wi = ci.start));
               }
-              wi = wi || Ii.start;
+              wi = wi || ci.start;
             }
-            wi = Ii && Ii.cursor || wi, wi && (Fe ? Ii && Ue ? this.selection.setRange(Ii) : Ii && Ii.isEqual(this.getSelectionRange()) ? this.clearSelection() : this.selection.selectTo(wi.row, wi.column) : this.selection.moveTo(wi.row, wi.column));
+            wi = ci && ci.cursor || wi, wi && (Fe ? ci && Ue ? this.selection.setRange(ci) : ci && ci.isEqual(this.getSelectionRange()) ? this.clearSelection() : this.selection.selectTo(wi.row, wi.column) : this.selection.moveTo(wi.row, wi.column));
           }
         }
       }, this.gotoLine = function(Fe, Ue, Ve) {
@@ -47904,14 +47915,14 @@ var ace$2 = { exports: {} };
             Dt = !0;
           }), jt = this.renderer.on("beforeRender", function() {
             Dt && (Ue = Ve.renderer.container.getBoundingClientRect());
-          }), Pt = this.renderer.on("afterRender", function() {
+          }), ei = this.renderer.on("afterRender", function() {
             if (Dt && Ue && (Ve.isFocused() || Ve.searchBox && Ve.searchBox.isFocused())) {
-              var ti = Ve.renderer, ei = ti.$cursorLayer.$pixelPos, Et = ti.layerConfig, ni = ei.top - Et.offset;
-              ei.top >= 0 && ni + Ue.top < 0 ? Dt = !0 : ei.top < Et.height && ei.top + Ue.top + Et.lineHeight > window.innerHeight ? Dt = !1 : Dt = null, Dt != null && (qe.style.top = ni + "px", qe.style.left = ei.left + "px", qe.style.height = Et.lineHeight + "px", qe.scrollIntoView(Dt)), Dt = Ue = null;
+              var ti = Ve.renderer, Pt = ti.$cursorLayer.$pixelPos, Et = ti.layerConfig, ni = Pt.top - Et.offset;
+              Pt.top >= 0 && ni + Ue.top < 0 ? Dt = !0 : Pt.top < Et.height && Pt.top + Ue.top + Et.lineHeight > window.innerHeight ? Dt = !1 : Dt = null, Dt != null && (qe.style.top = ni + "px", qe.style.left = Pt.left + "px", qe.style.height = Et.lineHeight + "px", qe.scrollIntoView(Dt)), Dt = Ue = null;
             }
           });
           this.setAutoScrollEditorIntoView = function(ti) {
-            ti || (delete this.setAutoScrollEditorIntoView, this.off("changeSelection", kt), this.renderer.off("afterRender", Pt), this.renderer.off("beforeRender", jt));
+            ti || (delete this.setAutoScrollEditorIntoView, this.off("changeSelection", kt), this.renderer.off("afterRender", ei), this.renderer.off("beforeRender", jt));
           };
         }
       }, this.$resetCursorStyle = function() {
@@ -49299,10 +49310,10 @@ var ace$2 = { exports: {} };
           ue = Oe(1 / he, ue);
         }
         function pe(Et, ni, ri) {
-          var Ii = Et[1] * ni[0] - Et[0] * ni[1];
+          var ci = Et[1] * ni[0] - Et[0] * ni[1];
           return [
-            (-ni[1] * ri[0] + ni[0] * ri[1]) / Ii,
-            (+Et[1] * ri[0] - Et[0] * ri[1]) / Ii
+            (-ni[1] * ri[0] + ni[0] * ri[1]) / ci,
+            (+Et[1] * ri[0] - Et[0] * ri[1]) / ci
           ];
         }
         function ze(Et, ni) {
@@ -49321,11 +49332,11 @@ var ace$2 = { exports: {} };
         }
         var At = _e(this.els[0]), $e = _e(this.els[1]), Fe = _e(this.els[2]), Ue = _e(this.els[3]), Ve = pe(ze(Ue, $e), ze(Ue, Fe), ze(xe($e, Fe), xe(Ue, At))), Dt = Oe(1 + Ve[0], ze($e, At)), qe = Oe(1 + Ve[1], ze(Fe, At));
         if (Ne) {
-          var kt = Ne, jt = Ve[0] * kt[0] / Ie + Ve[1] * kt[1] / Ie + 1, Pt = xe(Oe(kt[0], Dt), Oe(kt[1], qe));
-          return xe(Oe(1 / jt / Ie, Pt), At);
+          var kt = Ne, jt = Ve[0] * kt[0] / Ie + Ve[1] * kt[1] / Ie + 1, ei = xe(Oe(kt[0], Dt), Oe(kt[1], qe));
+          return xe(Oe(1 / jt / Ie, ei), At);
         }
-        var ti = ze(ue, At), ei = pe(ze(Dt, Oe(Ve[0], ti)), ze(qe, Oe(Ve[1], ti)), ti);
-        return Oe(Ie, ei);
+        var ti = ze(ue, At), Pt = pe(ze(Dt, Oe(Ve[0], ti)), ze(qe, Oe(Ve[1], ti)), ti);
+        return Oe(Ie, Pt);
       };
     }).call(de.prototype);
   }), ace.define("ace/css/editor.css", ["require", "exports", "module"], function(r, g, V) {
@@ -50140,7 +50151,7 @@ styles.join("\\n")
               $.translate(this.textarea, 0, 0);
               return;
             }
-            var jt = 1, Pt = this.$size.height - kt;
+            var jt = 1, ei = this.$size.height - kt;
             if (!Fe)
               Dt += this.lineHeight;
             else if (Fe.useTextareaForIME) {
@@ -50148,7 +50159,7 @@ styles.join("\\n")
               jt = this.characterWidth * this.session.$getStringScreenWidth(ti)[0];
             } else
               Dt += this.lineHeight + 2;
-            qe -= this.scrollLeft, qe > this.$size.scrollerWidth - jt && (qe = this.$size.scrollerWidth - jt), qe += this.gutterWidth + this.margin.left, $.setStyle($e, "height", kt + "px"), $.setStyle($e, "width", jt + "px"), $.translate(this.textarea, Math.min(qe, this.$size.scrollerWidth - jt), Math.min(Dt, Pt));
+            qe -= this.scrollLeft, qe > this.$size.scrollerWidth - jt && (qe = this.$size.scrollerWidth - jt), qe += this.gutterWidth + this.margin.left, $.setStyle($e, "height", kt + "px"), $.setStyle($e, "width", jt + "px"), $.translate(this.textarea, Math.min(qe, this.$size.scrollerWidth - jt), Math.min(Dt, ei));
           }
         }
       }, this.getFirstVisibleRow = function() {
@@ -50224,18 +50235,18 @@ styles.join("\\n")
       }, this.$computeLayerConfig = function() {
         var $e = this.session, Fe = this.$size, Ue = Fe.height <= 2 * this.lineHeight, Ve = this.session.getScreenLength(), Dt = Ve * this.lineHeight, qe = this.$getLongestLine(), kt = !Ue && (this.$hScrollBarAlwaysVisible || Fe.scrollerWidth - qe - 2 * this.$padding < 0), jt = this.$horizScroll !== kt;
         jt && (this.$horizScroll = kt, this.scrollBarH.setVisible(kt));
-        var Pt = this.$vScroll;
+        var ei = this.$vScroll;
         this.$maxLines && this.lineHeight > 1 && this.$autosize();
-        var ti = Fe.scrollerHeight + this.lineHeight, ei = !this.$maxLines && this.$scrollPastEnd ? (Fe.scrollerHeight - this.lineHeight) * this.$scrollPastEnd : 0;
-        Dt += ei;
+        var ti = Fe.scrollerHeight + this.lineHeight, Pt = !this.$maxLines && this.$scrollPastEnd ? (Fe.scrollerHeight - this.lineHeight) * this.$scrollPastEnd : 0;
+        Dt += Pt;
         var Et = this.scrollMargin;
         this.session.setScrollTop(Math.max(-Et.top, Math.min(this.scrollTop, Dt - Fe.scrollerHeight + Et.bottom))), this.session.setScrollLeft(Math.max(-Et.left, Math.min(this.scrollLeft, qe + 2 * this.$padding - Fe.scrollerWidth + Et.right)));
-        var ni = !Ue && (this.$vScrollBarAlwaysVisible || Fe.scrollerHeight - Dt + ei < 0 || this.scrollTop > Et.top), ri = Pt !== ni;
+        var ni = !Ue && (this.$vScrollBarAlwaysVisible || Fe.scrollerHeight - Dt + Pt < 0 || this.scrollTop > Et.top), ri = ei !== ni;
         ri && (this.$vScroll = ni, this.scrollBarV.setVisible(ni));
-        var Ii = this.scrollTop % this.lineHeight, wi = Math.ceil(ti / this.lineHeight) - 1, ai = Math.max(0, Math.round((this.scrollTop - Ii) / this.lineHeight)), ui = ai + wi, hi, ci, Ai = this.lineHeight;
+        var ci = this.scrollTop % this.lineHeight, wi = Math.ceil(ti / this.lineHeight) - 1, ai = Math.max(0, Math.round((this.scrollTop - ci) / this.lineHeight)), ui = ai + wi, hi, Ii, Ai = this.lineHeight;
         ai = $e.screenToDocumentRow(ai, 0);
         var yi = $e.getFoldLine(ai);
-        yi && (ai = yi.start.row), hi = $e.documentToScreenRow(ai, 0), ci = $e.getRowLength(ai) * Ai, ui = Math.min($e.screenToDocumentRow(ui, 0), $e.getLength() - 1), ti = Fe.scrollerHeight + $e.getRowLength(ui) * Ai + ci, Ii = this.scrollTop - hi * Ai;
+        yi && (ai = yi.start.row), hi = $e.documentToScreenRow(ai, 0), Ii = $e.getRowLength(ai) * Ai, ui = Math.min($e.screenToDocumentRow(ui, 0), $e.getLength() - 1), ti = Fe.scrollerHeight + $e.getRowLength(ui) * Ai + Ii, ci = this.scrollTop - hi * Ai;
         var di = 0;
         return (this.layerConfig.width != qe || jt) && (di = this.CHANGE_H_SCROLL), (jt || ri) && (di |= this.$updateCachedSize(!0, this.gutterWidth, Fe.width, Fe.height), this._signal("scrollbarVisibilityChanged"), ri && (qe = this.$getLongestLine())), this.layerConfig = {
           width: qe,
@@ -50247,8 +50258,8 @@ styles.join("\\n")
           characterWidth: this.characterWidth,
           minHeight: ti,
           maxHeight: Dt,
-          offset: Ii,
-          gutterOffset: Ai ? Math.max(0, Math.ceil((Ii + Fe.height - Fe.scrollerHeight) / Ai)) : 0,
+          offset: ci,
+          gutterOffset: Ai ? Math.max(0, Math.ceil((ci + Fe.height - Fe.scrollerHeight) / Ai)) : 0,
           height: this.$size.scrollerHeight
         }, this.session.$bidiHandler && this.session.$bidiHandler.setContentWidth(qe - this.$padding), di;
       }, this.$updateLines = function() {
@@ -50291,10 +50302,10 @@ styles.join("\\n")
         if (this.$size.scrollerHeight !== 0) {
           var Ve = this.$cursorLayer.getPixelPosition($e), Dt = Ve.left, qe = Ve.top, kt = Ue && Ue.top || 0, jt = Ue && Ue.bottom || 0;
           this.$scrollAnimation && (this.$stopAnimation = !0);
-          var Pt = this.$scrollAnimation ? this.session.getScrollTop() : this.scrollTop;
-          Pt + kt > qe ? (Fe && Pt + kt > qe + this.lineHeight && (qe -= Fe * this.$size.scrollerHeight), qe === 0 && (qe = -this.scrollMargin.top), this.session.setScrollTop(qe)) : Pt + this.$size.scrollerHeight - jt < qe + this.lineHeight && (Fe && Pt + this.$size.scrollerHeight - jt < qe - this.lineHeight && (qe += Fe * this.$size.scrollerHeight), this.session.setScrollTop(qe + this.lineHeight + jt - this.$size.scrollerHeight));
-          var ti = this.scrollLeft, ei = 2 * this.layerConfig.characterWidth;
-          Dt - ei < ti ? (Dt -= ei, Dt < this.$padding + ei && (Dt = -this.scrollMargin.left), this.session.setScrollLeft(Dt)) : (Dt += ei, ti + this.$size.scrollerWidth < Dt + this.characterWidth ? this.session.setScrollLeft(Math.round(Dt + this.characterWidth - this.$size.scrollerWidth)) : ti <= this.$padding && Dt - ti < this.characterWidth && this.session.setScrollLeft(0));
+          var ei = this.$scrollAnimation ? this.session.getScrollTop() : this.scrollTop;
+          ei + kt > qe ? (Fe && ei + kt > qe + this.lineHeight && (qe -= Fe * this.$size.scrollerHeight), qe === 0 && (qe = -this.scrollMargin.top), this.session.setScrollTop(qe)) : ei + this.$size.scrollerHeight - jt < qe + this.lineHeight && (Fe && ei + this.$size.scrollerHeight - jt < qe - this.lineHeight && (qe += Fe * this.$size.scrollerHeight), this.session.setScrollTop(qe + this.lineHeight + jt - this.$size.scrollerHeight));
+          var ti = this.scrollLeft, Pt = 2 * this.layerConfig.characterWidth;
+          Dt - Pt < ti ? (Dt -= Pt, Dt < this.$padding + Pt && (Dt = -this.scrollMargin.left), this.session.setScrollLeft(Dt)) : (Dt += Pt, ti + this.$size.scrollerWidth < Dt + this.characterWidth ? this.session.setScrollLeft(Math.round(Dt + this.characterWidth - this.$size.scrollerWidth)) : ti <= this.$padding && Dt - ti < this.characterWidth && this.session.setScrollLeft(0));
         }
       }, this.getScrollTop = function() {
         return this.session.getScrollTop();
@@ -50311,8 +50322,8 @@ styles.join("\\n")
         var Ue = this.$cursorLayer.getPixelPosition($e), Ve = this.$size.scrollerHeight - this.lineHeight, Dt = Ue.top - Ve * (Fe || 0);
         return this.session.setScrollTop(Dt), Dt;
       }, this.STEPS = 8, this.$calcSteps = function($e, Fe) {
-        var Ue = 0, Ve = this.STEPS, Dt = [], qe = function(kt, jt, Pt) {
-          return Pt * (Math.pow(kt - 1, 3) + 1) + jt;
+        var Ue = 0, Ve = this.STEPS, Dt = [], qe = function(kt, jt, ei) {
+          return ei * (Math.pow(kt - 1, 3) + 1) + jt;
         };
         for (Ue = 0; Ue < Ve; ++Ue)
           Dt.push(qe(Ue / this.STEPS, $e, Fe - $e));
@@ -50407,11 +50418,11 @@ styles.join("\\n")
         if (Ve == null)
           kt.push(qe);
         else
-          for (var jt = 0, Pt = 0; Pt < kt.length; Pt++) {
-            var ti = kt[Pt];
+          for (var jt = 0, ei = 0; ei < kt.length; ei++) {
+            var ti = kt[ei];
             if (jt += ti.value.length, Ve <= jt) {
-              var ei = ti.value.length - (jt - Ve), Et = ti.value.slice(0, ei), ni = ti.value.slice(ei);
-              kt.splice(Pt, 1, { type: ti.type, value: Et }, qe, { type: ti.type, value: ni });
+              var Pt = ti.value.length - (jt - Ve), Et = ti.value.slice(0, Pt), ni = ti.value.slice(Pt);
+              kt.splice(ei, 1, { type: ti.type, value: Et }, qe, { type: ti.type, value: ni });
               break;
             }
           }
@@ -50836,18 +50847,18 @@ styles.join("\\n")
           });
         } else if (Dt == "block") {
           Ce.stop(), Ne.inVirtualSelectionMode = !0;
-          var jt, Pt = [], ti = function() {
-            var ri = Ne.renderer.pixelToScreenCoordinates(_e, At), Ii = Fe.screenToDocumentPosition(ri.row, ri.column, ri.offsetX);
-            re(Ve, ri) && re(Ii, he.lead) || (Ve = ri, Ne.selection.moveToPosition(Ii), Ne.renderer.scrollCursorIntoView(), Ne.removeSelectionMarkers(Pt), Pt = he.rectangularRangeBlock(Ve, Ue), Ne.$mouseHandler.$clickSelection && Pt.length == 1 && Pt[0].isEmpty() && (Pt[0] = Ne.$mouseHandler.$clickSelection.clone()), Pt.forEach(Ne.addSelectionMarker, Ne), Ne.updateSelectionMarkers());
+          var jt, ei = [], ti = function() {
+            var ri = Ne.renderer.pixelToScreenCoordinates(_e, At), ci = Fe.screenToDocumentPosition(ri.row, ri.column, ri.offsetX);
+            re(Ve, ri) && re(ci, he.lead) || (Ve = ri, Ne.selection.moveToPosition(ci), Ne.renderer.scrollCursorIntoView(), Ne.removeSelectionMarkers(ei), ei = he.rectangularRangeBlock(Ve, Ue), Ne.$mouseHandler.$clickSelection && ei.length == 1 && ei[0].isEmpty() && (ei[0] = Ne.$mouseHandler.$clickSelection.clone()), ei.forEach(Ne.addSelectionMarker, Ne), Ne.updateSelectionMarkers());
           };
           pe && !de ? he.toSingleRange() : !pe && de && (jt = he.toOrientedRange(), Ne.addSelectionMarker(jt)), le ? Ue = Fe.documentToScreenPosition(he.lead) : he.moveToPosition(ze), Ve = { row: -1, column: -1 };
-          var ei = function(ri) {
-            ti(), clearInterval(ni), Ne.removeSelectionMarkers(Pt), Pt.length || (Pt = [he.toOrientedRange()]), jt && (Ne.removeSelectionMarker(jt), he.toSingleRange(jt));
-            for (var Ii = 0; Ii < Pt.length; Ii++)
-              he.addRange(Pt[Ii]);
+          var Pt = function(ri) {
+            ti(), clearInterval(ni), Ne.removeSelectionMarkers(ei), ei.length || (ei = [he.toOrientedRange()]), jt && (Ne.removeSelectionMarker(jt), he.toSingleRange(jt));
+            for (var ci = 0; ci < ei.length; ci++)
+              he.addRange(ei[ci]);
             Ne.inVirtualSelectionMode = !1, Ne.$mouseHandler.$clickSelection = null;
           }, Et = ti;
-          k.capture(Ne.container, $e, ei);
+          k.capture(Ne.container, $e, Pt);
           var ni = setInterval(function() {
             Et();
           }, 20);
@@ -51066,14 +51077,14 @@ styles.join("\\n")
         else
           var kt = Oe.row, jt = xe.row;
         Fe < 0 && (Fe = 0), kt < 0 && (kt = 0), kt == jt && (_e = !0);
-        for (var Pt, ti = kt; ti <= jt; ti++) {
-          var ei = $.fromPoints(this.session.screenToDocumentPosition(ti, Fe, Ve), this.session.screenToDocumentPosition(ti, Ue, Dt));
-          if (ei.isEmpty()) {
-            if (Pt && he(ei.end, Pt))
+        for (var ei, ti = kt; ti <= jt; ti++) {
+          var Pt = $.fromPoints(this.session.screenToDocumentPosition(ti, Fe, Ve), this.session.screenToDocumentPosition(ti, Ue, Dt));
+          if (Pt.isEmpty()) {
+            if (ei && he(Pt.end, ei))
               break;
-            Pt = ei.end;
+            ei = Pt.end;
           }
-          ei.cursor = $e ? ei.start : ei.end, At.push(ei);
+          Pt.cursor = $e ? Pt.start : Pt.end, At.push(Pt);
         }
         if (qe && At.reverse(), !_e) {
           for (var Et = At.length - 1; At[Et].isEmpty() && Et > 0; )
@@ -51139,17 +51150,17 @@ styles.join("\\n")
           Ue._eventRegistry = {};
           var jt = new re(Fe);
           this.inVirtualSelectionMode = !0;
-          for (var Pt = Dt.length; Pt--; ) {
+          for (var ei = Dt.length; ei--; ) {
             if ($e)
-              for (; Pt > 0 && Dt[Pt].start.row == Dt[Pt - 1].end.row; )
-                Pt--;
-            jt.fromOrientedRange(Dt[Pt]), jt.index = Pt, this.selection = Fe.selection = jt;
+              for (; ei > 0 && Dt[ei].start.row == Dt[ei - 1].end.row; )
+                ei--;
+            jt.fromOrientedRange(Dt[ei]), jt.index = ei, this.selection = Fe.selection = jt;
             var ti = xe.exec ? xe.exec(this, Oe || {}) : xe(this, Oe || {});
-            !qe && ti !== void 0 && (qe = ti), jt.toOrientedRange(Dt[Pt]);
+            !qe && ti !== void 0 && (qe = ti), jt.toOrientedRange(Dt[ei]);
           }
           jt.detach(), this.selection = Fe.selection = Ue, this.inVirtualSelectionMode = !1, Ue._eventRegistry = kt, Ue.mergeOverlappingRanges(), Ue.ranges[0] && Ue.fromOrientedRange(Ue.ranges[0]);
-          var ei = this.renderer.$scrollAnimation;
-          return this.onCursorChange(), this.onSelectionChange(), ei && ei.from == ei.to && this.renderer.animateScrolling(ei.from), qe;
+          var Pt = this.renderer.$scrollAnimation;
+          return this.onCursorChange(), this.onSelectionChange(), Pt && Pt.from == Pt.to && this.renderer.animateScrolling(Pt.from), qe;
         }
       }, this.exitMultiSelectMode = function() {
         !this.inMultiSelectMode || this.inVirtualSelectionMode || this.multiSelect.toSingleRange();
@@ -51256,20 +51267,20 @@ styles.join("\\n")
           $e.forEach(function(Et) {
             Oe.substractPoint(Et.cursor);
           });
-          var Pt = 0, ti = 1 / 0, ei = _e.map(function(Et) {
-            var ni = Et.cursor, ri = xe.getLine(ni.row), Ii = ri.substr(ni.column).search(/\S/g);
-            return Ii == -1 && (Ii = 0), ni.column > Pt && (Pt = ni.column), Ii < ti && (ti = Ii), Ii;
+          var ei = 0, ti = 1 / 0, Pt = _e.map(function(Et) {
+            var ni = Et.cursor, ri = xe.getLine(ni.row), ci = ri.substr(ni.column).search(/\S/g);
+            return ci == -1 && (ci = 0), ni.column > ei && (ei = ni.column), ci < ti && (ti = ci), ci;
           });
           _e.forEach(function(Et, ni) {
-            var ri = Et.cursor, Ii = Pt - ri.column, wi = ei[ni] - ti;
-            Ii > wi ? xe.insert(ri, ie.stringRepeat(" ", Ii - wi)) : xe.remove(new $(ri.row, ri.column, ri.row, ri.column - Ii + wi)), Et.start.column = Et.end.column = Pt, Et.start.row = Et.end.row = ri.row, Et.cursor = Et.end;
+            var ri = Et.cursor, ci = ei - ri.column, wi = Pt[ni] - ti;
+            ci > wi ? xe.insert(ri, ie.stringRepeat(" ", ci - wi)) : xe.remove(new $(ri.row, ri.column, ri.row, ri.column - ci + wi)), Et.start.column = Et.end.column = ei, Et.start.row = Et.end.row = ri.row, Et.cursor = Et.end;
           }), Oe.fromOrientedRange(_e[0]), this.renderer.updateCursor(), this.renderer.updateBackMarkers();
         }
       }, this.$reAlignText = function(xe, Oe) {
         var _e = !0, At = !0, $e, Fe, Ue;
         return xe.map(function(jt) {
-          var Pt = jt.match(/(\s*)(.*?)(\s*)([=:].*)/);
-          return Pt ? $e == null ? ($e = Pt[1].length, Fe = Pt[2].length, Ue = Pt[3].length, Pt) : ($e + Fe + Ue != Pt[1].length + Pt[2].length + Pt[3].length && (At = !1), $e != Pt[1].length && (_e = !1), $e > Pt[1].length && ($e = Pt[1].length), Fe < Pt[2].length && (Fe = Pt[2].length), Ue > Pt[3].length && (Ue = Pt[3].length), Pt) : [jt];
+          var ei = jt.match(/(\s*)(.*?)(\s*)([=:].*)/);
+          return ei ? $e == null ? ($e = ei[1].length, Fe = ei[2].length, Ue = ei[3].length, ei) : ($e + Fe + Ue != ei[1].length + ei[2].length + ei[3].length && (At = !1), $e != ei[1].length && (_e = !1), $e > ei[1].length && ($e = ei[1].length), Fe < ei[2].length && (Fe = ei[2].length), Ue > ei[3].length && (Ue = ei[3].length), ei) : [jt];
         }).map(Oe ? Dt : _e ? At ? qe : Dt : kt);
         function Ve(jt) {
           return ie.stringRepeat(" ", jt);
@@ -52244,16 +52255,16 @@ var extLanguage_tools = { exports: {} };
         var Ue = typeof _e.fmt == "string" ? this.tokenizeTmSnippet(_e.fmt, "formatString") : _e.fmt, Ve = this, Dt = Oe.replace(Fe, function() {
           var qe = Ve.variables.__;
           Ve.variables.__ = [].slice.call(arguments);
-          for (var kt = Ve.resolveVariables(Ue, At), jt = "E", Pt = 0; Pt < kt.length; Pt++) {
-            var ti = kt[Pt];
+          for (var kt = Ve.resolveVariables(Ue, At), jt = "E", ei = 0; ei < kt.length; ei++) {
+            var ti = kt[ei];
             if (typeof ti == "object")
-              if (kt[Pt] = "", ti.changeCase && ti.local) {
-                var ei = kt[Pt + 1];
-                ei && typeof ei == "string" && (ti.changeCase == "u" ? kt[Pt] = ei[0].toUpperCase() : kt[Pt] = ei[0].toLowerCase(), kt[Pt + 1] = ei.substr(1));
+              if (kt[ei] = "", ti.changeCase && ti.local) {
+                var Pt = kt[ei + 1];
+                Pt && typeof Pt == "string" && (ti.changeCase == "u" ? kt[ei] = Pt[0].toUpperCase() : kt[ei] = Pt[0].toLowerCase(), kt[ei + 1] = Pt.substr(1));
               } else
                 ti.changeCase && (jt = ti.changeCase);
             else
-              jt == "U" ? kt[Pt] = ti.toUpperCase() : jt == "L" && (kt[Pt] = ti.toLowerCase());
+              jt == "U" ? kt[ei] = ti.toUpperCase() : jt == "L" && (kt[ei] = ti.toLowerCase());
           }
           return Ve.variables.__ = qe, kt.join("");
         });
@@ -52281,8 +52292,8 @@ var extLanguage_tools = { exports: {} };
           }
         }
         function kt(jt) {
-          var Pt = Oe.indexOf(jt, Ue + 1);
-          Pt != -1 && (Ue = Pt);
+          var ei = Oe.indexOf(jt, Ue + 1);
+          ei != -1 && (Ue = ei);
         }
         return At;
       }, this.insertSnippetForSelection = function(Oe, _e) {
@@ -52326,31 +52337,31 @@ var extLanguage_tools = { exports: {} };
           return yi;
         }
         for (var jt = 0; jt < Ve.length; jt++) {
-          var Pt = Ve[jt];
-          if (typeof Pt == "object") {
-            var ti = Pt.tabstopId, ei = Dt[ti], Et = Ve.indexOf(Pt, jt + 1);
+          var ei = Ve[jt];
+          if (typeof ei == "object") {
+            var ti = ei.tabstopId, Pt = Dt[ti], Et = Ve.indexOf(ei, jt + 1);
             if (qe[ti]) {
-              qe[ti] === Pt && (delete qe[ti], Object.keys(qe).forEach(function(Ai) {
-                ei.parents[Ai] = !0;
+              qe[ti] === ei && (delete qe[ti], Object.keys(qe).forEach(function(Ai) {
+                Pt.parents[Ai] = !0;
               }));
               continue;
             }
-            qe[ti] = Pt;
-            var ni = ei.value;
-            typeof ni != "string" ? ni = kt(ni) : Pt.fmt && (ni = this.tmStrFormat(ni, Pt, Oe)), Ve.splice.apply(Ve, [jt + 1, Math.max(0, Et - jt)].concat(ni, Pt)), ei.indexOf(Pt) === -1 && ei.push(Pt);
+            qe[ti] = ei;
+            var ni = Pt.value;
+            typeof ni != "string" ? ni = kt(ni) : ei.fmt && (ni = this.tmStrFormat(ni, ei, Oe)), Ve.splice.apply(Ve, [jt + 1, Math.max(0, Et - jt)].concat(ni, ei)), Pt.indexOf(ei) === -1 && Pt.push(ei);
           }
         }
-        var ri = 0, Ii = 0, wi = "";
+        var ri = 0, ci = 0, wi = "";
         Ve.forEach(function(Ai) {
           if (typeof Ai == "string") {
             var yi = Ai.split(`
 `);
-            yi.length > 1 ? (Ii = yi[yi.length - 1].length, ri += yi.length - 1) : Ii += Ai.length, wi += Ai;
+            yi.length > 1 ? (ci = yi[yi.length - 1].length, ri += yi.length - 1) : ci += Ai.length, wi += Ai;
           } else
-            Ai && (Ai.start ? Ai.end = { row: ri, column: Ii } : Ai.start = { row: ri, column: Ii });
+            Ai && (Ai.start ? Ai.end = { row: ri, column: ci } : Ai.start = { row: ri, column: ci });
         });
-        var ai = Oe.getSelectionRange(), ui = Oe.session.replace(ai, wi), hi = new he(Oe), ci = Oe.inVirtualSelectionMode && Oe.selection.index;
-        hi.addTabstops(Dt, ai.start, ui, ci);
+        var ai = Oe.getSelectionRange(), ui = Oe.session.replace(ai, wi), hi = new he(Oe), Ii = Oe.inVirtualSelectionMode && Oe.selection.index;
+        hi.addTabstops(Dt, ai.start, ui, Ii);
       }, this.insertSnippet = function(Oe, _e) {
         var At = this;
         if (Oe.inVirtualSelectionMode)
@@ -52465,13 +52476,13 @@ var extLanguage_tools = { exports: {} };
             kt = kt < 0 ? -kt - 1 : kt + 1;
             var jt = Ve.rangeList.pointIndex(Oe.end, qe);
             jt = jt < 0 ? -jt - 1 : jt - 1;
-            for (var Pt = Ve.rangeList.ranges.slice(kt, jt), ti = 0; ti < Pt.length; ti++)
-              this.removeRange(Pt[ti]);
+            for (var ei = Ve.rangeList.ranges.slice(kt, jt), ti = 0; ti < ei.length; ti++)
+              this.removeRange(ei[ti]);
           }
           Ve.rangeList.$onChange(Oe);
         }
-        var ei = this.editor.session;
-        !this.$inChange && _e && ei.getLength() == 1 && !ei.getValue() && this.detach();
+        var Pt = this.editor.session;
+        !this.$inChange && _e && Pt.getLength() == 1 && !Pt.getValue() && this.detach();
       }, this.updateLinkedFields = function() {
         var Oe = this.selectedTabstop;
         if (!(!Oe || !Oe.hasLinkedRanges || !Oe.firstNonLinked)) {
@@ -52526,9 +52537,9 @@ var extLanguage_tools = { exports: {} };
         }
         var Ue = this.index, Ve = [Ue + 1, 0], Dt = this.ranges;
         Oe.forEach(function(qe, kt) {
-          for (var jt = this.$openTabstops[kt] || qe, Pt = 0; Pt < qe.length; Pt++) {
-            var ti = qe[Pt], ei = Ce.fromPoints(ti.start, ti.end || ti.start);
-            pe(ei.start, _e), pe(ei.end, _e), ei.original = ti, ei.tabstop = jt, Dt.push(ei), jt != qe ? jt.unshift(ei) : jt[Pt] = ei, ti.fmtString || jt.firstNonLinked && $e ? (ei.linked = !0, jt.hasLinkedRanges = !0) : jt.firstNonLinked || (jt.firstNonLinked = ei);
+          for (var jt = this.$openTabstops[kt] || qe, ei = 0; ei < qe.length; ei++) {
+            var ti = qe[ei], Pt = Ce.fromPoints(ti.start, ti.end || ti.start);
+            pe(Pt.start, _e), pe(Pt.end, _e), Pt.original = ti, Pt.tabstop = jt, Dt.push(Pt), jt != qe ? jt.unshift(Pt) : jt[ei] = Pt, ti.fmtString || jt.firstNonLinked && $e ? (Pt.linked = !0, jt.hasLinkedRanges = !0) : jt.firstNonLinked || (jt.firstNonLinked = Pt);
           }
           jt.firstNonLinked || (jt.hasLinkedRanges = !1), jt === qe && (Ve.push(jt), this.$openTabstops[kt] = jt), this.addTabstopMarkers(jt), jt.rangeList = jt.rangeList || new ie(), jt.rangeList.$bias = 0, jt.rangeList.addList(jt);
         }, this), Ve.length > 2 && (this.tabstops.length && Ve.push(Ve.splice(2, 1)[0]), this.tabstops.splice.apply(this.tabstops, Ve));
@@ -52648,14 +52659,14 @@ var extLanguage_tools = { exports: {} };
             value: ni
           });
         }
-        for (var qe = Ve.toLowerCase(), kt = (Ne.filterText || "").toLowerCase(), jt = 0, Pt = 0, ti = 0; ti <= kt.length; ti++)
-          if (ti != Pt && (Fe.matchMask & 1 << ti || ti == kt.length)) {
-            var ei = kt.slice(Pt, ti);
-            Pt = ti;
-            var Et = qe.indexOf(ei, jt);
+        for (var qe = Ve.toLowerCase(), kt = (Ne.filterText || "").toLowerCase(), jt = 0, ei = 0, ti = 0; ti <= kt.length; ti++)
+          if (ti != ei && (Fe.matchMask & 1 << ti || ti == kt.length)) {
+            var Pt = kt.slice(ei, ti);
+            ei = ti;
+            var Et = qe.indexOf(Pt, jt);
             if (Et == -1)
               continue;
-            Dt(Ve.slice(jt, Et), ""), jt = Et + ei.length, Dt(Ve.slice(Et, jt), "completion-highlight");
+            Dt(Ve.slice(jt, Et), ""), jt = Et + Pt.length, Dt(Ve.slice(Et, jt), "completion-highlight");
           }
         return Dt(Ve.slice(jt, Ve.length), ""), Fe.meta && Ue.push({ type: "completion-meta", value: Fe.meta }), Fe.message && Ue.push({ type: "completion-message", value: Fe.message }), Ue;
       }, At.$updateOnChange = he, At.start = he, Ne.session.$computeWidth = function() {
@@ -52674,10 +52685,10 @@ var extLanguage_tools = { exports: {} };
       }), Ne.hide = function() {
         this.container.style.display = "none", this._signal("hide"), Ne.isOpen = !1;
       }, Ne.show = function($e, Fe, Ue) {
-        var Ve = this.container, Dt = window.innerHeight, qe = window.innerWidth, kt = this.renderer, jt = kt.$maxLines * Fe * 1.4, Pt = $e.top + this.$borderSize, ti = Pt > Dt / 2 && !Ue;
-        ti && Pt + Fe + jt > Dt ? (kt.$maxPixelHeight = Pt - 2 * this.$borderSize, Ve.style.top = "", Ve.style.bottom = Dt - Pt + "px", Ne.isTopdown = !1) : (Pt += Fe, kt.$maxPixelHeight = Dt - Pt - 0.2 * Fe, Ve.style.top = Pt + "px", Ve.style.bottom = "", Ne.isTopdown = !0), Ve.style.display = "";
-        var ei = $e.left;
-        ei + Ve.offsetWidth > qe && (ei = qe - Ve.offsetWidth), Ve.style.left = ei + "px", this._signal("show"), pe = null, Ne.isOpen = !0;
+        var Ve = this.container, Dt = window.innerHeight, qe = window.innerWidth, kt = this.renderer, jt = kt.$maxLines * Fe * 1.4, ei = $e.top + this.$borderSize, ti = ei > Dt / 2 && !Ue;
+        ti && ei + Fe + jt > Dt ? (kt.$maxPixelHeight = ei - 2 * this.$borderSize, Ve.style.top = "", Ve.style.bottom = Dt - ei + "px", Ne.isTopdown = !1) : (ei += Fe, kt.$maxPixelHeight = Dt - ei - 0.2 * Fe, Ve.style.top = ei + "px", Ve.style.bottom = "", Ne.isTopdown = !0), Ve.style.display = "";
+        var Pt = $e.left;
+        Pt + Ve.offsetWidth > qe && (Pt = qe - Ve.offsetWidth), Ve.style.left = Pt + "px", this._signal("show"), pe = null, Ne.isOpen = !0;
       }, Ne.goTo = function($e) {
         var Fe = this.getRow(), Ue = this.session.getLength() - 1;
         switch ($e) {
@@ -53067,10 +53078,10 @@ var extLanguage_tools = { exports: {} };
         Ve && Ve.type.match(/(tag-name|tag-open|tag-whitespace|attribute-name|attribute-value)\.xml$/) ? Ue.push("html-tag") : Ue = k.getActiveScopes(Oe);
         var Dt = k.snippetMap, qe = [];
         Ue.forEach(function(kt) {
-          for (var jt = Dt[kt] || [], Pt = jt.length; Pt--; ) {
-            var ti = jt[Pt], ei = ti.name || ti.tabTrigger;
-            ei && qe.push({
-              caption: ei,
+          for (var jt = Dt[kt] || [], ei = jt.length; ei--; ) {
+            var ti = jt[ei], Pt = ti.name || ti.tabTrigger;
+            Pt && qe.push({
+              caption: Pt,
               snippet: ti.content,
               meta: ti.tabTrigger && !ti.name ? ti.tabTrigger + "⇥ " : "snippet",
               type: "snippet"
@@ -54750,12 +54761,12 @@ const _sfc_main$c = /* @__PURE__ */ defineComponent({
   },
   setup(i) {
     const n = i, r = useSvgEditLayoutStore(pinia), g = useConfigStore(pinia), V = function() {
-      return function(ci, Ai, yi) {
-        ci && Ai && yi && ci.addEventListener(Ai, yi, !1);
+      return function(Ii, Ai, yi) {
+        Ii && Ai && yi && Ii.addEventListener(Ai, yi, !1);
       };
     }(), k = function() {
-      return function(ci, Ai, yi) {
-        ci && Ai && ci.removeEventListener(Ai, yi, !1);
+      return function(Ii, Ai, yi) {
+        Ii && Ai && Ii.removeEventListener(Ai, yi, !1);
       };
     }();
     let $ = 18, re = ref(0), oe = ref(0), Ce = ref([]), ie = ref([]);
@@ -54767,23 +54778,23 @@ const _sfc_main$c = /* @__PURE__ */ defineComponent({
     })), $e = computed$1(() => ({
       padding: $ + "px 0px 0px " + $ + "px"
     })), Fe = computed$1(() => {
-      let ci = 0, Ai = 0;
+      let Ii = 0, Ai = 0;
       return ae.value.map((yi) => {
         const di = yi.type === "h";
         return {
-          id: `${yi.type}_${di ? ci++ : Ai++}`,
+          id: `${yi.type}_${di ? Ii++ : Ai++}`,
           type: yi.type,
           title: yi.site.toFixed(0) + "px",
           [di ? "top" : "left"]: yi.site * g.svg.scale + $ + r.center_offset[di ? "y" : "x"] * g.svg.scale
         };
       });
     });
-    r.$subscribe((ci) => {
+    r.$subscribe((Ii) => {
       var Ai, yi, di, Ci;
-      ((yi = (Ai = ci.events) == null ? void 0 : Ai.target) != null && yi.hasOwnProperty("left_nav") || (Ci = (di = ci.events) == null ? void 0 : di.target) != null && Ci.hasOwnProperty("right_nav")) && window.setTimeout(Ue, 420);
-    }), g.$subscribe((ci) => {
+      ((yi = (Ai = Ii.events) == null ? void 0 : Ai.target) != null && yi.hasOwnProperty("left_nav") || (Ci = (di = Ii.events) == null ? void 0 : di.target) != null && Ci.hasOwnProperty("right_nav")) && window.setTimeout(Ue, 420);
+    }), g.$subscribe((Ii) => {
       var Ai, yi;
-      (yi = (Ai = ci.events) == null ? void 0 : Ai.target) != null && yi.hasOwnProperty("scale") && jt();
+      (yi = (Ai = Ii.events) == null ? void 0 : Ai.target) != null && yi.hasOwnProperty("scale") && jt();
     }), onMounted(() => {
       V(document, "mousemove", ti), V(document, "mouseup", ni), Ue(), V(window, "resize", Ve);
     }), onBeforeUnmount(() => {
@@ -54793,47 +54804,47 @@ const _sfc_main$c = /* @__PURE__ */ defineComponent({
       kt(), jt();
     }, Ve = () => {
       Ce.value = [], ie.value = [], Ue();
-    }, Dt = ({ type: ci, top: Ai, left: yi }) => ci === "h" ? { top: Ai + "px" } : { left: yi + "px" }, qe = ({ type: ci, id: Ai }) => ci === "h" ? ui(Ai) : hi(Ai), kt = () => {
-      const ci = window.getComputedStyle(xe.value.parentNode, null);
-      re.value = parseInt(ci.getPropertyValue("width")), oe.value = parseInt(ci.getPropertyValue("height")), Ne = Oe.value.clientWidth, he = _e.value.clientHeight;
+    }, Dt = ({ type: Ii, top: Ai, left: yi }) => Ii === "h" ? { top: Ai + "px" } : { left: yi + "px" }, qe = ({ type: Ii, id: Ai }) => Ii === "h" ? ui(Ai) : hi(Ai), kt = () => {
+      const Ii = window.getComputedStyle(xe.value.parentNode, null);
+      re.value = parseInt(Ii.getPropertyValue("width")), oe.value = parseInt(Ii.getPropertyValue("height")), Ne = Oe.value.clientWidth, he = _e.value.clientHeight;
     }, jt = () => {
-      Pt(Ce.value, re.value, r.center_offset.x), Pt(ie.value, oe.value, r.center_offset.y);
-    }, Pt = (ci, Ai, yi) => {
-      if (ci.length === 0)
+      ei(Ce.value, re.value, r.center_offset.x), ei(ie.value, oe.value, r.center_offset.y);
+    }, ei = (Ii, Ai, yi) => {
+      if (Ii.length === 0)
         for (let di = 0; di < Ai; di += n.stepLength)
-          di % n.stepLength === 0 && ci.push({ id: Number((di / g.svg.scale - yi).toFixed(0)) });
+          di % n.stepLength === 0 && Ii.push({ id: Number((di / g.svg.scale - yi).toFixed(0)) });
       else
-        ci.forEach((di, Ci) => {
+        Ii.forEach((di, Ci) => {
           di.id = Number((Ci * n.stepLength / g.svg.scale - yi).toFixed(0));
         });
-    }, ti = (ci) => {
-      jt(), ei(ci);
-    }, ei = (ci) => {
-      if (!(ci.layerX === ci.x || ci.layerY === ci.y))
+    }, ti = (Ii) => {
+      jt(), Pt(Ii);
+    }, Pt = (Ii) => {
+      if (!(Ii.layerX === Ii.x || Ii.layerY === Ii.y))
         switch (Ie) {
           case "x":
-            le.value && (ue.value = ci.layerY);
+            le.value && (ue.value = Ii.layerY);
             break;
           case "y":
-            le.value && (de.value = ci.layerX);
+            le.value && (de.value = Ii.layerX);
             break;
           case "h":
-            le.value && (ue.value = ci.layerY);
+            le.value && (ue.value = Ii.layerY);
             break;
           case "v":
-            le.value && (de.value = ci.layerX);
+            le.value && (de.value = Ii.layerX);
             break;
         }
-    }, Et = (ci) => {
-      le.value = !0, Ie = ci;
-    }, ni = (ci) => {
-      ri(ci);
-    }, ri = (ci) => {
+    }, Et = (Ii) => {
+      le.value = !0, Ie = Ii;
+    }, ni = (Ii) => {
+      ri(Ii);
+    }, ri = (Ii) => {
       if (le.value) {
         switch (le.value = !1, Ie) {
           case "x":
             const Ai = Math.round(
-              (ci.layerY - $) / g.svg.scale - r.center_offset.y
+              (Ii.layerY - $) / g.svg.scale - r.center_offset.y
             );
             if (Ai <= 0) {
               ue.value = -999;
@@ -54846,7 +54857,7 @@ const _sfc_main$c = /* @__PURE__ */ defineComponent({
             break;
           case "y":
             const yi = Math.round(
-              (ci.layerX - $) / g.svg.scale - r.center_offset.x
+              (Ii.layerX - $) / g.svg.scale - r.center_offset.x
             );
             if (yi <= 0) {
               de.value = -999;
@@ -54858,17 +54869,17 @@ const _sfc_main$c = /* @__PURE__ */ defineComponent({
             });
             break;
           case "h":
-            Ii(
+            ci(
               ae.value,
-              Math.round((ci.layerY - $) / g.svg.scale - r.center_offset.y),
+              Math.round((Ii.layerY - $) / g.svg.scale - r.center_offset.y),
               Math.round(he / g.svg.scale - r.center_offset.y),
               "h"
             );
             break;
           case "v":
-            Ii(
+            ci(
               ae.value,
-              Math.round((ci.layerX - $) / g.svg.scale - r.center_offset.x),
+              Math.round((Ii.layerX - $) / g.svg.scale - r.center_offset.x),
               Math.round(Ne / g.svg.scale - r.center_offset.x),
               "v"
             );
@@ -54876,17 +54887,17 @@ const _sfc_main$c = /* @__PURE__ */ defineComponent({
         }
         ue.value = de.value = -999;
       }
-    }, Ii = (ci, Ai, yi, di) => {
+    }, ci = (Ii, Ai, yi, di) => {
       if (Ai < yi) {
         let Ci;
         Fe.value.forEach((zi, Mi) => {
           zi.id === pe && (Ci = Mi);
-        }), ci.splice(Ci, 1);
+        }), Ii.splice(Ci, 1);
       } else {
         let Ci;
         Fe.value.forEach((zi, Mi) => {
           zi.id === pe && (Ci = Mi);
-        }), ci.splice(Ci, 1, {
+        }), Ii.splice(Ci, 1, {
           type: di,
           site: Ai
         });
@@ -54895,12 +54906,12 @@ const _sfc_main$c = /* @__PURE__ */ defineComponent({
       Et("x");
     }, ai = () => {
       Et("y");
-    }, ui = (ci) => {
-      le.value = !0, Ie = "h", pe = ci;
-    }, hi = (ci) => {
-      le.value = !0, Ie = "v", pe = ci;
+    }, ui = (Ii) => {
+      le.value = !0, Ie = "h", pe = Ii;
+    }, hi = (Ii) => {
+      le.value = !0, Ie = "v", pe = Ii;
     };
-    return (ci, Ai) => (openBlock(), createElementBlock("div", {
+    return (Ii, Ai) => (openBlock(), createElementBlock("div", {
       style: normalizeStyle$1(unref(At)),
       class: "vue-ruler-wrapper",
       onselectStart: "return false;",
@@ -54915,7 +54926,7 @@ const _sfc_main$c = /* @__PURE__ */ defineComponent({
           onMousedown: withModifiers(wi, ["stop"])
         }, [
           (openBlock(!0), createElementBlock(Fragment, null, renderList(unref(Ce), (yi, di) => (openBlock(), createElementBlock("span", {
-            style: normalizeStyle$1({ left: di * ci.stepLength + "px" }),
+            style: normalizeStyle$1({ left: di * Ii.stepLength + "px" }),
             class: "n"
           }, toDisplayString(yi.id), 5))), 256))
         ], 40, _hoisted_1$2),
@@ -54926,7 +54937,7 @@ const _sfc_main$c = /* @__PURE__ */ defineComponent({
           onMousedown: withModifiers(ai, ["stop"])
         }, [
           (openBlock(!0), createElementBlock(Fragment, null, renderList(unref(ie), (yi, di) => (openBlock(), createElementBlock("span", {
-            style: normalizeStyle$1({ top: di * ci.stepLength + "px" }),
+            style: normalizeStyle$1({ top: di * Ii.stepLength + "px" }),
             class: "n"
           }, toDisplayString(yi.id), 5))), 256))
         ], 40, _hoisted_2$1),
@@ -54958,7 +54969,7 @@ const _sfc_main$c = /* @__PURE__ */ defineComponent({
         class: "vue-ruler-content",
         style: normalizeStyle$1(unref($e))
       }, [
-        renderSlot(ci.$slots, "default")
+        renderSlot(Ii.$slots, "default")
       ], 4),
       withDirectives(createElementVNode("div", _hoisted_4$1, null, 512), [
         [vShow, unref(le)]
@@ -55198,10 +55209,10 @@ var mqtt = { exports: {} };
     }()({ 1: [function(r, g, V) {
       (function(k, $) {
         (function() {
-          const re = r("events").EventEmitter, oe = r("./store"), Ce = r("./topic-alias-recv"), ie = r("./topic-alias-send"), ae = r("mqtt-packet"), le = r("./default-message-id-provider"), Ie = r("readable-stream").Writable, de = r("inherits"), ue = r("reinterval"), Ne = r("rfdc/default"), he = r("./validations"), pe = r("xtend"), ze = r("debug")("mqttjs:client"), xe = k ? k.nextTick : function(ei) {
-            setTimeout(ei, 0);
-          }, Oe = $.setImmediate || function(ei) {
-            xe(ei);
+          const re = r("events").EventEmitter, oe = r("./store"), Ce = r("./topic-alias-recv"), ie = r("./topic-alias-send"), ae = r("mqtt-packet"), le = r("./default-message-id-provider"), Ie = r("readable-stream").Writable, de = r("inherits"), ue = r("reinterval"), Ne = r("rfdc/default"), he = r("./validations"), pe = r("xtend"), ze = r("debug")("mqttjs:client"), xe = k ? k.nextTick : function(Pt) {
+            setTimeout(Pt, 0);
+          }, Oe = $.setImmediate || function(Pt) {
+            xe(Pt);
           }, _e = {
             keepalive: 60,
             reschedulePings: !0,
@@ -55264,77 +55275,77 @@ var mqtt = { exports: {} };
           function Fe() {
             return "mqttjs_" + Math.random().toString(16).substr(2, 8);
           }
-          function Ue(ei, Et) {
-            if (ei.options.protocolVersion === 5 && Et.cmd === "publish") {
+          function Ue(Pt, Et) {
+            if (Pt.options.protocolVersion === 5 && Et.cmd === "publish") {
               let ni;
               Et.properties && (ni = Et.properties.topicAlias);
               const ri = Et.topic.toString();
-              if (ei.topicAliasSend)
+              if (Pt.topicAliasSend)
                 if (ni) {
-                  if (ri.length !== 0 && (ze("applyTopicAlias :: register topic: %s - alias: %d", ri, ni), !ei.topicAliasSend.put(ri, ni)))
+                  if (ri.length !== 0 && (ze("applyTopicAlias :: register topic: %s - alias: %d", ri, ni), !Pt.topicAliasSend.put(ri, ni)))
                     return ze("applyTopicAlias :: error out of range. topic: %s - alias: %d", ri, ni), new Error("Sending Topic Alias out of range");
                 } else
-                  ri.length !== 0 && (ei.options.autoAssignTopicAlias ? (ni = ei.topicAliasSend.getAliasByTopic(ri), ni ? (Et.topic = "", Et.properties = { ...Et.properties, topicAlias: ni }, ze("applyTopicAlias :: auto assign(use) topic: %s - alias: %d", ri, ni)) : (ni = ei.topicAliasSend.getLruAlias(), ei.topicAliasSend.put(ri, ni), Et.properties = { ...Et.properties, topicAlias: ni }, ze("applyTopicAlias :: auto assign topic: %s - alias: %d", ri, ni))) : ei.options.autoUseTopicAlias && (ni = ei.topicAliasSend.getAliasByTopic(ri), ni && (Et.topic = "", Et.properties = { ...Et.properties, topicAlias: ni }, ze("applyTopicAlias :: auto use topic: %s - alias: %d", ri, ni))));
+                  ri.length !== 0 && (Pt.options.autoAssignTopicAlias ? (ni = Pt.topicAliasSend.getAliasByTopic(ri), ni ? (Et.topic = "", Et.properties = { ...Et.properties, topicAlias: ni }, ze("applyTopicAlias :: auto assign(use) topic: %s - alias: %d", ri, ni)) : (ni = Pt.topicAliasSend.getLruAlias(), Pt.topicAliasSend.put(ri, ni), Et.properties = { ...Et.properties, topicAlias: ni }, ze("applyTopicAlias :: auto assign topic: %s - alias: %d", ri, ni))) : Pt.options.autoUseTopicAlias && (ni = Pt.topicAliasSend.getAliasByTopic(ri), ni && (Et.topic = "", Et.properties = { ...Et.properties, topicAlias: ni }, ze("applyTopicAlias :: auto use topic: %s - alias: %d", ri, ni))));
               else if (ni)
                 return ze("applyTopicAlias :: error out of range. topic: %s - alias: %d", ri, ni), new Error("Sending Topic Alias out of range");
             }
           }
-          function Ve(ei, Et) {
+          function Ve(Pt, Et) {
             let ni;
             Et.properties && (ni = Et.properties.topicAlias);
             let ri = Et.topic.toString();
             if (ri.length === 0) {
               if (typeof ni > "u")
                 return new Error("Unregistered Topic Alias");
-              if (ri = ei.topicAliasSend.getTopicByAlias(ni), typeof ri > "u")
+              if (ri = Pt.topicAliasSend.getTopicByAlias(ni), typeof ri > "u")
                 return new Error("Unregistered Topic Alias");
               Et.topic = ri;
             }
             ni && delete Et.properties.topicAlias;
           }
-          function Dt(ei, Et, ni) {
-            ze("sendPacket :: packet: %O", Et), ze("sendPacket :: emitting `packetsend`"), ei.emit("packetsend", Et), ze("sendPacket :: writing to stream");
-            const ri = ae.writeToStream(Et, ei.stream, ei.options);
-            ze("sendPacket :: writeToStream result %s", ri), !ri && ni && ni !== Pt ? (ze("sendPacket :: handle events on `drain` once through callback."), ei.stream.once("drain", ni)) : ni && (ze("sendPacket :: invoking cb"), ni());
+          function Dt(Pt, Et, ni) {
+            ze("sendPacket :: packet: %O", Et), ze("sendPacket :: emitting `packetsend`"), Pt.emit("packetsend", Et), ze("sendPacket :: writing to stream");
+            const ri = ae.writeToStream(Et, Pt.stream, Pt.options);
+            ze("sendPacket :: writeToStream result %s", ri), !ri && ni && ni !== ei ? (ze("sendPacket :: handle events on `drain` once through callback."), Pt.stream.once("drain", ni)) : ni && (ze("sendPacket :: invoking cb"), ni());
           }
-          function qe(ei) {
-            ei && (ze("flush: queue exists? %b", !!ei), Object.keys(ei).forEach(function(Et) {
-              typeof ei[Et].cb == "function" && (ei[Et].cb(new Error("Connection closed")), delete ei[Et]);
+          function qe(Pt) {
+            Pt && (ze("flush: queue exists? %b", !!Pt), Object.keys(Pt).forEach(function(Et) {
+              typeof Pt[Et].cb == "function" && (Pt[Et].cb(new Error("Connection closed")), delete Pt[Et]);
             }));
           }
-          function kt(ei) {
-            ei && (ze("flushVolatile :: deleting volatile messages from the queue and setting their callbacks as error function"), Object.keys(ei).forEach(function(Et) {
-              ei[Et].volatile && typeof ei[Et].cb == "function" && (ei[Et].cb(new Error("Connection closed")), delete ei[Et]);
+          function kt(Pt) {
+            Pt && (ze("flushVolatile :: deleting volatile messages from the queue and setting their callbacks as error function"), Object.keys(Pt).forEach(function(Et) {
+              Pt[Et].volatile && typeof Pt[Et].cb == "function" && (Pt[Et].cb(new Error("Connection closed")), delete Pt[Et]);
             }));
           }
-          function jt(ei, Et, ni, ri) {
+          function jt(Pt, Et, ni, ri) {
             ze("storeAndSend :: store packet with cmd %s to outgoingStore", Et.cmd);
-            let Ii = Et, wi;
-            if (Ii.cmd === "publish" && (Ii = Ne(Et), wi = Ve(ei, Ii), wi))
+            let ci = Et, wi;
+            if (ci.cmd === "publish" && (ci = Ne(Et), wi = Ve(Pt, ci), wi))
               return ni && ni(wi);
-            ei.outgoingStore.put(Ii, function(ui) {
+            Pt.outgoingStore.put(ci, function(ui) {
               if (ui)
                 return ni && ni(ui);
-              ri(), Dt(ei, Et, ni);
+              ri(), Dt(Pt, Et, ni);
             });
           }
-          function Pt(ei) {
-            ze("nop ::", ei);
+          function ei(Pt) {
+            ze("nop ::", Pt);
           }
-          function ti(ei, Et) {
+          function ti(Pt, Et) {
             let ni;
             const ri = this;
             if (!(this instanceof ti))
-              return new ti(ei, Et);
+              return new ti(Pt, Et);
             this.options = Et || {};
             for (ni in _e)
               typeof this.options[ni] > "u" ? this.options[ni] = _e[ni] : this.options[ni] = Et[ni];
             ze("MqttClient :: options.protocol", Et.protocol), ze("MqttClient :: options.protocolVersion", Et.protocolVersion), ze("MqttClient :: options.username", Et.username), ze("MqttClient :: options.keepalive", Et.keepalive), ze("MqttClient :: options.reconnectPeriod", Et.reconnectPeriod), ze("MqttClient :: options.rejectUnauthorized", Et.rejectUnauthorized), ze("MqttClient :: options.topicAliasMaximum", Et.topicAliasMaximum), this.options.clientId = typeof Et.clientId == "string" ? Et.clientId : Fe(), ze("MqttClient :: clientId", this.options.clientId), this.options.customHandleAcks = Et.protocolVersion === 5 && Et.customHandleAcks ? Et.customHandleAcks : function() {
               arguments[3](0);
-            }, this.streamBuilder = ei, this.messageIdProvider = typeof this.options.messageIdProvider > "u" ? new le() : this.options.messageIdProvider, this.outgoingStore = Et.outgoingStore || new oe(), this.incomingStore = Et.incomingStore || new oe(), this.queueQoSZero = Et.queueQoSZero === void 0 ? !0 : Et.queueQoSZero, this._resubscribeTopics = {}, this.messageIdToTopic = {}, this.pingTimer = null, this.connected = !1, this.disconnecting = !1, this.queue = [], this.connackTimer = null, this.reconnectTimer = null, this._storeProcessing = !1, this._packetIdsDuringStoreProcessing = {}, this._storeProcessingQueue = [], this.outgoing = {}, this._firstConnection = !0, Et.topicAliasMaximum > 0 && (Et.topicAliasMaximum > 65535 ? ze("MqttClient :: options.topicAliasMaximum is out of range") : this.topicAliasRecv = new Ce(Et.topicAliasMaximum)), this.on("connect", function() {
-              const Ii = this.queue;
+            }, this.streamBuilder = Pt, this.messageIdProvider = typeof this.options.messageIdProvider > "u" ? new le() : this.options.messageIdProvider, this.outgoingStore = Et.outgoingStore || new oe(), this.incomingStore = Et.incomingStore || new oe(), this.queueQoSZero = Et.queueQoSZero === void 0 ? !0 : Et.queueQoSZero, this._resubscribeTopics = {}, this.messageIdToTopic = {}, this.pingTimer = null, this.connected = !1, this.disconnecting = !1, this.queue = [], this.connackTimer = null, this.reconnectTimer = null, this._storeProcessing = !1, this._packetIdsDuringStoreProcessing = {}, this._storeProcessingQueue = [], this.outgoing = {}, this._firstConnection = !0, Et.topicAliasMaximum > 0 && (Et.topicAliasMaximum > 65535 ? ze("MqttClient :: options.topicAliasMaximum is out of range") : this.topicAliasRecv = new Ce(Et.topicAliasMaximum)), this.on("connect", function() {
+              const ci = this.queue;
               function wi() {
-                const ai = Ii.shift();
+                const ai = ci.shift();
                 ze("deliver :: entry %o", ai);
                 let ui = null;
                 if (!ai) {
@@ -55345,8 +55356,8 @@ var mqtt = { exports: {} };
                 let hi = !0;
                 ui.messageId && ui.messageId !== 0 && (ri.messageIdProvider.register(ui.messageId) || (hi = !1)), hi ? ri._sendPacket(
                   ui,
-                  function(ci) {
-                    ai.cb && ai.cb(ci), wi();
+                  function(Ii) {
+                    ai.cb && ai.cb(Ii), wi();
                   }
                 ) : (ze("messageId: %d has already used. The message is skipped and removed.", ui.messageId), wi());
               }
@@ -55356,116 +55367,116 @@ var mqtt = { exports: {} };
             }), re.call(this), ze("MqttClient :: setting up stream"), this._setupStream();
           }
           de(ti, re), ti.prototype._setupStream = function() {
-            const ei = this, Et = new Ie(), ni = ae.parser(this.options);
+            const Pt = this, Et = new Ie(), ni = ae.parser(this.options);
             let ri = null;
-            const Ii = [];
-            ze("_setupStream :: calling method to clear reconnect"), this._clearReconnect(), ze("_setupStream :: using streamBuilder provided to client to create stream"), this.stream = this.streamBuilder(this), ni.on("packet", function(ci) {
-              ze("parser :: on packet push to packets array."), Ii.push(ci);
+            const ci = [];
+            ze("_setupStream :: calling method to clear reconnect"), this._clearReconnect(), ze("_setupStream :: using streamBuilder provided to client to create stream"), this.stream = this.streamBuilder(this), ni.on("packet", function(Ii) {
+              ze("parser :: on packet push to packets array."), ci.push(Ii);
             });
             function wi() {
-              if (Ii.length)
+              if (ci.length)
                 xe(ai);
               else {
-                const ci = ri;
-                ri = null, ci();
+                const Ii = ri;
+                ri = null, Ii();
               }
             }
             function ai() {
               ze("work :: getting next packet in queue");
-              const ci = Ii.shift();
-              if (ci)
-                ze("work :: packet pulled from queue"), ei._handlePacket(ci, wi);
+              const Ii = ci.shift();
+              if (Ii)
+                ze("work :: packet pulled from queue"), Pt._handlePacket(Ii, wi);
               else {
                 ze("work :: no packets in queue");
                 const Ai = ri;
                 ri = null, ze("work :: done flag is %s", !!Ai), Ai && Ai();
               }
             }
-            Et._write = function(ci, Ai, yi) {
-              ri = yi, ze("writable stream :: parsing buffer"), ni.parse(ci), ai();
+            Et._write = function(Ii, Ai, yi) {
+              ri = yi, ze("writable stream :: parsing buffer"), ni.parse(Ii), ai();
             };
-            function ui(ci) {
-              ze("streamErrorHandler :: error", ci.message), At.includes(ci.code) ? (ze("streamErrorHandler :: emitting error"), ei.emit("error", ci)) : Pt(ci);
+            function ui(Ii) {
+              ze("streamErrorHandler :: error", Ii.message), At.includes(Ii.code) ? (ze("streamErrorHandler :: emitting error"), Pt.emit("error", Ii)) : ei(Ii);
             }
             ze("_setupStream :: pipe stream to writable stream"), this.stream.pipe(Et), this.stream.on("error", ui), this.stream.on("close", function() {
-              ze("(%s)stream :: on close", ei.options.clientId), kt(ei.outgoing), ze("stream: emit close to MqttClient"), ei.emit("close");
+              ze("(%s)stream :: on close", Pt.options.clientId), kt(Pt.outgoing), ze("stream: emit close to MqttClient"), Pt.emit("close");
             }), ze("_setupStream: sending packet `connect`");
             const hi = Object.create(this.options);
             if (hi.cmd = "connect", this.topicAliasRecv && (hi.properties || (hi.properties = {}), this.topicAliasRecv && (hi.properties.topicAliasMaximum = this.topicAliasRecv.max)), Dt(this, hi), ni.on("error", this.emit.bind(this, "error")), this.options.properties) {
               if (!this.options.properties.authenticationMethod && this.options.properties.authenticationData)
-                return ei.end(() => this.emit(
+                return Pt.end(() => this.emit(
                   "error",
                   new Error("Packet has no Authentication Method")
                 )), this;
               if (this.options.properties.authenticationMethod && this.options.authPacket && typeof this.options.authPacket == "object") {
-                const ci = pe({ cmd: "auth", reasonCode: 0 }, this.options.authPacket);
-                Dt(this, ci);
+                const Ii = pe({ cmd: "auth", reasonCode: 0 }, this.options.authPacket);
+                Dt(this, Ii);
               }
             }
             this.stream.setMaxListeners(1e3), clearTimeout(this.connackTimer), this.connackTimer = setTimeout(function() {
-              ze("!!connectTimeout hit!! Calling _cleanUp with force `true`"), ei._cleanUp(!0);
+              ze("!!connectTimeout hit!! Calling _cleanUp with force `true`"), Pt._cleanUp(!0);
             }, this.options.connectTimeout);
-          }, ti.prototype._handlePacket = function(ei, Et) {
+          }, ti.prototype._handlePacket = function(Pt, Et) {
             const ni = this.options;
-            if (ni.protocolVersion === 5 && ni.properties && ni.properties.maximumPacketSize && ni.properties.maximumPacketSize < ei.length)
-              return this.emit("error", new Error("exceeding packets size " + ei.cmd)), this.end({ reasonCode: 149, properties: { reasonString: "Maximum packet size was exceeded" } }), this;
-            switch (ze("_handlePacket :: emitting packetreceive"), this.emit("packetreceive", ei), ei.cmd) {
+            if (ni.protocolVersion === 5 && ni.properties && ni.properties.maximumPacketSize && ni.properties.maximumPacketSize < Pt.length)
+              return this.emit("error", new Error("exceeding packets size " + Pt.cmd)), this.end({ reasonCode: 149, properties: { reasonString: "Maximum packet size was exceeded" } }), this;
+            switch (ze("_handlePacket :: emitting packetreceive"), this.emit("packetreceive", Pt), Pt.cmd) {
               case "publish":
-                this._handlePublish(ei, Et);
+                this._handlePublish(Pt, Et);
                 break;
               case "puback":
               case "pubrec":
               case "pubcomp":
               case "suback":
               case "unsuback":
-                this._handleAck(ei), Et();
+                this._handleAck(Pt), Et();
                 break;
               case "pubrel":
-                this._handlePubrel(ei, Et);
+                this._handlePubrel(Pt, Et);
                 break;
               case "connack":
-                this._handleConnack(ei), Et();
+                this._handleConnack(Pt), Et();
                 break;
               case "auth":
-                this._handleAuth(ei), Et();
+                this._handleAuth(Pt), Et();
                 break;
               case "pingresp":
-                this._handlePingresp(ei), Et();
+                this._handlePingresp(Pt), Et();
                 break;
               case "disconnect":
-                this._handleDisconnect(ei), Et();
+                this._handleDisconnect(Pt), Et();
                 break;
             }
-          }, ti.prototype._checkDisconnecting = function(ei) {
-            return this.disconnecting && (ei && ei !== Pt ? ei(new Error("client disconnecting")) : this.emit("error", new Error("client disconnecting"))), this.disconnecting;
-          }, ti.prototype.publish = function(ei, Et, ni, ri) {
-            ze("publish :: message `%s` to topic `%s`", Et, ei);
-            const Ii = this.options;
+          }, ti.prototype._checkDisconnecting = function(Pt) {
+            return this.disconnecting && (Pt && Pt !== ei ? Pt(new Error("client disconnecting")) : this.emit("error", new Error("client disconnecting"))), this.disconnecting;
+          }, ti.prototype.publish = function(Pt, Et, ni, ri) {
+            ze("publish :: message `%s` to topic `%s`", Et, Pt);
+            const ci = this.options;
             if (typeof ni == "function" && (ri = ni, ni = null), ni = pe({ qos: 0, retain: !1, dup: !1 }, ni), this._checkDisconnecting(ri))
               return this;
             const ai = this, ui = function() {
               let hi = 0;
               if ((ni.qos === 1 || ni.qos === 2) && (hi = ai._nextId(), hi === null))
                 return ze("No messageId left"), !1;
-              const ci = {
+              const Ii = {
                 cmd: "publish",
-                topic: ei,
+                topic: Pt,
                 payload: Et,
                 qos: ni.qos,
                 retain: ni.retain,
                 messageId: hi,
                 dup: ni.dup
               };
-              switch (Ii.protocolVersion === 5 && (ci.properties = ni.properties), ze("publish :: qos", ni.qos), ni.qos) {
+              switch (ci.protocolVersion === 5 && (Ii.properties = ni.properties), ze("publish :: qos", ni.qos), ni.qos) {
                 case 1:
                 case 2:
-                  ai.outgoing[ci.messageId] = {
+                  ai.outgoing[Ii.messageId] = {
                     volatile: !1,
-                    cb: ri || Pt
-                  }, ze("MqttClient:publish: packet cmd: %s", ci.cmd), ai._sendPacket(ci, void 0, ni.cbStorePut);
+                    cb: ri || ei
+                  }, ze("MqttClient:publish: packet cmd: %s", Ii.cmd), ai._sendPacket(Ii, void 0, ni.cbStorePut);
                   break;
                 default:
-                  ze("MqttClient:publish: packet cmd: %s", ci.cmd), ai._sendPacket(ci, ri, ni.cbStorePut);
+                  ze("MqttClient:publish: packet cmd: %s", Ii.cmd), ai._sendPacket(Ii, ri, ni.cbStorePut);
                   break;
               }
               return !0;
@@ -55478,25 +55489,25 @@ var mqtt = { exports: {} };
               }
             ), this;
           }, ti.prototype.subscribe = function() {
-            const ei = this, Et = new Array(arguments.length);
+            const Pt = this, Et = new Array(arguments.length);
             for (let yi = 0; yi < arguments.length; yi++)
               Et[yi] = arguments[yi];
             const ni = [];
             let ri = Et.shift();
-            const Ii = ri.resubscribe;
-            let wi = Et.pop() || Pt, ai = Et.pop();
+            const ci = ri.resubscribe;
+            let wi = Et.pop() || ei, ai = Et.pop();
             const ui = this.options.protocolVersion;
-            delete ri.resubscribe, typeof ri == "string" && (ri = [ri]), typeof wi != "function" && (ai = wi, wi = Pt);
+            delete ri.resubscribe, typeof ri == "string" && (ri = [ri]), typeof wi != "function" && (ai = wi, wi = ei);
             const hi = he.validateTopics(ri);
             if (hi !== null)
               return Oe(wi, new Error("Invalid topic " + hi)), this;
             if (this._checkDisconnecting(wi))
               return ze("subscribe: discconecting true"), this;
-            const ci = {
+            const Ii = {
               qos: 0
             };
-            if (ui === 5 && (ci.nl = !1, ci.rap = !1, ci.rh = 0), ai = pe(ci, ai), Array.isArray(ri) ? ri.forEach(function(yi) {
-              if (ze("subscribe: array topic %s", yi), !Object.prototype.hasOwnProperty.call(ei._resubscribeTopics, yi) || ei._resubscribeTopics[yi].qos < ai.qos || Ii) {
+            if (ui === 5 && (Ii.nl = !1, Ii.rap = !1, Ii.rh = 0), ai = pe(Ii, ai), Array.isArray(ri) ? ri.forEach(function(yi) {
+              if (ze("subscribe: array topic %s", yi), !Object.prototype.hasOwnProperty.call(Pt._resubscribeTopics, yi) || Pt._resubscribeTopics[yi].qos < ai.qos || ci) {
                 const di = {
                   topic: yi,
                   qos: ai.qos
@@ -55504,7 +55515,7 @@ var mqtt = { exports: {} };
                 ui === 5 && (di.nl = ai.nl, di.rap = ai.rap, di.rh = ai.rh, di.properties = ai.properties), ze("subscribe: pushing topic `%s` and qos `%s` to subs list", di.topic, di.qos), ni.push(di);
               }
             }) : Object.keys(ri).forEach(function(yi) {
-              if (ze("subscribe: object topic %s", yi), !Object.prototype.hasOwnProperty.call(ei._resubscribeTopics, yi) || ei._resubscribeTopics[yi].qos < ri[yi].qos || Ii) {
+              if (ze("subscribe: object topic %s", yi), !Object.prototype.hasOwnProperty.call(Pt._resubscribeTopics, yi) || Pt._resubscribeTopics[yi].qos < ri[yi].qos || ci) {
                 const di = {
                   topic: yi,
                   qos: ri[yi].qos
@@ -55514,7 +55525,7 @@ var mqtt = { exports: {} };
             }), !ni.length)
               return wi(null, []), this;
             const Ai = function() {
-              const yi = ei._nextId();
+              const yi = Pt._nextId();
               if (yi === null)
                 return ze("No messageId left"), !1;
               const di = {
@@ -55525,17 +55536,17 @@ var mqtt = { exports: {} };
                 dup: !1,
                 messageId: yi
               };
-              if (ai.properties && (di.properties = ai.properties), ei.options.resubscribe) {
+              if (ai.properties && (di.properties = ai.properties), Pt.options.resubscribe) {
                 ze("subscribe :: resubscribe true");
                 const Ci = [];
                 ni.forEach(function(zi) {
-                  if (ei.options.reconnectPeriod > 0) {
+                  if (Pt.options.reconnectPeriod > 0) {
                     const Mi = { qos: zi.qos };
-                    ui === 5 && (Mi.nl = zi.nl || !1, Mi.rap = zi.rap || !1, Mi.rh = zi.rh || 0, Mi.properties = zi.properties), ei._resubscribeTopics[zi.topic] = Mi, Ci.push(zi.topic);
+                    ui === 5 && (Mi.nl = zi.nl || !1, Mi.rap = zi.rap || !1, Mi.rh = zi.rh || 0, Mi.properties = zi.properties), Pt._resubscribeTopics[zi.topic] = Mi, Ci.push(zi.topic);
                   }
-                }), ei.messageIdToTopic[di.messageId] = Ci;
+                }), Pt.messageIdToTopic[di.messageId] = Ci;
               }
-              return ei.outgoing[di.messageId] = {
+              return Pt.outgoing[di.messageId] = {
                 volatile: !0,
                 cb: function(Ci, zi) {
                   if (!Ci) {
@@ -55545,7 +55556,7 @@ var mqtt = { exports: {} };
                   }
                   wi(Ci, ni);
                 }
-              }, ze("subscribe :: call _sendPacket"), ei._sendPacket(di), !0;
+              }, ze("subscribe :: call _sendPacket"), Pt._sendPacket(di), !0;
             };
             return (this._storeProcessing || this._storeProcessingQueue.length > 0 || !Ai()) && this._storeProcessingQueue.push(
               {
@@ -55554,18 +55565,18 @@ var mqtt = { exports: {} };
               }
             ), this;
           }, ti.prototype.unsubscribe = function() {
-            const ei = this, Et = new Array(arguments.length);
+            const Pt = this, Et = new Array(arguments.length);
             for (let ui = 0; ui < arguments.length; ui++)
               Et[ui] = arguments[ui];
-            let ni = Et.shift(), ri = Et.pop() || Pt, Ii = Et.pop();
-            typeof ni == "string" && (ni = [ni]), typeof ri != "function" && (Ii = ri, ri = Pt);
+            let ni = Et.shift(), ri = Et.pop() || ei, ci = Et.pop();
+            typeof ni == "string" && (ni = [ni]), typeof ri != "function" && (ci = ri, ri = ei);
             const wi = he.validateTopics(ni);
             if (wi !== null)
               return Oe(ri, new Error("Invalid topic " + wi)), this;
-            if (ei._checkDisconnecting(ri))
+            if (Pt._checkDisconnecting(ri))
               return this;
             const ai = function() {
-              const ui = ei._nextId();
+              const ui = Pt._nextId();
               if (ui === null)
                 return ze("No messageId left"), !1;
               const hi = {
@@ -55573,12 +55584,12 @@ var mqtt = { exports: {} };
                 qos: 1,
                 messageId: ui
               };
-              return typeof ni == "string" ? hi.unsubscriptions = [ni] : Array.isArray(ni) && (hi.unsubscriptions = ni), ei.options.resubscribe && hi.unsubscriptions.forEach(function(ci) {
-                delete ei._resubscribeTopics[ci];
-              }), typeof Ii == "object" && Ii.properties && (hi.properties = Ii.properties), ei.outgoing[hi.messageId] = {
+              return typeof ni == "string" ? hi.unsubscriptions = [ni] : Array.isArray(ni) && (hi.unsubscriptions = ni), Pt.options.resubscribe && hi.unsubscriptions.forEach(function(Ii) {
+                delete Pt._resubscribeTopics[Ii];
+              }), typeof ci == "object" && ci.properties && (hi.properties = ci.properties), Pt.outgoing[hi.messageId] = {
                 volatile: !0,
                 cb: ri
-              }, ze("unsubscribe: call _sendPacket"), ei._sendPacket(hi), !0;
+              }, ze("unsubscribe: call _sendPacket"), Pt._sendPacket(hi), !0;
             };
             return (this._storeProcessing || this._storeProcessingQueue.length > 0 || !ai()) && this._storeProcessingQueue.push(
               {
@@ -55586,10 +55597,10 @@ var mqtt = { exports: {} };
                 callback: ri
               }
             ), this;
-          }, ti.prototype.end = function(ei, Et, ni) {
+          }, ti.prototype.end = function(Pt, Et, ni) {
             const ri = this;
-            ze("end :: (%s)", this.options.clientId), (ei == null || typeof ei != "boolean") && (ni = Et || Pt, Et = ei, ei = !1, typeof Et != "object" && (ni = Et, Et = null, typeof ni != "function" && (ni = Pt))), typeof Et != "object" && (ni = Et, Et = null), ze("end :: cb? %s", !!ni), ni = ni || Pt;
-            function Ii() {
+            ze("end :: (%s)", this.options.clientId), (Pt == null || typeof Pt != "boolean") && (ni = Et || ei, Et = Pt, Pt = !1, typeof Et != "object" && (ni = Et, Et = null, typeof ni != "function" && (ni = ei))), typeof Et != "object" && (ni = Et, Et = null), ze("end :: cb? %s", !!ni), ni = ni || ei;
+            function ci() {
               ze("end :: closeStores: closing incoming and outgoing stores"), ri.disconnected = !0, ri.incomingStore.close(function(ai) {
                 ri.outgoingStore.close(function(ui) {
                   if (ze("end :: closeStores: emitting end"), ri.emit("end"), ni) {
@@ -55600,20 +55611,20 @@ var mqtt = { exports: {} };
               }), ri._deferredReconnect && ri._deferredReconnect();
             }
             function wi() {
-              ze("end :: (%s) :: finish :: calling _cleanUp with force %s", ri.options.clientId, ei), ri._cleanUp(ei, () => {
-                ze("end :: finish :: calling process.nextTick on closeStores"), xe(Ii.bind(ri));
+              ze("end :: (%s) :: finish :: calling _cleanUp with force %s", ri.options.clientId, Pt), ri._cleanUp(Pt, () => {
+                ze("end :: finish :: calling process.nextTick on closeStores"), xe(ci.bind(ri));
               }, Et);
             }
-            return this.disconnecting ? (ni(), this) : (this._clearReconnect(), this.disconnecting = !0, !ei && Object.keys(this.outgoing).length > 0 ? (ze("end :: (%s) :: calling finish in 10ms once outgoing is empty", ri.options.clientId), this.once("outgoingEmpty", setTimeout.bind(null, wi, 10))) : (ze("end :: (%s) :: immediately calling finish", ri.options.clientId), wi()), this);
-          }, ti.prototype.removeOutgoingMessage = function(ei) {
-            const Et = this.outgoing[ei] ? this.outgoing[ei].cb : null;
-            return delete this.outgoing[ei], this.outgoingStore.del({ messageId: ei }, function() {
+            return this.disconnecting ? (ni(), this) : (this._clearReconnect(), this.disconnecting = !0, !Pt && Object.keys(this.outgoing).length > 0 ? (ze("end :: (%s) :: calling finish in 10ms once outgoing is empty", ri.options.clientId), this.once("outgoingEmpty", setTimeout.bind(null, wi, 10))) : (ze("end :: (%s) :: immediately calling finish", ri.options.clientId), wi()), this);
+          }, ti.prototype.removeOutgoingMessage = function(Pt) {
+            const Et = this.outgoing[Pt] ? this.outgoing[Pt].cb : null;
+            return delete this.outgoing[Pt], this.outgoingStore.del({ messageId: Pt }, function() {
               Et(new Error("Message removed"));
             }), this;
-          }, ti.prototype.reconnect = function(ei) {
+          }, ti.prototype.reconnect = function(Pt) {
             ze("client reconnect");
             const Et = this, ni = function() {
-              ei ? (Et.options.incomingStore = ei.incomingStore, Et.options.outgoingStore = ei.outgoingStore) : (Et.options.incomingStore = null, Et.options.outgoingStore = null), Et.incomingStore = Et.options.incomingStore || new oe(), Et.outgoingStore = Et.options.outgoingStore || new oe(), Et.disconnecting = !1, Et.disconnected = !1, Et._deferredReconnect = null, Et._reconnect();
+              Pt ? (Et.options.incomingStore = Pt.incomingStore, Et.options.outgoingStore = Pt.outgoingStore) : (Et.options.incomingStore = null, Et.options.outgoingStore = null), Et.incomingStore = Et.options.incomingStore || new oe(), Et.outgoingStore = Et.options.outgoingStore || new oe(), Et.disconnecting = !1, Et.disconnected = !1, Et._deferredReconnect = null, Et._reconnect();
             };
             return this.disconnecting && !this.disconnected ? this._deferredReconnect = ni : ni(), this;
           }, ti.prototype._reconnect = function() {
@@ -55621,15 +55632,15 @@ var mqtt = { exports: {} };
               this._setupStream();
             }), ze("client already connected. disconnecting first.")) : (ze("_reconnect: calling _setupStream"), this._setupStream());
           }, ti.prototype._setupReconnect = function() {
-            const ei = this;
-            !ei.disconnecting && !ei.reconnectTimer && ei.options.reconnectPeriod > 0 ? (this.reconnecting || (ze("_setupReconnect :: emit `offline` state"), this.emit("offline"), ze("_setupReconnect :: set `reconnecting` to `true`"), this.reconnecting = !0), ze("_setupReconnect :: setting reconnectTimer for %d ms", ei.options.reconnectPeriod), ei.reconnectTimer = setInterval(function() {
-              ze("reconnectTimer :: reconnect triggered!"), ei._reconnect();
-            }, ei.options.reconnectPeriod)) : ze("_setupReconnect :: doing nothing...");
+            const Pt = this;
+            !Pt.disconnecting && !Pt.reconnectTimer && Pt.options.reconnectPeriod > 0 ? (this.reconnecting || (ze("_setupReconnect :: emit `offline` state"), this.emit("offline"), ze("_setupReconnect :: set `reconnecting` to `true`"), this.reconnecting = !0), ze("_setupReconnect :: setting reconnectTimer for %d ms", Pt.options.reconnectPeriod), Pt.reconnectTimer = setInterval(function() {
+              ze("reconnectTimer :: reconnect triggered!"), Pt._reconnect();
+            }, Pt.options.reconnectPeriod)) : ze("_setupReconnect :: doing nothing...");
           }, ti.prototype._clearReconnect = function() {
             ze("_clearReconnect : clearing reconnect timer"), this.reconnectTimer && (clearInterval(this.reconnectTimer), this.reconnectTimer = null);
-          }, ti.prototype._cleanUp = function(ei, Et) {
+          }, ti.prototype._cleanUp = function(Pt, Et) {
             const ni = arguments[2];
-            if (Et && (ze("_cleanUp :: done callback provided for on stream close"), this.stream.on("close", Et)), ze("_cleanUp :: forced? %s", ei), ei)
+            if (Et && (ze("_cleanUp :: done callback provided for on stream close"), this.stream.on("close", Et)), ze("_cleanUp :: forced? %s", Pt), Pt)
               this.options.reconnectPeriod === 0 && this.options.clean && qe(this.outgoing), ze("_cleanUp :: (%s) :: destroying stream", this.options.clientId), this.stream.destroy();
             else {
               const ri = pe({ cmd: "disconnect" }, ni);
@@ -55642,61 +55653,61 @@ var mqtt = { exports: {} };
               );
             }
             this.disconnecting || (ze("_cleanUp :: client not disconnecting. Clearing and resetting reconnect."), this._clearReconnect(), this._setupReconnect()), this.pingTimer !== null && (ze("_cleanUp :: clearing pingTimer"), this.pingTimer.clear(), this.pingTimer = null), Et && !this.connected && (ze("_cleanUp :: (%s) :: removing stream `done` callback `close` listener", this.options.clientId), this.stream.removeListener("close", Et), Et());
-          }, ti.prototype._sendPacket = function(ei, Et, ni) {
-            ze("_sendPacket :: (%s) ::  start", this.options.clientId), ni = ni || Pt, Et = Et || Pt;
-            const ri = Ue(this, ei);
+          }, ti.prototype._sendPacket = function(Pt, Et, ni) {
+            ze("_sendPacket :: (%s) ::  start", this.options.clientId), ni = ni || ei, Et = Et || ei;
+            const ri = Ue(this, Pt);
             if (ri) {
               Et(ri);
               return;
             }
             if (!this.connected) {
-              if (ei.cmd === "auth") {
-                this._shiftPingInterval(), Dt(this, ei, Et);
+              if (Pt.cmd === "auth") {
+                this._shiftPingInterval(), Dt(this, Pt, Et);
                 return;
               }
-              ze("_sendPacket :: client not connected. Storing packet offline."), this._storePacket(ei, Et, ni);
+              ze("_sendPacket :: client not connected. Storing packet offline."), this._storePacket(Pt, Et, ni);
               return;
             }
-            switch (this._shiftPingInterval(), ei.cmd) {
+            switch (this._shiftPingInterval(), Pt.cmd) {
               case "publish":
                 break;
               case "pubrel":
-                jt(this, ei, Et, ni);
+                jt(this, Pt, Et, ni);
                 return;
               default:
-                Dt(this, ei, Et);
+                Dt(this, Pt, Et);
                 return;
             }
-            switch (ei.qos) {
+            switch (Pt.qos) {
               case 2:
               case 1:
-                jt(this, ei, Et, ni);
+                jt(this, Pt, Et, ni);
                 break;
               case 0:
               default:
-                Dt(this, ei, Et);
+                Dt(this, Pt, Et);
                 break;
             }
             ze("_sendPacket :: (%s) ::  end", this.options.clientId);
-          }, ti.prototype._storePacket = function(ei, Et, ni) {
-            ze("_storePacket :: packet: %o", ei), ze("_storePacket :: cb? %s", !!Et), ni = ni || Pt;
-            let ri = ei;
+          }, ti.prototype._storePacket = function(Pt, Et, ni) {
+            ze("_storePacket :: packet: %o", Pt), ze("_storePacket :: cb? %s", !!Et), ni = ni || ei;
+            let ri = Pt;
             if (ri.cmd === "publish") {
-              ri = Ne(ei);
-              const Ii = Ve(this, ri);
-              if (Ii)
-                return Et && Et(Ii);
+              ri = Ne(Pt);
+              const ci = Ve(this, ri);
+              if (ci)
+                return Et && Et(ci);
             }
-            (ri.qos || 0) === 0 && this.queueQoSZero || ri.cmd !== "publish" ? this.queue.push({ packet: ri, cb: Et }) : ri.qos > 0 ? (Et = this.outgoing[ri.messageId] ? this.outgoing[ri.messageId].cb : null, this.outgoingStore.put(ri, function(Ii) {
-              if (Ii)
-                return Et && Et(Ii);
+            (ri.qos || 0) === 0 && this.queueQoSZero || ri.cmd !== "publish" ? this.queue.push({ packet: ri, cb: Et }) : ri.qos > 0 ? (Et = this.outgoing[ri.messageId] ? this.outgoing[ri.messageId].cb : null, this.outgoingStore.put(ri, function(ci) {
+              if (ci)
+                return Et && Et(ci);
               ni();
             })) : Et && Et(new Error("No connection to broker"));
           }, ti.prototype._setupPingTimer = function() {
             ze("_setupPingTimer :: keepalive %d (seconds)", this.options.keepalive);
-            const ei = this;
+            const Pt = this;
             !this.pingTimer && this.options.keepalive && (this.pingResp = !0, this.pingTimer = ue(function() {
-              ei._checkPing();
+              Pt._checkPing();
             }, this.options.keepalive * 1e3));
           }, ti.prototype._shiftPingInterval = function() {
             this.pingTimer && this.options.keepalive && this.options.reschedulePings && this.pingTimer.reschedule(this.options.keepalive * 1e3);
@@ -55704,94 +55715,94 @@ var mqtt = { exports: {} };
             ze("_checkPing :: checking ping..."), this.pingResp ? (ze("_checkPing :: ping response received. Clearing flag and sending `pingreq`"), this.pingResp = !1, this._sendPacket({ cmd: "pingreq" })) : (ze("_checkPing :: calling _cleanUp with force true"), this._cleanUp(!0));
           }, ti.prototype._handlePingresp = function() {
             this.pingResp = !0;
-          }, ti.prototype._handleConnack = function(ei) {
+          }, ti.prototype._handleConnack = function(Pt) {
             ze("_handleConnack");
-            const Et = this.options, ri = Et.protocolVersion === 5 ? ei.reasonCode : ei.returnCode;
-            if (clearTimeout(this.connackTimer), delete this.topicAliasSend, ei.properties) {
-              if (ei.properties.topicAliasMaximum) {
-                if (ei.properties.topicAliasMaximum > 65535) {
+            const Et = this.options, ri = Et.protocolVersion === 5 ? Pt.reasonCode : Pt.returnCode;
+            if (clearTimeout(this.connackTimer), delete this.topicAliasSend, Pt.properties) {
+              if (Pt.properties.topicAliasMaximum) {
+                if (Pt.properties.topicAliasMaximum > 65535) {
                   this.emit("error", new Error("topicAliasMaximum from broker is out of range"));
                   return;
                 }
-                ei.properties.topicAliasMaximum > 0 && (this.topicAliasSend = new ie(ei.properties.topicAliasMaximum));
+                Pt.properties.topicAliasMaximum > 0 && (this.topicAliasSend = new ie(Pt.properties.topicAliasMaximum));
               }
-              ei.properties.serverKeepAlive && Et.keepalive && (Et.keepalive = ei.properties.serverKeepAlive, this._shiftPingInterval()), ei.properties.maximumPacketSize && (Et.properties || (Et.properties = {}), Et.properties.maximumPacketSize = ei.properties.maximumPacketSize);
+              Pt.properties.serverKeepAlive && Et.keepalive && (Et.keepalive = Pt.properties.serverKeepAlive, this._shiftPingInterval()), Pt.properties.maximumPacketSize && (Et.properties || (Et.properties = {}), Et.properties.maximumPacketSize = Pt.properties.maximumPacketSize);
             }
             if (ri === 0)
-              this.reconnecting = !1, this._onConnect(ei);
+              this.reconnecting = !1, this._onConnect(Pt);
             else if (ri > 0) {
-              const Ii = new Error("Connection refused: " + $e[ri]);
-              Ii.code = ri, this.emit("error", Ii);
+              const ci = new Error("Connection refused: " + $e[ri]);
+              ci.code = ri, this.emit("error", ci);
             }
-          }, ti.prototype._handleAuth = function(ei) {
-            const ni = this.options.protocolVersion, ri = ni === 5 ? ei.reasonCode : ei.returnCode;
+          }, ti.prototype._handleAuth = function(Pt) {
+            const ni = this.options.protocolVersion, ri = ni === 5 ? Pt.reasonCode : Pt.returnCode;
             if (ni !== 5) {
               const wi = new Error("Protocol error: Auth packets are only supported in MQTT 5. Your version:" + ni);
               wi.code = ri, this.emit("error", wi);
               return;
             }
-            const Ii = this;
-            this.handleAuth(ei, function(wi, ai) {
+            const ci = this;
+            this.handleAuth(Pt, function(wi, ai) {
               if (wi) {
-                Ii.emit("error", wi);
+                ci.emit("error", wi);
                 return;
               }
               if (ri === 24)
-                Ii.reconnecting = !1, Ii._sendPacket(ai);
+                ci.reconnecting = !1, ci._sendPacket(ai);
               else {
                 const ui = new Error("Connection refused: " + $e[ri]);
-                wi.code = ri, Ii.emit("error", ui);
+                wi.code = ri, ci.emit("error", ui);
               }
             });
-          }, ti.prototype.handleAuth = function(ei, Et) {
+          }, ti.prototype.handleAuth = function(Pt, Et) {
             Et();
-          }, ti.prototype._handlePublish = function(ei, Et) {
-            ze("_handlePublish: packet %o", ei), Et = typeof Et < "u" ? Et : Pt;
-            let ni = ei.topic.toString();
-            const ri = ei.payload, Ii = ei.qos, wi = ei.messageId, ai = this, ui = this.options, hi = [0, 16, 128, 131, 135, 144, 145, 151, 153];
+          }, ti.prototype._handlePublish = function(Pt, Et) {
+            ze("_handlePublish: packet %o", Pt), Et = typeof Et < "u" ? Et : ei;
+            let ni = Pt.topic.toString();
+            const ri = Pt.payload, ci = Pt.qos, wi = Pt.messageId, ai = this, ui = this.options, hi = [0, 16, 128, 131, 135, 144, 145, 151, 153];
             if (this.options.protocolVersion === 5) {
-              let ci;
-              if (ei.properties && (ci = ei.properties.topicAlias), typeof ci < "u")
+              let Ii;
+              if (Pt.properties && (Ii = Pt.properties.topicAlias), typeof Ii < "u")
                 if (ni.length === 0)
-                  if (ci > 0 && ci <= 65535) {
-                    const Ai = this.topicAliasRecv.getTopicByAlias(ci);
+                  if (Ii > 0 && Ii <= 65535) {
+                    const Ai = this.topicAliasRecv.getTopicByAlias(Ii);
                     if (Ai)
-                      ni = Ai, ze("_handlePublish :: topic complemented by alias. topic: %s - alias: %d", ni, ci);
+                      ni = Ai, ze("_handlePublish :: topic complemented by alias. topic: %s - alias: %d", ni, Ii);
                     else {
-                      ze("_handlePublish :: unregistered topic alias. alias: %d", ci), this.emit("error", new Error("Received unregistered Topic Alias"));
+                      ze("_handlePublish :: unregistered topic alias. alias: %d", Ii), this.emit("error", new Error("Received unregistered Topic Alias"));
                       return;
                     }
                   } else {
-                    ze("_handlePublish :: topic alias out of range. alias: %d", ci), this.emit("error", new Error("Received Topic Alias is out of range"));
+                    ze("_handlePublish :: topic alias out of range. alias: %d", Ii), this.emit("error", new Error("Received Topic Alias is out of range"));
                     return;
                   }
-                else if (this.topicAliasRecv.put(ni, ci))
-                  ze("_handlePublish :: registered topic: %s - alias: %d", ni, ci);
+                else if (this.topicAliasRecv.put(ni, Ii))
+                  ze("_handlePublish :: registered topic: %s - alias: %d", ni, Ii);
                 else {
-                  ze("_handlePublish :: topic alias out of range. alias: %d", ci), this.emit("error", new Error("Received Topic Alias is out of range"));
+                  ze("_handlePublish :: topic alias out of range. alias: %d", Ii), this.emit("error", new Error("Received Topic Alias is out of range"));
                   return;
                 }
             }
-            switch (ze("_handlePublish: qos %d", Ii), Ii) {
+            switch (ze("_handlePublish: qos %d", ci), ci) {
               case 2: {
-                ui.customHandleAcks(ni, ri, ei, function(ci, Ai) {
-                  if (ci instanceof Error || (Ai = ci, ci = null), ci)
-                    return ai.emit("error", ci);
+                ui.customHandleAcks(ni, ri, Pt, function(Ii, Ai) {
+                  if (Ii instanceof Error || (Ai = Ii, Ii = null), Ii)
+                    return ai.emit("error", Ii);
                   if (hi.indexOf(Ai) === -1)
                     return ai.emit("error", new Error("Wrong reason code for pubrec"));
-                  Ai ? ai._sendPacket({ cmd: "pubrec", messageId: wi, reasonCode: Ai }, Et) : ai.incomingStore.put(ei, function() {
+                  Ai ? ai._sendPacket({ cmd: "pubrec", messageId: wi, reasonCode: Ai }, Et) : ai.incomingStore.put(Pt, function() {
                     ai._sendPacket({ cmd: "pubrec", messageId: wi }, Et);
                   });
                 });
                 break;
               }
               case 1: {
-                ui.customHandleAcks(ni, ri, ei, function(ci, Ai) {
-                  if (ci instanceof Error || (Ai = ci, ci = null), ci)
-                    return ai.emit("error", ci);
+                ui.customHandleAcks(ni, ri, Pt, function(Ii, Ai) {
+                  if (Ii instanceof Error || (Ai = Ii, Ii = null), Ii)
+                    return ai.emit("error", Ii);
                   if (hi.indexOf(Ai) === -1)
                     return ai.emit("error", new Error("Wrong reason code for puback"));
-                  Ai || ai.emit("message", ni, ri, ei), ai.handleMessage(ei, function(yi) {
+                  Ai || ai.emit("message", ni, ri, Pt), ai.handleMessage(Pt, function(yi) {
                     if (yi)
                       return Et && Et(yi);
                     ai._sendPacket({ cmd: "puback", messageId: wi, reasonCode: Ai }, Et);
@@ -55800,28 +55811,28 @@ var mqtt = { exports: {} };
                 break;
               }
               case 0:
-                this.emit("message", ni, ri, ei), this.handleMessage(ei, Et);
+                this.emit("message", ni, ri, Pt), this.handleMessage(Pt, Et);
                 break;
               default:
                 ze("_handlePublish: unknown QoS. Doing nothing.");
                 break;
             }
-          }, ti.prototype.handleMessage = function(ei, Et) {
+          }, ti.prototype.handleMessage = function(Pt, Et) {
             Et();
-          }, ti.prototype._handleAck = function(ei) {
-            const Et = ei.messageId, ni = ei.cmd;
+          }, ti.prototype._handleAck = function(Pt) {
+            const Et = Pt.messageId, ni = Pt.cmd;
             let ri = null;
-            const Ii = this.outgoing[Et] ? this.outgoing[Et].cb : null, wi = this;
+            const ci = this.outgoing[Et] ? this.outgoing[Et].cb : null, wi = this;
             let ai;
-            if (!Ii) {
+            if (!ci) {
               ze("_handleAck :: Server sent an ack in error. Ignoring.");
               return;
             }
             switch (ze("_handleAck :: packet type", ni), ni) {
               case "pubcomp":
               case "puback": {
-                const ui = ei.reasonCode;
-                ui && ui > 0 && ui !== 16 && (ai = new Error("Publish error: " + $e[ui]), ai.code = ui, Ii(ai, ei)), delete this.outgoing[Et], this.outgoingStore.del(ei, Ii), this.messageIdProvider.deallocate(Et), this._invokeStoreProcessingQueue();
+                const ui = Pt.reasonCode;
+                ui && ui > 0 && ui !== 16 && (ai = new Error("Publish error: " + $e[ui]), ai.code = ui, ci(ai, Pt)), delete this.outgoing[Et], this.outgoingStore.del(Pt, ci), this.messageIdProvider.deallocate(Et), this._invokeStoreProcessingQueue();
                 break;
               }
               case "pubrec": {
@@ -55830,79 +55841,79 @@ var mqtt = { exports: {} };
                   qos: 2,
                   messageId: Et
                 };
-                const ui = ei.reasonCode;
-                ui && ui > 0 && ui !== 16 ? (ai = new Error("Publish error: " + $e[ui]), ai.code = ui, Ii(ai, ei)) : this._sendPacket(ri);
+                const ui = Pt.reasonCode;
+                ui && ui > 0 && ui !== 16 ? (ai = new Error("Publish error: " + $e[ui]), ai.code = ui, ci(ai, Pt)) : this._sendPacket(ri);
                 break;
               }
               case "suback": {
                 delete this.outgoing[Et], this.messageIdProvider.deallocate(Et);
-                for (let ui = 0; ui < ei.granted.length; ui++)
-                  if (ei.granted[ui] & 128) {
+                for (let ui = 0; ui < Pt.granted.length; ui++)
+                  if (Pt.granted[ui] & 128) {
                     const hi = this.messageIdToTopic[Et];
-                    hi && hi.forEach(function(ci) {
-                      delete wi._resubscribeTopics[ci];
+                    hi && hi.forEach(function(Ii) {
+                      delete wi._resubscribeTopics[Ii];
                     });
                   }
-                this._invokeStoreProcessingQueue(), Ii(null, ei);
+                this._invokeStoreProcessingQueue(), ci(null, Pt);
                 break;
               }
               case "unsuback": {
-                delete this.outgoing[Et], this.messageIdProvider.deallocate(Et), this._invokeStoreProcessingQueue(), Ii(null);
+                delete this.outgoing[Et], this.messageIdProvider.deallocate(Et), this._invokeStoreProcessingQueue(), ci(null);
                 break;
               }
               default:
                 wi.emit("error", new Error("unrecognized packet type"));
             }
             this.disconnecting && Object.keys(this.outgoing).length === 0 && this.emit("outgoingEmpty");
-          }, ti.prototype._handlePubrel = function(ei, Et) {
-            ze("handling pubrel packet"), Et = typeof Et < "u" ? Et : Pt;
-            const ni = ei.messageId, ri = this, Ii = { cmd: "pubcomp", messageId: ni };
-            ri.incomingStore.get(ei, function(wi, ai) {
-              wi ? ri._sendPacket(Ii, Et) : (ri.emit("message", ai.topic, ai.payload, ai), ri.handleMessage(ai, function(ui) {
+          }, ti.prototype._handlePubrel = function(Pt, Et) {
+            ze("handling pubrel packet"), Et = typeof Et < "u" ? Et : ei;
+            const ni = Pt.messageId, ri = this, ci = { cmd: "pubcomp", messageId: ni };
+            ri.incomingStore.get(Pt, function(wi, ai) {
+              wi ? ri._sendPacket(ci, Et) : (ri.emit("message", ai.topic, ai.payload, ai), ri.handleMessage(ai, function(ui) {
                 if (ui)
                   return Et(ui);
-                ri.incomingStore.del(ai, Pt), ri._sendPacket(Ii, Et);
+                ri.incomingStore.del(ai, ei), ri._sendPacket(ci, Et);
               }));
             });
-          }, ti.prototype._handleDisconnect = function(ei) {
-            this.emit("disconnect", ei);
+          }, ti.prototype._handleDisconnect = function(Pt) {
+            this.emit("disconnect", Pt);
           }, ti.prototype._nextId = function() {
             return this.messageIdProvider.allocate();
           }, ti.prototype.getLastMessageId = function() {
             return this.messageIdProvider.getLastAllocated();
           }, ti.prototype._resubscribe = function() {
             ze("_resubscribe");
-            const ei = Object.keys(this._resubscribeTopics);
-            if (!this._firstConnection && (this.options.clean || this.options.protocolVersion === 5 && !this.connackPacket.sessionPresent) && ei.length > 0)
+            const Pt = Object.keys(this._resubscribeTopics);
+            if (!this._firstConnection && (this.options.clean || this.options.protocolVersion === 5 && !this.connackPacket.sessionPresent) && Pt.length > 0)
               if (this.options.resubscribe)
                 if (this.options.protocolVersion === 5) {
                   ze("_resubscribe: protocolVersion 5");
-                  for (let Et = 0; Et < ei.length; Et++) {
+                  for (let Et = 0; Et < Pt.length; Et++) {
                     const ni = {};
-                    ni[ei[Et]] = this._resubscribeTopics[ei[Et]], ni.resubscribe = !0, this.subscribe(ni, { properties: ni[ei[Et]].properties });
+                    ni[Pt[Et]] = this._resubscribeTopics[Pt[Et]], ni.resubscribe = !0, this.subscribe(ni, { properties: ni[Pt[Et]].properties });
                   }
                 } else
                   this._resubscribeTopics.resubscribe = !0, this.subscribe(this._resubscribeTopics);
               else
                 this._resubscribeTopics = {};
             this._firstConnection = !1;
-          }, ti.prototype._onConnect = function(ei) {
+          }, ti.prototype._onConnect = function(Pt) {
             if (this.disconnected) {
-              this.emit("connect", ei);
+              this.emit("connect", Pt);
               return;
             }
             const Et = this;
-            this.connackPacket = ei, this.messageIdProvider.clear(), this._setupPingTimer(), this.connected = !0;
+            this.connackPacket = Pt, this.messageIdProvider.clear(), this._setupPingTimer(), this.connected = !0;
             function ni() {
               let ri = Et.outgoingStore.createStream();
-              function Ii() {
+              function ci() {
                 Et._storeProcessing = !1, Et._packetIdsDuringStoreProcessing = {};
               }
               Et.once("close", wi), ri.on("error", function(ui) {
-                Ii(), Et._flushStoreProcessingQueue(), Et.removeListener("close", wi), Et.emit("error", ui);
+                ci(), Et._flushStoreProcessingQueue(), Et.removeListener("close", wi), Et.emit("error", ui);
               });
               function wi() {
-                ri.destroy(), ri = null, Et._flushStoreProcessingQueue(), Ii();
+                ri.destroy(), ri = null, Et._flushStoreProcessingQueue(), ci();
               }
               function ai() {
                 if (!ri)
@@ -55920,8 +55931,8 @@ var mqtt = { exports: {} };
                 }
                 !Et.disconnecting && !Et.reconnectTimer ? (hi = Et.outgoing[ui.messageId] ? Et.outgoing[ui.messageId].cb : null, Et.outgoing[ui.messageId] = {
                   volatile: !1,
-                  cb: function(ci, Ai) {
-                    hi && hi(ci, Ai), ai();
+                  cb: function(Ii, Ai) {
+                    hi && hi(Ii, Ai), ai();
                   }
                 }, Et._packetIdsDuringStoreProcessing[ui.messageId] = !0, Et.messageIdProvider.register(ui.messageId) ? Et._sendPacket(ui) : ze("messageId: %d has already used.", ui.messageId)) : ri.destroy && ri.destroy();
               }
@@ -55932,14 +55943,14 @@ var mqtt = { exports: {} };
                     ui = !1;
                     break;
                   }
-                ui ? (Ii(), Et.removeListener("close", wi), Et._invokeAllStoreProcessingQueue(), Et.emit("connect", ei)) : ni();
+                ui ? (ci(), Et.removeListener("close", wi), Et._invokeAllStoreProcessingQueue(), Et.emit("connect", Pt)) : ni();
               }), ai();
             }
             ni();
           }, ti.prototype._invokeStoreProcessingQueue = function() {
             if (this._storeProcessingQueue.length > 0) {
-              const ei = this._storeProcessingQueue[0];
-              if (ei && ei.invoke())
+              const Pt = this._storeProcessingQueue[0];
+              if (Pt && Pt.invoke())
                 return this._storeProcessingQueue.shift(), !0;
             }
             return !1;
@@ -55947,8 +55958,8 @@ var mqtt = { exports: {} };
             for (; this._invokeStoreProcessingQueue(); )
               ;
           }, ti.prototype._flushStoreProcessingQueue = function() {
-            for (const ei of this._storeProcessingQueue)
-              ei.cbStorePut && ei.cbStorePut(new Error("Connection closed")), ei.callback && ei.callback(new Error("Connection closed"));
+            for (const Pt of this._storeProcessingQueue)
+              Pt.cbStorePut && Pt.cbStorePut(new Error("Connection closed")), Pt.callback && Pt.callback(new Error("Connection closed"));
             this._storeProcessingQueue.splice(0);
           }, g.exports = ti;
         }).call(this);
@@ -56093,43 +56104,43 @@ var mqtt = { exports: {} };
               Ve.close();
             });
             const qe = typeof Ve.addEventListener < "u";
-            Ve.readyState === Ve.OPEN ? _e = Dt : (_e = _e = Ce(void 0, void 0, Oe), Oe.objectMode || (_e._writev = Et), qe ? Ve.addEventListener("open", jt) : Ve.onopen = jt), _e.socket = Ve, qe ? (Ve.addEventListener("close", Pt), Ve.addEventListener("error", ti), Ve.addEventListener("message", ei)) : (Ve.onclose = Pt, Ve.onerror = ti, Ve.onmessage = ei);
-            function kt(Ii, wi, ai) {
+            Ve.readyState === Ve.OPEN ? _e = Dt : (_e = _e = Ce(void 0, void 0, Oe), Oe.objectMode || (_e._writev = Et), qe ? Ve.addEventListener("open", jt) : Ve.onopen = jt), _e.socket = Ve, qe ? (Ve.addEventListener("close", ei), Ve.addEventListener("error", ti), Ve.addEventListener("message", Pt)) : (Ve.onclose = ei, Ve.onerror = ti, Ve.onmessage = Pt);
+            function kt(ci, wi, ai) {
               const ui = new ie({
-                objectModeMode: Ii.objectMode
+                objectModeMode: ci.objectMode
               });
               return ui._write = wi, ui._flush = ai, ui;
             }
             function jt() {
               _e.setReadable(Dt), _e.setWritable(Dt), _e.emit("connect");
             }
-            function Pt() {
+            function ei() {
               _e.end(), _e.destroy();
             }
-            function ti(Ii) {
-              _e.destroy(Ii);
+            function ti(ci) {
+              _e.destroy(ci);
             }
-            function ei(Ii) {
-              let wi = Ii.data;
+            function Pt(ci) {
+              let wi = ci.data;
               wi instanceof ArrayBuffer ? wi = $.from(wi) : wi = $.from(wi, "utf8"), Dt.push(wi);
             }
-            function Et(Ii, wi) {
-              const ai = new Array(Ii.length);
-              for (let ui = 0; ui < Ii.length; ui++)
-                typeof Ii[ui].chunk == "string" ? ai[ui] = $.from(Ii[ui], "utf8") : ai[ui] = Ii[ui].chunk;
+            function Et(ci, wi) {
+              const ai = new Array(ci.length);
+              for (let ui = 0; ui < ci.length; ui++)
+                typeof ci[ui].chunk == "string" ? ai[ui] = $.from(ci[ui], "utf8") : ai[ui] = ci[ui].chunk;
               this._write($.concat(ai), "binary", wi);
             }
-            function ni(Ii, wi, ai) {
-              Ve.bufferedAmount > $e && setTimeout(ni, Fe, Ii, wi, ai), Ue && typeof Ii == "string" && (Ii = $.from(Ii, "utf8"));
+            function ni(ci, wi, ai) {
+              Ve.bufferedAmount > $e && setTimeout(ni, Fe, ci, wi, ai), Ue && typeof ci == "string" && (ci = $.from(ci, "utf8"));
               try {
-                Ve.send(Ii);
+                Ve.send(ci);
               } catch (ui) {
                 return ai(ui);
               }
               ai();
             }
-            function ri(Ii) {
-              Ve.close(), Ii();
+            function ri(ci) {
+              Ve.close(), ci();
             }
             return _e;
           }
@@ -56866,12 +56877,12 @@ var mqtt = { exports: {} };
                   return wi(this, Lt, ii);
                 case "utf8":
                 case "utf-8":
-                  return ei(this, Lt, ii);
+                  return Pt(this, Lt, ii);
                 case "ascii":
                   return ri(this, Lt, ii);
                 case "latin1":
                 case "binary":
-                  return Ii(this, Lt, ii);
+                  return ci(this, Lt, ii);
                 case "base64":
                   return ti(this, Lt, ii);
                 case "ucs2":
@@ -56913,7 +56924,7 @@ var mqtt = { exports: {} };
             return this;
           }, ae.prototype.toString = function() {
             var Lt = this.length;
-            return Lt === 0 ? "" : arguments.length === 0 ? ei(this, 0, Lt) : At.apply(this, arguments);
+            return Lt === 0 ? "" : arguments.length === 0 ? Pt(this, 0, Lt) : At.apply(this, arguments);
           }, ae.prototype.toLocaleString = ae.prototype.toString, ae.prototype.equals = function(Lt) {
             if (!ae.isBuffer(Lt))
               throw new TypeError("Argument must be a Buffer");
@@ -57025,7 +57036,7 @@ var mqtt = { exports: {} };
           function jt(oi, Lt, ii, gi) {
             return Ti(Si(Lt), oi, ii, gi);
           }
-          function Pt(oi, Lt, ii, gi) {
+          function ei(oi, Lt, ii, gi) {
             return Ti(mi(Lt, oi.length - ii), oi, ii, gi);
           }
           ae.prototype.write = function(Lt, ii, gi, fi) {
@@ -57061,7 +57072,7 @@ var mqtt = { exports: {} };
                 case "ucs-2":
                 case "utf16le":
                 case "utf-16le":
-                  return Pt(this, Lt, ii, gi);
+                  return ei(this, Lt, ii, gi);
                 default:
                   if (bi)
                     throw new TypeError("Unknown encoding: " + fi);
@@ -57076,7 +57087,7 @@ var mqtt = { exports: {} };
           function ti(oi, Lt, ii) {
             return Lt === 0 && ii === oi.length ? $.fromByteArray(oi) : $.fromByteArray(oi.slice(Lt, ii));
           }
-          function ei(oi, Lt, ii) {
+          function Pt(oi, Lt, ii) {
             ii = Math.min(oi.length, ii);
             for (var gi = [], fi = Lt; fi < ii; ) {
               var pi = oi[fi], bi = null, xi = pi > 239 ? 4 : pi > 223 ? 3 : pi > 191 ? 2 : 1;
@@ -57119,7 +57130,7 @@ var mqtt = { exports: {} };
               gi += String.fromCharCode(oi[fi] & 127);
             return gi;
           }
-          function Ii(oi, Lt, ii) {
+          function ci(oi, Lt, ii) {
             var gi = "";
             ii = Math.min(oi.length, ii);
             for (var fi = Lt; fi < ii; ++fi)
@@ -57268,14 +57279,14 @@ var mqtt = { exports: {} };
           }, ae.prototype.writeInt32BE = function(Lt, ii, gi) {
             return Lt = +Lt, ii = ii >>> 0, gi || hi(this, Lt, ii, 4, 2147483647, -2147483648), Lt < 0 && (Lt = 4294967295 + Lt + 1), this[ii] = Lt >>> 24, this[ii + 1] = Lt >>> 16, this[ii + 2] = Lt >>> 8, this[ii + 3] = Lt & 255, ii + 4;
           };
-          function ci(oi, Lt, ii, gi, fi, pi) {
+          function Ii(oi, Lt, ii, gi, fi, pi) {
             if (ii + gi > oi.length)
               throw new RangeError("Index out of range");
             if (ii < 0)
               throw new RangeError("Index out of range");
           }
           function Ai(oi, Lt, ii, gi, fi) {
-            return Lt = +Lt, ii = ii >>> 0, fi || ci(oi, Lt, ii, 4), re.write(oi, Lt, ii, gi, 23, 4), ii + 4;
+            return Lt = +Lt, ii = ii >>> 0, fi || Ii(oi, Lt, ii, 4), re.write(oi, Lt, ii, gi, 23, 4), ii + 4;
           }
           ae.prototype.writeFloatLE = function(Lt, ii, gi) {
             return Ai(this, Lt, ii, !0, gi);
@@ -57283,7 +57294,7 @@ var mqtt = { exports: {} };
             return Ai(this, Lt, ii, !1, gi);
           };
           function yi(oi, Lt, ii, gi, fi) {
-            return Lt = +Lt, ii = ii >>> 0, fi || ci(oi, Lt, ii, 8), re.write(oi, Lt, ii, gi, 52, 8), ii + 8;
+            return Lt = +Lt, ii = ii >>> 0, fi || Ii(oi, Lt, ii, 8), re.write(oi, Lt, ii, gi, 52, 8), ii + 8;
           }
           ae.prototype.writeDoubleLE = function(Lt, ii, gi) {
             return yi(this, Lt, ii, !0, gi);
@@ -57843,39 +57854,39 @@ var mqtt = { exports: {} };
         if (kt)
           qe.call(jt);
         else
-          for (var Pt = qe.length, ti = $e(qe, Pt), ei = 0; ei < Pt; ++ei)
-            ti[ei].call(jt);
+          for (var ei = qe.length, ti = $e(qe, ei), Pt = 0; Pt < ei; ++Pt)
+            ti[Pt].call(jt);
       }
-      function de(qe, kt, jt, Pt) {
+      function de(qe, kt, jt, ei) {
         if (kt)
-          qe.call(jt, Pt);
+          qe.call(jt, ei);
         else
-          for (var ti = qe.length, ei = $e(qe, ti), Et = 0; Et < ti; ++Et)
-            ei[Et].call(jt, Pt);
+          for (var ti = qe.length, Pt = $e(qe, ti), Et = 0; Et < ti; ++Et)
+            Pt[Et].call(jt, ei);
       }
-      function ue(qe, kt, jt, Pt, ti) {
+      function ue(qe, kt, jt, ei, ti) {
         if (kt)
-          qe.call(jt, Pt, ti);
+          qe.call(jt, ei, ti);
         else
-          for (var ei = qe.length, Et = $e(qe, ei), ni = 0; ni < ei; ++ni)
-            Et[ni].call(jt, Pt, ti);
+          for (var Pt = qe.length, Et = $e(qe, Pt), ni = 0; ni < Pt; ++ni)
+            Et[ni].call(jt, ei, ti);
       }
-      function Ne(qe, kt, jt, Pt, ti, ei) {
+      function Ne(qe, kt, jt, ei, ti, Pt) {
         if (kt)
-          qe.call(jt, Pt, ti, ei);
+          qe.call(jt, ei, ti, Pt);
         else
           for (var Et = qe.length, ni = $e(qe, Et), ri = 0; ri < Et; ++ri)
-            ni[ri].call(jt, Pt, ti, ei);
+            ni[ri].call(jt, ei, ti, Pt);
       }
-      function he(qe, kt, jt, Pt) {
+      function he(qe, kt, jt, ei) {
         if (kt)
-          qe.apply(jt, Pt);
+          qe.apply(jt, ei);
         else
-          for (var ti = qe.length, ei = $e(qe, ti), Et = 0; Et < ti; ++Et)
-            ei[Et].apply(jt, Pt);
+          for (var ti = qe.length, Pt = $e(qe, ti), Et = 0; Et < ti; ++Et)
+            Pt[Et].apply(jt, ei);
       }
       oe.prototype.emit = function(kt) {
-        var jt, Pt, ti, ei, Et, ni, ri = kt === "error";
+        var jt, ei, ti, Pt, Et, ni, ri = kt === "error";
         if (ni = this._events, ni)
           ri = ri && ni.error == null;
         else if (!ri)
@@ -57883,43 +57894,43 @@ var mqtt = { exports: {} };
         if (ri) {
           if (arguments.length > 1 && (jt = arguments[1]), jt instanceof Error)
             throw jt;
-          var Ii = new Error('Unhandled "error" event. (' + jt + ")");
-          throw Ii.context = jt, Ii;
+          var ci = new Error('Unhandled "error" event. (' + jt + ")");
+          throw ci.context = jt, ci;
         }
-        if (Pt = ni[kt], !Pt)
+        if (ei = ni[kt], !ei)
           return !1;
-        var wi = typeof Pt == "function";
+        var wi = typeof ei == "function";
         switch (ti = arguments.length, ti) {
           case 1:
-            Ie(Pt, wi, this);
+            Ie(ei, wi, this);
             break;
           case 2:
-            de(Pt, wi, this, arguments[1]);
+            de(ei, wi, this, arguments[1]);
             break;
           case 3:
-            ue(Pt, wi, this, arguments[1], arguments[2]);
+            ue(ei, wi, this, arguments[1], arguments[2]);
             break;
           case 4:
-            Ne(Pt, wi, this, arguments[1], arguments[2], arguments[3]);
+            Ne(ei, wi, this, arguments[1], arguments[2], arguments[3]);
             break;
           default:
-            for (ei = new Array(ti - 1), Et = 1; Et < ti; Et++)
-              ei[Et - 1] = arguments[Et];
-            he(Pt, wi, this, ei);
+            for (Pt = new Array(ti - 1), Et = 1; Et < ti; Et++)
+              Pt[Et - 1] = arguments[Et];
+            he(ei, wi, this, Pt);
         }
         return !0;
       };
-      function pe(qe, kt, jt, Pt) {
-        var ti, ei, Et;
+      function pe(qe, kt, jt, ei) {
+        var ti, Pt, Et;
         if (typeof jt != "function")
           throw new TypeError('"listener" argument must be a function');
-        if (ei = qe._events, ei ? (ei.newListener && (qe.emit(
+        if (Pt = qe._events, Pt ? (Pt.newListener && (qe.emit(
           "newListener",
           kt,
           jt.listener ? jt.listener : jt
-        ), ei = qe._events), Et = ei[kt]) : (ei = qe._events = k(null), qe._eventsCount = 0), !Et)
-          Et = ei[kt] = jt, ++qe._eventsCount;
-        else if (typeof Et == "function" ? Et = ei[kt] = Pt ? [jt, Et] : [Et, jt] : Pt ? Et.unshift(jt) : Et.push(jt), !Et.warned && (ti = le(qe), ti && ti > 0 && Et.length > ti)) {
+        ), Pt = qe._events), Et = Pt[kt]) : (Pt = qe._events = k(null), qe._eventsCount = 0), !Et)
+          Et = Pt[kt] = jt, ++qe._eventsCount;
+        else if (typeof Et == "function" ? Et = Pt[kt] = ei ? [jt, Et] : [Et, jt] : ei ? Et.unshift(jt) : Et.push(jt), !Et.warned && (ti = le(qe), ti && ti > 0 && Et.length > ti)) {
           Et.warned = !0;
           var ni = new Error("Possible EventEmitter memory leak detected. " + Et.length + ' "' + String(kt) + '" listeners added. Use emitter.setMaxListeners() to increase limit.');
           ni.name = "MaxListenersExceededWarning", ni.emitter = qe, ni.type = kt, ni.count = Et.length, typeof console == "object" && console.warn && console.warn("%s: %s", ni.name, ni.message);
@@ -57954,8 +57965,8 @@ var mqtt = { exports: {} };
           }
       }
       function xe(qe, kt, jt) {
-        var Pt = { fired: !1, wrapFn: void 0, target: qe, type: kt, listener: jt }, ti = re.call(ze, Pt);
-        return ti.listener = jt, Pt.wrapFn = ti, ti;
+        var ei = { fired: !1, wrapFn: void 0, target: qe, type: kt, listener: jt }, ti = re.call(ze, ei);
+        return ti.listener = jt, ei.wrapFn = ti, ti;
       }
       oe.prototype.once = function(kt, jt) {
         if (typeof jt != "function")
@@ -57966,39 +57977,39 @@ var mqtt = { exports: {} };
           throw new TypeError('"listener" argument must be a function');
         return this.prependListener(kt, xe(this, kt, jt)), this;
       }, oe.prototype.removeListener = function(kt, jt) {
-        var Pt, ti, ei, Et, ni;
+        var ei, ti, Pt, Et, ni;
         if (typeof jt != "function")
           throw new TypeError('"listener" argument must be a function');
         if (ti = this._events, !ti)
           return this;
-        if (Pt = ti[kt], !Pt)
+        if (ei = ti[kt], !ei)
           return this;
-        if (Pt === jt || Pt.listener === jt)
-          --this._eventsCount === 0 ? this._events = k(null) : (delete ti[kt], ti.removeListener && this.emit("removeListener", kt, Pt.listener || jt));
-        else if (typeof Pt != "function") {
-          for (ei = -1, Et = Pt.length - 1; Et >= 0; Et--)
-            if (Pt[Et] === jt || Pt[Et].listener === jt) {
-              ni = Pt[Et].listener, ei = Et;
+        if (ei === jt || ei.listener === jt)
+          --this._eventsCount === 0 ? this._events = k(null) : (delete ti[kt], ti.removeListener && this.emit("removeListener", kt, ei.listener || jt));
+        else if (typeof ei != "function") {
+          for (Pt = -1, Et = ei.length - 1; Et >= 0; Et--)
+            if (ei[Et] === jt || ei[Et].listener === jt) {
+              ni = ei[Et].listener, Pt = Et;
               break;
             }
-          if (ei < 0)
+          if (Pt < 0)
             return this;
-          ei === 0 ? Pt.shift() : At(Pt, ei), Pt.length === 1 && (ti[kt] = Pt[0]), ti.removeListener && this.emit("removeListener", kt, ni || jt);
+          Pt === 0 ? ei.shift() : At(ei, Pt), ei.length === 1 && (ti[kt] = ei[0]), ti.removeListener && this.emit("removeListener", kt, ni || jt);
         }
         return this;
       }, oe.prototype.removeAllListeners = function(kt) {
-        var jt, Pt, ti;
-        if (Pt = this._events, !Pt)
+        var jt, ei, ti;
+        if (ei = this._events, !ei)
           return this;
-        if (!Pt.removeListener)
-          return arguments.length === 0 ? (this._events = k(null), this._eventsCount = 0) : Pt[kt] && (--this._eventsCount === 0 ? this._events = k(null) : delete Pt[kt]), this;
+        if (!ei.removeListener)
+          return arguments.length === 0 ? (this._events = k(null), this._eventsCount = 0) : ei[kt] && (--this._eventsCount === 0 ? this._events = k(null) : delete ei[kt]), this;
         if (arguments.length === 0) {
-          var ei = $(Pt), Et;
-          for (ti = 0; ti < ei.length; ++ti)
-            Et = ei[ti], Et !== "removeListener" && this.removeAllListeners(Et);
+          var Pt = $(ei), Et;
+          for (ti = 0; ti < Pt.length; ++ti)
+            Et = Pt[ti], Et !== "removeListener" && this.removeAllListeners(Et);
           return this.removeAllListeners("removeListener"), this._events = k(null), this._eventsCount = 0, this;
         }
-        if (jt = Pt[kt], typeof jt == "function")
+        if (jt = ei[kt], typeof jt == "function")
           this.removeListener(kt, jt);
         else if (jt)
           for (ti = jt.length - 1; ti >= 0; ti--)
@@ -58006,10 +58017,10 @@ var mqtt = { exports: {} };
         return this;
       };
       function Oe(qe, kt, jt) {
-        var Pt = qe._events;
-        if (!Pt)
+        var ei = qe._events;
+        if (!ei)
           return [];
-        var ti = Pt[kt];
+        var ti = ei[kt];
         return ti ? typeof ti == "function" ? jt ? [ti.listener || ti] : [ti] : jt ? Fe(ti) : $e(ti, ti.length) : [];
       }
       oe.prototype.listeners = function(kt) {
@@ -58034,13 +58045,13 @@ var mqtt = { exports: {} };
         return this._eventsCount > 0 ? Reflect.ownKeys(this._events) : [];
       };
       function At(qe, kt) {
-        for (var jt = kt, Pt = jt + 1, ti = qe.length; Pt < ti; jt += 1, Pt += 1)
-          qe[jt] = qe[Pt];
+        for (var jt = kt, ei = jt + 1, ti = qe.length; ei < ti; jt += 1, ei += 1)
+          qe[jt] = qe[ei];
         qe.pop();
       }
       function $e(qe, kt) {
-        for (var jt = new Array(kt), Pt = 0; Pt < kt; ++Pt)
-          jt[Pt] = qe[Pt];
+        for (var jt = new Array(kt), ei = 0; ei < kt; ++ei)
+          jt[ei] = qe[ei];
         return jt;
       }
       function Fe(qe) {
@@ -59379,15 +59390,15 @@ var mqtt = { exports: {} };
         }, this.forEach = function(Ve) {
           var Dt, qe, kt = 0;
           try {
-            for (var jt = $(this), Pt = jt.next(); !Pt.done; Pt = jt.next()) {
-              var ti = Pt.value;
+            for (var jt = $(this), ei = jt.next(); !ei.done; ei = jt.next()) {
+              var ti = ei.value;
               Ve(ti, kt++);
             }
-          } catch (ei) {
-            Dt = { error: ei };
+          } catch (Pt) {
+            Dt = { error: Pt };
           } finally {
             try {
-              Pt && !Pt.done && (qe = jt.return) && qe.call(jt);
+              ei && !ei.done && (qe = jt.return) && qe.call(jt);
             } finally {
               if (Dt)
                 throw Dt.error;
@@ -59399,17 +59410,17 @@ var mqtt = { exports: {} };
             throw new Error("pos must more than 0 and less than set's size");
           var kt = 0;
           try {
-            for (var jt = $(this), Pt = jt.next(); !Pt.done; Pt = jt.next()) {
-              var ti = Pt.value;
+            for (var jt = $(this), ei = jt.next(); !ei.done; ei = jt.next()) {
+              var ti = ei.value;
               if (kt === Ve)
                 return ti;
               ++kt;
             }
-          } catch (ei) {
-            Dt = { error: ei };
+          } catch (Pt) {
+            Dt = { error: Pt };
           } finally {
             try {
-              Pt && !Pt.done && (qe = jt.return) && qe.call(jt);
+              ei && !ei.done && (qe = jt.return) && qe.call(jt);
             } finally {
               if (Dt)
                 throw Dt.error;
@@ -59867,15 +59878,15 @@ var mqtt = { exports: {} };
         }, this.forEach = function(Ve) {
           var Dt, qe, kt = 0;
           try {
-            for (var jt = $(this), Pt = jt.next(); !Pt.done; Pt = jt.next()) {
-              var ti = Pt.value;
+            for (var jt = $(this), ei = jt.next(); !ei.done; ei = jt.next()) {
+              var ti = ei.value;
               Ve(ti, kt++);
             }
-          } catch (ei) {
-            Dt = { error: ei };
+          } catch (Pt) {
+            Dt = { error: Pt };
           } finally {
             try {
-              Pt && !Pt.done && (qe = jt.return) && qe.call(jt);
+              ei && !ei.done && (qe = jt.return) && qe.call(jt);
             } finally {
               if (Dt)
                 throw Dt.error;
@@ -59887,17 +59898,17 @@ var mqtt = { exports: {} };
             throw new Error("pos must more than 0 and less than set's size");
           var kt = 0;
           try {
-            for (var jt = $(this), Pt = jt.next(); !Pt.done; Pt = jt.next()) {
-              var ti = Pt.value;
+            for (var jt = $(this), ei = jt.next(); !ei.done; ei = jt.next()) {
+              var ti = ei.value;
               if (kt === Ve)
                 return ti;
               ++kt;
             }
-          } catch (ei) {
-            Dt = { error: ei };
+          } catch (Pt) {
+            Dt = { error: Pt };
           } finally {
             try {
-              Pt && !Pt.done && (qe = jt.return) && qe.call(jt);
+              ei && !ei.done && (qe = jt.return) && qe.call(jt);
             } finally {
               if (Dt)
                 throw Dt.error;
@@ -60454,8 +60465,8 @@ var mqtt = { exports: {} };
           if (this[de].has(Fe)) {
             if (qe > this[$])
               return Oe(this, this[de].get(Fe)), !1;
-            const Pt = this[de].get(Fe).value;
-            return this[ae] && (this[le] || this[ae](Fe, Pt.value)), Pt.now = Dt, Pt.maxAge = Ve, Pt.value = Ue, this[re] += qe - Pt.length, Pt.length = qe, this.get(Fe), xe(this), !0;
+            const ei = this[de].get(Fe).value;
+            return this[ae] && (this[le] || this[ae](Fe, ei.value)), ei.now = Dt, ei.maxAge = Ve, ei.value = Ue, this[re] += qe - ei.length, ei.length = qe, this.get(Fe), xe(this), !0;
           }
           const kt = new _e(Fe, Ue, qe, Dt, Ve);
           return kt.length > this[$] ? (this[ae] && this[ae](Fe, Ue), !1) : (this[re] += kt.length, this[Ie].unshift(kt), this[de].set(Fe, this[Ie].head), xe(this), !0);
@@ -61188,7 +61199,7 @@ var mqtt = { exports: {} };
               mi === 131 ? $.VERSION131 : mi === 132 ? $.VERSION132 : mi === 4 ? $.VERSION4 : mi === 5 ? $.VERSION5 : $.VERSION3
             );
             let xi = 0;
-            return xi |= oi != null ? $.USERNAME_MASK : 0, xi |= Lt != null ? $.PASSWORD_MASK : 0, xi |= Si && Si.retain ? $.WILL_RETAIN_MASK : 0, xi |= Si && Si.qos ? Si.qos << $.WILL_QOS_SHIFT : 0, xi |= Si ? $.WILL_FLAG_MASK : 0, xi |= Ti ? $.CLEAN_SESSION_MASK : 0, Ci.write(k.from([xi])), he(Ci, si), mi === 5 && fi.write(), wi(Ci, li), Si && (mi === 5 && pi.write(), ei(Ci, Si.topic), wi(Ci, Si.payload)), oi != null && wi(Ci, oi), Lt != null && wi(Ci, Lt), !0;
+            return xi |= oi != null ? $.USERNAME_MASK : 0, xi |= Lt != null ? $.PASSWORD_MASK : 0, xi |= Si && Si.retain ? $.WILL_RETAIN_MASK : 0, xi |= Si && Si.qos ? Si.qos << $.WILL_QOS_SHIFT : 0, xi |= Si ? $.WILL_FLAG_MASK : 0, xi |= Ti ? $.CLEAN_SESSION_MASK : 0, Ci.write(k.from([xi])), he(Ci, si), mi === 5 && fi.write(), wi(Ci, li), Si && (mi === 5 && pi.write(), Pt(Ci, Si.topic), wi(Ci, Si.payload)), oi != null && wi(Ci, oi), Lt != null && wi(Ci, Lt), !0;
           }
           function _e(di, Ci, zi) {
             const Mi = zi ? zi.protocolVersion : 4, Ni = di || {}, mi = Mi === 5 ? Ni.reasonCode : Ni.returnCode, Si = Ni.properties;
@@ -61277,7 +61288,7 @@ var mqtt = { exports: {} };
             for (const ii of Ti) {
               const gi = ii.topic, fi = ii.qos, pi = +ii.nl, bi = +ii.rap, xi = ii.rh;
               let Gi;
-              ei(Ci, gi), Gi = $.SUBSCRIBE_OPTIONS_QOS[fi], Mi === 5 && (Gi |= pi ? $.SUBSCRIBE_OPTIONS_NL : 0, Gi |= bi ? $.SUBSCRIBE_OPTIONS_RAP : 0, Gi |= xi ? $.SUBSCRIBE_OPTIONS_RH[xi] : 0), Lt = Ci.write(k.from([Gi]));
+              Pt(Ci, gi), Gi = $.SUBSCRIBE_OPTIONS_QOS[fi], Mi === 5 && (Gi |= pi ? $.SUBSCRIBE_OPTIONS_NL : 0, Gi |= bi ? $.SUBSCRIBE_OPTIONS_RAP : 0, Gi |= xi ? $.SUBSCRIBE_OPTIONS_RH[xi] : 0), Lt = Ci.write(k.from([Gi]));
             }
             return Lt;
           }
@@ -61324,7 +61335,7 @@ var mqtt = { exports: {} };
             Ci.write($.UNSUBSCRIBE_HEADER[1][Si ? 1 : 0][0]), ti(Ci, li), he(Ci, mi), oi !== null && oi.write();
             let Lt = !0;
             for (let ii = 0; ii < Ti.length; ii++)
-              Lt = ei(Ci, Ti[ii]);
+              Lt = Pt(Ci, Ti[ii]);
             return Lt;
           }
           function Dt(di, Ci, zi) {
@@ -61369,19 +61380,19 @@ var mqtt = { exports: {} };
             const si = ui(Ci, Si, zi, Ti);
             return si ? (Ti += si.length, Ci.write(k.from([$.codes.auth << 4])), ti(Ci, Ti), Ci.write(k.from([mi])), si !== null && si.write(), !0) : !1;
           }
-          const Pt = {};
+          const ei = {};
           function ti(di, Ci) {
             if (Ci > $.VARBYTEINT_MAX)
               return di.emit("error", new Error(`Invalid variable byte integer: ${Ci}`)), !1;
-            let zi = Pt[Ci];
-            return zi || (zi = ue(Ci), Ci < 16384 && (Pt[Ci] = zi)), ae("writeVarByteInt: writing to stream: %o", zi), di.write(zi);
+            let zi = ei[Ci];
+            return zi || (zi = ue(Ci), Ci < 16384 && (ei[Ci] = zi)), ae("writeVarByteInt: writing to stream: %o", zi), di.write(zi);
           }
-          function ei(di, Ci) {
+          function Pt(di, Ci) {
             const zi = k.byteLength(Ci);
             return he(di, zi), ae("writeString: %s", Ci), di.write(Ci, "utf8");
           }
           function Et(di, Ci, zi) {
-            ei(di, Ci), ei(di, zi);
+            Pt(di, Ci), Pt(di, zi);
           }
           function ni(di, Ci) {
             return ae("writeNumberCached: number: %d", Ci), ae("writeNumberCached: %o", le[Ci]), di.write(le[Ci]);
@@ -61390,19 +61401,19 @@ var mqtt = { exports: {} };
             const zi = Ie(Ci);
             return ae("writeNumberGenerated: %o", zi), di.write(zi);
           }
-          function Ii(di, Ci) {
+          function ci(di, Ci) {
             const zi = Ne(Ci);
             return ae("write4ByteNumber: %o", zi), di.write(zi);
           }
           function wi(di, Ci) {
-            typeof Ci == "string" ? ei(di, Ci) : Ci ? (he(di, Ci.length), di.write(Ci)) : he(di, 0);
+            typeof Ci == "string" ? Pt(di, Ci) : Ci ? (he(di, Ci.length), di.write(Ci)) : he(di, 0);
           }
           function ai(di, Ci) {
             if (typeof Ci != "object" || Ci.length != null)
               return {
                 length: 1,
                 write() {
-                  ci(di, {}, 0);
+                  Ii(di, {}, 0);
                 }
               };
             let zi = 0;
@@ -61488,7 +61499,7 @@ var mqtt = { exports: {} };
             return {
               length: k.byteLength(ue(zi)) + zi,
               write() {
-                ci(di, Ci, zi);
+                Ii(di, Ci, zi);
               }
             };
           }
@@ -61524,7 +61535,7 @@ var mqtt = { exports: {} };
                 break;
               }
               case "int32": {
-                di.write(k.from([$.properties[Ci]])), Ii(di, zi);
+                di.write(k.from([$.properties[Ci]])), ci(di, zi);
                 break;
               }
               case "var": {
@@ -61532,7 +61543,7 @@ var mqtt = { exports: {} };
                 break;
               }
               case "string": {
-                di.write(k.from([$.properties[Ci]])), ei(di, zi);
+                di.write(k.from([$.properties[Ci]])), Pt(di, zi);
                 break;
               }
               case "pair": {
@@ -61548,7 +61559,7 @@ var mqtt = { exports: {} };
                 return di.emit("error", new Error(`Invalid property ${Ci} value: ${zi}`)), !1;
             }
           }
-          function ci(di, Ci, zi) {
+          function Ii(di, Ci, zi) {
             ti(di, zi);
             for (const Mi in Ci)
               if (Object.prototype.hasOwnProperty.call(Ci, Mi) && Ci[Mi] !== null) {
@@ -61894,22 +61905,22 @@ var mqtt = { exports: {} };
               throw new RangeError(At[ai]);
             }
             function qe(ai, ui) {
-              for (var hi = ai.length, ci = []; hi--; )
-                ci[hi] = ui(ai[hi]);
-              return ci;
+              for (var hi = ai.length, Ii = []; hi--; )
+                Ii[hi] = ui(ai[hi]);
+              return Ii;
             }
             function kt(ai, ui) {
-              var hi = ai.split("@"), ci = "";
-              hi.length > 1 && (ci = hi[0] + "@", ai = hi[1]), ai = ai.replace(_e, ".");
+              var hi = ai.split("@"), Ii = "";
+              hi.length > 1 && (Ii = hi[0] + "@", ai = hi[1]), ai = ai.replace(_e, ".");
               var Ai = ai.split("."), yi = qe(Ai, ui).join(".");
-              return ci + yi;
+              return Ii + yi;
             }
             function jt(ai) {
-              for (var ui = [], hi = 0, ci = ai.length, Ai, yi; hi < ci; )
-                Ai = ai.charCodeAt(hi++), Ai >= 55296 && Ai <= 56319 && hi < ci ? (yi = ai.charCodeAt(hi++), (yi & 64512) == 56320 ? ui.push(((Ai & 1023) << 10) + (yi & 1023) + 65536) : (ui.push(Ai), hi--)) : ui.push(Ai);
+              for (var ui = [], hi = 0, Ii = ai.length, Ai, yi; hi < Ii; )
+                Ai = ai.charCodeAt(hi++), Ai >= 55296 && Ai <= 56319 && hi < Ii ? (yi = ai.charCodeAt(hi++), (yi & 64512) == 56320 ? ui.push(((Ai & 1023) << 10) + (yi & 1023) + 65536) : (ui.push(Ai), hi--)) : ui.push(Ai);
               return ui;
             }
-            function Pt(ai) {
+            function ei(ai) {
               return qe(ai, function(ui) {
                 var hi = "";
                 return ui > 65535 && (ui -= 65536, hi += Ue(ui >>> 10 & 1023 | 55296), ui = 56320 | ui & 1023), hi += Ue(ui), hi;
@@ -61918,46 +61929,46 @@ var mqtt = { exports: {} };
             function ti(ai) {
               return ai - 48 < 10 ? ai - 22 : ai - 65 < 26 ? ai - 65 : ai - 97 < 26 ? ai - 97 : le;
             }
-            function ei(ai, ui) {
+            function Pt(ai, ui) {
               return ai + 22 + 75 * (ai < 26) - ((ui != 0) << 5);
             }
             function Et(ai, ui, hi) {
-              var ci = 0;
-              for (ai = hi ? Fe(ai / Ne) : ai >> 1, ai += Fe(ai / ui); ai > $e * de >> 1; ci += le)
+              var Ii = 0;
+              for (ai = hi ? Fe(ai / Ne) : ai >> 1, ai += Fe(ai / ui); ai > $e * de >> 1; Ii += le)
                 ai = Fe(ai / $e);
-              return Fe(ci + ($e + 1) * ai / (ai + ue));
+              return Fe(Ii + ($e + 1) * ai / (ai + ue));
             }
             function ni(ai) {
-              var ui = [], hi = ai.length, ci, Ai = 0, yi = pe, di = he, Ci, zi, Mi, Ni, mi, Si, Ti, si, li;
+              var ui = [], hi = ai.length, Ii, Ai = 0, yi = pe, di = he, Ci, zi, Mi, Ni, mi, Si, Ti, si, li;
               for (Ci = ai.lastIndexOf(ze), Ci < 0 && (Ci = 0), zi = 0; zi < Ci; ++zi)
                 ai.charCodeAt(zi) >= 128 && Dt("not-basic"), ui.push(ai.charCodeAt(zi));
               for (Mi = Ci > 0 ? Ci + 1 : 0; Mi < hi; ) {
                 for (Ni = Ai, mi = 1, Si = le; Mi >= hi && Dt("invalid-input"), Ti = ti(ai.charCodeAt(Mi++)), (Ti >= le || Ti > Fe((ae - Ai) / mi)) && Dt("overflow"), Ai += Ti * mi, si = Si <= di ? Ie : Si >= di + de ? de : Si - di, !(Ti < si); Si += le)
                   li = le - si, mi > Fe(ae / li) && Dt("overflow"), mi *= li;
-                ci = ui.length + 1, di = Et(Ai - Ni, ci, Ni == 0), Fe(Ai / ci) > ae - yi && Dt("overflow"), yi += Fe(Ai / ci), Ai %= ci, ui.splice(Ai++, 0, yi);
+                Ii = ui.length + 1, di = Et(Ai - Ni, Ii, Ni == 0), Fe(Ai / Ii) > ae - yi && Dt("overflow"), yi += Fe(Ai / Ii), Ai %= Ii, ui.splice(Ai++, 0, yi);
               }
-              return Pt(ui);
+              return ei(ui);
             }
             function ri(ai) {
-              var ui, hi, ci, Ai, yi, di, Ci, zi, Mi, Ni, mi, Si = [], Ti, si, li, oi;
+              var ui, hi, Ii, Ai, yi, di, Ci, zi, Mi, Ni, mi, Si = [], Ti, si, li, oi;
               for (ai = jt(ai), Ti = ai.length, ui = pe, hi = 0, yi = he, di = 0; di < Ti; ++di)
                 mi = ai[di], mi < 128 && Si.push(Ue(mi));
-              for (ci = Ai = Si.length, Ai && Si.push(ze); ci < Ti; ) {
+              for (Ii = Ai = Si.length, Ai && Si.push(ze); Ii < Ti; ) {
                 for (Ci = ae, di = 0; di < Ti; ++di)
                   mi = ai[di], mi >= ui && mi < Ci && (Ci = mi);
-                for (si = ci + 1, Ci - ui > Fe((ae - hi) / si) && Dt("overflow"), hi += (Ci - ui) * si, ui = Ci, di = 0; di < Ti; ++di)
+                for (si = Ii + 1, Ci - ui > Fe((ae - hi) / si) && Dt("overflow"), hi += (Ci - ui) * si, ui = Ci, di = 0; di < Ti; ++di)
                   if (mi = ai[di], mi < ui && ++hi > ae && Dt("overflow"), mi == ui) {
                     for (zi = hi, Mi = le; Ni = Mi <= yi ? Ie : Mi >= yi + de ? de : Mi - yi, !(zi < Ni); Mi += le)
                       oi = zi - Ni, li = le - Ni, Si.push(
-                        Ue(ei(Ni + oi % li, 0))
+                        Ue(Pt(Ni + oi % li, 0))
                       ), zi = Fe(oi / li);
-                    Si.push(Ue(ei(zi, 0))), yi = Et(hi, si, ci == Ai), hi = 0, ++ci;
+                    Si.push(Ue(Pt(zi, 0))), yi = Et(hi, si, Ii == Ai), hi = 0, ++Ii;
                   }
                 ++hi, ++ui;
               }
               return Si.join("");
             }
-            function Ii(ai) {
+            function ci(ai) {
               return kt(ai, function(ui) {
                 return xe.test(ui) ? ni(ui.slice(4).toLowerCase()) : ui;
               });
@@ -61983,12 +61994,12 @@ var mqtt = { exports: {} };
                */
               ucs2: {
                 decode: jt,
-                encode: Pt
+                encode: ei
               },
               decode: ni,
               encode: ri,
               toASCII: wi,
-              toUnicode: Ii
+              toUnicode: ci
             }, re && oe)
               if (g.exports == re)
                 oe.exports = ie;
@@ -62201,9 +62212,9 @@ var mqtt = { exports: {} };
     }, { "./_stream_transform": 59, inherits: 24 }], 58: [function(r, g, V) {
       (function(k, $) {
         (function() {
-          g.exports = Pt;
+          g.exports = ei;
           var re;
-          Pt.ReadableState = jt, r("events").EventEmitter;
+          ei.ReadableState = jt, r("events").EventEmitter;
           var oe = function(li, oi) {
             return li.listeners(oi).length;
           }, Ce = r("./internal/streams/stream"), ie = r("buffer").Buffer, ae = $.Uint8Array || function() {
@@ -62218,7 +62229,7 @@ var mqtt = { exports: {} };
           de && de.debuglog ? ue = de.debuglog("stream") : ue = function() {
           };
           var Ne = r("./internal/streams/buffer_list"), he = r("./internal/streams/destroy"), pe = r("./internal/streams/state"), ze = pe.getHighWaterMark, xe = r("../errors").codes, Oe = xe.ERR_INVALID_ARG_TYPE, _e = xe.ERR_STREAM_PUSH_AFTER_EOF, At = xe.ERR_METHOD_NOT_IMPLEMENTED, $e = xe.ERR_STREAM_UNSHIFT_AFTER_END_EVENT, Fe, Ue, Ve;
-          r("inherits")(Pt, Ce);
+          r("inherits")(ei, Ce);
           var Dt = he.errorOrDestroy, qe = ["error", "close", "destroy", "pause", "resume"];
           function kt(si, li, oi) {
             if (typeof si.prependListener == "function")
@@ -62228,13 +62239,13 @@ var mqtt = { exports: {} };
           function jt(si, li, oi) {
             re = re || r("./_stream_duplex"), si = si || {}, typeof oi != "boolean" && (oi = li instanceof re), this.objectMode = !!si.objectMode, oi && (this.objectMode = this.objectMode || !!si.readableObjectMode), this.highWaterMark = ze(this, si, "readableHighWaterMark", oi), this.buffer = new Ne(), this.length = 0, this.pipes = null, this.pipesCount = 0, this.flowing = null, this.ended = !1, this.endEmitted = !1, this.reading = !1, this.sync = !0, this.needReadable = !1, this.emittedReadable = !1, this.readableListening = !1, this.resumeScheduled = !1, this.paused = !0, this.emitClose = si.emitClose !== !1, this.autoDestroy = !!si.autoDestroy, this.destroyed = !1, this.defaultEncoding = si.defaultEncoding || "utf8", this.awaitDrain = 0, this.readingMore = !1, this.decoder = null, this.encoding = null, si.encoding && (Fe || (Fe = r("string_decoder/").StringDecoder), this.decoder = new Fe(si.encoding), this.encoding = si.encoding);
           }
-          function Pt(si) {
-            if (re = re || r("./_stream_duplex"), !(this instanceof Pt))
-              return new Pt(si);
+          function ei(si) {
+            if (re = re || r("./_stream_duplex"), !(this instanceof ei))
+              return new ei(si);
             var li = this instanceof re;
             this._readableState = new jt(si, this, li), this.readable = !0, si && (typeof si.read == "function" && (this._read = si.read), typeof si.destroy == "function" && (this._destroy = si.destroy)), Ce.call(this);
           }
-          Object.defineProperty(Pt.prototype, "destroyed", {
+          Object.defineProperty(ei.prototype, "destroyed", {
             // making it explicit this property is not enumerable
             // because otherwise some prototype manipulation in
             // userland will fail
@@ -62245,12 +62256,12 @@ var mqtt = { exports: {} };
             set: function(li) {
               this._readableState && (this._readableState.destroyed = li);
             }
-          }), Pt.prototype.destroy = he.destroy, Pt.prototype._undestroy = he.undestroy, Pt.prototype._destroy = function(si, li) {
+          }), ei.prototype.destroy = he.destroy, ei.prototype._undestroy = he.undestroy, ei.prototype._destroy = function(si, li) {
             li(si);
-          }, Pt.prototype.push = function(si, li) {
+          }, ei.prototype.push = function(si, li) {
             var oi = this._readableState, Lt;
             return oi.objectMode ? Lt = !0 : typeof si == "string" && (li = li || oi.defaultEncoding, li !== oi.encoding && (si = ie.from(si, li), li = ""), Lt = !0), ti(this, si, li, !1, Lt);
-          }, Pt.prototype.unshift = function(si) {
+          }, ei.prototype.unshift = function(si) {
             return ti(this, si, null, !0, !1);
           };
           function ti(si, li, oi, Lt, ii) {
@@ -62264,29 +62275,29 @@ var mqtt = { exports: {} };
                 Dt(si, fi);
               else if (gi.objectMode || li && li.length > 0)
                 if (typeof li != "string" && !gi.objectMode && Object.getPrototypeOf(li) !== ie.prototype && (li = le(li)), Lt)
-                  gi.endEmitted ? Dt(si, new $e()) : ei(si, gi, li, !0);
+                  gi.endEmitted ? Dt(si, new $e()) : Pt(si, gi, li, !0);
                 else if (gi.ended)
                   Dt(si, new _e());
                 else {
                   if (gi.destroyed)
                     return !1;
-                  gi.reading = !1, gi.decoder && !oi ? (li = gi.decoder.write(li), gi.objectMode || li.length !== 0 ? ei(si, gi, li, !1) : hi(si, gi)) : ei(si, gi, li, !1);
+                  gi.reading = !1, gi.decoder && !oi ? (li = gi.decoder.write(li), gi.objectMode || li.length !== 0 ? Pt(si, gi, li, !1) : hi(si, gi)) : Pt(si, gi, li, !1);
                 }
               else
                 Lt || (gi.reading = !1, hi(si, gi));
             }
             return !gi.ended && (gi.length < gi.highWaterMark || gi.length === 0);
           }
-          function ei(si, li, oi, Lt) {
+          function Pt(si, li, oi, Lt) {
             li.flowing && li.length === 0 && !li.sync ? (li.awaitDrain = 0, si.emit("data", oi)) : (li.length += li.objectMode ? 1 : oi.length, Lt ? li.buffer.unshift(oi) : li.buffer.push(oi), li.needReadable && ai(si)), hi(si, li);
           }
           function Et(si, li) {
             var oi;
             return !Ie(li) && typeof li != "string" && li !== void 0 && !si.objectMode && (oi = new Oe("chunk", ["string", "Buffer", "Uint8Array"], li)), oi;
           }
-          Pt.prototype.isPaused = function() {
+          ei.prototype.isPaused = function() {
             return this._readableState.flowing === !1;
-          }, Pt.prototype.setEncoding = function(si) {
+          }, ei.prototype.setEncoding = function(si) {
             Fe || (Fe = r("string_decoder/").StringDecoder);
             var li = new Fe(si);
             this._readableState.decoder = li, this._readableState.encoding = this._readableState.decoder.encoding;
@@ -62298,18 +62309,18 @@ var mqtt = { exports: {} };
           function ri(si) {
             return si >= ni ? si = ni : (si--, si |= si >>> 1, si |= si >>> 2, si |= si >>> 4, si |= si >>> 8, si |= si >>> 16, si++), si;
           }
-          function Ii(si, li) {
+          function ci(si, li) {
             return si <= 0 || li.length === 0 && li.ended ? 0 : li.objectMode ? 1 : si !== si ? li.flowing && li.length ? li.buffer.head.data.length : li.length : (si > li.highWaterMark && (li.highWaterMark = ri(si)), si <= li.length ? si : li.ended ? li.length : (li.needReadable = !0, 0));
           }
-          Pt.prototype.read = function(si) {
+          ei.prototype.read = function(si) {
             ue("read", si), si = parseInt(si, 10);
             var li = this._readableState, oi = si;
             if (si !== 0 && (li.emittedReadable = !1), si === 0 && li.needReadable && ((li.highWaterMark !== 0 ? li.length >= li.highWaterMark : li.length > 0) || li.ended))
               return ue("read: emitReadable", li.length, li.ended), li.length === 0 && li.ended ? mi(this) : ai(this), null;
-            if (si = Ii(si, li), si === 0 && li.ended)
+            if (si = ci(si, li), si === 0 && li.ended)
               return li.length === 0 && mi(this), null;
             var Lt = li.needReadable;
-            ue("need readable", Lt), (li.length === 0 || li.length - si < li.highWaterMark) && (Lt = !0, ue("length less than watermark", Lt)), li.ended || li.reading ? (Lt = !1, ue("reading or ended", Lt)) : Lt && (ue("do read"), li.reading = !0, li.sync = !0, li.length === 0 && (li.needReadable = !0), this._read(li.highWaterMark), li.sync = !1, li.reading || (si = Ii(oi, li)));
+            ue("need readable", Lt), (li.length === 0 || li.length - si < li.highWaterMark) && (Lt = !0, ue("length less than watermark", Lt)), li.ended || li.reading ? (Lt = !1, ue("reading or ended", Lt)) : Lt && (ue("do read"), li.reading = !0, li.sync = !0, li.length === 0 && (li.needReadable = !0), this._read(li.highWaterMark), li.sync = !1, li.reading || (si = ci(oi, li)));
             var ii;
             return si > 0 ? ii = Ni(si, li) : ii = null, ii === null ? (li.needReadable = li.length <= li.highWaterMark, si = 0) : (li.length -= si, li.awaitDrain = 0), li.length === 0 && (li.ended || (li.needReadable = !0), oi !== si && li.ended && mi(this)), ii !== null && this.emit("data", ii), ii;
           };
@@ -62331,9 +62342,9 @@ var mqtt = { exports: {} };
             ue("emitReadable_", li.destroyed, li.length, li.ended), !li.destroyed && (li.length || li.ended) && (si.emit("readable"), li.emittedReadable = !1), li.needReadable = !li.flowing && !li.ended && li.length <= li.highWaterMark, Mi(si);
           }
           function hi(si, li) {
-            li.readingMore || (li.readingMore = !0, k.nextTick(ci, si, li));
+            li.readingMore || (li.readingMore = !0, k.nextTick(Ii, si, li));
           }
-          function ci(si, li) {
+          function Ii(si, li) {
             for (; !li.reading && !li.ended && (li.length < li.highWaterMark || li.flowing && li.length === 0); ) {
               var oi = li.length;
               if (ue("maybeReadMore read 0"), si.read(0), oi === li.length)
@@ -62341,9 +62352,9 @@ var mqtt = { exports: {} };
             }
             li.readingMore = !1;
           }
-          Pt.prototype._read = function(si) {
+          ei.prototype._read = function(si) {
             Dt(this, new At("_read()"));
-          }, Pt.prototype.pipe = function(si, li) {
+          }, ei.prototype.pipe = function(si, li) {
             var oi = this, Lt = this._readableState;
             switch (Lt.pipesCount) {
               case 0:
@@ -62400,7 +62411,7 @@ var mqtt = { exports: {} };
               ue("pipeOnDrain", oi.awaitDrain), oi.awaitDrain && oi.awaitDrain--, oi.awaitDrain === 0 && oe(si, "data") && (oi.flowing = !0, Mi(si));
             };
           }
-          Pt.prototype.unpipe = function(si) {
+          ei.prototype.unpipe = function(si) {
             var li = this._readableState, oi = {
               hasUnpiped: !1
             };
@@ -62419,13 +62430,13 @@ var mqtt = { exports: {} };
             }
             var fi = Ti(li.pipes, si);
             return fi === -1 ? this : (li.pipes.splice(fi, 1), li.pipesCount -= 1, li.pipesCount === 1 && (li.pipes = li.pipes[0]), si.emit("unpipe", this, oi), this);
-          }, Pt.prototype.on = function(si, li) {
+          }, ei.prototype.on = function(si, li) {
             var oi = Ce.prototype.on.call(this, si, li), Lt = this._readableState;
             return si === "data" ? (Lt.readableListening = this.listenerCount("readable") > 0, Lt.flowing !== !1 && this.resume()) : si === "readable" && !Lt.endEmitted && !Lt.readableListening && (Lt.readableListening = Lt.needReadable = !0, Lt.flowing = !1, Lt.emittedReadable = !1, ue("on readable", Lt.length, Lt.reading), Lt.length ? ai(this) : Lt.reading || k.nextTick(di, this)), oi;
-          }, Pt.prototype.addListener = Pt.prototype.on, Pt.prototype.removeListener = function(si, li) {
+          }, ei.prototype.addListener = ei.prototype.on, ei.prototype.removeListener = function(si, li) {
             var oi = Ce.prototype.removeListener.call(this, si, li);
             return si === "readable" && k.nextTick(yi, this), oi;
-          }, Pt.prototype.removeAllListeners = function(si) {
+          }, ei.prototype.removeAllListeners = function(si) {
             var li = Ce.prototype.removeAllListeners.apply(this, arguments);
             return (si === "readable" || si === void 0) && k.nextTick(yi, this), li;
           };
@@ -62436,7 +62447,7 @@ var mqtt = { exports: {} };
           function di(si) {
             ue("readable nexttick read 0"), si.read(0);
           }
-          Pt.prototype.resume = function() {
+          ei.prototype.resume = function() {
             var si = this._readableState;
             return si.flowing || (ue("resume"), si.flowing = !si.readableListening, Ci(this, si)), si.paused = !1, this;
           };
@@ -62446,7 +62457,7 @@ var mqtt = { exports: {} };
           function zi(si, li) {
             ue("resume", li.reading), li.reading || si.read(0), li.resumeScheduled = !1, si.emit("resume"), Mi(si), li.flowing && !li.reading && si.read(0);
           }
-          Pt.prototype.pause = function() {
+          ei.prototype.pause = function() {
             return ue("call pause flowing=%j", this._readableState.flowing), this._readableState.flowing !== !1 && (ue("pause"), this._readableState.flowing = !1, this.emit("pause")), this._readableState.paused = !0, this;
           };
           function Mi(si) {
@@ -62454,7 +62465,7 @@ var mqtt = { exports: {} };
             for (ue("flow", li.flowing); li.flowing && si.read() !== null; )
               ;
           }
-          Pt.prototype.wrap = function(si) {
+          ei.prototype.wrap = function(si) {
             var li = this, oi = this._readableState, Lt = !1;
             si.on("end", function() {
               if (ue("wrapped end"), oi.decoder && !oi.ended) {
@@ -62479,9 +62490,9 @@ var mqtt = { exports: {} };
             return this._read = function(fi) {
               ue("wrapped _read", fi), Lt && (Lt = !1, si.resume());
             }, this;
-          }, typeof Symbol == "function" && (Pt.prototype[Symbol.asyncIterator] = function() {
+          }, typeof Symbol == "function" && (ei.prototype[Symbol.asyncIterator] = function() {
             return Ue === void 0 && (Ue = r("./internal/streams/async_iterator")), Ue(this);
-          }), Object.defineProperty(Pt.prototype, "readableHighWaterMark", {
+          }), Object.defineProperty(ei.prototype, "readableHighWaterMark", {
             // making it explicit this property is not enumerable
             // because otherwise some prototype manipulation in
             // userland will fail
@@ -62489,7 +62500,7 @@ var mqtt = { exports: {} };
             get: function() {
               return this._readableState.highWaterMark;
             }
-          }), Object.defineProperty(Pt.prototype, "readableBuffer", {
+          }), Object.defineProperty(ei.prototype, "readableBuffer", {
             // making it explicit this property is not enumerable
             // because otherwise some prototype manipulation in
             // userland will fail
@@ -62497,7 +62508,7 @@ var mqtt = { exports: {} };
             get: function() {
               return this._readableState && this._readableState.buffer;
             }
-          }), Object.defineProperty(Pt.prototype, "readableFlowing", {
+          }), Object.defineProperty(ei.prototype, "readableFlowing", {
             // making it explicit this property is not enumerable
             // because otherwise some prototype manipulation in
             // userland will fail
@@ -62508,7 +62519,7 @@ var mqtt = { exports: {} };
             set: function(li) {
               this._readableState && (this._readableState.flowing = li);
             }
-          }), Pt._fromList = Ni, Object.defineProperty(Pt.prototype, "readableLength", {
+          }), ei._fromList = Ni, Object.defineProperty(ei.prototype, "readableLength", {
             // making it explicit this property is not enumerable
             // because otherwise some prototype manipulation in
             // userland will fail
@@ -62533,8 +62544,8 @@ var mqtt = { exports: {} };
               (!oi || oi.autoDestroy && oi.finished) && li.destroy();
             }
           }
-          typeof Symbol == "function" && (Pt.from = function(si, li) {
-            return Ve === void 0 && (Ve = r("./internal/streams/from")), Ve(Pt, si, li);
+          typeof Symbol == "function" && (ei.from = function(si, li) {
+            return Ve === void 0 && (Ve = r("./internal/streams/from")), Ve(ei, si, li);
           });
           function Ti(si, li) {
             for (var oi = 0, Lt = si.length; oi < Lt; oi++)
@@ -62668,7 +62679,7 @@ var mqtt = { exports: {} };
           jt.prototype.pipe = function() {
             Ve(this, new _e());
           };
-          function Pt(Mi, Ni) {
+          function ei(Mi, Ni) {
             var mi = new Fe();
             Ve(Mi, mi), k.nextTick(Ni, mi);
           }
@@ -62678,7 +62689,7 @@ var mqtt = { exports: {} };
           }
           jt.prototype.write = function(Mi, Ni, mi) {
             var Si = this._writableState, Ti = !1, si = !Si.objectMode && de(Mi);
-            return si && !ae.isBuffer(Mi) && (Mi = Ie(Mi)), typeof Ni == "function" && (mi = Ni, Ni = null), si ? Ni = "buffer" : Ni || (Ni = Si.defaultEncoding), typeof mi != "function" && (mi = Dt), Si.ending ? Pt(this, mi) : (si || ti(this, Si, Mi, mi)) && (Si.pendingcb++, Ti = Et(this, Si, si, Mi, Ni, mi)), Ti;
+            return si && !ae.isBuffer(Mi) && (Mi = Ie(Mi)), typeof Ni == "function" && (mi = Ni, Ni = null), si ? Ni = "buffer" : Ni || (Ni = Si.defaultEncoding), typeof mi != "function" && (mi = Dt), Si.ending ? ei(this, mi) : (si || ti(this, Si, Mi, mi)) && (Si.pendingcb++, Ti = Et(this, Si, si, Mi, Ni, mi)), Ti;
           }, jt.prototype.cork = function() {
             this._writableState.corked++;
           }, jt.prototype.uncork = function() {
@@ -62697,7 +62708,7 @@ var mqtt = { exports: {} };
               return this._writableState && this._writableState.getBuffer();
             }
           });
-          function ei(Mi, Ni, mi) {
+          function Pt(Mi, Ni, mi) {
             return !Mi.objectMode && Mi.decodeStrings !== !1 && typeof Ni == "string" && (Ni = ae.from(Ni, mi)), Ni;
           }
           Object.defineProperty(jt.prototype, "writableHighWaterMark", {
@@ -62711,7 +62722,7 @@ var mqtt = { exports: {} };
           });
           function Et(Mi, Ni, mi, Si, Ti, si) {
             if (!mi) {
-              var li = ei(Ni, Si, Ti);
+              var li = Pt(Ni, Si, Ti);
               Si !== li && (mi = !0, Ti = "buffer", Si = li);
             }
             var oi = Ni.objectMode ? 1 : Si.length;
@@ -62736,17 +62747,17 @@ var mqtt = { exports: {} };
           function ri(Mi, Ni, mi, Si, Ti) {
             --Ni.pendingcb, mi ? (k.nextTick(Ti, Si), k.nextTick(di, Mi, Ni), Mi._writableState.errorEmitted = !0, Ve(Mi, Si)) : (Ti(Si), Mi._writableState.errorEmitted = !0, Ve(Mi, Si), di(Mi, Ni));
           }
-          function Ii(Mi) {
+          function ci(Mi) {
             Mi.writing = !1, Mi.writecb = null, Mi.length -= Mi.writelen, Mi.writelen = 0;
           }
           function wi(Mi, Ni) {
             var mi = Mi._writableState, Si = mi.sync, Ti = mi.writecb;
             if (typeof Ti != "function")
               throw new Oe();
-            if (Ii(mi), Ni)
+            if (ci(mi), Ni)
               ri(Mi, mi, Si, Ni, Ti);
             else {
-              var si = ci(mi) || Mi.destroyed;
+              var si = Ii(mi) || Mi.destroyed;
               !si && !mi.corked && !mi.bufferProcessing && mi.bufferedRequest && hi(Mi, mi), Si ? k.nextTick(ai, Mi, mi, si, Ti) : ai(Mi, mi, si, Ti);
             }
           }
@@ -62789,7 +62800,7 @@ var mqtt = { exports: {} };
               return this._writableState.length;
             }
           });
-          function ci(Mi) {
+          function Ii(Mi) {
             return Mi.ending && Mi.length === 0 && Mi.bufferedRequest === null && !Mi.finished && !Mi.writing;
           }
           function Ai(Mi, Ni) {
@@ -62801,7 +62812,7 @@ var mqtt = { exports: {} };
             !Ni.prefinished && !Ni.finalCalled && (typeof Mi._final == "function" && !Ni.destroyed ? (Ni.pendingcb++, Ni.finalCalled = !0, k.nextTick(Ai, Mi, Ni)) : (Ni.prefinished = !0, Mi.emit("prefinish")));
           }
           function di(Mi, Ni) {
-            var mi = ci(Ni);
+            var mi = Ii(Ni);
             if (mi && (yi(Mi, Ni), Ni.pendingcb === 0 && (Ni.finished = !0, Mi.emit("finish"), Ni.autoDestroy))) {
               var Si = Mi._readableState;
               (!Si || Si.autoDestroy && Si.endEmitted) && Mi.destroy();
@@ -63667,36 +63678,36 @@ var mqtt = { exports: {} };
       re.prototype.parse = function(Ve, Dt, qe) {
         if (!$.isString(Ve))
           throw new TypeError("Parameter 'url' must be a string, not " + typeof Ve);
-        var kt = Ve.indexOf("?"), jt = kt !== -1 && kt < Ve.indexOf("#") ? "?" : "#", Pt = Ve.split(jt), ti = /\\/g;
-        Pt[0] = Pt[0].replace(ti, "/"), Ve = Pt.join(jt);
-        var ei = Ve;
-        if (ei = ei.trim(), !qe && Ve.split("#").length === 1) {
-          var Et = ie.exec(ei);
+        var kt = Ve.indexOf("?"), jt = kt !== -1 && kt < Ve.indexOf("#") ? "?" : "#", ei = Ve.split(jt), ti = /\\/g;
+        ei[0] = ei[0].replace(ti, "/"), Ve = ei.join(jt);
+        var Pt = Ve;
+        if (Pt = Pt.trim(), !qe && Ve.split("#").length === 1) {
+          var Et = ie.exec(Pt);
           if (Et)
-            return this.path = ei, this.href = ei, this.pathname = Et[1], Et[2] ? (this.search = Et[2], Dt ? this.query = _e.parse(this.search.substr(1)) : this.query = this.search.substr(1)) : Dt && (this.search = "", this.query = {}), this;
+            return this.path = Pt, this.href = Pt, this.pathname = Et[1], Et[2] ? (this.search = Et[2], Dt ? this.query = _e.parse(this.search.substr(1)) : this.query = this.search.substr(1)) : Dt && (this.search = "", this.query = {}), this;
         }
-        var ni = oe.exec(ei);
+        var ni = oe.exec(Pt);
         if (ni) {
           ni = ni[0];
           var ri = ni.toLowerCase();
-          this.protocol = ri, ei = ei.substr(ni.length);
+          this.protocol = ri, Pt = Pt.substr(ni.length);
         }
-        if (qe || ni || ei.match(/^\/\/[^@\/]+@[^@\/]+/)) {
-          var Ii = ei.substr(0, 2) === "//";
-          Ii && !(ni && xe[ni]) && (ei = ei.substr(2), this.slashes = !0);
+        if (qe || ni || Pt.match(/^\/\/[^@\/]+@[^@\/]+/)) {
+          var ci = Pt.substr(0, 2) === "//";
+          ci && !(ni && xe[ni]) && (Pt = Pt.substr(2), this.slashes = !0);
         }
-        if (!xe[ni] && (Ii || ni && !Oe[ni])) {
+        if (!xe[ni] && (ci || ni && !Oe[ni])) {
           for (var wi = -1, ai = 0; ai < ue.length; ai++) {
-            var ui = ei.indexOf(ue[ai]);
+            var ui = Pt.indexOf(ue[ai]);
             ui !== -1 && (wi === -1 || ui < wi) && (wi = ui);
           }
-          var hi, ci;
-          wi === -1 ? ci = ei.lastIndexOf("@") : ci = ei.lastIndexOf("@", wi), ci !== -1 && (hi = ei.slice(0, ci), ei = ei.slice(ci + 1), this.auth = decodeURIComponent(hi)), wi = -1;
+          var hi, Ii;
+          wi === -1 ? Ii = Pt.lastIndexOf("@") : Ii = Pt.lastIndexOf("@", wi), Ii !== -1 && (hi = Pt.slice(0, Ii), Pt = Pt.slice(Ii + 1), this.auth = decodeURIComponent(hi)), wi = -1;
           for (var ai = 0; ai < de.length; ai++) {
-            var ui = ei.indexOf(de[ai]);
+            var ui = Pt.indexOf(de[ai]);
             ui !== -1 && (wi === -1 || ui < wi) && (wi = ui);
           }
-          wi === -1 && (wi = ei.length), this.host = ei.slice(0, wi), ei = ei.slice(wi), this.parseHost(), this.hostname = this.hostname || "";
+          wi === -1 && (wi = Pt.length), this.host = Pt.slice(0, wi), Pt = Pt.slice(wi), this.parseHost(), this.hostname = this.hostname || "";
           var Ai = this.hostname[0] === "[" && this.hostname[this.hostname.length - 1] === "]";
           if (!Ai)
             for (var yi = this.hostname.split(/\./), ai = 0, di = yi.length; ai < di; ai++) {
@@ -63706,27 +63717,27 @@ var mqtt = { exports: {} };
                   Ci.charCodeAt(Mi) > 127 ? zi += "x" : zi += Ci[Mi];
                 if (!zi.match(he)) {
                   var mi = yi.slice(0, ai), Si = yi.slice(ai + 1), Ti = Ci.match(pe);
-                  Ti && (mi.push(Ti[1]), Si.unshift(Ti[2])), Si.length && (ei = "/" + Si.join(".") + ei), this.hostname = mi.join(".");
+                  Ti && (mi.push(Ti[1]), Si.unshift(Ti[2])), Si.length && (Pt = "/" + Si.join(".") + Pt), this.hostname = mi.join(".");
                   break;
                 }
               }
             }
           this.hostname.length > Ne ? this.hostname = "" : this.hostname = this.hostname.toLowerCase(), Ai || (this.hostname = k.toASCII(this.hostname));
           var si = this.port ? ":" + this.port : "", li = this.hostname || "";
-          this.host = li + si, this.href += this.host, Ai && (this.hostname = this.hostname.substr(1, this.hostname.length - 2), ei[0] !== "/" && (ei = "/" + ei));
+          this.host = li + si, this.href += this.host, Ai && (this.hostname = this.hostname.substr(1, this.hostname.length - 2), Pt[0] !== "/" && (Pt = "/" + Pt));
         }
         if (!ze[ri])
           for (var ai = 0, di = Ie.length; ai < di; ai++) {
             var oi = Ie[ai];
-            if (ei.indexOf(oi) !== -1) {
+            if (Pt.indexOf(oi) !== -1) {
               var Lt = encodeURIComponent(oi);
-              Lt === oi && (Lt = escape(oi)), ei = ei.split(oi).join(Lt);
+              Lt === oi && (Lt = escape(oi)), Pt = Pt.split(oi).join(Lt);
             }
           }
-        var ii = ei.indexOf("#");
-        ii !== -1 && (this.hash = ei.substr(ii), ei = ei.slice(0, ii));
-        var gi = ei.indexOf("?");
-        if (gi !== -1 ? (this.search = ei.substr(gi), this.query = ei.substr(gi + 1), Dt && (this.query = _e.parse(this.query)), ei = ei.slice(0, gi)) : Dt && (this.search = "", this.query = {}), ei && (this.pathname = ei), Oe[ri] && this.hostname && !this.pathname && (this.pathname = "/"), this.pathname || this.search) {
+        var ii = Pt.indexOf("#");
+        ii !== -1 && (this.hash = Pt.substr(ii), Pt = Pt.slice(0, ii));
+        var gi = Pt.indexOf("?");
+        if (gi !== -1 ? (this.search = Pt.substr(gi), this.query = Pt.substr(gi + 1), Dt && (this.query = _e.parse(this.query)), Pt = Pt.slice(0, gi)) : Dt && (this.search = "", this.query = {}), Pt && (this.pathname = Pt), Oe[ri] && this.hostname && !this.pathname && (this.pathname = "/"), this.pathname || this.search) {
           var si = this.pathname || "", fi = this.search || "";
           this.path = si + fi;
         }
@@ -63738,11 +63749,11 @@ var mqtt = { exports: {} };
       re.prototype.format = function() {
         var Ve = this.auth || "";
         Ve && (Ve = encodeURIComponent(Ve), Ve = Ve.replace(/%3A/i, ":"), Ve += "@");
-        var Dt = this.protocol || "", qe = this.pathname || "", kt = this.hash || "", jt = !1, Pt = "";
-        this.host ? jt = Ve + this.host : this.hostname && (jt = Ve + (this.hostname.indexOf(":") === -1 ? this.hostname : "[" + this.hostname + "]"), this.port && (jt += ":" + this.port)), this.query && $.isObject(this.query) && Object.keys(this.query).length && (Pt = _e.stringify(this.query));
-        var ti = this.search || Pt && "?" + Pt || "";
-        return Dt && Dt.substr(-1) !== ":" && (Dt += ":"), this.slashes || (!Dt || Oe[Dt]) && jt !== !1 ? (jt = "//" + (jt || ""), qe && qe.charAt(0) !== "/" && (qe = "/" + qe)) : jt || (jt = ""), kt && kt.charAt(0) !== "#" && (kt = "#" + kt), ti && ti.charAt(0) !== "?" && (ti = "?" + ti), qe = qe.replace(/[?#]/g, function(ei) {
-          return encodeURIComponent(ei);
+        var Dt = this.protocol || "", qe = this.pathname || "", kt = this.hash || "", jt = !1, ei = "";
+        this.host ? jt = Ve + this.host : this.hostname && (jt = Ve + (this.hostname.indexOf(":") === -1 ? this.hostname : "[" + this.hostname + "]"), this.port && (jt += ":" + this.port)), this.query && $.isObject(this.query) && Object.keys(this.query).length && (ei = _e.stringify(this.query));
+        var ti = this.search || ei && "?" + ei || "";
+        return Dt && Dt.substr(-1) !== ":" && (Dt += ":"), this.slashes || (!Dt || Oe[Dt]) && jt !== !1 ? (jt = "//" + (jt || ""), qe && qe.charAt(0) !== "/" && (qe = "/" + qe)) : jt || (jt = ""), kt && kt.charAt(0) !== "#" && (kt = "#" + kt), ti && ti.charAt(0) !== "?" && (ti = "?" + ti), qe = qe.replace(/[?#]/g, function(Pt) {
+          return encodeURIComponent(Pt);
         }), ti = ti.replace("#", "%23"), Dt + jt + qe + ti + kt;
       };
       function Fe(Ve, Dt) {
@@ -63760,14 +63771,14 @@ var mqtt = { exports: {} };
           Dt.parse(Ve, !1, !0), Ve = Dt;
         }
         for (var qe = new re(), kt = Object.keys(this), jt = 0; jt < kt.length; jt++) {
-          var Pt = kt[jt];
-          qe[Pt] = this[Pt];
+          var ei = kt[jt];
+          qe[ei] = this[ei];
         }
         if (qe.hash = Ve.hash, Ve.href === "")
           return qe.href = qe.format(), qe;
         if (Ve.slashes && !Ve.protocol) {
-          for (var ti = Object.keys(Ve), ei = 0; ei < ti.length; ei++) {
-            var Et = ti[ei];
+          for (var ti = Object.keys(Ve), Pt = 0; Pt < ti.length; Pt++) {
+            var Et = ti[Pt];
             Et !== "protocol" && (qe[Et] = Ve[Et]);
           }
           return Oe[qe.protocol] && qe.hostname && !qe.pathname && (qe.path = qe.pathname = "/"), qe.href = qe.format(), qe;
@@ -63775,8 +63786,8 @@ var mqtt = { exports: {} };
         if (Ve.protocol && Ve.protocol !== qe.protocol) {
           if (!Oe[Ve.protocol]) {
             for (var ni = Object.keys(Ve), ri = 0; ri < ni.length; ri++) {
-              var Ii = ni[ri];
-              qe[Ii] = Ve[Ii];
+              var ci = ni[ri];
+              qe[ci] = Ve[ci];
             }
             return qe.href = qe.format(), qe;
           }
@@ -63792,8 +63803,8 @@ var mqtt = { exports: {} };
           }
           return qe.slashes = qe.slashes || Ve.slashes, qe.href = qe.format(), qe;
         }
-        var ui = qe.pathname && qe.pathname.charAt(0) === "/", hi = Ve.host || Ve.pathname && Ve.pathname.charAt(0) === "/", ci = hi || ui || qe.host && Ve.pathname, Ai = ci, yi = qe.pathname && qe.pathname.split("/") || [], di = Ve.pathname && Ve.pathname.split("/") || [], Ci = qe.protocol && !Oe[qe.protocol];
-        if (Ci && (qe.hostname = "", qe.port = null, qe.host && (yi[0] === "" ? yi[0] = qe.host : yi.unshift(qe.host)), qe.host = "", Ve.protocol && (Ve.hostname = null, Ve.port = null, Ve.host && (di[0] === "" ? di[0] = Ve.host : di.unshift(Ve.host)), Ve.host = null), ci = ci && (di[0] === "" || yi[0] === "")), hi)
+        var ui = qe.pathname && qe.pathname.charAt(0) === "/", hi = Ve.host || Ve.pathname && Ve.pathname.charAt(0) === "/", Ii = hi || ui || qe.host && Ve.pathname, Ai = Ii, yi = qe.pathname && qe.pathname.split("/") || [], di = Ve.pathname && Ve.pathname.split("/") || [], Ci = qe.protocol && !Oe[qe.protocol];
+        if (Ci && (qe.hostname = "", qe.port = null, qe.host && (yi[0] === "" ? yi[0] = qe.host : yi.unshift(qe.host)), qe.host = "", Ve.protocol && (Ve.hostname = null, Ve.port = null, Ve.host && (di[0] === "" ? di[0] = Ve.host : di.unshift(Ve.host)), Ve.host = null), Ii = Ii && (di[0] === "" || yi[0] === "")), hi)
           qe.host = Ve.host || Ve.host === "" ? Ve.host : qe.host, qe.hostname = Ve.hostname || Ve.hostname === "" ? Ve.hostname : qe.hostname, qe.search = Ve.search, qe.query = Ve.query, yi = di;
         else if (di.length)
           yi || (yi = []), yi.pop(), yi = yi.concat(di), qe.search = Ve.search, qe.query = Ve.query;
@@ -63809,17 +63820,17 @@ var mqtt = { exports: {} };
           return qe.pathname = null, qe.search ? qe.path = "/" + qe.search : qe.path = null, qe.href = qe.format(), qe;
         for (var Mi = yi.slice(-1)[0], Ni = (qe.host || Ve.host || yi.length > 1) && (Mi === "." || Mi === "..") || Mi === "", mi = 0, Si = yi.length; Si >= 0; Si--)
           Mi = yi[Si], Mi === "." ? yi.splice(Si, 1) : Mi === ".." ? (yi.splice(Si, 1), mi++) : mi && (yi.splice(Si, 1), mi--);
-        if (!ci && !Ai)
+        if (!Ii && !Ai)
           for (; mi--; mi)
             yi.unshift("..");
-        ci && yi[0] !== "" && (!yi[0] || yi[0].charAt(0) !== "/") && yi.unshift(""), Ni && yi.join("/").substr(-1) !== "/" && yi.push("");
+        Ii && yi[0] !== "" && (!yi[0] || yi[0].charAt(0) !== "/") && yi.unshift(""), Ni && yi.join("/").substr(-1) !== "/" && yi.push("");
         var Ti = yi[0] === "" || yi[0] && yi[0].charAt(0) === "/";
         if (Ci) {
           qe.hostname = qe.host = Ti ? "" : yi.length ? yi.shift() : "";
           var zi = qe.host && qe.host.indexOf("@") > 0 ? qe.host.split("@") : !1;
           zi && (qe.auth = zi.shift(), qe.host = qe.hostname = zi.shift());
         }
-        return ci = ci || qe.host && yi.length, ci && !Ti && yi.unshift(""), yi.length ? qe.pathname = yi.join("/") : (qe.pathname = null, qe.path = null), (!$.isNull(qe.pathname) || !$.isNull(qe.search)) && (qe.path = (qe.pathname ? qe.pathname : "") + (qe.search ? qe.search : "")), qe.auth = Ve.auth || qe.auth, qe.slashes = qe.slashes || Ve.slashes, qe.href = qe.format(), qe;
+        return Ii = Ii || qe.host && yi.length, Ii && !Ti && yi.unshift(""), yi.length ? qe.pathname = yi.join("/") : (qe.pathname = null, qe.path = null), (!$.isNull(qe.pathname) || !$.isNull(qe.search)) && (qe.path = (qe.pathname ? qe.pathname : "") + (qe.search ? qe.search : "")), qe.auth = Ve.auth || qe.auth, qe.slashes = qe.slashes || Ve.slashes, qe.href = qe.format(), qe;
       }, re.prototype.parseHost = function() {
         var Ve = this.host, Dt = Ce.exec(Ve);
         Dt && (Dt = Dt[0], Dt !== ":" && (this.port = Dt.substr(1)), Ve = Ve.substr(0, Ve.length - Dt.length)), Ve && (this.hostname = Ve);
@@ -64102,7 +64113,7 @@ const sub = (i, n, r, g, V) => {
   setup(i, { expose: n, emit: r }) {
     const g = i;
     useCssVars((pe) => ({
-      "62dc10d1": unref(re)
+      "4781a9cc": unref(re)
     }));
     const V = getCurrentInstance();
     Object.keys(vueComp).forEach((pe) => {
@@ -64230,11 +64241,7 @@ const sub = (i, n, r, g, V) => {
         case "<,>":
           return pe < xe || pe > Oe;
       }
-    };
-    onMounted(() => {
-      he();
-    }), onBeforeUnmount(close);
-    const he = () => {
+    }, he = () => {
       const pe = k.config.net.mqtt;
       pe && pe.url && pe.user && pe.pwd && pe.topics && sub(pe.url, pe.user, pe.pwd, pe.topics, (ze, xe) => {
         console.log(ze), console.log(xe.toString()), r("onMessage", {
@@ -64243,7 +64250,9 @@ const sub = (i, n, r, g, V) => {
         });
       });
     };
-    return n({
+    return onMounted(() => {
+      he();
+    }), onBeforeUnmount(close), n({
       setNodeAttrByID: Ie
     }), (pe, ze) => (openBlock(), createElementBlock("div", {
       class: "canvas",
@@ -64265,7 +64274,15 @@ const sub = (i, n, r, g, V) => {
             key: xe.id,
             transform: `translate(${xe.x},${xe.y})rotate(0)scale(1)`,
             style: normalizeStyle$1(de(xe)),
-            onClick: (Oe) => ue(xe, unref(EEventType).Click)
+            onClick: (Oe) => ue(xe, unref(EEventType).Click),
+            onMousedown: ze[0] || (ze[0] = //@ts-ignore
+            (...Oe) => unref(stopEvent) && unref(stopEvent)(...Oe)),
+            onMousemove: ze[1] || (ze[1] = //@ts-ignore
+            (...Oe) => unref(stopEvent) && unref(stopEvent)(...Oe)),
+            onMouseup: ze[2] || (ze[2] = //@ts-ignore
+            (...Oe) => unref(stopEvent) && unref(stopEvent)(...Oe)),
+            onMousewheel: ze[3] || (ze[3] = //@ts-ignore
+            (...Oe) => unref(stopEvent) && unref(stopEvent)(...Oe))
           }, [
             createElementVNode("g", {
               class: normalizeClass(`${unref(getCommonClass)(xe)}`)
@@ -64306,14 +64323,14 @@ const sub = (i, n, r, g, V) => {
                 ], 16, _hoisted_5)) : createCommentVNode("", !0)
               ], 8, _hoisted_3)
             ], 2)
-          ], 12, _hoisted_2)), [
+          ], 44, _hoisted_2)), [
             [vShow, xe.display]
           ])), 128))
         ], 8, _hoisted_1)
       ], 4))
     ], 32));
   }
-}), svgViewer_vue_vue_type_style_index_0_scoped_afb9c18a_lang = "", svgViewer = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-afb9c18a"]]);
+}), svgViewer_vue_vue_type_style_index_0_scoped_b5368c8e_lang = "", svgViewer = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-b5368c8e"]]);
 export {
   index as SvgEditor,
   svgViewer as SvgViewer
