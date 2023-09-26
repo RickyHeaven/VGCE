@@ -188,11 +188,9 @@
 								continue
 							}
 
-							console.log(t, e)
-
 							for (let a of e.attrs) {
-								if (t.state && t.state.hasOwnProperty(a.key)) {
-									t.state[a.key].default = valFormat(a.val)
+								if (a.key === 'state') {
+									t.defaultState = valFormat(a.val)
 								} else if (t.props.hasOwnProperty(a.key)) {
 									t.props[a.key].val = valFormat(a.val)
 								}

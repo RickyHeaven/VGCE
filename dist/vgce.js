@@ -64102,7 +64102,7 @@ const sub = (i, n, r, g, V) => {
   setup(i, { expose: n, emit: r }) {
     const g = i;
     useCssVars((pe) => ({
-      cdcd61c4: unref(re)
+      d68a5df2: unref(re)
     }));
     const V = getCurrentInstance();
     Object.keys(vueComp).forEach((pe) => {
@@ -64204,9 +64204,8 @@ const sub = (i, n, r, g, V) => {
                   _e = pe;
                 if (!_e)
                   continue;
-                console.log(_e, Oe);
                 for (let At of Oe.attrs)
-                  _e.state && _e.state.hasOwnProperty(At.key) ? _e.state[At.key].default = valFormat(At.val) : _e.props.hasOwnProperty(At.key) && (_e.props[At.key].val = valFormat(At.val));
+                  At.key === "state" ? _e.defaultState = valFormat(At.val) : _e.props.hasOwnProperty(At.key) && (_e.props[At.key].val = valFormat(At.val));
               }
             } else
               Oe.action === EEventAction.JavaScript && new Function(Oe.scripts)();
@@ -64314,7 +64313,7 @@ const sub = (i, n, r, g, V) => {
       ], 4))
     ], 32));
   }
-}), svgViewer_vue_vue_type_style_index_0_scoped_a34ab3c3_lang = "", svgViewer = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-a34ab3c3"]]);
+}), svgViewer_vue_vue_type_style_index_0_scoped_a5b349ba_lang = "", svgViewer = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-a5b349ba"]]);
 export {
   index as SvgEditor,
   svgViewer as SvgViewer
