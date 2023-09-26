@@ -1,14 +1,15 @@
 import type { ISystemStraightLine } from '@/components/config/types'
 import { ELineBindAnchors } from '@/components/config/types'
-import type { ICondition, IConfigItem } from '@/config/types'
+import type { IConfigItem } from '@/config/types'
 import { EDoneJsonType } from '@/config/types'
-import type { ICoordinate, IDoneJson, IPointCoordinate } from '@/stores/global/types'
+import type { IDoneJson, IPointCoordinate } from '@/stores/global/types'
 import { EGlobalStoreIntention, EMouseInfoState } from '@/stores/global/types'
 import { straight_line_system } from '@/components/config'
 import { useGlobalStore } from '@/stores/global'
 import { pinia } from '@/hooks'
 import { useConfigStore } from '@/stores/config'
 import { useSvgEditLayoutStore } from '@/stores/svg-edit-layout'
+import { kebabCase } from 'lodash-es'
 
 /**
  * 生成随机字符串
@@ -141,15 +142,13 @@ export const setSvgActualInfo = (done_json: IDoneJson, resize?: boolean) => {
 	const queryBbox = document.querySelector(`#${done_json.id}`)
 	const rectBBox = document.querySelector(`#rect${done_json.id}`)
 	if (queryBbox) {
-		let x = 0,
-			y = 0,
-			width = 0,
-			height = 0
+		let x: number = 0,
+			y: number = 0,
+			width: number = 0,
+			height: number = 0
 		if (done_json.type === EDoneJsonType.Vue) {
-			width = (queryBbox as HTMLElement).offsetWidth
-			height = (queryBbox as HTMLElement).offsetHeight
-			width = width === 0 ? 100 : width
-			height = height === 0 ? 100 : height
+			width = done_json.props.width?.val || (queryBbox as HTMLElement).offsetWidth || 100
+			height = done_json.props.height?.val || (queryBbox as HTMLElement).offsetHeight || 100
 			x = 50 - width / 2
 			y = 50 - height / 2
 			const foreignObjectBox = document.querySelector(`#foreign-object${done_json.id}`)
@@ -355,28 +354,23 @@ export const setAfterRotationPointCoordinate = (item: IDoneJson) => {
 	}
 }
 
-export const prosToVBind = (item: IConfigItem) => {
-	let temp = {}
+export const prosToVBind = (item: IConfigItem, ignore: any[] = []) => {
+	let temp: Record<string, any> = {}
 	if (item.state) {
 		for (const key in item.state) {
-			if (key === 'OnOff') {
-				for (const on_off_key in item.state[key]?.props) {
-					temp = {
-						...temp,
-						...{
-							[on_off_key]: item.state[key]?.default
-								? item.state[key]?.props[on_off_key].openVal
-								: item.state[key]?.props[on_off_key].closeVal
-						}
+			if (item.state.hasOwnProperty(key) && key === item.defaultState) {
+				for (let _p in item.state[key]) {
+					if (_p !== 'label') {
+						temp[kebabCase(_p)] = item.state[key][_p]
 					}
 				}
+				break
 			}
 		}
 	}
-	const t = ['height', 'max-height']
 	for (const key in item.props) {
-		if (t.indexOf(key) < 0) {
-			temp = { ...temp, ...{ [key]: item.props[key].val } }
+		if (ignore.indexOf(key) < 0) {
+			temp[kebabCase(key)] = item.props[key].val
 		}
 	}
 	return temp

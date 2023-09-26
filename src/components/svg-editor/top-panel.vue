@@ -167,6 +167,14 @@
 			<div class="font-bold mb-10px text-15px guide-title">标尺辅助线</div>
 			<div>在标尺区域按住鼠标左键并拖动即可创建标尺辅助线，将标尺辅助线拖动到标尺区域即可删除标尺辅助线</div>
 			<div class="el-divider el-divider--horizontal" role="separator" style="--el-border-style: solid"></div>
+			<div class="font-bold mb-10px text-15px guide-title">组件尺寸</div>
+			<div
+				><p>
+					大多数组件可以通过选中组件然后拖动交互点或在右侧‘外观’栏改变外形尺寸，或通过右侧‘数据’栏直接或间接改变外形尺寸；</p
+				>
+				<p>少数特殊组件仅可通过右侧'数据'栏直接或间接改变外形尺寸</p></div
+			>
+			<div class="el-divider el-divider--horizontal" role="separator" style="--el-border-style: solid"></div>
 			<div class="font-bold mb-10px text-15px guide-title">连线样式</div>
 			<div
 				>在右侧‘连线’栏可以统一配置连线样式，配置后先增加的线会应用新样式，之前的线样式不变，如需改变，可选中线手动更改或删除重画

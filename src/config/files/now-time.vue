@@ -1,10 +1,19 @@
 <script setup lang="ts">
-	const props = defineProps({
-		fontColor: {
-			type: String,
-			default: '#000000'
-		}
-	})
+	const props = defineProps<{
+		width: number
+		fontFamily: string
+		color: string
+		fontSize: number
+		bold: boolean
+	}>()
+
+	const styles = computed(() => ({
+		fontFamily: props.fontFamily,
+		color: props.color,
+		fontSize: props.fontSize + 'px',
+		fontWeight: props.bold ? 'bold' : 'normal'
+	}))
+
 	const now_date = ref(new Date())
 	const timer = ref()
 	const date = computed(() => {
@@ -30,6 +39,7 @@
 			(second < 10 ? '0' + second.toString() : second.toString())
 		)
 	})
+
 	onMounted(() => {
 		timer.value = setInterval(() => {
 			now_date.value = new Date() // 修改数据date
@@ -40,17 +50,22 @@
 	})
 </script>
 <template>
-	<div class="now-time">
-		<div class="text-12px font-bold" :style="{ color: props.fontColor }">{{ date }}</div>
+	<div class="now-time" :style="{ width: props.width + 'px' }">
+		<div :style="styles">{{ date }}</div>
 		<div class="flex mt-5px">
-			<div class="text-12px font-bold" :style="{ color: props.fontColor }">{{ week }}</div>
-			<div class="text-12px font-bold ml-5px" :style="{ color: props.fontColor }">{{ time }}</div>
+			<div :style="styles">{{ week }}</div>
+			<div :style="styles">{{ time }}</div>
 		</div>
 	</div>
 </template>
-<style scoped>
+<style lang="less" scoped>
 	.now-time {
 		min-height: 40px;
 		min-width: 100px;
+		color: #c54e6a;
+
+		.flex {
+			justify-content: space-between;
+		}
 	}
 </style>

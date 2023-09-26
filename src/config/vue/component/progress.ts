@@ -7,7 +7,7 @@ export const progress_a: IConfigItem = {
 	title: '进度条',
 	type: EDoneJsonType.Vue,
 	config: {
-		can_zoom: true,
+		can_zoom: false,
 		have_anchor: true,
 		actual_rect: true
 	},

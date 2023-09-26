@@ -5,18 +5,19 @@
 		defineProps<{
 			colConfig: ICol[]
 			data: any[]
-			height: number
-			maxHeight: number
-			stripe: boolean
-			border: boolean
-			size: string
-			fit: boolean
+			height?: number
+			maxHeight?: number
+			stripe?: boolean
+			border?: boolean
+			size?: string
+			fit?: boolean
 			operateDisplay?: boolean
 			selectionData?: any[]
 		}>(),
 		{
 			colConfig: () => [],
 			data: () => [],
+			height: 200,
 			stripe: false,
 			border: false,
 			fit: false,
@@ -41,14 +42,7 @@
 </script>
 
 <template>
-	<el-table v-bind="table_props" class="table-wall-c">
+	<el-table v-bind="table_props">
 		<el-table-column v-for="item in props.colConfig" :key="item.prop" v-bind="item"></el-table-column>
 	</el-table>
 </template>
-
-<style scoped lang="less">
-	.table-wall-c {
-		min-width: 500px;
-		min-height: 200px;
-	}
-</style>

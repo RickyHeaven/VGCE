@@ -7,7 +7,7 @@ export const el_button: IConfigItem = {
 	title: '按钮',
 	type: EDoneJsonType.Vue,
 	config: {
-		can_zoom: true,
+		can_zoom: false,
 		have_anchor: true,
 		actual_rect: true
 	},

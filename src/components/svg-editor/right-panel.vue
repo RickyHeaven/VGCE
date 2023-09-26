@@ -99,8 +99,8 @@
 	 * @param resize 是否重新获取边框大小
 	 */
 	const changHandle = (cur: any, pre: any, resize?: boolean) => {
-		if (globalStore.handle_svg_info) {
-			nextTick(function () {
+		nextTick(function () {
+			if (globalStore.handle_svg_info) {
 				const done_json = globalStore.done_json[globalStore.handle_svg_info.index]
 				if (resize) {
 					setSvgActualInfo(done_json, resize)
@@ -108,8 +108,8 @@
 					setSvgActualInfo(done_json)
 				}
 				moveAnchors(done_json)
-			})
-		}
+			}
+		})
 	}
 </script>
 
@@ -209,10 +209,10 @@
 				<el-form-item label="Y坐标" size="small">
 					<el-input-number v-model="globalStore.handle_svg_info!.info.y" @change="changHandle" />
 				</el-form-item>
-				<el-form-item label="X缩放" size="small">
+				<el-form-item label="X缩放" size="small" v-show="globalStore.handle_svg_info?.info?.config.can_zoom">
 					<el-input-number v-model="globalStore.handle_svg_info!.info.scale_x" @change="changHandle" />
 				</el-form-item>
-				<el-form-item label="Y缩放" size="small">
+				<el-form-item label="Y缩放" size="small" v-show="globalStore.handle_svg_info?.info?.config.can_zoom">
 					<el-input-number v-model="globalStore.handle_svg_info!.info.scale_y" @change="changHandle" />
 				</el-form-item>
 				<el-form-item label="旋转" size="small">
@@ -230,21 +230,19 @@
 					<el-input v-model="globalStore.handle_svg_info!.info.id" />
 				</el-form-item>
 				<!--state-->
-				<div
-					v-for="(e, k) of globalStore.handle_svg_info!.info.state"
-					:key="'state' + String(k)"
-					v-if="globalStore.handle_svg_info!.info.state"
-				>
-					<el-form-item class="props-row" :label="String(k)" size="small"> {{ e!.default }}</el-form-item>
-
-					<el-form-item
-						v-if="k === 'OnOff'"
-						:label="globalStore.handle_svg_info!.info.state?.OnOff!.title"
-						size="small"
-					>
-						<el-switch v-model="globalStore.handle_svg_info!.info.state!.OnOff!.default"></el-switch>
-					</el-form-item>
-				</div>
+				<el-form-item class="props-row" label="state" size="small" v-if="globalStore.handle_svg_info?.info?.state">
+					{{ globalStore.handle_svg_info!.info!.defaultState }}
+				</el-form-item>
+				<el-form-item v-if="globalStore.handle_svg_info?.info?.state" label="状态" size="small">
+					<el-select v-model="globalStore.handle_svg_info!.info!.defaultState" placeholder="Select" size="small">
+						<el-option
+							v-for="(e, k) of globalStore.handle_svg_info!.info.state"
+							:key="'state' + String(k)"
+							:label="e.label"
+							:value="k"
+						/>
+					</el-select>
+				</el-form-item>
 				<!--文字插槽-->
 				<div v-if="globalStore.handle_svg_info!.info?.hasOwnProperty('tag_slot')">
 					<el-form-item class="props-row" label="tag_slot" size="small">
@@ -258,7 +256,7 @@
 				<dynamic-el-form-item
 					:obj-info="globalStore.handle_svg_info!.info.props"
 					code
-					@change="changHandle($event, true)"
+					@change="changHandle($event, null, true)"
 				/>
 				<!--连线动画效果-->
 				<el-form-item

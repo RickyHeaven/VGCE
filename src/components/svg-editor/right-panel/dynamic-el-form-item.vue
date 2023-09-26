@@ -22,11 +22,11 @@
 	})
 
 	function propsChangeHandle(e: any) {
-		/*let t: any = window.setTimeout(function () {
+		let t: any = window.setTimeout(function () {
 			emit('change', e)
 			clearTimeout(t)
 			t = null
-		}, 200)*/
+		}, 200)
 	}
 </script>
 
@@ -103,7 +103,7 @@
 				v-else-if="attr_item.type === EConfigItemPropsType.JsonEdit"
 				v-model="attr_item.val"
 				:disabled="Boolean(attr_item?.disabled)"
-				@change="propsChangeHandle"
+				@close="propsChangeHandle"
 			/>
 		</el-form-item>
 	</div>

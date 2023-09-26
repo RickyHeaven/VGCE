@@ -1,9 +1,9 @@
 import { EDoneJsonType } from '@/config/types'
 import type { IConfigItem } from '@/config/types'
 
-export const sheet_border: IConfigItem = {
-	name: 'sheet-border',
-	title: '田字格',
+export const svg_hamburger: IConfigItem = {
+	name: 'hamburger',
+	title: '汉堡',
 	type: EDoneJsonType.File,
 	display: true,
 	config: {

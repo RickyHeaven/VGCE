@@ -53,7 +53,7 @@
 						:title="svg_item.title"
 					>
 						<el-icon :size="35" class="flex items-center">
-							<svg-analysis :name="svg_item.name" :props="prosToVBind(svg_item)" />
+							<svg-analysis :name="svg_item.name" :props="prosToVBind(svg_item, ['width', 'height', 'maxHeight'])" />
 						</el-icon>
 					</div>
 				</div>

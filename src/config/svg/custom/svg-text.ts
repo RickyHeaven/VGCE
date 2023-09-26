@@ -30,6 +30,10 @@ export const svg_text: IConfigItem = {
 				{
 					value: 'NSimSun',
 					label: '新宋体'
+				},
+				{
+					value: 'KaiTi',
+					label: '楷体'
 				}
 			]
 		},
@@ -42,6 +46,26 @@ export const svg_text: IConfigItem = {
 			title: '文字颜色',
 			type: EConfigItemPropsType.Color,
 			val: '#000'
+		},
+		bold: {
+			title: '文字加粗',
+			type: EConfigItemPropsType.Switch,
+			val: false
+		},
+		writingMode: {
+			title: '文字朝向',
+			type: EConfigItemPropsType.Select,
+			val: 'horizontal-tb',
+			options: [
+				{
+					value: 'horizontal-tb',
+					label: '水平'
+				},
+				{
+					value: 'vertical-rl',
+					label: '垂直'
+				}
+			]
 		}
 	},
 	common_animations: {

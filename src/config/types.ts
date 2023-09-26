@@ -24,7 +24,8 @@ export interface IConfigItem {
 	common_animations?: IAnimations
 	animations?: IConfigItemProps //自定义动画效果
 	tag?: any
-	state?: IConfigItemState //通过一个属性去控制多个属性就是有状态组件
+	state?: Record<string, any> //通过一个属性去控制多个属性就是有状态组件
+	defaultState?: string
 	tag_slot?: string
 	events: Array<IEventsItem>
 }
@@ -75,14 +76,6 @@ interface IDoneJsonConfig {
 	can_zoom: boolean
 	have_anchor: boolean
 	actual_rect: boolean
-}
-
-export interface IConfigItemState {
-	[k: keyof any]: {
-		title: string
-		default: any
-		props: { [key: string]: { openVal: any; closeVal: any } }
-	}
 }
 
 export enum EEventType {

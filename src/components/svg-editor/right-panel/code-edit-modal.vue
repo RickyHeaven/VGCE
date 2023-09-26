@@ -9,7 +9,7 @@
 		title: '编辑'
 	})
 	const open = ref(false)
-	const emits = defineEmits(['update:modelValue', 'change'])
+	const emits = defineEmits(['update:modelValue', 'close'])
 
 	const content = computed({
 		get() {
@@ -31,7 +31,7 @@
 <template>
 	<div>
 		<el-button @click="open = true">···</el-button>
-		<el-dialog class="modal-full" v-model="open" :title="props.title" width="60%">
+		<el-dialog class="modal-full" v-model="open" :title="props.title" width="60%" @close="emits('close')">
 			<v-ace-editor
 				v-model:value="content"
 				:lang="props.lang"
@@ -43,7 +43,6 @@
 					enableSnippets: true,
 					enableLiveAutocompletion: true
 				}"
-				@change="emits('change')"
 			/>
 		</el-dialog>
 	</div>

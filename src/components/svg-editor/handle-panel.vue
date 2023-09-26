@@ -64,6 +64,8 @@
 			type: EScaleInfoType.BottomRight
 		}
 	]
+
+	const canZoom = computed(() => props.itemInfo.config.can_zoom)
 	const onHandleMouseDown = (type: EScaleInfoType, e: MouseEvent) => {
 		console.log('handMousedown', e)
 		const { clientX, clientY } = e
@@ -152,6 +154,7 @@
 			:fill="fill"
 			:style="{ cursor: getCursor(0).cursor, 'vector-effect': 'non-scaling-stroke' }"
 			pointer-events="all"
+			v-show="canZoom"
 			:x="
 				props.itemInfo.actual_bound.x -
 				offset -
@@ -201,6 +204,7 @@
 			:fill="fill"
 			:style="{ cursor: getCursor(45).cursor, 'vector-effect': 'non-scaling-stroke' }"
 			pointer-events="all"
+			v-show="canZoom"
 			:x="props.itemInfo.actual_bound.x + props.itemInfo.actual_bound.width / 2 - offset"
 			:y="
 				props.itemInfo.actual_bound.y -
@@ -217,6 +221,7 @@
 			:fill="fill"
 			:style="{ cursor: getCursor(90).cursor, 'vector-effect': 'non-scaling-stroke' }"
 			pointer-events="all"
+			v-show="canZoom"
 			:x="
 				props.itemInfo.actual_bound.x +
 				props.itemInfo.actual_bound.width -
@@ -238,6 +243,7 @@
 			:fill="fill"
 			:style="{ cursor: getCursor(315).cursor, 'vector-effect': 'non-scaling-stroke' }"
 			pointer-events="all"
+			v-show="canZoom"
 			:x="
 				props.itemInfo.actual_bound.x -
 				offset -
@@ -259,6 +265,7 @@
 			:fill="fill"
 			:style="{ cursor: getCursor(135).cursor, 'vector-effect': 'non-scaling-stroke' }"
 			pointer-events="all"
+			v-show="canZoom"
 			:x="
 				props.itemInfo.actual_bound.x -
 				offset +
@@ -281,6 +288,7 @@
 			:fill="fill"
 			:style="{ cursor: getCursor(270).cursor, 'vector-effect': 'non-scaling-stroke' }"
 			pointer-events="all"
+			v-show="canZoom"
 			:x="
 				props.itemInfo.actual_bound.x -
 				offset -
@@ -302,6 +310,7 @@
 			:fill="fill"
 			:style="{ cursor: getCursor(225).cursor, 'vector-effect': 'non-scaling-stroke' }"
 			pointer-events="all"
+			v-show="canZoom"
 			:x="props.itemInfo.actual_bound.x - offset + props.itemInfo.actual_bound.width / 2"
 			:y="
 				props.itemInfo.actual_bound.y -
@@ -319,6 +328,7 @@
 			:fill="fill"
 			:style="{ cursor: getCursor(180).cursor, 'vector-effect': 'non-scaling-stroke' }"
 			pointer-events="all"
+			v-show="canZoom"
 			:x="
 				props.itemInfo.actual_bound.x -
 				offset +

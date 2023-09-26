@@ -1085,9 +1085,7 @@
 							/>
 
 							<handle-panel
-								v-if="
-									globalStore.handle_svg_info?.info.id === item.id && visible_info.handle_panel && item.config.can_zoom
-								"
+								v-if="globalStore.handle_svg_info?.info.id === item.id && visible_info.handle_panel"
 								:item-info="item"
 							/>
 							<connection-panel

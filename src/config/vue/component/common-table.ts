@@ -7,7 +7,7 @@ export const common_table: IConfigItem = {
 	tag: 'common-table',
 	type: EDoneJsonType.Vue,
 	config: {
-		can_zoom: true,
+		can_zoom: false,
 		have_anchor: true,
 		actual_rect: true
 	},
@@ -69,15 +69,15 @@ export const common_table: IConfigItem = {
 				}
 			]
 		},
+		width: {
+			title: '宽度',
+			type: EConfigItemPropsType.InputNumber,
+			val: 500
+		},
 		height: {
 			title: '高度',
 			type: EConfigItemPropsType.InputNumber,
 			val: 200
-		},
-		'max-height': {
-			title: '最大高度',
-			type: EConfigItemPropsType.InputNumber,
-			val: 300
 		},
 		stripe: {
 			title: '斑马纹',
