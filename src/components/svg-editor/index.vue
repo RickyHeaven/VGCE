@@ -34,6 +34,7 @@
 	import { useEditPrivateStore } from '@/stores/system'
 
 	//todo 优化自带组件使用体验
+	const emits = defineEmits(['onReturn', 'onPreview', 'onSave'])
 	const props = withDefaults(defineProps<{ customToolbar?: IConfig; data?: string; saveFile?: boolean }>(), {
 		saveFile: false
 	})
@@ -41,13 +42,14 @@
 	const svgEditLayoutStore = useSvgEditLayoutStore(pinia)
 	const configStore = useConfigStore(pinia)
 	const editPrivateStore = useEditPrivateStore(pinia)
+
+	const centerRef = ref()
 	const importJsonRef = ref<InstanceType<typeof ImportJson>>()
 	const visible_conf: IVisibleConf = reactive({
 		[EVisibleConfKey.ExportJson]: false,
 		[EVisibleConfKey.ImportJson]: false,
 		[EVisibleConfKey.ImportFile]: false
 	})
-	const emits = defineEmits(['onReturn', 'onPreview', 'onSave'])
 	const changeVisible = (key: EVisibleConfKey, val: boolean) => {
 		visible_conf[key] = val
 	}
@@ -116,6 +118,10 @@
 		}
 	}
 
+	function onLineMouseUp() {
+		centerRef.value.onCanvasMouseUp()
+	}
+
 	defineExpose({
 		setGraphNodeJson
 	})
@@ -143,8 +149,8 @@
 				</el-aside>
 				<el-main class="middle main">
 					<div class="canvas-main-pc">
-						<Vue3RulerTool class="canvas-main-pc" :visible="configStore.svg.ruler">
-							<center-panel />
+						<Vue3RulerTool class="canvas-main-pc" :visible="configStore.svg.ruler" @onLineMouseUp="onLineMouseUp">
+							<center-panel ref="centerRef" />
 						</Vue3RulerTool>
 					</div>
 				</el-main>

@@ -1,3 +1,5 @@
+@import '@/assets/variables';
+
 *,
 *::before,
 *::after {
@@ -44,15 +46,15 @@ body {
 }
 
 .icon-out {
-  fill: #64A0CF;
+  fill: @iconOutColor;
 }
 
 .icon-in {
-  fill: #9EEFD9;
+  fill: @iconInColor;
 }
 
 .icon-middle {
-  fill: #33DEB4;
+  fill: @iconMiddleColor;
 }
 
 .gray{
@@ -71,15 +73,15 @@ body {
 
 .active{
   .icon-out {
-    fill: #008fff;
+    fill: @activeIconOut;
   }
 
   .icon-in {
-    fill: #44fac9;
+    fill: @activeIconIn;
   }
 
   .icon-middle {
-    fill: #00ffc0;
+    fill: @activeIconMiddle;
   }
 }
 
@@ -93,5 +95,20 @@ body {
   .el-form-item__content,
   .el-form-item__label {
     color: #aaa;
+  }
+}
+
+.foreignObject {
+  > span {
+    /*解决span标签显示不完整的问题*/
+    position: relative;
+    bottom: 2px;
+  }
+}
+
+.tree-v {
+  --el-color-primary-light-9: @listActiveColor;
+  &.el-tree--highlight-current .el-tree-node.is-current>.el-tree-node__content{
+    color: #fff;
   }
 }

@@ -6,6 +6,7 @@
 	import { createLine, getCoordinateOffset, moveAnchors } from '@/utils'
 	import { useGlobalStore } from '@/stores/global'
 	import { pinia } from '@/hooks'
+	import { useSvgEditLayoutStore } from '@/stores/svg-edit-layout'
 
 	const props = defineProps<{
 		itemInfo: IDoneJson
@@ -15,6 +16,7 @@
 	const radius = ref(4)
 	const outRadius = ref(12)
 	const globalStore = useGlobalStore(pinia)
+	const svgEditLayoutStore = useSvgEditLayoutStore(pinia)
 
 	const cxT = computed(
 		() => props.itemInfo.actual_bound.x + props.itemInfo.actual_bound.width / 2 - offset.value + radius.value
@@ -105,6 +107,28 @@
 	const bindAnchor = (e: any, type: ELineBindAnchors) => {
 		if (globalStore.intention === EGlobalStoreIntention.None) {
 			createLine(e, type, props.itemInfo)
+			if (globalStore.handle_svg_info) {
+				//鼠标左键创建新线段
+				if (globalStore.handle_svg_info.info.props.point_position.val.length !== 1) {
+					//鼠标移动后的实时位置（相对于起始点，只在创建第一个点时记录了鼠标原始位置）
+					globalStore.handle_svg_info.info.props.point_position.val.push({
+						x:
+							globalStore.mouse_info.new_position_x -
+							globalStore.mouse_info.position_x -
+							svgEditLayoutStore.center_offset.x,
+						y:
+							globalStore.mouse_info.new_position_y -
+							globalStore.mouse_info.position_y -
+							svgEditLayoutStore.center_offset.y
+					})
+				} else {
+					//第二个点，在鼠标没有移动的情况下，就是起始点
+					globalStore.handle_svg_info.info.props.point_position.val.push({
+						x: 0,
+						y: 0
+					})
+				}
+			}
 		} else if (globalStore.intention === EGlobalStoreIntention.Connection) {
 			//在连线的情况下，点击锚点，结束连线并绑定锚点
 			e.stopPropagation()

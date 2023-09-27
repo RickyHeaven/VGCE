@@ -6,7 +6,7 @@
 	import type { IDoneJson } from '@/stores/global/types'
 
 	const global_store = useGlobalStore(pinia)
-	const current_node_key = ref(global_store.handle_svg_info?.info.id || '')
+	const current_node_key = computed(() => global_store.handle_svg_info?.info.id ?? '')
 	const handleNodeClick = (data: IDoneJson) => {
 		for (let e of global_store.done_json) {
 			e.selected = false
@@ -24,12 +24,13 @@
 
 <template>
 	<el-tree
+		class="tree-v"
 		:data="global_store.done_json"
 		:props="defaultProps"
 		@node-click="handleNodeClick"
 		:default-expand-all="true"
 		:expand-on-click-node="false"
-		:highlight-current="true"
+		:highlight-current="Boolean(current_node_key)"
 		node-key="id"
 		:current-node-key="current_node_key"
 	/>

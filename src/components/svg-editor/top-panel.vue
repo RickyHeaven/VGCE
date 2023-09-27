@@ -156,13 +156,15 @@
 	<el-dialog v-model="open" title="使用说明" width="60%" class="guide-dialog">
 		<el-scrollbar max-height="60vh">
 			<div class="font-bold mb-10px text-15px guide-title" style="padding-top: 16px">多选</div>
-			<div>鼠标按住左键可以框选，也可以按住ctrl+鼠标左键点图形进行多选</div>
+			<div
+				>在画布空白区域按住鼠标左键可以框选（图形坐标在框选区域即判定被选中），也可以按住ctrl+鼠标左键点图形进行多选</div
+			>
 			<div class="el-divider el-divider--horizontal" role="separator" style="--el-border-style: solid"></div>
 			<div class="font-bold mb-10px text-15px guide-title">拖动画布</div>
-			<div>右键画布然后拖动即可，右侧面板‘图纸’栏可微调或重置位置</div>
+			<div>在画布空白区域按住右键可拖动画布，右侧面板‘图纸’栏可微调或重置位置</div>
 			<div class="el-divider el-divider--horizontal" role="separator" style="--el-border-style: solid"></div>
 			<div class="font-bold mb-10px text-15px guide-title">画布缩放</div>
-			<div>使用鼠标滚轮或者右侧面板‘图纸’栏可控制画布缩放</div>
+			<div>在画布空白区使用鼠标滚轮或者右侧面板‘图纸’栏可控制画布缩放</div>
 			<div class="el-divider el-divider--horizontal" role="separator" style="--el-border-style: solid"></div>
 			<div class="font-bold mb-10px text-15px guide-title">标尺辅助线</div>
 			<div>在标尺区域按住鼠标左键并拖动即可创建标尺辅助线，将标尺辅助线拖动到标尺区域即可删除标尺辅助线</div>

@@ -3,12 +3,19 @@
 	import { useGlobalStore } from '@/stores/global'
 	import { EGlobalStoreIntention, EMouseInfoState } from '@/stores/global/types'
 	import type { IDoneJson } from '@/stores/global/types'
-	import { getCommonClass, prosToVBind, setArrItemByID, stopEvent, valFormat } from '@/utils'
+	import {
+		componentsRegister,
+		getCommonClass,
+		preventDefault,
+		prosToVBind,
+		setArrItemByID,
+		stopEvent,
+		valFormat
+	} from '@/utils'
 
 	import { EDoneJsonType, EEventAction, EEventType } from '@/config/types'
 	import ConnectionLine from '@/components/svg-editor/connection-line.vue'
 
-	import { vueComp } from '@/config'
 	import type { IDataModel } from '@/components/svg-editor/types'
 	import 'element-plus/dist/index.css'
 	import 'animate.css'
@@ -16,16 +23,11 @@
 	import { sub, close } from '@/utils/mqtt-net'
 
 	const emit = defineEmits(['onMessage'])
-	//注册所有组件
-	const instance = getCurrentInstance()
-	Object.keys(vueComp).forEach((key: string) => {
-		if (!Object.keys(instance?.appContext?.components as any).includes(key)) {
-			instance?.appContext.app.component(key, vueComp[key])
-		}
-	})
 	const props = withDefaults(defineProps<{ data?: IDataModel; canvasDrag?: boolean }>(), {
 		canvasDrag: true
 	})
+	const globalStore = useGlobalStore(pinia)
+	componentsRegister()
 	const preview_data = reactive(
 		props.data ?? {
 			layout_center: {
@@ -50,7 +52,6 @@
 			done_json: []
 		}
 	)
-	const globalStore = useGlobalStore(pinia)
 
 	const cursor_style = computed(() => (globalStore.intention == EGlobalStoreIntention.MoveCanvas ? 'grab' : 'default'))
 	const onCanvasMouseMove = (e: MouseEvent) => {
@@ -134,9 +135,6 @@
 			width: actual_bound.width * scale_x,
 			height: actual_bound.height * scale_y
 		}
-	}
-	const setNodeAttrByID = (id: string, attr: string, val: any) => {
-		return setArrItemByID(id, attr, val, preview_data.done_json)
 	}
 
 	const getStyle = (root: IDoneJson) => {
@@ -241,6 +239,10 @@
 		}
 	}
 
+	const setNodeAttrByID = (id: string, attr: string, val: any) => {
+		return setArrItemByID(id, attr, val, preview_data.done_json)
+	}
+
 	onMounted(() => {
 		connectNet()
 	})
@@ -259,6 +261,7 @@
 		@mousemove="onCanvasMouseMove"
 		@mouseup="onCanvasMouseUp"
 		@mousewheel="onMousewheel"
+		@contextmenu="preventDefault"
 	>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -326,6 +329,7 @@
 								v-else-if="item.type === EDoneJsonType.Vue"
 								v-bind="getActualBoundScale(item.actual_bound, item.scale_x, item.scale_y)"
 								:id="`foreign-object${item.id}`"
+								class="foreignObject"
 							>
 								<component
 									:is="item.tag"
@@ -354,24 +358,6 @@
 		width: 100%;
 		height: 100vh;
 		cursor: v-bind('cursor_style');
-	}
-
-	.svg-item-none {
-		cursor: move;
-
-		&:hover {
-			outline: 1px solid #f8d032;
-		}
-	}
-
-	.svg-item-move {
-		cursor: move;
-		outline: 1px dashed rgb(149, 23, 222);
-	}
-
-	.svg-item-select {
-		cursor: move;
-		outline: 1px solid rgb(149, 23, 222);
 	}
 
 	.common-ani {

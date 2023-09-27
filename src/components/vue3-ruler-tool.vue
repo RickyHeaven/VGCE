@@ -2,7 +2,9 @@
 	import { pinia } from '@/hooks'
 	import { useSvgEditLayoutStore } from '@/stores/svg-edit-layout'
 	import { useConfigStore } from '@/stores/config'
+	import { preventDefault, stopEvent } from '@/utils'
 
+	const emit = defineEmits(['onLineMouseUp'])
 	const props = withDefaults(
 		defineProps<{
 			visible?: boolean
@@ -291,6 +293,10 @@
 		dragFlag = 'v'
 		dragLineId = id
 	}
+
+	const lineMouseUp = () => {
+		emit('onLineMouseUp')
+	}
 </script>
 
 <template>
@@ -317,6 +323,8 @@
 				:key="item.id"
 				:class="`vue-ruler-ref-line-${item.type}`"
 				@mousedown="handleDragLine(item)"
+				@mouseup="lineMouseUp"
+				@contextmenu="preventDefault"
 			/>
 		</section>
 		<div ref="content" class="vue-ruler-content" :style="contentStyle">
@@ -427,6 +435,7 @@
 		height: 4px;
 		cursor: n-resize;
 		border-top: 1px dashed #999;
+
 		span {
 			left: 30px;
 			top: 3px;
@@ -439,6 +448,7 @@
 		_height: 9999px;
 		cursor: w-resize;
 		border-left: 1px dashed #999;
+
 		span {
 			top: 30px;
 			left: 7px;

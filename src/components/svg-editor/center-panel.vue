@@ -6,6 +6,7 @@
 	import { EGlobalStoreIntention, EMouseInfoState, EScaleInfoType } from '@/stores/global/types'
 	import { useSvgEditLayoutStore } from '@/stores/svg-edit-layout'
 	import {
+		componentsRegister,
 		createLine,
 		getCenterPoint,
 		getCommonClass,
@@ -35,24 +36,17 @@
 	import { EDoneJsonType } from '@/config/types'
 	import ConnectionLine from '@/components/svg-editor/connection-line.vue'
 	import type { IVisibleInfo } from '../config'
-	import { vueComp } from '@/config'
 	import { useContextMenuStore, useEditPrivateStore } from '@/stores/system'
 	import { EContextMenuInfoType } from '@/stores/system/types'
-	import { computed } from 'vue'
+	import ImportJson from '@/components/svg-editor/import-json.vue'
 
-	//注册所有组件
-	const instance = getCurrentInstance()
-	Object.keys(vueComp).forEach((key) => {
-		if (!Object.keys(instance?.appContext?.components as any).includes(key)) {
-			// @ts-ignore
-			instance?.appContext.app.component(key, vueComp[key])
-		}
-	})
 	const globalStore = useGlobalStore(pinia)
 	const configStore = useConfigStore(pinia)
 	const svgEditLayoutStore = useSvgEditLayoutStore(pinia)
 	const editPrivateStore = useEditPrivateStore(pinia)
 	const contextMenuStore = useContextMenuStore(pinia)
+
+	componentsRegister()
 	const contextMenuRef = ref<HTMLElement>()
 	const canvasRef = ref<HTMLElement>()
 	const ct: Record<string, any> = {
@@ -210,17 +204,19 @@
 	const onSvgMouseDown = (select_item: IDoneJson, index: number, e: MouseEvent) => {
 		canvasRef.value?.focus()
 		if (globalStore.intention === EGlobalStoreIntention.Connection) {
+			e.stopPropagation()
 			return
 		}
 		e.preventDefault()
 		e.stopPropagation()
 		if (e.ctrlKey && e.button === 0) {
 			//ctrl+鼠标左键 多选组件
-			if (globalStore.handle_svg_info?.index) {
+			if (globalStore.handle_svg_info?.index || globalStore.handle_svg_info?.index === 0) {
 				globalStore.done_json[globalStore.handle_svg_info.index].selected = true
 				globalStore.setHandleSvgInfo(null)
-				select_item.selected = !select_item.selected
+				globalStore.intention = EGlobalStoreIntention.None
 			}
+			select_item.selected = !select_item.selected
 		} else if (isGroup.value) {
 			//有框选的组件
 			globalStore.intention = EGlobalStoreIntention.GroupMove
@@ -941,6 +937,8 @@
 			}
 		})
 	})
+
+	defineExpose({ onCanvasMouseUp })
 </script>
 
 <template>
@@ -1087,7 +1085,11 @@
 							/>
 
 							<handle-panel
-								v-if="globalStore.handle_svg_info?.info.id === item.id && visible_info.handle_panel"
+								v-if="
+									globalStore.handle_svg_info?.info.id === item.id &&
+									visible_info.handle_panel &&
+									item.type !== EDoneJsonType.ConnectionLine
+								"
 								:item-info="item"
 							/>
 							<connection-panel
@@ -1136,6 +1138,8 @@
 </template>
 
 <style lang="less" scoped>
+	@import '@/assets/variables';
+
 	.canvas {
 		width: 100%;
 		height: 100%;
@@ -1166,14 +1170,6 @@
 
 	.svg-item-in-group {
 		outline: 1px solid rgb(222, 69, 23);
-	}
-
-	.foreignObject {
-		> span {
-			/*解决span标签显示不完整的问题*/
-			position: relative;
-			bottom: 2px;
-		}
 	}
 
 	.contextMenu {
@@ -1208,7 +1204,7 @@
 		}
 
 		p:hover {
-			background-color: #0cf;
+			background-color: @listActiveColor;
 			color: #ffffff;
 			cursor: default;
 		}
@@ -1220,6 +1216,7 @@
 		.disabled:hover {
 			color: #999;
 			background-color: transparent;
+			cursor: not-allowed;
 		}
 
 		li.separator {

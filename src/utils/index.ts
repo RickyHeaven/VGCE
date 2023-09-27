@@ -4,15 +4,28 @@ import type { IConfigItem } from '@/config/types'
 import { EDoneJsonType } from '@/config/types'
 import type { IDoneJson, IPointCoordinate } from '@/stores/global/types'
 import { EGlobalStoreIntention, EMouseInfoState } from '@/stores/global/types'
-import { straight_line_system } from '@/components/config'
 import { useGlobalStore } from '@/stores/global'
 import { pinia } from '@/hooks'
 import { useConfigStore } from '@/stores/config'
 import { useSvgEditLayoutStore } from '@/stores/svg-edit-layout'
 import { kebabCase } from 'lodash-es'
+import { vueComp } from '@/config'
 
 export const stopEvent = (e: any) => {
 	e.stopPropagation()
+}
+export const preventDefault = (e: any) => {
+	e.preventDefault()
+}
+
+export function componentsRegister() {
+	//注册所有组件
+	const instance = getCurrentInstance()
+	for (let key in vueComp) {
+		if (!instance?.appContext?.components.hasOwnProperty(key) && vueComp.hasOwnProperty(key)) {
+			instance?.appContext?.app.component(key, vueComp[key])
+		}
+	}
 }
 
 /**

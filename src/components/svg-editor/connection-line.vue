@@ -40,7 +40,29 @@
 </script>
 
 <template>
-	<g>
+	<g :style="{ cursor: globalStore.intention === EGlobalStoreIntention.Connection ? 'crosshair' : 'move' }">
+		<!-- 选中效果 -->
+		<path
+			:d="positionArrToPath(props.itemInfo.props.point_position.val)"
+			fill="none"
+			fill-opacity="0"
+			stroke="#DE4517"
+			:stroke-width="props.itemInfo.props['stroke-width'].val + 1"
+			stroke-linecap="round"
+			stroke-linejoin="round"
+			v-show="props.itemInfo.selected || props.itemInfo.id === globalStore.handle_svg_info?.info.id"
+		/>
+		<!-- 打底 -->
+		<path
+			:d="positionArrToPath(props.itemInfo.props.point_position.val)"
+			fill="none"
+			fill-opacity="0"
+			stroke="#fff"
+			stroke-opacity=".01"
+			:stroke-width="props.itemInfo.props['stroke-width'].val"
+			stroke-linecap="round"
+			stroke-linejoin="round"
+		/>
 		<path
 			:id="props.itemInfo.id"
 			:d="positionArrToPath(props.itemInfo.props.point_position.val)"
@@ -51,13 +73,13 @@
 					: props.itemInfo.props.stroke.val
 			"
 			:stroke-width="props.itemInfo.props['stroke-width'].val"
-			:style="{ cursor: globalStore.intention === EGlobalStoreIntention.Connection ? 'crosshair' : 'move' }"
 			stroke-dashoffset="0"
 			:stroke-dasharray="
 				props.itemInfo.animations?.type.val === EConfigAnimationsType.Electricity
 					? props.itemInfo.props['stroke-width'].val * 3
 					: 0
 			"
+			stroke-linejoin="round"
 		>
 			<animate
 				v-if="props.itemInfo.animations?.type.val === EConfigAnimationsType.Electricity"
@@ -79,6 +101,7 @@
 			:stroke-dasharray="props.itemInfo.props['stroke-width'].val * 3"
 			stroke-dashoffset="0"
 			stroke-linecap="round"
+			stroke-linejoin="round"
 		>
 			<animate
 				attributeName="stroke-dashoffset"
@@ -94,7 +117,7 @@
 			v-else-if="props.itemInfo.animations?.type.val === EConfigAnimationsType.Track"
 			cx="0"
 			cy="0"
-			:r="props.itemInfo.props['stroke-width'].val * 2"
+			:r="Math.ceil(props.itemInfo.props['stroke-width'].val * 0.6) + 2"
 			:fill="props.itemInfo.animations.color.val"
 		>
 			<animateMotion
@@ -110,8 +133,21 @@
 			>
 			</animateMotion>
 		</circle>
-		<!-- 更改线段 -->
 		<g>
+			<!-- 节点选中效果 -->
+			<circle
+				v-for="(item, index) in props.itemInfo.props.point_position.val"
+				:key="index"
+				:cx="item.x"
+				:cy="item.y"
+				:r="props.itemInfo.props.point_r.val + 1"
+				fill="none"
+				fill-opacity="0"
+				stroke-width="1"
+				stroke="#DE4517"
+				v-show="props.itemInfo.selected || props.itemInfo.id === globalStore.handle_svg_info?.info.id"
+			/>
+			<!-- 更改线段 -->
 			<circle
 				v-for="(item, index) in props.itemInfo.props.point_position.val"
 				:key="index"
