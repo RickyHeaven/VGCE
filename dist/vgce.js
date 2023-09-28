@@ -116,20 +116,20 @@ if (typeof window < "u") {
         </g>\r
     </g>\r
 </symbol><symbol viewBox="0 0 1024 1024"  id="svg-clock-a">\r
-    <path d="M512.3 518.9m-469.2 0a469.2 469.2 0 1 0 938.4 0 469.2 469.2 0 1 0-938.4 0Z" fill="#429BCF"></path>\r
+    <path d="M512.3 518.9m-469.2 0a469.2 469.2 0 1 0 938.4 0 469.2 469.2 0 1 0-938.4 0Z" fill="#B3A7FF"></path>\r
     <path d="M512.3 518.9m-392.5 0a392.5 392.5 0 1 0 785 0 392.5 392.5 0 1 0-785 0Z" fill="#FFFFFF"></path>\r
-    <path d="M512.3 523.8c-4.5 0-9-1.7-12.4-5.1-6.8-6.8-6.8-17.9 0-24.8l130.8-130.8c6.8-6.8 17.9-6.8 24.8 0 6.8 6.8 6.8 17.9 0 24.8L524.7 518.7c-3.5 3.4-7.9 5.1-12.4 5.1z" fill="#2D416C">\r
-        <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="-45 512 512" to="315 512 512" dur="43200s" repeatCount="indefinite" />\r
-    </path>\r
-    <path d="M512.3 523.8c-4.5 0-9-1.7-12.4-5.1L318.3 337.1c-6.8-6.8-6.8-17.9 0-24.8 6.8-6.8 17.9-6.8 24.8 0L524.7 494c6.8 6.8 6.8 17.9 0 24.8-3.5 3.3-7.9 5-12.4 5z" fill="#365087">\r
+    <path d="M512.3 523.8c-4.5 0-9-1.7-12.4-5.1L318.3 337.1c-6.8-6.8-6.8-17.9 0-24.8 6.8-6.8 17.9-6.8 24.8 0L524.7 494c6.8 6.8 6.8 17.9 0 24.8-3.5 3.3-7.9 5-12.4 5z" fill="#50E68E">\r
         <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="45 512 512" to="405 512 512" dur="3600s" repeatCount="indefinite" />\r
     </path>\r
-    <path d="M512.3 506.3m-47.5 0a47.5 47.5 0 1 0 95 0 47.5 47.5 0 1 0-95 0Z" fill="#365087"></path>\r
-    <path d="M512.3 218.8c-9 0-16.3-7.3-16.3-16.3v-29.1c0-9 7.3-16.3 16.3-16.3s16.3 7.3 16.3 16.3v29.1c0 9-7.4 16.3-16.3 16.3zM512.3 880.8c-9 0-16.3-7.3-16.3-16.3v-29.1c0-9 7.3-16.3 16.3-16.3s16.3 7.3 16.3 16.3v29.1c0 9-7.4 16.3-16.3 16.3zM812.4 518.9c0-9 7.3-16.3 16.3-16.3h29.1c9 0 16.3 7.3 16.3 16.3s-7.3 16.3-16.3 16.3h-29.1c-8.9 0-16.3-7.3-16.3-16.3zM150.4 518.9c0-9 7.3-16.3 16.3-16.3h29.1c9 0 16.3 7.3 16.3 16.3s-7.3 16.3-16.3 16.3h-29.1c-8.9 0-16.3-7.3-16.3-16.3z" fill="#2D416C"></path>\r
-    <path d="M296.9 733.5c-2.2 0-4.5-0.9-6.2-2.6-3.4-3.4-3.4-9 0-12.4L540 469.2c3.4-3.4 9-3.4 12.4 0 3.4 3.4 3.4 9 0 12.4L303.1 731c-1.7 1.7-4 2.5-6.2 2.5z" fill="#C11B16">\r
+    <path d="M512.3 523.8c-4.5 0-9-1.7-12.4-5.1-6.8-6.8-6.8-17.9 0-24.8l130.8-130.8c6.8-6.8 17.9-6.8 24.8 0 6.8 6.8 6.8 17.9 0 24.8L524.7 518.7c-3.5 3.4-7.9 5.1-12.4 5.1z" fill="#9A36E7">\r
+        <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="-45 512 512" to="315 512 512" dur="43200s" repeatCount="indefinite" />\r
+    </path>\r
+    <path d="M512.3 506.3m-47.5 0a47.5 47.5 0 1 0 95 0 47.5 47.5 0 1 0-95 0Z" fill="#F45AFC"></path>\r
+    <path d="M512.3 218.8c-9 0-16.3-7.3-16.3-16.3v-29.1c0-9 7.3-16.3 16.3-16.3s16.3 7.3 16.3 16.3v29.1c0 9-7.4 16.3-16.3 16.3zM512.3 880.8c-9 0-16.3-7.3-16.3-16.3v-29.1c0-9 7.3-16.3 16.3-16.3s16.3 7.3 16.3 16.3v29.1c0 9-7.4 16.3-16.3 16.3zM812.4 518.9c0-9 7.3-16.3 16.3-16.3h29.1c9 0 16.3 7.3 16.3 16.3s-7.3 16.3-16.3 16.3h-29.1c-8.9 0-16.3-7.3-16.3-16.3zM150.4 518.9c0-9 7.3-16.3 16.3-16.3h29.1c9 0 16.3 7.3 16.3 16.3s-7.3 16.3-16.3 16.3h-29.1c-8.9 0-16.3-7.3-16.3-16.3z" fill="#4942CF"></path>\r
+    <path d="M296.9 733.5c-2.2 0-4.5-0.9-6.2-2.6-3.4-3.4-3.4-9 0-12.4L540 469.2c3.4-3.4 9-3.4 12.4 0 3.4 3.4 3.4 9 0 12.4L303.1 731c-1.7 1.7-4 2.5-6.2 2.5z" fill="#E83E24">\r
         <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="135 512 512" to="495 512 512" dur="60s" repeatCount="indefinite" />\r
     </path>\r
-    <path d="M512.3 506.3m-22.8 0a22.8 22.8 0 1 0 45.6 0 22.8 22.8 0 1 0-45.6 0Z" fill="#FFFFFF"></path>\r
+    <path d="M512.3 506.3m-22.8 0a22.8 22.8 0 1 0 45.6 0 22.8 22.8 0 1 0-45.6 0Z" fill="#EBF257"></path>\r
 </symbol><symbol class="icon" viewBox="0 0 1024 1024"   id="svg-common-table"><path d="M885.3 957.3H140.7c-42.2 0-76.5-34.3-76.5-76.5V136.3c0-42.2 34.3-76.5 76.5-76.5h744.6c42.2 0 76.5 34.3 76.5 76.5v744.6c-0.1 42.1-34.3 76.4-76.5 76.4z m-744.6-851c-16.5 0-29.9 13.4-29.9 29.9v744.6c0 16.5 13.4 29.9 29.9 29.9h744.6c16.5 0 29.9-13.4 29.9-29.9V136.3c0-16.5-13.4-29.9-29.9-29.9H140.7z" fill="#2F2302" p-id="1992" data-spm-anchor-id="a313x.manage_type_myprojects.0.i22.1adc3a81gVIGv0" class="" /><path d="M938.5 315.8h-851V91.1c0-4.4 3.6-8 8-8h835c4.4 0 8 3.6 8 8v224.7z" fill="#F1D563" p-id="1993" data-spm-anchor-id="a313x.manage_type_myprojects.0.i20.1adc3a81gVIGv0" class="" /><path d="M961.7 339H64.3V136.3c0-42.2 34.3-76.5 76.5-76.5h744.6c42.2 0 76.5 34.3 76.5 76.5V339z m-850.9-46.5h804.4V136.3c0-16.5-13.4-29.9-29.9-29.9H140.7c-16.5 0-29.9 13.4-29.9 29.9v156.2zM938.5 644.8h-851c-12.9 0-23.3-10.4-23.3-23.3 0-12.8 10.4-23.3 23.3-23.3h851c12.9 0 23.3 10.4 23.3 23.3-0.1 12.9-10.5 23.3-23.3 23.3z" fill="#2F2302" p-id="1994" data-spm-anchor-id="a313x.manage_type_myprojects.0.i23.1adc3a81gVIGv0" class="" /><path d="M363.4 957.3c-12.9 0-23.3-10.4-23.3-23.3V315.8c0-12.8 10.4-23.3 23.3-23.3s23.3 10.4 23.3 23.3V934c0 12.9-10.4 23.3-23.3 23.3zM662.6 957.3c-12.9 0-23.3-10.4-23.3-23.3V315.8c0-12.8 10.4-23.3 23.3-23.3s23.3 10.4 23.3 23.3V934c0 12.9-10.5 23.3-23.3 23.3z" fill="#2F2302" p-id="1995" data-spm-anchor-id="a313x.manage_type_myprojects.0.i21.1adc3a81gVIGv0" class="" /></symbol><symbol class="icon" viewBox="0 0 1094 1024"   id="svg-el-button"><path d="M984.860838 227.319149H153.357353c-15.616064 0-28.275239 12.657976-28.27524 28.272839v441.069494c0 15.614864 12.659176 28.274039 28.27524 28.27404h831.503485c15.614864 0 28.272839-12.657976 28.272839-28.27404V255.591988c0-15.613664-12.656776-28.272839-28.272839-28.272839z m-12.372367 432.768847c0 13.025187-10.559113 23.5855-23.5843 23.585501H189.31402c-13.026387 0-23.5855-10.559113-23.5855-23.585501V292.166674c0-13.025187 10.559113-23.5855 23.5855-23.5855H948.904171c13.025187 0 23.5843 10.559113 23.5843 23.5855v367.921322z" fill="#409eff" p-id="1625" data-spm-anchor-id="a313x.manage_type_myprojects.0.i3.1adc3a81px4RsK" class="" /><path d="M395.144131 473.024043c19.678184-10.226704 29.925288-27.174807 30.718512-50.803508-3.156094-40.171193-30.718512-61.438224-82.704055-63.801094h-105.154322v244.57086h111.062097c58.28093 0 87.430996-23.224289 87.430996-69.708869-0.794424-28.356842-14.584033-48.441838-41.353228-60.257389z m-118.149508-79.16035h61.438224c29.130865 0.794424 44.491321 11.040328 46.077768 30.719712-0.794424 22.061455-16.541291 33.488194-47.259803 34.263417h-60.256189V393.863693z m68.526835 174.861991h-68.526835v-74.43461h64.983129c33.856605 0.794424 51.579931 12.997586 53.167579 36.627488-0.0012 25.216349-16.541291 37.807122-49.623873 37.807122zM461.309295 393.863693h82.705255v209.126608h40.169993V393.863693h81.52322v-35.444252H461.309295zM863.017621 509.65033c0 13.403198 0.776423 27.96923 2.36407 43.716098v1.182035c-7.08861-16.541291-14.971644-31.106123-23.629901-43.716098-21.267031-33.081382-55.142837-83.88609-101.608217-152.412924h-41.352028v244.57086H737.781903v-147.688384c0-18.109738-1.180835-34.263417-3.546105-48.440638h1.180835c6.295387 13.401998 13.772809 27.580419 22.449066 42.534062 22.042254 33.082582 56.712484 84.292902 103.972287 153.59496h40.171192V358.419441H863.017621v151.230889z" fill="#C54E6A" p-id="1626" data-spm-anchor-id="a313x.manage_type_myprojects.0.i6.1adc3a81px4RsK" class="selected" /></symbol><symbol viewBox="0 0 1024 1024"   id="svg-el-tag">
     <path d="M767.1 292.6c-0.2-19-15.6-34.4-34.6-34.6l-202.2-2.5c-9.5-0.1-18.6 3.6-25.2 10.3l-35.4 35.4c48.4 138.5 72.4 282.3 42.1 433.8-1.7 10.4-3.9 21.1-6.4 31.9 6-1.5 11.7-4.4 16.3-9.1l237.6-237.6c6.7-6.7 10.4-15.8 10.3-25.2l-2.5-202.4zM664.3 429c-17.1 17.1-44.9 17.1-62 0s-17.1-44.9 0-62 44.9-17.1 62 0 17.2 44.8 0 62z" fill="#FFDE55" />
     <path d="M779.6 292.5c-0.2-12.5-5.1-24.2-13.9-33.1-8.8-8.8-20.6-13.8-33.1-13.9L530.4 243c-12.7-0.1-25.2 4.9-34.2 13.9L258.6 494.6c-9 9-13.9 20.9-13.9 33.6 0 12.7 4.9 24.7 13.9 33.6l204.7 204.7c9 9 20.9 13.9 33.6 13.9 12.7 0 24.7-4.9 33.6-13.9l237.6-237.6c9-9 14.1-21.5 13.9-34.2l-2.4-202.2z m-29.1 218.7L512.9 748.8c-4.3 4.3-9.9 6.6-16 6.6-6 0-11.7-2.3-16-6.6L276.3 544.2c-4.3-4.3-6.6-9.9-6.6-16s2.3-11.7 6.6-16l237.6-237.6c4.2-4.2 10-6.6 16-6.6h0.3l202.2 2.5c12.4 0.2 22.2 9.9 22.3 22.3l2.5 202.2c0 6-2.4 11.9-6.7 16.2z" fill="" />
@@ -18347,7 +18347,48 @@ const svg_alert_light = {
     actual_rect: !0
   },
   display: !0,
-  props: {},
+  props: {
+    centerColor: {
+      title: "针顶颜色",
+      type: EConfigItemPropsType.Color,
+      val: "#EBF257"
+    },
+    secondsColor: {
+      title: "秒针颜色",
+      type: EConfigItemPropsType.Color,
+      val: "#E83E24"
+    },
+    circleColor: {
+      title: "针圈颜色",
+      type: EConfigItemPropsType.Color,
+      val: "#F45AFC"
+    },
+    minutesColor: {
+      title: "分针颜色",
+      type: EConfigItemPropsType.Color,
+      val: "#50E68E"
+    },
+    hoursColor: {
+      title: "时针颜色",
+      type: EConfigItemPropsType.Color,
+      val: "#9A36E7"
+    },
+    scaleColor: {
+      title: "刻度颜色",
+      type: EConfigItemPropsType.Color,
+      val: "#4942CF"
+    },
+    backgroundColor: {
+      title: "表盘颜色",
+      type: EConfigItemPropsType.Color,
+      val: "#ffffff"
+    },
+    borderColor: {
+      title: "裱框颜色",
+      type: EConfigItemPropsType.Color,
+      val: "#B3A7FF"
+    }
+  },
   common_animations: {
     val: "",
     delay: "delay-0s",
@@ -37347,37 +37388,21 @@ const _sfc_main$m = /* @__PURE__ */ defineComponent({
       }, null, 8, _hoisted_14$3)
     ], 8, _hoisted_1$g));
   }
-}), _hoisted_1$f = ["id"], _hoisted_2$d = ["id"], _hoisted_3$b = /* @__PURE__ */ createElementVNode("path", {
-  d: "M512.3 518.9m-469.2 0a469.2 469.2 0 1 0 938.4 0 469.2 469.2 0 1 0-938.4 0Z",
-  fill: "#429BCF"
-}, null, -1), _hoisted_4$9 = /* @__PURE__ */ createElementVNode("path", {
-  d: "M512.3 518.9m-392.5 0a392.5 392.5 0 1 0 785 0 392.5 392.5 0 1 0-785 0Z",
-  fill: "#FFFFFF"
-}, null, -1), _hoisted_5$7 = {
-  d: "M512.3 523.8c-4.5 0-9-1.7-12.4-5.1-6.8-6.8-6.8-17.9 0-24.8l130.8-130.8c6.8-6.8 17.9-6.8 24.8 0 6.8 6.8 6.8 17.9 0 24.8L524.7 518.7c-3.5 3.4-7.9 5.1-12.4 5.1z",
-  fill: "#2D416C"
-}, _hoisted_6$5 = ["from", "to"], _hoisted_7$5 = {
-  d: "M512.3 523.8c-4.5 0-9-1.7-12.4-5.1L318.3 337.1c-6.8-6.8-6.8-17.9 0-24.8 6.8-6.8 17.9-6.8 24.8 0L524.7 494c6.8 6.8 6.8 17.9 0 24.8-3.5 3.3-7.9 5-12.4 5z",
-  fill: "#365087"
-}, _hoisted_8$5 = ["from", "to"], _hoisted_9$5 = /* @__PURE__ */ createElementVNode("path", {
-  d: "M512.3 506.3m-47.5 0a47.5 47.5 0 1 0 95 0 47.5 47.5 0 1 0-95 0Z",
-  fill: "#365087"
-}, null, -1), _hoisted_10$4 = /* @__PURE__ */ createElementVNode("path", {
-  d: "M512.3 218.8c-9 0-16.3-7.3-16.3-16.3v-29.1c0-9 7.3-16.3 16.3-16.3s16.3 7.3 16.3 16.3v29.1c0 9-7.4 16.3-16.3 16.3zM512.3 880.8c-9 0-16.3-7.3-16.3-16.3v-29.1c0-9 7.3-16.3 16.3-16.3s16.3 7.3 16.3 16.3v29.1c0 9-7.4 16.3-16.3 16.3zM812.4 518.9c0-9 7.3-16.3 16.3-16.3h29.1c9 0 16.3 7.3 16.3 16.3s-7.3 16.3-16.3 16.3h-29.1c-8.9 0-16.3-7.3-16.3-16.3zM150.4 518.9c0-9 7.3-16.3 16.3-16.3h29.1c9 0 16.3 7.3 16.3 16.3s-7.3 16.3-16.3 16.3h-29.1c-8.9 0-16.3-7.3-16.3-16.3z",
-  fill: "#2D416C"
-}, null, -1), _hoisted_11$3 = {
-  d: "M296.9 733.5c-2.2 0-4.5-0.9-6.2-2.6-3.4-3.4-3.4-9 0-12.4L540 469.2c3.4-3.4 9-3.4 12.4 0 3.4 3.4 3.4 9 0 12.4L303.1 731c-1.7 1.7-4 2.5-6.2 2.5z",
-  fill: "#C11B16"
-}, _hoisted_12$2 = ["from", "to"], _hoisted_13$2 = /* @__PURE__ */ createElementVNode("path", {
-  d: "M512.3 506.3m-22.8 0a22.8 22.8 0 1 0 45.6 0 22.8 22.8 0 1 0-45.6 0Z",
-  fill: "#fff"
-}, null, -1), _hoisted_14$2 = ["xlink:href"], _sfc_main$k = /* @__PURE__ */ defineComponent({
+}), _hoisted_1$f = ["id"], _hoisted_2$d = ["id"], _hoisted_3$b = ["fill"], _hoisted_4$9 = ["fill"], _hoisted_5$7 = ["fill"], _hoisted_6$5 = ["from", "to"], _hoisted_7$5 = ["fill"], _hoisted_8$5 = ["from", "to"], _hoisted_9$5 = ["fill"], _hoisted_10$4 = ["fill"], _hoisted_11$3 = ["fill"], _hoisted_12$2 = ["from", "to"], _hoisted_13$2 = ["fill"], _hoisted_14$2 = ["xlink:href"], _sfc_main$k = /* @__PURE__ */ defineComponent({
   __name: "clock-a",
   props: {
-    id: { default: "" }
+    id: { default: "" },
+    centerColor: { default: "#EBF257" },
+    secondsColor: { default: "#E83E24" },
+    circleColor: { default: "#F45AFC" },
+    minutesColor: { default: "#50E68E" },
+    hoursColor: { default: "#9A36E7" },
+    scaleColor: { default: "#4942CF" },
+    backgroundColor: { default: "#ffffff" },
+    borderColor: { default: "#B3A7FF" }
   },
   setup(i) {
-    const n = i, r = ref(/* @__PURE__ */ new Date()), g = r.value.getSeconds(), V = r.value.getMinutes(), k = Math.floor((r.value.getHours() + (V + g / 60) / 60) * 30);
+    const n = i, r = new Date(Number(window.sessionStorage.getItem("editorLoadTime") || "0")), g = r.getSeconds() + 1, V = r.getMinutes(), k = Math.floor((r.getHours() + (V + g / 60) / 60) * 30);
     return ($, re) => (openBlock(), createElementBlock("g", {
       id: n.id
     }, [
@@ -37385,20 +37410,18 @@ const _sfc_main$m = /* @__PURE__ */ defineComponent({
         id: `${n.id}clock-a-n`,
         viewBox: "0 0 1024 1024"
       }, [
-        _hoisted_3$b,
-        _hoisted_4$9,
-        createElementVNode("path", _hoisted_5$7, [
-          createElementVNode("animateTransform", {
-            attributeName: "transform",
-            attributeType: "XML",
-            type: "rotate",
-            from: `${-45 + unref(k)} 512.3 506.3`,
-            to: `${315 + unref(k)} 512.3 506.3`,
-            dur: "43200s",
-            repeatCount: "indefinite"
-          }, null, 8, _hoisted_6$5)
-        ]),
-        createElementVNode("path", _hoisted_7$5, [
+        createElementVNode("path", {
+          d: "M512.3 518.9m-469.2 0a469.2 469.2 0 1 0 938.4 0 469.2 469.2 0 1 0-938.4 0Z",
+          fill: n.borderColor
+        }, null, 8, _hoisted_3$b),
+        createElementVNode("path", {
+          d: "M512.3 518.9m-392.5 0a392.5 392.5 0 1 0 785 0 392.5 392.5 0 1 0-785 0Z",
+          fill: n.backgroundColor
+        }, null, 8, _hoisted_4$9),
+        createElementVNode("path", {
+          d: "M512.3 523.8c-4.5 0-9-1.7-12.4-5.1L318.3 337.1c-6.8-6.8-6.8-17.9 0-24.8 6.8-6.8 17.9-6.8 24.8 0L524.7 494c6.8 6.8 6.8 17.9 0 24.8-3.5 3.3-7.9 5-12.4 5z",
+          fill: n.minutesColor
+        }, [
           createElementVNode("animateTransform", {
             attributeName: "transform",
             attributeType: "XML",
@@ -37407,22 +37430,48 @@ const _sfc_main$m = /* @__PURE__ */ defineComponent({
             to: `${405 + unref(V) * 6} 512.3 506.3`,
             dur: "3600s",
             repeatCount: "indefinite"
-          }, null, 8, _hoisted_8$5)
-        ]),
-        _hoisted_9$5,
-        _hoisted_10$4,
-        createElementVNode("path", _hoisted_11$3, [
+          }, null, 8, _hoisted_6$5)
+        ], 8, _hoisted_5$7),
+        createElementVNode("path", {
+          d: "M512.3 523.8c-4.5 0-9-1.7-12.4-5.1-6.8-6.8-6.8-17.9 0-24.8l130.8-130.8c6.8-6.8 17.9-6.8 24.8 0 6.8 6.8 6.8 17.9 0 24.8L524.7 518.7c-3.5 3.4-7.9 5.1-12.4 5.1z",
+          fill: n.hoursColor
+        }, [
           createElementVNode("animateTransform", {
             attributeName: "transform",
             attributeType: "XML",
             type: "rotate",
-            from: `${135.5 + unref(g) * 6} 512.3 506.3`,
-            to: `${495.5 + unref(g) * 6} 512.3 506.3`,
+            from: `${-45 + unref(k)} 512.3 506.3`,
+            to: `${315 + unref(k)} 512.3 506.3`,
+            dur: "43200s",
+            repeatCount: "indefinite"
+          }, null, 8, _hoisted_8$5)
+        ], 8, _hoisted_7$5),
+        createElementVNode("path", {
+          d: "M512.3 506.3m-47.5 0a47.5 47.5 0 1 0 95 0 47.5 47.5 0 1 0-95 0Z",
+          fill: n.circleColor
+        }, null, 8, _hoisted_9$5),
+        createElementVNode("path", {
+          d: "M512.3 218.8c-9 0-16.3-7.3-16.3-16.3v-29.1c0-9 7.3-16.3 16.3-16.3s16.3 7.3 16.3 16.3v29.1c0 9-7.4 16.3-16.3 16.3zM512.3 880.8c-9 0-16.3-7.3-16.3-16.3v-29.1c0-9 7.3-16.3 16.3-16.3s16.3 7.3 16.3 16.3v29.1c0 9-7.4 16.3-16.3 16.3zM812.4 518.9c0-9 7.3-16.3 16.3-16.3h29.1c9 0 16.3 7.3 16.3 16.3s-7.3 16.3-16.3 16.3h-29.1c-8.9 0-16.3-7.3-16.3-16.3zM150.4 518.9c0-9 7.3-16.3 16.3-16.3h29.1c9 0 16.3 7.3 16.3 16.3s-7.3 16.3-16.3 16.3h-29.1c-8.9 0-16.3-7.3-16.3-16.3z",
+          fill: n.scaleColor
+        }, null, 8, _hoisted_10$4),
+        createElementVNode("path", {
+          d: "M296.9 733.5c-2.2 0-4.5-0.9-6.2-2.6-3.4-3.4-3.4-9 0-12.4L540 469.2c3.4-3.4 9-3.4 12.4 0 3.4 3.4 3.4 9 0 12.4L303.1 731c-1.7 1.7-4 2.5-6.2 2.5z",
+          fill: n.secondsColor
+        }, [
+          createElementVNode("animateTransform", {
+            attributeName: "transform",
+            attributeType: "XML",
+            type: "rotate",
+            from: `${135.5 + g * 6} 512.3 506.3`,
+            to: `${495.5 + g * 6} 512.3 506.3`,
             dur: "60s",
             repeatCount: "indefinite"
           }, null, 8, _hoisted_12$2)
-        ]),
-        _hoisted_13$2
+        ], 8, _hoisted_11$3),
+        createElementVNode("path", {
+          d: "M512.3 506.3m-22.8 0a22.8 22.8 0 1 0 45.6 0 22.8 22.8 0 1 0-45.6 0Z",
+          fill: n.centerColor
+        }, null, 8, _hoisted_13$2)
       ], 8, _hoisted_2$d),
       createElementVNode("use", {
         "xlink:href": `#${n.id}clock-a-n`,
@@ -37532,6 +37581,9 @@ function componentsRegister() {
   const i = getCurrentInstance();
   for (let g in vueComp)
     !((n = i == null ? void 0 : i.appContext) != null && n.components.hasOwnProperty(g)) && vueComp.hasOwnProperty(g) && ((r = i == null ? void 0 : i.appContext) == null || r.app.component(g, vueComp[g]));
+}
+function setEditorLoadTime() {
+  window.sessionStorage.setItem("editorLoadTime", (/* @__PURE__ */ new Date()).getTime().toString());
 }
 const randomString = (i) => {
   i = i || 10;
@@ -55062,7 +55114,9 @@ const _hoisted_1$1 = { class: "canvas-main-pc" }, _sfc_main$1 = /* @__PURE__ */ 
   },
   emits: ["onReturn", "onPreview", "onSave"],
   setup(i, { expose: n, emit: r }) {
-    const g = i, V = useGlobalStore(pinia), k = useSvgEditLayoutStore(pinia), $ = useConfigStore(pinia), re = useEditPrivateStore(pinia), oe = ref(), Ce = ref(), ie = reactive({
+    const g = i;
+    setEditorLoadTime();
+    const V = useGlobalStore(pinia), k = useSvgEditLayoutStore(pinia), $ = useConfigStore(pinia), re = useEditPrivateStore(pinia), oe = ref(), Ce = ref(), ie = reactive({
       [EVisibleConfKey.ExportJson]: !1,
       [EVisibleConfKey.ImportJson]: !1,
       [EVisibleConfKey.ImportFile]: !1
@@ -55241,7 +55295,7 @@ const _hoisted_1$1 = { class: "canvas-main-pc" }, _sfc_main$1 = /* @__PURE__ */ 
       }, 8, ["modelValue"])
     ]));
   }
-}), index_vue_vue_type_style_index_0_scoped_f4b63109_lang = "", index = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-f4b63109"]]);
+}), index_vue_vue_type_style_index_0_scoped_01ceb0c4_lang = "", index = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-01ceb0c4"]]);
 function commonjsRequire(i) {
   throw new Error('Could not dynamically require "' + i + '". Please configure the dynamicRequireTargets or/and ignoreDynamicRequires option of @rollup/plugin-commonjs appropriately for this require call to work.');
 }
@@ -64183,8 +64237,8 @@ const sub = (i, n, r, g, V) => {
   setup(i, { expose: n, emit: r }) {
     const g = i;
     useCssVars((he) => ({
-      "124bbd8e": unref($)
-    }));
+      eb9e007c: unref($)
+    })), setEditorLoadTime();
     const V = useGlobalStore(pinia);
     componentsRegister();
     const k = reactive(
@@ -64400,7 +64454,7 @@ const sub = (i, n, r, g, V) => {
       ], 4))
     ], 32));
   }
-}), svgViewer_vue_vue_type_style_index_0_scoped_8ba7b1d0_lang = "", svgViewer = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-8ba7b1d0"]]);
+}), svgViewer_vue_vue_type_style_index_0_scoped_7cd79a96_lang = "", svgViewer = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-7cd79a96"]]);
 export {
   index as SvgEditor,
   svgViewer as SvgViewer

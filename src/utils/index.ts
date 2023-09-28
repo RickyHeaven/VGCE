@@ -28,6 +28,11 @@ export function componentsRegister() {
 	}
 }
 
+export function setEditorLoadTime() {
+	//记录编辑器加载到浏览器的时间，有些组件需要用这个时间
+	window.sessionStorage.setItem('editorLoadTime', new Date().getTime().toString())
+}
+
 /**
  * 生成随机字符串
  * @param len 生成个数

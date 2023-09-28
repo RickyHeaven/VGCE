@@ -32,6 +32,9 @@
 	import { useConfigStore } from '@/stores/config'
 	import { fileRead, fileWrite } from '@/utils/file-read-write'
 	import { useEditPrivateStore } from '@/stores/system'
+	import { setEditorLoadTime } from '@/utils'
+
+	setEditorLoadTime()
 
 	//todo 优化自带组件使用体验
 	const emits = defineEmits(['onReturn', 'onPreview', 'onSave'])
@@ -42,7 +45,6 @@
 	const svgEditLayoutStore = useSvgEditLayoutStore(pinia)
 	const configStore = useConfigStore(pinia)
 	const editPrivateStore = useEditPrivateStore(pinia)
-
 	const centerRef = ref()
 	const importJsonRef = ref<InstanceType<typeof ImportJson>>()
 	const visible_conf: IVisibleConf = reactive({

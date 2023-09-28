@@ -9,6 +9,7 @@
 		preventDefault,
 		prosToVBind,
 		setArrItemByID,
+		setEditorLoadTime,
 		stopEvent,
 		valFormat
 	} from '@/utils'
@@ -21,6 +22,8 @@
 	import 'animate.css'
 
 	import { sub, close } from '@/utils/mqtt-net'
+
+	setEditorLoadTime()
 
 	const emit = defineEmits(['onMessage'])
 	const props = withDefaults(defineProps<{ data?: IDataModel; canvasDrag?: boolean }>(), {
