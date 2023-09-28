@@ -19726,7 +19726,7 @@ const connection_line_system = {
     color: {
       title: "颜色",
       type: EConfigItemPropsType.Color,
-      val: "#0a7ae2"
+      val: "#602a00"
     },
     reverse: {
       title: "反转动画",
@@ -21074,7 +21074,7 @@ const _withScopeId$2 = (r) => (pushScopeId("data-v-62907637"), r = r(), popScope
       ], 32)
     ], 8, _hoisted_1$e));
   }
-}), connectionPanel_vue_vue_type_style_index_0_scoped_fb729c7a_lang = "", ConnectionPanel = /* @__PURE__ */ _export_sfc$1(_sfc_main$z, [["__scopeId", "data-v-fb729c7a"]]), _hoisted_1$d = ["d", "stroke-width"], _hoisted_2$a = ["d", "stroke-width"], _hoisted_3$9 = ["id", "d", "stroke", "stroke-width", "stroke-dasharray"], _hoisted_4$5 = ["from", "to", "dur", "repeatCount"], _hoisted_5$3 = ["d", "stroke", "stroke-width", "stroke-dasharray"], _hoisted_6$1 = ["from", "to", "dur", "repeatCount"], _hoisted_7$1 = ["r", "fill"], _hoisted_8$1 = ["path", "dur", "repeatCount"], _hoisted_9$1 = ["cx", "cy", "r"], _hoisted_10$1 = ["cx", "cy", "r", "stroke", "onMousedown"], _sfc_main$y = /* @__PURE__ */ defineComponent({
+}), connectionPanel_vue_vue_type_style_index_0_scoped_fb729c7a_lang = "", ConnectionPanel = /* @__PURE__ */ _export_sfc$1(_sfc_main$z, [["__scopeId", "data-v-fb729c7a"]]), _hoisted_1$d = ["d", "stroke-width"], _hoisted_2$a = ["d", "stroke-width"], _hoisted_3$9 = ["id", "d", "stroke", "stroke-width", "stroke-dasharray"], _hoisted_4$5 = ["from", "to", "dur", "repeatCount"], _hoisted_5$3 = ["d", "stroke", "stroke-width", "stroke-dasharray"], _hoisted_6$1 = ["from", "to", "dur", "repeatCount"], _hoisted_7$1 = ["r", "fill"], _hoisted_8$1 = ["path", "dur", "repeatCount"], _hoisted_9$1 = ["cx", "cy", "r", "stroke-width"], _hoisted_10$1 = ["cx", "cy", "r", "stroke", "onMousedown"], _sfc_main$y = /* @__PURE__ */ defineComponent({
   __name: "connection-line",
   props: {
     itemInfo: {},
@@ -21112,7 +21112,7 @@ const _withScopeId$2 = (r) => (pushScopeId("data-v-62907637"), r = r(), popScope
           fill: "none",
           "fill-opacity": "0",
           stroke: "#DE4517",
-          "stroke-width": n.itemInfo.props["stroke-width"].val + 1,
+          "stroke-width": Math.ceil(n.itemInfo.props["stroke-width"].val * 1.2) + 1,
           "stroke-linecap": "round",
           "stroke-linejoin": "round"
         }, null, 8, _hoisted_1$d), [
@@ -21192,7 +21192,7 @@ const _withScopeId$2 = (r) => (pushScopeId("data-v-62907637"), r = r(), popScope
               r: n.itemInfo.props.point_r.val + 1,
               fill: "none",
               "fill-opacity": "0",
-              "stroke-width": "1",
+              "stroke-width": Math.ceil(n.itemInfo.props.point_r.val * 0.2) + 1,
               stroke: "#DE4517"
             }, null, 8, _hoisted_9$1)), [
               [vShow, n.itemInfo.selected || n.itemInfo.id === ((T = unref(i).handle_svg_info) == null ? void 0 : T.info.id)]

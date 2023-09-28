@@ -47,7 +47,7 @@
 			fill="none"
 			fill-opacity="0"
 			stroke="#DE4517"
-			:stroke-width="props.itemInfo.props['stroke-width'].val + 1"
+			:stroke-width="Math.ceil(props.itemInfo.props['stroke-width'].val * 1.2) + 1"
 			stroke-linecap="round"
 			stroke-linejoin="round"
 			v-show="props.itemInfo.selected || props.itemInfo.id === globalStore.handle_svg_info?.info.id"
@@ -143,7 +143,7 @@
 				:r="props.itemInfo.props.point_r.val + 1"
 				fill="none"
 				fill-opacity="0"
-				stroke-width="1"
+				:stroke-width="Math.ceil(props.itemInfo.props.point_r.val * 0.2) + 1"
 				stroke="#DE4517"
 				v-show="props.itemInfo.selected || props.itemInfo.id === globalStore.handle_svg_info?.info.id"
 			/>

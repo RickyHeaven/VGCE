@@ -125,7 +125,7 @@ export const connection_line_system: ISystemStraightLine = {
 		color: {
 			title: '颜色',
 			type: EConfigItemPropsType.Color,
-			val: '#0a7ae2'
+			val: '#602a00'
 		},
 		reverse: {
 			title: '反转动画',
