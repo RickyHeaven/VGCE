@@ -58,7 +58,7 @@ export const useContextMenuStore = defineStore('context-menu-store', {
 			info: {
 				[EContextMenuInfoType.Copy]: {
 					title: '复制',
-					hot_key: 'Ctrl+C',
+					hot_key: 'Ctrl + c',
 					enable: true
 				},
 				[EContextMenuInfoType.Delete]: {
@@ -68,22 +68,22 @@ export const useContextMenuStore = defineStore('context-menu-store', {
 				},
 				[EContextMenuInfoType.MoveUpTopLevel]: {
 					title: '置于顶层',
-					hot_key: 'Ctrl+→',
+					hot_key: 'Ctrl + →',
 					enable: true
 				},
 				[EContextMenuInfoType.MoveDownTopLevel]: {
 					title: '置于底层',
-					hot_key: 'Ctrl+←',
+					hot_key: 'Ctrl + ←',
 					enable: true
 				},
 				[EContextMenuInfoType.MoveUpOneLevel]: {
 					title: '置于上一层',
-					hot_key: 'Ctrl+↑',
+					hot_key: 'Ctrl + ↑',
 					enable: true
 				},
 				[EContextMenuInfoType.MoveDownOneLevel]: {
 					title: '置于下一层',
-					hot_key: 'Ctrl+↓',
+					hot_key: 'Ctrl + ↓',
 					enable: true
 				}
 			}

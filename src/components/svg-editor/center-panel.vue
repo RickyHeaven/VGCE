@@ -1175,12 +1175,12 @@
 	.contextMenu {
 		position: fixed;
 		z-index: 99999;
-		background: #ffffff;
+		background: rgba(255, 255, 255, 0.75);
 		padding: 5px 0;
 		margin: 0;
 		display: block;
-		border-radius: 5px;
-		box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+		border-radius: 3px;
+		box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
 
 		li {
 			list-style: none;
@@ -1197,16 +1197,18 @@
 		p {
 			text-decoration: none;
 			display: block;
-			padding: 0 15px 1px 20px;
+			padding: 0 15px 1px 15px;
 			margin: 0;
 			user-select: none;
 			-webkit-user-select: none;
+			font-size: 14px;
+			color: #09053d;
 		}
 
 		p:hover {
 			background-color: @listActiveColor;
 			color: #ffffff;
-			cursor: default;
+			cursor: pointer;
 		}
 
 		.disabled {

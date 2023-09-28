@@ -20124,7 +20124,7 @@ const useEditPrivateStore = defineStore("edit-private-store", {
     info: {
       [EContextMenuInfoType.Copy]: {
         title: "复制",
-        hot_key: "Ctrl+C",
+        hot_key: "Ctrl + c",
         enable: !0
       },
       [EContextMenuInfoType.Delete]: {
@@ -20134,22 +20134,22 @@ const useEditPrivateStore = defineStore("edit-private-store", {
       },
       [EContextMenuInfoType.MoveUpTopLevel]: {
         title: "置于顶层",
-        hot_key: "Ctrl+→",
+        hot_key: "Ctrl + →",
         enable: !0
       },
       [EContextMenuInfoType.MoveDownTopLevel]: {
         title: "置于底层",
-        hot_key: "Ctrl+←",
+        hot_key: "Ctrl + ←",
         enable: !0
       },
       [EContextMenuInfoType.MoveUpOneLevel]: {
         title: "置于上一层",
-        hot_key: "Ctrl+↑",
+        hot_key: "Ctrl + ↑",
         enable: !0
       },
       [EContextMenuInfoType.MoveDownOneLevel]: {
         title: "置于下一层",
-        hot_key: "Ctrl+↓",
+        hot_key: "Ctrl + ↓",
         enable: !0
       }
     }
@@ -21229,7 +21229,7 @@ const _withScopeId$2 = (r) => (pushScopeId("data-v-62907637"), r = r(), popScope
   __name: "center-panel",
   setup(r, { expose: n }) {
     useCssVars((he) => ({
-      "2e4aaeb1": unref(p)
+      "49c79b5f": unref(p)
     }));
     const i = useGlobalStore(pinia), o = useConfigStore(pinia), a = useSvgEditLayoutStore(pinia), u = useEditPrivateStore(pinia), c = useContextMenuStore(pinia);
     componentsRegister();
@@ -21883,7 +21883,7 @@ const _withScopeId$2 = (r) => (pushScopeId("data-v-62907637"), r = r(), popScope
       ])
     ], 64));
   }
-}), centerPanel_vue_vue_type_style_index_0_scoped_d3ea847c_lang = "", CenterPanel = /* @__PURE__ */ _export_sfc$1(_sfc_main$x, [["__scopeId", "data-v-d3ea847c"]]);
+}), centerPanel_vue_vue_type_style_index_0_scoped_97a3211c_lang = "", CenterPanel = /* @__PURE__ */ _export_sfc$1(_sfc_main$x, [["__scopeId", "data-v-97a3211c"]]);
 /*! Element Plus Icons Vue v2.1.0 */
 var export_helper_default = (r, n) => {
   let i = r.__vccOpts || r;
