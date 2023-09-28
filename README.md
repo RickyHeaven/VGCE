@@ -4,11 +4,23 @@ Vector graphics configure editor. 矢量图组态编辑器。
 
 ## Guide
 
-1. `npm i @zhangqingcq/vgce` or `pnpm add @zhangqingcq/vgce`
+1. install
+    ```
+      npm i @zhangqingcq/vgce element-plus@^2.3.8 ace-builds@^1.14.0 lodash-es^4.17.21 vue-echarts@^6.5.1 animate.css@^4.1.1
+    ``` 
+    or 
+    ```
+      pnpm add @zhangqingcq/vgce element-plus@^2.3.8 ace-builds@^1.14.0 lodash-es^4.17.21 vue-echarts@^6.5.1 animate.css@^4.1.1
+    ```
 
-2. `import '@zhangqingcq/vgce/dist/style.css'` in main.ts
+2. change main.ts or main.js
+    ```
+      //main.js or main.ts
+   
+      import '@zhangqingcq/vgce/dist/style.css'
+    ```
 
-3. editor
+3. use editor
       ```
          <script setup lang="ts">
            import {SvgEditor} from '@zhangqingcq/vgce'
@@ -21,7 +33,7 @@ Vector graphics configure editor. 矢量图组态编辑器。
            <SvgEditor @onPreview="preview"/>
          </template>
       ```
-4. viewer
+4. use viewer
     ```
        <script setup lang="ts">
          import {SvgViewer} from '@zhangqingcq/vgce'
@@ -35,9 +47,9 @@ Vector graphics configure editor. 矢量图组态编辑器。
 
    - put svg files into `src/asset/svgs` , then file name need to be same with config.name
 
-   - put custom parts file into `src/config/files`, then import in `src/config/index.ts`  and export with `vueComp`
+   - put custom vue components file into `src/config/files`, then import in `src/config/index.ts`  and export with `vueComp`
 
-   - PS: you have to install `vite-plugin-svg-icons` plugin to append your svgs to html dom.
+   - PS: you have to install `vite-plugin-svg-icons` plugin to append your svg to html dom.
      ```
      <script setup lang="ts">
        import {SvgEditor} from '@zhangqingcq/vgce'
