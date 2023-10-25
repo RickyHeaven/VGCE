@@ -6,7 +6,8 @@ let client: MqttClient
 export const sub = (url: string, user: string, pwd: string, topics: string, callback: Function) => {
 	client = connect(url, {
 		username: user,
-		password: pwd
+		password: pwd,
+		reconnectPeriod: 600000 /*如果连不上，10分钟后重试*/
 	})
 
 	client.on('connect', () => {

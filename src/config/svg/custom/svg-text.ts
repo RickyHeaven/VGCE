@@ -13,6 +13,11 @@ export const svg_text: IConfigItem = {
 		actual_rect: true
 	},
 	props: {
+		/*deviceCode:{
+			title:'设备编码',
+			type:EConfigItemPropsType.Input,
+			val:''
+		},*/
 		text: {
 			title: '文字内容',
 			type: EConfigItemPropsType.Textarea,

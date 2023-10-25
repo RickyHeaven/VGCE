@@ -233,7 +233,16 @@
 			sub(m.url, m.user, m.pwd, m.topics, (topics: string, message: string) => {
 				console.log(topics)
 				console.log(message.toString())
-				//暂时先暴露给外部，让用户自己处理消息，后期功能会补上
+				//暴露给外部，让用户自己处理消息，message可以用JSON.parse解析成对象（后端推给前端的MQTT消息内容需要是JSON格式）
+				//用户拿到消息后可以配合setNodeAttrByID方法更新界面
+				//setNodeAttrByID的参数id可以在传给本组件的props.data（用户传进来的，自然知道值是多少）里done_json找到
+				/*如何找到指定组件的两种方案：
+				1.用你的项目里前后端约定的svg组件唯一标识符替换掉编辑器生成的id（必须保证唯一），然后调用setNodeAttrByID改变组件属性。
+				2.如果不想改动id（避免因不能保证手动改过的id唯一性导致编辑器功能异常），可以在config里给想要改变的组件的配置文件的props里增加一个字段，
+				如deviceCode(svg-text的配置文件里有被注释的例子)，然后在编辑组态时，给对应组件填上对应的deviceCode（这样deviceCode就和组件id实现
+				了映射关系），并保存，后台给前台推MQTT消息时带上指定的deviceCode，前台预览时，在收到MQTT消息后，凭借消息里的deviceCode找在done_json
+				找到组件的id（可以用vue的computed计算一份deviceCode和id的映射关系存到一个对象里，这样在需要id时可直接在计算出的对象凭借deviceCode
+				直接取到），即可用setNodeAttrByID改变组件属性*/
 				emit('onMessage', {
 					topics,
 					message
@@ -242,6 +251,13 @@
 		}
 	}
 
+	/**
+	 * 根据组件id设置相应属性
+	 * @param id done_json里元素的id
+	 * @param attr 属性，如svg-text的文字内容是：props.text.val
+	 * @param val 需要设置的值
+	 * @example setNodeAttrByID('Q5cZBSDXTP','props.text.val','新的文字内容')
+	 */
 	const setNodeAttrByID = (id: string, attr: string, val: any) => {
 		return setArrItemByID(id, attr, val, preview_data.done_json)
 	}

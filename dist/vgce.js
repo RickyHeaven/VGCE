@@ -362,6 +362,11 @@ const svg_alert_light = {
     actual_rect: !0
   },
   props: {
+    /*deviceCode:{
+    	title:'设备编码',
+    	type:EConfigItemPropsType.Input,
+    	val:''
+    },*/
     text: {
       title: "文字内容",
       type: EConfigItemPropsType.Textarea,
@@ -39219,7 +39224,9 @@ let client;
 const sub = (r, n, i, o, a) => {
   client = mqttExports.connect(r, {
     username: n,
-    password: i
+    password: i,
+    reconnectPeriod: 6e5
+    /*如果连不上，10分钟后重试*/
   }), client.on("connect", () => {
     console.log("MQTT服务器连接成功"), console.log(client.options.clientId), client.subscribe(o, { qos: 1 });
   }), client.on("message", a);
@@ -39237,7 +39244,7 @@ const sub = (r, n, i, o, a) => {
   setup(r, { expose: n, emit: i }) {
     const o = r;
     useCssVars((w) => ({
-      eb9e007c: unref(c)
+      "2560e28f": unref(c)
     })), setEditorLoadTime();
     const a = useGlobalStore(pinia);
     componentsRegister();
@@ -39454,7 +39461,7 @@ const sub = (r, n, i, o, a) => {
       ], 4))
     ], 32));
   }
-}), svgViewer_vue_vue_type_style_index_0_scoped_7cd79a96_lang = "", svgViewer = /* @__PURE__ */ _export_sfc$1(_sfc_main, [["__scopeId", "data-v-7cd79a96"]]);
+}), svgViewer_vue_vue_type_style_index_0_scoped_5171fc53_lang = "", svgViewer = /* @__PURE__ */ _export_sfc$1(_sfc_main, [["__scopeId", "data-v-5171fc53"]]);
 export {
   index as SvgEditor,
   svgViewer as SvgViewer
