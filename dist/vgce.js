@@ -3,7 +3,7 @@ import { ElProgress, ElTable, ElTableColumn, ElButton, ElTag as ElTag$1, ElMessa
 import "animate.css";
 import VChart, { THEME_KEY } from "vue-echarts";
 import { defineStore, createPinia } from "pinia";
-import { kebabCase, get as get$1, set as set$1, fromPairs, castArray, clone as clone$3, isNil, isUndefined as isUndefined$1, isEqual, debounce } from "lodash-es";
+import { kebabCase, isEmpty, get as get$1, set as set$1, fromPairs, castArray, clone as clone$3, isNil, isUndefined as isUndefined$1, isEqual, debounce } from "lodash-es";
 import ace from "ace-builds";
 const windi = "";
 if (typeof window < "u") {
@@ -20543,38 +20543,40 @@ const _withScopeId$2 = (i) => (pushScopeId("data-v-62907637"), i = i(), popScope
       "element-ui",
       "custom-vue",
       "echarts"
-    ]), u = (f) => {
-      r.setCreateInfo(f);
-    }, c = (f) => {
-      var d;
-      if (((d = f.dataTransfer) == null ? void 0 : d.dropEffect) !== "copy") {
+    ]), u = (d) => {
+      r.setCreateInfo(c(d));
+    }, c = (d) => (d != null && d.props && !isEmpty(d.props) && Object.keys(d.props).forEach((p, y) => {
+      d.props[p].sort = String(y);
+    }), d), f = (d) => {
+      var p;
+      if (((p = d.dataTransfer) == null ? void 0 : p.dropEffect) !== "copy") {
         ElMessage.warning("请将组件拖到画布中!"), r.intention = EGlobalStoreIntention.None;
         return;
       }
     };
-    return (f, d) => (openBlock(), createElementBlock("div", null, [
+    return (d, p) => (openBlock(), createElementBlock("div", null, [
       createVNode$1(unref(ElCollapse), {
         modelValue: unref(a),
-        "onUpdate:modelValue": d[0] || (d[0] = (p) => isRef(a) ? a.value = p : null),
+        "onUpdate:modelValue": p[0] || (p[0] = (y) => isRef(a) ? a.value = y : null),
         style: { "border-top": "none" }
       }, {
         default: withCtx(() => [
-          (openBlock(!0), createElementBlock(Fragment, null, renderList(unref(o), (p) => (openBlock(), createBlock(unref(ElCollapseItem), {
-            name: p.groupType,
-            key: p.title
+          (openBlock(!0), createElementBlock(Fragment, null, renderList(unref(o), (y) => (openBlock(), createBlock(unref(ElCollapseItem), {
+            name: y.groupType,
+            key: y.title
           }, {
             title: withCtx(() => [
-              createElementVNode("div", null, toDisplayString(p.title), 1)
+              createElementVNode("div", null, toDisplayString(y.title), 1)
             ]),
             default: withCtx(() => [
               createElementVNode("div", _hoisted_1$g, [
-                (openBlock(!0), createElementBlock(Fragment, null, renderList(p.list, (y) => (openBlock(), createElementBlock("div", {
+                (openBlock(!0), createElementBlock(Fragment, null, renderList(y.list, (v) => (openBlock(), createElementBlock("div", {
                   class: "ideal",
-                  key: y.name,
+                  key: v.name,
                   draggable: "true",
-                  onDragstart: (v) => u(y),
-                  onDragend: c,
-                  title: y.title
+                  onDragstart: (g) => u(v),
+                  onDragend: f,
+                  title: v.title
                 }, [
                   createVNode$1(unref(ElIcon$1), {
                     size: 35,
@@ -20582,8 +20584,8 @@ const _withScopeId$2 = (i) => (pushScopeId("data-v-62907637"), i = i(), popScope
                   }, {
                     default: withCtx(() => [
                       createVNode$1(_sfc_main$D, {
-                        name: y.name,
-                        props: unref(prosToVBind)(y, ["width", "height", "maxHeight"])
+                        name: v.name,
+                        props: unref(prosToVBind)(v, ["width", "height", "maxHeight"])
                       }, null, 8, ["name", "props"])
                     ]),
                     _: 2
@@ -20598,7 +20600,7 @@ const _withScopeId$2 = (i) => (pushScopeId("data-v-62907637"), i = i(), popScope
       }, 8, ["modelValue"])
     ]));
   }
-}), leftPanel_vue_vue_type_style_index_0_scoped_d7403cfd_lang = "", LeftPanel = /* @__PURE__ */ _export_sfc$1(_sfc_main$B, [["__scopeId", "data-v-d7403cfd"]]), calculateLeftTop = (i, n, r) => {
+}), leftPanel_vue_vue_type_style_index_0_scoped_8aba8565_lang = "", LeftPanel = /* @__PURE__ */ _export_sfc$1(_sfc_main$B, [["__scopeId", "data-v-8aba8565"]]), calculateLeftTop = (i, n, r) => {
   const o = getCenterPoint(i, n), a = calculateRotatedPointCoordinate(i, o, -r), u = calculateRotatedPointCoordinate(n, o, -r);
   return {
     width: u.x - a.x,
@@ -22570,114 +22572,142 @@ const _sfc_main$w = /* @__PURE__ */ defineComponent({
   },
   emits: ["change"],
   setup(i, { emit: n }) {
-    const r = i;
-    function o(a) {
-      let u = window.setTimeout(function() {
-        n("change", a), clearTimeout(u), u = null;
+    const r = i, o = computed(() => {
+      var d;
+      const u = {};
+      let c = 0, f = [];
+      for (let p of Object.keys(r.objInfo)) {
+        const y = (d = r.objInfo[p]) == null ? void 0 : d.sort;
+        if (y) {
+          const v = Number(y);
+          v > c && (c = v);
+        }
+        if (y)
+          u[y] = p;
+        else
+          return Object.keys(r.objInfo).map((v) => ({
+            ...r.objInfo[v],
+            _key: v
+          }));
+      }
+      for (let p = 0; p < c + 1; p++) {
+        const y = String(p);
+        f.push({
+          ...r.objInfo[u[y]],
+          _key: u[y]
+        });
+      }
+      return f;
+    });
+    function a(u) {
+      let c = window.setTimeout(function() {
+        n("change", u), clearTimeout(c), c = null;
       }, 200);
     }
-    return (a, u) => (openBlock(!0), createElementBlock(Fragment, null, renderList(r.objInfo, (c, f) => (openBlock(), createElementBlock("div", { key: f }, [
+    return (u, c) => (openBlock(!0), createElementBlock(Fragment, null, renderList(unref(o), (f) => (openBlock(), createElementBlock("div", {
+      key: f._key
+    }, [
       r.code ? (openBlock(), createBlock(unref(ElFormItem$1), {
         key: 0,
         class: "props-row",
         size: "small"
       }, {
         label: withCtx(() => [
-          unref(getStringWidth)(String(f)) > 78 ? (openBlock(), createBlock(unref(ElTooltip$1), {
+          unref(getStringWidth)(String(f._key)) > 78 ? (openBlock(), createBlock(unref(ElTooltip$1), {
             key: 0,
-            content: String(f),
+            content: String(f._key),
             placement: "left",
             "popper-class": "props-popper"
           }, {
             default: withCtx(() => [
-              createElementVNode("div", _hoisted_1$b, toDisplayString(f), 1)
+              createElementVNode("div", _hoisted_1$b, toDisplayString(f._key), 1)
             ]),
             _: 2
-          }, 1032, ["content"])) : (openBlock(), createElementBlock("span", _hoisted_2$8, toDisplayString(f), 1))
+          }, 1032, ["content"])) : (openBlock(), createElementBlock("span", _hoisted_2$8, toDisplayString(f._key), 1))
         ]),
         default: withCtx(() => [
-          unref(getStringWidth)(String(c.val)) > 145 ? (openBlock(), createBlock(unref(ElTooltip$1), {
+          unref(getStringWidth)(String(f.val)) > 145 ? (openBlock(), createBlock(unref(ElTooltip$1), {
             key: 0,
-            content: JSON.stringify(c.val),
+            content: JSON.stringify(f.val),
             placement: "left",
             "popper-class": "props-popper"
           }, {
             default: withCtx(() => [
-              createElementVNode("div", _hoisted_3$7, toDisplayString(c.val), 1)
+              createElementVNode("div", _hoisted_3$7, toDisplayString(f.val), 1)
             ]),
             _: 2
-          }, 1032, ["content"])) : (openBlock(), createElementBlock("span", _hoisted_4$3, toDisplayString(c.val), 1))
+          }, 1032, ["content"])) : (openBlock(), createElementBlock("span", _hoisted_4$3, toDisplayString(f.val), 1))
         ]),
         _: 2
       }, 1024)) : createCommentVNode("", !0),
-      r.hide.indexOf(String(f)) < 0 ? (openBlock(), createBlock(unref(ElFormItem$1), {
+      r.hide.indexOf(String(f._key)) < 0 ? (openBlock(), createBlock(unref(ElFormItem$1), {
         key: 1,
-        label: c.title,
+        label: f.title,
         size: "small"
       }, {
         default: withCtx(() => [
-          c.type === unref(EConfigItemPropsType).Select ? (openBlock(), createBlock(unref(ElSelect$1), {
+          f.type === unref(EConfigItemPropsType).Select ? (openBlock(), createBlock(unref(ElSelect$1), {
             key: 0,
-            modelValue: c.val,
-            "onUpdate:modelValue": (d) => c.val = d,
+            modelValue: r.objInfo[f._key].val,
+            "onUpdate:modelValue": (d) => r.objInfo[f._key].val = d,
             placeholder: "Select",
             size: "small",
-            disabled: !!(c != null && c.disabled),
-            onChange: o
+            disabled: !!(f != null && f.disabled),
+            onChange: a
           }, {
             default: withCtx(() => [
-              (openBlock(!0), createElementBlock(Fragment, null, renderList(c.options, (d) => (openBlock(), createBlock(unref(ElOption$1), {
+              (openBlock(!0), createElementBlock(Fragment, null, renderList(f.options, (d) => (openBlock(), createBlock(unref(ElOption$1), {
                 key: d.value,
                 label: d.label,
                 value: d.value
               }, null, 8, ["label", "value"]))), 128))
             ]),
             _: 2
-          }, 1032, ["modelValue", "onUpdate:modelValue", "disabled"])) : c.type === unref(EConfigItemPropsType).InputNumber ? (openBlock(), createBlock(unref(ElInputNumber), {
+          }, 1032, ["modelValue", "onUpdate:modelValue", "disabled"])) : f.type === unref(EConfigItemPropsType).InputNumber ? (openBlock(), createBlock(unref(ElInputNumber), {
             key: 1,
-            modelValue: c.val,
-            "onUpdate:modelValue": (d) => c.val = d,
-            disabled: !!(c != null && c.disabled),
-            onChange: o
-          }, null, 8, ["modelValue", "onUpdate:modelValue", "disabled"])) : c.type === unref(EConfigItemPropsType).Input ? (openBlock(), createBlock(unref(ElInput$1), {
+            modelValue: r.objInfo[f._key].val,
+            "onUpdate:modelValue": (d) => r.objInfo[f._key].val = d,
+            disabled: !!(f != null && f.disabled),
+            onChange: a
+          }, null, 8, ["modelValue", "onUpdate:modelValue", "disabled"])) : f.type === unref(EConfigItemPropsType).Input ? (openBlock(), createBlock(unref(ElInput$1), {
             key: 2,
-            modelValue: c.val,
-            "onUpdate:modelValue": (d) => c.val = d,
-            disabled: !!(c != null && c.disabled),
-            onChange: o
-          }, null, 8, ["modelValue", "onUpdate:modelValue", "disabled"])) : c.type === unref(EConfigItemPropsType).Textarea ? (openBlock(), createBlock(unref(ElInput$1), {
+            modelValue: r.objInfo[f._key].val,
+            "onUpdate:modelValue": (d) => r.objInfo[f._key].val = d,
+            disabled: !!(f != null && f.disabled),
+            onChange: a
+          }, null, 8, ["modelValue", "onUpdate:modelValue", "disabled"])) : f.type === unref(EConfigItemPropsType).Textarea ? (openBlock(), createBlock(unref(ElInput$1), {
             key: 3,
-            modelValue: c.val,
-            "onUpdate:modelValue": (d) => c.val = d,
+            modelValue: r.objInfo[f._key].val,
+            "onUpdate:modelValue": (d) => r.objInfo[f._key].val = d,
             autosize: "",
             type: "textarea",
-            disabled: !!(c != null && c.disabled),
-            onChange: o
-          }, null, 8, ["modelValue", "onUpdate:modelValue", "disabled"])) : c.type === unref(EConfigItemPropsType).Color ? (openBlock(), createBlock(unref(ElColorPicker), {
+            disabled: !!(f != null && f.disabled),
+            onChange: a
+          }, null, 8, ["modelValue", "onUpdate:modelValue", "disabled"])) : f.type === unref(EConfigItemPropsType).Color ? (openBlock(), createBlock(unref(ElColorPicker), {
             key: 4,
-            modelValue: c.val,
-            "onUpdate:modelValue": (d) => c.val = d,
-            disabled: !!(c != null && c.disabled),
-            onChange: o
-          }, null, 8, ["modelValue", "onUpdate:modelValue", "disabled"])) : c.type === unref(EConfigItemPropsType).Switch ? (openBlock(), createBlock(unref(ElSwitch), {
+            modelValue: r.objInfo[f._key].val,
+            "onUpdate:modelValue": (d) => r.objInfo[f._key].val = d,
+            disabled: !!(f != null && f.disabled),
+            onChange: a
+          }, null, 8, ["modelValue", "onUpdate:modelValue", "disabled"])) : f.type === unref(EConfigItemPropsType).Switch ? (openBlock(), createBlock(unref(ElSwitch), {
             key: 5,
-            modelValue: c.val,
-            "onUpdate:modelValue": (d) => c.val = d,
-            disabled: !!(c != null && c.disabled),
-            onChange: o
-          }, null, 8, ["modelValue", "onUpdate:modelValue", "disabled"])) : c.type === unref(EConfigItemPropsType).JsonEdit ? (openBlock(), createBlock(_sfc_main$w, {
+            modelValue: r.objInfo[f._key].val,
+            "onUpdate:modelValue": (d) => r.objInfo[f._key].val = d,
+            disabled: !!(f != null && f.disabled),
+            onChange: a
+          }, null, 8, ["modelValue", "onUpdate:modelValue", "disabled"])) : f.type === unref(EConfigItemPropsType).JsonEdit ? (openBlock(), createBlock(_sfc_main$w, {
             key: 6,
-            modelValue: c.val,
-            "onUpdate:modelValue": (d) => c.val = d,
-            disabled: !!(c != null && c.disabled),
-            onClose: o
+            modelValue: r.objInfo[f._key].val,
+            "onUpdate:modelValue": (d) => r.objInfo[f._key].val = d,
+            disabled: !!(f != null && f.disabled),
+            onClose: a
           }, null, 8, ["modelValue", "onUpdate:modelValue", "disabled"])) : createCommentVNode("", !0)
         ]),
         _: 2
       }, 1032, ["label"])) : createCommentVNode("", !0)
     ]))), 128));
   }
-}), dynamicElFormItem_vue_vue_type_style_index_0_scoped_df8be28f_lang = "", dynamicElFormItem_vue_vue_type_style_index_1_lang = "", DynamicElFormItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$v, [["__scopeId", "data-v-df8be28f"]]), _hoisted_1$a = { style: { height: "100%" } }, _hoisted_2$7 = { class: "flex flex-wrap" }, _hoisted_3$6 = ["onMouseenter", "onClick"], _sfc_main$u = /* @__PURE__ */ defineComponent({
+}), dynamicElFormItem_vue_vue_type_style_index_0_scoped_b2819020_lang = "", dynamicElFormItem_vue_vue_type_style_index_1_lang = "", DynamicElFormItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$v, [["__scopeId", "data-v-b2819020"]]), _hoisted_1$a = { style: { height: "100%" } }, _hoisted_2$7 = { class: "flex flex-wrap" }, _hoisted_3$6 = ["onMouseenter", "onClick"], _sfc_main$u = /* @__PURE__ */ defineComponent({
   __name: "common-animate",
   props: {
     val: {}

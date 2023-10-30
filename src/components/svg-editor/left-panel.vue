@@ -1,5 +1,6 @@
 <!--左侧工具栏-->
 <script lang="ts" setup>
+	import { isEmpty } from 'lodash-es'
 	import { ElCollapse, ElCollapseItem, ElIcon, ElMessage } from 'element-plus'
 	import type { IConfig, IConfigItem } from '@/config/types'
 	import { pinia } from '@/hooks'
@@ -23,7 +24,16 @@
 		'echarts'
 	])
 	const createBegin = (svg_item: IConfigItem) => {
-		globalStore.setCreateInfo(svg_item)
+		globalStore.setCreateInfo(sortProps(svg_item))
+	}
+
+	const sortProps = (svg_item: IConfigItem): IConfigItem => {
+		if (svg_item?.props && !isEmpty(svg_item.props)) {
+			Object.keys(svg_item.props).forEach((k, i) => {
+				svg_item.props[k].sort = String(i)
+			})
+		}
+		return svg_item
 	}
 	const dragEndEvent = (e: DragEvent) => {
 		//拖动时记录拖动的svg信息

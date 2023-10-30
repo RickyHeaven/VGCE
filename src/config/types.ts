@@ -36,6 +36,7 @@ export interface IConfigItemProps {
 		val: any
 		options?: any
 		disabled?: boolean
+		sort?: string
 	}
 }
 
