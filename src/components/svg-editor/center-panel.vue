@@ -1005,9 +1005,9 @@
 							<use
 								v-else-if="item.type === EDoneJsonType.File"
 								:xlink:href="`#svg-${item.name}`"
-								v-bind="prosToVBind(item)"
-								width="100"
-								height="100"
+								v-bind="prosToVBind(item, ['height', 'width'])"
+								:width="item.props?.width?.val ?? 100"
+								:height="item.props?.height?.val ?? 100"
 								:id="item.id"
 								:transform="`translate(${item.actual_bound.x + item.actual_bound.width / 2},${
 									item.actual_bound.y + item.actual_bound.height / 2
@@ -1019,9 +1019,9 @@
 							<component
 								v-else-if="item.type === EDoneJsonType.CustomSvg"
 								:is="item.tag"
-								v-bind="prosToVBind(item)"
-								width="100"
-								height="100"
+								v-bind="prosToVBind(item, ['height', 'width'])"
+								:width="item.props?.width?.val ?? 100"
+								:height="item.props?.height?.val ?? 100"
 								:id="item.id"
 								@resize="resizeBox"
 								:transform="`translate(${item.actual_bound.x + item.actual_bound.width / 2},${

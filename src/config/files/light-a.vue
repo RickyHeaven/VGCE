@@ -1,7 +1,9 @@
 <script setup lang="ts">
-	const props = withDefaults(defineProps<{ id: string; isOpen: boolean }>(), {
+	const props = withDefaults(defineProps<{ id: string; isOpen: boolean; height?: number; width?: number }>(), {
 		id: '',
-		isOpen: false
+		isOpen: false,
+		height: 100,
+		width: 100
 	})
 
 	const emit = defineEmits(['onChange'])
@@ -65,6 +67,6 @@
 				fill="#CEEFF6"
 			/>
 		</symbol>
-		<use :xlink:href="`#${props.id}light-121`" width="100" height="100" />
+		<use :xlink:href="`#${props.id}light-121`" :width="width" :height="height" />
 	</g>
 </template>

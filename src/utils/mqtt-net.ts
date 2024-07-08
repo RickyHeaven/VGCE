@@ -3,7 +3,7 @@ import type { MqttClient, PacketCallback } from 'mqtt'
 
 let client: MqttClient
 
-export const sub = (url: string, user: string, pwd: string, topics: string, callback: Function) => {
+export const sub = (url: string, user: string, pwd: string, topics: string, callback: any) => {
 	const _url = url.trim()
 	if (!/^wss?:\/\/.*$/.test(_url)) {
 		console.error('编辑器MQTT通信只支持ws协议 (url必须以"ws://"开头)')

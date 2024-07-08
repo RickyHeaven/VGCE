@@ -13,6 +13,16 @@ export const light_a: IConfigItem = {
 	},
 	display: true,
 	props: {
+		height: {
+			title: '高度',
+			type: EConfigItemPropsType.InputNumber,
+			val: 60
+		},
+		width: {
+			title: '宽度',
+			type: EConfigItemPropsType.InputNumber,
+			val: 50
+		},
 		isOpen: {
 			title: '开关',
 			type: EConfigItemPropsType.Switch,

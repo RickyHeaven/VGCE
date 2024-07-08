@@ -1,4 +1,4 @@
-import { EConfigItemPropsType, EDoneJsonType } from '@/config/types'
+import { EDoneJsonType } from '@/config/types'
 import type { IConfigItem } from '@/config/types'
 export const thermometer: IConfigItem = {
 	name: 'thermometer',

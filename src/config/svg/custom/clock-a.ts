@@ -49,7 +49,7 @@ export const clock_a: IConfigItem = {
 			val: '#ffffff'
 		},
 		borderColor: {
-			title: '裱框颜色',
+			title: '表框颜色',
 			type: EConfigItemPropsType.Color,
 			val: '#B3A7FF'
 		}
