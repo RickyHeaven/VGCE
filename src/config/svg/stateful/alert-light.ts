@@ -12,7 +12,7 @@ export const svg_alert_light: IConfigItem = {
 	},
 	display: true,
 	props: {},
-	defaultState: 'yellow',
+	defaultState: 'white',
 	state: {
 		green: {
 			label: '正常',
