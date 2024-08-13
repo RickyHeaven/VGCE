@@ -26,11 +26,14 @@
 	setEditorLoadTime()
 
 	const emit = defineEmits(['onMessage'])
-	const props = withDefaults(defineProps<{ data?: IDataModel; canvasDrag?: boolean }>(), {
-		canvasDrag: true
-	})
+	const props = withDefaults(
+		defineProps<{ vueComp?: Record<string, any>; data?: IDataModel; canvasDrag?: boolean }>(),
+		{
+			canvasDrag: true
+		}
+	)
 	const globalStore = useGlobalStore(pinia)
-	componentsRegister()
+	componentsRegister(props.vueComp)
 	const preview_data = reactive(
 		props.data ?? {
 			layout_center: {

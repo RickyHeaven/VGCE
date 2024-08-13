@@ -18,10 +18,11 @@ export const preventDefault = (e: any) => {
 	e.preventDefault()
 }
 
-export function componentsRegister() {
+export function componentsRegister(data?: Record<string, any>) {
 	//注册所有组件
 	const instance = getCurrentInstance()
-	for (let key in vueComp) {
+	const t = data ? Object.assign(vueComp, data) : vueComp
+	for (let key in t) {
 		if (!instance?.appContext?.components.hasOwnProperty(key) && vueComp.hasOwnProperty(key)) {
 			instance?.appContext?.app.component(key, vueComp[key])
 		}

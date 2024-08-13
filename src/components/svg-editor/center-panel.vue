@@ -38,7 +38,6 @@
 	import type { IVisibleInfo } from '../config'
 	import { useContextMenuStore, useEditPrivateStore } from '@/stores/system'
 	import { EContextMenuInfoType } from '@/stores/system/types'
-	import ImportJson from '@/components/svg-editor/import-json.vue'
 
 	const globalStore = useGlobalStore(pinia)
 	const configStore = useConfigStore(pinia)
@@ -46,7 +45,9 @@
 	const editPrivateStore = useEditPrivateStore(pinia)
 	const contextMenuStore = useContextMenuStore(pinia)
 
-	componentsRegister()
+	const props = defineProps<{ vueComp?: Record<string, any> }>()
+
+	componentsRegister(props.vueComp)
 	const contextMenuRef = ref<HTMLElement>()
 	const canvasRef = ref<HTMLElement>()
 	const ct: Record<string, any> = {

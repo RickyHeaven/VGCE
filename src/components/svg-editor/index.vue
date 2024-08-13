@@ -36,11 +36,13 @@
 
 	setEditorLoadTime()
 
-	//todo 优化自带组件使用体验
 	const emits = defineEmits(['onReturn', 'onPreview', 'onSave'])
-	const props = withDefaults(defineProps<{ customToolbar?: IConfig; data?: string; saveFile?: boolean }>(), {
-		saveFile: false
-	})
+	const props = withDefaults(
+		defineProps<{ customToolbar?: IConfig; vueComp?: Record<string, any>; data?: string; saveFile?: boolean }>(),
+		{
+			saveFile: false
+		}
+	)
 	const globalStore = useGlobalStore(pinia)
 	const svgEditLayoutStore = useSvgEditLayoutStore(pinia)
 	const configStore = useConfigStore(pinia)
@@ -152,7 +154,7 @@
 				<el-main class="middle main">
 					<div class="canvas-main-pc">
 						<Vue3RulerTool class="canvas-main-pc" :visible="configStore.svg.ruler" @onLineMouseUp="onLineMouseUp">
-							<center-panel ref="centerRef" />
+							<center-panel ref="centerRef" :vueComp="props.vueComp" />
 						</Vue3RulerTool>
 					</div>
 				</el-main>
