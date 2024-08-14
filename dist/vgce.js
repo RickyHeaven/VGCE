@@ -1,4 +1,4 @@
-import { defineComponent, watch, openBlock, createBlock, unref, createElementBlock, createElementVNode, nextTick, normalizeStyle as normalizeStyle$1, toDisplayString, ref, watchEffect, normalizeProps, guardReactiveProps, withCtx, Fragment, renderList, mergeProps, computed, onMounted, onUnmounted, provide, reactive, getCurrentInstance, createVNode as createVNode$1, normalizeClass, isRef, pushScopeId, popScopeId, useCssVars, withDirectives, vShow, createCommentVNode, resolveDynamicComponent, createTextVNode, h, markRaw, capitalize, getCurrentScope, onScopeDispose, warn as warn$1, inject, shallowRef, onBeforeUnmount, onBeforeMount, renderSlot, toRef, toRefs, onUpdated, useSlots, TransitionGroup, useAttrs as useAttrs$1, withModifiers, Transition, cloneVNode, Text, Comment, Teleport, readonly, onDeactivated, toRaw, triggerRef, resolveComponent, resolveDirective, withKeys, vModelText, createSlots } from "vue";
+import { defineComponent, watch, openBlock, createBlock, unref, createElementBlock, createElementVNode, nextTick, normalizeStyle as normalizeStyle$1, toDisplayString, ref, watchEffect, normalizeProps, guardReactiveProps, withCtx, Fragment, renderList, mergeProps, computed, onMounted, onUnmounted, provide, reactive, getCurrentInstance, createVNode as createVNode$1, normalizeClass, isRef, pushScopeId, popScopeId, useCssVars, withDirectives, vShow, createCommentVNode, renderSlot, resolveDynamicComponent, createTextVNode, h, markRaw, capitalize, getCurrentScope, onScopeDispose, warn as warn$1, inject, shallowRef, onBeforeUnmount, onBeforeMount, toRef, toRefs, onUpdated, useSlots, TransitionGroup, useAttrs as useAttrs$1, withModifiers, Transition, cloneVNode, Text, Comment, Teleport, readonly, onDeactivated, toRaw, triggerRef, resolveComponent, resolveDirective, withKeys, vModelText, createSlots } from "vue";
 import { ElProgress, ElTable, ElTableColumn, ElButton, ElTag as ElTag$1, ElMessage, ElIcon as ElIcon$1, ElDivider, ElDialog, ElScrollbar as ElScrollbar$1, ElCollapse, ElCollapseItem, ElFormItem as ElFormItem$1, ElTooltip as ElTooltip$1, ElSelect as ElSelect$1, ElOption as ElOption$1, ElInputNumber, ElInput as ElInput$1, ElColorPicker, ElSwitch, ElDrawer, ElTabs, ElTabPane, ElTree, ElForm, ElContainer, ElHeader, ElAside, ElMain, ElUpload, ElMessageBox } from "element-plus";
 import "animate.css";
 import VChart, { THEME_KEY } from "vue-echarts";
@@ -1041,11 +1041,11 @@ const t$p = {
   fill: "#5ad562",
   "p-id": "1530",
   "data-spm-anchor-id": "a313x.manage_type_myprojects.0.i1.1adc3a81uCnBP5"
-}, null, -1), _hoisted_6$7 = [
+}, null, -1), _hoisted_6$8 = [
   _hoisted_3$f,
   _hoisted_4$b,
   _hoisted_5$9
-], _hoisted_7$7 = ["id"], _hoisted_8$7 = /* @__PURE__ */ createElementVNode("path", {
+], _hoisted_7$8 = ["id"], _hoisted_8$7 = /* @__PURE__ */ createElementVNode("path", {
   d: "M747.52 238.933333    H276.48    C122.88 238.933333 0 361.813333 0 512    s122.88 273.066667 276.48 273.066667    H750.933333    c150.186667 0 276.48-122.88 276.48-273.066667    s-126.293333-273.066667-279.893333-273.066667z",
   fill: "white",
   "fill-opacity": ".01",
@@ -1097,11 +1097,11 @@ const t$p = {
       createElementVNode("symbol", {
         viewBox: "0 0 1027 1024",
         id: `${i.id}switch-demo-open`
-      }, _hoisted_6$7, 8, _hoisted_2$i),
+      }, _hoisted_6$8, 8, _hoisted_2$i),
       createElementVNode("symbol", {
         viewBox: "0 0 1027 1024",
         id: `${i.id}switch-demo-close`
-      }, _hoisted_12$5, 8, _hoisted_7$7),
+      }, _hoisted_12$5, 8, _hoisted_7$8),
       createElementVNode("use", {
         "xlink:href": `#${i.id}switch-demo-${i.isOpen ? "open" : "close"}`,
         width: "100",
@@ -19177,10 +19177,10 @@ const _sfc_main$H = /* @__PURE__ */ defineComponent({
       autoresize: ""
     }, null, 8, ["option"]));
   }
-}), pieCharts_vue_vue_type_style_index_0_scoped_fec2cbf2_lang = "", PieCharts = /* @__PURE__ */ _export_sfc$1(_sfc_main$H, [["__scopeId", "data-v-fec2cbf2"]]), _hoisted_1$k = ["id"], _hoisted_2$h = ["id"], _hoisted_3$e = ["fill"], _hoisted_4$a = ["fill"], _hoisted_5$8 = ["fill"], _hoisted_6$6 = /* @__PURE__ */ createElementVNode("path", {
+}), pieCharts_vue_vue_type_style_index_0_scoped_fec2cbf2_lang = "", PieCharts = /* @__PURE__ */ _export_sfc$1(_sfc_main$H, [["__scopeId", "data-v-fec2cbf2"]]), _hoisted_1$k = ["id"], _hoisted_2$h = ["id"], _hoisted_3$e = ["fill"], _hoisted_4$a = ["fill"], _hoisted_5$8 = ["fill"], _hoisted_6$7 = /* @__PURE__ */ createElementVNode("path", {
   d: "M375.466667 709.214815l-25.6 137.481481c0 2.844444 1.896296 5.688889 7.585185 10.42963l65.422222 54.992593c5.688889 4.740741 15.17037 8.533333 23.703704 10.429629l36.029629-193.422222-107.14074-19.911111z",
   fill: "#2D4375"
-}, null, -1), _hoisted_7$6 = /* @__PURE__ */ createElementVNode("path", {
+}, null, -1), _hoisted_7$7 = /* @__PURE__ */ createElementVNode("path", {
   d: "M482.607407 729.125926l-36.029629 193.422222c9.481481 1.896296 18.014815 1.896296 25.6-0.948148l80.592592-27.496296c6.637037-1.896296 10.42963-4.740741 11.377778-6.637037L589.748148 749.037037l-107.140741-19.911111z",
   fill: "#1E2D4F"
 }, null, -1), _hoisted_8$6 = ["fill-opacity"], _hoisted_9$6 = ["fill-opacity"], _hoisted_10$5 = ["fill-opacity"], _hoisted_11$4 = /* @__PURE__ */ createElementVNode("path", {
@@ -19228,8 +19228,8 @@ const _sfc_main$H = /* @__PURE__ */ defineComponent({
           d: "M467.437037 806.874074c-7.585185-0.948148-12.325926-7.585185-14.222222-14.222222l-38.874074-256c-0.948148-5.688889 0.948148-11.377778 4.74074-15.170371 3.792593-3.792593 9.481481-5.688889 15.170371-4.74074l167.822222 31.288889c5.688889 0.948148 10.42963 4.740741 12.325926 9.481481 1.896296 4.740741 1.896296 11.377778-0.948148 16.118519L486.4 798.340741c-3.792593 6.637037-11.377778 10.42963-18.962963 8.533333z m-14.222222-251.259259l27.496296 182.992592L572.681481 578.37037l-119.466666-22.755555z",
           fill: i.isOpen ? "#F12A3F" : "#666666"
         }, null, 8, _hoisted_5$8),
-        _hoisted_6$6,
-        _hoisted_7$6,
+        _hoisted_6$7,
+        _hoisted_7$7,
         createElementVNode("path", {
           d: "M612.503704 217.125926c-3.792593 18.014815-20.859259 29.392593-38.874074 26.548148-18.014815-3.792593-30.340741-20.859259-26.548149-38.874074l18.962963-100.503704c3.792593-18.014815 20.859259-29.392593 38.874075-26.548148 18.014815 3.792593 30.340741 20.859259 26.548148 38.874074l-18.962963 100.503704z",
           fill: "#FDB813",
@@ -19256,7 +19256,7 @@ const _sfc_main$H = /* @__PURE__ */ defineComponent({
       }, null, 8, _hoisted_14$3)
     ], 8, _hoisted_1$k));
   }
-}), _hoisted_1$j = ["id"], _hoisted_2$g = ["id"], _hoisted_3$d = ["fill"], _hoisted_4$9 = ["fill"], _hoisted_5$7 = ["fill"], _hoisted_6$5 = ["from", "to"], _hoisted_7$5 = ["fill"], _hoisted_8$5 = ["from", "to"], _hoisted_9$5 = ["fill"], _hoisted_10$4 = ["fill"], _hoisted_11$3 = ["fill"], _hoisted_12$3 = ["from", "to"], _hoisted_13$2 = ["fill"], _hoisted_14$2 = ["xlink:href"], _sfc_main$F = /* @__PURE__ */ defineComponent({
+}), _hoisted_1$j = ["id"], _hoisted_2$g = ["id"], _hoisted_3$d = ["fill"], _hoisted_4$9 = ["fill"], _hoisted_5$7 = ["fill"], _hoisted_6$6 = ["from", "to"], _hoisted_7$6 = ["fill"], _hoisted_8$5 = ["from", "to"], _hoisted_9$5 = ["fill"], _hoisted_10$4 = ["fill"], _hoisted_11$3 = ["fill"], _hoisted_12$3 = ["from", "to"], _hoisted_13$2 = ["fill"], _hoisted_14$2 = ["xlink:href"], _sfc_main$F = /* @__PURE__ */ defineComponent({
   __name: "clock-a",
   props: {
     id: { default: "" },
@@ -19298,7 +19298,7 @@ const _sfc_main$H = /* @__PURE__ */ defineComponent({
             to: `${405 + unref(a) * 6} 512.3 506.3`,
             dur: "3600s",
             repeatCount: "indefinite"
-          }, null, 8, _hoisted_6$5)
+          }, null, 8, _hoisted_6$6)
         ], 8, _hoisted_5$7),
         createElementVNode("path", {
           d: "M512.3 523.8c-4.5 0-9-1.7-12.4-5.1-6.8-6.8-6.8-17.9 0-24.8l130.8-130.8c6.8-6.8 17.9-6.8 24.8 0 6.8 6.8 6.8 17.9 0 24.8L524.7 518.7c-3.5 3.4-7.9 5.1-12.4 5.1z",
@@ -19313,7 +19313,7 @@ const _sfc_main$H = /* @__PURE__ */ defineComponent({
             dur: "43200s",
             repeatCount: "indefinite"
           }, null, 8, _hoisted_8$5)
-        ], 8, _hoisted_7$5),
+        ], 8, _hoisted_7$6),
         createElementVNode("path", {
           d: "M512.3 506.3m-47.5 0a47.5 47.5 0 1 0 95 0 47.5 47.5 0 1 0-95 0Z",
           fill: n.circleColor
@@ -20348,7 +20348,7 @@ const _withScopeId$2 = (r) => (pushScopeId("data-v-62907637"), r = r(), popScope
 ], -1)), _hoisted_4$8 = {
   class: "flex justify-between",
   style: { width: "calc(100% - 440px)" }
-}, _hoisted_5$6 = { class: "flex items-center" }, _hoisted_6$4 = { class: "flex items-center mr-20px" }, _hoisted_7$4 = {
+}, _hoisted_5$6 = { class: "flex items-center" }, _hoisted_6$5 = { class: "flex items-center mr-20px" }, _hoisted_7$5 = {
   class: "flex items-center",
   style: { width: "250px" }
 }, _hoisted_8$4 = /* @__PURE__ */ _withScopeId$2(() => /* @__PURE__ */ createElementVNode("div", {
@@ -20366,7 +20366,7 @@ const _withScopeId$2 = (r) => (pushScopeId("data-v-62907637"), r = r(), popScope
   class: "el-divider el-divider--horizontal",
   role: "separator",
   style: { "--el-border-style": "solid" }
-}, null, -1)), _hoisted_17 = /* @__PURE__ */ _withScopeId$2(() => /* @__PURE__ */ createElementVNode("div", { class: "font-bold mb-10px text-15px guide-title" }, "标尺辅助线", -1)), _hoisted_18 = /* @__PURE__ */ _withScopeId$2(() => /* @__PURE__ */ createElementVNode("div", null, "在标尺区域按住鼠标左键并拖动即可创建标尺辅助线，将标尺辅助线拖动到标尺区域即可删除标尺辅助线", -1)), _hoisted_19 = /* @__PURE__ */ _withScopeId$2(() => /* @__PURE__ */ createElementVNode("div", {
+}, null, -1)), _hoisted_17$1 = /* @__PURE__ */ _withScopeId$2(() => /* @__PURE__ */ createElementVNode("div", { class: "font-bold mb-10px text-15px guide-title" }, "标尺辅助线", -1)), _hoisted_18$1 = /* @__PURE__ */ _withScopeId$2(() => /* @__PURE__ */ createElementVNode("div", null, "在标尺区域按住鼠标左键并拖动即可创建标尺辅助线，将标尺辅助线拖动到标尺区域即可删除标尺辅助线", -1)), _hoisted_19 = /* @__PURE__ */ _withScopeId$2(() => /* @__PURE__ */ createElementVNode("div", {
   class: "el-divider el-divider--horizontal",
   role: "separator",
   style: { "--el-border-style": "solid" }
@@ -20534,7 +20534,7 @@ const _withScopeId$2 = (r) => (pushScopeId("data-v-62907637"), r = r(), popScope
               _: 1
             })
           ]),
-          createElementVNode("div", _hoisted_6$4, [
+          createElementVNode("div", _hoisted_6$5, [
             createVNode$1(unref(ElIcon$1), {
               title: "返回",
               class: "bt-Icon",
@@ -20572,7 +20572,7 @@ const _withScopeId$2 = (r) => (pushScopeId("data-v-62907637"), r = r(), popScope
             })
           ])
         ]),
-        createElementVNode("div", _hoisted_7$4, [
+        createElementVNode("div", _hoisted_7$5, [
           createVNode$1(unref(ElIcon$1), {
             size: 24,
             class: "bt-Icon",
@@ -20611,8 +20611,8 @@ const _withScopeId$2 = (r) => (pushScopeId("data-v-62907637"), r = r(), popScope
               _hoisted_14$1,
               _hoisted_15$1,
               _hoisted_16$2,
-              _hoisted_17,
-              _hoisted_18,
+              _hoisted_17$1,
+              _hoisted_18$1,
               _hoisted_19,
               _hoisted_20,
               _hoisted_21,
@@ -20812,7 +20812,7 @@ const _withScopeId$2 = (r) => (pushScopeId("data-v-62907637"), r = r(), popScope
     is_old_width: !1,
     is_old_height: !0
   };
-}, _hoisted_1$f = { style: { "vector-effect": "non-scaling-stroke" } }, _hoisted_2$c = ["fill", "x", "y"], _hoisted_3$b = ["cx", "cy"], _hoisted_4$7 = ["x1", "y1", "x2", "y2"], _hoisted_5$5 = ["fill", "x", "y"], _hoisted_6$3 = ["fill", "x", "y"], _hoisted_7$3 = ["fill", "x", "y"], _hoisted_8$3 = ["fill", "x", "y"], _hoisted_9$3 = ["fill", "x", "y"], _hoisted_10$2 = ["fill", "x", "y"], _hoisted_11$1 = ["fill", "x", "y"], _sfc_main$A = /* @__PURE__ */ defineComponent({
+}, _hoisted_1$f = { style: { "vector-effect": "non-scaling-stroke" } }, _hoisted_2$c = ["fill", "x", "y"], _hoisted_3$b = ["cx", "cy"], _hoisted_4$7 = ["x1", "y1", "x2", "y2"], _hoisted_5$5 = ["fill", "x", "y"], _hoisted_6$4 = ["fill", "x", "y"], _hoisted_7$4 = ["fill", "x", "y"], _hoisted_8$3 = ["fill", "x", "y"], _hoisted_9$3 = ["fill", "x", "y"], _hoisted_10$2 = ["fill", "x", "y"], _hoisted_11$1 = ["fill", "x", "y"], _sfc_main$A = /* @__PURE__ */ defineComponent({
   __name: "handle-panel",
   props: {
     itemInfo: {}
@@ -20984,7 +20984,7 @@ const _withScopeId$2 = (r) => (pushScopeId("data-v-62907637"), r = r(), popScope
         y: n.itemInfo.actual_bound.y - unref(u) - unref(getCoordinateOffset)(n.itemInfo.actual_bound.height, n.itemInfo.scale_y),
         stroke: "rgba(0,0,0,0)",
         onMousedown: _[2] || (_[2] = (b) => p(unref(EScaleInfoType).TopRight, b))
-      }, null, 44, _hoisted_6$3), [
+      }, null, 44, _hoisted_6$4), [
         [vShow, unref(d)]
       ]),
       withDirectives(createElementVNode("rect", {
@@ -20998,7 +20998,7 @@ const _withScopeId$2 = (r) => (pushScopeId("data-v-62907637"), r = r(), popScope
         y: n.itemInfo.actual_bound.y - unref(u) + n.itemInfo.actual_bound.height * n.itemInfo.scale_y / 2 - unref(getCoordinateOffset)(n.itemInfo.actual_bound.height, n.itemInfo.scale_y),
         stroke: "rgba(0,0,0,0)",
         onMousedown: _[3] || (_[3] = (b) => p(unref(EScaleInfoType).Left, b))
-      }, null, 44, _hoisted_7$3), [
+      }, null, 44, _hoisted_7$4), [
         [vShow, unref(d)]
       ]),
       withDirectives(createElementVNode("rect", {
@@ -21059,7 +21059,7 @@ const _withScopeId$2 = (r) => (pushScopeId("data-v-62907637"), r = r(), popScope
       ])
     ]));
   }
-}), handlePanel_vue_vue_type_style_index_0_scoped_e6622df8_lang = "", HandlePanel = /* @__PURE__ */ _export_sfc$1(_sfc_main$A, [["__scopeId", "data-v-e6622df8"]]), _hoisted_1$e = ["fill"], _hoisted_2$b = ["cx", "cy", "r"], _hoisted_3$a = ["cx", "cy", "r"], _hoisted_4$6 = ["cx", "cy", "r"], _hoisted_5$4 = ["cx", "cy", "r"], _hoisted_6$2 = ["cx", "cy", "r"], _hoisted_7$2 = ["cx", "cy", "r"], _hoisted_8$2 = ["cx", "cy", "r"], _hoisted_9$2 = ["cx", "cy", "r"], _sfc_main$z = /* @__PURE__ */ defineComponent({
+}), handlePanel_vue_vue_type_style_index_0_scoped_e6622df8_lang = "", HandlePanel = /* @__PURE__ */ _export_sfc$1(_sfc_main$A, [["__scopeId", "data-v-e6622df8"]]), _hoisted_1$e = ["fill"], _hoisted_2$b = ["cx", "cy", "r"], _hoisted_3$a = ["cx", "cy", "r"], _hoisted_4$6 = ["cx", "cy", "r"], _hoisted_5$4 = ["cx", "cy", "r"], _hoisted_6$3 = ["cx", "cy", "r"], _hoisted_7$3 = ["cx", "cy", "r"], _hoisted_8$2 = ["cx", "cy", "r"], _hoisted_9$2 = ["cx", "cy", "r"], _sfc_main$z = /* @__PURE__ */ defineComponent({
   __name: "connection-panel",
   props: {
     itemInfo: {}
@@ -21162,14 +21162,14 @@ const _withScopeId$2 = (r) => (pushScopeId("data-v-62907637"), r = r(), popScope
           cy: unref(_),
           r: unref(u),
           "fill-opacity": ".3"
-        }, null, 8, _hoisted_6$2),
+        }, null, 8, _hoisted_6$3),
         createElementVNode("circle", {
           id: "connection_bc",
           cx: unref(g),
           cy: unref(_),
           r: unref(a),
           "pointer-events": "all"
-        }, null, 8, _hoisted_7$2)
+        }, null, 8, _hoisted_7$3)
       ], 32),
       createElementVNode("g", {
         onMousedown: T[6] || (T[6] = (L) => S(L, unref(ELineBindAnchors).Left)),
@@ -21193,7 +21193,7 @@ const _withScopeId$2 = (r) => (pushScopeId("data-v-62907637"), r = r(), popScope
       ], 32)
     ], 8, _hoisted_1$e));
   }
-}), connectionPanel_vue_vue_type_style_index_0_scoped_fb729c7a_lang = "", ConnectionPanel = /* @__PURE__ */ _export_sfc$1(_sfc_main$z, [["__scopeId", "data-v-fb729c7a"]]), _hoisted_1$d = ["d", "stroke-width"], _hoisted_2$a = ["d", "stroke-width"], _hoisted_3$9 = ["id", "d", "stroke", "stroke-width", "stroke-dasharray"], _hoisted_4$5 = ["from", "to", "dur", "repeatCount"], _hoisted_5$3 = ["d", "stroke", "stroke-width", "stroke-dasharray"], _hoisted_6$1 = ["from", "to", "dur", "repeatCount"], _hoisted_7$1 = ["r", "fill"], _hoisted_8$1 = ["path", "dur", "repeatCount"], _hoisted_9$1 = ["cx", "cy", "r", "stroke-width"], _hoisted_10$1 = ["cx", "cy", "r", "stroke", "onMousedown"], _sfc_main$y = /* @__PURE__ */ defineComponent({
+}), connectionPanel_vue_vue_type_style_index_0_scoped_fb729c7a_lang = "", ConnectionPanel = /* @__PURE__ */ _export_sfc$1(_sfc_main$z, [["__scopeId", "data-v-fb729c7a"]]), _hoisted_1$d = ["d", "stroke-width"], _hoisted_2$a = ["d", "stroke-width"], _hoisted_3$9 = ["id", "d", "stroke", "stroke-width", "stroke-dasharray"], _hoisted_4$5 = ["from", "to", "dur", "repeatCount"], _hoisted_5$3 = ["d", "stroke", "stroke-width", "stroke-dasharray"], _hoisted_6$2 = ["from", "to", "dur", "repeatCount"], _hoisted_7$2 = ["r", "fill"], _hoisted_8$1 = ["path", "dur", "repeatCount"], _hoisted_9$1 = ["cx", "cy", "r", "stroke-width"], _hoisted_10$1 = ["cx", "cy", "r", "stroke", "onMousedown"], _sfc_main$y = /* @__PURE__ */ defineComponent({
   __name: "connection-line",
   props: {
     itemInfo: {},
@@ -21285,7 +21285,7 @@ const _withScopeId$2 = (r) => (pushScopeId("data-v-62907637"), r = r(), popScope
             dur: `${n.itemInfo.animations.dur.val}s`,
             repeatCount: n.itemInfo.animations.repeatCount.val,
             fill: "freeze"
-          }, null, 8, _hoisted_6$1)
+          }, null, 8, _hoisted_6$2)
         ], 8, _hoisted_5$3)) : ((_ = n.itemInfo.animations) == null ? void 0 : _.type.val) === unref(EConfigAnimationsType).Track ? (openBlock(), createElementBlock("circle", {
           key: 1,
           cx: "0",
@@ -21300,7 +21300,7 @@ const _withScopeId$2 = (r) => (pushScopeId("data-v-62907637"), r = r(), popScope
             dur: `${n.itemInfo.animations.dur.val}s`,
             repeatCount: n.itemInfo.animations.repeatCount.val
           }, null, 8, _hoisted_8$1)
-        ], 8, _hoisted_7$1)) : createCommentVNode("", !0),
+        ], 8, _hoisted_7$2)) : createCommentVNode("", !0),
         createElementVNode("g", null, [
           (openBlock(!0), createElementBlock(Fragment, null, renderList(n.itemInfo.props.point_position.val, (b, A) => {
             var w;
@@ -21332,19 +21332,23 @@ const _withScopeId$2 = (r) => (pushScopeId("data-v-62907637"), r = r(), popScope
       ], 4);
     };
   }
-}), _hoisted_1$c = {
+}), _hoisted_1$c = { style: { position: "absolute", left: "0", top: "0", bottom: "0", right: "0" } }, _hoisted_2$9 = {
+  xmlns: "http://www.w3.org/2000/svg",
+  width: "100%",
+  height: "100%"
+}, _hoisted_3$8 = {
   id: "pattern_grid",
   patternUnits: "userSpaceOnUse",
   x: "0",
   y: "0",
   width: "20",
   height: "20"
-}, _hoisted_2$9 = ["stroke"], _hoisted_3$8 = ["stroke"], _hoisted_4$4 = ["stroke"], _hoisted_5$2 = ["stroke"], _hoisted_6 = {
+}, _hoisted_4$4 = ["stroke"], _hoisted_5$2 = ["stroke"], _hoisted_6$1 = ["stroke"], _hoisted_7$1 = ["stroke"], _hoisted_8 = {
   key: 0,
   width: "100%",
   height: "100%",
   fill: "url(#pattern_grid)"
-}, _hoisted_7 = ["transform"], _hoisted_8 = ["transform"], _hoisted_9 = ["transform", "onMousedown", "onMouseup", "onMouseenter", "onMouseleave", "onContextmenu"], _hoisted_10 = ["xlink:href", "width", "height", "id", "transform"], _hoisted_11 = ["id"], _hoisted_12$1 = ["id", "x1", "y1", "x2", "y2"], _hoisted_13 = ["id"], _hoisted_14 = ["x", "y", "height", "width"], _hoisted_15 = ["onClick"], _hoisted_16$1 = { class: "shortcut" }, _sfc_main$x = /* @__PURE__ */ defineComponent({
+}, _hoisted_9 = ["transform"], _hoisted_10 = ["transform"], _hoisted_11 = ["transform", "onMousedown", "onMouseup", "onMouseenter", "onMouseleave", "onContextmenu"], _hoisted_12$1 = ["xlink:href", "width", "height", "id", "transform"], _hoisted_13 = ["id"], _hoisted_14 = ["id", "x1", "y1", "x2", "y2"], _hoisted_15 = ["id"], _hoisted_16$1 = ["x", "y", "height", "width"], _hoisted_17 = ["onClick"], _hoisted_18 = { class: "shortcut" }, _sfc_main$x = /* @__PURE__ */ defineComponent({
   __name: "center-panel",
   props: {
     vueComp: {}
@@ -21352,7 +21356,7 @@ const _withScopeId$2 = (r) => (pushScopeId("data-v-62907637"), r = r(), popScope
   setup(r, { expose: n }) {
     const i = r;
     useCssVars((Ie) => ({
-      "6831c8e2": unref(v)
+      "20fb3c82": unref(v)
     }));
     const o = useGlobalStore(pinia), a = useConfigStore(pinia), u = useSvgEditLayoutStore(pinia), c = useEditPrivateStore(pinia), f = useContextMenuStore(pinia);
     componentsRegister(i.vueComp);
@@ -21827,10 +21831,11 @@ const _withScopeId$2 = (r) => (pushScopeId("data-v-62907637"), r = r(), popScope
       });
     }), n({ onCanvasMouseUp: re }), (Ie, Pt) => (openBlock(), createElementBlock(Fragment, null, [
       createElementVNode("div", {
-        class: "canvas",
-        tabindex: "0",
         ref_key: "canvasRef",
         ref: p,
+        class: "canvas",
+        style: normalizeStyle$1({ backgroundColor: unref(a).svg.background_color, position: "relative" }),
+        tabindex: "0",
         onDrop: x,
         onDragenter: T,
         onDragover: L,
@@ -21841,150 +21846,148 @@ const _withScopeId$2 = (r) => (pushScopeId("data-v-62907637"), r = r(), popScope
         onKeydown: Ce,
         onMousewheel: Y
       }, [
-        (openBlock(), createElementBlock("svg", {
-          xmlns: "http://www.w3.org/2000/svg",
-          style: normalizeStyle$1({ backgroundColor: unref(a).svg.background_color }),
-          width: "100%",
-          height: "100%"
-        }, [
-          createElementVNode("defs", null, [
-            createElementVNode("pattern", _hoisted_1$c, [
-              createElementVNode("line", {
-                x1: "0",
-                y1: "0",
-                x2: "0",
-                y2: "20",
-                stroke: unref(a).svg.grid_color
-              }, null, 8, _hoisted_2$9),
-              createElementVNode("line", {
-                x1: "10",
-                y1: "0",
-                x2: "10",
-                y2: "20",
-                stroke: unref(a).svg.grid_color
-              }, null, 8, _hoisted_3$8),
-              createElementVNode("line", {
-                x1: "0",
-                y1: "0",
-                x2: "20",
-                y2: "0",
-                stroke: unref(a).svg.grid_color
-              }, null, 8, _hoisted_4$4),
-              createElementVNode("line", {
-                x1: "0",
-                y1: "10",
-                x2: "20",
-                y2: "10",
-                stroke: unref(a).svg.grid_color
-              }, null, 8, _hoisted_5$2)
-            ])
-          ]),
-          unref(a).svg.grid ? (openBlock(), createElementBlock("rect", _hoisted_6)) : createCommentVNode("", !0),
-          createElementVNode("g", {
-            transform: `translate(${unref(u).center_offset.x * unref(a).svg.scale},${unref(u).center_offset.y * unref(a).svg.scale})rotate(0)scale(${unref(a).svg.scale})`
-          }, [
-            (openBlock(!0), createElementBlock(Fragment, null, renderList(unref(o).done_json, (xe, Lt) => {
-              var _n, In, jt, he, At, kt, Cn, ze, _e, de, Et, Oe, Ve, Dt;
-              return withDirectives((openBlock(), createElementBlock("g", {
-                key: xe.id,
-                transform: `translate(${xe.x},${xe.y})rotate(0)scale(1)`,
-                onMousewheel: Pt[0] || (Pt[0] = //@ts-ignore
-                (...hn) => unref(stopEvent) && unref(stopEvent)(...hn))
-              }, [
-                createElementVNode("g", {
-                  class: normalizeClass(`${unref(getCommonClass)(xe)}`)
+        renderSlot(Ie.$slots, "background", {}, void 0, !0),
+        createElementVNode("div", _hoisted_1$c, [
+          (openBlock(), createElementBlock("svg", _hoisted_2$9, [
+            createElementVNode("defs", null, [
+              createElementVNode("pattern", _hoisted_3$8, [
+                createElementVNode("line", {
+                  x1: "0",
+                  y1: "0",
+                  x2: "0",
+                  y2: "20",
+                  stroke: unref(a).svg.grid_color
+                }, null, 8, _hoisted_4$4),
+                createElementVNode("line", {
+                  x1: "10",
+                  y1: "0",
+                  x2: "10",
+                  y2: "20",
+                  stroke: unref(a).svg.grid_color
+                }, null, 8, _hoisted_5$2),
+                createElementVNode("line", {
+                  x1: "0",
+                  y1: "0",
+                  x2: "20",
+                  y2: "0",
+                  stroke: unref(a).svg.grid_color
+                }, null, 8, _hoisted_6$1),
+                createElementVNode("line", {
+                  x1: "0",
+                  y1: "10",
+                  x2: "20",
+                  y2: "10",
+                  stroke: unref(a).svg.grid_color
+                }, null, 8, _hoisted_7$1)
+              ])
+            ]),
+            unref(a).svg.grid ? (openBlock(), createElementBlock("rect", _hoisted_8)) : createCommentVNode("", !0),
+            createElementVNode("g", {
+              transform: `translate(${unref(u).center_offset.x * unref(a).svg.scale},${unref(u).center_offset.y * unref(a).svg.scale})rotate(0)scale(${unref(a).svg.scale})`
+            }, [
+              (openBlock(!0), createElementBlock(Fragment, null, renderList(unref(o).done_json, (xe, Lt) => {
+                var _n, In, jt, he, At, kt, Cn, ze, _e, de, Et, Oe, Ve, Dt;
+                return withDirectives((openBlock(), createElementBlock("g", {
+                  key: xe.id,
+                  transform: `translate(${xe.x},${xe.y})rotate(0)scale(1)`,
+                  onMousewheel: Pt[0] || (Pt[0] = //@ts-ignore
+                  (...hn) => unref(stopEvent) && unref(stopEvent)(...hn))
                 }, [
                   createElementVNode("g", {
-                    transform: `translate(${xe.actual_bound.x + xe.actual_bound.width / 2},${xe.actual_bound.y + xe.actual_bound.height / 2})rotate(${xe.rotate}) scale(1) translate(${-(xe.actual_bound.x + xe.actual_bound.width / 2)},${-(xe.actual_bound.y + xe.actual_bound.height / 2)})`,
-                    onMousedown: (hn) => k(xe, Lt, hn),
-                    onMouseup: (hn) => M(xe, Lt, hn),
-                    onMouseenter: (hn) => O(xe, Lt, hn),
-                    onMouseleave: (hn) => ie(xe, Lt, hn),
-                    onContextmenu: (hn) => pe(xe, Lt, hn)
+                    class: normalizeClass(`${unref(getCommonClass)(xe)}`)
                   }, [
-                    xe.type === unref(EDoneJsonType).ConnectionLine ? (openBlock(), createBlock(_sfc_main$y, {
-                      key: 0,
-                      "item-info": xe,
-                      "point-visible": unref(g).connection_line && ((_n = unref(g).select_item.info) == null ? void 0 : _n.id) == xe.id
-                    }, null, 8, ["item-info", "point-visible"])) : xe.type === unref(EDoneJsonType).File ? (openBlock(), createElementBlock("use", mergeProps({
-                      key: 1,
-                      "xlink:href": `#svg-${xe.name}`
-                    }, unref(prosToVBind)(xe, ["height", "width"]), {
-                      width: ((jt = (In = xe.props) == null ? void 0 : In.width) == null ? void 0 : jt.val) ?? 100,
-                      height: ((At = (he = xe.props) == null ? void 0 : he.height) == null ? void 0 : At.val) ?? 100,
-                      id: xe.id,
-                      transform: `translate(${xe.actual_bound.x + xe.actual_bound.width / 2},${xe.actual_bound.y + xe.actual_bound.height / 2}) scale(${xe.scale_x},${xe.scale_y}) translate(${-(xe.actual_bound.x + xe.actual_bound.width / 2)},${-(xe.actual_bound.y + xe.actual_bound.height / 2)})`
-                    }), null, 16, _hoisted_10)) : xe.type === unref(EDoneJsonType).CustomSvg ? (openBlock(), createBlock(resolveDynamicComponent(xe.tag), mergeProps({ key: 2 }, unref(prosToVBind)(xe, ["height", "width"]), {
-                      width: ((Cn = (kt = xe.props) == null ? void 0 : kt.width) == null ? void 0 : Cn.val) ?? 100,
-                      height: ((_e = (ze = xe.props) == null ? void 0 : ze.height) == null ? void 0 : _e.val) ?? 100,
-                      id: xe.id,
-                      onResize: Fe,
-                      transform: `translate(${xe.actual_bound.x + xe.actual_bound.width / 2},${xe.actual_bound.y + xe.actual_bound.height / 2}) scale(${xe.scale_x},${xe.scale_y}) translate(${-(xe.actual_bound.x + xe.actual_bound.width / 2)},${-(xe.actual_bound.y + xe.actual_bound.height / 2)})`
-                    }), null, 16, ["width", "height", "id", "transform"])) : xe.type === unref(EDoneJsonType).Vue ? (openBlock(), createElementBlock("foreignObject", mergeProps({ key: 3 }, ue(xe.actual_bound, xe.scale_x, xe.scale_y), {
-                      id: `foreign-object${xe.id}`,
-                      class: "foreignObject"
-                    }), [
-                      (openBlock(), createBlock(resolveDynamicComponent(xe.tag), mergeProps(unref(prosToVBind)(xe), {
+                    createElementVNode("g", {
+                      transform: `translate(${xe.actual_bound.x + xe.actual_bound.width / 2},${xe.actual_bound.y + xe.actual_bound.height / 2})rotate(${xe.rotate}) scale(1) translate(${-(xe.actual_bound.x + xe.actual_bound.width / 2)},${-(xe.actual_bound.y + xe.actual_bound.height / 2)})`,
+                      onMousedown: (hn) => k(xe, Lt, hn),
+                      onMouseup: (hn) => M(xe, Lt, hn),
+                      onMouseenter: (hn) => O(xe, Lt, hn),
+                      onMouseleave: (hn) => ie(xe, Lt, hn),
+                      onContextmenu: (hn) => pe(xe, Lt, hn)
+                    }, [
+                      xe.type === unref(EDoneJsonType).ConnectionLine ? (openBlock(), createBlock(_sfc_main$y, {
+                        key: 0,
+                        "item-info": xe,
+                        "point-visible": unref(g).connection_line && ((_n = unref(g).select_item.info) == null ? void 0 : _n.id) == xe.id
+                      }, null, 8, ["item-info", "point-visible"])) : xe.type === unref(EDoneJsonType).File ? (openBlock(), createElementBlock("use", mergeProps({
+                        key: 1,
+                        "xlink:href": `#svg-${xe.name}`
+                      }, unref(prosToVBind)(xe, ["height", "width"]), {
+                        width: ((jt = (In = xe.props) == null ? void 0 : In.width) == null ? void 0 : jt.val) ?? 100,
+                        height: ((At = (he = xe.props) == null ? void 0 : he.height) == null ? void 0 : At.val) ?? 100,
                         id: xe.id,
                         transform: `translate(${xe.actual_bound.x + xe.actual_bound.width / 2},${xe.actual_bound.y + xe.actual_bound.height / 2}) scale(${xe.scale_x},${xe.scale_y}) translate(${-(xe.actual_bound.x + xe.actual_bound.width / 2)},${-(xe.actual_bound.y + xe.actual_bound.height / 2)})`
-                      }), {
-                        default: withCtx(() => [
-                          createTextVNode(toDisplayString(xe.tag_slot), 1)
-                        ]),
-                        _: 2
-                      }, 1040, ["id", "transform"]))
-                    ], 16, _hoisted_11)) : xe.type === unref(EDoneJsonType).StraightLine ? (openBlock(), createElementBlock("line", {
-                      key: 4,
-                      id: xe.id,
-                      x1: xe.props.start_x.val,
-                      y1: xe.props.start_y.val,
-                      x2: xe.props.end_x.val,
-                      y2: xe.props.end_y.val,
-                      fill: "#FF0000",
-                      stroke: "#FF0000",
-                      "stroke-width": "2"
-                    }, null, 8, _hoisted_12$1)) : createCommentVNode("", !0),
-                    xe.config.actual_rect ? (openBlock(), createElementBlock("rect", mergeProps({
-                      key: 5,
-                      id: `rect${xe.id}`,
-                      fill: "black",
-                      "fill-opacity": "0"
-                    }, ue(xe.actual_bound, xe.scale_x, xe.scale_y), {
-                      style: { stroke: "none", "stroke-width": "2", "stroke-miterlimit": "10" },
-                      class: {
-                        "svg-item-none": !xe.selected && (unref(o).intention == unref(EGlobalStoreIntention).None || unref(o).intention == unref(EGlobalStoreIntention).Select),
-                        "svg-item-move": unref(o).intention == unref(EGlobalStoreIntention).Move && ((de = unref(o).handle_svg_info) == null ? void 0 : de.info.id) == xe.id,
-                        "svg-item-select": unref(o).intention == unref(EGlobalStoreIntention).Select && ((Et = unref(o).handle_svg_info) == null ? void 0 : Et.info.id) == xe.id,
-                        "svg-item-in-group": xe.selected
-                      }
-                    }), null, 16, _hoisted_13)) : createCommentVNode("", !0),
-                    ((Oe = unref(o).handle_svg_info) == null ? void 0 : Oe.info.id) === xe.id && unref(g).handle_panel && xe.type !== unref(EDoneJsonType).ConnectionLine ? (openBlock(), createBlock(HandlePanel, {
-                      key: 6,
-                      "item-info": xe
-                    }, null, 8, ["item-info"])) : createCommentVNode("", !0),
-                    !xe.selected && ((Ve = unref(g).select_item.info) == null ? void 0 : Ve.id) == xe.id && unref(g).connection_panel && xe.config.have_anchor && unref(o).intention !== unref(EGlobalStoreIntention).SelectArea && (unref(o).intention !== unref(EGlobalStoreIntention).Select || xe.id !== ((Dt = unref(o).handle_svg_info) == null ? void 0 : Dt.info.id)) ? (openBlock(), createBlock(ConnectionPanel, {
-                      key: 7,
-                      onContextmenu: z,
-                      "item-info": xe
-                    }, null, 8, ["item-info"])) : createCommentVNode("", !0)
-                  ], 40, _hoisted_9)
-                ], 2)
-              ], 40, _hoisted_8)), [
-                [vShow, xe.display]
-              ]);
-            }), 128)),
-            createElementVNode("rect", {
-              x: unref(b).x,
-              y: unref(b).y,
-              height: unref(b).height,
-              width: unref(b).with,
-              stroke: "#107cec",
-              fill: "#107cec",
-              "fill-opacity": ".2"
-            }, null, 8, _hoisted_14)
-          ], 8, _hoisted_7)
-        ], 4))
-      ], 544),
+                      }), null, 16, _hoisted_12$1)) : xe.type === unref(EDoneJsonType).CustomSvg ? (openBlock(), createBlock(resolveDynamicComponent(xe.tag), mergeProps({ key: 2 }, unref(prosToVBind)(xe, ["height", "width"]), {
+                        width: ((Cn = (kt = xe.props) == null ? void 0 : kt.width) == null ? void 0 : Cn.val) ?? 100,
+                        height: ((_e = (ze = xe.props) == null ? void 0 : ze.height) == null ? void 0 : _e.val) ?? 100,
+                        id: xe.id,
+                        onResize: Fe,
+                        transform: `translate(${xe.actual_bound.x + xe.actual_bound.width / 2},${xe.actual_bound.y + xe.actual_bound.height / 2}) scale(${xe.scale_x},${xe.scale_y}) translate(${-(xe.actual_bound.x + xe.actual_bound.width / 2)},${-(xe.actual_bound.y + xe.actual_bound.height / 2)})`
+                      }), null, 16, ["width", "height", "id", "transform"])) : xe.type === unref(EDoneJsonType).Vue ? (openBlock(), createElementBlock("foreignObject", mergeProps({ key: 3 }, ue(xe.actual_bound, xe.scale_x, xe.scale_y), {
+                        id: `foreign-object${xe.id}`,
+                        class: "foreignObject"
+                      }), [
+                        (openBlock(), createBlock(resolveDynamicComponent(xe.tag), mergeProps(unref(prosToVBind)(xe), {
+                          id: xe.id,
+                          transform: `translate(${xe.actual_bound.x + xe.actual_bound.width / 2},${xe.actual_bound.y + xe.actual_bound.height / 2}) scale(${xe.scale_x},${xe.scale_y}) translate(${-(xe.actual_bound.x + xe.actual_bound.width / 2)},${-(xe.actual_bound.y + xe.actual_bound.height / 2)})`
+                        }), {
+                          default: withCtx(() => [
+                            createTextVNode(toDisplayString(xe.tag_slot), 1)
+                          ]),
+                          _: 2
+                        }, 1040, ["id", "transform"]))
+                      ], 16, _hoisted_13)) : xe.type === unref(EDoneJsonType).StraightLine ? (openBlock(), createElementBlock("line", {
+                        key: 4,
+                        id: xe.id,
+                        x1: xe.props.start_x.val,
+                        y1: xe.props.start_y.val,
+                        x2: xe.props.end_x.val,
+                        y2: xe.props.end_y.val,
+                        fill: "#FF0000",
+                        stroke: "#FF0000",
+                        "stroke-width": "2"
+                      }, null, 8, _hoisted_14)) : createCommentVNode("", !0),
+                      xe.config.actual_rect ? (openBlock(), createElementBlock("rect", mergeProps({
+                        key: 5,
+                        id: `rect${xe.id}`,
+                        fill: "black",
+                        "fill-opacity": "0"
+                      }, ue(xe.actual_bound, xe.scale_x, xe.scale_y), {
+                        style: { stroke: "none", "stroke-width": "2", "stroke-miterlimit": "10" },
+                        class: {
+                          "svg-item-none": !xe.selected && (unref(o).intention == unref(EGlobalStoreIntention).None || unref(o).intention == unref(EGlobalStoreIntention).Select),
+                          "svg-item-move": unref(o).intention == unref(EGlobalStoreIntention).Move && ((de = unref(o).handle_svg_info) == null ? void 0 : de.info.id) == xe.id,
+                          "svg-item-select": unref(o).intention == unref(EGlobalStoreIntention).Select && ((Et = unref(o).handle_svg_info) == null ? void 0 : Et.info.id) == xe.id,
+                          "svg-item-in-group": xe.selected
+                        }
+                      }), null, 16, _hoisted_15)) : createCommentVNode("", !0),
+                      ((Oe = unref(o).handle_svg_info) == null ? void 0 : Oe.info.id) === xe.id && unref(g).handle_panel && xe.type !== unref(EDoneJsonType).ConnectionLine ? (openBlock(), createBlock(HandlePanel, {
+                        key: 6,
+                        "item-info": xe
+                      }, null, 8, ["item-info"])) : createCommentVNode("", !0),
+                      !xe.selected && ((Ve = unref(g).select_item.info) == null ? void 0 : Ve.id) == xe.id && unref(g).connection_panel && xe.config.have_anchor && unref(o).intention !== unref(EGlobalStoreIntention).SelectArea && (unref(o).intention !== unref(EGlobalStoreIntention).Select || xe.id !== ((Dt = unref(o).handle_svg_info) == null ? void 0 : Dt.info.id)) ? (openBlock(), createBlock(ConnectionPanel, {
+                        key: 7,
+                        onContextmenu: z,
+                        "item-info": xe
+                      }, null, 8, ["item-info"])) : createCommentVNode("", !0)
+                    ], 40, _hoisted_11)
+                  ], 2)
+                ], 40, _hoisted_10)), [
+                  [vShow, xe.display]
+                ]);
+              }), 128)),
+              createElementVNode("rect", {
+                x: unref(b).x,
+                y: unref(b).y,
+                height: unref(b).height,
+                width: unref(b).with,
+                stroke: "#107cec",
+                fill: "#107cec",
+                "fill-opacity": ".2"
+              }, null, 8, _hoisted_16$1)
+            ], 8, _hoisted_9)
+          ]))
+        ])
+      ], 36),
       withDirectives(createElementVNode("ul", {
         ref_key: "contextMenuRef",
         ref: d,
@@ -21998,15 +22001,15 @@ const _withScopeId$2 = (r) => (pushScopeId("data-v-62907637"), r = r(), popScope
             class: normalizeClass(xe.enable ? "" : "disabled")
           }, [
             createTextVNode(toDisplayString(xe.title) + " ", 1),
-            createElementVNode("span", _hoisted_16$1, toDisplayString(xe.hot_key), 1)
+            createElementVNode("span", _hoisted_18, toDisplayString(xe.hot_key), 1)
           ], 2)
-        ], 8, _hoisted_15))), 128))
+        ], 8, _hoisted_17))), 128))
       ], 512), [
         [vShow, unref(f).display]
       ])
     ], 64));
   }
-}), centerPanel_vue_vue_type_style_index_0_scoped_45eb2bb8_lang = "", CenterPanel = /* @__PURE__ */ _export_sfc$1(_sfc_main$x, [["__scopeId", "data-v-45eb2bb8"]]);
+}), centerPanel_vue_vue_type_style_index_0_scoped_c77c0287_lang = "", CenterPanel = /* @__PURE__ */ _export_sfc$1(_sfc_main$x, [["__scopeId", "data-v-c77c0287"]]);
 /*! Element Plus Icons Vue v2.1.0 */
 var export_helper_default = (r, n) => {
   let i = r.__vccOpts || r;
@@ -30359,13 +30362,18 @@ const _hoisted_1$1 = { class: "canvas-main-pc" }, _sfc_main$1 = /* @__PURE__ */ 
                           ref_key: "centerRef",
                           ref: d,
                           vueComp: o.vueComp
-                        }, null, 8, ["vueComp"])
+                        }, {
+                          background: withCtx(() => [
+                            renderSlot(T.$slots, "background", {}, void 0, !0)
+                          ]),
+                          _: 3
+                        }, 8, ["vueComp"])
                       ]),
-                      _: 1
+                      _: 3
                     }, 8, ["visible"])
                   ])
                 ]),
-                _: 1
+                _: 3
               }),
               createVNode$1(unref(ElAside), {
                 class: normalizeClass(["side-nav", unref(u).right_nav ? "show-nav" : "hide-nav"]),
@@ -30382,10 +30390,10 @@ const _hoisted_1$1 = { class: "canvas-main-pc" }, _sfc_main$1 = /* @__PURE__ */ 
                 _: 1
               }, 8, ["class"])
             ]),
-            _: 1
+            _: 3
           })
         ]),
-        _: 1
+        _: 3
       }),
       createVNode$1(unref(ElDialog), {
         class: "modal-full",
@@ -30448,7 +30456,7 @@ const _hoisted_1$1 = { class: "canvas-main-pc" }, _sfc_main$1 = /* @__PURE__ */ 
       }, 8, ["modelValue"])
     ]));
   }
-}), index_vue_vue_type_style_index_0_scoped_75bc782f_lang = "", index = /* @__PURE__ */ _export_sfc$1(_sfc_main$1, [["__scopeId", "data-v-75bc782f"]]);
+}), index_vue_vue_type_style_index_0_scoped_ed6b1a90_lang = "", index = /* @__PURE__ */ _export_sfc$1(_sfc_main$1, [["__scopeId", "data-v-ed6b1a90"]]);
 function commonjsRequire(r) {
   throw new Error('Could not dynamically require "' + r + '". Please configure the dynamicRequireTargets or/and ignoreDynamicRequires option of @rollup/plugin-commonjs appropriately for this require call to work.');
 }
@@ -42713,7 +42721,11 @@ const sub = (r, n, i, o, a) => {
   client && client.end && client.end(!0, {}, () => {
     console.log("MQTT服务连接关闭");
   });
-}, _hoisted_1 = ["transform"], _hoisted_2 = ["transform", "onClick"], _hoisted_3 = ["transform"], _hoisted_4 = ["xlink:href", "width", "height", "id", "transform"], _hoisted_5 = ["id"], _sfc_main = /* @__PURE__ */ defineComponent({
+}, _hoisted_1 = { style: { position: "absolute", left: "0", top: "0", bottom: "0", right: "0" } }, _hoisted_2 = {
+  xmlns: "http://www.w3.org/2000/svg",
+  width: "100%",
+  height: "100%"
+}, _hoisted_3 = ["transform"], _hoisted_4 = ["transform", "onClick"], _hoisted_5 = ["transform"], _hoisted_6 = ["xlink:href", "width", "height", "id", "transform"], _hoisted_7 = ["id"], _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "svg-viewer",
   props: {
     vueComp: {},
@@ -42724,7 +42736,7 @@ const sub = (r, n, i, o, a) => {
   setup(r, { expose: n, emit: i }) {
     const o = r;
     useCssVars((S) => ({
-      "95589e5a": unref(c)
+      "01996f39": unref(c)
     })), setEditorLoadTime();
     const a = useGlobalStore(pinia);
     componentsRegister(o.vueComp);
@@ -42864,6 +42876,7 @@ const sub = (r, n, i, o, a) => {
       setNodeAttrByID: w
     }), (S, x) => (openBlock(), createElementBlock("div", {
       class: "canvas",
+      style: normalizeStyle$1({ backgroundColor: unref(u).config.svg.background_color, position: "relative" }),
       onMousedown: p,
       onMousemove: f,
       onMouseup: d,
@@ -42871,80 +42884,78 @@ const sub = (r, n, i, o, a) => {
       onContextmenu: x[4] || (x[4] = //@ts-ignore
       (...T) => unref(preventDefault) && unref(preventDefault)(...T))
     }, [
-      (openBlock(), createElementBlock("svg", {
-        xmlns: "http://www.w3.org/2000/svg",
-        style: normalizeStyle$1({ backgroundColor: unref(u).config.svg.background_color }),
-        width: "100%",
-        height: "100%"
-      }, [
-        createElementVNode("g", {
-          transform: `translate(${unref(u).layout_center.x},${unref(u).layout_center.y})rotate(0)scale(${unref(u).config.svg.scale})`
-        }, [
-          (openBlock(!0), createElementBlock(Fragment, null, renderList(unref(u).done_json, (T) => {
-            var L, k, M, O, ie, F, re, D;
-            return withDirectives((openBlock(), createElementBlock("g", {
-              key: T.id,
-              transform: `translate(${T.x},${T.y})rotate(0)scale(1)`,
-              style: normalizeStyle$1(g(T)),
-              onClick: (Y) => _(T, unref(EEventType).Click),
-              onMousedown: x[0] || (x[0] = //@ts-ignore
-              (...Y) => unref(stopEvent) && unref(stopEvent)(...Y)),
-              onMousemove: x[1] || (x[1] = //@ts-ignore
-              (...Y) => unref(stopEvent) && unref(stopEvent)(...Y)),
-              onMouseup: x[2] || (x[2] = //@ts-ignore
-              (...Y) => unref(stopEvent) && unref(stopEvent)(...Y)),
-              onMousewheel: x[3] || (x[3] = //@ts-ignore
-              (...Y) => unref(stopEvent) && unref(stopEvent)(...Y))
-            }, [
-              createElementVNode("g", {
-                class: normalizeClass(`${unref(getCommonClass)(T)}`)
+      renderSlot(S.$slots, "background", {}, void 0, !0),
+      createElementVNode("div", _hoisted_1, [
+        (openBlock(), createElementBlock("svg", _hoisted_2, [
+          createElementVNode("g", {
+            transform: `translate(${unref(u).layout_center.x},${unref(u).layout_center.y})rotate(0)scale(${unref(u).config.svg.scale})`
+          }, [
+            (openBlock(!0), createElementBlock(Fragment, null, renderList(unref(u).done_json, (T) => {
+              var L, k, M, O, ie, F, re, D;
+              return withDirectives((openBlock(), createElementBlock("g", {
+                key: T.id,
+                transform: `translate(${T.x},${T.y})rotate(0)scale(1)`,
+                style: normalizeStyle$1(g(T)),
+                onClick: (Y) => _(T, unref(EEventType).Click),
+                onMousedown: x[0] || (x[0] = //@ts-ignore
+                (...Y) => unref(stopEvent) && unref(stopEvent)(...Y)),
+                onMousemove: x[1] || (x[1] = //@ts-ignore
+                (...Y) => unref(stopEvent) && unref(stopEvent)(...Y)),
+                onMouseup: x[2] || (x[2] = //@ts-ignore
+                (...Y) => unref(stopEvent) && unref(stopEvent)(...Y)),
+                onMousewheel: x[3] || (x[3] = //@ts-ignore
+                (...Y) => unref(stopEvent) && unref(stopEvent)(...Y))
               }, [
                 createElementVNode("g", {
-                  transform: `translate(${T.actual_bound.x + T.actual_bound.width / 2},${T.actual_bound.y + T.actual_bound.height / 2})rotate(${T.rotate}) scale(1) translate(${-(T.actual_bound.x + T.actual_bound.width / 2)},${-(T.actual_bound.y + T.actual_bound.height / 2)})`
+                  class: normalizeClass(`${unref(getCommonClass)(T)}`)
                 }, [
-                  T.type === unref(EDoneJsonType).ConnectionLine ? (openBlock(), createBlock(_sfc_main$y, {
-                    key: 0,
-                    "item-info": T
-                  }, null, 8, ["item-info"])) : T.type === unref(EDoneJsonType).File ? (openBlock(), createElementBlock("use", mergeProps({
-                    key: 1,
-                    "xlink:href": `#svg-${T.name}`
-                  }, unref(prosToVBind)(T, ["height", "width"]), {
-                    width: ((k = (L = T.props) == null ? void 0 : L.width) == null ? void 0 : k.val) ?? 100,
-                    height: ((O = (M = T.props) == null ? void 0 : M.height) == null ? void 0 : O.val) ?? 100,
-                    id: T.id,
-                    transform: `translate(${T.actual_bound.x + T.actual_bound.width / 2},${T.actual_bound.y + T.actual_bound.height / 2}) scale(${T.scale_x},${T.scale_y}) translate(${-(T.actual_bound.x + T.actual_bound.width / 2)},${-(T.actual_bound.y + T.actual_bound.height / 2)})`
-                  }), null, 16, _hoisted_4)) : T.type === unref(EDoneJsonType).CustomSvg ? (openBlock(), createBlock(resolveDynamicComponent(T.tag), mergeProps({ key: 2 }, unref(prosToVBind)(T, ["height", "width"]), {
-                    width: ((F = (ie = T.props) == null ? void 0 : ie.width) == null ? void 0 : F.val) ?? 100,
-                    height: ((D = (re = T.props) == null ? void 0 : re.height) == null ? void 0 : D.val) ?? 100,
-                    id: T.id,
-                    onOnChange: (Y) => _(T, unref(EEventType).Change),
-                    transform: `translate(${T.actual_bound.x + T.actual_bound.width / 2},${T.actual_bound.y + T.actual_bound.height / 2}) scale(${T.scale_x},${T.scale_y}) translate(${-(T.actual_bound.x + T.actual_bound.width / 2)},${-(T.actual_bound.y + T.actual_bound.height / 2)})`
-                  }), null, 16, ["width", "height", "id", "onOnChange", "transform"])) : T.type === unref(EDoneJsonType).Vue ? (openBlock(), createElementBlock("foreignObject", mergeProps({ key: 3 }, v(T.actual_bound, T.scale_x, T.scale_y), {
-                    id: `foreign-object${T.id}`,
-                    class: "foreignObject"
-                  }), [
-                    (openBlock(), createBlock(resolveDynamicComponent(T.tag), mergeProps(unref(prosToVBind)(T), {
+                  createElementVNode("g", {
+                    transform: `translate(${T.actual_bound.x + T.actual_bound.width / 2},${T.actual_bound.y + T.actual_bound.height / 2})rotate(${T.rotate}) scale(1) translate(${-(T.actual_bound.x + T.actual_bound.width / 2)},${-(T.actual_bound.y + T.actual_bound.height / 2)})`
+                  }, [
+                    T.type === unref(EDoneJsonType).ConnectionLine ? (openBlock(), createBlock(_sfc_main$y, {
+                      key: 0,
+                      "item-info": T
+                    }, null, 8, ["item-info"])) : T.type === unref(EDoneJsonType).File ? (openBlock(), createElementBlock("use", mergeProps({
+                      key: 1,
+                      "xlink:href": `#svg-${T.name}`
+                    }, unref(prosToVBind)(T, ["height", "width"]), {
+                      width: ((k = (L = T.props) == null ? void 0 : L.width) == null ? void 0 : k.val) ?? 100,
+                      height: ((O = (M = T.props) == null ? void 0 : M.height) == null ? void 0 : O.val) ?? 100,
+                      id: T.id,
+                      transform: `translate(${T.actual_bound.x + T.actual_bound.width / 2},${T.actual_bound.y + T.actual_bound.height / 2}) scale(${T.scale_x},${T.scale_y}) translate(${-(T.actual_bound.x + T.actual_bound.width / 2)},${-(T.actual_bound.y + T.actual_bound.height / 2)})`
+                    }), null, 16, _hoisted_6)) : T.type === unref(EDoneJsonType).CustomSvg ? (openBlock(), createBlock(resolveDynamicComponent(T.tag), mergeProps({ key: 2 }, unref(prosToVBind)(T, ["height", "width"]), {
+                      width: ((F = (ie = T.props) == null ? void 0 : ie.width) == null ? void 0 : F.val) ?? 100,
+                      height: ((D = (re = T.props) == null ? void 0 : re.height) == null ? void 0 : D.val) ?? 100,
                       id: T.id,
                       onOnChange: (Y) => _(T, unref(EEventType).Change),
                       transform: `translate(${T.actual_bound.x + T.actual_bound.width / 2},${T.actual_bound.y + T.actual_bound.height / 2}) scale(${T.scale_x},${T.scale_y}) translate(${-(T.actual_bound.x + T.actual_bound.width / 2)},${-(T.actual_bound.y + T.actual_bound.height / 2)})`
-                    }), {
-                      default: withCtx(() => [
-                        createTextVNode(toDisplayString(T.tag_slot), 1)
-                      ]),
-                      _: 2
-                    }, 1040, ["id", "onOnChange", "transform"]))
-                  ], 16, _hoisted_5)) : createCommentVNode("", !0)
-                ], 8, _hoisted_3)
-              ], 2)
-            ], 44, _hoisted_2)), [
-              [vShow, T.display]
-            ]);
-          }), 128))
-        ], 8, _hoisted_1)
-      ], 4))
-    ], 32));
+                    }), null, 16, ["width", "height", "id", "onOnChange", "transform"])) : T.type === unref(EDoneJsonType).Vue ? (openBlock(), createElementBlock("foreignObject", mergeProps({ key: 3 }, v(T.actual_bound, T.scale_x, T.scale_y), {
+                      id: `foreign-object${T.id}`,
+                      class: "foreignObject"
+                    }), [
+                      (openBlock(), createBlock(resolveDynamicComponent(T.tag), mergeProps(unref(prosToVBind)(T), {
+                        id: T.id,
+                        onOnChange: (Y) => _(T, unref(EEventType).Change),
+                        transform: `translate(${T.actual_bound.x + T.actual_bound.width / 2},${T.actual_bound.y + T.actual_bound.height / 2}) scale(${T.scale_x},${T.scale_y}) translate(${-(T.actual_bound.x + T.actual_bound.width / 2)},${-(T.actual_bound.y + T.actual_bound.height / 2)})`
+                      }), {
+                        default: withCtx(() => [
+                          createTextVNode(toDisplayString(T.tag_slot), 1)
+                        ]),
+                        _: 2
+                      }, 1040, ["id", "onOnChange", "transform"]))
+                    ], 16, _hoisted_7)) : createCommentVNode("", !0)
+                  ], 8, _hoisted_5)
+                ], 2)
+              ], 44, _hoisted_4)), [
+                [vShow, T.display]
+              ]);
+            }), 128))
+          ], 8, _hoisted_3)
+        ]))
+      ])
+    ], 36));
   }
-}), svgViewer_vue_vue_type_style_index_0_scoped_c4bb0b2d_lang = "", svgViewer = /* @__PURE__ */ _export_sfc$1(_sfc_main, [["__scopeId", "data-v-c4bb0b2d"]]);
+}), svgViewer_vue_vue_type_style_index_0_scoped_7f6cd20a_lang = "", svgViewer = /* @__PURE__ */ _export_sfc$1(_sfc_main, [["__scopeId", "data-v-7f6cd20a"]]);
 export {
   index as SvgEditor,
   svgViewer as SvgViewer

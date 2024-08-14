@@ -279,83 +279,63 @@
 <template>
 	<div
 		class="canvas"
+		:style="{ backgroundColor: preview_data.config.svg.background_color, position: 'relative' }"
 		@mousedown="onCanvasMouseDown"
 		@mousemove="onCanvasMouseMove"
 		@mouseup="onCanvasMouseUp"
 		@mousewheel="onMousewheel"
 		@contextmenu="preventDefault"
 	>
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			:style="{ backgroundColor: preview_data.config.svg.background_color }"
-			width="100%"
-			height="100%"
-		>
-			<g
-				:transform="`translate(${preview_data.layout_center.x},${preview_data.layout_center.y})rotate(${0})scale(${
-					preview_data.config.svg.scale
-				})`"
-			>
+		<slot name="background" />
+		<div style="position: absolute; left: 0; top: 0; bottom: 0; right: 0">
+			<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
 				<g
-					v-for="item in preview_data.done_json"
-					:key="item.id"
-					:transform="`translate(${item.x},${item.y})rotate(0)scale(1)`"
-					v-show="item.display"
-					:style="getStyle(item)"
-					@click="eventHandle(item, EEventType.Click)"
-					@mousedown="stopEvent"
-					@mousemove="stopEvent"
-					@mouseup="stopEvent"
-					@mousewheel="stopEvent"
+					:transform="`translate(${preview_data.layout_center.x},${preview_data.layout_center.y})rotate(${0})scale(${
+						preview_data.config.svg.scale
+					})`"
 				>
-					<g :class="`${getCommonClass(item)}`">
-						<g
-							:transform="`translate(${item.actual_bound.x + item.actual_bound.width / 2},${
-								item.actual_bound.y + item.actual_bound.height / 2
-							})rotate(${item.rotate}) scale(1) translate(${-(item.actual_bound.x + item.actual_bound.width / 2)},${-(
-								item.actual_bound.y +
-								item.actual_bound.height / 2
-							)})`"
-						>
-							<connection-line v-if="item.type === EDoneJsonType.ConnectionLine" :item-info="item" />
-							<use
-								v-else-if="item.type === EDoneJsonType.File"
-								:xlink:href="`#svg-${item.name}`"
-								v-bind="prosToVBind(item, ['height', 'width'])"
-								:width="item.props?.width?.val ?? 100"
-								:height="item.props?.height?.val ?? 100"
-								:id="item.id"
+					<g
+						v-for="item in preview_data.done_json"
+						:key="item.id"
+						:transform="`translate(${item.x},${item.y})rotate(0)scale(1)`"
+						v-show="item.display"
+						:style="getStyle(item)"
+						@click="eventHandle(item, EEventType.Click)"
+						@mousedown="stopEvent"
+						@mousemove="stopEvent"
+						@mouseup="stopEvent"
+						@mousewheel="stopEvent"
+					>
+						<g :class="`${getCommonClass(item)}`">
+							<g
 								:transform="`translate(${item.actual_bound.x + item.actual_bound.width / 2},${
 									item.actual_bound.y + item.actual_bound.height / 2
-								}) scale(${item.scale_x},${item.scale_y}) translate(${-(
-									item.actual_bound.x +
-									item.actual_bound.width / 2
-								)},${-(item.actual_bound.y + item.actual_bound.height / 2)})`"
-							/>
-							<component
-								v-else-if="item.type === EDoneJsonType.CustomSvg"
-								:is="item.tag"
-								v-bind="prosToVBind(item, ['height', 'width'])"
-								:width="item.props?.width?.val ?? 100"
-								:height="item.props?.height?.val ?? 100"
-								:id="item.id"
-								@on-change="eventHandle(item, EEventType.Change)"
-								:transform="`translate(${item.actual_bound.x + item.actual_bound.width / 2},${
-									item.actual_bound.y + item.actual_bound.height / 2
-								}) scale(${item.scale_x},${item.scale_y}) translate(${-(
-									item.actual_bound.x +
-									item.actual_bound.width / 2
-								)},${-(item.actual_bound.y + item.actual_bound.height / 2)})`"
-							/>
-							<foreignObject
-								v-else-if="item.type === EDoneJsonType.Vue"
-								v-bind="getActualBoundScale(item.actual_bound, item.scale_x, item.scale_y)"
-								:id="`foreign-object${item.id}`"
-								class="foreignObject"
+								})rotate(${item.rotate}) scale(1) translate(${-(item.actual_bound.x + item.actual_bound.width / 2)},${-(
+									item.actual_bound.y +
+									item.actual_bound.height / 2
+								)})`"
 							>
+								<connection-line v-if="item.type === EDoneJsonType.ConnectionLine" :item-info="item" />
+								<use
+									v-else-if="item.type === EDoneJsonType.File"
+									:xlink:href="`#svg-${item.name}`"
+									v-bind="prosToVBind(item, ['height', 'width'])"
+									:width="item.props?.width?.val ?? 100"
+									:height="item.props?.height?.val ?? 100"
+									:id="item.id"
+									:transform="`translate(${item.actual_bound.x + item.actual_bound.width / 2},${
+										item.actual_bound.y + item.actual_bound.height / 2
+									}) scale(${item.scale_x},${item.scale_y}) translate(${-(
+										item.actual_bound.x +
+										item.actual_bound.width / 2
+									)},${-(item.actual_bound.y + item.actual_bound.height / 2)})`"
+								/>
 								<component
+									v-else-if="item.type === EDoneJsonType.CustomSvg"
 									:is="item.tag"
-									v-bind="prosToVBind(item)"
+									v-bind="prosToVBind(item, ['height', 'width'])"
+									:width="item.props?.width?.val ?? 100"
+									:height="item.props?.height?.val ?? 100"
 									:id="item.id"
 									@on-change="eventHandle(item, EEventType.Change)"
 									:transform="`translate(${item.actual_bound.x + item.actual_bound.width / 2},${
@@ -364,14 +344,33 @@
 										item.actual_bound.x +
 										item.actual_bound.width / 2
 									)},${-(item.actual_bound.y + item.actual_bound.height / 2)})`"
-									>{{ item.tag_slot }}
-								</component>
-							</foreignObject>
+								/>
+								<foreignObject
+									v-else-if="item.type === EDoneJsonType.Vue"
+									v-bind="getActualBoundScale(item.actual_bound, item.scale_x, item.scale_y)"
+									:id="`foreign-object${item.id}`"
+									class="foreignObject"
+								>
+									<component
+										:is="item.tag"
+										v-bind="prosToVBind(item)"
+										:id="item.id"
+										@on-change="eventHandle(item, EEventType.Change)"
+										:transform="`translate(${item.actual_bound.x + item.actual_bound.width / 2},${
+											item.actual_bound.y + item.actual_bound.height / 2
+										}) scale(${item.scale_x},${item.scale_y}) translate(${-(
+											item.actual_bound.x +
+											item.actual_bound.width / 2
+										)},${-(item.actual_bound.y + item.actual_bound.height / 2)})`"
+										>{{ item.tag_slot }}
+									</component>
+								</foreignObject>
+							</g>
 						</g>
 					</g>
 				</g>
-			</g>
-		</svg>
+			</svg>
+		</div>
 	</div>
 </template>
 

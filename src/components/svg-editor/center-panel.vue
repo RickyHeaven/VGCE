@@ -944,9 +944,10 @@
 
 <template>
 	<div
-		class="canvas"
-		tabindex="0"
 		ref="canvasRef"
+		class="canvas"
+		:style="{ backgroundColor: configStore.svg.background_color, position: 'relative' }"
+		tabindex="0"
 		@drop="dropEvent"
 		@dragenter="dragEnterEvent"
 		@dragover="dragOverEvent"
@@ -957,90 +958,55 @@
 		@keydown="onHandleKeyDown"
 		@mousewheel="onMousewheel"
 	>
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			:style="{ backgroundColor: configStore.svg.background_color }"
-			width="100%"
-			height="100%"
-		>
-			<defs>
-				<pattern id="pattern_grid" patternUnits="userSpaceOnUse" x="0" y="0" width="20" height="20">
-					<line x1="0" y1="0" x2="0" y2="20" :stroke="configStore.svg.grid_color" />
-					<line x1="10" y1="0" x2="10" y2="20" :stroke="configStore.svg.grid_color" />
-					<line x1="0" y1="0" x2="20" y2="0" :stroke="configStore.svg.grid_color" />
-					<line x1="0" y1="10" x2="20" y2="10" :stroke="configStore.svg.grid_color" />
-				</pattern>
-			</defs>
-			<rect v-if="configStore.svg.grid" width="100%" height="100%" fill="url(#pattern_grid)" />
-			<g
-				:transform="`translate(${svgEditLayoutStore.center_offset.x * configStore.svg.scale},${
-					svgEditLayoutStore.center_offset.y * configStore.svg.scale
-				})rotate(${0})scale(${configStore.svg.scale})`"
-			>
+		<slot name="background" />
+		<div style="position: absolute; left: 0; top: 0; bottom: 0; right: 0">
+			<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+				<defs>
+					<pattern id="pattern_grid" patternUnits="userSpaceOnUse" x="0" y="0" width="20" height="20">
+						<line x1="0" y1="0" x2="0" y2="20" :stroke="configStore.svg.grid_color" />
+						<line x1="10" y1="0" x2="10" y2="20" :stroke="configStore.svg.grid_color" />
+						<line x1="0" y1="0" x2="20" y2="0" :stroke="configStore.svg.grid_color" />
+						<line x1="0" y1="10" x2="20" y2="10" :stroke="configStore.svg.grid_color" />
+					</pattern>
+				</defs>
+				<rect v-if="configStore.svg.grid" width="100%" height="100%" fill="url(#pattern_grid)" />
 				<g
-					v-for="(item, index) in globalStore.done_json"
-					:key="item.id"
-					:transform="`translate(${item.x},${item.y})rotate(0)scale(1)`"
-					v-show="item.display"
-					@mousewheel="stopEvent"
+					:transform="`translate(${svgEditLayoutStore.center_offset.x * configStore.svg.scale},${
+						svgEditLayoutStore.center_offset.y * configStore.svg.scale
+					})rotate(${0})scale(${configStore.svg.scale})`"
 				>
-					<g :class="`${getCommonClass(item)}`">
-						<g
-							:transform="`translate(${item.actual_bound.x + item.actual_bound.width / 2},${
-								item.actual_bound.y + item.actual_bound.height / 2
-							})rotate(${item.rotate}) scale(1) translate(${-(item.actual_bound.x + item.actual_bound.width / 2)},${-(
-								item.actual_bound.y +
-								item.actual_bound.height / 2
-							)})`"
-							@mousedown="onSvgMouseDown(item, index, $event)"
-							@mouseup="onSvgMouseUp(item, index, $event)"
-							@mouseenter="onSvgMouseEnter(item, index, $event)"
-							@mouseleave="onSvgMouseLeave(item, index, $event)"
-							@contextmenu="onSvgContextMenuEvent(item, index, $event)"
-						>
-							<connection-line
-								v-if="item.type === EDoneJsonType.ConnectionLine"
-								:item-info="item"
-								:point-visible="visible_info.connection_line && visible_info.select_item.info?.id == item.id"
-							/>
-							<use
-								v-else-if="item.type === EDoneJsonType.File"
-								:xlink:href="`#svg-${item.name}`"
-								v-bind="prosToVBind(item, ['height', 'width'])"
-								:width="item.props?.width?.val ?? 100"
-								:height="item.props?.height?.val ?? 100"
-								:id="item.id"
+					<g
+						v-for="(item, index) in globalStore.done_json"
+						:key="item.id"
+						:transform="`translate(${item.x},${item.y})rotate(0)scale(1)`"
+						v-show="item.display"
+						@mousewheel="stopEvent"
+					>
+						<g :class="`${getCommonClass(item)}`">
+							<g
 								:transform="`translate(${item.actual_bound.x + item.actual_bound.width / 2},${
 									item.actual_bound.y + item.actual_bound.height / 2
-								}) scale(${item.scale_x},${item.scale_y}) translate(${-(
-									item.actual_bound.x +
-									item.actual_bound.width / 2
-								)},${-(item.actual_bound.y + item.actual_bound.height / 2)})`"
-							/>
-							<component
-								v-else-if="item.type === EDoneJsonType.CustomSvg"
-								:is="item.tag"
-								v-bind="prosToVBind(item, ['height', 'width'])"
-								:width="item.props?.width?.val ?? 100"
-								:height="item.props?.height?.val ?? 100"
-								:id="item.id"
-								@resize="resizeBox"
-								:transform="`translate(${item.actual_bound.x + item.actual_bound.width / 2},${
-									item.actual_bound.y + item.actual_bound.height / 2
-								}) scale(${item.scale_x},${item.scale_y}) translate(${-(
-									item.actual_bound.x +
-									item.actual_bound.width / 2
-								)},${-(item.actual_bound.y + item.actual_bound.height / 2)})`"
-							/>
-							<foreignObject
-								v-else-if="item.type === EDoneJsonType.Vue"
-								v-bind="getActualBoundScale(item.actual_bound, item.scale_x, item.scale_y)"
-								:id="`foreign-object${item.id}`"
-								class="foreignObject"
+								})rotate(${item.rotate}) scale(1) translate(${-(item.actual_bound.x + item.actual_bound.width / 2)},${-(
+									item.actual_bound.y +
+									item.actual_bound.height / 2
+								)})`"
+								@mousedown="onSvgMouseDown(item, index, $event)"
+								@mouseup="onSvgMouseUp(item, index, $event)"
+								@mouseenter="onSvgMouseEnter(item, index, $event)"
+								@mouseleave="onSvgMouseLeave(item, index, $event)"
+								@contextmenu="onSvgContextMenuEvent(item, index, $event)"
 							>
-								<component
-									:is="item.tag"
-									v-bind="prosToVBind(item)"
+								<connection-line
+									v-if="item.type === EDoneJsonType.ConnectionLine"
+									:item-info="item"
+									:point-visible="visible_info.connection_line && visible_info.select_item.info?.id == item.id"
+								/>
+								<use
+									v-else-if="item.type === EDoneJsonType.File"
+									:xlink:href="`#svg-${item.name}`"
+									v-bind="prosToVBind(item, ['height', 'width'])"
+									:width="item.props?.width?.val ?? 100"
+									:height="item.props?.height?.val ?? 100"
 									:id="item.id"
 									:transform="`translate(${item.actual_bound.x + item.actual_bound.width / 2},${
 										item.actual_bound.y + item.actual_bound.height / 2
@@ -1048,80 +1014,113 @@
 										item.actual_bound.x +
 										item.actual_bound.width / 2
 									)},${-(item.actual_bound.y + item.actual_bound.height / 2)})`"
-									>{{ item.tag_slot }}
-								</component>
-							</foreignObject>
+								/>
+								<component
+									v-else-if="item.type === EDoneJsonType.CustomSvg"
+									:is="item.tag"
+									v-bind="prosToVBind(item, ['height', 'width'])"
+									:width="item.props?.width?.val ?? 100"
+									:height="item.props?.height?.val ?? 100"
+									:id="item.id"
+									@resize="resizeBox"
+									:transform="`translate(${item.actual_bound.x + item.actual_bound.width / 2},${
+										item.actual_bound.y + item.actual_bound.height / 2
+									}) scale(${item.scale_x},${item.scale_y}) translate(${-(
+										item.actual_bound.x +
+										item.actual_bound.width / 2
+									)},${-(item.actual_bound.y + item.actual_bound.height / 2)})`"
+								/>
+								<foreignObject
+									v-else-if="item.type === EDoneJsonType.Vue"
+									v-bind="getActualBoundScale(item.actual_bound, item.scale_x, item.scale_y)"
+									:id="`foreign-object${item.id}`"
+									class="foreignObject"
+								>
+									<component
+										:is="item.tag"
+										v-bind="prosToVBind(item)"
+										:id="item.id"
+										:transform="`translate(${item.actual_bound.x + item.actual_bound.width / 2},${
+											item.actual_bound.y + item.actual_bound.height / 2
+										}) scale(${item.scale_x},${item.scale_y}) translate(${-(
+											item.actual_bound.x +
+											item.actual_bound.width / 2
+										)},${-(item.actual_bound.y + item.actual_bound.height / 2)})`"
+										>{{ item.tag_slot }}
+									</component>
+								</foreignObject>
 
-							<line
-								v-else-if="item.type === EDoneJsonType.StraightLine"
-								:id="item.id"
-								:x1="item.props.start_x.val"
-								:y1="item.props.start_y.val"
-								:x2="item.props.end_x.val"
-								:y2="item.props.end_y.val"
-								fill="#FF0000"
-								stroke="#FF0000"
-								stroke-width="2"
-							/>
-							<rect
-								v-if="item.config.actual_rect"
-								:id="`rect${item.id}`"
-								fill="black"
-								fill-opacity="0"
-								v-bind="getActualBoundScale(item.actual_bound, item.scale_x, item.scale_y)"
-								style="stroke: none; stroke-width: 2; stroke-miterlimit: 10"
-								:class="{
-									'svg-item-none':
+								<line
+									v-else-if="item.type === EDoneJsonType.StraightLine"
+									:id="item.id"
+									:x1="item.props.start_x.val"
+									:y1="item.props.start_y.val"
+									:x2="item.props.end_x.val"
+									:y2="item.props.end_y.val"
+									fill="#FF0000"
+									stroke="#FF0000"
+									stroke-width="2"
+								/>
+								<rect
+									v-if="item.config.actual_rect"
+									:id="`rect${item.id}`"
+									fill="black"
+									fill-opacity="0"
+									v-bind="getActualBoundScale(item.actual_bound, item.scale_x, item.scale_y)"
+									style="stroke: none; stroke-width: 2; stroke-miterlimit: 10"
+									:class="{
+										'svg-item-none':
+											!item.selected &&
+											(globalStore.intention == EGlobalStoreIntention.None ||
+												globalStore.intention == EGlobalStoreIntention.Select),
+										'svg-item-move':
+											globalStore.intention == EGlobalStoreIntention.Move &&
+											globalStore.handle_svg_info?.info.id == item.id,
+										'svg-item-select':
+											globalStore.intention == EGlobalStoreIntention.Select &&
+											globalStore.handle_svg_info?.info.id == item.id,
+										'svg-item-in-group': item.selected
+									}"
+								/>
+
+								<handle-panel
+									v-if="
+										globalStore.handle_svg_info?.info.id === item.id &&
+										visible_info.handle_panel &&
+										item.type !== EDoneJsonType.ConnectionLine
+									"
+									:item-info="item"
+								/>
+								<connection-panel
+									@contextmenu="onCanvasContextMenuEvent"
+									v-if="
 										!item.selected &&
-										(globalStore.intention == EGlobalStoreIntention.None ||
-											globalStore.intention == EGlobalStoreIntention.Select),
-									'svg-item-move':
-										globalStore.intention == EGlobalStoreIntention.Move &&
-										globalStore.handle_svg_info?.info.id == item.id,
-									'svg-item-select':
-										globalStore.intention == EGlobalStoreIntention.Select &&
-										globalStore.handle_svg_info?.info.id == item.id,
-									'svg-item-in-group': item.selected
-								}"
-							/>
-
-							<handle-panel
-								v-if="
-									globalStore.handle_svg_info?.info.id === item.id &&
-									visible_info.handle_panel &&
-									item.type !== EDoneJsonType.ConnectionLine
-								"
-								:item-info="item"
-							/>
-							<connection-panel
-								@contextmenu="onCanvasContextMenuEvent"
-								v-if="
-									!item.selected &&
-									visible_info.select_item.info?.id == item.id &&
-									visible_info.connection_panel &&
-									item.config.have_anchor &&
-									globalStore.intention !== EGlobalStoreIntention.SelectArea &&
-									(globalStore.intention === EGlobalStoreIntention.Select
-										? item.id !== globalStore.handle_svg_info?.info.id
-										: true)
-								"
-								:item-info="item"
-							/>
+										visible_info.select_item.info?.id == item.id &&
+										visible_info.connection_panel &&
+										item.config.have_anchor &&
+										globalStore.intention !== EGlobalStoreIntention.SelectArea &&
+										(globalStore.intention === EGlobalStoreIntention.Select
+											? item.id !== globalStore.handle_svg_info?.info.id
+											: true)
+									"
+									:item-info="item"
+								/>
+							</g>
 						</g>
 					</g>
+					<!--框选-->
+					<rect
+						:x="selectRect.x"
+						:y="selectRect.y"
+						:height="selectRect.height"
+						:width="selectRect.with"
+						stroke="#107cec"
+						fill="#107cec"
+						fill-opacity=".2"
+					/>
 				</g>
-				<!--框选-->
-				<rect
-					:x="selectRect.x"
-					:y="selectRect.y"
-					:height="selectRect.height"
-					:width="selectRect.with"
-					stroke="#107cec"
-					fill="#107cec"
-					fill-opacity=".2"
-				/>
-			</g>
-		</svg>
+			</svg>
+		</div>
 	</div>
 	<!-- 右键菜单 -->
 	<ul ref="contextMenuRef" class="contextMenu" v-show="contextMenuStore.display">

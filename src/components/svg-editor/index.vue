@@ -154,7 +154,11 @@
 				<el-main class="middle main">
 					<div class="canvas-main-pc">
 						<Vue3RulerTool class="canvas-main-pc" :visible="configStore.svg.ruler" @onLineMouseUp="onLineMouseUp">
-							<center-panel ref="centerRef" :vueComp="props.vueComp" />
+							<center-panel ref="centerRef" :vueComp="props.vueComp">
+								<template #background>
+									<slot name="background" />
+								</template>
+							</center-panel>
 						</Vue3RulerTool>
 					</div>
 				</el-main>
