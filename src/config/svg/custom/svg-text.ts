@@ -1,7 +1,7 @@
 import { EConfigItemPropsType, EDoneJsonType } from '@/config/types'
 import type { IConfigItem } from '@/config/types'
 
-export const svg_text: IConfigItem = {
+const t: IConfigItem = {
 	name: 'svg-text',
 	title: '文字',
 	tag: 'svg-text',
@@ -81,3 +81,4 @@ export const svg_text: IConfigItem = {
 	},
 	events: []
 }
+export default t

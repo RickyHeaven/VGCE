@@ -212,7 +212,7 @@ if (typeof window < "u") {
 }
 const main = "", index$2 = "";
 var ELineBindAnchors = /* @__PURE__ */ ((r) => (r.TopCenter = "TopCenter", r.Left = "Left", r.Right = "Right", r.BottomCenter = "BottomCenter", r))(ELineBindAnchors || {}), EConfigAnimationsType = /* @__PURE__ */ ((r) => (r.None = "None", r.Electricity = "Electricity", r.WaterDrop = "WaterDrop", r.Track = "Track", r))(EConfigAnimationsType || {}), EConfigItemPropsType = /* @__PURE__ */ ((r) => (r.Input = "Input", r.Textarea = "Textarea", r.Color = "Color", r.InputNumber = "InputNumber", r.Switch = "Switch", r.JsonEdit = "JsonEdit", r.Select = "Select", r))(EConfigItemPropsType || {}), EDoneJsonType = /* @__PURE__ */ ((r) => (r.File = "File", r.StraightLine = "StraightLine", r.ConnectionLine = "ConnectionLine", r.CustomSvg = "CustomSvg", r.Vue = "Vue", r))(EDoneJsonType || {}), EEventType = /* @__PURE__ */ ((r) => (r.Click = "Click", r.Change = "Change", r.Null = "", r))(EEventType || {}), EEventAction = /* @__PURE__ */ ((r) => (r.ChangeAttr = "ChangeAttr", r.JavaScript = "JavaScript", r.Null = "", r))(EEventAction || {}), EConditionType = /* @__PURE__ */ ((r) => (r.None = "None", r.Relation = "Relation", r))(EConditionType || {}), EGlobalStoreIntention = /* @__PURE__ */ ((r) => (r.None = "None", r.Create = "Create", r.Move = "Move", r.GroupMove = "GroupMove", r.MoveCanvas = "MoveCanvas", r.Select = "Select", r.Zoom = "Zoom", r.Rotate = "Rotate", r.Connection = "Connection", r.SetConnectionLineNode = "SetConnectionLineNode", r.ContextMenu = "ContextMenu", r.SelectArea = "SelectArea", r))(EGlobalStoreIntention || {}), EMouseInfoState = /* @__PURE__ */ ((r) => (r.Down = "Down", r.Up = "Up", r))(EMouseInfoState || {}), EScaleInfoType = /* @__PURE__ */ ((r) => (r.None = "", r.TopLeft = "TopLeft", r.TopCenter = "TopCenter", r.TopRight = "TopRight", r.Left = "Left", r.Right = "Right", r.BottomLeft = "BottomLeft", r.BottomCenter = "BottomCenter", r.BottomRight = "BottomRight", r))(EScaleInfoType || {});
-const svg_alert_light = {
+const t$p = {
   name: "alert-light",
   title: "警示灯",
   type: EDoneJsonType.File,
@@ -241,11 +241,11 @@ const svg_alert_light = {
     repeat: "infinite"
   },
   events: []
-}, stateful_group = {
+}, t$o = {
   groupType: "stateful",
   title: "状态SVG",
-  list: [svg_alert_light]
-}, svg_bot_2 = {
+  list: [t$p]
+}, t$n = {
   name: "bot-2",
   title: "2号机",
   type: EDoneJsonType.File,
@@ -274,7 +274,7 @@ const svg_alert_light = {
     repeat: "infinite"
   },
   events: []
-}, svg_bot_9 = {
+}, t$m = {
   name: "bot-9",
   title: "9号机",
   type: EDoneJsonType.File,
@@ -292,7 +292,7 @@ const svg_alert_light = {
     repeat: "infinite"
   },
   events: []
-}, svg_hotpot = {
+}, t$l = {
   name: "hotpot",
   title: "火锅",
   type: EDoneJsonType.File,
@@ -310,7 +310,7 @@ const svg_alert_light = {
     repeat: "infinite"
   },
   events: []
-}, svg_hamburger = {
+}, t$k = {
   name: "hamburger",
   title: "汉堡",
   type: EDoneJsonType.File,
@@ -328,11 +328,11 @@ const svg_alert_light = {
     repeat: "infinite"
   },
   events: []
-}, stateless_group = {
+}, t$j = {
   groupType: "stateless",
   title: "静态SVG",
-  list: [svg_hamburger, svg_hotpot, svg_bot_2, svg_bot_9]
-}, thermometer = {
+  list: [t$k, t$l, t$n, t$m]
+}, t$i = {
   name: "thermometer",
   title: "温度计",
   type: EDoneJsonType.File,
@@ -350,11 +350,11 @@ const svg_alert_light = {
     repeat: "infinite"
   },
   events: []
-}, animation_group = {
+}, t$h = {
   groupType: "have_animation",
   title: "动画SVG",
-  list: [thermometer]
-}, svg_text = {
+  list: [t$i]
+}, t$g = {
   name: "svg-text",
   title: "文字",
   tag: "svg-text",
@@ -433,7 +433,7 @@ const svg_alert_light = {
     repeat: "infinite"
   },
   events: []
-}, switch_r = {
+}, t$f = {
   name: "switch-r",
   title: "开关",
   tag: "switch-r",
@@ -458,7 +458,7 @@ const svg_alert_light = {
     repeat: "infinite"
   },
   events: []
-}, light_a = {
+}, t$e = {
   name: "light",
   tag: "light-a",
   title: "灯",
@@ -493,7 +493,7 @@ const svg_alert_light = {
     repeat: "infinite"
   },
   events: []
-}, clock_a = {
+}, t$d = {
   name: "clock-a",
   title: "时钟",
   tag: "clock-a",
@@ -553,16 +553,11 @@ const svg_alert_light = {
     repeat: "infinite"
   },
   events: []
-}, custom_svg_group = {
+}, t$c = {
   groupType: "custom_svg_group",
   title: "SVG组件",
-  list: [svg_text, switch_r, light_a, clock_a]
-}, svg_config = Object.seal([
-  stateless_group,
-  stateful_group,
-  animation_group,
-  custom_svg_group
-]), el_button = {
+  list: [t$g, t$f, t$e, t$d]
+}, t$b = Object.seal([t$j, t$o, t$h, t$c]), t$a = {
   name: "el-button",
   tag: "el-button",
   title: "按钮",
@@ -615,7 +610,7 @@ const svg_alert_light = {
     repeat: "infinite"
   },
   events: []
-}, common_table = {
+}, t$9 = {
   name: "common-table",
   title: "通用表格",
   tag: "common-table",
@@ -740,7 +735,7 @@ const svg_alert_light = {
     repeat: "infinite"
   },
   events: []
-}, now_time = {
+}, t$8 = {
   name: "now-time",
   title: "当前时间",
   tag: "now-time",
@@ -799,7 +794,7 @@ const svg_alert_light = {
     repeat: "infinite"
   },
   events: []
-}, el_tag = {
+}, t$7 = {
   name: "el-tag",
   tag: "el-tag",
   title: "标签",
@@ -841,7 +836,7 @@ const svg_alert_light = {
     repeat: "infinite"
   },
   events: []
-}, progress_a = {
+}, t$6 = {
   name: "progress-a",
   tag: "progress-a",
   title: "进度条",
@@ -866,11 +861,71 @@ const svg_alert_light = {
     repeat: "infinite"
   },
   events: []
-}, components = {
+}, t$5 = {
+  name: "text-box",
+  title: "文字背景框",
+  tag: "text-box",
+  type: EDoneJsonType.Vue,
+  config: {
+    can_zoom: !1,
+    have_anchor: !1,
+    actual_rect: !0
+  },
+  display: !0,
+  props: {
+    width: {
+      title: "宽度",
+      type: EConfigItemPropsType.InputNumber,
+      val: 250
+    },
+    height: {
+      title: "高度",
+      type: EConfigItemPropsType.InputNumber,
+      val: 150
+    },
+    bgColor: {
+      title: "背景颜色",
+      type: EConfigItemPropsType.Color,
+      val: "#000000"
+    },
+    bgOpacity: {
+      title: "背景透明度(%)",
+      type: EConfigItemPropsType.InputNumber,
+      val: 1
+    },
+    borderColor: {
+      title: "边框颜色",
+      type: EConfigItemPropsType.Color,
+      val: "#cccccc"
+    },
+    borderWidth: {
+      title: "边框宽度",
+      type: EConfigItemPropsType.InputNumber,
+      val: 1
+    },
+    borderRadius: {
+      title: "边框圆角",
+      type: EConfigItemPropsType.InputNumber,
+      val: 5
+    },
+    borderOpacity: {
+      title: "边框透明度(%)",
+      type: EConfigItemPropsType.InputNumber,
+      val: 100
+    }
+  },
+  common_animations: {
+    val: "",
+    delay: "delay-0s",
+    speed: "slow",
+    repeat: "infinite"
+  },
+  events: []
+}, t$4 = {
   groupType: "custom-vue",
   title: "VUE组件",
-  list: [el_button, progress_a, common_table, now_time, el_tag]
-}, pie_charts = {
+  list: [t$a, t$6, t$9, t$8, t$7, t$5]
+}, t$3 = {
   name: "pie-charts",
   tag: "pie-charts",
   title: "饼图",
@@ -926,11 +981,11 @@ const svg_alert_light = {
     repeat: "infinite"
   },
   events: []
-}, echarts_group = {
+}, t$2 = {
   groupType: "echarts",
   title: "图表",
-  list: [pie_charts]
-}, vue_config = Object.seal([components, echarts_group]), _sfc_main$L = /* @__PURE__ */ defineComponent({
+  list: [t$3]
+}, t$1 = Object.seal([t$4, t$2]), _sfc_main$M = /* @__PURE__ */ defineComponent({
   __name: "progress",
   props: {
     percentage: { default: 10 }
@@ -1016,7 +1071,7 @@ const svg_alert_light = {
   _hoisted_9$7,
   _hoisted_10$6,
   _hoisted_11$5
-], _hoisted_13$4 = ["xlink:href"], _sfc_main$K = /* @__PURE__ */ defineComponent({
+], _hoisted_13$4 = ["xlink:href"], _sfc_main$L = /* @__PURE__ */ defineComponent({
   __name: "switch-r",
   props: {
     id: {
@@ -1054,7 +1109,7 @@ const svg_alert_light = {
       }, null, 8, _hoisted_13$4)
     ], 8, _hoisted_1$m));
   }
-}), _sfc_main$J = /* @__PURE__ */ defineComponent({
+}), _sfc_main$K = /* @__PURE__ */ defineComponent({
   __name: "svg-text",
   props: {
     text: {},
@@ -1076,7 +1131,7 @@ const svg_alert_light = {
       style: normalizeStyle$1({ "font-weight": i.bold ? "bold" : "normal" })
     }, toDisplayString(i.text), 5));
   }
-}), _sfc_main$I = /* @__PURE__ */ defineComponent({
+}), _sfc_main$J = /* @__PURE__ */ defineComponent({
   __name: "common-table",
   props: {
     colConfig: { default: () => [] },
@@ -1104,7 +1159,7 @@ const svg_alert_light = {
       _: 1
     }, 16));
   }
-}), _hoisted_1$l = { class: "flex mt-5px" }, _sfc_main$H = /* @__PURE__ */ defineComponent({
+}), _hoisted_1$l = { class: "flex mt-5px" }, _sfc_main$I = /* @__PURE__ */ defineComponent({
   __name: "now-time",
   props: {
     width: {},
@@ -1157,7 +1212,7 @@ const svg_alert_light = {
   for (const [o, a] of n)
     i[o] = a;
   return i;
-}, NowTime = /* @__PURE__ */ _export_sfc$1(_sfc_main$H, [["__scopeId", "data-v-82ca3b84"]]);
+}, NowTime = /* @__PURE__ */ _export_sfc$1(_sfc_main$I, [["__scopeId", "data-v-82ca3b84"]]);
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation.
 
@@ -19065,7 +19120,7 @@ function install$1(r) {
 function install(r) {
   use(install$2), use(install$1);
 }
-const _sfc_main$G = /* @__PURE__ */ defineComponent({
+const _sfc_main$H = /* @__PURE__ */ defineComponent({
   __name: "pie-charts",
   props: {
     title: {
@@ -19122,7 +19177,7 @@ const _sfc_main$G = /* @__PURE__ */ defineComponent({
       autoresize: ""
     }, null, 8, ["option"]));
   }
-}), pieCharts_vue_vue_type_style_index_0_scoped_fec2cbf2_lang = "", PieCharts = /* @__PURE__ */ _export_sfc$1(_sfc_main$G, [["__scopeId", "data-v-fec2cbf2"]]), _hoisted_1$k = ["id"], _hoisted_2$h = ["id"], _hoisted_3$e = ["fill"], _hoisted_4$a = ["fill"], _hoisted_5$8 = ["fill"], _hoisted_6$6 = /* @__PURE__ */ createElementVNode("path", {
+}), pieCharts_vue_vue_type_style_index_0_scoped_fec2cbf2_lang = "", PieCharts = /* @__PURE__ */ _export_sfc$1(_sfc_main$H, [["__scopeId", "data-v-fec2cbf2"]]), _hoisted_1$k = ["id"], _hoisted_2$h = ["id"], _hoisted_3$e = ["fill"], _hoisted_4$a = ["fill"], _hoisted_5$8 = ["fill"], _hoisted_6$6 = /* @__PURE__ */ createElementVNode("path", {
   d: "M375.466667 709.214815l-25.6 137.481481c0 2.844444 1.896296 5.688889 7.585185 10.42963l65.422222 54.992593c5.688889 4.740741 15.17037 8.533333 23.703704 10.429629l36.029629-193.422222-107.14074-19.911111z",
   fill: "#2D4375"
 }, null, -1), _hoisted_7$6 = /* @__PURE__ */ createElementVNode("path", {
@@ -19137,7 +19192,7 @@ const _sfc_main$G = /* @__PURE__ */ defineComponent({
 }, null, -1), _hoisted_13$3 = /* @__PURE__ */ createElementVNode("path", {
   d: "M570.785185 848.592593l-107.140741-19.911112-4.74074 27.496297 107.14074 19.911111c7.585185 1.896296 15.17037-3.792593 16.118519-11.377778 1.896296-7.585185-2.844444-15.17037-11.377778-16.118518z",
   fill: "#CEEFF6"
-}, null, -1), _hoisted_14$3 = ["xlink:href", "width", "height"], _sfc_main$F = /* @__PURE__ */ defineComponent({
+}, null, -1), _hoisted_14$3 = ["xlink:href", "width", "height"], _sfc_main$G = /* @__PURE__ */ defineComponent({
   __name: "light-a",
   props: {
     id: { default: "" },
@@ -19201,7 +19256,7 @@ const _sfc_main$G = /* @__PURE__ */ defineComponent({
       }, null, 8, _hoisted_14$3)
     ], 8, _hoisted_1$k));
   }
-}), _hoisted_1$j = ["id"], _hoisted_2$g = ["id"], _hoisted_3$d = ["fill"], _hoisted_4$9 = ["fill"], _hoisted_5$7 = ["fill"], _hoisted_6$5 = ["from", "to"], _hoisted_7$5 = ["fill"], _hoisted_8$5 = ["from", "to"], _hoisted_9$5 = ["fill"], _hoisted_10$4 = ["fill"], _hoisted_11$3 = ["fill"], _hoisted_12$3 = ["from", "to"], _hoisted_13$2 = ["fill"], _hoisted_14$2 = ["xlink:href"], _sfc_main$E = /* @__PURE__ */ defineComponent({
+}), _hoisted_1$j = ["id"], _hoisted_2$g = ["id"], _hoisted_3$d = ["fill"], _hoisted_4$9 = ["fill"], _hoisted_5$7 = ["fill"], _hoisted_6$5 = ["from", "to"], _hoisted_7$5 = ["fill"], _hoisted_8$5 = ["from", "to"], _hoisted_9$5 = ["fill"], _hoisted_10$4 = ["fill"], _hoisted_11$3 = ["fill"], _hoisted_12$3 = ["from", "to"], _hoisted_13$2 = ["fill"], _hoisted_14$2 = ["xlink:href"], _sfc_main$F = /* @__PURE__ */ defineComponent({
   __name: "clock-a",
   props: {
     id: { default: "" },
@@ -19293,18 +19348,59 @@ const _sfc_main$G = /* @__PURE__ */ defineComponent({
       }, null, 8, _hoisted_14$2)
     ], 8, _hoisted_1$j));
   }
-}), vueComp = {
-  "svg-text": _sfc_main$J,
+}), _sfc_main$E = /* @__PURE__ */ defineComponent({
+  __name: "text-box",
+  props: {
+    width: { default: 250 },
+    height: { default: 150 },
+    bgColor: { default: "#ffffff" },
+    bgOpacity: { default: 50 },
+    borderColor: { default: "#000000" },
+    borderWidth: { default: 1 },
+    borderRadius: { default: 5 },
+    borderOpacity: { default: 100 }
+  },
+  setup(r) {
+    const n = r, i = computed(() => ({
+      width: (n.width > 0 ? n.width : 0) + "px",
+      height: (n.height > 0 ? n.height : 0) + "px",
+      borderRadius: (n.borderRadius > 0 ? n.borderRadius : 0) + "px"
+    })), o = computed(() => ({
+      border: `${n.borderWidth > 0 ? n.borderWidth : 0}px solid ${n.borderColor}`,
+      borderRadius: (n.borderRadius > 0 ? n.borderRadius : 0) + "px",
+      opacity: (n.borderOpacity > 0 ? n.borderOpacity < 100 ? n.borderOpacity : 100 : 0) / 100
+    })), a = computed(() => ({
+      backgroundColor: n.bgColor,
+      opacity: (n.bgOpacity > 0 ? n.bgOpacity < 100 ? n.bgOpacity : 100 : 0) / 100,
+      borderRadius: n.borderRadius + "px"
+    }));
+    return (u, c) => (openBlock(), createElementBlock("div", {
+      class: "outM",
+      style: normalizeStyle$1(i.value)
+    }, [
+      createElementVNode("div", {
+        class: "wallI",
+        style: normalizeStyle$1(a.value)
+      }, null, 4),
+      createElementVNode("div", {
+        class: "borderB",
+        style: normalizeStyle$1(o.value)
+      }, null, 4)
+    ], 4));
+  }
+}), textBox_vue_vue_type_style_index_0_scoped_4ab181ea_lang = "", TextBox = /* @__PURE__ */ _export_sfc$1(_sfc_main$E, [["__scopeId", "data-v-4ab181ea"]]), vueComp = {
+  "svg-text": _sfc_main$K,
   "el-button": ElButton,
-  "progress-a": _sfc_main$L,
+  "progress-a": _sfc_main$M,
   "el-tag": ElTag$1,
-  "common-table": _sfc_main$I,
+  "common-table": _sfc_main$J,
   "pie-charts": PieCharts,
-  "switch-r": _sfc_main$K,
+  "switch-r": _sfc_main$L,
   "now-time": NowTime,
-  "light-a": _sfc_main$F,
-  "clock-a": _sfc_main$E
-}, config = [...svg_config, ...vue_config], useGlobalStore = defineStore("global-store", {
+  "light-a": _sfc_main$G,
+  "clock-a": _sfc_main$F,
+  "text-box": TextBox
+}, config = [...t$b, ...t$1], useGlobalStore = defineStore("global-store", {
   state: () => ({
     config_center: config,
     intention: EGlobalStoreIntention.None,

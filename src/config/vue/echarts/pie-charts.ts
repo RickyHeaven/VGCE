@@ -1,7 +1,7 @@
 import { EConfigItemPropsType, EDoneJsonType } from '@/config/types'
 import type { IConfigItem } from '@/config/types'
 
-export const pie_charts: IConfigItem = {
+const t: IConfigItem = {
 	name: 'pie-charts',
 	tag: 'pie-charts',
 	title: '饼图',
@@ -58,3 +58,4 @@ export const pie_charts: IConfigItem = {
 	},
 	events: []
 }
+export default t

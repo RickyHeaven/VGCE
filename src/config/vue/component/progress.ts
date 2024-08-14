@@ -1,7 +1,7 @@
 import { EConfigItemPropsType, EDoneJsonType } from '@/config/types'
 import type { IConfigItem } from '@/config/types'
 
-export const progress_a: IConfigItem = {
+const t: IConfigItem = {
 	name: 'progress-a',
 	tag: 'progress-a',
 	title: '进度条',
@@ -27,3 +27,4 @@ export const progress_a: IConfigItem = {
 	},
 	events: []
 }
+export default t

@@ -1,7 +1,7 @@
 import { EConfigItemPropsType, EDoneJsonType } from '@/config/types'
 import type { IConfigItem } from '@/config/types'
 
-export const common_table: IConfigItem = {
+const t: IConfigItem = {
 	name: 'common-table',
 	title: '通用表格',
 	tag: 'common-table',
@@ -127,3 +127,4 @@ export const common_table: IConfigItem = {
 	},
 	events: []
 }
+export default t

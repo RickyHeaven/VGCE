@@ -1,7 +1,7 @@
 import { EConfigItemPropsType, EDoneJsonType } from '@/config/types'
 import type { IConfigItem } from '@/config/types'
 
-export const el_button: IConfigItem = {
+const t: IConfigItem = {
 	name: 'el-button',
 	tag: 'el-button',
 	title: '按钮',
@@ -55,3 +55,4 @@ export const el_button: IConfigItem = {
 	},
 	events: []
 }
+export default t

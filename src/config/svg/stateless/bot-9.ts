@@ -1,7 +1,7 @@
 import { EDoneJsonType } from '@/config/types'
 import type { IConfigItem } from '@/config/types'
 
-export const svg_bot_9: IConfigItem = {
+const t: IConfigItem = {
 	name: 'bot-9',
 	title: '9号机',
 	type: EDoneJsonType.File,
@@ -20,3 +20,4 @@ export const svg_bot_9: IConfigItem = {
 	},
 	events: []
 }
+export default t

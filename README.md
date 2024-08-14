@@ -2,9 +2,9 @@
 
 Vector graphics configure editor. 矢量图组态编辑器。
 
-## Guide
+## Guide 使用说明
 
-### 1. install
+### 1. install 安装依赖
 
    ```
      npm i @zhangqingcq/vgce element-plus@^2.3.8 ace-builds@^1.14.0 lodash-es^4.17.21 vue-echarts@^6.5.1 animate.css@^4.1.1
@@ -16,7 +16,7 @@ Vector graphics configure editor. 矢量图组态编辑器。
      pnpm add @zhangqingcq/vgce element-plus@^2.3.8 ace-builds@^1.14.0 lodash-es^4.17.21 vue-echarts@^6.5.1 animate.css@^4.1.1
    ```
 
-### 2. change main.ts or main.js
+### 2. change main.ts or main.js 修改项目主文件
 
    ```
      //main.js or main.ts
@@ -24,7 +24,7 @@ Vector graphics configure editor. 矢量图组态编辑器。
      import '@zhangqingcq/vgce/dist/style.css'
    ```
 
-### 3. use editor
+### 3. use editor 使用编辑器
    ```
       <script setup lang="ts">
         import {SvgEditor} from '@zhangqingcq/vgce'
@@ -37,7 +37,7 @@ Vector graphics configure editor. 矢量图组态编辑器。
         <SvgEditor @onPreview="preview"/>
       </template>
    ```
-### 4. use viewer
+### 4. use viewer 使用查看器
    ```
       <script setup lang="ts">
         import {SvgViewer} from '@zhangqingcq/vgce'
@@ -46,15 +46,15 @@ Vector graphics configure editor. 矢量图组态编辑器。
         <SvgViewer :data="xxx"/>
       </template>
    ```
-### 5. custom toolbar
+### 5. custom toolbar 自定义组件
 
- - copy `src/config/` and change as you want
+- copy `src/config/` and change as you want （复制`src/config/`文件夹，然后更改里面的配置）
 
- - put svg files into `src/asset/svgs` , then file name need to be same with config.name
+- put svg files into `src/asset/svgs` , then file name need to be same with config.name （将svg文件放到`src/asset/svgs`，文件名需要和配置文件里的`name`的值一致）
 
- - put custom vue components file into `src/config/files`, then import in `src/config/index.ts` and export with `vueComp`
+- put custom vue components file into `src/config/files`, then import in `src/config/index.ts` and export with `vueComp` （将自定义vue组件放到`src/config/files`，然后在`src/config/index.ts`引入并以`vueComp`具名导出，组件在vueComp下的key应和配置文件里`tag`的值一致）
 
-- PS: you have to install `vite-plugin-svg-icons` plugin to append your svg to html dom.
+- send the vue components to the editor and viewer with the props vueComp (在编辑器和查看器使用处把`src/config/index.ts`导出的vueComp引入并以`vueComp`作为props传递给编辑器和查看器组件)
 
   ```
   // editor
@@ -79,11 +79,12 @@ Vector graphics configure editor. 矢量图组态编辑器。
     <SvgViewer :vueComp="vueComp" :data="xxx"/>
   </template>
   ```
+- PS: you have to install `vite-plugin-svg-icons` plugin to append your svg to html dom.（你需要在项目安装npm依赖`vite-plugin-svg-icons`，用以把svg文件添加到项目入口html文件中进行使用）
 
-### 6. how to use `vite-plugin-svg-icons`
+### 6. how to use `vite-plugin-svg-icons` 如何使用 vite-plugin-svg-icons
 
-- `npm i vite-plugin-svg-icons -D` or `pnpm add vite-plugin-svg-icons -D`
-- change `vite.config.ts`
+- `npm i vite-plugin-svg-icons -D` or `pnpm add vite-plugin-svg-icons -D` （安装依赖）
+- change `vite.config.ts` （修改项目vite配置文件）
 
   ````
   // vite.config.ts
@@ -98,7 +99,7 @@ Vector graphics configure editor. 矢量图组态编辑器。
              iconDirs: [fileURLToPath(new URL('./src/assets/svgs', import.meta.url))],
              symbolId: 'svg-[name]',
              svgoOptions: false,
-             customDomId: '__svg__icons__dom__'//your id, do not use this id!
+             customDomId: '__svg__icons__dom__'//your id, do not use this id!（使用你自己定义的id，不能使用__svg__icons__dom__，这是内置svg文件使用的id）
            })
          ],
          xxx
@@ -106,7 +107,7 @@ Vector graphics configure editor. 矢量图组态编辑器。
        ```
   ````
 
-- change `main.ts`
+- change `main.ts` （修改项目主文件）
 
   ```
   // main.ts
@@ -114,12 +115,26 @@ Vector graphics configure editor. 矢量图组态编辑器。
   import 'virtual:svg-icons-register'
   ```
 
-- PS: if there is error: `Cannot find module ‘fast-glob’`,then run `npm i fast-glob -D` or `pnpm add fast-glob -D`
+- PS: if there is error: `Cannot find module ‘fast-glob’`,then run `npm i fast-glob -D` or `pnpm add fast-glob -D` （如果报前面的错，就安装`fast-glob`npm 依赖）
 
-### 7. example
+### 7.mqtt 通信
+- 在编辑器右侧‘通信’菜单下配置好mqtt通信需要的url、username、password、topics
+- 在使用查看器的地方监听查看器emit的`onMessage`事件，并处理事件返回的数据`{ topics, message }`
+- message可以用JSON.parse解析成对象（后端推给前端的MQTT消息内容需要是JSON格式）
+- 拿到消息后可以配合setNodeAttrByID方法更新界面
+- setNodeAttrByID的参数id可以在传给本组件的props.data（用户传进来的，自然知道值是多少）里done_json找到
+  >如何找到指定组件的两种方案：
+  > 1. 用你的项目里前后端约定的svg组件唯一标识符替换掉编辑器生成的id（必须保证唯一），然后调用setNodeAttrByID改变组件属性。
+  > 2. 如果不想改动id（避免因不能保证手动改过的id唯一性导致编辑器功能异常），可以在config里给想要改变的组件的配置文件的props里增加一个字段，
+  如deviceCode(svg-text的配置文件里有被注释的例子)，然后在编辑组态时，给对应组件填上对应的deviceCode（这样deviceCode就和组件id实现
+  了映射关系），并保存，后台给前台推MQTT消息时带上指定的deviceCode，前台预览时，在收到MQTT消息后，凭借消息里的deviceCode在done_json
+  找到组件的id（可以用vue的computed计算一份deviceCode和id的映射关系存到一个对象里，这样在需要id时可直接在计算出的对象凭借deviceCode
+  直接取到），即可用setNodeAttrByID改变组件属性
 
-- download [VGCE](https://github.com/RickyHeaven/VGCE.git)
+### 8. example 查看示例
 
-- `pnpm i` or `npm i`
+- download [VGCE](https://github.com/RickyHeaven/VGCE.git) （下载项目）
 
-- `pnpm dev` or `npm run dev`
+- `pnpm i` or `npm i` （安装依赖）
+
+- `pnpm dev` or `npm run dev` （运行项目，使用示例参考`src/views`下两个页面）

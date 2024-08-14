@@ -1,6 +1,6 @@
 import { EDoneJsonType } from '@/config/types'
 import type { IConfigItem } from '@/config/types'
-export const thermometer: IConfigItem = {
+const t: IConfigItem = {
 	name: 'thermometer',
 	title: '温度计',
 	type: EDoneJsonType.File,
@@ -19,3 +19,4 @@ export const thermometer: IConfigItem = {
 	},
 	events: []
 }
+export default t

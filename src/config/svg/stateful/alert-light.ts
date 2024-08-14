@@ -1,7 +1,7 @@
 import { EDoneJsonType } from '@/config/types'
 import type { IConfigItem } from '@/config/types'
 
-export const svg_alert_light: IConfigItem = {
+const t: IConfigItem = {
 	name: 'alert-light',
 	title: '警示灯',
 	type: EDoneJsonType.File,
@@ -31,3 +31,4 @@ export const svg_alert_light: IConfigItem = {
 	},
 	events: []
 }
+export default t

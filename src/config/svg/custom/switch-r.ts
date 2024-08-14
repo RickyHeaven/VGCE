@@ -1,7 +1,7 @@
 import { EConfigItemPropsType, EDoneJsonType } from '@/config/types'
 import type { IConfigItem } from '@/config/types'
 
-export const switch_r: IConfigItem = {
+const t: IConfigItem = {
 	name: 'switch-r',
 	title: '开关',
 	tag: 'switch-r',
@@ -27,3 +27,4 @@ export const switch_r: IConfigItem = {
 	},
 	events: []
 }
+export default t

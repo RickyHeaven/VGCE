@@ -1,7 +1,7 @@
 import { EConfigItemPropsType, EDoneJsonType } from '@/config/types'
 import type { IConfigItem } from '@/config/types'
 
-export const el_tag: IConfigItem = {
+const t: IConfigItem = {
 	name: 'el-tag',
 	tag: 'el-tag',
 	title: '标签',
@@ -44,3 +44,4 @@ export const el_tag: IConfigItem = {
 	},
 	events: []
 }
+export default t

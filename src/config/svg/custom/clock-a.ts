@@ -1,7 +1,7 @@
 import { EConfigItemPropsType, EDoneJsonType } from '@/config/types'
 import type { IConfigItem } from '@/config/types'
 
-export const clock_a: IConfigItem = {
+const t: IConfigItem = {
 	name: 'clock-a',
 	title: '时钟',
 	tag: 'clock-a',
@@ -62,3 +62,4 @@ export const clock_a: IConfigItem = {
 	},
 	events: []
 }
+export default t
