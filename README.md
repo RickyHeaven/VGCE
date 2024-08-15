@@ -173,6 +173,6 @@ or
 
 ### 注意：
 
-- 本库ui框架使用的是`element-plus`，所以你需要在你的项目安装 element-plus 依赖
-- 在你没有其他地方使用element-plus组件的情况下，可以不用完整安装element-plus，但需要引入其样式文件`import 'element-plus/dist/index.css'`，如果你不想全部引入该样式文件，可以按组件手动引入，如：`import 'element-plus/es/components/select/style/css'`，这样可以减小你生产包的体积，但你需要仔细排查该引入哪些组件样式
+- 本库ui框架使用的是`element-plus`，所以你需要在你的项目安装 element-plus 依赖，依赖版本按上面给出的版本
+- 在你没有其他地方使用element-plus组件的情况下，可以不用完整安装element-plus
 - 如果有少量使用其组件，也可以使用按需引入或手动引入，如果项目使用了其他UI框架，在不完整安装element-plus的情况下，是不会有冲突的
