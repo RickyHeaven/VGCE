@@ -153,7 +153,7 @@
 			</el-icon>
 		</div>
 	</div>
-	<el-dialog v-model="open" title="使用说明" width="60%" class="guide-dialog">
+	<el-dialog v-model="open" title="使用说明" width="60%">
 		<el-scrollbar max-height="60vh">
 			<div class="font-bold mb-10px text-15px guide-title" style="padding-top: 16px">多选</div>
 			<div
@@ -229,21 +229,6 @@
 	.guide-text {
 		p {
 			line-height: 1.9;
-		}
-	}
-</style>
-<style lang="less">
-	.guide-dialog {
-		.el-dialog__header {
-			background-color: #f1f1f5;
-			margin-right: 0;
-			padding-right: 16px;
-		}
-
-		.el-dialog__body {
-			padding-top: 0;
-			padding-bottom: 8px;
-			padding-right: 8px;
 		}
 	}
 </style>
