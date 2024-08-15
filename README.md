@@ -21,7 +21,6 @@ or
    ```
      //main.js or main.ts
 
-     import 'element-plus/dist/index.css'
      import '@zhangqingcq/vgce/dist/style.css'
    ```
 
