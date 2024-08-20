@@ -8,6 +8,7 @@ import { DefineComponent } from 'vue'
 export declare const SvgEditor: DefineComponent<{
 	data?: string
 	customToolbar?: any[]
+	vueComp?: Record<string, any>
 	saveFile?: boolean
 	onOnPreview?: (d: Record<string, any>) => void
 	onOnSave?: (d: Record<string, any>) => void
@@ -15,8 +16,11 @@ export declare const SvgEditor: DefineComponent<{
 }>
 export declare const SvgViewer: DefineComponent<{
 	data?: Record<string, any>
+	vueComp?: Record<string, any>
 	canvasDrag?: boolean
-	onOnMessage?: (d: { topics: string, message: string }) => void
+	showCanvasInfo?: boolean
+	onOnMessage?: (d: { topics: string; message: string }) => void
+	onOnEvent?: (d: { event: Record<string, any>; target: Record<string, any> }) => void
 }>
 
 export default {
