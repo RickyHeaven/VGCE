@@ -141,11 +141,11 @@ or
  ```
   // viewer
 
-  <svgViewer :data="xxx">
+  <SvgViewer :data="xxx">
 	<template #background>
 	  <div style="height: 100%; width: 100%; background-color: red"></div>
 	</template>
-  </svgViewer>
+  </SvgViewer>
  ```
 ### 8.mqtt 通信
 
@@ -162,7 +162,17 @@ or
        找到组件的id（可以用vue的computed计算一份deviceCode和id的映射关系存到一个对象里，这样在需要id时可直接在计算出的对象凭借deviceCode
        直接取到），即可用setNodeAttrByID改变组件属性
 
-### 9. example 查看示例
+### 9.event 事件处理
+- 编辑器内组件支持事件处理，首先在选中组件时，右侧“事件”菜单下，可以添加事件（1个或多个）
+- 添加事件后可以选择事件类型、行为、条件（条件非必填）
+- 事件类型即触发类型，现有“点击”和“值改变”，点击即组件被点击触发，值改变即组件向外部emit `on-change`事件（一般为自定义vue组件才具备这个能力）时触发
+- 事件行为即事件出发后要执行的动作，现有“改变属性”、“执行 JavaScript”、“emit 事件”
+- 改变属性即改变自身和其他组件（其他组件需指定id）属性，需要指定要改变的key和想设定的value，一次可改多个属性
+- 执行 JavaScript即运行输入的js代码
+- emit 事件即viewer向外emit `on-event`事件，并传递{event,target}数据，event即当前事件的详细数据，target即当前组件的详细数据
+- 条件即事件触发的额外条件，现有“关系运算”，即组件自身属性在满足给出的选定情况下，可以触发事件
+
+### 10. example 查看示例
 
 - download [VGCE](https://github.com/RickyHeaven/VGCE.git) （下载项目）
 

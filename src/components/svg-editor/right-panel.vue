@@ -313,7 +313,8 @@
 						<el-form-item label="行为" size="small">
 							<el-select v-model="item.action" @change="addEventList($event, item)">
 								<el-option value="ChangeAttr" label="改变属性" />
-								<el-option value="JavaScript" label="执行JavaScript" />
+								<el-option value="JavaScript" label="执行 JavaScript" />
+								<el-option value="Emit" label="emit 事件" />
 							</el-select>
 						</el-form-item>
 

@@ -18,6 +18,10 @@ export const preventDefault = (e: any) => {
 	e.preventDefault()
 }
 
+export const myFixed = (d: number, n: number) => {
+	return Number(d.toFixed(n))
+}
+
 export function componentsRegister(data?: Record<string, any>) {
 	//注册所有组件
 	const instance = getCurrentInstance()
@@ -95,19 +99,17 @@ export const calculateRotatedPointCoordinate = (
 	 */
 
 	return {
-		x: parseFloat(
-			(
-				(point.x - center.x) * Math.cos(angleToRadian(rotate)) -
+		x: myFixed(
+			(point.x - center.x) * Math.cos(angleToRadian(rotate)) -
 				(point.y - center.y) * Math.sin(angleToRadian(rotate)) +
-				center.x
-			).toFixed(1)
+				center.x,
+			1
 		),
-		y: parseFloat(
-			(
-				(point.x - center.x) * Math.sin(angleToRadian(rotate)) +
+		y: myFixed(
+			(point.x - center.x) * Math.sin(angleToRadian(rotate)) +
 				(point.y - center.y) * Math.cos(angleToRadian(rotate)) +
-				center.y
-			).toFixed(1)
+				center.y,
+			1
 		)
 	}
 }
@@ -190,10 +192,10 @@ export const setSvgActualInfo = (done_json: IDoneJson, resize?: boolean) => {
 			}
 		} else {
 			const BBox = (queryBbox as SVGGraphicsElement).getBBox()
-			x = parseFloat(BBox.x.toFixed(0))
-			y = parseFloat(BBox.y.toFixed(0))
-			width = parseFloat(BBox.width.toFixed(0))
-			height = parseFloat(BBox.height.toFixed(0))
+			x = myFixed(BBox.x, 0)
+			y = myFixed(BBox.y, 0)
+			width = myFixed(BBox.width, 0)
+			height = myFixed(BBox.height, 0)
 		}
 		if (
 			rectBBox &&
@@ -567,4 +569,20 @@ export const createLine = (e: MouseEvent, type?: ELineBindAnchors, itemInfo?: ID
 		new_position_x: 0,
 		new_position_y: 0
 	}
+}
+
+export const getZoomPosition = (e: Record<string, any>, scale: any, center: Record<string, any>, isAdd: boolean) => {
+	/*鼠标位置*/
+	const offsetX = e.layerX
+	const offsetY = e.layerY
+	/*上次的画布位置*/
+	const tx = center.x
+	const ty = center.y
+	/*上次的scale*/
+	const ts = myFixed(isAdd ? scale - 0.1 : scale + 0.1, 1)
+	/*画布在没有缩放的时候移动位置*/
+	const lx = myFixed(tx + (offsetX * (ts - 1)) / ts, 1)
+	const ly = myFixed(ty + (offsetY * (ts - 1)) / ts, 1)
+	center.x = myFixed(lx / scale - ((offsetX - lx) * (scale - 1)) / scale, 2)
+	center.y = myFixed(ly / scale - ((offsetY - ly) * (scale - 1)) / scale, 2)
 }

@@ -2,7 +2,7 @@
 	import { pinia } from '@/hooks'
 	import { useSvgEditLayoutStore } from '@/stores/svg-edit-layout'
 	import { useConfigStore } from '@/stores/config'
-	import { preventDefault, stopEvent } from '@/utils'
+	import { myFixed, preventDefault } from '@/utils'
 
 	const emit = defineEmits(['onLineMouseUp'])
 	const props = withDefaults(
@@ -144,12 +144,12 @@
 		if (array.length === 0) {
 			for (let i = 0; i < length; i += props.stepLength) {
 				if (i % props.stepLength === 0) {
-					array.push({ id: Number((i / configStore.svg.scale - start).toFixed(0)) })
+					array.push({ id: myFixed(i / configStore.svg.scale - start, 0) })
 				}
 			}
 		} else {
 			array.forEach((e, i) => {
-				e.id = Number(((i * props.stepLength) / configStore.svg.scale - start).toFixed(0))
+				e.id = myFixed((i * props.stepLength) / configStore.svg.scale - start, 0)
 			})
 		}
 	}
@@ -311,10 +311,14 @@
 				<span v-for="(item, index) in yScale" :style="{ top: index * stepLength + 'px' }" class="n">{{ item.id }}</span>
 			</div>
 			<div :style="{ top: verticalDottedTop + 'px' }" class="vue-ruler-ref-dot-h"
-				><span>{{ Math.round((verticalDottedTop - rulerHeight) / configStore.svg.scale) }}</span></div
+				><span>{{
+					Math.round((verticalDottedTop - rulerHeight) / configStore.svg.scale - svgEditLayoutStore.center_offset.y)
+				}}</span></div
 			>
 			<div :style="{ left: horizontalDottedLeft + 'px' }" class="vue-ruler-ref-dot-v"
-				><span>{{ Math.round((horizontalDottedLeft - rulerWidth) / configStore.svg.scale) }}</span></div
+				><span>{{
+					Math.round((horizontalDottedLeft - rulerWidth) / configStore.svg.scale - svgEditLayoutStore.center_offset.x)
+				}}</span></div
 			>
 			<div
 				v-for="item in lineList"

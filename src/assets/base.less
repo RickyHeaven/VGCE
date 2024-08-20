@@ -109,7 +109,39 @@ body {
 
 .tree-v {
 	--el-color-primary-light-9: @listActiveColor;
+
 	&.el-tree--highlight-current .el-tree-node.is-current > .el-tree-node__content {
 		color: #fff;
+	}
+}
+
+.coverLayer {
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+}
+
+.can-not-select {
+	user-select: none;
+}
+
+.canvasInfoTxt {
+	color: #bbb;
+	position: absolute;
+	left: 20px;
+	bottom: 10px;
+	font-size: 12px;
+
+	.icoP {
+		margin-left: 10px;
+		position: relative;
+		top: 2px;
+		cursor: pointer;
+
+		&:hover {
+			color: @activeIconOut;
+		}
 	}
 }

@@ -18,7 +18,8 @@
 		randomString,
 		resetHandlePointOld,
 		setSvgActualInfo,
-		stopEvent
+		getZoomPosition,
+		myFixed
 	} from '@/utils'
 	import {
 		calculateBottom,
@@ -494,10 +495,10 @@
 			//算出缩放倍数
 			if (globalStore.handle_svg_info && new_length.width > 0 && new_length.height > 0) {
 				const scale_x = !new_length.is_old_width
-					? parseFloat((new_length.width / globalStore.handle_svg_info.info.actual_bound.width).toFixed(3))
+					? myFixed(new_length.width / globalStore.handle_svg_info.info.actual_bound.width, 3)
 					: 1
 				const scale_y = !new_length.is_old_height
-					? parseFloat((new_length.height / globalStore.handle_svg_info.info.actual_bound.height).toFixed(3))
+					? myFixed(new_length.height / globalStore.handle_svg_info.info.actual_bound.height, 3)
 					: 1
 				const newCenterPoint = getCenterPoint(curPosition, globalStore.scale_info.symmetric_point)
 				if (
@@ -549,8 +550,9 @@
 						globalStore.handle_svg_info.info.x
 				) /
 				(Math.PI / 180)
-			globalStore.handle_svg_info.info.rotate = parseFloat(
-				(globalStore.rotate_info.angle + rotateDegreeAfter - rotateDegreeBefore).toFixed(2)
+			globalStore.handle_svg_info.info.rotate = myFixed(
+				globalStore.rotate_info.angle + rotateDegreeAfter - rotateDegreeBefore,
+				2
 			)
 		} else if (globalStore.intention === EGlobalStoreIntention.Connection && globalStore.handle_svg_info) {
 			//鼠标移动的实时位置（相对于连线起始点，只在创建第一个点时记录了鼠标原始位置）
@@ -766,9 +768,11 @@
 	function onMousewheel(e: any) {
 		if (e?.wheelDelta) {
 			if (e.wheelDelta > 0) {
-				configStore.svg.scale = parseFloat((configStore.svg.scale + 0.1).toFixed(1))
-			} else {
-				configStore.svg.scale = parseFloat((configStore.svg.scale - 0.1).toFixed(1))
+				configStore.svg.scale = myFixed(configStore.svg.scale + 0.1, 1)
+				getZoomPosition(e, configStore.svg.scale, svgEditLayoutStore.center_offset, true)
+			} else if (configStore.svg.scale > 0.1) {
+				configStore.svg.scale = myFixed(configStore.svg.scale - 0.1, 1)
+				getZoomPosition(e, configStore.svg.scale, svgEditLayoutStore.center_offset, false)
 			}
 		}
 	}
@@ -817,10 +821,10 @@
 		scale_y: number
 	) => {
 		return {
-			x: parseFloat((actual_bound.x - (actual_bound.width / 2) * scale_x + actual_bound.width / 2).toFixed(1)),
-			y: parseFloat((actual_bound.y - (actual_bound.height / 2) * scale_y + actual_bound.height / 2).toFixed(1)),
-			width: parseFloat((actual_bound.width * scale_x).toFixed(1)),
-			height: parseFloat((actual_bound.height * scale_y).toFixed(1))
+			x: myFixed(actual_bound.x - (actual_bound.width / 2) * scale_x + actual_bound.width / 2, 1),
+			y: myFixed(actual_bound.y - (actual_bound.height / 2) * scale_y + actual_bound.height / 2, 1),
+			width: myFixed(actual_bound.width * scale_x, 1),
+			height: myFixed(actual_bound.height * scale_y, 1)
 		}
 	}
 	const onHandleKeyDown = (e: KeyboardEvent) => {
@@ -959,7 +963,7 @@
 		@mousewheel="onMousewheel"
 	>
 		<slot name="background" />
-		<div style="position: absolute; left: 0; top: 0; bottom: 0; right: 0">
+		<div class="coverLayer">
 			<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
 				<defs>
 					<pattern id="pattern_grid" patternUnits="userSpaceOnUse" x="0" y="0" width="20" height="20">
@@ -980,7 +984,6 @@
 						:key="item.id"
 						:transform="`translate(${item.x},${item.y})rotate(0)scale(1)`"
 						v-show="item.display"
-						@mousewheel="stopEvent"
 					>
 						<g :class="`${getCommonClass(item)}`">
 							<g

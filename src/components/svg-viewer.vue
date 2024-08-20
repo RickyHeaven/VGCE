@@ -1,11 +1,15 @@
 <script setup lang="ts">
 	import { pinia } from '@/hooks'
+	import { ElIcon } from 'element-plus'
+	import { Aim } from '@element-plus/icons-vue'
 	import { useGlobalStore } from '@/stores/global'
 	import { EGlobalStoreIntention, EMouseInfoState } from '@/stores/global/types'
 	import type { IDoneJson } from '@/stores/global/types'
 	import {
 		componentsRegister,
 		getCommonClass,
+		getZoomPosition,
+		myFixed,
 		preventDefault,
 		prosToVBind,
 		setArrItemByID,
@@ -25,11 +29,12 @@
 
 	setEditorLoadTime()
 
-	const emit = defineEmits(['onMessage'])
+	const emit = defineEmits(['onMessage', 'onEvent'])
 	const props = withDefaults(
-		defineProps<{ vueComp?: Record<string, any>; data?: IDataModel; canvasDrag?: boolean }>(),
+		defineProps<{ vueComp?: Record<string, any>; data?: IDataModel; canvasDrag?: boolean; showCanvasInfo?: boolean }>(),
 		{
-			canvasDrag: true
+			canvasDrag: true,
+			showCanvasInfo: true
 		}
 	)
 	const globalStore = useGlobalStore(pinia)
@@ -72,14 +77,18 @@
 			return
 		}
 		const { clientX, clientY } = e
-		globalStore.mouse_info.new_position_x =
-			globalStore.mouse_info.now_position_x + clientX - globalStore.mouse_info.position_x
-		globalStore.mouse_info.new_position_y =
-			globalStore.mouse_info.now_position_y + clientY - globalStore.mouse_info.position_y
+		globalStore.mouse_info.new_position_x = Math.round(clientX / preview_data.config.svg.scale)
+		globalStore.mouse_info.new_position_y = Math.round(clientY / preview_data.config.svg.scale)
+		const x = Math.round(
+			globalStore.mouse_info.new_position_x - globalStore.mouse_info.position_x + globalStore.mouse_info.now_position_x
+		)
+		const y = Math.round(
+			globalStore.mouse_info.new_position_y - globalStore.mouse_info.position_y + globalStore.mouse_info.now_position_y
+		)
 		if (globalStore.intention == EGlobalStoreIntention.MoveCanvas) {
 			//移动画布
-			preview_data.layout_center.x = globalStore.mouse_info.new_position_x
-			preview_data.layout_center.y = globalStore.mouse_info.new_position_y
+			preview_data.layout_center.x = x
+			preview_data.layout_center.y = y
 		}
 	}
 	const onCanvasMouseUp = () => {
@@ -106,21 +115,23 @@
 		globalStore.intention = EGlobalStoreIntention.MoveCanvas
 		globalStore.mouse_info = {
 			state: EMouseInfoState.Down,
-			position_x: clientX,
-			position_y: clientY,
+			position_x: Math.round(clientX / preview_data.config.svg.scale),
+			position_y: Math.round(clientY / preview_data.config.svg.scale),
 			now_position_x: preview_data.layout_center.x,
 			now_position_y: preview_data.layout_center.y,
-			new_position_x: preview_data.layout_center.x,
-			new_position_y: preview_data.layout_center.y
+			new_position_x: 0,
+			new_position_y: 0
 		}
 	}
 
 	function onMousewheel(e: any) {
 		if (e?.wheelDelta) {
 			if (e.wheelDelta > 0) {
-				preview_data.config.svg.scale = parseFloat((preview_data.config.svg.scale + 0.1).toFixed(1))
+				preview_data.config.svg.scale = myFixed(preview_data.config.svg.scale + 0.1, 1)
+				getZoomPosition(e, preview_data.config.svg.scale, preview_data.layout_center, true)
 			} else {
-				preview_data.config.svg.scale = parseFloat((preview_data.config.svg.scale - 0.1).toFixed(1))
+				preview_data.config.svg.scale = myFixed(preview_data.config.svg.scale - 0.1, 1)
+				getZoomPosition(e, preview_data.config.svg.scale, preview_data.layout_center, false)
 			}
 		}
 	}
@@ -156,7 +167,6 @@
 		return { cursor: t ? 'pointer' : 'default' }
 	}
 	const eventHandle = (root: IDoneJson, type: EEventType) => {
-		console.log(root.events, type)
 		if (root.events?.length > 0) {
 			for (let e of root.events) {
 				if (e.type === type) {
@@ -204,6 +214,28 @@
 					} else if (e.action === EEventAction.JavaScript) {
 						const t = new Function(e.scripts)
 						t()
+					} else if (e.action === EEventAction.Emit) {
+						const _k: Array<keyof IDoneJson> = [
+							'id',
+							'name',
+							'common_animations',
+							'display',
+							'props',
+							'title',
+							'type',
+							'x',
+							'y'
+						]
+						const _r: Record<string, any> = {}
+						_k.forEach((x) => {
+							if (root?.hasOwnProperty?.(x)) {
+								_r[x] = root[x]
+							}
+						})
+						emit('onEvent', {
+							event: e,
+							target: _r
+						})
 					}
 				}
 			}
@@ -230,6 +262,13 @@
 		}
 	}
 
+	const resetCanvas = () => {
+		preview_data.layout_center = {
+			x: 0,
+			y: 0
+		}
+	}
+
 	const connectNet = () => {
 		const m = preview_data.config.net.mqtt
 		if (m && m.url && m.user && m.pwd && m.topics) {
@@ -240,12 +279,12 @@
 				//用户拿到消息后可以配合setNodeAttrByID方法更新界面
 				//setNodeAttrByID的参数id可以在传给本组件的props.data（用户传进来的，自然知道值是多少）里done_json找到
 				/*如何找到指定组件的两种方案：
-				1.用你的项目里前后端约定的svg组件唯一标识符替换掉编辑器生成的id（必须保证唯一），然后调用setNodeAttrByID改变组件属性。
-				2.如果不想改动id（避免因不能保证手动改过的id唯一性导致编辑器功能异常），可以在config里给想要改变的组件的配置文件的props里增加一个字段，
-				如deviceCode(svg-text的配置文件里有被注释的例子)，然后在编辑组态时，给对应组件填上对应的deviceCode（这样deviceCode就和组件id实现
-				了映射关系），并保存，后台给前台推MQTT消息时带上指定的deviceCode，前台预览时，在收到MQTT消息后，凭借消息里的deviceCode在done_json
-				找到组件的id（可以用vue的computed计算一份deviceCode和id的映射关系存到一个对象里，这样在需要id时可直接在计算出的对象凭借deviceCode
-				直接取到），即可用setNodeAttrByID改变组件属性*/
+				 1.用你的项目里前后端约定的svg组件唯一标识符替换掉编辑器生成的id（必须保证唯一），然后调用setNodeAttrByID改变组件属性。
+				 2.如果不想改动id（避免因不能保证手动改过的id唯一性导致编辑器功能异常），可以在config里给想要改变的组件的配置文件的props里增加一个字段，
+				 如deviceCode(svg-text的配置文件里有被注释的例子)，然后在编辑组态时，给对应组件填上对应的deviceCode（这样deviceCode就和组件id实现
+				 了映射关系），并保存，后台给前台推MQTT消息时带上指定的deviceCode，前台预览时，在收到MQTT消息后，凭借消息里的deviceCode在done_json
+				 找到组件的id（可以用vue的computed计算一份deviceCode和id的映射关系存到一个对象里，这样在需要id时可直接在计算出的对象凭借deviceCode
+				 直接取到），即可用setNodeAttrByID改变组件属性*/
 				emit('onMessage', {
 					topics,
 					message
@@ -287,12 +326,12 @@
 		@contextmenu="preventDefault"
 	>
 		<slot name="background" />
-		<div style="position: absolute; left: 0; top: 0; bottom: 0; right: 0">
+		<div class="coverLayer">
 			<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
 				<g
-					:transform="`translate(${preview_data.layout_center.x},${preview_data.layout_center.y})rotate(${0})scale(${
-						preview_data.config.svg.scale
-					})`"
+					:transform="`translate(${preview_data.layout_center.x * preview_data.config.svg.scale},${
+						preview_data.layout_center.y * preview_data.config.svg.scale
+					})rotate(${0})scale(${preview_data.config.svg.scale})`"
 				>
 					<g
 						v-for="item in preview_data.done_json"
@@ -304,7 +343,6 @@
 						@mousedown="stopEvent"
 						@mousemove="stopEvent"
 						@mouseup="stopEvent"
-						@mousewheel="stopEvent"
 					>
 						<g :class="`${getCommonClass(item)}`">
 							<g
@@ -370,6 +408,15 @@
 					</g>
 				</g>
 			</svg>
+		</div>
+
+		<div class="can-not-select canvasInfoTxt" v-show="showCanvasInfo"
+			>缩放倍数：{{ preview_data.config.svg.scale }}倍，画布位置：{{ myFixed(preview_data.layout_center.x, 2) }}，{{
+				myFixed(preview_data.layout_center.y, 2)
+			}}
+			<el-icon class="icoP" :size="14" @click="resetCanvas" title="重置位置">
+				<Aim />
+			</el-icon>
 		</div>
 	</div>
 </template>

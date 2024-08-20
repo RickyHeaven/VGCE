@@ -80,6 +80,7 @@ export enum EEventType {
 export enum EEventAction {
 	ChangeAttr = 'ChangeAttr',
 	JavaScript = 'JavaScript',
+	Emit = 'Emit',
 	Null = ''
 }
 
