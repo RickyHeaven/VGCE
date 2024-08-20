@@ -20426,7 +20426,7 @@ const useEditPrivateStore = defineStore("edit-private-store", {
   }
 });
 var EVisibleConfKey = /* @__PURE__ */ ((i) => (i.ImportJson = "ImportJson", i.ExportJson = "ExportJson", i.ImportFile = "ImportFile", i))(EVisibleConfKey || {});
-const _withScopeId$2 = (i) => (pushScopeId("data-v-01c79e12"), i = i(), popScopeId(), i), _hoisted_1$d = {
+const _withScopeId$2 = (i) => (pushScopeId("data-v-c6f23032"), i = i(), popScopeId(), i), _hoisted_1$d = {
   class: "flex justify-between",
   style: { width: "100%" }
 }, _hoisted_2$b = {
@@ -20451,7 +20451,7 @@ const _withScopeId$2 = (i) => (pushScopeId("data-v-01c79e12"), i = i(), popScope
   class: "el-divider el-divider--horizontal",
   role: "separator",
   style: { "--el-border-style": "solid" }
-}, null, -1)), _hoisted_14$1 = /* @__PURE__ */ _withScopeId$2(() => /* @__PURE__ */ createElementVNode("div", { class: "font-bold mb-10px text-15px guide-title" }, "画布缩放", -1)), _hoisted_15$1 = /* @__PURE__ */ _withScopeId$2(() => /* @__PURE__ */ createElementVNode("div", null, "在画布空白区使用鼠标滚轮或者右侧面板‘图纸’栏可控制画布缩放", -1)), _hoisted_16$1 = /* @__PURE__ */ _withScopeId$2(() => /* @__PURE__ */ createElementVNode("div", {
+}, null, -1)), _hoisted_14$1 = /* @__PURE__ */ _withScopeId$2(() => /* @__PURE__ */ createElementVNode("div", { class: "font-bold mb-10px text-15px guide-title" }, "画布缩放", -1)), _hoisted_15$1 = /* @__PURE__ */ _withScopeId$2(() => /* @__PURE__ */ createElementVNode("div", null, "在画布中使用鼠标滚轮或者右侧面板‘图纸’栏可控制画布缩放，鼠标滚轮以鼠标位置为缩放中心，图纸栏以图纸原点（默认在左上角）为缩放中心", -1)), _hoisted_16$1 = /* @__PURE__ */ _withScopeId$2(() => /* @__PURE__ */ createElementVNode("div", {
   class: "el-divider el-divider--horizontal",
   role: "separator",
   style: { "--el-border-style": "solid" }
@@ -20727,7 +20727,7 @@ const _withScopeId$2 = (i) => (pushScopeId("data-v-01c79e12"), i = i(), popScope
       }, 8, ["modelValue"])
     ], 64));
   }
-}), topPanel_vue_vue_type_style_index_0_scoped_01c79e12_lang = "", TopPanel = /* @__PURE__ */ _export_sfc$1(_sfc_main$D, [["__scopeId", "data-v-01c79e12"]]), _hoisted_1$c = { class: "component-group flex flex-wrap" }, _hoisted_2$a = ["onDragstart", "title"], _sfc_main$C = /* @__PURE__ */ defineComponent({
+}), topPanel_vue_vue_type_style_index_0_scoped_c6f23032_lang = "", TopPanel = /* @__PURE__ */ _export_sfc$1(_sfc_main$D, [["__scopeId", "data-v-c6f23032"]]), _hoisted_1$c = { class: "component-group flex flex-wrap" }, _hoisted_2$a = ["onDragstart", "title"], _sfc_main$C = /* @__PURE__ */ defineComponent({
   __name: "left-panel",
   props: {
     customToolbar: {}

@@ -164,7 +164,9 @@
 			<div>在画布空白区域按住右键可拖动画布，右侧面板‘图纸’栏可微调或重置位置</div>
 			<div class="el-divider el-divider--horizontal" role="separator" style="--el-border-style: solid"></div>
 			<div class="font-bold mb-10px text-15px guide-title">画布缩放</div>
-			<div>在画布空白区使用鼠标滚轮或者右侧面板‘图纸’栏可控制画布缩放</div>
+			<div
+				>在画布中使用鼠标滚轮或者右侧面板‘图纸’栏可控制画布缩放，鼠标滚轮以鼠标位置为缩放中心，图纸栏以图纸原点（默认在左上角）为缩放中心</div
+			>
 			<div class="el-divider el-divider--horizontal" role="separator" style="--el-border-style: solid"></div>
 			<div class="font-bold mb-10px text-15px guide-title">标尺辅助线</div>
 			<div>在标尺区域按住鼠标左键并拖动即可创建标尺辅助线，将标尺辅助线拖动到标尺区域即可删除标尺辅助线</div>
