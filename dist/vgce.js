@@ -42691,7 +42691,7 @@ const sub = (i, r, n, o, a) => {
   emits: ["onMessage", "onEvent"],
   setup(i, { expose: r, emit: n }) {
     useCssVars((T) => ({
-      "5af92a76": unref(d)
+      "51655a09": unref(d)
     })), setEditorLoadTime();
     const o = n, a = i, u = useGlobalStore(pinia);
     componentsRegister(a.vueComp);
@@ -42797,7 +42797,7 @@ const sub = (i, r, n, o, a) => {
                 if (!k)
                   continue;
                 for (let oe of O.attrs)
-                  oe.key === "state" ? k.defaultState = valFormat(oe.val) : k.props.hasOwnProperty(oe.key) && (k.props[oe.key].val = valFormat(oe.val));
+                  oe.key === "state" ? k.defaultState = valFormat(oe.val) : oe.key === "display" ? k.display = valFormat(oe.val) : k.props.hasOwnProperty(oe.key) && (k.props[oe.key].val = valFormat(oe.val));
               }
             } else if (O.action === EEventAction.JavaScript)
               new Function(O.scripts)();
@@ -42962,7 +42962,7 @@ const sub = (i, r, n, o, a) => {
       ])
     ], 36));
   }
-}), svgViewer_vue_vue_type_style_index_0_scoped_86bbdc9c_lang = "", svgViewer = /* @__PURE__ */ _export_sfc$1(_sfc_main, [["__scopeId", "data-v-86bbdc9c"]]);
+}), svgViewer_vue_vue_type_style_index_0_scoped_f5237156_lang = "", svgViewer = /* @__PURE__ */ _export_sfc$1(_sfc_main, [["__scopeId", "data-v-f5237156"]]);
 export {
   index as SvgEditor,
   svgViewer as SvgViewer

@@ -206,6 +206,8 @@
 							for (let a of e.attrs) {
 								if (a.key === 'state') {
 									t.defaultState = valFormat(a.val)
+								} else if (a.key === 'display') {
+									t.display = valFormat(a.val)
 								} else if (t.props.hasOwnProperty(a.key)) {
 									t.props[a.key].val = valFormat(a.val)
 								}
