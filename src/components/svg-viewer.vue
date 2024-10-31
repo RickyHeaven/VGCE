@@ -25,7 +25,7 @@
 	import 'element-plus/dist/index.css'
 	import 'animate.css'
 
-	import { sub, close } from '@/utils/mqtt-net'
+	import Link from '@/utils/mqtt-net'
 
 	setEditorLoadTime()
 
@@ -37,6 +37,8 @@
 			showCanvasInfo: true
 		}
 	)
+
+	const link = Link()
 	const globalStore = useGlobalStore(pinia)
 	componentsRegister(props.vueComp)
 	const preview_data = reactive(
@@ -274,7 +276,7 @@
 	const connectNet = () => {
 		const m = preview_data.config.net.mqtt
 		if (m && m.url && m.user && m.pwd && m.topics) {
-			sub(m.url, m.user, m.pwd, m.topics, (topics: string, message: string) => {
+			link.sub(m.url, m.user, m.pwd, m.topics, (topics: string, message: string) => {
 				console.log(topics)
 				console.log(message.toString())
 				//暴露给外部，让用户自己处理消息，message可以用JSON.parse解析成对象（后端推给前端的MQTT消息内容需要是JSON格式）
@@ -310,7 +312,9 @@
 		connectNet()
 	})
 
-	onBeforeUnmount(close)
+	onBeforeUnmount(() => {
+		link.close(link.destroy)
+	})
 
 	defineExpose({
 		setNodeAttrByID
