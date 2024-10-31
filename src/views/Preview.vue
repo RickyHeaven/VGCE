@@ -15,7 +15,7 @@
 <template>
 	<div class="previewPage">
 		<svg-viewer :data="store.data" />
-		<el-button type="text" @click="back" class="backBtn" :icon="ArrowLeftBold">返回</el-button>
+		<el-button link @click="back" class="backBtn" :icon="ArrowLeftBold">返回</el-button>
 	</div>
 </template>
 

@@ -38,7 +38,7 @@
 		}
 	)
 
-	const link = Link()
+	let link: any = Link()
 	const globalStore = useGlobalStore(pinia)
 	componentsRegister(props.vueComp)
 	const preview_data = reactive(
@@ -313,7 +313,10 @@
 	})
 
 	onBeforeUnmount(() => {
-		link.close(link.destroy)
+		link.close(() => {
+			link.destroy()
+			link = null
+		})
 	})
 
 	defineExpose({

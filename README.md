@@ -7,13 +7,13 @@ Vector graphics configure editor. 矢量图组态编辑器。
 ### 1. install 安装依赖
 
    ```
-     npm i @zhangqingcq/vgce element-plus@2.8.0 ace-builds@1.14.0 lodash-es@^4.17.21 vue-echarts@6.5.1 animate.css@4.1.1
+     npm i @zhangqingcq/vgce element-plus@2.8.6 ace-builds@1.14.0 lodash-es@^4.17.21 vue-echarts@6.5.1 animate.css@4.1.1
    ```
 
 or
 
    ```
-     pnpm add @zhangqingcq/vgce element-plus@2.8.0 ace-builds@1.14.0 lodash-es@^4.17.21 vue-echarts@6.5.1 animate.css@4.1.1
+     pnpm add @zhangqingcq/vgce element-plus@2.8.6 ace-builds@1.14.0 lodash-es@^4.17.21 vue-echarts@6.5.1 animate.css@4.1.1
    ```
 
 ### 2. change main.ts or main.js 修改项目主文件
