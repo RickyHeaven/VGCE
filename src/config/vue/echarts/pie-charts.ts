@@ -8,7 +8,7 @@ const t: IConfigItem = {
 	type: EDoneJsonType.Vue,
 	config: {
 		can_zoom: true,
-		have_anchor: true,
+		have_anchor: false,
 		actual_rect: true
 	},
 	display: true,

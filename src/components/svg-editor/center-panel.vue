@@ -287,6 +287,7 @@
 			}
 		}
 	}
+
 	const onSvgMouseEnter = (select_item: IDoneJson, index: number, e: MouseEvent) => {
 		e.preventDefault()
 		e.stopPropagation()
@@ -613,6 +614,7 @@
 			}
 		}
 	}
+
 	const onCanvasMouseUp = () => {
 		//如果鼠标不是按下状态
 		if (globalStore.mouse_info.state != EMouseInfoState.Down) {
@@ -666,7 +668,11 @@
 			globalStore.setHandleSvgInfo(null)
 			for (let e of globalStore.done_json) {
 				const t = selectRect.value
-				e.selected = e.x > t.x && e.x < t.x + t.with && e.y > t.y && e.y < t.y + t.height
+				e.selected =
+					e.center_position.x > t.x &&
+					e.center_position.x < t.x + t.with &&
+					e.center_position.y > t.y &&
+					e.center_position.y < t.y + t.height
 			}
 			globalStore.intention = EGlobalStoreIntention.None
 		} else if (globalStore.intention != EGlobalStoreIntention.Select) {
@@ -683,6 +689,7 @@
 		}
 		contextMenuStore.display = false
 	}
+
 	const onCanvasMouseDown = (e: MouseEvent) => {
 		const { clientX, clientY } = e
 		if (globalStore.intention === EGlobalStoreIntention.Connection) {
@@ -761,6 +768,32 @@
 				now_position_y: svgEditLayoutStore.center_offset.y,
 				new_position_x: 0,
 				new_position_y: 0
+			}
+		}
+	}
+
+	const onLineMouseDown = (e: Record<string, any>) => {
+		if (globalStore.intention === EGlobalStoreIntention.Connection && globalStore.handle_svg_info) {
+			if (e.button === 0) {
+				//鼠标左键创建新线段
+				if (globalStore.handle_svg_info.info.props.point_position.val.length !== 2) {
+					//鼠标移动后的实时位置（相对于起始点，只在创建第一个点时记录了鼠标原始位置）
+					globalStore.handle_svg_info.info.props.point_position.val.push({
+						x:
+							globalStore.mouse_info.new_position_x -
+							globalStore.mouse_info.position_x -
+							svgEditLayoutStore.center_offset.x,
+						y:
+							globalStore.mouse_info.new_position_y -
+							globalStore.mouse_info.position_y -
+							svgEditLayoutStore.center_offset.y
+					})
+				}
+			} else if (e.button === 2) {
+				//鼠标右键结束线段绘制
+				globalStore.intention = EGlobalStoreIntention.None
+				setSvgActualInfo(globalStore.done_json[globalStore.handle_svg_info.index])
+				globalStore.setHandleSvgInfo(null)
 			}
 		}
 	}
@@ -1003,6 +1036,7 @@
 									v-if="item.type === EDoneJsonType.ConnectionLine"
 									:item-info="item"
 									:point-visible="visible_info.connection_line && visible_info.select_item.info?.id == item.id"
+									@mousedown="onLineMouseDown"
 								/>
 								<use
 									v-else-if="item.type === EDoneJsonType.File"

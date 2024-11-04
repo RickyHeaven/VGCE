@@ -157,7 +157,7 @@
 		<el-scrollbar max-height="60vh">
 			<div class="font-bold mb-10px text-15px guide-title" style="padding-top: 16px">多选</div>
 			<div
-				>在画布空白区域按住鼠标左键可以框选（图形坐标在框选区域即判定被选中），也可以按住ctrl+鼠标左键点图形进行多选</div
+				>在画布空白区域按住鼠标左键可以框选（图形中心点在框选区域即判定被选中），也可以按住ctrl+鼠标左键点图形进行多选</div
 			>
 			<div class="el-divider el-divider--horizontal" role="separator" style="--el-border-style: solid"></div>
 			<div class="font-bold mb-10px text-15px guide-title">拖动画布</div>
