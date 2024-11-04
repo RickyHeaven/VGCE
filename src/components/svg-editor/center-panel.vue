@@ -207,6 +207,30 @@
 		canvasRef.value?.focus()
 		if (globalStore.intention === EGlobalStoreIntention.Connection) {
 			e.stopPropagation()
+			if (globalStore.handle_svg_info) {
+				if (e.button === 0) {
+					//鼠标左键创建新线段
+					const l = globalStore.handle_svg_info.info.props.point_position.val
+					if (l.length > 1 && l[0].x !== l[1].x && l[0].y !== l[1].y) {
+						//鼠标移动后的实时位置（相对于起始点，只在创建第一个点时记录了鼠标原始位置）
+						l.push({
+							x:
+								globalStore.mouse_info.new_position_x -
+								globalStore.mouse_info.position_x -
+								svgEditLayoutStore.center_offset.x,
+							y:
+								globalStore.mouse_info.new_position_y -
+								globalStore.mouse_info.position_y -
+								svgEditLayoutStore.center_offset.y
+						})
+					}
+				} else if (e.button === 2) {
+					//鼠标右键结束线段绘制
+					globalStore.intention = EGlobalStoreIntention.None
+					setSvgActualInfo(globalStore.done_json[globalStore.handle_svg_info.index])
+					globalStore.setHandleSvgInfo(null)
+				}
+			}
 			return
 		}
 		e.preventDefault()
@@ -772,32 +796,6 @@
 		}
 	}
 
-	const onLineMouseDown = (e: Record<string, any>) => {
-		if (globalStore.intention === EGlobalStoreIntention.Connection && globalStore.handle_svg_info) {
-			if (e.button === 0) {
-				//鼠标左键创建新线段
-				if (globalStore.handle_svg_info.info.props.point_position.val.length !== 2) {
-					//鼠标移动后的实时位置（相对于起始点，只在创建第一个点时记录了鼠标原始位置）
-					globalStore.handle_svg_info.info.props.point_position.val.push({
-						x:
-							globalStore.mouse_info.new_position_x -
-							globalStore.mouse_info.position_x -
-							svgEditLayoutStore.center_offset.x,
-						y:
-							globalStore.mouse_info.new_position_y -
-							globalStore.mouse_info.position_y -
-							svgEditLayoutStore.center_offset.y
-					})
-				}
-			} else if (e.button === 2) {
-				//鼠标右键结束线段绘制
-				globalStore.intention = EGlobalStoreIntention.None
-				setSvgActualInfo(globalStore.done_json[globalStore.handle_svg_info.index])
-				globalStore.setHandleSvgInfo(null)
-			}
-		}
-	}
-
 	function onMousewheel(e: any) {
 		if (e?.wheelDelta) {
 			if (e.wheelDelta > 0) {
@@ -1036,7 +1034,6 @@
 									v-if="item.type === EDoneJsonType.ConnectionLine"
 									:item-info="item"
 									:point-visible="visible_info.connection_line && visible_info.select_item.info?.id == item.id"
-									@mousedown="onLineMouseDown"
 								/>
 								<use
 									v-else-if="item.type === EDoneJsonType.File"
