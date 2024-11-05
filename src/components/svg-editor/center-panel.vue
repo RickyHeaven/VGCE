@@ -964,6 +964,18 @@
 		}
 	}
 
+	const onHandleKeyUp = (e: KeyboardEvent) => {
+		const t = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight']
+		if (!e.ctrlKey && t.indexOf(e.key) > -1) {
+			//群组移动了,从新计算移动过的组件各种坐标信息
+			for (let e of globalStore.done_json) {
+				if (e.selected) {
+					setSvgActualInfo(e)
+				}
+			}
+		}
+	}
+
 	const resizeBox = () => {
 		setSvgActualInfo(globalStore.done_json[globalStore.handle_svg_info!.index], true)
 	}
@@ -998,6 +1010,7 @@
 		@mouseup="onCanvasMouseUp"
 		@contextmenu="onCanvasContextMenuEvent"
 		@keydown="onHandleKeyDown"
+		@keyup="onHandleKeyUp"
 		@mousewheel="onMousewheel"
 	>
 		<slot name="background" />
