@@ -125,6 +125,10 @@ export default defineConfig({
 				// 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
 				globals: {
 					vue: 'Vue',
+					'element-plus': 'elementPlus',
+					'lodash-es': 'lodashEs',
+					'ace-builds': 'ace',
+					'vue-echarts': 'VChart',
 					pinia: 'Pinia'
 				},
 				inlineDynamicImports: true
