@@ -131,7 +131,7 @@
 			if (e.wheelDelta > 0) {
 				preview_data.config.svg.scale = myFixed(preview_data.config.svg.scale + 0.1, 1)
 				getZoomPosition(e, preview_data.config.svg.scale, preview_data.layout_center, true)
-			} else {
+			} else if (preview_data.config.svg.scale > 0.1) {
 				preview_data.config.svg.scale = myFixed(preview_data.config.svg.scale - 0.1, 1)
 				getZoomPosition(e, preview_data.config.svg.scale, preview_data.layout_center, false)
 			}

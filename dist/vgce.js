@@ -42729,8 +42729,8 @@ class Link {
     this.client = mqttExports.connect(c, {
       username: n.trim(),
       password: o.trim(),
-      reconnectPeriod: 6e5
-      /*如果连不上，10分钟后重试*/
+      reconnectPeriod: 12e4
+      /*如果连不上，2分钟后重试*/
     }), (d = this.client) == null || d.on("connect", () => {
       var p, _;
       console.log("MQTT服务器连接成功"), console.log((p = this.client) == null ? void 0 : p.options.clientId), (_ = this.client) == null || _.subscribe(a, { qos: 1 });
@@ -42784,7 +42784,7 @@ const t = function() {
   emits: ["onMessage", "onEvent"],
   setup(i, { expose: r, emit: n }) {
     useCssVars((L) => ({
-      "13a748e4": unref(f)
+      "021580d6": unref(f)
     })), setEditorLoadTime();
     const o = n, a = i;
     let u = t();
@@ -42847,7 +42847,7 @@ const t = function() {
       };
     };
     function g(L) {
-      L != null && L.wheelDelta && (L.wheelDelta > 0 ? (d.config.svg.scale = myFixed(d.config.svg.scale + 0.1, 1), getZoomPosition(L, d.config.svg.scale, d.layout_center, !0)) : (d.config.svg.scale = myFixed(d.config.svg.scale - 0.1, 1), getZoomPosition(L, d.config.svg.scale, d.layout_center, !1)));
+      L != null && L.wheelDelta && (L.wheelDelta > 0 ? (d.config.svg.scale = myFixed(d.config.svg.scale + 0.1, 1), getZoomPosition(L, d.config.svg.scale, d.layout_center, !0)) : d.config.svg.scale > 0.1 && (d.config.svg.scale = myFixed(d.config.svg.scale - 0.1, 1), getZoomPosition(L, d.config.svg.scale, d.layout_center, !1)));
     }
     const y = (L, O, M) => ({
       x: L.x - L.width / 2 * O + L.width / 2,
@@ -43061,7 +43061,7 @@ const t = function() {
       ])
     ], 36));
   }
-}), svgViewer_vue_vue_type_style_index_0_scoped_ce04f374_lang = "", svgViewer = /* @__PURE__ */ _export_sfc$1(_sfc_main, [["__scopeId", "data-v-ce04f374"]]);
+}), svgViewer_vue_vue_type_style_index_0_scoped_a47db329_lang = "", svgViewer = /* @__PURE__ */ _export_sfc$1(_sfc_main, [["__scopeId", "data-v-a47db329"]]);
 export {
   index as SvgEditor,
   svgViewer as SvgViewer

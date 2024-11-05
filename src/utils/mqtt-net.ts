@@ -17,7 +17,7 @@ class Link {
 		this.client = connect(_url, {
 			username: user.trim(),
 			password: pwd.trim(),
-			reconnectPeriod: 600000 /*如果连不上，10分钟后重试*/
+			reconnectPeriod: 120000 /*如果连不上，2分钟后重试*/
 		})
 
 		this.client?.on('connect', () => {
