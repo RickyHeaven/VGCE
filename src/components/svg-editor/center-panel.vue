@@ -651,9 +651,16 @@
 			globalStore.setDoneJson(globalStore.done_json)
 		} else if (globalStore.intention == EGlobalStoreIntention.GroupMove) {
 			if (groupMoved) {
-				//群组移动了
+				//群组移动了,从新计算移动过的组件各种坐标信息
+				for (let e of globalStore.done_json) {
+					if (e.selected) {
+						setSvgActualInfo(e)
+					}
+				}
 				groupMoved = false
 				globalStore.intention = EGlobalStoreIntention.None
+				//记录历史记录
+				globalStore.setDoneJson(globalStore.done_json)
 			}
 		} else if (globalStore.handle_svg_info?.info && globalStore.intention == EGlobalStoreIntention.Zoom) {
 			//缩放完成后重置中点 新版本中点就是组件坐标
