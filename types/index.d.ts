@@ -12,7 +12,7 @@ export declare const SvgEditor: DefineComponent<{
 	saveFile?: boolean
 	onOnPreview?: (d: Record<string, any>) => void
 	onOnSave?: (d: Record<string, any>) => void
-	onOnReturn?: () => void
+	onOnReturn?: (d: Record<string, any>) => void
 }>
 export declare const SvgViewer: DefineComponent<{
 	data?: Record<string, any>
