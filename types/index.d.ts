@@ -10,6 +10,7 @@ export declare const SvgEditor: DefineComponent<{
 	customToolbar?: any[]
 	vueComp?: Record<string, any>
 	saveFile?: boolean
+	mqtt?: { cover: boolean; url: string; user: string; pwd: string; topics: string }
 	onOnPreview?: (d: Record<string, any>) => void
 	onOnSave?: (d: Record<string, any>) => void
 	onOnReturn?: (d: Record<string, any>) => void
