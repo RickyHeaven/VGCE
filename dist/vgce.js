@@ -30363,7 +30363,12 @@ const _hoisted_1$1 = { class: "canvas-main-pc" }, _sfc_main$1 = /* @__PURE__ */ 
     }
     return onMounted(() => {
       var L, O, M, k, ie;
-      d.net.mqtt.useGlobalMqtt = !!((L = a.mqtt) != null && L.cover), d.net.mqtt.global.url = ((O = a.mqtt) == null ? void 0 : O.url) || "", d.net.mqtt.global.user = ((M = a.mqtt) == null ? void 0 : M.user) || "", d.net.mqtt.global.pwd = ((k = a.mqtt) == null ? void 0 : k.pwd) || "", d.net.mqtt.global.topics = ((ie = a.mqtt) == null ? void 0 : ie.topics) || "";
+      d.net.mqtt.useGlobalMqtt = !!((L = a.mqtt) != null && L.cover), d.net.mqtt.global || (d.net.mqtt.global = {
+        url: "",
+        user: "",
+        pwd: "",
+        topics: ""
+      }), d.net.mqtt.global.url = ((O = a.mqtt) == null ? void 0 : O.url) || "", d.net.mqtt.global.user = ((M = a.mqtt) == null ? void 0 : M.user) || "", d.net.mqtt.global.pwd = ((k = a.mqtt) == null ? void 0 : k.pwd) || "", d.net.mqtt.global.topics = ((ie = a.mqtt) == null ? void 0 : ie.topics) || "";
     }), r({
       setGraphNodeJson: A
     }), (L, O) => (openBlock(), createElementBlock("div", null, [
@@ -30506,7 +30511,7 @@ const _hoisted_1$1 = { class: "canvas-main-pc" }, _sfc_main$1 = /* @__PURE__ */ 
       }, 8, ["modelValue"])
     ]));
   }
-}), index_vue_vue_type_style_index_0_scoped_7097d2ce_lang = "", index = /* @__PURE__ */ _export_sfc$1(_sfc_main$1, [["__scopeId", "data-v-7097d2ce"]]);
+}), index_vue_vue_type_style_index_0_scoped_1f7d33b9_lang = "", index = /* @__PURE__ */ _export_sfc$1(_sfc_main$1, [["__scopeId", "data-v-1f7d33b9"]]);
 function commonjsRequire(i) {
   throw new Error('Could not dynamically require "' + i + '". Please configure the dynamicRequireTargets or/and ignoreDynamicRequires option of @rollup/plugin-commonjs appropriately for this require call to work.');
 }

@@ -142,6 +142,14 @@
 
 	onMounted(() => {
 		configStore.net.mqtt.useGlobalMqtt = Boolean(props.mqtt?.cover)
+		if (!configStore.net.mqtt.global) {
+			configStore.net.mqtt.global = {
+				url: '',
+				user: '',
+				pwd: '',
+				topics: ''
+			}
+		}
 		configStore.net.mqtt.global.url = props.mqtt?.url || ''
 		configStore.net.mqtt.global.user = props.mqtt?.user || ''
 		configStore.net.mqtt.global.pwd = props.mqtt?.pwd || ''
