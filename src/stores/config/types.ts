@@ -11,9 +11,16 @@ export interface IPositionCenterSvg {
 
 export interface INet {
 	mqtt: {
+		useGlobalMqtt: boolean
 		url: string
 		user: string
 		pwd: string
 		topics: string
+		global: {
+			url: string
+			user: string
+			pwd: string
+			topics: string
+		}
 	}
 }

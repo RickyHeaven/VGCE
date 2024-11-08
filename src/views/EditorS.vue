@@ -7,6 +7,7 @@
 	const store = useStore()
 
 	const previewShow = ref(false)
+
 	function previewHandle(d: IDataModel) {
 		store.data = d
 		nextTick(function () {
@@ -16,6 +17,6 @@
 </script>
 
 <template>
-	<SvgEditor :data="(store.data && JSON.stringify(store.data)) || ''" @onPreview="previewHandle" saveFile />
+	<SvgEditor :data="(store.data && JSON.stringify(store.data)) || ''" saveFile @onPreview="previewHandle" />
 	<Preview v-if="previewShow" @back="previewShow = false" />
 </template>

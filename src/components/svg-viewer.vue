@@ -31,7 +31,12 @@
 
 	const emit = defineEmits(['onMessage', 'onEvent'])
 	const props = withDefaults(
-		defineProps<{ vueComp?: Record<string, any>; data?: IDataModel; canvasDrag?: boolean; showCanvasInfo?: boolean }>(),
+		defineProps<{
+			vueComp?: Record<string, any>
+			data?: IDataModel
+			canvasDrag?: boolean
+			showCanvasInfo?: boolean
+		}>(),
 		{
 			canvasDrag: true,
 			showCanvasInfo: true
@@ -55,10 +60,17 @@
 				},
 				net: {
 					mqtt: {
+						useGlobalMqtt: false,
 						url: '',
 						user: '',
 						pwd: '',
-						topics: ''
+						topics: '',
+						global: {
+							url: '',
+							user: '',
+							pwd: '',
+							topics: ''
+						}
 					}
 				}
 			},
@@ -274,7 +286,12 @@
 	}
 
 	const connectNet = () => {
-		const m = preview_data.config.net.mqtt
+		let m
+		if (preview_data.config.net.mqtt.useGlobalMqtt) {
+			m = preview_data.config.net.mqtt.global
+		} else {
+			m = preview_data.config.net.mqtt
+		}
 		if (m && m.url && m.user && m.pwd && m.topics) {
 			link.sub(m.url, m.user, m.pwd, m.topics, (topics: string, message: string) => {
 				console.log(topics)

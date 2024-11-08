@@ -33,14 +33,28 @@
 	import { fileRead, fileWrite } from '@/utils/file-read-write'
 	import { useEditPrivateStore } from '@/stores/system'
 	import { setEditorLoadTime } from '@/utils'
+	import { onMounted } from 'vue'
 
 	setEditorLoadTime()
 
 	const emits = defineEmits(['onReturn', 'onPreview', 'onSave'])
 	const props = withDefaults(
-		defineProps<{ customToolbar?: IConfig; vueComp?: Record<string, any>; data?: string; saveFile?: boolean }>(),
+		defineProps<{
+			customToolbar?: IConfig
+			vueComp?: Record<string, any>
+			data?: string
+			saveFile?: boolean
+			mqtt?: { cover: boolean; url: string; user: string; pwd: string; topics: string }
+		}>(),
 		{
-			saveFile: false
+			saveFile: false,
+			mqtt: () => ({
+				cover: false,
+				url: '',
+				user: '',
+				pwd: '',
+				topics: ''
+			})
 		}
 	)
 	const globalStore = useGlobalStore(pinia)
@@ -125,6 +139,14 @@
 	function onLineMouseUp() {
 		centerRef.value.onCanvasMouseUp()
 	}
+
+	onMounted(() => {
+		configStore.net.mqtt.useGlobalMqtt = Boolean(props.mqtt?.cover)
+		configStore.net.mqtt.global.url = props.mqtt?.url || ''
+		configStore.net.mqtt.global.user = props.mqtt?.user || ''
+		configStore.net.mqtt.global.pwd = props.mqtt?.pwd || ''
+		configStore.net.mqtt.global.topics = props.mqtt?.topics || ''
+	})
 
 	defineExpose({
 		setGraphNodeJson

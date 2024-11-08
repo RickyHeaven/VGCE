@@ -173,16 +173,21 @@
 						<span style="font-weight: bold">MQTT</span>
 					</template>
 					<el-form label-width="60px" label-position="left">
-						<el-form-item label="URL" size="small">
+						<el-form-item label="外部配置" size="small">
+							<el-switch v-model="configStore.net.mqtt.useGlobalMqtt" /><span style="color: #999"
+								>（开启后这里无需配置）</span
+							>
+						</el-form-item>
+						<el-form-item label="URL" size="small" v-if="!configStore.net.mqtt.useGlobalMqtt">
 							<el-input v-model="configStore.net.mqtt.url" placeholder="如 ws://127.0.0.1:4500" />
 						</el-form-item>
-						<el-form-item label="用户名" size="small">
+						<el-form-item label="用户名" size="small" v-if="!configStore.net.mqtt.useGlobalMqtt">
 							<el-input v-model="configStore.net.mqtt.user" placeholder="username" />
 						</el-form-item>
-						<el-form-item label="密码" size="small">
+						<el-form-item label="密码" size="small" v-if="!configStore.net.mqtt.useGlobalMqtt">
 							<el-input v-model="configStore.net.mqtt.pwd" placeholder="password" />
 						</el-form-item>
-						<el-form-item label="Topics" size="small">
+						<el-form-item label="Topics" size="small" v-if="!configStore.net.mqtt.useGlobalMqtt">
 							<el-input v-model="configStore.net.mqtt.topics" placeholder="topics" />
 						</el-form-item>
 					</el-form>

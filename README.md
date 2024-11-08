@@ -149,7 +149,14 @@ or
  ```
 ### 8.mqtt 通信
 
-- 在编辑器右侧‘通信’菜单下配置好mqtt通信需要的url、username、password、topics
+- mqtt通信配置有两种方案：
+  > 方案1.通过编辑器（editor）的`mqtt`属性传递配置，如：
+  ```
+    <SvgEditor :mqtt="{cover:true,url:'xxx',user:'xxx',pwd:'xxx',topics:'xxx'}">
+    // cover：是否使用这里的配置覆盖通信面板设置（也就是后面将介绍的第二种方案）的配置，为ture则覆盖，一般这里进行配置了，通信面板就无需再配置，
+              所以这里一般都要传true。当然，如果你只想将这里的配置作为备选方案，如果使用者在编辑器通信面板进行了配置，则使用通信面板的配置，这里传false。
+  ```
+  > 方案2.在编辑器右侧‘通信’菜单下配置好mqtt通信需要的url、username、password、topics,注意：关闭通信面板‘外部配置’选项方可进行独立配置且使配置生效。
 - 在使用查看器的地方监听查看器emit的`onMessage`事件，并处理事件返回的数据`{ topics, message }`
 - message可以用JSON.parse解析成对象（后端推给前端的MQTT消息内容需要是JSON格式）
 - 拿到消息后可以配合setNodeAttrByID方法更新界面
