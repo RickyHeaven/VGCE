@@ -11,15 +11,15 @@
 		getCenterPoint,
 		getCommonClass,
 		getSvgNowPosition,
+		getZoomPosition,
 		moveAnchors,
 		moveHandlePoint,
+		myFixed,
 		objectDeepClone,
 		prosToVBind,
 		randomString,
 		resetHandlePointOld,
-		setSvgActualInfo,
-		getZoomPosition,
-		myFixed
+		setSvgActualInfo
 	} from '@/utils'
 	import {
 		calculateBottom,
@@ -33,8 +33,7 @@
 	} from '@/utils/scale-core'
 	import HandlePanel from '@/components/svg-editor/handle-panel.vue'
 	import ConnectionPanel from '@/components/svg-editor/connection-panel.vue'
-	import type { IConfigItem } from '@/config/types'
-	import { EDoneJsonType } from '@/config/types'
+	import { EDoneJsonType, type IConfigItem } from '@/config/types'
 	import ConnectionLine from '@/components/svg-editor/connection-line.vue'
 	import type { IVisibleInfo } from '../config'
 	import { useContextMenuStore, useEditPrivateStore } from '@/stores/system'
@@ -207,11 +206,15 @@
 		canvasRef.value?.focus()
 		if (globalStore.intention === EGlobalStoreIntention.Connection) {
 			e.stopPropagation()
+			if (!globalStore.handle_svg_info) {
+				//空白地方画线
+				createLine(e)
+			}
 			if (globalStore.handle_svg_info) {
 				if (e.button === 0) {
 					//鼠标左键创建新线段
 					const l = globalStore.handle_svg_info.info.props.point_position.val
-					if (l.length > 1 && l[0].x !== l[1].x && l[0].y !== l[1].y) {
+					if (l.length !== 1 && select_item?.type !== EDoneJsonType.ConnectionLine) {
 						//鼠标移动后的实时位置（相对于起始点，只在创建第一个点时记录了鼠标原始位置）
 						l.push({
 							x:
@@ -222,6 +225,12 @@
 								globalStore.mouse_info.new_position_y -
 								globalStore.mouse_info.position_y -
 								svgEditLayoutStore.center_offset.y
+						})
+					} else {
+						//第二个点，在鼠标没有移动的情况下，就是起始点
+						globalStore.handle_svg_info.info.props.point_position.val.push({
+							x: 0,
+							y: 0
 						})
 					}
 				} else if (e.button === 2) {
