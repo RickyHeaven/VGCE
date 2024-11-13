@@ -29,7 +29,6 @@ export const useEditPrivateStore = defineStore('edit-private-store', {
 	},
 	actions: {
 		topUndoBtnClick() {
-			console.log('撤销')
 			if (this.history_now_index < 1) {
 				return
 			}
@@ -40,7 +39,6 @@ export const useEditPrivateStore = defineStore('edit-private-store', {
 			global_store.setDoneJson(this.history_doneComponent[this.history_now_index])
 		},
 		topRedoBtnClick() {
-			console.log('重做')
 			if (this.history_now_index + 1 == this.history_doneComponent.length) {
 				return
 			}

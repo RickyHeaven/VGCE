@@ -67,7 +67,6 @@
 
 	const canZoom = computed(() => props.itemInfo.config.can_zoom)
 	const onHandleMouseDown = (type: EScaleInfoType, e: MouseEvent) => {
-		console.log('handMousedown', e)
 		const { clientX, clientY } = e
 		e.stopPropagation()
 		globalStore.intention = EGlobalStoreIntention.Zoom

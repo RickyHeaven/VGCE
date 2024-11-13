@@ -19,7 +19,7 @@ const t: IConfigItem = {
 			val: [
 				{
 					prop: 'date',
-					label: '第一列',
+					label: '序号',
 					width: '120px',
 					fixed: false,
 					sortable: false,
@@ -27,7 +27,7 @@ const t: IConfigItem = {
 				},
 				{
 					prop: 'name',
-					label: '第二列',
+					label: '名字',
 					width: '120px',
 					fixed: false,
 					sortable: false,
@@ -35,7 +35,7 @@ const t: IConfigItem = {
 				},
 				{
 					prop: 'address',
-					label: '第三列测试',
+					label: '年龄',
 					width: '280px',
 					fixed: false,
 					sortable: false,
@@ -48,31 +48,31 @@ const t: IConfigItem = {
 			type: EConfigItemPropsType.JsonEdit,
 			val: [
 				{
-					date: '2016-05-03',
-					name: 'Tom',
-					address: 'No. 189, Grove St, Los Angeles'
+					date: '1',
+					name: 'Jack',
+					address: '34'
 				},
 				{
-					date: '2016-05-02',
-					name: 'Tom',
-					address: 'No. 189, Grove St, Los Angeles'
+					date: '2',
+					name: 'Marry',
+					address: '18'
 				},
 				{
-					date: '2016-05-04',
-					name: 'Tom',
-					address: 'No. 189, Grove St, Los Angeles'
+					date: '3',
+					name: 'Lee',
+					address: '23'
 				},
 				{
-					date: '2016-05-01',
-					name: 'Tom',
-					address: 'No. 189, Grove St, Los Angeles'
+					date: '4',
+					name: 'Steve',
+					address: '31'
 				}
 			]
 		},
 		width: {
 			title: '宽度',
 			type: EConfigItemPropsType.InputNumber,
-			val: 500
+			val: 350
 		},
 		height: {
 			title: '高度',

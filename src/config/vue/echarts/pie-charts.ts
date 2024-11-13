@@ -28,24 +28,24 @@ const t: IConfigItem = {
 			type: EConfigItemPropsType.JsonEdit,
 			val: [
 				{
-					value: 1048,
-					name: '办公楼A'
+					value: 998,
+					name: '20岁以下'
 				},
 				{
-					value: 735,
-					name: '办公楼B'
+					value: 546,
+					name: '20-40岁'
 				},
 				{
-					value: 580,
-					name: '保安室'
+					value: 354,
+					name: '40-60岁'
 				},
 				{
-					value: 484,
-					name: '地下车库'
+					value: 421,
+					name: '60-70岁'
 				},
 				{
-					value: 300,
-					name: '食堂'
+					value: 607,
+					name: '70岁以上'
 				}
 			]
 		}
