@@ -631,7 +631,7 @@ const t$q = {
       val: [
         {
           prop: "date",
-          label: "第一列",
+          label: "序号",
           width: "120px",
           fixed: !1,
           sortable: !1,
@@ -639,7 +639,7 @@ const t$q = {
         },
         {
           prop: "name",
-          label: "第二列",
+          label: "名字",
           width: "120px",
           fixed: !1,
           sortable: !1,
@@ -647,7 +647,7 @@ const t$q = {
         },
         {
           prop: "address",
-          label: "第三列测试",
+          label: "年龄",
           width: "280px",
           fixed: !1,
           sortable: !1,
@@ -660,31 +660,31 @@ const t$q = {
       type: EConfigItemPropsType.JsonEdit,
       val: [
         {
-          date: "2016-05-03",
-          name: "Tom",
-          address: "No. 189, Grove St, Los Angeles"
+          date: "1",
+          name: "Jack",
+          address: "34"
         },
         {
-          date: "2016-05-02",
-          name: "Tom",
-          address: "No. 189, Grove St, Los Angeles"
+          date: "2",
+          name: "Marry",
+          address: "18"
         },
         {
-          date: "2016-05-04",
-          name: "Tom",
-          address: "No. 189, Grove St, Los Angeles"
+          date: "3",
+          name: "Lee",
+          address: "23"
         },
         {
-          date: "2016-05-01",
-          name: "Tom",
-          address: "No. 189, Grove St, Los Angeles"
+          date: "4",
+          name: "Steve",
+          address: "31"
         }
       ]
     },
     width: {
       title: "宽度",
       type: EConfigItemPropsType.InputNumber,
-      val: 500
+      val: 350
     },
     height: {
       title: "高度",
@@ -955,24 +955,24 @@ const t$q = {
       type: EConfigItemPropsType.JsonEdit,
       val: [
         {
-          value: 1048,
-          name: "办公楼A"
+          value: 998,
+          name: "20岁以下"
         },
         {
-          value: 735,
-          name: "办公楼B"
+          value: 546,
+          name: "20-40岁"
         },
         {
-          value: 580,
-          name: "保安室"
+          value: 354,
+          name: "40-60岁"
         },
         {
-          value: 484,
-          name: "地下车库"
+          value: 421,
+          name: "60-70岁"
         },
         {
-          value: 300,
-          name: "食堂"
+          value: 607,
+          name: "70岁以上"
         }
       ]
     }
@@ -20324,13 +20324,13 @@ const useEditPrivateStore = defineStore("edit-private-store", {
   },
   actions: {
     topUndoBtnClick() {
-      if (console.log("撤销"), this.history_now_index < 1)
+      if (this.history_now_index < 1)
         return;
       const i = useGlobalStore();
       this.is_record_history = !1, this.history_now_index -= 1, i.setDoneJson(this.history_doneComponent[this.history_now_index]);
     },
     topRedoBtnClick() {
-      if (console.log("重做"), this.history_now_index + 1 == this.history_doneComponent.length)
+      if (this.history_now_index + 1 == this.history_doneComponent.length)
         return;
       const i = useGlobalStore();
       this.is_record_history = !1, this.history_now_index += 1, i.setDoneJson(this.history_doneComponent[this.history_now_index]);
@@ -20921,7 +20921,7 @@ const _withScopeId$2 = (i) => (pushScopeId("data-v-e813974f"), i = i(), popScope
   },
   setup(i) {
     useCssVars((g) => ({
-      "5c831aea": unref(c)
+      f075dd6c: unref(c)
     }));
     const r = i, n = useGlobalStore(pinia), o = useConfigStore(pinia), a = useSvgEditLayoutStore(pinia), u = ref(4), c = ref("#ab712e"), d = [
       {
@@ -20973,7 +20973,6 @@ const _withScopeId$2 = (i) => (pushScopeId("data-v-e813974f"), i = i(), popScope
         type: EScaleInfoType.BottomRight
       }
     ], f = computed(() => r.itemInfo.config.can_zoom), p = (g, y) => {
-      console.log("handMousedown", y);
       const { clientX: b, clientY: A } = y;
       y.stopPropagation(), n.intention = EGlobalStoreIntention.Zoom;
       const w = Math.round(
@@ -21160,7 +21159,7 @@ const _withScopeId$2 = (i) => (pushScopeId("data-v-e813974f"), i = i(), popScope
       ])
     ]));
   }
-}), handlePanel_vue_vue_type_style_index_0_scoped_e6622df8_lang = "", HandlePanel = /* @__PURE__ */ _export_sfc$1(_sfc_main$B, [["__scopeId", "data-v-e6622df8"]]), _hoisted_1$a = ["fill"], _hoisted_2$8 = ["cx", "cy", "r"], _hoisted_3$7 = ["cx", "cy", "r"], _hoisted_4$6 = ["cx", "cy", "r"], _hoisted_5$4 = ["cx", "cy", "r"], _hoisted_6$3 = ["cx", "cy", "r"], _hoisted_7$3 = ["cx", "cy", "r"], _hoisted_8$3 = ["cx", "cy", "r"], _hoisted_9$2 = ["cx", "cy", "r"], _sfc_main$A = /* @__PURE__ */ defineComponent({
+}), handlePanel_vue_vue_type_style_index_0_scoped_521db5d2_lang = "", HandlePanel = /* @__PURE__ */ _export_sfc$1(_sfc_main$B, [["__scopeId", "data-v-521db5d2"]]), _hoisted_1$a = ["fill"], _hoisted_2$8 = ["cx", "cy", "r"], _hoisted_3$7 = ["cx", "cy", "r"], _hoisted_4$6 = ["cx", "cy", "r"], _hoisted_5$4 = ["cx", "cy", "r"], _hoisted_6$3 = ["cx", "cy", "r"], _hoisted_7$3 = ["cx", "cy", "r"], _hoisted_8$3 = ["cx", "cy", "r"], _hoisted_9$2 = ["cx", "cy", "r"], _sfc_main$A = /* @__PURE__ */ defineComponent({
   __name: "connection-panel",
   props: {
     itemInfo: {}
@@ -21195,7 +21194,7 @@ const _withScopeId$2 = (i) => (pushScopeId("data-v-e813974f"), i = i(), popScope
       })));
     }, S = (T, x) => {
       var L;
-      c.intention === EGlobalStoreIntention.None ? (createLine(T, x, r.itemInfo), c.handle_svg_info && (c.handle_svg_info.info.props.point_position.val.length !== 1 ? c.handle_svg_info.info.props.point_position.val.push({
+      T.stopPropagation(), c.intention === EGlobalStoreIntention.None ? (createLine(T, x, r.itemInfo), c.handle_svg_info && (c.handle_svg_info.info.props.point_position.val.length !== 1 ? c.handle_svg_info.info.props.point_position.val.push({
         x: c.mouse_info.new_position_x - c.mouse_info.position_x - d.center_offset.x,
         y: c.mouse_info.new_position_y - c.mouse_info.position_y - d.center_offset.y
       }) : c.handle_svg_info.info.props.point_position.val.push({
@@ -21294,7 +21293,7 @@ const _withScopeId$2 = (i) => (pushScopeId("data-v-e813974f"), i = i(), popScope
       ], 32)
     ], 8, _hoisted_1$a));
   }
-}), connectionPanel_vue_vue_type_style_index_0_scoped_fb729c7a_lang = "", ConnectionPanel = /* @__PURE__ */ _export_sfc$1(_sfc_main$A, [["__scopeId", "data-v-fb729c7a"]]), _hoisted_1$9 = ["d", "stroke-width"], _hoisted_2$7 = ["d", "stroke-width"], _hoisted_3$6 = ["id", "d", "stroke", "stroke-width", "stroke-dasharray"], _hoisted_4$5 = ["from", "to", "dur", "repeatCount"], _hoisted_5$3 = ["d", "stroke", "stroke-width", "stroke-dasharray"], _hoisted_6$2 = ["from", "to", "dur", "repeatCount"], _hoisted_7$2 = ["r", "fill"], _hoisted_8$2 = ["path", "dur", "repeatCount"], _hoisted_9$1 = ["cx", "cy", "r", "stroke-width"], _hoisted_10$1 = ["cx", "cy", "r", "stroke", "onMousedown"], _sfc_main$z = /* @__PURE__ */ defineComponent({
+}), connectionPanel_vue_vue_type_style_index_0_scoped_065d9ea1_lang = "", ConnectionPanel = /* @__PURE__ */ _export_sfc$1(_sfc_main$A, [["__scopeId", "data-v-065d9ea1"]]), _hoisted_1$9 = ["d", "stroke-width"], _hoisted_2$7 = ["d", "stroke-width"], _hoisted_3$6 = ["id", "d", "stroke", "stroke-width", "stroke-dasharray"], _hoisted_4$5 = ["from", "to", "dur", "repeatCount"], _hoisted_5$3 = ["d", "stroke", "stroke-width", "stroke-dasharray"], _hoisted_6$2 = ["from", "to", "dur", "repeatCount"], _hoisted_7$2 = ["r", "fill"], _hoisted_8$2 = ["path", "dur", "repeatCount"], _hoisted_9$1 = ["cx", "cy", "r", "stroke-width"], _hoisted_10$1 = ["cx", "cy", "r", "stroke", "onMousedown"], _sfc_main$z = /* @__PURE__ */ defineComponent({
   __name: "connection-line",
   props: {
     itemInfo: {},

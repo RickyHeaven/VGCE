@@ -105,6 +105,7 @@
 		}
 	}
 	const bindAnchor = (e: any, type: ELineBindAnchors) => {
+		e.stopPropagation()
 		if (globalStore.intention === EGlobalStoreIntention.None) {
 			createLine(e, type, props.itemInfo)
 			if (globalStore.handle_svg_info) {
