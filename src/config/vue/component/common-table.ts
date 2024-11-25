@@ -18,9 +18,9 @@ const t: IConfigItem = {
 			type: EConfigItemPropsType.JsonEdit,
 			val: [
 				{
-					prop: 'date',
+					prop: 'index',
 					label: '序号',
-					width: '120px',
+					'min-width': '80',
 					fixed: false,
 					sortable: false,
 					'show-overflow-tooltip': false
@@ -28,15 +28,15 @@ const t: IConfigItem = {
 				{
 					prop: 'name',
 					label: '名字',
-					width: '120px',
+					'min-width': '120',
 					fixed: false,
 					sortable: false,
 					'show-overflow-tooltip': false
 				},
 				{
-					prop: 'address',
+					prop: 'age',
 					label: '年龄',
-					width: '280px',
+					'min-width': '80',
 					fixed: false,
 					sortable: false,
 					'show-overflow-tooltip': false
@@ -48,31 +48,31 @@ const t: IConfigItem = {
 			type: EConfigItemPropsType.JsonEdit,
 			val: [
 				{
-					date: '1',
+					index: '1',
 					name: 'Jack',
-					address: '34'
+					age: '34'
 				},
 				{
-					date: '2',
+					index: '2',
 					name: 'Marry',
-					address: '18'
+					age: '18'
 				},
 				{
-					date: '3',
+					index: '3',
 					name: 'Lee',
-					address: '23'
+					age: '23'
 				},
 				{
-					date: '4',
+					index: '4',
 					name: 'Steve',
-					address: '31'
+					age: '31'
 				}
 			]
 		},
 		width: {
 			title: '宽度',
 			type: EConfigItemPropsType.InputNumber,
-			val: 350
+			val: 280
 		},
 		height: {
 			title: '高度',
