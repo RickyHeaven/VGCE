@@ -132,11 +132,13 @@ or
  ```
   // editor
 
-  <SvgEditor :data="xxx" @onPreview="previewHandle">
+  <SvgEditor :data="xxx" slotBackground @onPreview="previewHandle">
 	<template #background>
 	  <div style="height: 100%; width: 100%; background-color: red"></div>
 	</template>
   </SvgEditor>
+  
+  //注意：使用自定义背景功能时，editor的slotBackground属性传true，让‘图纸’面板‘背景色’功能不可见，避免让操作者产生‘背景色设置不生效’的错觉
  ```
  ```
   // viewer

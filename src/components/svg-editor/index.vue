@@ -45,6 +45,7 @@
 			data?: string
 			saveFile?: boolean
 			mqtt?: { cover: boolean; url: string; user: string; pwd: string; topics: string }
+			slotBackground?: boolean
 		}>(),
 		{
 			saveFile: false,
@@ -54,7 +55,8 @@
 				user: '',
 				pwd: '',
 				topics: ''
-			})
+			}),
+			slotBackground: false
 		}
 	)
 	const globalStore = useGlobalStore(pinia)
@@ -198,7 +200,7 @@
 					style="border-left: 1px solid #efefef"
 				>
 					<el-scrollbar class="el-scroll-pc">
-						<right-panel></right-panel>
+						<right-panel :slotBackground="props.slotBackground"></right-panel>
 					</el-scrollbar>
 				</el-aside>
 			</el-container>

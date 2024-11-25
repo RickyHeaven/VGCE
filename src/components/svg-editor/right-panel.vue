@@ -38,6 +38,7 @@
 	const globalStore = useGlobalStore(pinia)
 	const svgEditLayoutStore = useSvgEditLayoutStore(pinia)
 
+	const props = defineProps<{ slotBackground: boolean }>()
 	const activeName = ref('page')
 	const activeNameB = ref('style')
 
@@ -117,7 +118,7 @@
 	<el-tabs class="mx-2 rightTabs" v-if="globalStore.intention != EGlobalStoreIntention.Select" v-model="activeName">
 		<el-tab-pane label="图纸" name="page">
 			<el-form label-width="60px" label-position="left">
-				<el-form-item label="背景色" size="small">
+				<el-form-item label="背景色" size="small" v-if="!props.slotBackground">
 					<el-color-picker v-model="configStore.svg.background_color" />
 				</el-form-item>
 				<el-form-item label="画布" size="small">
