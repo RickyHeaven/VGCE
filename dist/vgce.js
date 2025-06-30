@@ -42836,7 +42836,7 @@ const t = function() {
   emits: ["onMessage", "onEvent"],
   setup(i, { expose: r, emit: n }) {
     useCssVars((L) => ({
-      "7b00adf4": unref(f)
+      "02d5661c": unref(f)
     })), setEditorLoadTime();
     const o = n, a = i;
     let u = t();
@@ -43004,7 +43004,7 @@ const t = function() {
     }, T = () => {
       let L;
       d.config.net.mqtt.useGlobalMqtt ? L = d.config.net.mqtt.global : L = d.config.net.mqtt, L && L.url && L.user && L.pwd && L.topics && u.sub(L.url, L.user, L.pwd, L.topics, (O, M) => {
-        console.log(O), console.log(M.toString()), o("onMessage", {
+        o("onMessage", {
           topics: O,
           message: M
         });
@@ -43120,7 +43120,7 @@ const t = function() {
       ])
     ], 36));
   }
-}), svgViewer_vue_vue_type_style_index_0_scoped_6a4368ea_lang = "", svgViewer = /* @__PURE__ */ _export_sfc$1(_sfc_main, [["__scopeId", "data-v-6a4368ea"]]);
+}), svgViewer_vue_vue_type_style_index_0_scoped_4efd4ff9_lang = "", svgViewer = /* @__PURE__ */ _export_sfc$1(_sfc_main, [["__scopeId", "data-v-4efd4ff9"]]);
 export {
   index as SvgEditor,
   svgViewer as SvgViewer

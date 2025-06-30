@@ -294,8 +294,8 @@
 		}
 		if (m && m.url && m.user && m.pwd && m.topics) {
 			link.sub(m.url, m.user, m.pwd, m.topics, (topics: string, message: string) => {
-				console.log(topics)
-				console.log(message.toString())
+				// console.log(topics)
+				// console.log(message.toString())
 				//暴露给外部，让用户自己处理消息，message可以用JSON.parse解析成对象（后端推给前端的MQTT消息内容需要是JSON格式）
 				//用户拿到消息后可以配合setNodeAttrByID方法更新界面
 				//setNodeAttrByID的参数id可以在传给本组件的props.data（用户传进来的，自然知道值是多少）里done_json找到
