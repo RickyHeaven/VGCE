@@ -35,10 +35,12 @@
 			vueComp?: Record<string, any>
 			data?: IDataModel
 			canvasDrag?: boolean
+			canvasZoom?: boolean
 			showCanvasInfo?: boolean
 		}>(),
 		{
 			canvasDrag: true,
+			canvasZoom: true,
 			showCanvasInfo: true
 		}
 	)
@@ -139,6 +141,9 @@
 	}
 
 	function onMousewheel(e: any) {
+		if (!props.canvasZoom) {
+			return
+		}
 		if (e?.wheelDelta) {
 			if (e.wheelDelta > 0) {
 				preview_data.config.svg.scale = myFixed(preview_data.config.svg.scale + 0.1, 1)

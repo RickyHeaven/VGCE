@@ -42831,12 +42831,13 @@ const t = function() {
     vueComp: {},
     data: {},
     canvasDrag: { type: Boolean, default: !0 },
+    canvasZoom: { type: Boolean, default: !0 },
     showCanvasInfo: { type: Boolean, default: !0 }
   },
   emits: ["onMessage", "onEvent"],
   setup(i, { expose: r, emit: n }) {
     useCssVars((L) => ({
-      "02d5661c": unref(f)
+      aaaba37c: unref(f)
     })), setEditorLoadTime();
     const o = n, a = i;
     let u = t();
@@ -42906,7 +42907,7 @@ const t = function() {
       };
     };
     function g(L) {
-      L != null && L.wheelDelta && (L.wheelDelta > 0 ? (d.config.svg.scale = myFixed(d.config.svg.scale + 0.1, 1), getZoomPosition(L, d.config.svg.scale, d.layout_center, !0)) : d.config.svg.scale > 0.1 && (d.config.svg.scale = myFixed(d.config.svg.scale - 0.1, 1), getZoomPosition(L, d.config.svg.scale, d.layout_center, !1)));
+      a.canvasZoom && L != null && L.wheelDelta && (L.wheelDelta > 0 ? (d.config.svg.scale = myFixed(d.config.svg.scale + 0.1, 1), getZoomPosition(L, d.config.svg.scale, d.layout_center, !0)) : d.config.svg.scale > 0.1 && (d.config.svg.scale = myFixed(d.config.svg.scale - 0.1, 1), getZoomPosition(L, d.config.svg.scale, d.layout_center, !1)));
     }
     const _ = (L, O, M) => ({
       x: L.x - L.width / 2 * O + L.width / 2,
@@ -43120,7 +43121,7 @@ const t = function() {
       ])
     ], 36));
   }
-}), svgViewer_vue_vue_type_style_index_0_scoped_4efd4ff9_lang = "", svgViewer = /* @__PURE__ */ _export_sfc$1(_sfc_main, [["__scopeId", "data-v-4efd4ff9"]]);
+}), svgViewer_vue_vue_type_style_index_0_scoped_b537fcb2_lang = "", svgViewer = /* @__PURE__ */ _export_sfc$1(_sfc_main, [["__scopeId", "data-v-b537fcb2"]]);
 export {
   index as SvgEditor,
   svgViewer as SvgViewer
