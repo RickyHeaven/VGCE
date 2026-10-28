@@ -43,6 +43,7 @@
 	<g :style="{ cursor: globalStore.intention === EGlobalStoreIntention.Connection ? 'crosshair' : 'move' }">
 		<!-- 选中效果 -->
 		<path
+			data-editor-only
 			:d="positionArrToPath(props.itemInfo.props.point_position.val)"
 			fill="none"
 			fill-opacity="0"
@@ -54,6 +55,7 @@
 		/>
 		<!-- 打底 -->
 		<path
+			data-editor-only
 			:d="positionArrToPath(props.itemInfo.props.point_position.val)"
 			fill="none"
 			fill-opacity="0"
@@ -133,7 +135,7 @@
 			>
 			</animateMotion>
 		</circle>
-		<g>
+		<g data-editor-only>
 			<!-- 节点选中效果 -->
 			<circle
 				v-for="(item, index) in props.itemInfo.props.point_position.val"

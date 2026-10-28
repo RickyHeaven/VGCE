@@ -38,6 +38,7 @@
 	import type { IVisibleInfo } from '../config'
 	import { useContextMenuStore, useEditPrivateStore } from '@/stores/system'
 	import { EContextMenuInfoType } from '@/stores/system/types'
+	import { exportCanvasSvg } from '@/utils/export-svg'
 
 	const globalStore = useGlobalStore(pinia)
 	const configStore = useConfigStore(pinia)
@@ -50,6 +51,7 @@
 	componentsRegister(props.vueComp)
 	const contextMenuRef = ref<HTMLElement>()
 	const canvasRef = ref<HTMLElement>()
+	const svgRef = ref<SVGSVGElement>()
 	const ct: Record<string, any> = {
 		MoveCanvas: 'grab',
 		Rotate: "url('/src/assets/icons/rotate.svg'), auto",
@@ -1002,7 +1004,18 @@
 		})
 	})
 
-	defineExpose({ onCanvasMouseUp })
+	const exportSvg = (filename?: string) => {
+		if (!svgRef.value) {
+			return false
+		}
+		exportCanvasSvg(svgRef.value, {
+			filename,
+			background: configStore.svg.background_color
+		})
+		return true
+	}
+
+	defineExpose({ onCanvasMouseUp, exportSvg })
 </script>
 
 <template>
@@ -1024,17 +1037,26 @@
 	>
 		<slot name="background" />
 		<div class="coverLayer">
-			<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+			<svg ref="svgRef" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
 				<defs>
-					<pattern id="pattern_grid" patternUnits="userSpaceOnUse" x="0" y="0" width="20" height="20">
+					<pattern
+						id="pattern_grid"
+						data-editor-only
+						patternUnits="userSpaceOnUse"
+						x="0"
+						y="0"
+						width="20"
+						height="20"
+					>
 						<line x1="0" y1="0" x2="0" y2="20" :stroke="configStore.svg.grid_color" />
 						<line x1="10" y1="0" x2="10" y2="20" :stroke="configStore.svg.grid_color" />
 						<line x1="0" y1="0" x2="20" y2="0" :stroke="configStore.svg.grid_color" />
 						<line x1="0" y1="10" x2="20" y2="10" :stroke="configStore.svg.grid_color" />
 					</pattern>
 				</defs>
-				<rect v-if="configStore.svg.grid" width="100%" height="100%" fill="url(#pattern_grid)" />
+				<rect v-if="configStore.svg.grid" data-editor-only width="100%" height="100%" fill="url(#pattern_grid)" />
 				<g
+					data-canvas-content
 					:transform="`translate(${svgEditLayoutStore.center_offset.x * configStore.svg.scale},${
 						svgEditLayoutStore.center_offset.y * configStore.svg.scale
 					})rotate(${0})scale(${configStore.svg.scale})`"
@@ -1126,6 +1148,7 @@
 								/>
 								<rect
 									v-if="item.config.actual_rect"
+									data-editor-only
 									:id="`rect${item.id}`"
 									fill="black"
 									fill-opacity="0"
@@ -1152,10 +1175,12 @@
 										visible_info.handle_panel &&
 										item.type !== EDoneJsonType.ConnectionLine
 									"
+									data-editor-only
 									:item-info="item"
 								/>
 								<connection-panel
 									@contextmenu="onCanvasContextMenuEvent"
+									data-editor-only
 									v-if="
 										!item.selected &&
 										visible_info.select_item.info?.id == item.id &&
@@ -1173,6 +1198,7 @@
 					</g>
 					<!--框选-->
 					<rect
+						data-editor-only
 						:x="selectRect.x"
 						:y="selectRect.y"
 						:height="selectRect.height"

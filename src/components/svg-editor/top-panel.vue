@@ -14,7 +14,7 @@
 	const globalStore = useGlobalStore(pinia)
 	const editPrivateStore = useEditPrivateStore(pinia)
 	const configStore = useConfigStore(pinia)
-	const emits = defineEmits(['changeVisible', 'onReturn', 'onPreview', 'onSave'])
+	const emits = defineEmits(['changeVisible', 'onReturn', 'onPreview', 'onSave', 'onExportSvg'])
 	const onDeleteBtnClick = () => {
 		globalStore.done_json.length <= 0 || globalStore.setDoneJson([])
 		globalStore.intention = EGlobalStoreIntention.None
@@ -104,6 +104,9 @@
 					@click="emits('changeVisible', EVisibleConfKey.ExportJson, true)"
 				>
 					<svg-analysis name="export" />
+				</el-icon>
+				<el-icon title="保存为SVG文件" :size="24" class="bt-Icon ml-5px" @click="emits('onExportSvg')">
+					<svg-analysis name="svg-file" />
 				</el-icon>
 				<el-divider direction="vertical" />
 				<el-icon

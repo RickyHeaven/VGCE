@@ -142,6 +142,30 @@
 		centerRef.value.onCanvasMouseUp()
 	}
 
+	function onExportSvg() {
+		ElMessageBox.prompt(
+			'请输入文件名',
+			'保存为SVG文件',
+			{
+				cancelButtonText: '取消',
+				confirmButtonText: '保存',
+				inputValue: 'svg-canvas',
+				inputPattern: /^[^\\/:*?"<>|]+$/,
+				inputErrorMessage: '文件名不能包含 \\ / : * ? " < > |'
+			},
+			appContext
+		)
+			.then((r: any) => {
+				const success = centerRef.value?.exportSvg(r.value.trim())
+				if (success) {
+					ElMessage.success('SVG文件已保存')
+				}
+			})
+			.catch((e: any) => {
+				console.log(e)
+			})
+	}
+
 	onMounted(() => {
 		configStore.net.mqtt.useGlobalMqtt = Boolean(props.mqtt?.cover)
 		if (!configStore.net.mqtt.global) {
@@ -171,6 +195,7 @@
 					@on-return="onReturnClick"
 					@on-preview="(val: IDataModel) => emits('onPreview', val)"
 					@on-save="save"
+					@on-export-svg="onExportSvg"
 				></top-panel>
 			</el-header>
 			<el-container class="middle">
