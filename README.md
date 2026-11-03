@@ -2,6 +2,8 @@
 
 Vector graphics configure editor. 矢量图组态编辑器。
 
+[English Documentation](./README-EN.md)
+
 ## Features 特性亮点
 
 - **开箱即用的编辑器 + 预览器**：`SvgEditor` 拖拽搭建，`SvgViewer` 只读展示，一份 JSON 数据模型驱动两端，编辑器产出的数据可直接交给预览器渲染。

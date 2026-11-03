@@ -9,7 +9,8 @@
   "files": [
     "dist",
     "types",
-    "src/config"
+    "src/config",
+    "README-EN.md"
   ],
   "main": "./dist/vgce.umd.cjs",
   "module": "./dist/vgce.js",
