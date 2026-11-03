@@ -54,7 +54,7 @@ Vector graphics configuration editor.
 | Basic display | Text `svg-text`, text background box `text-box`, button `v-button`, tag `v-tag`, progress bar `progress-a` |
 | Data display | Generic table `common-table`, pie chart `pie-charts` (based on vue-echarts) |
 | State and time | Switch `switch-r`, light `light`, warning light `alert-light`, clock `clock-a`, current time `now-time` |
-| Animation | Thermometer `thermometer`, plus built-in generic animation effects such as current, water drop and trail, which can be applied to any component |
+| Animation | Thermometer `thermometer`, plus dozens of built-in component animation effects that can be applied to any component |
 | Static graphics | Stateless SVG graphics such as Machine No. 2, Machine No. 9, hamburger and hot pot |
 
 ### Data and extension
@@ -69,13 +69,13 @@ Vector graphics configuration editor.
 ### 1. Install dependencies
 
    ```
-     npm i @zhangqingcq/vgce element-plus@2.8.6 pinia@^2.1.3 ace-builds@1.14.0 lodash-es@^4.17.21 vue-echarts@6.5.1 echarts@5.5.1 mqtt@5.1.3
+     npm i @zhangqingcq/vgce element-plus@2.8.6 pinia@^2.1.3 ace-builds@1.14.0 lodash-es@^4.17.21 vue-echarts@6.5.1 echarts@5.5.1 mqtt@5.1.3 vite-plugin-svg-icons@^2.0.1
    ```
 
 or
 
    ```
-     pnpm add @zhangqingcq/vgce element-plus@2.8.6 pinia@^2.1.3 ace-builds@1.14.0 lodash-es@^4.17.21 vue-echarts@6.5.1 echarts@5.5.1 mqtt@5.1.3
+     pnpm add @zhangqingcq/vgce element-plus@2.8.6 pinia@^2.1.3 ace-builds@1.14.0 lodash-es@^4.17.21 vue-echarts@6.5.1 echarts@5.5.1 mqtt@5.1.3 vite-plugin-svg-icons@^2.0.1
    ```
 
 ### 2. Change main.ts or main.js
@@ -166,11 +166,11 @@ or
     <SvgViewer :vueComp="vueComp" :data="xxx"/>
   </template>
   ```
-- PS: you have to install the `vite-plugin-svg-icons` plugin to append your svg to the html dom.
+- PS: you have to install the `vite-plugin-svg-icons` plugin to append your svg to the html dom. (The install script in section 1 already includes this dependency, so a separate installation is generally not needed.)
 
 ### 6. How to use `vite-plugin-svg-icons`
 
-- `npm i vite-plugin-svg-icons -D` or `pnpm add vite-plugin-svg-icons -D` (install the dependency)
+- `npm i vite-plugin-svg-icons -D` or `pnpm add vite-plugin-svg-icons -D` (If you didn't follow the section 1 install script, run this command separately.)
 - Change `vite.config.ts` (modify the project's vite config file)
 
   ````

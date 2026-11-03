@@ -56,7 +56,7 @@ Vector graphics configure editor. 矢量图组态编辑器。
 | 基础展示 | 文字 `svg-text`、文字背景框 `text-box`、按钮 `v-button`、标签 `v-tag`、进度条 `progress-a` |
 | 数据展示 | 通用表格 `common-table`、饼图 `pie-charts`（基于 vue-echarts） |
 | 状态与时间 | 开关 `switch-r`、灯 `light`、警示灯 `alert-light`、时钟 `clock-a`、当前时间 `now-time` |
-| 动画 | 温度计 `thermometer`，并内置电流 / 水珠 / 轨迹等通用动画效果，可应用到任意组件 |
+| 动画 | 温度计 `thermometer`，并内置几十种组件动效，可应用到任意组件 |
 | 静态图形 | 2 号机、9 号机、汉堡、火锅等无状态 SVG 图形 |
 
 ### 数据与扩展
@@ -71,13 +71,13 @@ Vector graphics configure editor. 矢量图组态编辑器。
 ### 1. install 安装依赖
 
    ```
-     npm i @zhangqingcq/vgce element-plus@2.8.6 pinia@^2.1.3 ace-builds@1.14.0 lodash-es@^4.17.21 vue-echarts@6.5.1 echarts@5.5.1 mqtt@5.1.3
+     npm i @zhangqingcq/vgce element-plus@2.8.6 pinia@^2.1.3 ace-builds@1.14.0 lodash-es@^4.17.21 vue-echarts@6.5.1 echarts@5.5.1 mqtt@5.1.3 vite-plugin-svg-icons@^2.0.1
    ```
 
 or
 
    ```
-     pnpm add @zhangqingcq/vgce element-plus@2.8.6 pinia@^2.1.3 ace-builds@1.14.0 lodash-es@^4.17.21 vue-echarts@6.5.1 echarts@5.5.1 mqtt@5.1.3
+     pnpm add @zhangqingcq/vgce element-plus@2.8.6 pinia@^2.1.3 ace-builds@1.14.0 lodash-es@^4.17.21 vue-echarts@6.5.1 echarts@5.5.1 mqtt@5.1.3 vite-plugin-svg-icons@^2.0.1
    ```
 
 ### 2. change main.ts or main.js 修改项目主文件
@@ -170,11 +170,11 @@ or
   </template>
   ```
 - PS: you have to install `vite-plugin-svg-icons` plugin to append your svg to html
-  dom.（你需要在项目安装npm依赖`vite-plugin-svg-icons`，用以把svg文件添加到项目入口html文件中进行使用）
+  dom.（你需要在项目安装npm依赖`vite-plugin-svg-icons`，用以把svg文件添加到项目入口html文件中进行使用，第 1 节安装脚本已包含此依赖，一般无需再次单独安装）
 
 ### 6. how to use `vite-plugin-svg-icons` 如何使用 vite-plugin-svg-icons
 
-- `npm i vite-plugin-svg-icons -D` or `pnpm add vite-plugin-svg-icons -D` （安装依赖）
+- `npm i vite-plugin-svg-icons -D` or `pnpm add vite-plugin-svg-icons -D` （如果未按第 1 节脚本安装，需单独执行此命令）
 - change `vite.config.ts` （修改项目vite配置文件）
 
   ````
