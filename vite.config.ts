@@ -40,12 +40,6 @@ export default defineConfig({
 				'vue',
 				'vue-router', // custom
 				{
-					'@vueuse/core': [
-						// named imports
-						'useMouse', // import { useMouse } from '@vueuse/core',
-						// alias
-						['useFetch', 'useMyFetch'] // import { useFetch as useMyFetch } from '@vueuse/core',
-					],
 					pinia: [
 						// default imports
 						'createPinia',
@@ -120,16 +114,27 @@ export default defineConfig({
 		},
 		rollupOptions: {
 			// 确保外部化处理那些你不想打包进库的依赖
-			external: ['vue', 'pinia', 'element-plus', 'ace-builds', 'lodash-es', 'vue-echarts', 'animate.css'],
+			// 用正则匹配子路径，避免 element-plus/es 这类深层引入绕过 external 把整包打进产物
+			// 例外：?url 等资源导入必须交给 vite 内联，否则资源路径会失效
+			external: (id: string) => {
+				if (id.includes('?')) return false
+				// 库的 element-plus 样式需要内联进 dist/style.css，保证宿主只引一次样式即可开箱即用
+				if (id === 'element-plus/dist/index.css') return false
+				return /^(vue|pinia|element-plus|ace-builds|lodash-es|vue-echarts|echarts|mqtt)(\/.*)?$/.test(id)
+			},
 			output: {
 				// 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
-				globals: {
-					vue: 'Vue',
-					'element-plus': 'elementPlus',
-					'lodash-es': 'lodashEs',
-					'ace-builds': 'ace',
-					'vue-echarts': 'VChart',
-					pinia: 'Pinia'
+				// echarts、mqtt 的引入分散在子路径（如 echarts/core、mqtt/dist/mqtt），故用函数统一映射到各自全局变量
+				globals: (id: string) => {
+					if (id === 'vue') return 'Vue'
+					if (id === 'pinia') return 'Pinia'
+					if (id === 'element-plus') return 'elementPlus'
+					if (id === 'lodash-es') return 'lodashEs'
+					if (id === 'ace-builds') return 'ace'
+					if (id === 'vue-echarts') return 'VChart'
+					if (id.startsWith('echarts')) return 'echarts'
+					if (id.startsWith('mqtt')) return 'mqtt'
+					return id
 				},
 				inlineDynamicImports: true
 			}

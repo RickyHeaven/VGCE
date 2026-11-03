@@ -3,16 +3,17 @@
 	import type { IConfigItemProps } from '@/config/types'
 	import {
 		ElFormItem,
-		ElColorPicker,
 		ElInputNumber,
 		ElInput,
 		ElSelect,
-		ElOption,
-		ElSwitch,
-		ElTooltip
+		ElSwitch
 	} from 'element-plus'
-	import { getStringWidth } from '@/utils'
+	import VgceColorPicker from '@/components/vgce-color-picker.vue'
+	import VgceEllipsis from '@/components/vgce-ellipsis.vue'
+	import VgceFormItem from '@/components/vgce-form-item.vue'
+	import VgceOption from '@/components/vgce-option.vue'
 	import CodeEditModal from '@/components/svg-editor/right-panel/code-edit-modal.vue'
+	import { translate } from '@/i18n'
 
 	const emit = defineEmits(['change'])
 	const props = withDefaults(defineProps<{ objInfo?: IConfigItemProps; hide?: string[]; code?: boolean }>(), {
@@ -25,7 +26,11 @@
 		const keys: Record<string, any> = {}
 		let l = 0
 		let t = []
-		for (let k of Object.keys(props.objInfo)) {
+		const list = Object.keys(props.objInfo)
+		if (!list.length) {
+			return []
+		}
+		for (let k of list) {
 			const s = props.objInfo[k]?.sort
 			if (s) {
 				const _s = Number(s)
@@ -45,6 +50,9 @@
 
 		for (let i = 0; i < l + 1; i++) {
 			const _i = String(i)
+			if (!keys[_i]) {
+				continue
+			}
 			t.push({
 				...props.objInfo[keys[_i]],
 				_key: keys[_i]
@@ -52,6 +60,16 @@
 		}
 		return t
 	})
+
+	function valToString(val: any) {
+		if (val === null || val === undefined) {
+			return ''
+		}
+		if (typeof val === 'object') {
+			return JSON.stringify(val)
+		}
+		return String(val)
+	}
 
 	function propsChangeHandle(e: any) {
 		let t: any = window.setTimeout(function () {
@@ -67,28 +85,12 @@
 		<!--表单项上显示的灰色值-->
 		<el-form-item v-if="props.code" class="props-row" size="small">
 			<template #label>
-				<el-tooltip
-					:content="String(attr_item._key)"
-					v-if="getStringWidth(String(attr_item._key)) > 78"
-					placement="left"
-					popper-class="props-popper"
-				>
-					<div class="one-row-txt" style="width: 78px">{{ attr_item._key }}</div>
-				</el-tooltip>
-				<span v-else>{{ attr_item._key }}</span>
+				<vgce-ellipsis :text="String(attr_item._key)" :width="78" :font-size="12" />
 			</template>
-			<el-tooltip
-				:content="JSON.stringify(attr_item.val)"
-				v-if="getStringWidth(String(attr_item.val)) > 145"
-				placement="left"
-				popper-class="props-popper"
-			>
-				<div class="one-row-txt" style="width: 145px">{{ attr_item.val }}</div>
-			</el-tooltip>
-			<span v-else>{{ attr_item.val }}</span>
+			<vgce-ellipsis :text="valToString(attr_item.val)" :width="145" :font-size="12" />
 		</el-form-item>
 		<!--props-->
-		<el-form-item :label="attr_item.title" size="small" v-if="props.hide.indexOf(String(attr_item._key)) < 0">
+		<vgce-form-item :label="translate(attr_item.title)" size="small" v-if="props.hide.indexOf(String(attr_item._key)) < 0">
 			<el-select
 				v-if="attr_item.type === EConfigItemPropsType.Select"
 				v-model="props.objInfo[attr_item._key].val"
@@ -97,7 +99,7 @@
 				:disabled="Boolean(attr_item?.disabled)"
 				@change="propsChangeHandle"
 			>
-				<el-option v-for="item in attr_item.options" :key="item.value" :label="item.label" :value="item.value" />
+				<vgce-option v-for="item in attr_item.options" :key="item.value" :label="translate(item.label)" :value="item.value" />
 			</el-select>
 			<el-input-number
 				v-else-if="attr_item.type === EConfigItemPropsType.InputNumber"
@@ -119,7 +121,7 @@
 				:disabled="Boolean(attr_item?.disabled)"
 				@change="propsChangeHandle"
 			/>
-			<el-color-picker
+			<vgce-color-picker
 				v-else-if="attr_item.type === EConfigItemPropsType.Color"
 				v-model="props.objInfo[attr_item._key].val"
 				:disabled="Boolean(attr_item?.disabled)"
@@ -137,18 +139,6 @@
 				:disabled="Boolean(attr_item?.disabled)"
 				@close="propsChangeHandle"
 			/>
-		</el-form-item>
+		</vgce-form-item>
 	</div>
 </template>
-<style lang="less" scoped>
-	.one-row-txt {
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
-	}
-</style>
-<style lang="less">
-	.props-popper {
-		max-width: 350px;
-	}
-</style>

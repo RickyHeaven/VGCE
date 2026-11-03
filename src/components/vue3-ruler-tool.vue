@@ -81,27 +81,51 @@
 		})
 	})
 
-	svgEditLayoutStore.$subscribe((m: any) => {
-		if (m.events?.target?.hasOwnProperty('left_nav') || m.events?.target?.hasOwnProperty('right_nav')) {
-			window.setTimeout(init, 420)
-		}
-	})
-
 	configStore.$subscribe((m: any) => {
 		if (m.events?.target?.hasOwnProperty('scale')) {
 			scaleCalc()
 		}
 	})
+
+	let resizeObserver: ResizeObserver | null = null
+	let resizeRaf = 0
+
+	const onWrapperResize = () => {
+		if (resizeRaf) {
+			return
+		}
+		resizeRaf = window.requestAnimationFrame(() => {
+			resizeRaf = 0
+			init()
+		})
+	}
+
+	const observeWrapperResize = () => {
+		const parent = (el.value as any)?.parentNode
+		if (!parent || typeof ResizeObserver === 'undefined') {
+			return
+		}
+		resizeObserver = new ResizeObserver(onWrapperResize)
+		resizeObserver.observe(parent)
+	}
+
 	onMounted(() => {
 		on(document, 'mousemove', mouseMove)
 		on(document, 'mouseup', mouseUp)
 		init()
+		observeWrapperResize()
 		on(window, 'resize', windowResize)
 	})
 	onBeforeUnmount(() => {
 		off(document, 'mousemove', mouseMove)
 		off(document, 'mouseup', mouseUp)
 		off(window, 'resize', windowResize)
+		resizeObserver?.disconnect()
+		resizeObserver = null
+		if (resizeRaf) {
+			window.cancelAnimationFrame(resizeRaf)
+			resizeRaf = 0
+		}
 	})
 	const init = () => {
 		box()
@@ -141,17 +165,16 @@
 		length: number,
 		start: number
 	) => {
-		if (array.length === 0) {
-			for (let i = 0; i < length; i += props.stepLength) {
-				if (i % props.stepLength === 0) {
-					array.push({ id: myFixed(i / configStore.svg.scale - start, 0) })
-				}
-			}
-		} else {
-			array.forEach((e, i) => {
-				e.id = myFixed((i * props.stepLength) / configStore.svg.scale - start, 0)
-			})
+		const count = length > 0 ? Math.ceil(length / props.stepLength) : 0
+		while (array.length > count) {
+			array.pop()
 		}
+		while (array.length < count) {
+			array.push({ id: 0 })
+		}
+		array.forEach((e, i) => {
+			e.id = myFixed((i * props.stepLength) / configStore.svg.scale - start, 0)
+		})
 	}
 
 	const mouseMove = (e: any) => {

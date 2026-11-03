@@ -34,11 +34,15 @@
 	import HandlePanel from '@/components/svg-editor/handle-panel.vue'
 	import ConnectionPanel from '@/components/svg-editor/connection-panel.vue'
 	import { EDoneJsonType, type IConfigItem } from '@/config/types'
+	import { resolveCanvasComp } from '@/config'
+	import { configLocaleKey } from '@/config/i18n'
 	import ConnectionLine from '@/components/svg-editor/connection-line.vue'
 	import type { IVisibleInfo } from '../config'
 	import { useContextMenuStore, useEditPrivateStore } from '@/stores/system'
 	import { EContextMenuInfoType } from '@/stores/system/types'
 	import { exportCanvasSvg } from '@/utils/export-svg'
+	import { clipByViewport, rafThrottle } from '@/utils/perf'
+	import { translate, useVgceLocale } from '@/i18n'
 
 	const globalStore = useGlobalStore(pinia)
 	const configStore = useConfigStore(pinia)
@@ -49,6 +53,7 @@
 	const props = defineProps<{ vueComp?: Record<string, any> }>()
 
 	componentsRegister(props.vueComp)
+	provide(configLocaleKey, useVgceLocale())
 	const contextMenuRef = ref<HTMLElement>()
 	const canvasRef = ref<HTMLElement>()
 	const svgRef = ref<SVGSVGElement>()
@@ -120,12 +125,111 @@
 	let groupMoved = false
 	let lineNodeMoved = false
 
+	/**
+	 * 编辑器裁剪锚点（世界坐标下的视口左上角）
+	 * 画布平移不会立即重算裁剪列表，只有锚点位移超过半个视口时才更新，
+	 * 避免拖动画布时每帧对全部节点做filter并替换整个v-for列表
+	 */
+	const editorClipAnchor = reactive({ left: 0, top: 0, scale: 1 })
+	const EDITOR_CLIP_RECALC_RATIO = 0.5
+	//裁剪缓冲区（世界坐标），与 clipByViewport 的 buffer 保持一致
+	const EDITOR_CLIP_BUFFER = 300
+	//重算滞后必须小于缓冲区，否则平移时可视区会超出已裁剪范围，出现组件缺失的空白带
+	const EDITOR_CLIP_MAX_LAG = EDITOR_CLIP_BUFFER / 2
+
+	const syncEditorClipAnchor = () => {
+		const scale = configStore.svg.scale || 1
+		editorClipAnchor.scale = scale
+		editorClipAnchor.left = -svgEditLayoutStore.center_offset.x
+		editorClipAnchor.top = -svgEditLayoutStore.center_offset.y
+	}
+
+	const maybeRecalcEditorClip = () => {
+		const list = globalStore.done_json
+		if (list.length <= 300) {
+			return
+		}
+		const scale = configStore.svg.scale || 1
+		const left = -svgEditLayoutStore.center_offset.x
+		const top = -svgEditLayoutStore.center_offset.y
+		//缩放变化必须重算，否则裁剪范围与视觉不符
+		if (scale !== editorClipAnchor.scale) {
+			syncEditorClipAnchor()
+			return
+		}
+		const info = svgEditLayoutStore.canvasInfo
+		const limitX = Math.min((info.with / scale) * EDITOR_CLIP_RECALC_RATIO, EDITOR_CLIP_MAX_LAG)
+		const limitY = Math.min((info.height / scale) * EDITOR_CLIP_RECALC_RATIO, EDITOR_CLIP_MAX_LAG)
+		if (Math.abs(left - editorClipAnchor.left) > limitX || Math.abs(top - editorClipAnchor.top) > limitY) {
+			editorClipAnchor.left = left
+			editorClipAnchor.top = top
+		}
+	}
+
+	//通过右侧面板直接修改偏移/缩放（如重置位置）时不经过拖拽流程，需单独同步裁剪锚点
+	watch(
+		() => [svgEditLayoutStore.center_offset.x, svgEditLayoutStore.center_offset.y, configStore.svg.scale],
+		() => {
+			maybeRecalcEditorClip()
+		}
+	)
+
+	/**
+	 * 编辑器的视口裁剪配置
+	 * 选中的组件与被拖拽中的组件始终渲染，避免操作过程中节点被裁掉
+	 * 返回值保留组件在done_json中的真实下标，避免渲染下标与真实下标错位
+	 */
+	const editorViewportClip = computed(() => {
+		const threshold = 300
+		const list = globalStore.done_json
+		const withIndex = list.map((item, index) => ({ item, index }))
+		if (list.length <= threshold) {
+			return withIndex
+		}
+		const info = svgEditLayoutStore.canvasInfo
+		if (!info.with || !info.height) {
+			return withIndex
+		}
+		//依赖裁剪锚点而非实时偏移，拖动时只在超过阈值后重算
+		const scale = editorClipAnchor.scale || configStore.svg.scale || 1
+		const left = editorClipAnchor.left
+		const top = editorClipAnchor.top
+		//几何信息通过原始对象读取，不进入computed依赖：
+		//拖动组件只改x/y，若作为依赖会让整个列表每帧重算filter
+		//被拖动的组件本身始终保留（见下方holding/selected判断），因此裁剪结果不会失真
+		const visibleIDs = new Set(
+			clipByViewport(
+				toRaw(list) as any[],
+				{ left, top, right: left + info.with / scale, bottom: top + info.height / scale },
+				threshold,
+				EDITOR_CLIP_BUFFER
+			).map((item) => item.id)
+		)
+		const handleID = globalStore.handle_svg_info?.info?.id
+		const holding =
+			globalStore.intention === EGlobalStoreIntention.Move ||
+			globalStore.intention === EGlobalStoreIntention.Rotate ||
+			globalStore.intention === EGlobalStoreIntention.Zoom ||
+			globalStore.intention === EGlobalStoreIntention.GroupMove ||
+			globalStore.intention === EGlobalStoreIntention.SetConnectionLineNode
+		return withIndex.filter(({ item }) => {
+			//选中/移动/连线中的组件必须保留，否则操作会中断
+			if (item.selected) {
+				return true
+			}
+			if (holding && handleID === item.id) {
+				return true
+			}
+			return visibleIDs.has(item.id)
+		})
+	})
+
 	const dropEvent = (e: Record<string, any>) => {
 		if (globalStore.intention == EGlobalStoreIntention.None) {
 			return
 		} else if (globalStore.intention == EGlobalStoreIntention.Create) {
 			if (!globalStore.create_svg_info) {
-				console.error('要创建的数据获取失败')
+				console.error(translate('要创建的数据获取失败'))
 				return
 			}
 
@@ -353,7 +457,7 @@
 		visible_info.select_item.info = null
 		visible_info.select_item.index = -1
 	}
-	const onCanvasMouseMove = (e: MouseEvent) => {
+	const onCanvasMouseMoveOrigin = (e: MouseEvent) => {
 		//如果鼠标不是按下状态 连线除外
 		if (
 			globalStore.mouse_info.state != EMouseInfoState.Down &&
@@ -362,12 +466,90 @@
 			return
 		}
 		const { clientX, clientY } = e
-		globalStore.mouse_info.new_position_x = Math.round(
-			(clientX - svgEditLayoutStore.canvasInfo.left) / configStore.svg.scale
-		)
-		globalStore.mouse_info.new_position_y = Math.round(
-			(clientY - svgEditLayoutStore.canvasInfo.top) / configStore.svg.scale
-		)
+		const nextX = Math.round((clientX - svgEditLayoutStore.canvasInfo.left) / configStore.svg.scale)
+		const nextY = Math.round((clientY - svgEditLayoutStore.canvasInfo.top) / configStore.svg.scale)
+		//输入侧只记录指针位置与修饰键，具体的几何计算统一交给渲染阶段
+		pendingPointer.x = nextX
+		pendingPointer.y = nextY
+		pendingPointer.ctrl = e.ctrlKey
+		pendingPointer.shift = e.shiftKey
+		pendingPointer.pending = true
+		//交给rAF合并，同一帧内的多次mousemove只做一次几何计算
+		onCanvasMouseMove()
+	}
+
+	/**
+	 * 输入帧缓冲：输入阶段只写入指针原始信息，
+	 * 渲染阶段才做坐标还原、几何计算与一次性提交，实现输入与渲染分离
+	 */
+	const pendingPointer = {
+		x: 0,
+		y: 0,
+		ctrl: false,
+		shift: false,
+		pending: false
+	}
+
+	/**
+	 * 连线候选列表缓存：mousemove中需要按id查找被绑定的连线，
+	 * 每次全表find会随组件数量线性增长，缓存为Map后降为O(1)
+	 */
+	let lineCacheSource: IDoneJson[] | null = null
+	let lineCacheLength = -1
+	let lineCache: { list: IDoneJson[]; byId: Map<string, IDoneJson> } = {
+		list: [],
+		byId: new Map()
+	}
+	const getLineCache = () => {
+		const list = globalStore.done_json
+		if (lineCacheSource === list && lineCacheLength === list.length) {
+			return lineCache
+		}
+		const lines: IDoneJson[] = []
+		const byId = new Map<string, IDoneJson>()
+		for (const item of list) {
+			byId.set(item.id, item)
+			if (item.type === EDoneJsonType.ConnectionLine) {
+				lines.push(item)
+			}
+		}
+		lineCacheSource = list
+		lineCacheLength = list.length
+		lineCache = { list: lines, byId }
+		return lineCache
+	}
+
+	/**
+	 * 渲染输入帧：读取帧缓冲中的最新指针，做完整计算，
+	 * 然后把结果一次性提交到响应式状态，使同一次交互在一帧内只产生一轮响应式变更
+	 */
+	const renderInputFrame = () => {
+		if (!pendingPointer.pending) {
+			return
+		}
+		pendingPointer.pending = false
+		commitPointer()
+	}
+
+	/**
+	 * 在rAF之外提交帧缓冲（如mouseup时）
+	 * 与rafThrottle的flush不同，这里只提交已缓存的指针数据，
+	 * 不会丢弃挂起的rAF任务，渲染计算依然发生在下一帧
+	 */
+	const flushInputFrame = () => {
+		renderInputFrame()
+	}
+
+	/**
+	 * 提交阶段：把帧缓冲里的指针位置写入鼠标状态（单次赋值，避免分散写入），
+	 * 随后执行一次拖拽/缩放/连线计算并提交结果
+	 */
+	const commitPointer = () => {
+		const { x: nextX, y: nextY } = pendingPointer
+		if (globalStore.mouse_info.new_position_x !== nextX || globalStore.mouse_info.new_position_y !== nextY) {
+			globalStore.mouse_info.new_position_x = nextX
+			globalStore.mouse_info.new_position_y = nextY
+		}
 		const x = Math.round(
 			globalStore.mouse_info.new_position_x - globalStore.mouse_info.position_x + globalStore.mouse_info.now_position_x
 		)
@@ -380,47 +562,38 @@
 		) {
 			//有选中组件 移动单个组件
 			//todo 对齐功能开发
-			globalStore.handle_svg_info.info.x = x
-
-			globalStore.handle_svg_info.info.y = y
-
-			globalStore.handle_svg_info.info.client = {
+			const info = globalStore.handle_svg_info.info
+			info.x = x
+			info.y = y
+			info.client = {
 				x: x,
 				y: y
 			}
 			globalStore.intention = EGlobalStoreIntention.Move
-
-			moveHandlePoint(globalStore.handle_svg_info.info)
-			moveAnchors(globalStore.handle_svg_info.info)
-			if (globalStore.handle_svg_info.info.type === EDoneJsonType.ConnectionLine) {
+			//几何写入完成后再统一同步手柄与锚点，避免计算与提交交错
+			moveHandlePoint(info)
+			const { list } = getLineCache()
+			moveAnchors(info, list)
+			if (info.type === EDoneJsonType.ConnectionLine && info.bind_anchors?.start) {
 				//移动连线自己绑定过的锚点到绑定位置
-				if (globalStore.handle_svg_info.info.bind_anchors?.start) {
-					let _done_json: any = null
-					for (let t of globalStore.done_json) {
-						if (t.id === globalStore.handle_svg_info.info.bind_anchors?.start?.target_id) {
-							_done_json = t
-						}
-					}
-					if (_done_json) {
-						moveAnchors(_done_json)
-					}
+				const target = getLineCache().byId.get(info.bind_anchors.start.target_id)
+				if (target) {
+					moveAnchors(target, list)
 				}
-				if (globalStore.handle_svg_info.info.bind_anchors?.end) {
-					let _done_json: any = null
-					for (let t of globalStore.done_json) {
-						if (t.id === globalStore.handle_svg_info.info.bind_anchors?.end?.target_id) {
-							_done_json = t
-						}
-					}
-					if (_done_json) {
-						moveAnchors(_done_json)
-					}
+			}
+			if (info.type === EDoneJsonType.ConnectionLine && info.bind_anchors?.end) {
+				//移动连线自己绑定过的锚点到绑定位置
+				const target = getLineCache().byId.get(info.bind_anchors.end.target_id)
+				if (target) {
+					moveAnchors(target, list)
 				}
 			}
 		} else if (globalStore.intention === EGlobalStoreIntention.MoveCanvas) {
 			//移动画布
 			svgEditLayoutStore.center_offset.x = x
 			svgEditLayoutStore.center_offset.y = y
+			//仅在位移超过阈值时重算裁剪，避免每帧替换整个节点列表
+			maybeRecalcEditorClip()
 		} else if (globalStore.intention === EGlobalStoreIntention.SelectArea) {
 			//框选
 			area.value.b.x = globalStore.mouse_info.new_position_x - svgEditLayoutStore.center_offset.x
@@ -428,6 +601,8 @@
 		} else if (globalStore.intention === EGlobalStoreIntention.GroupMove) {
 			//群组移动
 			groupMoved = true
+			const { list } = getLineCache()
+			const touched: IDoneJson[] = []
 			for (let e of globalStore.done_json) {
 				if (e.selected && e.old_position) {
 					const tx = Math.round(
@@ -443,18 +618,17 @@
 						y: ty
 					}
 					moveHandlePoint(e)
-					moveAnchors(e)
-					if (e.type === EDoneJsonType.ConnectionLine && e.bind_anchors?.end) {
-						//移动连线自己绑定过的锚点到绑定位置
-						let _done_json: any = null
-						for (let t of globalStore.done_json) {
-							if (t.id === e.bind_anchors?.end?.target_id) {
-								_done_json = t
-							}
-						}
-						if (_done_json) {
-							moveAnchors(_done_json)
-						}
+					//几何写入后再统一同步锚点
+					moveAnchors(e, list)
+					touched.push(e)
+				}
+			}
+			//连线自身的绑定锚点在所有组件移动完成后统一刷新，避免重复遍历
+			for (const e of touched) {
+				if (e.type === EDoneJsonType.ConnectionLine && e.bind_anchors?.end) {
+					const target = getLineCache().byId.get(e.bind_anchors.end.target_id)
+					if (target) {
+						moveAnchors(target, list)
 					}
 				}
 			}
@@ -601,13 +775,13 @@
 			const pr = globalStore.handle_svg_info?.info.props.point_r?.val + 2 || 4
 			let ox = brotherPoint.x < _x ? -pr : brotherPoint.x > _x ? pr : 0
 			let oy = brotherPoint.y < _y ? -pr : brotherPoint.y > _y ? pr : 0
-			if (e.ctrlKey) {
+			if (pendingPointer.ctrl) {
 				//画竖线
 				globalStore.handle_svg_info.info.props.point_position.val[l - 1] = {
 					x: brotherPoint.x,
 					y: _y + oy
 				}
-			} else if (e.shiftKey) {
+			} else if (pendingPointer.shift) {
 				//画横线
 				globalStore.handle_svg_info.info.props.point_position.val[l - 1] = {
 					x: _x + ox,
@@ -650,7 +824,12 @@
 		}
 	}
 
+	//用requestAnimationFrame合并高频mousemove，每帧最多处理一次拖拽计算
+	const onCanvasMouseMove = rafThrottle(renderInputFrame, 0)
+
 	const onCanvasMouseUp = () => {
+		//先提交帧缓冲中尚未渲染的指针位置，确保松开鼠标时使用最新坐标
+		flushInputFrame()
 		//如果鼠标不是按下状态
 		if (globalStore.mouse_info.state != EMouseInfoState.Down) {
 			return
@@ -814,7 +993,8 @@
 		}
 	}
 
-	function onMousewheel(e: any) {
+	//用requestAnimationFrame合并高频滚轮缩放，每帧最多处理一次
+	const onMousewheel = rafThrottle((e: any) => {
 		if (e?.wheelDelta) {
 			if (e.wheelDelta > 0) {
 				configStore.svg.scale = myFixed(configStore.svg.scale + 0.1, 1)
@@ -823,8 +1003,10 @@
 				configStore.svg.scale = myFixed(configStore.svg.scale - 0.1, 1)
 				getZoomPosition(e, configStore.svg.scale, svgEditLayoutStore.center_offset, false)
 			}
+			//缩放后视口范围变化，需同步裁剪锚点
+			maybeRecalcEditorClip()
 		}
-	}
+	}, 0)
 
 	/**
 	 * 鼠标右键事件
@@ -930,6 +1112,7 @@
 		}
 		//ctrl  c
 		else if (e.ctrlKey && e.key.toLowerCase() == 'c') {
+			e.preventDefault()
 			contextMenuStore.onContextMenuClick(EContextMenuInfoType.Copy)
 		}
 		//deleted
@@ -1001,7 +1184,20 @@
 				top: d?.top || 0,
 				left: d?.left || 0
 			}
+			//画布尺寸就绪后再初始化裁剪锚点
+			syncEditorClipAnchor()
 		})
+	})
+
+	onBeforeUnmount(() => {
+		//清理可能挂起的requestAnimationFrame任务
+		onCanvasMouseMove.cancel()
+		onMousewheel.cancel()
+		//清空输入帧缓冲与连线缓存，避免卸载后残留引用
+		pendingPointer.pending = false
+		lineCacheSource = null
+		lineCacheLength = -1
+		lineCache = { list: [], byId: new Map() }
 	})
 
 	const exportSvg = (filename?: string) => {
@@ -1028,7 +1224,7 @@
 		@dragenter="dragEnterEvent"
 		@dragover="dragOverEvent"
 		@mousedown="onCanvasMouseDown"
-		@mousemove="onCanvasMouseMove"
+		@mousemove="onCanvasMouseMoveOrigin"
 		@mouseup="onCanvasMouseUp"
 		@contextmenu="onCanvasContextMenuEvent"
 		@keydown="onHandleKeyDown"
@@ -1062,7 +1258,7 @@
 					})rotate(${0})scale(${configStore.svg.scale})`"
 				>
 					<g
-						v-for="(item, index) in globalStore.done_json"
+						v-for="{ item, index } in editorViewportClip"
 						:key="item.id"
 						:transform="`translate(${item.x},${item.y})rotate(0)scale(1)`"
 						v-show="item.display"
@@ -1102,7 +1298,7 @@
 								/>
 								<component
 									v-else-if="item.type === EDoneJsonType.CustomSvg"
-									:is="item.tag"
+									:is="resolveCanvasComp(item.tag, props.vueComp)"
 									v-bind="prosToVBind(item, ['height', 'width'])"
 									:width="item.props?.width?.val ?? 100"
 									:height="item.props?.height?.val ?? 100"
@@ -1122,7 +1318,7 @@
 									class="foreignObject"
 								>
 									<component
-										:is="item.tag"
+										:is="resolveCanvasComp(item.tag, props.vueComp)"
 										v-bind="prosToVBind(item)"
 										:id="item.id"
 										:transform="`translate(${item.actual_bound.x + item.actual_bound.width / 2},${
@@ -1219,7 +1415,7 @@
 			@click="contextMenuStore.onContextMenuClick(key)"
 		>
 			<p :class="item.enable ? '' : 'disabled'">
-				{{ item.title }}
+				{{ translate(item.title) }}
 				<span class="shortcut">{{ item.hot_key }}</span>
 			</p>
 		</li>

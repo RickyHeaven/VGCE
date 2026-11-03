@@ -1,13 +1,14 @@
 <script setup lang="ts">
 	import { VAceEditor } from 'vue3-ace-editor'
 	import '@/components/ace-edit'
-	import { ElButton, ElDialog } from 'element-plus'
+	import { ElDialog } from 'element-plus'
+	import { translate } from '@/i18n'
 
-	const props = withDefaults(defineProps<{ modelValue: any; lang?: string; title?: string }>(), {
+	const props = withDefaults(defineProps<{ modelValue?: any; lang?: string; title?: string }>(), {
 		modelValue: () => ({}),
-		lang: 'json',
-		title: '编辑'
+		lang: 'json'
 	})
+	const dialog_title = computed(() => props.title || translate('编辑'))
 	const open = ref(false)
 	const emits = defineEmits(['update:modelValue', 'close'])
 
@@ -30,18 +31,15 @@
 
 <template>
 	<div>
-		<el-button @click="open = true">···</el-button>
-		<el-dialog class="modal-full" v-model="open" :title="props.title" width="60%" @close="emits('close')">
+		<button type="button" class="vgce-btn vgce-btn--sm" @click="open = true">···</button>
+		<el-dialog class="modal-full" v-model="open" :title="dialog_title" width="60%" @close="emits('close')">
 			<v-ace-editor
 				v-model:value="content"
 				:lang="props.lang"
 				theme="kr_theme"
 				style="height: 400px"
 				:options="{
-					useWorker: true,
-					enableBasicAutocompletion: true,
-					enableSnippets: true,
-					enableLiveAutocompletion: true
+					useWorker: true
 				}"
 			/>
 		</el-dialog>

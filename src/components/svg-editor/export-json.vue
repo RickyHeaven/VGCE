@@ -27,10 +27,7 @@
 		theme="kr_theme"
 		style="height: 400px"
 		:options="{
-			useWorker: true,
-			enableBasicAutocompletion: true,
-			enableSnippets: true,
-			enableLiveAutocompletion: true
+			useWorker: true
 		}"
 	/>
 </template>

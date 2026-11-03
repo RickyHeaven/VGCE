@@ -33,10 +33,10 @@ export const useEditPrivateStore = defineStore('edit-private-store', {
 				return
 			}
 			const global_store = useGlobalStore()
-			// select_component_info.value = {};
 			this.is_record_history = false
 			this.history_now_index -= 1
 			global_store.setDoneJson(this.history_doneComponent[this.history_now_index])
+			global_store.setHandleSvgInfo(null)
 		},
 		topRedoBtnClick() {
 			if (this.history_now_index + 1 == this.history_doneComponent.length) {
@@ -46,6 +46,7 @@ export const useEditPrivateStore = defineStore('edit-private-store', {
 			this.is_record_history = false
 			this.history_now_index += 1
 			global_store.setDoneJson(this.history_doneComponent[this.history_now_index])
+			global_store.setHandleSvgInfo(null)
 		}
 	}
 })

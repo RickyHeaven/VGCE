@@ -1,9 +1,10 @@
 <script setup lang="ts">
 	import type { IAttrItem } from '@/config/types'
-	import { ElIcon, ElInput } from 'element-plus'
+	import { ElInput } from 'element-plus'
+	import VgceIcon from '@/components/vgce-icon.vue'
 	import SvgAnalysis from '@/components/svg-analysis.vue'
 
-	const props = withDefaults(defineProps<{ modelValue: IAttrItem[] }>(), {
+	const props = withDefaults(defineProps<{ modelValue?: IAttrItem[] }>(), {
 		modelValue: () => [
 			{
 				key: '',
@@ -40,17 +41,17 @@
 			<span>key</span>
 			<span>value</span>
 
-			<el-icon :size="16" class="bt-Icon" @click="addL">
+			<vgce-icon :size="16" class="bt-Icon" @click="addL">
 				<svg-analysis name="add" />
-			</el-icon>
+			</vgce-icon>
 		</div>
 		<div class="row-l" v-for="(item, i) of value">
 			<el-input class="content-l" v-model="item.key" size="small" placeholder="key" />
 			<el-input class="content-l" v-model="item.val" size="small" placeholder="value" />
 
-			<el-icon :size="16" class="bt-Icon" @click="deleteL(i)">
+			<vgce-icon :size="16" class="bt-Icon" @click="deleteL(i)">
 				<svg-analysis name="delete" />
-			</el-icon>
+			</vgce-icon>
 		</div>
 	</div>
 </template>

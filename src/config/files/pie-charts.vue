@@ -1,21 +1,32 @@
 <script lang="ts" setup>
+	import { computed, inject, provide, reactive, watch, type ComputedRef } from 'vue'
 	import { use } from 'echarts/core'
 	import { SVGRenderer } from 'echarts/renderers'
 	import { PieChart } from 'echarts/charts'
 	import { TitleComponent, TooltipComponent, LegendComponent } from 'echarts/components'
 	import VChart, { THEME_KEY } from 'vue-echarts'
-	use([SVGRenderer, PieChart, TitleComponent, TooltipComponent, LegendComponent])
+	//以 script 标签直接引入 UMD 产物时，echarts 子模块由全局变量提供，全量 echarts 已注册全部图表，此处过滤后为空
+	use([SVGRenderer, PieChart, TitleComponent, TooltipComponent, LegendComponent].filter(Boolean))
 
 	provide(THEME_KEY, 'dark')
+
+	//本文件会被用户拷贝到自己的项目中，不能依赖库内部源码，故就地声明用到的性能配置类型
+	type IPerfOptions = {
+		chartAutoResize: boolean
+	}
+
+	//预览时由 svg-viewer 注入性能配置，编辑器中不存在该注入时按高性能处理
+	const perf = inject<ComputedRef<IPerfOptions> | null>('previewPerf', null)
+	const chartAutoResize = computed(() => (perf ? perf.value.chartAutoResize : true))
 
 	const props = defineProps({
 		title: {
 			type: String,
-			default: '标题'
+			default: 'Title'
 		},
 		seriesName: {
 			type: String,
-			default: '详情'
+			default: 'Details'
 		},
 		seriesData: {
 			type: Array,
@@ -61,7 +72,7 @@
 </script>
 
 <template>
-	<v-chart class="chart" :option="option" autoresize />
+	<v-chart class="chart" :option="option" :autoresize="chartAutoResize" />
 </template>
 
 <style scoped>

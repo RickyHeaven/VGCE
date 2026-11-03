@@ -3,8 +3,11 @@
 	import { useGlobalStore } from '@/stores/global'
 	import { pinia } from '@/hooks'
 	import { EDoneJsonType } from '@/config/types'
-	import { ElFormItem, ElSwitch, ElSelect, ElOption, ElInputNumber } from 'element-plus'
+	import { ElSwitch, ElSelect } from 'element-plus'
+	import VgceFormItem from '@/components/vgce-form-item.vue'
+	import VgceOption from '@/components/vgce-option.vue'
 	import { moveAnchors, setSvgActualInfo } from '@/utils'
+	import { translate } from '@/i18n'
 
 	const globalStore = useGlobalStore(pinia)
 
@@ -106,19 +109,19 @@
 </script>
 
 <template>
-	<el-form-item :label="props.title" size="small">
+	<vgce-form-item :label="props.title" size="small">
 		<el-switch v-model="switchValue" @change="changHandle" />
-	</el-form-item>
-	<el-form-item label="绑定对象" size="small" v-if="switchValue">
+	</vgce-form-item>
+	<vgce-form-item :label="translate('绑定对象')" size="small" v-if="switchValue">
 		<el-select v-model="_targetId" @change="changHandle">
-			<el-option v-for="t of _targets" :key="t.value" :label="t.label" :value="t.value" />
+			<vgce-option v-for="t of _targets" :key="t.value" :label="t.label" :value="t.value" />
 		</el-select>
-	</el-form-item>
-	<el-form-item label="绑定位置" size="small" v-if="switchValue">
+	</vgce-form-item>
+	<vgce-form-item :label="translate('绑定位置')" size="small" v-if="switchValue">
 		<el-select v-model="_type" @change="changHandle">
-			<el-option v-for="t of _types" :key="t.value" :label="t.label" :value="t.value" />
+			<vgce-option v-for="t of _types" :key="t.value" :label="translate(t.label)" :value="t.value" />
 		</el-select>
-	</el-form-item>
+	</vgce-form-item>
 </template>
 
 <style lang="less" scoped></style>

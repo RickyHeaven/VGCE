@@ -1,4 +1,6 @@
 <script setup lang="ts">
+	import { nextTick, watch } from 'vue'
+
 	// 文字的内容决定了长度 所以没办法预先定义中心点 导致连线有偏移
 
 	const emit = defineEmits(['resize'])

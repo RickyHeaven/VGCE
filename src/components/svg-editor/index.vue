@@ -1,16 +1,5 @@
 <script setup lang="ts">
-	import {
-		ElContainer,
-		ElHeader,
-		ElAside,
-		ElMain,
-		ElScrollbar,
-		ElDialog,
-		ElButton,
-		ElUpload,
-		ElMessage,
-		ElMessageBox
-	} from 'element-plus'
+	import { ElContainer, ElHeader, ElAside, ElMain, ElDialog, ElMessage } from 'element-plus'
 	import 'element-plus/dist/index.css'
 	import 'animate.css'
 	import TopPanel from '@/components/svg-editor/top-panel.vue'
@@ -19,6 +8,7 @@
 	import RightPanel from '@/components/svg-editor/right-panel.vue'
 	import ExportJson from '@/components/svg-editor/export-json.vue'
 	import ImportJson from '@/components/svg-editor/import-json.vue'
+	import VgcePrompt from '@/components/vgce-prompt.vue'
 	import Vue3RulerTool from '@/components/vue3-ruler-tool.vue'
 	import { EVisibleConfKey } from '@/components/svg-editor/types'
 	import type { IVisibleConf, IDataModel } from '@/components/svg-editor/types'
@@ -34,6 +24,8 @@
 	import { useEditPrivateStore } from '@/stores/system'
 	import { setEditorLoadTime } from '@/utils'
 	import { onMounted } from 'vue'
+	import { registerMessages, setLocale, translate, useVgceLocale } from '@/i18n'
+	import type { VgceLocale } from '@/i18n'
 
 	setEditorLoadTime()
 
@@ -41,11 +33,13 @@
 	const props = withDefaults(
 		defineProps<{
 			customToolbar?: IConfig
+			configMessages?: Record<string, string>
 			vueComp?: Record<string, any>
 			data?: string
 			saveFile?: boolean
 			mqtt?: { cover: boolean; url: string; user: string; pwd: string; topics: string }
 			slotBackground?: boolean
+			locale?: VgceLocale
 		}>(),
 		{
 			saveFile: false,
@@ -59,12 +53,25 @@
 			slotBackground: false
 		}
 	)
+	watchEffect(() => {
+		if (props.locale) {
+			setLocale(props.locale)
+		}
+	})
+	watchEffect(() => {
+		registerMessages(props.configMessages)
+	})
+
 	const globalStore = useGlobalStore(pinia)
 	const svgEditLayoutStore = useSvgEditLayoutStore(pinia)
 	const configStore = useConfigStore(pinia)
 	const editPrivateStore = useEditPrivateStore(pinia)
+	const vgceLocale = useVgceLocale()
+	const isEn = computed(() => vgceLocale.value === 'en-US')
 	const centerRef = ref()
 	const importJsonRef = ref<InstanceType<typeof ImportJson>>()
+	const promptRef = ref<InstanceType<typeof VgcePrompt>>()
+	const importFileRef = ref<HTMLInputElement>()
 	const visible_conf: IVisibleConf = reactive({
 		[EVisibleConfKey.ExportJson]: false,
 		[EVisibleConfKey.ImportJson]: false,
@@ -82,14 +89,21 @@
 
 	const onImportFile = (f: File) => {
 		if (['text/plain', 'application/json'].indexOf(f.type) < 0) {
-			ElMessage.error('仅支持的格式：txt、json')
-			return false
+			ElMessage.error(translate('仅支持的格式：txt、json'))
+			return
 		}
 		fileRead(f).then((r) => {
 			importJsonRef.value!.setVal(r)
-			ElMessage.success('文件读取成功！')
+			ElMessage.success(translate('文件读取成功！'))
 		})
-		return false
+	}
+	const onImportFileChange = (e: Event) => {
+		const input = e.target as HTMLInputElement
+		const file = input.files?.[0]
+		if (file) {
+			onImportFile(file)
+		}
+		input.value = ''
 	}
 	const setGraphNodeJson = (done_json: IDoneJson[]) => {
 		globalStore.setDoneJson(done_json)
@@ -106,8 +120,6 @@
 		globalStore.intention = EGlobalStoreIntention.None
 	})
 
-	const { appContext } = getCurrentInstance()!
-
 	function onReturnClick(d: IDataModel) {
 		emits('onReturn', {
 			data: d,
@@ -117,16 +129,13 @@
 
 	function save(d: IDataModel) {
 		if (props.saveFile) {
-			ElMessageBox.prompt(
-				'请输入文件名',
-				'保存',
-				{
-					cancelButtonText: '取消',
-					confirmButtonText: '保存'
-				},
-				appContext
-			)
-				.then((r: any) => {
+			promptRef.value!.open({
+				message: translate('请输入文件名'),
+				title: translate('保存'),
+				cancelButtonText: translate('取消'),
+				confirmButtonText: translate('保存')
+			})
+				.then((r: { value: string }) => {
 					fileWrite(d, r.value.trim())
 					emits('onSave', d)
 				})
@@ -143,22 +152,19 @@
 	}
 
 	function onExportSvg() {
-		ElMessageBox.prompt(
-			'请输入文件名',
-			'保存为SVG文件',
-			{
-				cancelButtonText: '取消',
-				confirmButtonText: '保存',
-				inputValue: 'svg-canvas',
-				inputPattern: /^[^\\/:*?"<>|]+$/,
-				inputErrorMessage: '文件名不能包含 \\ / : * ? " < > |'
-			},
-			appContext
-		)
-			.then((r: any) => {
+		promptRef.value!.open({
+			message: translate('请输入文件名'),
+			title: translate('保存为SVG文件'),
+			cancelButtonText: translate('取消'),
+			confirmButtonText: translate('保存'),
+			inputValue: 'svg-canvas',
+			inputPattern: /^[^\\/:*?"<>|]+$/,
+			inputErrorMessage: translate('文件名不能包含 \\ / : * ? " < > |')
+		})
+			.then((r: { value: string }) => {
 				const success = centerRef.value?.exportSvg(r.value.trim())
 				if (success) {
-					ElMessage.success('SVG文件已保存')
+					ElMessage.success(translate('SVG文件已保存'))
 				}
 			})
 			.catch((e: any) => {
@@ -187,7 +193,7 @@
 	})
 </script>
 <template>
-	<div>
+	<div :class="{ 'vgce-editor--en': isEn }">
 		<el-container>
 			<el-header class="top-el-header">
 				<top-panel
@@ -204,9 +210,9 @@
 					:class="svgEditLayoutStore.left_nav ? 'show-nav' : 'hide-nav'"
 					style="border-right: 1px solid #efefef"
 				>
-					<el-scrollbar class="el-scroll-pc">
+					<div class="vgce-scrollbar el-scroll-pc">
 						<left-panel class="content-left" :custom-toolbar="props.customToolbar" />
-					</el-scrollbar>
+					</div>
 				</el-aside>
 				<el-main class="middle main">
 					<div class="canvas-main-pc">
@@ -224,30 +230,32 @@
 					:class="svgEditLayoutStore.right_nav ? 'show-nav' : 'hide-nav'"
 					style="border-left: 1px solid #efefef"
 				>
-					<el-scrollbar class="el-scroll-pc">
+					<div class="vgce-scrollbar el-scroll-pc">
 						<right-panel :slotBackground="props.slotBackground"></right-panel>
-					</el-scrollbar>
+					</div>
 				</el-aside>
 			</el-container>
 		</el-container>
-		<el-dialog class="modal-full" v-model="visible_conf.ImportJson" title="导入数据" width="60%" destroy-on-close>
+		<el-dialog class="modal-full" v-model="visible_conf.ImportJson" :title="translate('导入数据')" width="60%" destroy-on-close>
 			<import-json ref="importJsonRef"></import-json>
 			<template #footer>
-				<el-upload
-					:beforeUpload="onImportFile"
-					style="display: inline-flex; margin-right: 12px"
-					:multiple="false"
-					:show-file-list="false"
-					:limit="1"
-				>
-					<el-button @click="changeVisible(EVisibleConfKey.ImportFile, true)">读取文件</el-button>
-				</el-upload>
-				<el-button type="primary" @click="onImportJson">导入数据</el-button>
+				<button type="button" class="vgce-btn" style="margin-right: 12px" @click="importFileRef?.click()">
+					{{ translate('读取文件') }}
+				</button>
+				<input
+					ref="importFileRef"
+					type="file"
+					accept=".txt,.json,text/plain,application/json"
+					style="display: none"
+					@change="onImportFileChange"
+				/>
+				<button type="button" class="vgce-btn vgce-btn--primary" @click="onImportJson">{{ translate('导入数据') }}</button>
 			</template>
 		</el-dialog>
-		<el-dialog class="modal-full" v-model="visible_conf.ExportJson" title="导出" width="60%" destroy-on-close>
+		<el-dialog class="modal-full" v-model="visible_conf.ExportJson" :title="translate('导出')" width="60%" destroy-on-close>
 			<export-json></export-json>
 		</el-dialog>
+		<vgce-prompt ref="promptRef"></vgce-prompt>
 	</div>
 </template>
 <style scoped lang="less">
@@ -295,6 +303,13 @@
 				max-width: @hideLeftNavWidth;
 			}
 		}
+	}
+
+	.vgce-editor--en .side-nav.show-nav {
+		@enNavWidth: 300px;
+		flex: 0 0 @enNavWidth;
+		min-width: @enNavWidth;
+		max-width: @enNavWidth;
 	}
 
 	.top-el-header {

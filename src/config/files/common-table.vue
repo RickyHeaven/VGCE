@@ -1,12 +1,12 @@
 <script setup lang="ts">
+	import { ref, watchEffect } from 'vue'
 	import { ElTable, ElTableColumn } from 'element-plus'
 
 	const props = withDefaults(
 		defineProps<{
-			colConfig: ICol[]
-			data: any[]
+			colConfig?: ICol[]
+			data?: any[]
 			height?: number
-			maxHeight?: number
 			stripe?: boolean
 			border?: boolean
 			size?: string
@@ -28,7 +28,7 @@
 	const table_props = ref({})
 	watchEffect(() => {
 		const { colConfig, ...temp_props } = props
-		table_props.value = temp_props
+		table_props.value = { ...temp_props, maxHeight: temp_props.height + 'px' }
 	})
 
 	interface ICol {

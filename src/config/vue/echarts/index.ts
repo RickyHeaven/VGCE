@@ -1,4 +1,4 @@
-import type { IConfigComponentGroup } from '@/config/types'
+import type { IConfigComponentGroup } from '../../types'
 import pie_charts from './pie-charts'
 
 const t: IConfigComponentGroup = {

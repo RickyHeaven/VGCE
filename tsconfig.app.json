@@ -3,8 +3,7 @@
   "include": [
     "env.d.ts",
     "src/**/*",
-    "src/**/*.ts",
-    "src/**/*.vue",
+    "types/**/*.d.ts",
     "auto-imports.d.ts"
   ],
   "exclude": [
@@ -13,16 +12,10 @@
   "compilerOptions": {
     "composite": true,
     "baseUrl": ".",
-    "moduleResolution": "node",
-    "noImplicitAny": true,
-    "strictNullChecks": true,
     "paths": {
       "@/*": [
         "./src/*"
       ]
-    },
-    "types": [
-      "vite-plugin-svg-icons/client"
-    ]
+    }
   }
 }

@@ -1,5 +1,7 @@
 <script setup lang="ts">
-	const props = withDefaults(defineProps<{ id: string; isOpen: boolean; height?: number; width?: number }>(), {
+	import { watch } from 'vue'
+
+	const props = withDefaults(defineProps<{ id?: string; isOpen?: boolean; height?: number; width?: number }>(), {
 		id: '',
 		isOpen: false,
 		height: 100,

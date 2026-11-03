@@ -1,9 +1,12 @@
 <script setup lang="ts">
-	import { ElFormItem, ElInput, ElOption, ElSelect } from 'element-plus/es'
+	import { ElInput, ElSelect } from 'element-plus'
+	import VgceFormItem from '@/components/vgce-form-item.vue'
+	import VgceOption from '@/components/vgce-option.vue'
 	import type { ICondition } from '@/config/types'
 	import { EConditionType } from '@/config/types'
+	import { translate } from '@/i18n'
 
-	const props = withDefaults(defineProps<{ modelValue: ICondition }>(), {
+	const props = withDefaults(defineProps<{ modelValue?: ICondition }>(), {
 		modelValue: () => ({ type: EConditionType.None })
 	})
 	const emit = defineEmits(['update:modelValue'])
@@ -66,30 +69,30 @@
 
 <template>
 	<div class="c-wall-d">
-		<el-form-item label="条件" size="small">
+		<vgce-form-item :label="translate('条件')" size="small">
 			<el-select v-model="value.type" @change="typeChange">
-				<el-option value="None" label="无" />
-				<el-option value="Relation" label="关系运算" />
+				<vgce-option value="None" :label="translate('无')" />
+				<vgce-option value="Relation" :label="translate('关系运算')" />
 			</el-select>
-		</el-form-item>
-		<el-form-item label="属性" size="small" v-if="value.type === 'Relation'">
+		</vgce-form-item>
+		<vgce-form-item :label="translate('属性')" size="small" v-if="value.type === 'Relation'">
 			<el-input v-model="value.Relation!.key" />
-		</el-form-item>
-		<el-form-item label="关系" size="small" v-if="value.type === 'Relation'">
+		</vgce-form-item>
+		<vgce-form-item :label="translate('关系')" size="small" v-if="value.type === 'Relation'">
 			<el-select v-model="value.Relation!.relation">
-				<el-option :value="e.val" :label="e.label" v-for="(e, i) of re" :key="'rop' + i" />
+				<vgce-option :value="e.val" :label="translate(e.label)" v-for="(e, i) of re" :key="'rop' + i" />
 			</el-select>
-		</el-form-item>
-		<el-form-item label="值" size="small" v-if="value.type === 'Relation'">
+		</vgce-form-item>
+		<vgce-form-item :label="translate('值')" size="small" v-if="value.type === 'Relation'">
 			<el-input v-model="value.Relation!.val" />
-		</el-form-item>
-		<el-form-item
-			label="值2"
+		</vgce-form-item>
+		<vgce-form-item
+			:label="translate('值2')"
 			size="small"
 			v-if="value.type === 'Relation' && (value.Relation?.relation === '>=,=<' || value.Relation?.relation === '<,>')"
 		>
 			<el-input v-model="value.Relation!.val2" />
-		</el-form-item>
+		</vgce-form-item>
 	</div>
 </template>
 

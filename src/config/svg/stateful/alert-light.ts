@@ -1,5 +1,5 @@
-import { EDoneJsonType } from '@/config/types'
-import type { IConfigItem } from '@/config/types'
+import { EDoneJsonType } from '../../types'
+import type { IConfigItem } from '../../types'
 
 const t: IConfigItem = {
 	name: 'alert-light',
@@ -15,13 +15,13 @@ const t: IConfigItem = {
 	defaultState: 'white',
 	state: {
 		green: {
-			label: '正常',
+			label: 'Normal',
 			fill: '#00ff00',
 			fillOpacity: '1'
 		},
-		yellow: { label: '请注意', fill: '#ffff00', fillOpacity: '1' },
-		red: { label: '报警', fill: '#ff0000', fillOpacity: '1' },
-		white: { label: '关闭', fill: '#ffffff', fillOpacity: '0' }
+		yellow: { label: 'Caution', fill: '#ffff00', fillOpacity: '1' },
+		red: { label: 'Alarm', fill: '#ff0000', fillOpacity: '1' },
+		white: { label: 'Off', fill: '#ffffff', fillOpacity: '0' }
 	},
 	common_animations: {
 		val: '',

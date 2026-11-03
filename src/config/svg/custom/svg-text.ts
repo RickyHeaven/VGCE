@@ -1,5 +1,5 @@
-import { EConfigItemPropsType, EDoneJsonType } from '@/config/types'
-import type { IConfigItem } from '@/config/types'
+import { EConfigItemPropsType, EDoneJsonType } from '../../types'
+import type { IConfigItem } from '../../types'
 
 const t: IConfigItem = {
 	name: 'svg-text',
@@ -21,7 +21,7 @@ const t: IConfigItem = {
 		text: {
 			title: '文字内容',
 			type: EConfigItemPropsType.Textarea,
-			val: '文字内容'
+			val: 'Text'
 		},
 		fontFamily: {
 			title: '字体',
@@ -64,11 +64,11 @@ const t: IConfigItem = {
 			options: [
 				{
 					value: 'horizontal-tb',
-					label: '水平'
+					label: 'Horizontal'
 				},
 				{
 					value: 'vertical-rl',
-					label: '垂直'
+					label: 'Vertical'
 				}
 			]
 		}

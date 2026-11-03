@@ -1,5 +1,5 @@
-import { EConfigItemPropsType, EDoneJsonType } from '@/config/types'
-import type { IConfigItem } from '@/config/types'
+import { EConfigItemPropsType, EDoneJsonType } from '../../types'
+import type { IConfigItem } from '../../types'
 
 const t: IConfigItem = {
 	name: 'pie-charts',
@@ -16,12 +16,12 @@ const t: IConfigItem = {
 		title: {
 			title: '标题',
 			type: EConfigItemPropsType.Input,
-			val: '默认标题'
+			val: 'Default Title'
 		},
 		seriesName: {
 			title: '详情',
 			type: EConfigItemPropsType.Input,
-			val: '详情标题'
+			val: 'Details Title'
 		},
 		seriesData: {
 			title: 'legendData',
@@ -29,23 +29,23 @@ const t: IConfigItem = {
 			val: [
 				{
 					value: 998,
-					name: '20岁以下'
+					name: 'Under 20'
 				},
 				{
 					value: 546,
-					name: '20-40岁'
+					name: '20-40'
 				},
 				{
 					value: 354,
-					name: '40-60岁'
+					name: '40-60'
 				},
 				{
 					value: 421,
-					name: '60-70岁'
+					name: '60-70'
 				},
 				{
 					value: 607,
-					name: '70岁以上'
+					name: 'Over 70'
 				}
 			]
 		}

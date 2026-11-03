@@ -1,4 +1,5 @@
 <script setup lang="ts">
+	import { watch } from 'vue'
 	import { ElProgress } from 'element-plus'
 	import type { ProgressColor } from 'element-plus'
 
@@ -24,7 +25,7 @@
 			percentage: 100
 		}
 	]
-	const props = withDefaults(defineProps<{ percentage: number | string }>(), { percentage: 10 })
+	const props = withDefaults(defineProps<{ percentage?: number | string }>(), { percentage: 10 })
 	const emit = defineEmits(['onChange'])
 	watch(
 		() => props.percentage,

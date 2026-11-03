@@ -1,5 +1,5 @@
-import { EConfigItemPropsType, EDoneJsonType } from '@/config/types'
-import type { IConfigItem } from '@/config/types'
+import { EConfigItemPropsType, EDoneJsonType } from '../../types'
+import type { IConfigItem } from '../../types'
 
 const t: IConfigItem = {
 	name: 'bot-2',

@@ -3,14 +3,14 @@
 
 	const props = withDefaults(
 		defineProps<{
-			width: number
-			height: number
-			bgColor: string
-			bgOpacity: number
-			borderColor: string
-			borderWidth: number
-			borderRadius: number
-			borderOpacity: number
+			width?: number
+			height?: number
+			bgColor?: string
+			bgOpacity?: number
+			borderColor?: string
+			borderWidth?: number
+			borderRadius?: number
+			borderOpacity?: number
 		}>(),
 		{
 			width: 250,

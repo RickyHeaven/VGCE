@@ -6,6 +6,7 @@ import { useSvgEditLayoutStore } from '@/stores/svg-edit-layout'
 import { useEditPrivateStore } from '@/stores/system'
 
 import { ElMessage } from 'element-plus'
+import { translate } from '@/i18n'
 
 export const pinia = createPinia()
 
@@ -28,7 +29,7 @@ export const useImportDataModel = (model_str: string) => {
 	try {
 		const json: IDataModel = JSON.parse(model_str)
 		if (!json.config || !json.layout_center || !json.done_json) {
-			ElMessage.error('请导入正确的数据模型！')
+			ElMessage.error(translate('请导入正确的数据模型！'))
 			return false
 		}
 		const globalStore = useGlobalStore(pinia)
@@ -39,7 +40,7 @@ export const useImportDataModel = (model_str: string) => {
 		globalStore.setDoneJson(json.done_json)
 		return true
 	} catch (error) {
-		ElMessage.error('请导入正确的数据模型！')
+		ElMessage.error(translate('请导入正确的数据模型！'))
 		console.error(error)
 		return false
 	}

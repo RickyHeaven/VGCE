@@ -99,6 +99,276 @@ body {
 	}
 }
 
+.vgce-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
+	padding: 8px 15px;
+	font-size: 14px;
+	border-radius: 4px;
+	border: 1px solid #dcdfe6;
+	background: #fff;
+	color: #606266;
+	cursor: pointer;
+	line-height: 1;
+	outline: none;
+	transition: 0.1s;
+
+	&:hover {
+		color: #409eff;
+		border-color: #c6e2ff;
+		background: #ecf5ff;
+	}
+
+	&:active {
+		color: #3a8ee6;
+		border-color: #3a8ee6;
+	}
+
+	&--sm {
+		padding: 5px 11px;
+		font-size: 12px;
+	}
+
+	&--primary {
+		color: #fff;
+		background: #409eff;
+		border-color: #409eff;
+
+		&:hover {
+			background: #66b1ff;
+			border-color: #66b1ff;
+			color: #fff;
+		}
+
+		&:active {
+			background: #3a8ee6;
+			border-color: #3a8ee6;
+			color: #fff;
+		}
+	}
+
+	&--link {
+		color: #409eff;
+		background: transparent;
+		border: none;
+		padding: 2px 0;
+
+		&:hover {
+			color: #66b1ff;
+		}
+
+		&:active {
+			color: #3a8ee6;
+		}
+	}
+}
+
+/*原生竖向分割线，替代 el-divider*/
+.vgce-divider {
+	display: inline-block;
+	position: relative;
+	width: 1px;
+	height: 1em;
+	margin: 0 8px;
+	vertical-align: middle;
+	border-left: 1px solid #dcdfe6;
+}
+
+/*原生横向分割线，替代 el-divider--horizontal*/
+.vgce-divider--horizontal {
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 1px;
+	margin: 24px 0;
+	border-top: 1px solid #dcdfe6;
+}
+
+/*原生滚动容器，替代 el-scrollbar*/
+.vgce-scrollbar {
+	overflow: auto;
+}
+
+/*原生按钮，用于画布中的“v-button”组件，避免使用 element-plus 的按钮组件*/
+.vgce-el-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 4px;
+	padding: 8px 15px;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 1;
+	border-radius: 4px;
+	border: 1px solid #dcdfe6;
+	background: #fff;
+	color: #606266;
+	cursor: pointer;
+	white-space: nowrap;
+	user-select: none;
+	transition: 0.1s;
+	outline: none;
+
+	&--default {
+		&:hover {
+			color: #409eff;
+			border-color: #c6e2ff;
+			background: #ecf5ff;
+		}
+
+		&:active {
+			color: #3a8ee6;
+			border-color: #3a8ee6;
+		}
+	}
+
+	&--primary,
+	&--success,
+	&--warning,
+	&--danger,
+	&--info {
+		color: #fff;
+
+		&:hover {
+			filter: brightness(1.1);
+		}
+
+		&:active {
+			filter: brightness(0.95);
+		}
+	}
+
+	&--primary {
+		background: #409eff;
+		border-color: #409eff;
+	}
+
+	&--success {
+		background: #67c23a;
+		border-color: #67c23a;
+	}
+
+	&--warning {
+		background: #e6a23c;
+		border-color: #e6a23c;
+	}
+
+	&--danger {
+		background: #f56c6c;
+		border-color: #f56c6c;
+	}
+
+	&--info {
+		background: #909399;
+		border-color: #909399;
+	}
+
+	&--plain {
+		background: #fff;
+
+		&.vgce-el-btn--primary {
+			color: #409eff;
+			border-color: #409eff;
+		}
+
+		&.vgce-el-btn--success {
+			color: #67c23a;
+			border-color: #67c23a;
+		}
+
+		&.vgce-el-btn--warning {
+			color: #e6a23c;
+			border-color: #e6a23c;
+		}
+
+		&.vgce-el-btn--danger {
+			color: #f56c6c;
+			border-color: #f56c6c;
+		}
+
+		&.vgce-el-btn--info {
+			color: #909399;
+			border-color: #909399;
+		}
+	}
+
+	&--text {
+		padding: 0;
+		background: transparent;
+		border-color: transparent;
+	}
+
+	&--lg {
+		padding: 12px 19px;
+		font-size: 14px;
+	}
+
+	&--sm {
+		padding: 5px 11px;
+		font-size: 12px;
+		border-radius: 3px;
+	}
+}
+
+/*原生标签，替代 v-tag*/
+.vgce-tag {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	height: 22px;
+	padding: 0 7px;
+	font-size: 12px;
+	line-height: 1;
+	border-radius: 3px;
+	border: 1px solid #e9e9eb;
+	background: #f4f4f5;
+	color: #909399;
+	cursor: pointer;
+	user-select: none;
+
+	&--success {
+		background: #f0f9eb;
+		border-color: #e1f3d8;
+		color: #67c23a;
+	}
+
+	&--primary {
+		background: #ecf5ff;
+		border-color: #d9ecff;
+		color: #409eff;
+	}
+
+	&--warning {
+		background: #fdf6ec;
+		border-color: #faecd8;
+		color: #e6a23c;
+	}
+
+	&--danger {
+		background: #fef0f0;
+		border-color: #fde2e2;
+		color: #f56c6c;
+	}
+
+	&--info {
+		background: #f4f4f5;
+		border-color: #e9e9eb;
+		color: #909399;
+	}
+
+	&__close {
+		font-size: 12px;
+		line-height: 1;
+		cursor: pointer;
+
+		&:hover {
+			color: #f56c6c;
+		}
+	}
+}
+
 .foreignObject {
 	> span {
 		/*解决span标签显示不完整的问题*/
@@ -125,6 +395,18 @@ body {
 
 .can-not-select {
 	user-select: none;
+}
+
+/* 预览性能降级：低档位关闭组件整体动画，避免低性能设备掉帧 */
+.perf-low .common-ani,
+.perf-low .animate__animated {
+	animation: none !important;
+}
+
+/* 预览性能降级：中低档位关闭图表等交互高开销元素的过渡与阴影 */
+.perf-medium .chart,
+.perf-low .chart {
+	transition: none !important;
 }
 
 .canvasInfoTxt {

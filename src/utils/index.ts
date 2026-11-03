@@ -1,6 +1,6 @@
 import type { ISystemStraightLine } from '@/components/config/types'
 import { ELineBindAnchors } from '@/components/config/types'
-import type { IConfigItem } from '@/config/types'
+import type { IConfigItem, IConfigItemProps } from '@/config/types'
 import { EDoneJsonType } from '@/config/types'
 import type { IDoneJson, IPointCoordinate } from '@/stores/global/types'
 import { EGlobalStoreIntention, EMouseInfoState } from '@/stores/global/types'
@@ -9,7 +9,8 @@ import { pinia } from '@/hooks'
 import { useConfigStore } from '@/stores/config'
 import { useSvgEditLayoutStore } from '@/stores/svg-edit-layout'
 import { kebabCase } from 'lodash-es'
-import { vueComp } from '@/config'
+import { canvasComp, vueComp } from '@/config'
+import { translate } from '@/i18n'
 
 export const stopEvent = (e: any) => {
 	e.stopPropagation()
@@ -25,11 +26,28 @@ export const myFixed = (d: number, n: number) => {
 export function componentsRegister(data?: Record<string, any>) {
 	//注册所有组件
 	const instance = getCurrentInstance()
-	const t = data ? Object.assign(vueComp, data) : vueComp
-	for (let key in t) {
-		if (!instance?.appContext?.components.hasOwnProperty(key) && vueComp.hasOwnProperty(key)) {
-			instance?.appContext?.app.component(key, vueComp[key])
+	const appContext = instance?.appContext
+	if (!appContext) {
+		return
+	}
+	const registry = appContext as any
+	const registered: Set<string> = registry.__vgceRegistered ?? (registry.__vgceRegistered = new Set<string>())
+	const comps = data ? { ...vueComp, ...data } : vueComp
+	for (const key in comps) {
+		if (registered.has(key)) {
+			continue
 		}
+		//画布内有原生实现的组件（如 v-button / v-tag）不注册到全局：
+		//画布通过 resolveCanvasComp 局部解析，避免把库内的仿制品注入宿主应用的全局组件表
+		if (canvasComp[key]) {
+			continue
+		}
+		//宿主应用已注册同名组件时不覆盖
+		if (appContext.components[key]) {
+			continue
+		}
+		appContext.app.component(key, comps[key])
+		registered.add(key)
 	}
 }
 
@@ -304,11 +322,13 @@ export const moveHandlePoint = (done_json: IDoneJson, x?: number, y?: number) =>
 }
 /**
  * 移动绑定锚点的线
- * @param done_json
+ * @param done_json 被移动（或被缩放/旋转）的组件
+ * @param lines 可选的连线候选列表，传入时只遍历该列表，避免每帧全表扫描
  */
-export const moveAnchors = (done_json: IDoneJson) => {
+export const moveAnchors = (done_json: IDoneJson, lines?: IDoneJson[]) => {
 	const globalStore = useGlobalStore(pinia)
-	for (let d of globalStore.done_json) {
+	const candidates = lines ?? globalStore.done_json
+	for (let d of candidates) {
 		if (d.type === EDoneJsonType.ConnectionLine) {
 			if (d.bind_anchors?.start?.target_id === done_json.id) {
 				const a = getAnchorPosByAnchorType(d.bind_anchors.start.type, done_json)
@@ -379,7 +399,78 @@ export const setAfterRotationPointCoordinate = (item: IDoneJson) => {
 	}
 }
 
+const vBindCache = new WeakMap<
+	IConfigItem,
+	Map<string, { signature: string; value: Record<string, any> }>
+>()
+
+/**
+ * 下拉类属性只允许取 options 中声明的值，外部写入的非法值统一回落到默认值，
+ * 避免把脏数据传给第三方组件的 props 校验（如 v-button 的 type validator）
+ * @param prop 属性配置
+ */
+const normalizePropsValue = (prop: IConfigItemProps[string]) => {
+	const options = prop?.options
+	if (!Array.isArray(options) || options.length === 0) {
+		return prop?.val
+	}
+	const values = options.map((o: any) => o?.value)
+	if (values.indexOf(prop.val) > -1) {
+		return prop.val
+	}
+	const fallback = (prop as any)?.default
+	return values.indexOf(fallback) > -1 ? fallback : values[0]
+}
+
+const getPropsSignature = (item: IConfigItem, ignore: any[] = []) => {
+	let signature = item.defaultState ?? ''
+	if (item.state && item.defaultState && item.state[item.defaultState]) {
+		for (const p in item.state[item.defaultState]) {
+			if (p !== 'label') {
+				signature += `|${p}:${item.state[item.defaultState][p]}`
+			}
+		}
+	}
+	for (const k in item.props) {
+		if (ignore.indexOf(k) < 0) {
+			signature += `|${k}:${normalizePropsValue(item.props[k])}`
+		}
+	}
+	return signature
+}
+
+/**
+ * 属性值是否为引用型（对象/数组）
+ * 引用型属性（如表格的 data、col-config）转字符串后内容相同（都是[object Object]），
+ * 无法作为签名比较，且缓存会持有旧引用导致数据变更后组件不更新，因此这类组件跳过缓存
+ */
+const isRefPropsValue = (v: any) => v !== null && typeof v === 'object'
+
+const hasRefProps = (item: IConfigItem, ignore: any[] = []) => {
+	if (item.state && item.defaultState && item.state[item.defaultState]) {
+		for (const p in item.state[item.defaultState]) {
+			if (p !== 'label' && isRefPropsValue(item.state[item.defaultState][p])) {
+				return true
+			}
+		}
+	}
+	for (const k in item.props) {
+		if (ignore.indexOf(k) < 0 && isRefPropsValue(normalizePropsValue(item.props[k]))) {
+			return true
+		}
+	}
+	return false
+}
+
 export const prosToVBind = (item: IConfigItem, ignore: any[] = []) => {
+	const key = ignore.join(',')
+	//含引用型属性时不走缓存，保证数据变更后能拿到最新的引用
+	const useCache = !hasRefProps(item, ignore)
+	const cache = useCache ? vBindCache.get(item) : undefined
+	const hit = cache?.get(key)
+	if (hit && hit.signature === getPropsSignature(item, ignore)) {
+		return hit.value
+	}
 	let temp: Record<string, any> = {}
 	if (item.state) {
 		for (const key in item.state) {
@@ -393,9 +484,17 @@ export const prosToVBind = (item: IConfigItem, ignore: any[] = []) => {
 			}
 		}
 	}
-	for (const key in item.props) {
-		if (ignore.indexOf(key) < 0) {
-			temp[kebabCase(key)] = item.props[key].val
+	for (const k in item.props) {
+		if (ignore.indexOf(k) < 0) {
+			temp[kebabCase(k)] = normalizePropsValue(item.props[k])
+		}
+	}
+	if (useCache) {
+		const entry = { signature: getPropsSignature(item, ignore), value: temp }
+		if (cache) {
+			cache.set(key, entry)
+		} else {
+			vBindCache.set(item, new Map([[key, entry]]))
 		}
 	}
 	return temp
@@ -406,21 +505,44 @@ export const setArrItemByID = (id: string, key: string, val: any, json_arr: IDon
 		if (!find_item) {
 			res({
 				status: false,
-				msg: '要设置的id不存在'
+				msg: translate('要设置的id不存在')
 			})
+			return
 		}
-		eval(`find_item.${key} = val;`)
+		//按属性路径逐层赋值，替代 eval，保持响应式且避免安全隐患
+		const keys = key.split('.').filter((k) => k !== '')
+		let target: any = find_item
+		for (let i = 0; i < keys.length - 1; i++) {
+			target = target?.[keys[i]]
+			if (target === undefined || target === null) {
+				res({
+					status: false,
+					msg: translate('属性路径不存在')
+				})
+				return
+			}
+		}
+		target[keys[keys.length - 1]] = val
 		res({
 			status: true,
-			msg: '操作成功'
+			msg: translate('操作成功')
 		})
 	})
 }
+const commonClassCache = new WeakMap<IDoneJson, { signature: string; value: string }>()
 export const getCommonClass = (item: IDoneJson) => {
-	if (!item.common_animations || !item.common_animations.val) {
+	const a = item.common_animations
+	if (!a || !a.val) {
 		return ``
 	}
-	return `common-ani animate__animated animate__${item.common_animations.val} animate__${item.common_animations.speed} animate__${item.common_animations.repeat} animate__${item.common_animations.delay}`
+	const signature = `${a.val}|${a.speed}|${a.repeat}|${a.delay}`
+	const hit = commonClassCache.get(item)
+	if (hit && hit.signature === signature) {
+		return hit.value
+	}
+	const value = `common-ani animate__animated animate__${a.val} animate__${a.speed} animate__${a.repeat} animate__${a.delay}`
+	commonClassCache.set(item, { signature, value })
+	return value
 }
 
 export const numberArray = (l: number) => {
@@ -450,11 +572,13 @@ export const getStringWidth = (str: string, fontSize = 12) => {
 }
 
 export const valFormat = (v: any) => {
-	if (/false|true/.test(v)) {
-		return v !== 'false'
-	}
-	if (/^\d+(\.\d+)?$/.test(v)) {
-		return Number(v)
+	if (typeof v === 'string') {
+		if (/false|true/.test(v)) {
+			return v !== 'false'
+		}
+		if (/^\d+(\.\d+)?$/.test(v)) {
+			return Number(v)
+		}
 	}
 	return v
 }

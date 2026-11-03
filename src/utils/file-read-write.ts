@@ -1,3 +1,5 @@
+import { translate } from '@/i18n'
+
 export function fileWrite(d: any, name = new Date(Date.now()).toLocaleString()) {
 	const t = JSON.stringify(d)
 	const blob = new Blob([t])
@@ -9,6 +11,7 @@ export function fileWrite(d: any, name = new Date(Date.now()).toLocaleString()) 
 	document.body.appendChild(l)
 	l.click()
 	document.body.removeChild(l)
+	URL.revokeObjectURL(l.href)
 }
 
 export function fileRead(d: File) {
@@ -19,7 +22,7 @@ export function fileRead(d: File) {
 			if (e && e.target) {
 				r(e.target.result)
 			} else {
-				j('文件读取错误')
+				j(translate('文件读取错误'))
 			}
 		}
 	})

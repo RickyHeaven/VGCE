@@ -1,9 +1,9 @@
-import { EConfigItemPropsType, EDoneJsonType } from '@/config/types'
-import type { IConfigItem } from '@/config/types'
+import { EConfigItemPropsType, EDoneJsonType } from '../../types'
+import type { IConfigItem } from '../../types'
 
 const t: IConfigItem = {
-	name: 'el-button',
-	tag: 'el-button',
+	name: 'v-button',
+	tag: 'v-button',
 	title: '按钮',
 	type: EDoneJsonType.Vue,
 	config: {
@@ -18,9 +18,9 @@ const t: IConfigItem = {
 			type: EConfigItemPropsType.Select,
 			val: 'default',
 			options: [
-				{ label: '大', value: 'large' },
-				{ label: '默认', value: 'default' },
-				{ label: '小', value: 'small' }
+				{ label: 'Large', value: 'large' },
+				{ label: 'Default', value: 'default' },
+				{ label: 'Small', value: 'small' }
 			]
 		},
 		type: {
@@ -28,11 +28,11 @@ const t: IConfigItem = {
 			type: EConfigItemPropsType.Select,
 			val: 'primary',
 			options: [
-				{ label: '主要按钮', value: 'primary' },
-				{ label: '成功按钮', value: 'success' },
-				{ label: '警告按钮', value: 'warning' },
-				{ label: '危险按钮', value: 'danger' },
-				{ label: '信息按钮', value: 'info' }
+				{ label: 'Primary', value: 'primary' },
+				{ label: 'Success', value: 'success' },
+				{ label: 'Warning', value: 'warning' },
+				{ label: 'Danger', value: 'danger' },
+				{ label: 'Info', value: 'info' }
 			]
 		},
 		plain: {
@@ -46,7 +46,7 @@ const t: IConfigItem = {
 			val: false
 		}
 	},
-	tag_slot: '按钮',
+	tag_slot: 'Button',
 	common_animations: {
 		val: '',
 		delay: 'delay-0s',

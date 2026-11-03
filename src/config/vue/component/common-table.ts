@@ -1,5 +1,5 @@
-import { EConfigItemPropsType, EDoneJsonType } from '@/config/types'
-import type { IConfigItem } from '@/config/types'
+import { EConfigItemPropsType, EDoneJsonType } from '../../types'
+import type { IConfigItem } from '../../types'
 
 const t: IConfigItem = {
 	name: 'common-table',
@@ -9,7 +9,8 @@ const t: IConfigItem = {
 	config: {
 		can_zoom: false,
 		have_anchor: false,
-		actual_rect: true
+		actual_rect: true,
+		stop_wheel_zoom: true
 	},
 	display: true,
 	props: {
@@ -19,7 +20,7 @@ const t: IConfigItem = {
 			val: [
 				{
 					prop: 'index',
-					label: '序号',
+					label: 'No.',
 					'min-width': '80',
 					fixed: false,
 					sortable: false,
@@ -27,7 +28,7 @@ const t: IConfigItem = {
 				},
 				{
 					prop: 'name',
-					label: '名字',
+					label: 'Name',
 					'min-width': '120',
 					fixed: false,
 					sortable: false,
@@ -35,7 +36,7 @@ const t: IConfigItem = {
 				},
 				{
 					prop: 'age',
-					label: '年龄',
+					label: 'Age',
 					'min-width': '80',
 					fixed: false,
 					sortable: false,
@@ -79,11 +80,6 @@ const t: IConfigItem = {
 			type: EConfigItemPropsType.InputNumber,
 			val: 200
 		},
-		maxHeight: {
-			title: '最大高度',
-			type: EConfigItemPropsType.InputNumber,
-			val: 200
-		},
 		stripe: {
 			title: '斑马纹',
 			type: EConfigItemPropsType.Switch,
@@ -100,15 +96,15 @@ const t: IConfigItem = {
 			val: 'default',
 			options: [
 				{
-					label: '大',
+					label: 'Large',
 					value: 'large'
 				},
 				{
-					label: '默认',
+					label: 'Default',
 					value: 'default'
 				},
 				{
-					label: '小',
+					label: 'Small',
 					value: 'small'
 				}
 			]

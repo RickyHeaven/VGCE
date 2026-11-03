@@ -1,9 +1,9 @@
-import { EConfigItemPropsType, EDoneJsonType } from '@/config/types'
-import type { IConfigItem } from '@/config/types'
+import { EConfigItemPropsType, EDoneJsonType } from '../../types'
+import type { IConfigItem } from '../../types'
 
 const t: IConfigItem = {
-	name: 'el-tag',
-	tag: 'el-tag',
+	name: 'v-tag',
+	tag: 'v-tag',
 	title: '标签',
 	type: EDoneJsonType.Vue,
 	config: {
@@ -18,10 +18,10 @@ const t: IConfigItem = {
 			type: EConfigItemPropsType.Select,
 			val: 'success',
 			options: [
-				{ label: '成功', value: 'success' },
-				{ label: '警告', value: 'warning' },
-				{ label: '危险', value: 'danger' },
-				{ label: '信息', value: 'info' }
+				{ label: 'Success', value: 'success' },
+				{ label: 'Warning', value: 'warning' },
+				{ label: 'Danger', value: 'danger' },
+				{ label: 'Info', value: 'info' }
 			]
 		},
 		closable: {
@@ -35,7 +35,7 @@ const t: IConfigItem = {
 			val: false
 		}
 	},
-	tag_slot: '标签',
+	tag_slot: 'Tag',
 	common_animations: {
 		val: '',
 		delay: 'delay-0s',

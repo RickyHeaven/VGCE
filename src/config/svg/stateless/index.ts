@@ -1,4 +1,4 @@
-import type { IConfigComponentGroup } from '@/config/types'
+import type { IConfigComponentGroup } from '../../types'
 import svg_bot_2 from './bot-2'
 import svg_bot_9 from './bot-9'
 import svg_hotpot from './hotpot'

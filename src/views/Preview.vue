@@ -1,8 +1,9 @@
 <script setup lang="ts">
 	import SvgViewer from '@/components/svg-viewer.vue'
-	import { ElButton } from 'element-plus'
+	import VgceIcon from '@/components/vgce-icon.vue'
 	import { ArrowLeftBold } from '@element-plus/icons-vue'
 	import { useStore } from '@/stores/main'
+	import { translate } from '@/i18n'
 
 	const emit = defineEmits(['back'])
 	const store = useStore()
@@ -15,7 +16,9 @@
 <template>
 	<div class="previewPage">
 		<svg-viewer :data="store.data" />
-		<el-button link @click="back" class="backBtn" :icon="ArrowLeftBold">返回</el-button>
+		<button type="button" class="vgce-btn vgce-btn--link backBtn" @click="back"
+			><vgce-icon><ArrowLeftBold /></vgce-icon>{{ translate('返回') }}</button
+		>
 	</div>
 </template>
 

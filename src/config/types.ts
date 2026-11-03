@@ -69,6 +69,7 @@ interface IDoneJsonConfig {
 	can_zoom: boolean
 	have_anchor: boolean
 	actual_rect: boolean
+	stop_wheel_zoom?: boolean
 }
 
 export enum EEventType {

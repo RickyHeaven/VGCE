@@ -1,13 +1,15 @@
 <!--左侧工具栏-->
 <script lang="ts" setup>
 	import { isEmpty } from 'lodash-es'
-	import { ElCollapse, ElCollapseItem, ElIcon, ElMessage } from 'element-plus'
+	import { ElCollapse, ElCollapseItem, ElMessage } from 'element-plus'
+	import VgceIcon from '@/components/vgce-icon.vue'
 	import type { IConfig, IConfigItem } from '@/config/types'
 	import { pinia } from '@/hooks'
 	import { useGlobalStore } from '@/stores/global'
 	import SvgAnalysis from '@/components/svg-analysis.vue'
 	import { EGlobalStoreIntention } from '@/stores/global/types'
 	import { prosToVBind } from '@/utils'
+	import { translate } from '@/i18n'
 
 	const globalStore = useGlobalStore(pinia)
 	const props = defineProps<{ customToolbar: IConfig | undefined }>()
@@ -38,7 +40,7 @@
 	const dragEndEvent = (e: DragEvent) => {
 		//拖动时记录拖动的svg信息
 		if (e.dataTransfer?.dropEffect !== 'copy') {
-			ElMessage.warning('请将组件拖到画布中!')
+			ElMessage.warning(translate('请将组件拖到画布中!'))
 			//清空已选择的信息
 			globalStore.intention = EGlobalStoreIntention.None
 			return
@@ -50,7 +52,7 @@
 		<el-collapse v-model="activeNames" style="border-top: none">
 			<el-collapse-item :name="item.groupType" v-for="item of left_tool_bar" :key="item.title">
 				<template #title>
-					<div>{{ item.title }}</div>
+					<div>{{ translate(item.title) }}</div>
 				</template>
 				<div class="component-group flex flex-wrap">
 					<div
@@ -60,11 +62,11 @@
 						draggable="true"
 						@dragstart="createBegin(svg_item)"
 						@dragend="dragEndEvent"
-						:title="svg_item.title"
+						:title="translate(svg_item.title)"
 					>
-						<el-icon :size="35" class="flex items-center">
+						<vgce-icon :size="35" class="flex items-center">
 							<svg-analysis :name="svg_item.name" :props="prosToVBind(svg_item, ['width', 'height', 'maxHeight'])" />
-						</el-icon>
+						</vgce-icon>
 					</div>
 				</div>
 			</el-collapse-item>

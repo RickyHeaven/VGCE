@@ -1,15 +1,15 @@
-import type { IConfigComponentGroup } from '@/config/types'
+import type { IConfigComponentGroup } from '../../types'
 
-import el_button from './button'
+import vButton from './button'
 import common_table from './common-table'
 import now_time from './now-time'
-import el_tag from './tag'
+import vTag from './tag'
 import progress_a from './progress'
 import textBox from './text-box'
 
 const t: IConfigComponentGroup = {
 	groupType: 'custom-vue',
 	title: 'VUE组件',
-	list: [el_button, progress_a, common_table, now_time, el_tag, textBox]
+	list: [vButton, progress_a, common_table, now_time, vTag, textBox]
 }
 export default t

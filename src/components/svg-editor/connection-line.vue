@@ -8,7 +8,7 @@
 	import { useConfigStore } from '@/stores/config'
 	import { useSvgEditLayoutStore } from '@/stores/svg-edit-layout'
 
-	const props = withDefaults(defineProps<{ itemInfo: IDoneJson; pointVisible: boolean }>(), { pointVisible: false })
+	const props = withDefaults(defineProps<{ itemInfo: IDoneJson; pointVisible?: boolean }>(), { pointVisible: false })
 	const globalStore = useGlobalStore(pinia)
 	const configStore = useConfigStore(pinia)
 	const svgEditLayoutStore = useSvgEditLayoutStore(pinia)
@@ -151,7 +151,7 @@
 			/>
 			<!-- 更改线段 -->
 			<circle
-				v-for="(item, index) in props.itemInfo.props.point_position.val"
+				v-for="(item, index) in (props.itemInfo.props.point_position.val as Array<{ x: number; y: number }>)"
 				:key="index"
 				:cx="item.x"
 				:cy="item.y"

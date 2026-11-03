@@ -1,8 +1,8 @@
 import type { IConfigComponentGroup } from '../../types'
 import svg_text from './svg-text'
 import switch_r from './switch-r'
-import light_a from '@/config/svg/custom/light'
-import clock_a from '@/config/svg/custom/clock-a'
+import light_a from './light'
+import clock_a from './clock-a'
 
 const t: IConfigComponentGroup = {
 	groupType: 'custom_svg_group',

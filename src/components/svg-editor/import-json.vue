@@ -4,6 +4,7 @@
 
 	import { useImportDataModel } from '@/hooks'
 	import { ElMessage } from 'element-plus'
+	import { translate } from '@/i18n'
 	const content = ref<string>('')
 
 	const setVal = (d: any) => {
@@ -11,7 +12,7 @@
 	}
 	const onImportJson = () => {
 		if (useImportDataModel(content.value)) {
-			ElMessage.success('导入成功')
+			ElMessage.success(translate('导入成功'))
 		}
 	}
 	defineExpose({
@@ -27,10 +28,7 @@
 		theme="kr_theme"
 		style="height: 400px"
 		:options="{
-			useWorker: true,
-			enableBasicAutocompletion: true,
-			enableSnippets: true,
-			enableLiveAutocompletion: true
+			useWorker: true
 		}"
 	/>
 </template>

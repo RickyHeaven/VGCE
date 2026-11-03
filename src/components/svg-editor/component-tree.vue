@@ -33,5 +33,7 @@
 		:highlight-current="Boolean(current_node_key)"
 		node-key="id"
 		:current-node-key="current_node_key"
-	/>
+	>
+		<template #default="{ node }">{{ node.data.title }}</template>
+	</el-tree>
 </template>

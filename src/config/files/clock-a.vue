@@ -1,15 +1,15 @@
 <script lang="ts" setup>
 	const props = withDefaults(
 		defineProps<{
-			id: string
-			centerColor: string
-			secondsColor: string
-			circleColor: string
-			minutesColor: string
-			hoursColor: string
-			scaleColor: string
-			backgroundColor: string
-			borderColor: string
+			id?: string
+			centerColor?: string
+			secondsColor?: string
+			circleColor?: string
+			minutesColor?: string
+			hoursColor?: string
+			scaleColor?: string
+			backgroundColor?: string
+			borderColor?: string
 		}>(),
 		{
 			id: '',

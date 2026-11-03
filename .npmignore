@@ -9,7 +9,7 @@ public/
 .prettierrc
 env.d.ts
 index.html
-pnpm-lock.json
+pnpm-lock.yaml
 tsconfig.json
 tsconfig.node.json
 tsconfig.app.json

@@ -1,0 +1,428 @@
+import { reactive, readonly, ref } from 'vue'
+
+export type VgceLocale = 'zh-CN' | 'en-US'
+
+export const DEFAULT_LOCALE: VgceLocale = 'zh-CN'
+
+const messages = reactive<Record<VgceLocale, Record<string, string>>>({
+	'zh-CN': {},
+	'en-US': {
+		// 顶部工具栏
+		'隐藏左侧菜单': 'Hide left menu',
+		'显示左侧菜单': 'Show left menu',
+		'隐藏右侧菜单': 'Hide right menu',
+		'显示右侧菜单': 'Show right menu',
+		'撤销 ctrl+z': 'Undo (Ctrl+Z)',
+		'重做 ctrl+shift+z': 'Redo (Ctrl+Shift+Z)',
+		'清空 ctrl+delete': 'Clear (Ctrl+Delete)',
+		'导入数据模型': 'Import data model',
+		'导出数据模型': 'Export data model',
+		'保存为SVG文件': 'Save as SVG file',
+		'创建连线': 'Create connection',
+		'说明': 'Help',
+		'返回': 'Back',
+		'保存': 'Save',
+		'预览': 'Preview',
+		'使用说明': 'User guide',
+
+		// 使用说明
+		'多选': 'Multi-select',
+		'在画布空白区域按住鼠标左键可以框选（图形中心点在框选区域即判定被选中），也可以按住ctrl+鼠标左键点图形进行多选':
+			'Hold the left mouse button on an empty canvas area to marquee-select (a shape is selected when its center point is inside the marquee). You can also hold Ctrl and left-click shapes to multi-select.',
+		'拖动画布': 'Pan canvas',
+		'在画布空白区域按住右键可拖动画布，右侧面板‘图纸’栏可微调或重置位置':
+			'Hold the right mouse button on an empty canvas area to pan the canvas. You can fine-tune or reset the position in the "Canvas" tab on the right panel.',
+		'画布缩放': 'Canvas zoom',
+		'在画布中使用鼠标滚轮或者右侧面板‘图纸’栏可控制画布缩放，鼠标滚轮以鼠标位置为缩放中心，图纸栏以图纸原点（默认在左上角）为缩放中心':
+			'Use the mouse wheel on the canvas or the "Canvas" tab on the right panel to zoom. The mouse wheel zooms around the cursor position, while the Canvas tab zooms around the canvas origin (top-left by default).',
+		'标尺辅助线': 'Ruler guides',
+		'在标尺区域按住鼠标左键并拖动即可创建标尺辅助线，将标尺辅助线拖动到标尺区域即可删除标尺辅助线':
+			'Hold the left mouse button and drag in the ruler area to create a ruler guide. Drag a ruler guide back into the ruler area to delete it.',
+		'组件尺寸': 'Component size',
+		'大多数组件可以通过选中组件然后拖动交互点或在右侧‘外观’栏改变外形尺寸，或通过右侧‘数据’栏直接或间接改变外形尺寸；':
+			'For most components, select the component and drag its handles, or use the "Appearance" tab on the right to change their size. You can also change the size directly or indirectly in the "Data" tab.',
+		"少数特殊组件仅可通过右侧'数据'栏直接或间接改变外形尺寸":
+			'A few special components can only be resized directly or indirectly through the "Data" tab on the right.',
+		'连线样式': 'Connection style',
+		'在右侧‘连线’栏可以统一配置连线样式，配置后先增加的线会应用新样式，之前的线样式不变，如需改变，可选中线手动更改或删除重画':
+			'Connection styles can be configured globally in the "Connection" tab on the right. Connections added after the change use the new style; existing connections keep their old style. To update them, select and modify them manually, or delete and redraw them.',
+		'横线和竖线': 'Horizontal and vertical lines',
+		'点击编辑器顶部连线按钮会进入连线状态，该状态下在画板点击鼠标左键即可开始画线，移动并再次点击左键创建新的节点，右键结束画线并退出连线状态；':
+			'Click the connection button at the top of the editor to enter connection mode. In this mode, left-click on the canvas to start drawing, move and left-click again to create a new point, and right-click to finish drawing and exit connection mode.',
+		'画线的时候按住ctrl即可画竖线，按住shift即可画横线':
+			'While drawing, hold Ctrl to draw vertical lines and Shift to draw horizontal lines.',
+		'绑定锚点': 'Bind anchors',
+		'组件在未选中时，鼠标经过组件时会出现锚点，鼠标悬浮在锚点上时，会有交互样式，点击左键即可以锚点为起点创建连线；':
+			'When a component is not selected, anchors appear when the pointer moves over it. Hovering over an anchor shows an interactive style; left-click it to create a connection starting from that anchor.',
+		'同样，在连线时鼠标经过锚点时，会出现锚点交互样式，点击左键即可以锚点为连线终点结束连线；':
+			'Likewise, while drawing a connection, hovering over an anchor shows the interactive style; left-click it to finish the connection at that anchor.',
+		'这两种情况下的连线会绑定组件上的锚点，如需解绑，参考下面的‘锚点解绑’；':
+			'Connections created in either way are bound to the component anchor. To unbind, see "Unbind anchors" below.',
+		'同样，也可先画线，再选中连线绑定想要绑定的组件锚点（连线只有首尾节点可以绑定锚点）':
+			'You can also draw the connection first, then select it and bind the desired component anchors (only the first and last points of a connection can be bound).',
+		'线段选中': 'Connection selection',
+		'若线段绑定了锚点，移动线段，绑定的锚点不会移动。若是想将线段整体移动，需要先解绑，参考下面的‘锚点解绑’':
+			'If a connection is bound to anchors, moving the connection will not move the bound anchors. To move the whole connection, unbind it first (see "Unbind anchors" below).',
+		'锚点解绑': 'Unbind anchors',
+		'选中线段，在右侧‘数据’栏里解除绑定；或者鼠标左键拖拽连线上需要解绑的节点':
+			'Select the connection and unbind it in the "Data" tab on the right, or drag the point that needs to be unbound with the left mouse button.',
+
+		// 右侧面板
+		'图纸': 'Canvas',
+		'背景色': 'Background',
+		'画布': 'Canvas',
+		'重置位置': 'Reset position',
+		'X轴偏移': 'X offset',
+		'Y轴偏移': 'Y offset',
+		'缩放': 'Zoom',
+		'标尺': 'Ruler',
+		'网格': 'Grid',
+		'网格颜色': 'Grid color',
+		'连线': 'Link',
+		'通信': 'Network',
+		'结构': 'Tree',
+		'外部配置': 'External config',
+		'（开启后这里无需配置）': '(no setup needed)',
+		'如 ws://127.0.0.1:4500': 'e.g. ws://127.0.0.1:4500',
+		'用户名': 'Username',
+		'密码': 'Password',
+		'外观': 'Style',
+		'标题': 'Title',
+		'X坐标': 'X coordinate',
+		'Y坐标': 'Y coordinate',
+		'X缩放': 'X scale',
+		'Y缩放': 'Y scale',
+		'旋转': 'Rotation',
+		'显示': 'Visible',
+		'数据': 'Data',
+		'状态': 'State',
+		'文字插槽': 'Text slot',
+		'绑定起点': 'Start anchor',
+		'绑定终点': 'End anchor',
+		'事件': 'Event',
+		'添加事件': 'Add event',
+		'类型': 'Type',
+		'点击': 'Click',
+		'值改变': 'Value change',
+		'行为': 'Action',
+		'改变属性': 'Change attribute',
+		'执行 JavaScript': 'Run JavaScript',
+		'emit 事件': 'Emit event',
+		'目标': 'Target',
+		'默认自身': 'Default: itself',
+		'动效': 'Motion',
+		'动画效果': 'Effect',
+		'延迟': 'Delay',
+		'无': 'None',
+		'1秒': '1 second',
+		'2秒': '2 seconds',
+		'3秒': '3 seconds',
+		'4秒': '4 seconds',
+		'5秒': '5 seconds',
+		'动画速度': 'Speed',
+		'慢': 'Slow',
+		'最慢': 'Slowest',
+		'快': 'Fast',
+		'最快': 'Fastest',
+		'循环次数': 'Iterations',
+		'一次': 'Once',
+		'两次': 'Twice',
+		'三次': 'Three times',
+		'无限次': 'Infinite',
+
+		// 动画选择
+		'新增': 'Add',
+		'选择动画': 'Select animation',
+		'进入': 'Entrance',
+		'强调': 'Emphasis',
+		'退出': 'Exit',
+		'渐显': 'Fade in',
+		'向右进入': 'Fade in from left',
+		'向左进入': 'Fade in from right',
+		'向上进入': 'Fade in from bottom',
+		'向下进入': 'Fade in from top',
+		'向右长距进入': 'Long fade in from left',
+		'向左长距进入': 'Long fade in from right',
+		'向上长距进入': 'Long fade in from bottom',
+		'向下长距进入': 'Long fade in from top',
+		'旋转进入': 'Rotate in',
+		'左顺时针旋转': 'Clockwise rotation from left',
+		'右逆时针旋转': 'Counterclockwise rotation from right',
+		'左逆时针旋转': 'Counterclockwise rotation from left',
+		'弹入': 'Bounce in',
+		'向右弹入': 'Bounce in from left',
+		'向左弹入': 'Bounce in from right',
+		'向上弹入': 'Bounce in from bottom',
+		'向下弹入': 'Bounce in from top',
+		'光速从右进入': 'Light-speed in from right',
+		'光速从左进入': 'Light-speed in from left',
+		'光速从右退出': 'Light-speed out to right',
+		'光速从左退出': 'Light-speed out to left',
+		'Y轴旋转': 'Y-axis flip',
+		'中心X轴旋转': 'X-axis flip',
+		'中心Y轴旋转': 'Y-axis flip',
+		'左长半径旋转': 'Long left roll',
+		'由小变大进入': 'Zoom in',
+		'左变大进入': 'Zoom in from left',
+		'右变大进入': 'Zoom in from right',
+		'向上变大进入': 'Zoom in from bottom',
+		'向下变大进入': 'Zoom in from top',
+		'向右滑动展开': 'Slide in from left',
+		'向左滑动展开': 'Slide in from right',
+		'向上滑动展开': 'Slide in from bottom',
+		'向下滑动展开': 'Slide in from top',
+		'弹跳': 'Bounce',
+		'闪烁': 'Flash',
+		'放大缩小': 'Pulse',
+		'放大缩小弹簧': 'Rubber band',
+		'左右晃动': 'Head shake',
+		'左右扇形摇摆': 'Swing',
+		'放大晃动缩小': 'Tada',
+		'扇形摇摆': 'Wobble',
+		'左右上下晃动': 'Jello',
+		'渐隐': 'Fade out',
+		'向左退出': 'Fade out to left',
+		'向右退出': 'Fade out to right',
+		'向上退出': 'Fade out upward',
+		'向下退出': 'Fade out downward',
+		'向左长距退出': 'Long fade out to left',
+		'向右长距退出': 'Long fade out to right',
+		'向上长距退出': 'Long fade out upward',
+		'向下长距退出': 'Long fade out downward',
+		'旋转退出': 'Rotate out',
+		'弹出': 'Bounce out',
+		'向左弹出': 'Bounce out to left',
+		'向右弹出': 'Bounce out to right',
+		'向上弹出': 'Bounce out upward',
+		'向下弹出': 'Bounce out downward',
+		'由小变大退出': 'Zoom out',
+		'左变大退出': 'Zoom out to left',
+		'右变大退出': 'Zoom out to right',
+		'向上变大退出': 'Zoom out upward',
+		'向下变大退出': 'Zoom out downward',
+		'向左滑动收起': 'Slide out to left',
+		'向右滑动收起': 'Slide out to right',
+		'向上滑动收起': 'Slide out upward',
+		'向下滑动收起': 'Slide out downward',
+
+		// 绑定锚点与条件
+		'绑定对象': 'Bind to',
+		'绑定位置': 'Anchor pos',
+		'上锚点': 'Top anchor',
+		'右锚点': 'Right anchor',
+		'下锚点': 'Bottom anchor',
+		'左锚点': 'Left anchor',
+		'条件': 'Condition',
+		'关系运算': 'Relational operation',
+		'属性': 'Property',
+		'关系': 'Relation',
+		'值': 'Value',
+		'值2': 'Value 2',
+		'大于': 'Greater than',
+		'大于等于': 'Greater than or equal',
+		'小于': 'Less than',
+		'小于等于': 'Less than or equal',
+		'等于': 'Equal',
+		'不等于': 'Not equal',
+		'介于': 'Between',
+		'不介于': 'Not between',
+
+		// 编辑器对话框与提示
+		'导入数据': 'Import data',
+		'读取文件': 'Read file',
+		'导出': 'Export',
+		'导入成功': 'Imported successfully',
+		'仅支持的格式：txt、json': 'Only txt and json files are supported',
+		'文件读取成功！': 'File read successfully!',
+		'请输入文件名': 'Please enter a file name',
+		'取消': 'Cancel',
+		'确定': 'OK',
+		'文件名不能包含 \\ / : * ? " < > |': 'File names cannot contain \\ / : * ? " < > |',
+		'SVG文件已保存': 'SVG file saved',
+		'请输入内容': 'Please enter a value',
+		'输入内容格式不正确': 'Invalid input format',
+		'请导入正确的数据模型！': 'Please import a valid data model!',
+		'请将组件拖到画布中!': 'Please drag the component onto the canvas!',
+		'编辑': 'Edit',
+		'要设置的id不存在': 'The ID to set does not exist',
+		'属性路径不存在': 'The property path does not exist',
+		'操作成功': 'Operation succeeded',
+		'文件读取错误': 'File read error',
+		'复制': 'Copy',
+		'删除': 'Delete',
+		'置于顶层': 'Bring to front',
+		'置于底层': 'Send to back',
+		'置于上一层': 'Bring forward',
+		'置于下一层': 'Send backward',
+		'没有请求地址:url': 'No request URL: url',
+		'要创建的数据获取失败': 'Failed to get the data to create',
+		'编辑器MQTT通信只支持ws协议 (url必须以"ws://"开头)':
+			'Editor MQTT communication only supports the ws protocol (the URL must start with "ws://")',
+		'MQTT服务器连接成功': 'MQTT server connected',
+		'MQTT服务连接关闭': 'MQTT connection closed',
+		'缩放倍数': 'Zoom',
+		'倍': 'x',
+		'画布位置': 'Canvas position',
+
+		// 组件与分组
+		'静态SVG': 'Static SVG',
+		'状态SVG': 'Stateful SVG',
+		'动画SVG': 'Animated SVG',
+		'SVG组件': 'SVG components',
+		'VUE组件': 'Vue components',
+		'图表': 'Charts',
+		'火锅': 'Hot pot',
+		'汉堡': 'Hamburger',
+		'9号机': 'Bot No. 9',
+		'2号机': 'Bot No. 2',
+		'警示灯': 'Warning light',
+		'开关': 'Switch',
+		'文字': 'Text',
+		'灯': 'Light',
+		'时钟': 'Clock',
+		'温度计': 'Thermometer',
+		'按钮': 'Button',
+		'进度条': 'Progress bar',
+		'当前时间': 'Current time',
+		'通用表格': 'Table',
+		'标签': 'Tag',
+		'文字背景框': 'Text box',
+		'饼图': 'Pie chart',
+		'直线': 'Straight line',
+		'连接线': 'Connection line',
+
+		// 组件属性
+		'填充色': 'Fill color',
+		'起点x坐标': 'Start X',
+		'起点y坐标': 'Start Y',
+		'终点x坐标': 'End X',
+		'终点y坐标': 'End Y',
+		'线条颜色': 'Line color',
+		'线条宽度': 'Line width',
+		'节点半径': 'Point radius',
+		'点坐标': 'Point coords',
+		'动画类型': 'Animation type',
+		'电流': 'Current',
+		'轨迹': 'Trail',
+		'水珠': 'Droplet',
+		'持续时间': 'Duration',
+		'颜色': 'Color',
+		'反转动画': 'Reverse',
+		'高度': 'Height',
+		'宽度': 'Width',
+		'字体': 'Font',
+		'文字大小': 'Font size',
+		'文字颜色': 'Text color',
+		'文字加粗': 'Bold',
+		'文字朝向': 'Text dir',
+		'水平': 'Horizontal',
+		'垂直': 'Vertical',
+		'设备编码': 'Device code',
+		'文字内容': 'Text content',
+		'列配置': 'Columns',
+		'序号': 'No.',
+		'名字': 'Name',
+		'年龄': 'Age',
+		'表格数据': 'Table data',
+		'最大高度': 'Max height',
+		'斑马纹': 'Striped',
+		'纵向边框': 'Vertical border',
+		'尺寸': 'Size',
+		'大': 'Large',
+		'默认': 'Default',
+		'小': 'Small',
+		'列宽自撑开': 'Fit columns',
+		'主要按钮': 'Primary',
+		'成功按钮': 'Success',
+		'警告按钮': 'Warning',
+		'危险按钮': 'Danger',
+		'信息按钮': 'Info',
+		'朴素按钮': 'Plain',
+		'文字按钮': 'Text button',
+		'成功': 'Success',
+		'警告': 'Warning',
+		'危险': 'Danger',
+		'信息': 'Info',
+		'可关闭': 'Closable',
+		'渐变': 'Gradient',
+		'进度': 'Progress',
+		'针顶颜色': 'Pin cap color',
+		'秒针颜色': 'Second hand color',
+		'针圈颜色': 'Pin ring color',
+		'分针颜色': 'Minute hand color',
+		'时针颜色': 'Hour hand color',
+		'刻度颜色': 'Tick color',
+		'表盘颜色': 'Dial color',
+		'表框颜色': 'Frame color',
+		'背景颜色': 'Background color',
+		'背景透明度(%)': 'Bg opacity (%)',
+		'边框颜色': 'Border color',
+		'边框宽度': 'Border width',
+		'边框圆角': 'Border radius',
+		'边框透明度(%)': 'Border opacity',
+		'正常': 'Normal',
+		'请注意': 'Caution',
+		'报警': 'Alarm',
+		'关闭': 'Off',
+		'默认标题': 'Default title',
+		'详情标题': 'Details title',
+		'20岁以下': 'Under 20',
+		'20-40岁': '20-40',
+		'40-60岁': '40-60',
+		'60-70岁': '60-70',
+		'70岁以上': 'Over 70',
+		'详情': 'Details',
+		'微软雅黑': 'Microsoft YaHei',
+		'新宋体': 'NSimSun',
+		'楷体': 'KaiTi',
+		// 当前时间组件
+		'星期日': 'Sunday',
+		'星期一': 'Monday',
+		'星期二': 'Tuesday',
+		'星期三': 'Wednesday',
+		'星期四': 'Thursday',
+		'星期五': 'Friday',
+		'星期六': 'Saturday'
+	}
+})
+
+const locale = ref<VgceLocale>(DEFAULT_LOCALE)
+
+export const normalizeLocale = (value?: string | null): VgceLocale => {
+	if (!value) {
+		return DEFAULT_LOCALE
+	}
+	const lower = value.toLowerCase()
+	if (lower === 'en' || lower === 'en-us' || lower.startsWith('en-')) {
+		return 'en-US'
+	}
+	return 'zh-CN'
+}
+
+export const setLocale = (value?: string | null) => {
+	locale.value = normalizeLocale(value)
+}
+
+export const getLocale = (): VgceLocale => locale.value
+
+export const useVgceLocale = () => readonly(locale)
+
+export const registerMessages = (extra?: Record<string, string>, target: VgceLocale = 'en-US') => {
+	if (!extra) {
+		return
+	}
+	Object.assign(messages[target], extra)
+}
+
+export const translate = (key?: string, params?: Record<string, string | number>): string => {
+	if (!key) {
+		return ''
+	}
+	const text = messages[locale.value][key] ?? key
+	if (!params) {
+		return text
+	}
+	return text.replace(/\{(\w+)\}/g, (_, name: string) => String(params[name] ?? `{${name}}`))
+}
+
+export const t = translate
