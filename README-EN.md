@@ -5,7 +5,7 @@ Vector graphics configuration editor.
 ## Features
 
 - **Ready-to-use editor + viewer**: Build layouts by dragging and dropping in `SvgEditor`, display them read-only with `SvgViewer`. A single JSON data model drives both sides, so the data produced by the editor can be handed directly to the viewer for rendering.
-- **Performance tiers for industrial control and large screens**: The viewer ships with three built-in performance presets — `high / medium / low`. By default `level: 'auto'` is used, which automatically picks a tier based on CPU core count, memory, device pixel ratio and whether the device is mobile, so low-end PCs and industrial computers can still preview smoothly. Use `previewPerf` for fine-grained tuning, or `forceLevel` to force a specific tier (see section 8 below for details).
+- **Performance tiers for industrial control and large screens**: Both the editor and the viewer ship with three built-in performance presets — `high / medium / low`. By default `level: 'auto'` is used, which automatically picks a tier based on CPU core count, memory and device pixel ratio, so low-end PCs and industrial computers can still run smoothly. The editor is configured via `editorPerf`, the viewer via `previewPerf`; both also support `forceLevel` to force a specific tier (see section 8 below for details).
 - **Viewport-based virtual rendering**: When the number of components exceeds a threshold, only nodes intersecting the visible area (including a buffer) are rendered. Bounding-box calculation supports scaling and rotation (rotated components are clipped by their circumscribed rectangle, so they are not culled prematurely). The editor also performs viewport culling, while selected or currently dragged components are always kept, so an operation is never interrupted by culling.
 - **Separation of input and rendering**: Dragging and wheel zooming are buffered with `requestAnimationFrame`; multiple pointer events within the same frame result in only one geometry computation, and an interaction frame-rate cap (`fpsLimit`) is supported. The canvas stays responsive even with a large number of components, and components inside the viewport are no longer incorrectly clipped after zooming.
 - **Multi-level result caching**: Transform matrices, styles, animation class names, `v-bind` attributes, bounding boxes and edge indexes are all cached by signature (`WeakMap`), and geometry information is decoupled from reactive dependencies, avoiding recomputation of all components on every frame. Attribute changes (such as text pushed via MQTT) do not trigger a full list rebuild either.
@@ -33,6 +33,7 @@ Vector graphics configuration editor.
 | Component tree | The "Structure" panel shows all components as a tree and supports selecting to locate |
 | Import and export | Import/export the data model JSON at the top (local txt/json files are supported), and export directly as an SVG file |
 | Save and preview | Triggers `onSave` to return the data model (also downloads a JSON file when `saveFile` is `true`), `onPreview` to return the data model for the viewer to render, and `onReturn` for the host to go back to the previous page |
+| Performance tiers | `editorPerf` / `forceLevel` control the performance tier, affecting the viewport-clipping threshold, CSS animation toggle and interaction frame-rate cap (see section 8) |
 | i18n | `locale` supports `zh-CN` / `en-US`; the exported `setLocale()` switches globally, `translate()` provides texts for custom components, and `configMessages` / `registerMessages()` map component config data to English (see section 12.1) |
 
 ### Viewer `SvgViewer`
@@ -231,7 +232,34 @@ or
 
 ### 8. Performance-related configuration
 
-   > `SvgViewer` supports preview performance configuration through the `previewPerf` prop. When it is not provided, `level: 'auto'` is used to automatically detect the device performance tier, so low-end PCs and industrial computers can still preview smoothly.
+   > Both `SvgEditor` and `SvgViewer` have built-in performance tiering, with `level: 'auto'` as the default for automatic device performance detection. The detection logic is based on CPU core count, memory size and device pixel ratio, classifying devices into `high` / `medium` / `low` tiers, so low-end PCs and industrial computers can also run smoothly.
+
+#### 8.1 Editor Performance Configuration `editorPerf`
+
+   ```
+     <SvgEditor :data="xxx" :editorPerf="{...}"/>
+   ```
+
+   > Configurable items of `editorPerf`:
+
+   | Field | Type | Description |
+   | --- | --- | --- |
+   | `level` | `'auto' \| 'high' \| 'medium' \| 'low'` | Performance tier, defaults to `'auto'` (automatic detection) |
+   | `animations` | `boolean` | Whether to enable CSS animations (animate.css / common-ani) |
+   | `fpsLimit` | `number` | Maximum frame rate for interactions such as dragging/zooming; `<=0` means unlimited |
+   | `clipThreshold` | `number` | Component count threshold that triggers viewport clipping — beyond this limit only nodes in the visible area are rendered |
+
+   > Editor default strategy per tier:
+
+   | Tier | `animations` | `fpsLimit` | `clipThreshold` | Description |
+   | --- | --- | --- | --- | --- |
+   | `high` | ✅ | 60 | 400 | Full effects, suitable for high-performance PCs |
+   | `medium` | ❌ | 30 | 200 | Disables animations, lowers frame rate, enables clipping earlier; suitable for mid-range PCs |
+   | `low` | ❌ | 20 | 100 | Most conservative strategy — freezes canvas visuals during drag/zoom and jumps to the final position once interaction ends, avoiding intermediate layout recalculations; suitable for older PCs and industrial computers |
+
+   > The editor's `forceLevel` prop can force a specific tier (overrides `editorPerf.level`).
+
+#### 8.2 Viewer Performance Configuration `previewPerf`
 
    ```
      <SvgViewer :data="xxx" :previewPerf="{...}"/>
@@ -249,7 +277,7 @@ or
    | `nodeVirtual` | `boolean` | Whether to enable viewport-based virtual rendering (render only components in the visible area) |
    | `nodeVirtualThreshold` | `number` | Component count threshold that triggers viewport-based virtual rendering |
 
-   > Default strategy of each tier: `high` enables all effects; `medium` disables automatic chart redraw and limits the frame rate to 30; `low` additionally disables animations and limits the frame rate to 20.
+   > Viewer default strategy per tier: `high` enables all effects; `medium` disables automatic chart redraw and limits the frame rate to 30; `low` additionally disables animations, limits the frame rate to 20, and freezes canvas visuals during drag/zoom, jumping to the final position once interaction ends.
    > You can also use the `forceLevel` prop alone to force a tier. Custom vue components can read the currently effective performance configuration via `inject('previewPerf')` and degrade themselves accordingly.
 
 ### 9. MQTT communication

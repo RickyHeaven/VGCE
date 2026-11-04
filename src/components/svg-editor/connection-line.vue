@@ -1,4 +1,5 @@
 <script setup lang="ts">
+	import type { ComputedRef } from 'vue'
 	import { EMouseInfoState, EGlobalStoreIntention } from '@/stores/global/types'
 	import type { IDoneJson } from '@/stores/global/types'
 	import { positionArrToPath } from '@/utils'
@@ -12,6 +13,14 @@
 	const globalStore = useGlobalStore(pinia)
 	const configStore = useConfigStore(pinia)
 	const svgEditLayoutStore = useSvgEditLayoutStore(pinia)
+
+	const editorPerf = inject<ComputedRef<{ animations: boolean }> | null>('editorPerf', null)
+	const viewerPerf = inject<ComputedRef<{ animations: boolean }> | null>('previewPerf', null)
+	const perfAnimationsEnabled = computed(() => {
+		if (editorPerf) return editorPerf.value.animations
+		if (viewerPerf) return viewerPerf.value.animations
+		return true
+	})
 	const setConnectionLineNode = (point_index: number, e: MouseEvent, x: number, y: number) => {
 		if (globalStore.intention === EGlobalStoreIntention.Connection) {
 			return
@@ -84,7 +93,7 @@
 			stroke-linejoin="round"
 		>
 			<animate
-				v-if="props.itemInfo.animations?.type.val === EConfigAnimationsType.Electricity"
+				v-if="perfAnimationsEnabled && props.itemInfo.animations?.type.val === EConfigAnimationsType.Electricity"
 				attributeName="stroke-dashoffset"
 				:from="props.itemInfo.animations.reverse.val ? 0 : 1000"
 				:to="props.itemInfo.animations.reverse.val ? 1000 : 0"
@@ -106,6 +115,7 @@
 			stroke-linejoin="round"
 		>
 			<animate
+				v-if="perfAnimationsEnabled"
 				attributeName="stroke-dashoffset"
 				:from="props.itemInfo.animations.reverse.val ? 0 : 1000"
 				:to="props.itemInfo.animations.reverse.val ? 1000 : 0"
@@ -123,6 +133,7 @@
 			:fill="props.itemInfo.animations.color.val"
 		>
 			<animateMotion
+				v-if="perfAnimationsEnabled"
 				:path="
 					positionArrToPath(
 						props.itemInfo.animations.reverse.val

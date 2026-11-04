@@ -397,7 +397,9 @@ body {
 	user-select: none;
 }
 
-/* 预览性能降级：低档位关闭组件整体动画，避免低性能设备掉帧 */
+/* 预览性能降级：中低档位关闭组件整体动画，避免低性能设备掉帧 */
+.perf-medium .common-ani,
+.perf-medium .animate__animated,
 .perf-low .common-ani,
 .perf-low .animate__animated {
 	animation: none !important;

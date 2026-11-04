@@ -7,7 +7,7 @@ Vector graphics configure editor. 矢量图组态编辑器。
 ## Features 特性亮点
 
 - **开箱即用的编辑器 + 预览器**：`SvgEditor` 拖拽搭建，`SvgViewer` 只读展示，一份 JSON 数据模型驱动两端，编辑器产出的数据可直接交给预览器渲染。
-- **面向工控与大屏的性能分级**：预览器内置 `high / medium / low` 三档性能预设，默认 `level: 'auto'`，依据 CPU 核心数、内存、设备像素比、是否移动端自动选择档位，低性能 PC 与工控机也能流畅预览。可通过 `previewPerf` 细调，或用 `forceLevel` 强制指定档位（详见下文第 8 节）。
+- **面向工控与大屏的性能分级**：编辑器与预览器均内置 `high / medium / low` 三档性能预设，默认 `level: 'auto'`，依据 CPU 核心数、内存、设备像素比自动选择档位，低性能 PC 与工控机也能流畅运行。编辑器通过 `editorPerf` 配置，预览器通过 `previewPerf` 配置，均可通过 `forceLevel` 强制指定档位（详见下文第 8 节）。
 - **视口虚拟渲染**：组件数量超过阈值时，只渲染与可视区域（含缓冲区）相交的节点，包围盒计算支持缩放与旋转（旋转组件按外接矩形裁剪，不会被过早剔除）。编辑器侧同样做视口裁剪，且选中/正在拖拽的组件始终保留，操作过程不会因裁剪而中断。
 - **输入与渲染分离**：拖拽、滚轮缩放采用 `requestAnimationFrame` 帧缓冲，同一帧内的多次指针事件只做一次几何计算，并支持交互帧率上限（`fpsLimit`）。组件规模较大时画布依然跟手，缩放后也不会出现可视区内组件被错误裁掉的问题。
 - **多级结果缓存**：变换矩阵、样式、动画类名、`v-bind` 属性、包围盒、连线索引均按签名缓存（`WeakMap`），同时让几何信息脱离响应式依赖，避免每帧对全量组件重算，属性变更（如 MQTT 推送文字）也不会触发整个列表重建。
@@ -35,6 +35,7 @@ Vector graphics configure editor. 矢量图组态编辑器。
 | 组件树 | 「结构」面板以树形展示全部组件，支持选中定位 |
 | 导入导出 | 顶部可导入/导出数据模型 JSON（支持读取本地 txt/json 文件），也可直接导出为 SVG 文件 |
 | 保存与预览 | 触发 `onSave` 回传数据模型（`saveFile` 为 `true` 时同时下载 JSON 文件），`onPreview` 回传数据模型供预览器渲染，`onReturn` 供宿主返回上一页 |
+| 性能分级 | `editorPerf` / `forceLevel` 控制性能档位，影响视口裁剪阈值、CSS 动画开关、交互帧率上限（详见第 8 节） |
 | 国际化 | `locale` 支持 `zh-CN` / `en-US`，也可调用库导出的 `setLocale()` 全局切换，`translate()` 供自定义组件取文案，`configMessages` / `registerMessages()` 可为组件配置数据补充英文映射（详见 12.1 节） |
 
 ### 预览器 `SvgViewer`
@@ -233,7 +234,34 @@ or
  ```
 ### 8.性能相关配置
 
-   > `SvgViewer` 支持通过 `previewPerf` 属性进行预览性能配置。默认不传时按 `level: 'auto'` 自动检测设备性能档位，低性能PC/工控机也能流畅预览。
+   > `SvgEditor` 与 `SvgViewer` 均内置性能分级，默认 `level: 'auto'` 自动检测设备性能档位。检测逻辑基于 CPU 核心数、内存大小、设备像素比，将设备分为 `high` / `medium` / `low` 三档，低性能 PC 或工控机也能流畅运行。
+
+#### 8.1 编辑器性能配置 `editorPerf`
+
+   ```
+     <SvgEditor :data="xxx" :editorPerf="{...}"/>
+   ```
+
+   > `editorPerf` 可配置项：
+
+   | 字段 | 类型 | 说明 |
+   | --- | --- | --- |
+   | `level` | `'auto' \| 'high' \| 'medium' \| 'low'` | 性能档位，默认 `'auto'` 自动检测 |
+   | `animations` | `boolean` | 是否启用 CSS 动画（animate.css / common-ani） |
+   | `fpsLimit` | `number` | 拖拽/缩放等交互的最大帧率，`<=0` 表示不限制 |
+   | `clipThreshold` | `number` | 触发视口裁剪的组件数量阈值，超出后只渲染可视区节点 |
+
+   > 编辑器各档位默认策略：
+
+   | 档位 | `animations` | `fpsLimit` | `clipThreshold` | 说明 |
+   | --- | --- | --- | --- | --- |
+   | `high` | ✅ | 60 | 400 | 全效果，适合高性能 PC |
+   | `medium` | ❌ | 30 | 200 | 关闭动画、降帧率、提前启动裁剪，适合中端 PC |
+   | `low` | ❌ | 20 | 100 | 最保守策略，拖拽/缩放时冻结画布视觉、交互结束后一次性跳转，避免中间帧触发布局重算，适合老旧 PC 与工控机 |
+
+   > 编辑器的 `forceLevel` 属性可强制指定档位（覆盖 `editorPerf.level`）。
+
+#### 8.2 预览器性能配置 `previewPerf`
 
    ```
      <SvgViewer :data="xxx" :previewPerf="{...}"/>
@@ -251,7 +279,7 @@ or
    | `nodeVirtual` | `boolean` | 是否启用视口虚拟渲染（只渲染可视区域组件） |
    | `nodeVirtualThreshold` | `number` | 触发视口虚拟渲染的组件数量阈值 |
 
-   > 各档位默认策略：`high` 全效果开启；`medium` 关闭图表自动重绘、帧率限制 30；`low` 额外关闭动画、帧率限制 20。
+   > 预览器各档位默认策略：`high` 全效果开启；`medium` 关闭图表自动重绘、帧率限制 30；`low` 额外关闭动画、帧率限制 20，且拖拽/缩放时冻结画布视觉、交互结束后一次性跳转。
    > 也可单独使用 `forceLevel` 属性强制指定档位。自定义 vue 组件可通过 `inject('previewPerf')` 读取当前生效的性能配置，从而做针对性降级。
 
 ### 9.mqtt 通信

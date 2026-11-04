@@ -26,6 +26,12 @@
 	import { onMounted } from 'vue'
 	import { registerMessages, setLocale, translate, useVgceLocale } from '@/i18n'
 	import type { VgceLocale } from '@/i18n'
+	import {
+		EPreviewPerfLevel,
+		perfClass,
+		resolveEditorPerfOptions,
+		type IEditorPerfOptions
+	} from '@/utils/perf'
 
 	setEditorLoadTime()
 
@@ -40,6 +46,8 @@
 			mqtt?: { cover: boolean; url: string; user: string; pwd: string; topics: string }
 			slotBackground?: boolean
 			locale?: VgceLocale
+			editorPerf?: IEditorPerfOptions
+			forceLevel?: EPreviewPerfLevel
 		}>(),
 		{
 			saveFile: false,
@@ -68,6 +76,15 @@
 	const editPrivateStore = useEditPrivateStore(pinia)
 	const vgceLocale = useVgceLocale()
 	const isEn = computed(() => vgceLocale.value === 'en-US')
+
+	const editorPerf = computed(() => {
+		const base = resolveEditorPerfOptions(props.editorPerf)
+		return props.forceLevel && props.forceLevel !== base.level
+			? { ...resolveEditorPerfOptions({ ...props.editorPerf, level: props.forceLevel }), level: props.forceLevel }
+			: base
+	})
+	provide('editorPerf', editorPerf)
+
 	const centerRef = ref()
 	const importJsonRef = ref<InstanceType<typeof ImportJson>>()
 	const promptRef = ref<InstanceType<typeof VgcePrompt>>()
@@ -193,7 +210,7 @@
 	})
 </script>
 <template>
-	<div :class="{ 'vgce-editor--en': isEn }">
+	<div :class="[perfClass(editorPerf.level), { 'vgce-editor--en': isEn }]">
 		<el-container>
 			<el-header class="top-el-header">
 				<top-panel

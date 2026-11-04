@@ -1,4 +1,5 @@
 <script setup lang="ts">
+	import type { ComputedRef } from 'vue'
 	import { pinia, useHistoryRecord } from '@/hooks'
 	import { useConfigStore } from '@/stores/config'
 	import { useGlobalStore } from '@/stores/global'
@@ -41,7 +42,7 @@
 	import { useContextMenuStore, useEditPrivateStore } from '@/stores/system'
 	import { EContextMenuInfoType } from '@/stores/system/types'
 	import { exportCanvasSvg } from '@/utils/export-svg'
-	import { clipByViewport, rafThrottle } from '@/utils/perf'
+	import { clipByViewport, rafThrottle, EPreviewPerfLevel, type IResolvedEditorPerfOptions } from '@/utils/perf'
 	import { translate, useVgceLocale } from '@/i18n'
 
 	const globalStore = useGlobalStore(pinia)
@@ -51,6 +52,52 @@
 	const contextMenuStore = useContextMenuStore(pinia)
 
 	const props = defineProps<{ vueComp?: Record<string, any> }>()
+
+	const editorPerf = inject<ComputedRef<IResolvedEditorPerfOptions>>('editorPerf', computed(() => ({
+		level: EPreviewPerfLevel.Medium,
+		animations: true,
+		fpsLimit: 30,
+		clipThreshold: 300
+	})))
+
+	/**
+	 * 低性能模式：拖拽画布/缩放过程中冻结视觉transform，交互结束时一次性跳到最终位置。
+	 * 这样在整个拖拽/缩放期间不产生SVG UpdateLayoutTree，仅在冻结快照和跳转终点时各触发一次。
+	 * 注意：仅对右键拖动画布(MoveCanvas)和滚轮缩放生效，左键框选/组件拖拽不能冻结。
+	 */
+	const isEditorLowPerf = computed(() => editorPerf.value.level === 'low')
+	const isEditorMovementFrozen = ref(false)
+	const frozenCenterX = ref(0)
+	const frozenCenterY = ref(0)
+	const frozenScale = ref(1)
+	const editorVisualCenterX = computed(() =>
+		isEditorMovementFrozen.value ? frozenCenterX.value : svgEditLayoutStore.center_offset.x
+	)
+	const editorVisualCenterY = computed(() =>
+		isEditorMovementFrozen.value ? frozenCenterY.value : svgEditLayoutStore.center_offset.y
+	)
+	const editorVisualScale = computed(() =>
+		isEditorMovementFrozen.value ? frozenScale.value : configStore.svg.scale
+	)
+
+	const editorZoomUnfreezeDelay = 200
+	let editorZoomUnfreezeTimer: ReturnType<typeof setTimeout> | null = null
+
+	const freezeEditorVisual = () => {
+		if (!isEditorLowPerf.value || isEditorMovementFrozen.value) return
+		frozenCenterX.value = svgEditLayoutStore.center_offset.x
+		frozenCenterY.value = svgEditLayoutStore.center_offset.y
+		frozenScale.value = configStore.svg.scale
+		isEditorMovementFrozen.value = true
+	}
+
+	const unfreezeEditorVisual = () => {
+		if (editorZoomUnfreezeTimer) {
+			clearTimeout(editorZoomUnfreezeTimer)
+			editorZoomUnfreezeTimer = null
+		}
+		isEditorMovementFrozen.value = false
+	}
 
 	componentsRegister(props.vueComp)
 	provide(configLocaleKey, useVgceLocale())
@@ -146,7 +193,7 @@
 
 	const maybeRecalcEditorClip = () => {
 		const list = globalStore.done_json
-		if (list.length <= 300) {
+		if (list.length <= editorPerf.value.clipThreshold) {
 			return
 		}
 		const scale = configStore.svg.scale || 1
@@ -180,7 +227,7 @@
 	 * 返回值保留组件在done_json中的真实下标，避免渲染下标与真实下标错位
 	 */
 	const editorViewportClip = computed(() => {
-		const threshold = 300
+		const threshold = editorPerf.value.clipThreshold
 		const list = globalStore.done_json
 		const withIndex = list.map((item, index) => ({ item, index }))
 		if (list.length <= threshold) {
@@ -825,11 +872,13 @@
 	}
 
 	//用requestAnimationFrame合并高频mousemove，每帧最多处理一次拖拽计算
-	const onCanvasMouseMove = rafThrottle(renderInputFrame, 0)
+	const onCanvasMouseMove = rafThrottle(renderInputFrame, editorPerf.value.fpsLimit)
 
 	const onCanvasMouseUp = () => {
 		//先提交帧缓冲中尚未渲染的指针位置，确保松开鼠标时使用最新坐标
 		flushInputFrame()
+		//低性能模式：拖拽/缩放结束，解冻视觉，一次性跳到最终位置（仅触发一次UpdateLayoutTree）
+		unfreezeEditorVisual()
 		//如果鼠标不是按下状态
 		if (globalStore.mouse_info.state != EMouseInfoState.Down) {
 			return
@@ -990,6 +1039,8 @@
 				new_position_x: 0,
 				new_position_y: 0
 			}
+			//低性能模式：开始拖拽画布时冻结视觉，拖拽期间SVG不重布局
+			freezeEditorVisual()
 		}
 	}
 
@@ -1003,10 +1054,16 @@
 				configStore.svg.scale = myFixed(configStore.svg.scale - 0.1, 1)
 				getZoomPosition(e, configStore.svg.scale, svgEditLayoutStore.center_offset, false)
 			}
+			//低性能模式：缩放开始时冻结视觉，停止滚动后一次性跳到最终位置
+			if (isEditorLowPerf.value) {
+				freezeEditorVisual()
+				if (editorZoomUnfreezeTimer) clearTimeout(editorZoomUnfreezeTimer)
+				editorZoomUnfreezeTimer = setTimeout(unfreezeEditorVisual, editorZoomUnfreezeDelay)
+			}
 			//缩放后视口范围变化，需同步裁剪锚点
 			maybeRecalcEditorClip()
 		}
-	}, 0)
+	}, editorPerf.value.fpsLimit)
 
 	/**
 	 * 鼠标右键事件
@@ -1174,19 +1231,37 @@
 		setSvgActualInfo(globalStore.done_json[globalStore.handle_svg_info!.index], true)
 	}
 
+	const updateCanvasInfo = () => {
+		const d = canvasRef.value?.getBoundingClientRect()
+		if (!d) return
+		svgEditLayoutStore.canvasInfo = {
+			height: d.height,
+			with: d.width,
+			top: d.top,
+			left: d.left
+		}
+	}
+
+	let canvasResizeObserver: ResizeObserver | null = null
+
 	onMounted(() => {
 		canvasRef.value?.focus()
-		nextTick(function () {
-			const d = canvasRef.value?.getBoundingClientRect()
-			svgEditLayoutStore.canvasInfo = {
-				height: d?.height || 0,
-				with: d?.width || 0,
-				top: d?.top || 0,
-				left: d?.left || 0
-			}
+		nextTick(() => {
+			updateCanvasInfo()
 			//画布尺寸就绪后再初始化裁剪锚点
 			syncEditorClipAnchor()
 		})
+		//使用ResizeObserver监听canvas几何变更（工具栏收展、窗口大小变化等）。
+		//比起watch+nextTick+RAF的时序方案，ResizeObserver是浏览器内部事件驱动，
+		//只在layout重算后才触发回调，getBoundingClientRect一定能拿到最新值。
+		//canvas的width跟随父容器(center-panel) flex伸缩，工具栏收展时必定触发。
+		const el = canvasRef.value
+		if (el && typeof ResizeObserver !== 'undefined') {
+			canvasResizeObserver = new ResizeObserver(() => {
+				updateCanvasInfo()
+			})
+			canvasResizeObserver.observe(el)
+		}
 	})
 
 	onBeforeUnmount(() => {
@@ -1198,6 +1273,18 @@
 		lineCacheSource = null
 		lineCacheLength = -1
 		lineCache = { list: [], byId: new Map() }
+		//清理缩放解冻定时器
+		if (editorZoomUnfreezeTimer) {
+			clearTimeout(editorZoomUnfreezeTimer)
+			editorZoomUnfreezeTimer = null
+		}
+		//解冻视觉，避免卸载后残留冻结状态
+		unfreezeEditorVisual()
+		//清理ResizeObserver
+		if (canvasResizeObserver) {
+			canvasResizeObserver.disconnect()
+			canvasResizeObserver = null
+		}
 	})
 
 	const exportSvg = (filename?: string) => {
@@ -1253,9 +1340,9 @@
 				<rect v-if="configStore.svg.grid" data-editor-only width="100%" height="100%" fill="url(#pattern_grid)" />
 				<g
 					data-canvas-content
-					:transform="`translate(${svgEditLayoutStore.center_offset.x * configStore.svg.scale},${
-						svgEditLayoutStore.center_offset.y * configStore.svg.scale
-					})rotate(${0})scale(${configStore.svg.scale})`"
+					:transform="`translate(${editorVisualCenterX * editorVisualScale},${
+						editorVisualCenterY * editorVisualScale
+					})rotate(${0})scale(${editorVisualScale})`"
 				>
 					<g
 						v-for="{ item, index } in editorViewportClip"

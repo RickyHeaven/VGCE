@@ -4,9 +4,9 @@
  */
 
 /**
- * 预览性能档位
+ * 性能档位（编辑器与预览器共用）
  * high: 全部效果开启（动画、图表实时刷新等），适合高性能PC
- * medium: 保留结构动画，关闭高开销效果，适合中端PC
+ * medium: 关闭高开销效果，适合中端PC
  * low: 关闭大部分动画与高开销效果，适合低性能PC或工控机
  */
 export enum EPreviewPerfLevel {
@@ -14,6 +14,8 @@ export enum EPreviewPerfLevel {
 	Medium = 'medium',
 	Low = 'low'
 }
+
+// === 预览器（SvgViewer）性能配置 ===
 
 export interface IPreviewPerfOptions {
 	level?: EPreviewPerfLevel | 'auto'
@@ -35,7 +37,7 @@ export interface IResolvedPerfOptions {
 	nodeVirtualThreshold: number
 }
 
-const LEVEL_PRESET: Record<EPreviewPerfLevel, IResolvedPerfOptions> = {
+const PREVIEW_LEVEL_PRESET: Record<EPreviewPerfLevel, IResolvedPerfOptions> = {
 	[EPreviewPerfLevel.High]: {
 		level: EPreviewPerfLevel.High,
 		animations: true,
@@ -47,7 +49,7 @@ const LEVEL_PRESET: Record<EPreviewPerfLevel, IResolvedPerfOptions> = {
 	},
 	[EPreviewPerfLevel.Medium]: {
 		level: EPreviewPerfLevel.Medium,
-		animations: true,
+		animations: false,
 		chartAutoResize: false,
 		minChartInterval: 300,
 		fpsLimit: 30,
@@ -75,15 +77,22 @@ export const detectPerfLevel = (): EPreviewPerfLevel => {
 	}
 	const nav = navigator as any
 	const cores = nav.hardwareConcurrency || 2
-	const memory = nav.deviceMemory || 4
+	// deviceMemory 在某些浏览器不可用（如 Firefox），此时不额外降级，避免误判
+	const memoryKnown = typeof nav.deviceMemory === 'number'
+	const memory = memoryKnown ? nav.deviceMemory : 4
 	const dpr = window.devicePixelRatio || 1
-	const screenArea = (window.screen?.width || 1920) * (window.screen?.height || 1080)
 	const isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(nav.userAgent || '')
 
-	if (cores <= 2 || memory <= 2 || (isMobile && dpr >= 3 && screenArea > 2000000)) {
+	// 低配设备判断：核数≤2、内存≤2GB（已知时），或核数≤4且内存≤4（已知时且典型工控机/老旧PC），或低dpr低核数设备
+	if (
+		cores <= 2 ||
+		(memoryKnown && memory <= 2) ||
+		(memoryKnown && cores <= 4 && memory <= 4) ||
+		(dpr <= 1 && cores <= 4)
+	) {
 		return EPreviewPerfLevel.Low
 	}
-	if (cores <= 4 || memory <= 4 || isMobile) {
+	if (cores <= 4 || (memoryKnown && memory <= 4) || isMobile) {
 		return EPreviewPerfLevel.Medium
 	}
 	return EPreviewPerfLevel.High
@@ -95,7 +104,7 @@ export const detectPerfLevel = (): EPreviewPerfLevel => {
 export const resolvePerfOptions = (options?: IPreviewPerfOptions): IResolvedPerfOptions => {
 	const level =
 		!options?.level || options.level === 'auto' ? detectPerfLevel() : (options.level as EPreviewPerfLevel)
-	const preset = LEVEL_PRESET[level] ?? LEVEL_PRESET[EPreviewPerfLevel.Medium]
+	const preset = PREVIEW_LEVEL_PRESET[level] ?? PREVIEW_LEVEL_PRESET[EPreviewPerfLevel.Medium]
 	return {
 		...preset,
 		animations: options?.animations ?? preset.animations,
@@ -104,6 +113,56 @@ export const resolvePerfOptions = (options?: IPreviewPerfOptions): IResolvedPerf
 		fpsLimit: options?.fpsLimit ?? preset.fpsLimit,
 		nodeVirtual: options?.nodeVirtual ?? preset.nodeVirtual,
 		nodeVirtualThreshold: options?.nodeVirtualThreshold ?? preset.nodeVirtualThreshold
+	}
+}
+
+// === 编辑器（SvgEditor）性能配置 ===
+
+export interface IEditorPerfOptions {
+	level?: EPreviewPerfLevel | 'auto'
+	animations?: boolean
+	fpsLimit?: number
+	/** 触发视口裁剪的组件数量阈值，组件数超过此值后只渲染可视区内的节点 */
+	clipThreshold?: number
+}
+
+export interface IResolvedEditorPerfOptions {
+	level: EPreviewPerfLevel
+	animations: boolean
+	fpsLimit: number
+	clipThreshold: number
+}
+
+const EDITOR_LEVEL_PRESET: Record<EPreviewPerfLevel, IResolvedEditorPerfOptions> = {
+	[EPreviewPerfLevel.High]: {
+		level: EPreviewPerfLevel.High,
+		animations: true,
+		fpsLimit: 60,
+		clipThreshold: 400
+	},
+	[EPreviewPerfLevel.Medium]: {
+		level: EPreviewPerfLevel.Medium,
+		animations: false,
+		fpsLimit: 30,
+		clipThreshold: 200
+	},
+	[EPreviewPerfLevel.Low]: {
+		level: EPreviewPerfLevel.Low,
+		animations: false,
+		fpsLimit: 20,
+		clipThreshold: 100
+	}
+}
+
+export const resolveEditorPerfOptions = (options?: IEditorPerfOptions): IResolvedEditorPerfOptions => {
+	const level =
+		!options?.level || options.level === 'auto' ? detectPerfLevel() : (options.level as EPreviewPerfLevel)
+	const preset = EDITOR_LEVEL_PRESET[level] ?? EDITOR_LEVEL_PRESET[EPreviewPerfLevel.Medium]
+	return {
+		...preset,
+		animations: options?.animations ?? preset.animations,
+		fpsLimit: options?.fpsLimit ?? preset.fpsLimit,
+		clipThreshold: options?.clipThreshold ?? preset.clipThreshold
 	}
 }
 

@@ -74,6 +74,15 @@
 			: base
 	})
 	provide('previewPerf', perf)
+	// 调试：输出预览器性能分级结果
+	watchEffect(() => {
+		console.log(
+			'[VGCE] SvgViewer perf:',
+			`auto=${perf.value.level}`,
+			props.forceLevel ? `force=${props.forceLevel}` : '',
+			perf.value
+		)
+	})
 	provide(configLocaleKey, useVgceLocale())
 
 	let link: any = Link()
@@ -126,6 +135,37 @@
 	})
 
 	/**
+	 * 低性能模式：拖拽/缩放过程中冻结视觉transform，交互结束时一次性跳到最终位置。
+	 * 这样在整个拖拽/缩放期间SVG不产生任何UpdateLayoutTree事件，
+	 * 仅在最开始（冻结快照）和最后（跳到终点）各触发一次。
+	 */
+	const isLowPerf = computed(() => perf.value.level === 'low')
+	const isMovementFrozen = ref(false)
+	const frozenTransform = ref('')
+	const ZOOM_UNFREEZE_DELAY = 200 // 滚轮停止200ms后解冻
+	let zoomUnfreezeTimer: ReturnType<typeof setTimeout> | null = null
+	const visualTransform = computed(() => {
+		if (isMovementFrozen.value) {
+			return frozenTransform.value
+		}
+		return viewportTransform.value
+	})
+
+	const freezeVisual = () => {
+		if (!isLowPerf.value || isMovementFrozen.value) return
+		frozenTransform.value = viewportTransform.value
+		isMovementFrozen.value = true
+	}
+
+	const unfreezeVisual = () => {
+		if (zoomUnfreezeTimer) {
+			clearTimeout(zoomUnfreezeTimer)
+			zoomUnfreezeTimer = null
+		}
+		isMovementFrozen.value = false
+	}
+
+	/**
 	 * 裁剪重算的触发锚点（世界坐标下的视口左上角）
 	 * 画布平移/缩放不会立即重算裁剪结果，只有锚点位移超过阈值时才更新，
 	 * 从而避免拖动画布时每帧都对全部节点做filter并替换整个v-for列表
@@ -136,6 +176,28 @@
 	const CLIP_BUFFER = 300
 	//重算滞后必须小于缓冲区，否则平移时可视区会超出已裁剪范围，出现组件缺失的空白带
 	const CLIP_MAX_LAG = CLIP_BUFFER / 2
+
+	/**
+	 * 节流后的画布位置显示值
+	 * canvasInfoTxt 文本更新每帧触发 UpdateLayoutTree + Paint，
+	 * 拖拽时按间隔更新显示即可，避免文本更新成为新的性能瓶颈
+	 */
+	const displayPos = reactive({ x: 0, y: 0, scale: 1 })
+	let displayPosTimer = 0 as unknown as ReturnType<typeof setTimeout>
+	const DISPLAY_POS_INTERVAL = 300
+	const flushDisplayPos = () => {
+		displayPos.x = preview_data.layout_center.x
+		displayPos.y = preview_data.layout_center.y
+		displayPos.scale = preview_data.config.svg.scale
+	}
+	flushDisplayPos()
+	watch(
+		() => [preview_data.layout_center.x, preview_data.layout_center.y, preview_data.config.svg.scale],
+		() => {
+			clearTimeout(displayPosTimer)
+			displayPosTimer = setTimeout(flushDisplayPos, DISPLAY_POS_INTERVAL)
+		}
+	)
 
 	/**
 	 * 当前视口在世界坐标下的范围左上角
@@ -242,7 +304,7 @@
 		onCanvasMouseMove()
 	}
 
-	const onCanvasMouseMove = rafThrottle(renderInputFrame, 0)
+	const onCanvasMouseMove = rafThrottle(renderInputFrame, perf.value.fpsLimit)
 
 	/**
 	 * 在rAF之外提交帧缓冲（如mouseup时）
@@ -257,6 +319,11 @@
 		flushInputFrame()
 		//无论是否处于拖拽状态都移除window上的兜底监听，避免残留
 		detachDragListeners()
+		//低性能模式：拖拽结束，解冻视觉，一次性跳到最终位置（仅触发一次UpdateLayoutTree）
+		unfreezeVisual()
+		//拖拽结束后立即刷新显示坐标
+		clearTimeout(displayPosTimer)
+		flushDisplayPos()
 		//如果鼠标不是按下状态
 		if (globalStore.mouse_info.state != EMouseInfoState.Down) {
 			return
@@ -287,6 +354,8 @@
 			new_position_x: 0,
 			new_position_y: 0
 		}
+		//低性能模式：拖拽开始时冻结视觉，后续mousemove中的layout_center变更不触发SVG重布局
+		freezeVisual()
 		//开始拖拽，在window上补充监听
 		attachDragListeners()
 	}
@@ -357,10 +426,16 @@
 				preview_data.config.svg.scale = myFixed(preview_data.config.svg.scale - 0.1, 1)
 				getZoomPosition(e, preview_data.config.svg.scale, preview_data.layout_center, false)
 			}
+			//低性能模式：缩放开始时冻结视觉，停止滚动后一次性跳到最终位置
+			if (isLowPerf.value) {
+				freezeVisual()
+				if (zoomUnfreezeTimer) clearTimeout(zoomUnfreezeTimer)
+				zoomUnfreezeTimer = setTimeout(unfreezeVisual, ZOOM_UNFREEZE_DELAY)
+			}
 			//缩放后视口范围变化，需同步裁剪锚点
 			maybeRecalcClip()
 		}
-	}, 0)
+	}, perf.value.fpsLimit)
 
 	/**
 	 * 获取foreignObject的几何属性
@@ -606,12 +681,16 @@
 	}
 
 	const resetCanvas = () => {
+		unfreezeVisual()
 		preview_data.layout_center = {
 			x: 0,
 			y: 0
 		}
 		//重置位置是跳变，不经过拖拽流程，需立即同步裁剪锚点，避免大场景下出现空白
 		syncClipAnchor()
+		//立即刷新位置显示
+		clearTimeout(displayPosTimer)
+		flushDisplayPos()
 	}
 
 	const connectNet = () => {
@@ -677,6 +756,13 @@
 		detachDragListeners()
 		resizeObserver?.disconnect()
 		resizeObserver = null
+		//清理缩放解冻定时器
+		if (zoomUnfreezeTimer) {
+			clearTimeout(zoomUnfreezeTimer)
+			zoomUnfreezeTimer = null
+		}
+		//解冻视觉，避免卸载后残留冻结状态
+		unfreezeVisual()
 		window.removeEventListener('resize', onViewportResize)
 		//关闭并销毁MQTT连接，移除全部事件监听
 		link.close(() => {
@@ -713,7 +799,7 @@
 		<slot name="background" />
 		<div class="coverLayer">
 			<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-				<g class="viewport-layer" :transform="viewportTransform">
+				<g class="viewport-layer" :transform="visualTransform">
 					<g
 						v-for="item in renderJson"
 						:key="item.id"
@@ -768,8 +854,8 @@
 		</div>
 
 		<div class="can-not-select canvasInfoTxt" v-show="showCanvasInfo"
-			>{{ translate('缩放倍数') }}: {{ preview_data.config.svg.scale }}{{ translate('倍') }}, {{ translate('画布位置') }}:
-			{{ myFixed(preview_data.layout_center.x, 2) }}, {{ myFixed(preview_data.layout_center.y, 2) }}
+			>{{ translate('缩放倍数') }}: {{ displayPos.scale }}{{ translate('倍') }}, {{ translate('画布位置') }}:
+			{{ myFixed(displayPos.x, 2) }}, {{ myFixed(displayPos.y, 2) }}
 			<vgce-icon class="icoP" :size="14" @click="resetCanvas" :title="translate('重置位置')">
 				<Aim />
 			</vgce-icon>
@@ -789,10 +875,6 @@
 
 	.common-ani {
 		transform-box: fill-box;
-	}
-
-	.viewport-layer {
-		will-change: transform;
 	}
 
 	.coverLayer {

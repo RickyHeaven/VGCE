@@ -13,11 +13,13 @@
 	//本文件会被用户拷贝到自己的项目中，不能依赖库内部源码，故就地声明用到的性能配置类型
 	type IPerfOptions = {
 		chartAutoResize: boolean
+		minChartInterval: number
 	}
 
 	//预览时由 svg-viewer 注入性能配置，编辑器中不存在该注入时按高性能处理
 	const perf = inject<ComputedRef<IPerfOptions> | null>('previewPerf', null)
 	const chartAutoResize = computed(() => (perf ? perf.value.chartAutoResize : true))
+	const chartInterval = computed(() => (perf ? perf.value.minChartInterval : 0))
 
 	const props = defineProps({
 		title: {
@@ -64,7 +66,16 @@
 			}
 		]
 	})
+	let lastChartUpdate = 0
 	watch(props, (new_val) => {
+		const interval = chartInterval.value
+		if (interval > 0) {
+			const now = performance.now()
+			if (now - lastChartUpdate < interval) {
+				return
+			}
+			lastChartUpdate = now
+		}
 		option.title.text = new_val.title
 		option.series[0].name = new_val.seriesName
 		option.series[0].data = new_val.seriesData
