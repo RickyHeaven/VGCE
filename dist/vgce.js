@@ -1,16 +1,16 @@
 var F2 = Object.defineProperty;
 var J2 = (o, t, e) => t in o ? F2(o, t, { enumerable: !0, configurable: !0, writable: !0, value: e }) : o[t] = e;
 var kt = (o, t, e) => (J2(o, typeof t != "symbol" ? t + "" : t, e), e);
-import { defineComponent as D, computed as Y, openBlock as p, createElementBlock as w, normalizeClass as Ge, renderSlot as Te, withModifiers as T1, createCommentVNode as U, watch as Ue, createBlock as H, unref as l, createElementVNode as d, nextTick as l1, normalizeStyle as ie, toDisplayString as S, ref as K, watchEffect as j1, normalizeProps as C2, guardReactiveProps as d2, withCtx as h, Fragment as ae, renderList as Ae, mergeProps as De, inject as X1, onMounted as Z1, onUnmounted as r2, provide as S1, reactive as a1, readonly as N2, getCurrentInstance as U2, createVNode as r, isRef as we, pushScopeId as Lt, popScopeId as Vt, useCssVars as wt, withDirectives as Ze, vShow as Le, toRaw as A2, onBeforeUnmount as Bt, resolveDynamicComponent as tt, createTextVNode as o1, createSlots as T2, h as j2, markRaw as O2, capitalize as D2, withKeys as E2, vModelText as P2 } from "vue";
-import { ElProgress as Q2, ElTable as $2, ElTableColumn as q2, ElMessage as y1, ElDialog as O1, ElCollapse as pt, ElCollapseItem as bt, ElTooltip as e3, ElFormItem as u2, ElOption as t3, ElSelect as Ye, ElInputNumber as g1, ElInput as Xe, ElSwitch as H1, ElDrawer as o3, ElTree as l3, ElForm as i1, ElContainer as Kt, ElHeader as n3, ElAside as zt, ElMain as i3 } from "element-plus";
+import { defineComponent as $, computed as M, openBlock as u, createElementBlock as B, normalizeClass as we, renderSlot as je, withModifiers as Y1, createCommentVNode as D, watch as Te, createBlock as H, unref as n, createElementVNode as d, nextTick as n1, normalizeStyle as se, toDisplayString as S, ref as K, watchEffect as D1, normalizeProps as C2, guardReactiveProps as d2, withCtx as m, Fragment as ce, renderList as pe, mergeProps as De, inject as z1, onMounted as w1, onUnmounted as r2, provide as M1, reactive as u1, readonly as N2, getCurrentInstance as U2, createVNode as r, isRef as He, pushScopeId as Lt, popScopeId as Vt, useCssVars as wt, withDirectives as Ve, vShow as We, toRaw as A2, onBeforeUnmount as Bt, resolveDynamicComponent as ot, createTextVNode as o1, createSlots as T2, h as j2, markRaw as O2, capitalize as D2, withKeys as E2, vModelText as P2 } from "vue";
+import { ElProgress as Q2, ElTable as $2, ElTableColumn as q2, ElMessage as L1, ElDialog as E1, ElCollapse as pt, ElCollapseItem as bt, ElTooltip as e3, ElFormItem as u2, ElOption as t3, ElSelect as Me, ElInputNumber as A1, ElInput as Ke, ElSwitch as k1, ElDrawer as o3, ElTree as n3, ElForm as r1, ElContainer as Kt, ElHeader as l3, ElAside as Yt, ElMain as i3 } from "element-plus";
 import { use as g3 } from "echarts/core";
 import { SVGRenderer as a3 } from "echarts/renderers";
 import { PieChart as s3 } from "echarts/charts";
 import { TitleComponent as I3, TooltipComponent as c3, LegendComponent as C3 } from "echarts/components";
 import d3, { THEME_KEY as r3 } from "vue-echarts";
-import { defineStore as D1, createPinia as A3 } from "pinia";
-import { kebabCase as Yt, isEmpty as u3 } from "lodash-es";
-import It from "ace-builds";
+import { defineStore as P1, createPinia as A3 } from "pinia";
+import { kebabCase as zt, isEmpty as u3 } from "lodash-es";
+import ct from "ace-builds";
 import * as Mt from "mqtt/dist/mqtt";
 if (typeof window < "u") {
   let o = function() {
@@ -204,11 +204,11 @@ if (typeof window < "u") {
   };
   document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", o) : o();
 }
-var xe = /* @__PURE__ */ ((o) => (o.TopCenter = "TopCenter", o.Left = "Left", o.Right = "Right", o.BottomCenter = "BottomCenter", o))(xe || {}), Ee = /* @__PURE__ */ ((o) => (o.None = "None", o.Electricity = "Electricity", o.WaterDrop = "WaterDrop", o.Track = "Track", o))(Ee || {}), x = /* @__PURE__ */ ((o) => (o.Input = "Input", o.Textarea = "Textarea", o.Color = "Color", o.InputNumber = "InputNumber", o.Switch = "Switch", o.JsonEdit = "JsonEdit", o.Select = "Select", o))(x || {}), T = /* @__PURE__ */ ((o) => (o.File = "File", o.StraightLine = "StraightLine", o.ConnectionLine = "ConnectionLine", o.CustomSvg = "CustomSvg", o.Vue = "Vue", o))(T || {}), R1 = /* @__PURE__ */ ((o) => (o.Click = "Click", o.Change = "Change", o.Null = "", o))(R1 || {}), N1 = /* @__PURE__ */ ((o) => (o.ChangeAttr = "ChangeAttr", o.JavaScript = "JavaScript", o.Emit = "Emit", o.Null = "", o))(N1 || {}), Wt = /* @__PURE__ */ ((o) => (o.None = "None", o.Relation = "Relation", o))(Wt || {}), L = /* @__PURE__ */ ((o) => (o.None = "None", o.Create = "Create", o.Move = "Move", o.GroupMove = "GroupMove", o.MoveCanvas = "MoveCanvas", o.Select = "Select", o.Zoom = "Zoom", o.Rotate = "Rotate", o.Connection = "Connection", o.SetConnectionLineNode = "SetConnectionLineNode", o.ContextMenu = "ContextMenu", o.SelectArea = "SelectArea", o))(L || {}), ye = /* @__PURE__ */ ((o) => (o.Down = "Down", o.Up = "Up", o))(ye || {}), ne = /* @__PURE__ */ ((o) => (o.None = "", o.TopLeft = "TopLeft", o.TopCenter = "TopCenter", o.TopRight = "TopRight", o.Left = "Left", o.Right = "Right", o.BottomLeft = "BottomLeft", o.BottomCenter = "BottomCenter", o.BottomRight = "BottomRight", o))(ne || {});
+var Xe = /* @__PURE__ */ ((o) => (o.TopCenter = "TopCenter", o.Left = "Left", o.Right = "Right", o.BottomCenter = "BottomCenter", o))(Xe || {}), Ee = /* @__PURE__ */ ((o) => (o.None = "None", o.Electricity = "Electricity", o.WaterDrop = "WaterDrop", o.Track = "Track", o))(Ee || {}), x = /* @__PURE__ */ ((o) => (o.Input = "Input", o.Textarea = "Textarea", o.Color = "Color", o.InputNumber = "InputNumber", o.Switch = "Switch", o.JsonEdit = "JsonEdit", o.Select = "Select", o))(x || {}), P = /* @__PURE__ */ ((o) => (o.File = "File", o.StraightLine = "StraightLine", o.ConnectionLine = "ConnectionLine", o.CustomSvg = "CustomSvg", o.Vue = "Vue", o))(P || {}), K1 = /* @__PURE__ */ ((o) => (o.Click = "Click", o.Change = "Change", o.Null = "", o))(K1 || {}), j1 = /* @__PURE__ */ ((o) => (o.ChangeAttr = "ChangeAttr", o.JavaScript = "JavaScript", o.Emit = "Emit", o.Null = "", o))(j1 || {}), Wt = /* @__PURE__ */ ((o) => (o.None = "None", o.Relation = "Relation", o))(Wt || {}), L = /* @__PURE__ */ ((o) => (o.None = "None", o.Create = "Create", o.Move = "Move", o.GroupMove = "GroupMove", o.MoveCanvas = "MoveCanvas", o.Select = "Select", o.Zoom = "Zoom", o.Rotate = "Rotate", o.Connection = "Connection", o.SetConnectionLineNode = "SetConnectionLineNode", o.ContextMenu = "ContextMenu", o.SelectArea = "SelectArea", o))(L || {}), Ae = /* @__PURE__ */ ((o) => (o.Down = "Down", o.Up = "Up", o))(Ae || {}), ae = /* @__PURE__ */ ((o) => (o.None = "", o.TopLeft = "TopLeft", o.TopCenter = "TopCenter", o.TopRight = "TopRight", o.Left = "Left", o.Right = "Right", o.BottomLeft = "BottomLeft", o.BottomCenter = "BottomCenter", o.BottomRight = "BottomRight", o))(ae || {});
 const p3 = {
   name: "alert-light",
   title: "警示灯",
-  type: T.File,
+  type: P.File,
   config: {
     can_zoom: !0,
     have_anchor: !1,
@@ -241,7 +241,7 @@ const p3 = {
 }, m3 = {
   name: "bot-2",
   title: "2号机",
-  type: T.File,
+  type: P.File,
   display: !0,
   config: {
     can_zoom: !0,
@@ -270,7 +270,7 @@ const p3 = {
 }, h3 = {
   name: "bot-9",
   title: "9号机",
-  type: T.File,
+  type: P.File,
   display: !0,
   config: {
     can_zoom: !0,
@@ -288,7 +288,7 @@ const p3 = {
 }, f3 = {
   name: "hotpot",
   title: "火锅",
-  type: T.File,
+  type: P.File,
   display: !0,
   config: {
     can_zoom: !0,
@@ -306,7 +306,7 @@ const p3 = {
 }, v3 = {
   name: "hamburger",
   title: "汉堡",
-  type: T.File,
+  type: P.File,
   display: !0,
   config: {
     can_zoom: !0,
@@ -328,7 +328,7 @@ const p3 = {
 }, _3 = {
   name: "thermometer",
   title: "温度计",
-  type: T.File,
+  type: P.File,
   config: {
     can_zoom: !0,
     have_anchor: !1,
@@ -351,7 +351,7 @@ const p3 = {
   name: "svg-text",
   title: "文字",
   tag: "svg-text",
-  type: T.CustomSvg,
+  type: P.CustomSvg,
   display: !0,
   config: {
     can_zoom: !0,
@@ -430,7 +430,7 @@ const p3 = {
   name: "switch-r",
   title: "开关",
   tag: "switch-r",
-  type: T.CustomSvg,
+  type: P.CustomSvg,
   display: !0,
   config: {
     can_zoom: !0,
@@ -455,7 +455,7 @@ const p3 = {
   name: "light",
   tag: "light-a",
   title: "灯",
-  type: T.CustomSvg,
+  type: P.CustomSvg,
   config: {
     can_zoom: !0,
     have_anchor: !1,
@@ -490,7 +490,7 @@ const p3 = {
   name: "clock-a",
   title: "时钟",
   tag: "clock-a",
-  type: T.CustomSvg,
+  type: P.CustomSvg,
   config: {
     can_zoom: !0,
     have_anchor: !1,
@@ -554,7 +554,7 @@ const p3 = {
   name: "v-button",
   tag: "v-button",
   title: "按钮",
-  type: T.Vue,
+  type: P.Vue,
   config: {
     can_zoom: !1,
     have_anchor: !1,
@@ -607,7 +607,7 @@ const p3 = {
   name: "common-table",
   title: "通用表格",
   tag: "common-table",
-  type: T.Vue,
+  type: P.Vue,
   config: {
     can_zoom: !1,
     have_anchor: !1,
@@ -728,7 +728,7 @@ const p3 = {
   name: "now-time",
   title: "当前时间",
   tag: "now-time",
-  type: T.Vue,
+  type: P.Vue,
   config: {
     can_zoom: !1,
     have_anchor: !1,
@@ -787,7 +787,7 @@ const p3 = {
   name: "v-tag",
   tag: "v-tag",
   title: "标签",
-  type: T.Vue,
+  type: P.Vue,
   config: {
     can_zoom: !0,
     have_anchor: !1,
@@ -829,7 +829,7 @@ const p3 = {
   name: "progress-a",
   tag: "progress-a",
   title: "进度条",
-  type: T.Vue,
+  type: P.Vue,
   config: {
     can_zoom: !1,
     have_anchor: !1,
@@ -854,7 +854,7 @@ const p3 = {
   name: "text-box",
   title: "文字背景框",
   tag: "text-box",
-  type: T.Vue,
+  type: P.Vue,
   config: {
     can_zoom: !1,
     have_anchor: !1,
@@ -914,11 +914,11 @@ const p3 = {
   groupType: "custom-vue",
   title: "VUE组件",
   list: [x3, S3, H3, R3, X3, k3]
-}, z3 = {
+}, Y3 = {
   name: "pie-charts",
   tag: "pie-charts",
   title: "饼图",
-  type: T.Vue,
+  type: P.Vue,
   config: {
     can_zoom: !0,
     have_anchor: !1,
@@ -970,11 +970,11 @@ const p3 = {
     repeat: "infinite"
   },
   events: []
-}, Y3 = {
+}, z3 = {
   groupType: "echarts",
   title: "图表",
-  list: [z3]
-}, M3 = Object.seal([K3, Y3]), F3 = ["disabled"], ot = /* @__PURE__ */ D({
+  list: [Y3]
+}, M3 = Object.seal([K3, z3]), F3 = ["disabled"], nt = /* @__PURE__ */ $({
   __name: "button",
   props: {
     type: { default: "primary" },
@@ -985,7 +985,7 @@ const p3 = {
   },
   emits: ["onChange"],
   setup(o) {
-    const t = o, e = Y(() => [
+    const t = o, e = M(() => [
       `vgce-el-btn--${t.type || "default"}`,
       {
         "vgce-el-btn--lg": t.size === "large",
@@ -994,15 +994,15 @@ const p3 = {
         "vgce-el-btn--text": t.text
       }
     ]);
-    return (i, n) => (p(), w("button", {
-      class: Ge(["vgce-el-btn", e.value]),
+    return (i, l) => (u(), B("button", {
+      class: we(["vgce-el-btn", e.value]),
       type: "button",
       disabled: t.disabled
     }, [
-      Te(i.$slots, "default")
+      je(i.$slots, "default")
     ], 10, F3));
   }
-}), lt = /* @__PURE__ */ D({
+}), lt = /* @__PURE__ */ $({
   __name: "tag",
   props: {
     type: { default: "primary" },
@@ -1012,18 +1012,18 @@ const p3 = {
   emits: ["close"],
   setup(o, { emit: t }) {
     const e = o, i = t;
-    return (n, g) => (p(), w("span", {
-      class: Ge(["vgce-tag", `vgce-tag--${e.type}`])
+    return (l, g) => (u(), B("span", {
+      class: we(["vgce-tag", `vgce-tag--${e.type}`])
     }, [
-      Te(n.$slots, "default"),
-      e.closable ? (p(), w("span", {
+      je(l.$slots, "default"),
+      e.closable ? (u(), B("span", {
         key: 0,
         class: "vgce-tag__close",
-        onClick: g[0] || (g[0] = T1((a) => i("close"), ["stop"]))
-      }, "×")) : U("", !0)
+        onClick: g[0] || (g[0] = Y1((a) => i("close"), ["stop"]))
+      }, "×")) : D("", !0)
     ], 2));
   }
-}), J3 = /* @__PURE__ */ D({
+}), J3 = /* @__PURE__ */ $({
   __name: "progress",
   props: {
     percentage: { default: 10 }
@@ -1051,13 +1051,13 @@ const p3 = {
         color: "#6f7ad3",
         percentage: 100
       }
-    ], i = o, n = t;
-    return Ue(
+    ], i = o, l = t;
+    return Te(
       () => i.percentage,
       () => {
-        n("onChange");
+        l("onChange");
       }
-    ), (g, a) => (p(), H(l(Q2), {
+    ), (g, a) => (u(), H(n(Q2), {
       type: "dashboard",
       percentage: Number(i.percentage),
       color: e
@@ -1109,7 +1109,7 @@ const p3 = {
   Q3,
   $3,
   q3
-], to = ["xlink:href"], oo = /* @__PURE__ */ D({
+], to = ["xlink:href"], oo = /* @__PURE__ */ $({
   __name: "switch-r",
   props: {
     id: {
@@ -1124,12 +1124,12 @@ const p3 = {
   emits: ["onChange"],
   setup(o, { emit: t }) {
     const e = o, i = t;
-    return Ue(
+    return Te(
       () => e.isOpen,
       () => {
         i("onChange");
       }
-    ), (n, g) => (p(), w("g", {
+    ), (l, g) => (u(), B("g", {
       id: e.id
     }, [
       d("symbol", {
@@ -1147,7 +1147,7 @@ const p3 = {
       }, null, 8, to)
     ], 8, N3));
   }
-}), lo = /* @__PURE__ */ D({
+}), no = /* @__PURE__ */ $({
   __name: "svg-text",
   props: {
     text: {},
@@ -1156,20 +1156,20 @@ const p3 = {
   emits: ["resize"],
   setup(o, { emit: t }) {
     const e = t, i = o;
-    return Ue(
+    return Te(
       () => i.text,
       () => {
-        l1(function() {
+        n1(function() {
           e("resize");
         });
       }
-    ), (n, g) => (p(), w("text", {
+    ), (l, g) => (u(), B("text", {
       x: "50",
       y: "55",
-      style: ie({ "font-weight": i.bold ? "bold" : "normal" })
+      style: se({ "font-weight": i.bold ? "bold" : "normal" })
     }, S(i.text), 5));
   }
-}), no = /* @__PURE__ */ D({
+}), lo = /* @__PURE__ */ $({
   __name: "common-table",
   props: {
     colConfig: { default: () => [] },
@@ -1184,12 +1184,12 @@ const p3 = {
   },
   setup(o) {
     const t = o, e = K({});
-    return j1(() => {
-      const { colConfig: i, ...n } = t;
-      e.value = { ...n, maxHeight: n.height + "px" };
-    }), (i, n) => (p(), H(l($2), C2(d2(e.value)), {
-      default: h(() => [
-        (p(!0), w(ae, null, Ae(t.colConfig, (g) => (p(), H(l(q2), De({
+    return D1(() => {
+      const { colConfig: i, ...l } = t;
+      e.value = { ...l, maxHeight: l.height + "px" };
+    }), (i, l) => (u(), H(n($2), C2(d2(e.value)), {
+      default: m(() => [
+        (u(!0), B(ce, null, pe(t.colConfig, (g) => (u(), H(n(q2), De({
           key: g.prop,
           ref_for: !0
         }, g), null, 16))), 128))
@@ -1211,7 +1211,7 @@ const p3 = {
 }, p2 = (o) => Ft[o] ?? Ft["zh-CN"], io = (o, t) => {
   const e = p2(t);
   return e.dateFormat.replace("{year}", String(o.getFullYear())).replace("{month}", e.month[o.getMonth()]).replace("{day}", String(o.getDate()));
-}, go = (o, t) => p2(t).weekday[o.getDay()], ao = { class: "row" }, so = /* @__PURE__ */ D({
+}, go = (o, t) => p2(t).weekday[o.getDay()], ao = { class: "row" }, so = /* @__PURE__ */ $({
   __name: "now-time",
   props: {
     width: {},
@@ -1221,45 +1221,45 @@ const p3 = {
     bold: { type: Boolean }
   },
   setup(o) {
-    const t = o, e = Y(() => ({
+    const t = o, e = M(() => ({
       fontFamily: t.fontFamily,
       color: t.color,
       fontSize: t.fontSize + "px",
       fontWeight: t.bold ? "bold" : "normal"
-    })), i = X1(xt, K("zh-CN")), n = K(/* @__PURE__ */ new Date()), g = K(), a = Y(() => io(n.value, i.value)), c = Y(() => go(n.value, i.value)), s = Y(() => {
-      const C = n.value.getHours(), m = n.value.getMinutes(), b = n.value.getSeconds();
-      return (C < 10 ? "0" + C.toString() : C.toString()) + ":" + (m < 10 ? "0" + m.toString() : m.toString()) + ":" + (b < 10 ? "0" + b.toString() : b.toString());
+    })), i = z1(xt, K("zh-CN")), l = K(/* @__PURE__ */ new Date()), g = K(), a = M(() => io(l.value, i.value)), I = M(() => go(l.value, i.value)), s = M(() => {
+      const c = l.value.getHours(), b = l.value.getMinutes(), p = l.value.getSeconds();
+      return (c < 10 ? "0" + c.toString() : c.toString()) + ":" + (b < 10 ? "0" + b.toString() : b.toString()) + ":" + (p < 10 ? "0" + p.toString() : p.toString());
     });
-    return Z1(() => {
+    return w1(() => {
       g.value = setInterval(() => {
-        n.value = /* @__PURE__ */ new Date();
+        l.value = /* @__PURE__ */ new Date();
       }, 500);
     }), r2(() => {
       clearInterval(g.value);
-    }), (C, m) => (p(), w("div", {
+    }), (c, b) => (u(), B("div", {
       class: "now-time",
-      style: ie({ width: t.width + "px" })
+      style: se({ width: t.width + "px" })
     }, [
       d("div", {
-        style: ie(e.value)
+        style: se(e.value)
       }, S(a.value), 5),
       d("div", ao, [
         d("div", {
-          style: ie(e.value)
-        }, S(c.value), 5),
+          style: se(e.value)
+        }, S(I.value), 5),
         d("div", {
-          style: ie(e.value)
+          style: se(e.value)
         }, S(s.value), 5)
       ])
     ], 4));
   }
 });
-const he = (o, t) => {
+const ye = (o, t) => {
   const e = o.__vccOpts || o;
-  for (const [i, n] of t)
-    e[i] = n;
+  for (const [i, l] of t)
+    e[i] = l;
   return e;
-}, Io = /* @__PURE__ */ he(so, [["__scopeId", "data-v-c9b77e35"]]), co = /* @__PURE__ */ D({
+}, Io = /* @__PURE__ */ ye(so, [["__scopeId", "data-v-c9b77e35"]]), co = /* @__PURE__ */ $({
   __name: "pie-charts",
   props: {
     title: {
@@ -1276,10 +1276,10 @@ const he = (o, t) => {
     }
   },
   setup(o) {
-    g3([a3, s3, I3, c3, C3].filter(Boolean)), S1(r3, "dark");
-    const t = X1("previewPerf", null), e = Y(() => t ? t.value.chartAutoResize : !0), i = Y(() => t ? t.value.minChartInterval : 0), n = o, g = a1({
+    g3([a3, s3, I3, c3, C3].filter(Boolean)), M1(r3, "dark");
+    const t = z1("previewPerf", null), e = M(() => t ? t.value.chartAutoResize : !0), i = M(() => t ? t.value.minChartInterval : 0), l = o, g = u1({
       title: {
-        text: n.title,
+        text: l.title,
         left: "center"
       },
       tooltip: {
@@ -1292,11 +1292,11 @@ const he = (o, t) => {
       },
       series: [
         {
-          name: n.seriesName,
+          name: l.seriesName,
           type: "pie",
           radius: "55%",
           center: ["50%", "60%"],
-          data: n.seriesData,
+          data: l.seriesData,
           emphasis: {
             itemStyle: {
               shadowBlur: 10,
@@ -1308,23 +1308,23 @@ const he = (o, t) => {
       ]
     });
     let a = 0;
-    return Ue(n, (c) => {
+    return Te(l, (I) => {
       const s = i.value;
       if (s > 0) {
-        const C = performance.now();
-        if (C - a < s)
+        const c = performance.now();
+        if (c - a < s)
           return;
-        a = C;
+        a = c;
       }
-      g.title.text = c.title, g.series[0].name = c.seriesName, g.series[0].data = c.seriesData;
-    }), (c, s) => (p(), H(l(d3), {
+      g.title.text = I.title, g.series[0].name = I.seriesName, g.series[0].data = I.seriesData;
+    }), (I, s) => (u(), H(n(d3), {
       class: "chart",
       option: g,
       autoresize: e.value
     }, null, 8, ["option", "autoresize"]));
   }
 });
-const Co = /* @__PURE__ */ he(co, [["__scopeId", "data-v-2a56cd57"]]), ro = ["id"], Ao = ["id"], uo = ["fill"], po = ["fill"], bo = ["fill"], mo = /* @__PURE__ */ d("path", {
+const Co = /* @__PURE__ */ ye(co, [["__scopeId", "data-v-2a56cd57"]]), ro = ["id"], Ao = ["id"], uo = ["fill"], po = ["fill"], bo = ["fill"], mo = /* @__PURE__ */ d("path", {
   d: "M375.466667 709.214815l-25.6 137.481481c0 2.844444 1.896296 5.688889 7.585185 10.42963l65.422222 54.992593c5.688889 4.740741 15.17037 8.533333 23.703704 10.429629l36.029629-193.422222-107.14074-19.911111z",
   fill: "#2D4375"
 }, null, -1), ho = /* @__PURE__ */ d("path", {
@@ -1339,7 +1339,7 @@ const Co = /* @__PURE__ */ he(co, [["__scopeId", "data-v-2a56cd57"]]), ro = ["id
 }, null, -1), Go = /* @__PURE__ */ d("path", {
   d: "M570.785185 848.592593l-107.140741-19.911112-4.74074 27.496297 107.14074 19.911111c7.585185 1.896296 15.17037-3.792593 16.118519-11.377778 1.896296-7.585185-2.844444-15.17037-11.377778-16.118518z",
   fill: "#CEEFF6"
-}, null, -1), Lo = ["xlink:href", "width", "height"], Vo = /* @__PURE__ */ D({
+}, null, -1), Lo = ["xlink:href", "width", "height"], Vo = /* @__PURE__ */ $({
   __name: "light-a",
   props: {
     id: { default: "" },
@@ -1350,12 +1350,12 @@ const Co = /* @__PURE__ */ he(co, [["__scopeId", "data-v-2a56cd57"]]), ro = ["id
   emits: ["onChange"],
   setup(o, { emit: t }) {
     const e = o, i = t;
-    return Ue(
+    return Te(
       () => e.isOpen,
       () => {
         i("onChange");
       }
-    ), (n, g) => (p(), w("g", {
+    ), (l, g) => (u(), B("g", {
       id: e.id,
       style: { cursor: "pointer" }
     }, [
@@ -1398,12 +1398,12 @@ const Co = /* @__PURE__ */ he(co, [["__scopeId", "data-v-2a56cd57"]]), ro = ["id
       ], 8, Ao),
       d("use", {
         "xlink:href": `#${e.id}light-121`,
-        width: n.width,
-        height: n.height
+        width: l.width,
+        height: l.height
       }, null, 8, Lo)
     ], 8, ro));
   }
-}), wo = ["id"], Bo = ["id"], Wo = ["fill"], xo = ["fill"], Ho = ["fill"], Ro = ["from", "to"], Xo = ["fill"], So = ["from", "to"], ko = ["fill"], Ko = ["fill"], zo = ["fill"], Yo = ["from", "to"], Mo = ["fill"], Fo = ["xlink:href"], Jo = /* @__PURE__ */ D({
+}), wo = ["id"], Bo = ["id"], Wo = ["fill"], xo = ["fill"], Ho = ["fill"], Ro = ["from", "to"], Xo = ["fill"], So = ["from", "to"], ko = ["fill"], Ko = ["fill"], Yo = ["fill"], zo = ["from", "to"], Mo = ["fill"], Fo = ["xlink:href"], Jo = /* @__PURE__ */ $({
   __name: "clock-a",
   props: {
     id: { default: "" },
@@ -1417,8 +1417,8 @@ const Co = /* @__PURE__ */ he(co, [["__scopeId", "data-v-2a56cd57"]]), ro = ["id
     borderColor: { default: "#B3A7FF" }
   },
   setup(o) {
-    const t = o, e = new Date(Number(window.sessionStorage.getItem("editorLoadTime") || "0")), i = e.getSeconds() + 1, n = e.getMinutes(), g = Math.floor((e.getHours() + (n + i / 60) / 60) * 30);
-    return (a, c) => (p(), w("g", {
+    const t = o, e = new Date(Number(window.sessionStorage.getItem("editorLoadTime") || "0")), i = e.getSeconds() + 1, l = e.getMinutes(), g = Math.floor((e.getHours() + (l + i / 60) / 60) * 30);
+    return (a, I) => (u(), B("g", {
       id: t.id
     }, [
       d("symbol", {
@@ -1441,8 +1441,8 @@ const Co = /* @__PURE__ */ he(co, [["__scopeId", "data-v-2a56cd57"]]), ro = ["id
             attributeName: "transform",
             attributeType: "XML",
             type: "rotate",
-            from: `${45 + l(n) * 6} 512.3 506.3`,
-            to: `${405 + l(n) * 6} 512.3 506.3`,
+            from: `${45 + n(l) * 6} 512.3 506.3`,
+            to: `${405 + n(l) * 6} 512.3 506.3`,
             dur: "3600s",
             repeatCount: "indefinite"
           }, null, 8, Ro)
@@ -1455,8 +1455,8 @@ const Co = /* @__PURE__ */ he(co, [["__scopeId", "data-v-2a56cd57"]]), ro = ["id
             attributeName: "transform",
             attributeType: "XML",
             type: "rotate",
-            from: `${-45 + l(g)} 512.3 506.3`,
-            to: `${315 + l(g)} 512.3 506.3`,
+            from: `${-45 + n(g)} 512.3 506.3`,
+            to: `${315 + n(g)} 512.3 506.3`,
             dur: "43200s",
             repeatCount: "indefinite"
           }, null, 8, So)
@@ -1481,8 +1481,8 @@ const Co = /* @__PURE__ */ he(co, [["__scopeId", "data-v-2a56cd57"]]), ro = ["id
             to: `${495.5 + i * 6} 512.3 506.3`,
             dur: "60s",
             repeatCount: "indefinite"
-          }, null, 8, Yo)
-        ], 8, zo),
+          }, null, 8, zo)
+        ], 8, Yo),
         d("path", {
           d: "M512.3 506.3m-22.8 0a22.8 22.8 0 1 0 45.6 0 22.8 22.8 0 1 0-45.6 0Z",
           fill: t.centerColor
@@ -1495,7 +1495,7 @@ const Co = /* @__PURE__ */ he(co, [["__scopeId", "data-v-2a56cd57"]]), ro = ["id
       }, null, 8, Fo)
     ], 8, wo));
   }
-}), No = /* @__PURE__ */ D({
+}), No = /* @__PURE__ */ $({
   __name: "text-box",
   props: {
     width: { default: 250 },
@@ -1508,42 +1508,42 @@ const Co = /* @__PURE__ */ he(co, [["__scopeId", "data-v-2a56cd57"]]), ro = ["id
     borderOpacity: { default: 100 }
   },
   setup(o) {
-    const t = o, e = Y(() => ({
+    const t = o, e = M(() => ({
       width: (t.width > 0 ? t.width : 0) + "px",
       height: (t.height > 0 ? t.height : 0) + "px",
       borderRadius: (t.borderRadius > 0 ? t.borderRadius : 0) + "px"
-    })), i = Y(() => ({
+    })), i = M(() => ({
       border: `${t.borderWidth > 0 ? t.borderWidth : 0}px solid ${t.borderColor}`,
       borderRadius: (t.borderRadius > 0 ? t.borderRadius : 0) + "px",
       opacity: (t.borderOpacity > 0 ? t.borderOpacity < 100 ? t.borderOpacity : 100 : 0) / 100
-    })), n = Y(() => ({
+    })), l = M(() => ({
       backgroundColor: t.bgColor,
       opacity: (t.bgOpacity > 0 ? t.bgOpacity < 100 ? t.bgOpacity : 100 : 0) / 100,
       borderRadius: t.borderRadius + "px"
     }));
-    return (g, a) => (p(), w("div", {
+    return (g, a) => (u(), B("div", {
       class: "outM",
-      style: ie(e.value)
+      style: se(e.value)
     }, [
       d("div", {
         class: "wallI",
-        style: ie(n.value)
+        style: se(l.value)
       }, null, 4),
       d("div", {
         class: "borderB",
-        style: ie(i.value)
+        style: se(i.value)
       }, null, 4)
     ], 4));
   }
 });
-const Uo = /* @__PURE__ */ he(No, [["__scopeId", "data-v-bbb1f995"]]), Jt = {
-  "svg-text": lo,
-  "v-button": ot,
-  "el-button": ot,
+const Uo = /* @__PURE__ */ ye(No, [["__scopeId", "data-v-bbb1f995"]]), Jt = {
+  "svg-text": no,
+  "v-button": nt,
+  "el-button": nt,
   "progress-a": J3,
   "v-tag": lt,
   "el-tag": lt,
-  "common-table": no,
+  "common-table": lo,
   "pie-charts": Co,
   "switch-r": oo,
   "now-time": Io,
@@ -1556,18 +1556,18 @@ const Uo = /* @__PURE__ */ he(No, [["__scopeId", "data-v-bbb1f995"]]), Jt = {
     (i = e.config) != null && i.stop_wheel_zoom && e.tag && o.push(e.tag);
   }), o), [])
 ), m2 = {
-  "v-button": ot,
-  "el-button": ot,
+  "v-button": nt,
+  "el-button": nt,
   "v-tag": lt,
   "el-tag": lt
-}, nt = (o, t) => (t == null ? void 0 : t[o]) ?? m2[o] ?? o, me = D1("global-store", {
+}, it = (o, t) => (t == null ? void 0 : t[o]) ?? m2[o] ?? o, ve = P1("global-store", {
   state: () => ({
     config_center: b2,
     intention: L.None,
     create_svg_info: null,
     done_json: [],
     mouse_info: {
-      state: ye.Up,
+      state: Ae.Up,
       position_x: 0,
       position_y: 0,
       now_position_x: 0,
@@ -1577,7 +1577,7 @@ const Uo = /* @__PURE__ */ he(No, [["__scopeId", "data-v-bbb1f995"]]), Jt = {
     },
     handle_svg_info: null,
     scale_info: {
-      type: ne.None,
+      type: ae.None,
       scale_times: {
         x: 1,
         y: 1
@@ -1607,10 +1607,10 @@ const Uo = /* @__PURE__ */ he(No, [["__scopeId", "data-v-bbb1f995"]]), Jt = {
       this.intention = L.Create, this.create_svg_info = o;
     },
     setDoneJson(o) {
-      Do(o, "id") ? (this.done_json.push(o), l1(() => {
-        Ne(o);
-      })) : this.done_json = u1(o), l1(() => {
-        t1(u1(this.done_json));
+      Do(o, "id") ? (this.done_json.push(o), n1(() => {
+        Ue(o);
+      })) : this.done_json = f1(o), n1(() => {
+        t1(f1(this.done_json));
       });
     },
     setHandleSvgInfo(o, t) {
@@ -1621,11 +1621,11 @@ const Uo = /* @__PURE__ */ he(No, [["__scopeId", "data-v-bbb1f995"]]), Jt = {
       }) : this.handle_svg_info = o;
     },
     spliceDoneJson(o) {
-      const t = me(), i = t.done_json.splice(o, 1)[0];
+      const t = ve(), i = t.done_json.splice(o, 1)[0];
       Po(i.id), t1(t.done_json);
     }
   }
-}), Pe = D1("svg-edit-layout-store", {
+}), Pe = P1("svg-edit-layout-store", {
   state: () => ({
     left_nav: !0,
     right_nav: !0,
@@ -1640,7 +1640,7 @@ const Uo = /* @__PURE__ */ he(No, [["__scopeId", "data-v-bbb1f995"]]), Jt = {
       left: 0
     }
   })
-}), h2 = "zh-CN", f2 = a1({
+}), h2 = "zh-CN", f2 = u1({
   "zh-CN": {},
   "en-US": {
     // 顶部工具栏
@@ -1997,32 +1997,32 @@ const Uo = /* @__PURE__ */ he(No, [["__scopeId", "data-v-bbb1f995"]]), Jt = {
     星期五: "Friday",
     星期六: "Saturday"
   }
-}), ct = K(h2), jo = (o) => {
+}), Ct = K(h2), jo = (o) => {
   if (!o)
     return h2;
   const t = o.toLowerCase();
   return t === "en" || t === "en-us" || t.startsWith("en-") ? "en-US" : "zh-CN";
 }, v2 = (o) => {
-  ct.value = jo(o);
-}, r4 = () => ct.value, Ht = () => N2(ct), Oo = (o, t = "en-US") => {
+  Ct.value = jo(o);
+}, u4 = () => Ct.value, Ht = () => N2(Ct), Oo = (o, t = "en-US") => {
   o && Object.assign(f2[t], o);
 }, A = (o, t) => {
   if (!o)
     return "";
-  const e = f2[ct.value][o] ?? o;
-  return t ? e.replace(/\{(\w+)\}/g, (i, n) => String(t[n] ?? `{${n}}`)) : e;
-}, A4 = A, W1 = (o) => {
+  const e = f2[Ct.value][o] ?? o;
+  return t ? e.replace(/\{(\w+)\}/g, (i, l) => String(t[l] ?? `{${l}}`)) : e;
+}, p4 = A, h1 = (o) => {
   o.stopPropagation();
-}, it = (o) => {
+}, gt = (o) => {
   o.preventDefault();
 }, Ce = (o, t) => Number(o.toFixed(t));
 function y2(o) {
   const t = U2(), e = t == null ? void 0 : t.appContext;
   if (!e)
     return;
-  const i = e, n = i.__vgceRegistered ?? (i.__vgceRegistered = /* @__PURE__ */ new Set()), g = o ? { ...Jt, ...o } : Jt;
+  const i = e, l = i.__vgceRegistered ?? (i.__vgceRegistered = /* @__PURE__ */ new Set()), g = o ? { ...Jt, ...o } : Jt;
   for (const a in g)
-    n.has(a) || m2[a] || e.components[a] || (e.app.component(a, g[a]), n.add(a));
+    l.has(a) || m2[a] || e.components[a] || (e.app.component(a, g[a]), l.add(a));
 }
 function _2() {
   window.sessionStorage.setItem("editorLoadTime", (/* @__PURE__ */ new Date()).getTime().toString());
@@ -2031,58 +2031,58 @@ const Rt = (o) => {
   o = o || 10;
   const t = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789", e = t.length;
   let i = "";
-  for (let n = 0; n < o; n++) {
+  for (let l = 0; l < o; l++) {
     let g = e;
-    n === 0 && (g = e - 10), i += t.charAt(Math.floor(Math.random() * g));
+    l === 0 && (g = e - 10), i += t.charAt(Math.floor(Math.random() * g));
   }
   return i;
-}, Do = (o, t) => o[t] !== void 0, be = (o, t) => o / 2 * (t - 1), q1 = (o) => o * Math.PI / 180, re = (o, t, e) => ({
+}, Do = (o, t) => o[t] !== void 0, be = (o, t) => o / 2 * (t - 1), et = (o) => o * Math.PI / 180, ue = (o, t, e) => ({
   x: Ce(
-    (o.x - t.x) * Math.cos(q1(e)) - (o.y - t.y) * Math.sin(q1(e)) + t.x,
+    (o.x - t.x) * Math.cos(et(e)) - (o.y - t.y) * Math.sin(et(e)) + t.x,
     1
   ),
   y: Ce(
-    (o.x - t.x) * Math.sin(q1(e)) + (o.y - t.y) * Math.cos(q1(e)) + t.y,
+    (o.x - t.x) * Math.sin(et(e)) + (o.y - t.y) * Math.cos(et(e)) + t.y,
     1
   )
-}), E1 = (o, t) => ({
+}), Q1 = (o, t) => ({
   x: o.x + (t.x - o.x) / 2,
   y: o.y + (t.y - o.y) / 2
-}), Y1 = (o) => {
+}), J1 = (o) => {
   let t = "";
   for (let e = 0; e < o.length; e++)
     e === 0 ? t += `M ${o[e].x} ${o[e].y}` : t += ` L ${o[e].x} ${o[e].y}`;
   return t;
-}, et = (o, t, e) => e + (t - o), u1 = (o, t = {}) => o ? JSON.parse(JSON.stringify(o)) : t, Ne = (o, t) => {
-  var n, g;
+}, tt = (o, t, e) => e + (t - o), f1 = (o, t = {}) => o ? JSON.parse(JSON.stringify(o)) : t, Ue = (o, t) => {
+  var l, g;
   const e = document.querySelector(`#${o.id}`), i = document.querySelector(`#rect${o.id}`);
   if (e) {
-    let a = 0, c = 0, s = 0, C = 0;
-    if (o.type === T.Vue) {
-      s = ((n = o.props.width) == null ? void 0 : n.val) || e.offsetWidth || 100, C = ((g = o.props.height) == null ? void 0 : g.val) || e.offsetHeight || 100, a = 50 - s / 2, c = 50 - C / 2;
-      const m = document.querySelector(`#foreign-object${o.id}`);
-      m && (m.getAttribute("x") === "0" && m.getAttribute("y") === "0" && m.getAttribute("width") === "0" && m.getAttribute("height") === "0" || t) && (m.setAttribute("x", a.toString()), m.setAttribute("y", c.toString()), m.setAttribute("width", s.toString()), m.setAttribute("height", C.toString()));
+    let a = 0, I = 0, s = 0, c = 0;
+    if (o.type === P.Vue) {
+      s = ((l = o.props.width) == null ? void 0 : l.val) || e.offsetWidth || 100, c = ((g = o.props.height) == null ? void 0 : g.val) || e.offsetHeight || 100, a = 50 - s / 2, I = 50 - c / 2;
+      const b = document.querySelector(`#foreign-object${o.id}`);
+      b && (b.getAttribute("x") === "0" && b.getAttribute("y") === "0" && b.getAttribute("width") === "0" && b.getAttribute("height") === "0" || t) && (b.setAttribute("x", a.toString()), b.setAttribute("y", I.toString()), b.setAttribute("width", s.toString()), b.setAttribute("height", c.toString()));
     } else {
-      const m = e.getBBox();
-      a = Ce(m.x, 0), c = Ce(m.y, 0), s = Ce(m.width, 0), C = Ce(m.height, 0);
+      const b = e.getBBox();
+      a = Ce(b.x, 0), I = Ce(b.y, 0), s = Ce(b.width, 0), c = Ce(b.height, 0);
     }
-    i && (i.getAttribute("x") === "0" && i.getAttribute("y") === "0" && i.getAttribute("width") === "0" && i.getAttribute("height") === "0" || t) && (i.setAttribute("x", a.toString()), i.setAttribute("y", c.toString()), i.setAttribute("width", s.toString()), i.setAttribute("height", C.toString())), (o.actual_bound.x === 0 && o.actual_bound.y === 0 && o.actual_bound.width === 0 && o.actual_bound.height === 0 || t) && (o.actual_bound = {
+    i && (i.getAttribute("x") === "0" && i.getAttribute("y") === "0" && i.getAttribute("width") === "0" && i.getAttribute("height") === "0" || t) && (i.setAttribute("x", a.toString()), i.setAttribute("y", I.toString()), i.setAttribute("width", s.toString()), i.setAttribute("height", c.toString())), (o.actual_bound.x === 0 && o.actual_bound.y === 0 && o.actual_bound.width === 0 && o.actual_bound.height === 0 || t) && (o.actual_bound = {
       x: a,
-      y: c,
+      y: I,
       width: s,
-      height: C
+      height: c
     }), o.center_position = {
       x: o.x + o.actual_bound.x + s / 2,
-      y: o.y + o.actual_bound.y + C / 2
+      y: o.y + o.actual_bound.y + c / 2
     }, o.point_coordinate.tl = {
       x: o.center_position.x - s * o.scale_x / 2,
-      y: o.center_position.y - C * o.scale_y / 2
+      y: o.center_position.y - c * o.scale_y / 2
     }, o.point_coordinate.tc = {
       x: o.center_position.x,
-      y: o.center_position.y - C * o.scale_y / 2
+      y: o.center_position.y - c * o.scale_y / 2
     }, o.point_coordinate.tr = {
       x: o.center_position.x + s * o.scale_x / 2,
-      y: o.center_position.y - C * o.scale_y / 2
+      y: o.center_position.y - c * o.scale_y / 2
     }, o.point_coordinate.l = {
       x: o.center_position.x - s * o.scale_x / 2,
       y: o.center_position.y
@@ -2091,63 +2091,63 @@ const Rt = (o) => {
       y: o.center_position.y
     }, o.point_coordinate.bl = {
       x: o.center_position.x - s * o.scale_x / 2,
-      y: o.center_position.y + C * o.scale_y / 2
+      y: o.center_position.y + c * o.scale_y / 2
     }, o.point_coordinate.bc = {
       x: o.center_position.x,
-      y: o.center_position.y + C * o.scale_y / 2
+      y: o.center_position.y + c * o.scale_y / 2
     }, o.point_coordinate.br = {
       x: o.center_position.x + s * o.scale_x / 2,
-      y: o.center_position.y + C * o.scale_y / 2
-    }, o.rotate !== 0 && Qo(o), Se(o);
+      y: o.center_position.y + c * o.scale_y / 2
+    }, o.rotate !== 0 && Qo(o), Ye(o);
   }
 }, Eo = (o) => {
   for (const t of Object.keys(o.point_coordinate))
     o.point_coordinate_old && (o.point_coordinate_old[t].x = 0, o.point_coordinate_old[t].y = 0);
-}, x1 = (o, t, e) => {
-  const i = me(O), n = t ?? i.mouse_info.new_position_x - i.mouse_info.position_x, g = e ?? i.mouse_info.new_position_y - i.mouse_info.position_y;
+}, S1 = (o, t, e) => {
+  const i = ve(Q), l = t ?? i.mouse_info.new_position_x - i.mouse_info.position_x, g = e ?? i.mouse_info.new_position_y - i.mouse_info.position_y;
   for (const a of Object.keys(o.point_coordinate))
-    t !== void 0 && e !== void 0 ? (o.point_coordinate[a].x += n, o.point_coordinate[a].y += g) : o.point_coordinate_old && (o.point_coordinate[a].x = o.point_coordinate_old[a].x + n, o.point_coordinate[a].y = o.point_coordinate_old[a].y + g);
-}, Se = (o, t) => {
-  var n, g, a, c;
-  const e = me(O), i = t ?? e.done_json;
+    t !== void 0 && e !== void 0 ? (o.point_coordinate[a].x += l, o.point_coordinate[a].y += g) : o.point_coordinate_old && (o.point_coordinate[a].x = o.point_coordinate_old[a].x + l, o.point_coordinate[a].y = o.point_coordinate_old[a].y + g);
+}, Ye = (o, t) => {
+  var l, g, a, I;
+  const e = ve(Q), i = t ?? e.done_json;
   for (let s of i)
-    if (s.type === T.ConnectionLine) {
-      if (((g = (n = s.bind_anchors) == null ? void 0 : n.start) == null ? void 0 : g.target_id) === o.id) {
-        const C = mt(s.bind_anchors.start.type, o);
+    if (s.type === P.ConnectionLine) {
+      if (((g = (l = s.bind_anchors) == null ? void 0 : l.start) == null ? void 0 : g.target_id) === o.id) {
+        const c = mt(s.bind_anchors.start.type, o);
         s.props.point_position.val[0] = {
-          x: C.x - s.x,
-          y: C.y - s.y
+          x: c.x - s.x,
+          y: c.y - s.y
         };
       }
-      if (((c = (a = s.bind_anchors) == null ? void 0 : a.end) == null ? void 0 : c.target_id) === o.id) {
-        const C = mt(s.bind_anchors.end.type, o);
+      if (((I = (a = s.bind_anchors) == null ? void 0 : a.end) == null ? void 0 : I.target_id) === o.id) {
+        const c = mt(s.bind_anchors.end.type, o);
         s.props.point_position.val[s.props.point_position.val.length - 1] = {
-          x: C.x - s.x,
-          y: C.y - s.y
+          x: c.x - s.x,
+          y: c.y - s.y
         };
       }
     }
 }, Po = (o) => {
-  var e, i, n, g;
-  const t = me(O);
+  var e, i, l, g;
+  const t = ve(Q);
   for (let a of t.done_json)
-    a.type === T.ConnectionLine && (((i = (e = a.bind_anchors) == null ? void 0 : e.start) == null ? void 0 : i.target_id) === o && (a.bind_anchors.start = null), ((g = (n = a.bind_anchors) == null ? void 0 : n.end) == null ? void 0 : g.target_id) === o && (a.bind_anchors.end = null));
-}, mt = (o, t) => o === xe.BottomCenter ? t.point_coordinate.bc : o === xe.Left ? t.point_coordinate.l : o === xe.Right ? t.point_coordinate.r : t.point_coordinate.tc, Qo = (o) => {
+    a.type === P.ConnectionLine && (((i = (e = a.bind_anchors) == null ? void 0 : e.start) == null ? void 0 : i.target_id) === o && (a.bind_anchors.start = null), ((g = (l = a.bind_anchors) == null ? void 0 : l.end) == null ? void 0 : g.target_id) === o && (a.bind_anchors.end = null));
+}, mt = (o, t) => o === Xe.BottomCenter ? t.point_coordinate.bc : o === Xe.Left ? t.point_coordinate.l : o === Xe.Right ? t.point_coordinate.r : t.point_coordinate.tc, Qo = (o) => {
   o.point_coordinate = {
-    tl: re(o.point_coordinate.tl, o.center_position, o.rotate),
-    tc: re(o.point_coordinate.tc, o.center_position, o.rotate),
-    tr: re(o.point_coordinate.tr, o.center_position, o.rotate),
-    l: re(o.point_coordinate.l, o.center_position, o.rotate),
-    r: re(o.point_coordinate.r, o.center_position, o.rotate),
-    bl: re(o.point_coordinate.bl, o.center_position, o.rotate),
-    bc: re(o.point_coordinate.bc, o.center_position, o.rotate),
-    br: re(o.point_coordinate.br, o.center_position, o.rotate)
+    tl: ue(o.point_coordinate.tl, o.center_position, o.rotate),
+    tc: ue(o.point_coordinate.tc, o.center_position, o.rotate),
+    tr: ue(o.point_coordinate.tr, o.center_position, o.rotate),
+    l: ue(o.point_coordinate.l, o.center_position, o.rotate),
+    r: ue(o.point_coordinate.r, o.center_position, o.rotate),
+    bl: ue(o.point_coordinate.bl, o.center_position, o.rotate),
+    bc: ue(o.point_coordinate.bc, o.center_position, o.rotate),
+    br: ue(o.point_coordinate.br, o.center_position, o.rotate)
   };
 }, Nt = /* @__PURE__ */ new WeakMap(), Xt = (o) => {
   const t = o == null ? void 0 : o.options;
   if (!Array.isArray(t) || t.length === 0)
     return o == null ? void 0 : o.val;
-  const e = t.map((n) => n == null ? void 0 : n.value);
+  const e = t.map((l) => l == null ? void 0 : l.value);
   if (e.indexOf(o.val) > -1)
     return o.val;
   const i = o == null ? void 0 : o.default;
@@ -2170,46 +2170,46 @@ const Rt = (o) => {
     if (t.indexOf(e) < 0 && Tt(Xt(o.props[e])))
       return !0;
   return !1;
-}, _1 = (o, t = []) => {
-  const e = t.join(","), i = !$o(o, t), n = i ? Nt.get(o) : void 0, g = n == null ? void 0 : n.get(e);
+}, V1 = (o, t = []) => {
+  const e = t.join(","), i = !$o(o, t), l = i ? Nt.get(o) : void 0, g = l == null ? void 0 : l.get(e);
   if (g && g.signature === Ut(o, t))
     return g.value;
   let a = {};
   if (o.state) {
-    for (const c in o.state)
-      if (o.state.hasOwnProperty(c) && c === o.defaultState) {
-        for (let s in o.state[c])
-          s !== "label" && (a[Yt(s)] = o.state[c][s]);
+    for (const I in o.state)
+      if (o.state.hasOwnProperty(I) && I === o.defaultState) {
+        for (let s in o.state[I])
+          s !== "label" && (a[zt(s)] = o.state[I][s]);
         break;
       }
   }
-  for (const c in o.props)
-    t.indexOf(c) < 0 && (a[Yt(c)] = Xt(o.props[c]));
+  for (const I in o.props)
+    t.indexOf(I) < 0 && (a[zt(I)] = Xt(o.props[I]));
   if (i) {
-    const c = { signature: Ut(o, t), value: a };
-    n ? n.set(e, c) : Nt.set(o, /* @__PURE__ */ new Map([[e, c]]));
+    const I = { signature: Ut(o, t), value: a };
+    l ? l.set(e, I) : Nt.set(o, /* @__PURE__ */ new Map([[e, I]]));
   }
   return a;
-}, qo = (o, t, e, i) => new Promise((n) => {
+}, qo = (o, t, e, i) => new Promise((l) => {
   const g = i.find((s) => s.id === o);
   if (!g) {
-    n({
+    l({
       status: !1,
       msg: A("要设置的id不存在")
     });
     return;
   }
   const a = t.split(".").filter((s) => s !== "");
-  let c = g;
+  let I = g;
   for (let s = 0; s < a.length - 1; s++)
-    if (c = c == null ? void 0 : c[a[s]], c == null) {
-      n({
+    if (I = I == null ? void 0 : I[a[s]], I == null) {
+      l({
         status: !1,
         msg: A("属性路径不存在")
       });
       return;
     }
-  c[a[a.length - 1]] = e, n({
+  I[a[a.length - 1]] = e, l({
     status: !0,
     msg: A("操作成功")
   });
@@ -2220,8 +2220,8 @@ const Rt = (o) => {
   const e = `${t.val}|${t.speed}|${t.repeat}|${t.delay}`, i = jt.get(o);
   if (i && i.signature === e)
     return i.value;
-  const n = `common-ani animate__animated animate__${t.val} animate__${t.speed} animate__${t.repeat} animate__${t.delay}`;
-  return jt.set(o, { signature: e, value: n }), n;
+  const l = `common-ani animate__animated animate__${t.val} animate__${t.speed} animate__${t.repeat} animate__${t.delay}`;
+  return jt.set(o, { signature: e, value: l }), l;
 }, e6 = (o) => {
   let t = [];
   for (let e = 0; e < o; e++)
@@ -2235,7 +2235,7 @@ const Rt = (o) => {
     return document.body.removeChild(e), i;
   }
   return 0;
-}, M1 = (o) => {
+}, N1 = (o) => {
   if (typeof o == "string") {
     if (/false|true/.test(o))
       return o !== "false";
@@ -2245,28 +2245,28 @@ const Rt = (o) => {
   return o;
 }, ht = (o, t, e) => {
   o.preventDefault();
-  const i = me(O), n = n1(O), g = Pe(O), { clientX: a, clientY: c } = o;
-  let s = u1(n.connection_line), C = 0, m = 0;
+  const i = ve(Q), l = l1(Q), g = Pe(Q), { clientX: a, clientY: I } = o;
+  let s = f1(l.connection_line), c = 0, b = 0;
   if (t && e) {
     s.bind_anchors.start = {
       type: t,
       target_id: e.id
     };
-    let v = mt(t, e);
-    C = v.x, m = v.y;
+    let y = mt(t, e);
+    c = y.x, b = y.y;
   } else
-    C = Math.round(
-      (a - g.canvasInfo.left) / n.svg.scale - g.center_offset.x
-    ), m = Math.round(
-      (c - g.canvasInfo.top) / n.svg.scale - g.center_offset.y
+    c = Math.round(
+      (a - g.canvasInfo.left) / l.svg.scale - g.center_offset.x
+    ), b = Math.round(
+      (I - g.canvasInfo.top) / l.svg.scale - g.center_offset.y
     );
-  const b = {
+  const p = {
     id: Rt(),
-    x: C,
-    y: m,
+    x: c,
+    y: b,
     client: {
-      x: C,
-      y: m
+      x: c,
+      y: b
     },
     scale_x: 1,
     scale_y: 1,
@@ -2317,26 +2317,26 @@ const Rt = (o) => {
     },
     ...s
   };
-  b.props.point_position.val.push({
+  p.props.point_position.val.push({
     x: 0,
     y: 0
-  }), i.setDoneJson(b), i.setHandleSvgInfo(b, i.done_json.length - 1), i.intention = L.Connection, i.mouse_info = {
-    state: ye.Down,
-    position_x: C,
-    position_y: m,
-    now_position_x: C,
-    now_position_y: m,
+  }), i.setDoneJson(p), i.setHandleSvgInfo(p, i.done_json.length - 1), i.intention = L.Connection, i.mouse_info = {
+    state: Ae.Down,
+    position_x: c,
+    position_y: b,
+    now_position_x: c,
+    now_position_y: b,
     new_position_x: 0,
     new_position_y: 0
   };
-}, gt = (o, t, e, i) => {
-  const n = o.layerX, g = o.layerY, a = e.x, c = e.y, s = Ce(i ? t - 0.1 : t + 0.1, 1), C = Ce(a + n * (s - 1) / s, 1), m = Ce(c + g * (s - 1) / s, 1);
-  e.x = Ce(C / t - (n - C) * (t - 1) / t, 2), e.y = Ce(m / t - (g - m) * (t - 1) / t, 2);
+}, at = (o, t, e, i) => {
+  const l = o.layerX, g = o.layerY, a = e.x, I = e.y, s = Ce(i ? t - 0.1 : t + 0.1, 1), c = Ce(a + l * (s - 1) / s, 1), b = Ce(I + g * (s - 1) / s, 1);
+  e.x = Ce(c / t - (l - c) * (t - 1) / t, 2), e.y = Ce(b / t - (g - b) * (t - 1) / t, 2);
 };
 Object.seal({
   name: "straight-line",
   title: "直线",
-  type: T.StraightLine,
+  type: P.StraightLine,
   config: {
     can_zoom: !1,
     have_anchor: !1,
@@ -2379,7 +2379,7 @@ Object.seal({
 const o6 = {
   name: "connection_line",
   title: "连接线",
-  type: T.ConnectionLine,
+  type: P.ConnectionLine,
   config: {
     can_zoom: !1,
     have_anchor: !1,
@@ -2789,14 +2789,14 @@ if (Dt) {
   let o = JSON.parse(Dt);
   vt = o.connection_line, ft = o.svg;
 } else
-  vt = u1(o6), ft = {
+  vt = f1(o6), ft = {
     background_color: "#fff",
     scale: 1,
     grid: !0,
     grid_color: "#ebebeb",
     ruler: !0
   };
-const n1 = D1("config-store", {
+const l1 = P1("config-store", {
   state: () => ({
     svg: ft,
     connection_line: vt,
@@ -2814,8 +2814,8 @@ const n1 = D1("config-store", {
   getters: {},
   actions: {}
 });
-var _e = /* @__PURE__ */ ((o) => (o.Copy = "Copy", o.Delete = "Delete", o.MoveUpOneLevel = "MoveUpOneLevel", o.MoveDownOneLevel = "MoveDownOneLevel", o.MoveUpTopLevel = "MoveUpTopLevel", o.MoveDownTopLevel = "MoveDownTopLevel", o))(_e || {});
-const Ct = D1("edit-private-store", {
+var Le = /* @__PURE__ */ ((o) => (o.Copy = "Copy", o.Delete = "Delete", o.MoveUpOneLevel = "MoveUpOneLevel", o.MoveDownOneLevel = "MoveDownOneLevel", o.MoveUpTopLevel = "MoveUpTopLevel", o.MoveDownTopLevel = "MoveDownTopLevel", o))(Le || {});
+const dt = P1("edit-private-store", {
   state: () => ({
     old_done_components: [],
     //记录预览之前的组件数据
@@ -2837,46 +2837,46 @@ const Ct = D1("edit-private-store", {
     topUndoBtnClick() {
       if (this.history_now_index < 1)
         return;
-      const o = me();
+      const o = ve();
       this.is_record_history = !1, this.history_now_index -= 1, o.setDoneJson(this.history_doneComponent[this.history_now_index]), o.setHandleSvgInfo(null);
     },
     topRedoBtnClick() {
       if (this.history_now_index + 1 == this.history_doneComponent.length)
         return;
-      const o = me();
+      const o = ve();
       this.is_record_history = !1, this.history_now_index += 1, o.setDoneJson(this.history_doneComponent[this.history_now_index]), o.setHandleSvgInfo(null);
     }
   }
-}), l6 = D1("context-menu-store", {
+}), n6 = P1("context-menu-store", {
   state: () => ({
     display: !1,
     info: {
-      [_e.Copy]: {
+      [Le.Copy]: {
         title: "复制",
         hot_key: "Ctrl + c",
         enable: !0
       },
-      [_e.Delete]: {
+      [Le.Delete]: {
         title: "删除",
         hot_key: "Delete",
         enable: !0
       },
-      [_e.MoveUpTopLevel]: {
+      [Le.MoveUpTopLevel]: {
         title: "置于顶层",
         hot_key: "Ctrl + →",
         enable: !0
       },
-      [_e.MoveDownTopLevel]: {
+      [Le.MoveDownTopLevel]: {
         title: "置于底层",
         hot_key: "Ctrl + ←",
         enable: !0
       },
-      [_e.MoveUpOneLevel]: {
+      [Le.MoveUpOneLevel]: {
         title: "置于上一层",
         hot_key: "Ctrl + ↑",
         enable: !0
       },
-      [_e.MoveDownOneLevel]: {
+      [Le.MoveDownOneLevel]: {
         title: "置于下一层",
         hot_key: "Ctrl + ↓",
         enable: !0
@@ -2885,35 +2885,35 @@ const Ct = D1("edit-private-store", {
   }),
   actions: {
     onContextMenuClick(o) {
-      const t = me();
+      const t = ve();
       if (t.handle_svg_info)
         switch (t.intention = L.Select, o) {
-          case _e.Copy:
-            const e = u1(t.handle_svg_info.info);
+          case Le.Copy:
+            const e = f1(t.handle_svg_info.info);
             e.id = Rt(), e.title += "-copy", e.x += 10, e.y += 10, t.setDoneJson(e), this.display = !1, t.setHandleSvgInfo(e, t.done_json.length);
             break;
-          case _e.Delete:
+          case Le.Delete:
             t.spliceDoneJson(t.handle_svg_info.index), this.display = !1, t.setHandleSvgInfo(null), t.intention = L.None;
             break;
-          case _e.MoveUpOneLevel:
+          case Le.MoveUpOneLevel:
             if (t.done_json.length === 1 || t.handle_svg_info.index === t.done_json.length - 1)
               return;
             const i = t.handle_svg_info.info;
             t.done_json[t.handle_svg_info.index] = t.done_json[t.handle_svg_info.index + 1], t.done_json[t.handle_svg_info.index + 1] = i, t1(t.done_json), this.display = !1, t.setHandleSvgInfo(i, t.handle_svg_info.index + 1);
             break;
-          case _e.MoveDownOneLevel:
+          case Le.MoveDownOneLevel:
             if (t.done_json.length === 1 || t.handle_svg_info.index === 0)
               return;
-            const n = t.handle_svg_info.info;
-            t.done_json[t.handle_svg_info.index] = t.done_json[t.handle_svg_info.index - 1], t.done_json[t.handle_svg_info.index - 1] = n, t1(t.done_json), this.display = !1, t.setHandleSvgInfo(n, t.handle_svg_info.index - 1);
+            const l = t.handle_svg_info.info;
+            t.done_json[t.handle_svg_info.index] = t.done_json[t.handle_svg_info.index - 1], t.done_json[t.handle_svg_info.index - 1] = l, t1(t.done_json), this.display = !1, t.setHandleSvgInfo(l, t.handle_svg_info.index - 1);
             break;
-          case _e.MoveDownTopLevel:
+          case Le.MoveDownTopLevel:
             if (t.done_json.length === 1 || t.handle_svg_info.index === 0)
               return;
             const g = t.handle_svg_info.info;
             t.done_json.splice(t.handle_svg_info.index, 1), t.done_json.unshift(g), t1(t.done_json), this.display = !1, t.setHandleSvgInfo(g, 0);
             break;
-          case _e.MoveUpTopLevel:
+          case Le.MoveUpTopLevel:
             if (t.done_json.length === 1 || t.handle_svg_info.index === t.done_json.length)
               return;
             const a = t.handle_svg_info.info;
@@ -2922,65 +2922,65 @@ const Ct = D1("edit-private-store", {
         }
     }
   }
-}), O = A3(), t1 = (o) => {
-  const t = Ct();
+}), Q = A3(), t1 = (o) => {
+  const t = dt();
   t.is_record_history && (t.history_now_index + 1 < t.history_doneComponent.length && t.history_doneComponent.splice(t.history_now_index + 1), t.history_doneComponent.push(o), t.history_now_index = t.history_doneComponent.length - 1, t.history_doneComponent.length > t.max_record_times && (t.history_doneComponent.shift(), t.history_now_index = t.history_doneComponent.length - 1)), t.is_record_history = !0;
 }, G2 = (o) => {
   try {
     const t = JSON.parse(o);
     if (!t.config || !t.layout_center || !t.done_json)
-      return y1.error(A("请导入正确的数据模型！")), !1;
-    const e = me(O), i = Pe(O), n = n1(O);
-    return n.$state = t.config, i.center_offset = t.layout_center, e.setDoneJson(t.done_json), !0;
+      return L1.error(A("请导入正确的数据模型！")), !1;
+    const e = ve(Q), i = Pe(Q), l = l1(Q);
+    return l.$state = t.config, i.center_offset = t.layout_center, e.setDoneJson(t.done_json), !0;
   } catch (t) {
-    return y1.error(A("请导入正确的数据模型！")), console.error(t), !1;
+    return L1.error(A("请导入正确的数据模型！")), console.error(t), !1;
   }
-}, n6 = /* @__PURE__ */ D({
+}, l6 = /* @__PURE__ */ $({
   __name: "vgce-icon",
   props: {
     size: { default: "" }
   },
   setup(o) {
-    const t = o, e = Y(() => {
+    const t = o, e = M(() => {
       if (!t.size)
         return {};
       const i = typeof t.size == "number" ? `${t.size}px` : t.size;
       return { fontSize: i, width: i, height: i };
     });
-    return (i, n) => (p(), w("i", {
+    return (i, l) => (u(), B("i", {
       class: "vgce-icon",
-      style: ie(l(e))
+      style: se(n(e))
     }, [
-      Te(i.$slots, "default", {}, void 0, !0)
+      je(i.$slots, "default", {}, void 0, !0)
     ], 4));
   }
 });
-const ve = /* @__PURE__ */ he(n6, [["__scopeId", "data-v-2a735625"]]), i6 = { "aria-hidden": "true" }, g6 = ["xlink:href"], fe = /* @__PURE__ */ D({
+const Ze = /* @__PURE__ */ ye(l6, [["__scopeId", "data-v-2a735625"]]), i6 = { "aria-hidden": "true" }, g6 = ["xlink:href"], _e = /* @__PURE__ */ $({
   __name: "svg-analysis",
   props: {
     name: {},
     props: { default: () => ({}) }
   },
   setup(o) {
-    const t = o, e = Y(() => `#svg-${t.name}`);
-    return (i, n) => (p(), w("svg", i6, [
-      d("use", De({ "xlink:href": l(e) }, t.props), null, 16, g6)
+    const t = o, e = M(() => `#svg-${t.name}`);
+    return (i, l) => (u(), B("svg", i6, [
+      d("use", De({ "xlink:href": n(e) }, t.props), null, 16, g6)
     ]));
   }
 });
-var v1 = /* @__PURE__ */ ((o) => (o.ImportJson = "ImportJson", o.ExportJson = "ExportJson", o.ImportFile = "ImportFile", o))(v1 || {});
-const He = (o) => (Lt("data-v-f76a5b46"), o = o(), Vt(), o), a6 = {
+var G1 = /* @__PURE__ */ ((o) => (o.ImportJson = "ImportJson", o.ExportJson = "ExportJson", o.ImportFile = "ImportFile", o))(G1 || {});
+const Se = (o) => (Lt("data-v-f76a5b46"), o = o(), Vt(), o), a6 = {
   class: "flex justify-between",
   style: { width: "100%" }
 }, s6 = {
   class: "flex items-center justify-between",
   style: { width: "250px" }
-}, I6 = /* @__PURE__ */ He(() => /* @__PURE__ */ d("div", { class: "flex items-center" }, [
+}, I6 = /* @__PURE__ */ Se(() => /* @__PURE__ */ d("div", { class: "flex items-center" }, [
   /* @__PURE__ */ d("span", { class: "logo-title" }, "Svg Editor")
 ], -1)), c6 = {
   class: "flex justify-between",
   style: { width: "calc(100% - 440px)" }
-}, C6 = { class: "flex items-center" }, d6 = /* @__PURE__ */ He(() => /* @__PURE__ */ d("span", { class: "vgce-divider" }, null, -1)), r6 = /* @__PURE__ */ He(() => /* @__PURE__ */ d("span", { class: "vgce-divider" }, null, -1)), A6 = /* @__PURE__ */ He(() => /* @__PURE__ */ d("span", { class: "vgce-divider" }, null, -1)), u6 = /* @__PURE__ */ He(() => /* @__PURE__ */ d("span", { class: "vgce-divider" }, null, -1)), p6 = { class: "flex items-center mr-20px" }, b6 = /* @__PURE__ */ He(() => /* @__PURE__ */ d("span", { class: "vgce-divider" }, null, -1)), m6 = /* @__PURE__ */ He(() => /* @__PURE__ */ d("span", { class: "vgce-divider" }, null, -1)), h6 = {
+}, C6 = { class: "flex items-center" }, d6 = /* @__PURE__ */ Se(() => /* @__PURE__ */ d("span", { class: "vgce-divider" }, null, -1)), r6 = /* @__PURE__ */ Se(() => /* @__PURE__ */ d("span", { class: "vgce-divider" }, null, -1)), A6 = /* @__PURE__ */ Se(() => /* @__PURE__ */ d("span", { class: "vgce-divider" }, null, -1)), u6 = /* @__PURE__ */ Se(() => /* @__PURE__ */ d("span", { class: "vgce-divider" }, null, -1)), p6 = { class: "flex items-center mr-20px" }, b6 = /* @__PURE__ */ Se(() => /* @__PURE__ */ d("span", { class: "vgce-divider" }, null, -1)), m6 = /* @__PURE__ */ Se(() => /* @__PURE__ */ d("span", { class: "vgce-divider" }, null, -1)), h6 = {
   class: "flex items-center",
   style: { width: "250px" }
 }, f6 = {
@@ -2989,69 +2989,69 @@ const He = (o) => (Lt("data-v-f76a5b46"), o = o(), Vt(), o), a6 = {
 }, v6 = {
   class: "font-bold mb-10px text-15px guide-title",
   style: { "padding-top": "16px" }
-}, y6 = /* @__PURE__ */ He(() => /* @__PURE__ */ d("div", {
+}, y6 = /* @__PURE__ */ Se(() => /* @__PURE__ */ d("div", {
   class: "vgce-divider--horizontal",
   role: "separator"
-}, null, -1)), _6 = { class: "font-bold mb-10px text-15px guide-title" }, Z6 = /* @__PURE__ */ He(() => /* @__PURE__ */ d("div", {
+}, null, -1)), _6 = { class: "font-bold mb-10px text-15px guide-title" }, Z6 = /* @__PURE__ */ Se(() => /* @__PURE__ */ d("div", {
   class: "vgce-divider--horizontal",
   role: "separator"
-}, null, -1)), G6 = { class: "font-bold mb-10px text-15px guide-title" }, L6 = /* @__PURE__ */ He(() => /* @__PURE__ */ d("div", {
+}, null, -1)), G6 = { class: "font-bold mb-10px text-15px guide-title" }, L6 = /* @__PURE__ */ Se(() => /* @__PURE__ */ d("div", {
   class: "vgce-divider--horizontal",
   role: "separator"
-}, null, -1)), V6 = { class: "font-bold mb-10px text-15px guide-title" }, w6 = /* @__PURE__ */ He(() => /* @__PURE__ */ d("div", {
+}, null, -1)), V6 = { class: "font-bold mb-10px text-15px guide-title" }, w6 = /* @__PURE__ */ Se(() => /* @__PURE__ */ d("div", {
   class: "vgce-divider--horizontal",
   role: "separator"
-}, null, -1)), B6 = { class: "font-bold mb-10px text-15px guide-title" }, W6 = /* @__PURE__ */ He(() => /* @__PURE__ */ d("div", {
+}, null, -1)), B6 = { class: "font-bold mb-10px text-15px guide-title" }, W6 = /* @__PURE__ */ Se(() => /* @__PURE__ */ d("div", {
   class: "vgce-divider--horizontal",
   role: "separator"
-}, null, -1)), x6 = { class: "font-bold mb-10px text-15px guide-title" }, H6 = /* @__PURE__ */ He(() => /* @__PURE__ */ d("div", {
+}, null, -1)), x6 = { class: "font-bold mb-10px text-15px guide-title" }, H6 = /* @__PURE__ */ Se(() => /* @__PURE__ */ d("div", {
   class: "vgce-divider--horizontal",
   role: "separator"
-}, null, -1)), R6 = { class: "font-bold mb-10px text-15px guide-title" }, X6 = { class: "guide-text" }, S6 = /* @__PURE__ */ He(() => /* @__PURE__ */ d("div", {
+}, null, -1)), R6 = { class: "font-bold mb-10px text-15px guide-title" }, X6 = { class: "guide-text" }, S6 = /* @__PURE__ */ Se(() => /* @__PURE__ */ d("div", {
   class: "vgce-divider--horizontal",
   role: "separator"
-}, null, -1)), k6 = { class: "font-bold mb-10px text-15px guide-title" }, K6 = { class: "guide-text" }, z6 = /* @__PURE__ */ He(() => /* @__PURE__ */ d("div", {
+}, null, -1)), k6 = { class: "font-bold mb-10px text-15px guide-title" }, K6 = { class: "guide-text" }, Y6 = /* @__PURE__ */ Se(() => /* @__PURE__ */ d("div", {
   class: "vgce-divider--horizontal",
   role: "separator"
-}, null, -1)), Y6 = { class: "font-bold mb-10px text-15px guide-title" }, M6 = /* @__PURE__ */ He(() => /* @__PURE__ */ d("div", {
+}, null, -1)), z6 = { class: "font-bold mb-10px text-15px guide-title" }, M6 = /* @__PURE__ */ Se(() => /* @__PURE__ */ d("div", {
   class: "vgce-divider--horizontal",
   role: "separator"
-}, null, -1)), F6 = { class: "font-bold mb-10px text-15px guide-title" }, J6 = { style: { "padding-bottom": "14px" } }, N6 = /* @__PURE__ */ D({
+}, null, -1)), F6 = { class: "font-bold mb-10px text-15px guide-title" }, J6 = { style: { "padding-bottom": "14px" } }, N6 = /* @__PURE__ */ $({
   __name: "top-panel",
   emits: ["changeVisible", "onReturn", "onPreview", "onSave", "onExportSvg"],
   setup(o, { emit: t }) {
-    const e = Pe(O), i = me(O), n = Ct(O), g = n1(O), a = t, c = () => {
+    const e = Pe(Q), i = ve(Q), l = dt(Q), g = l1(Q), a = t, I = () => {
       i.done_json.length <= 0 || i.setDoneJson([]), i.intention = L.None;
-    }, s = (b) => {
-      const v = {
+    }, s = (p) => {
+      const y = {
         layout_center: e.center_offset,
         config: g.$state,
         done_json: i.done_json
       };
-      a(b, v);
-    }, C = K(!1), m = Y({
+      a(p, y);
+    }, c = K(!1), b = M({
       get: () => i.intention === L.Connection,
-      set(b) {
-        i.intention = b ? L.Connection : L.None, b && (i.done_json.forEach((v) => {
-          v != null && v.selected && (v.selected = !1);
+      set(p) {
+        i.intention = p ? L.Connection : L.None, p && (i.done_json.forEach((y) => {
+          y != null && y.selected && (y.selected = !1);
         }), i.setHandleSvgInfo(null));
       }
     });
-    return (b, v) => (p(), w(ae, null, [
+    return (p, y) => (u(), B(ce, null, [
       d("div", a6, [
         d("div", s6, [
           I6,
-          r(ve, {
+          r(Ze, {
             size: 24,
             class: "bt-Icon",
-            onClick: v[0] || (v[0] = (_) => l(e).left_nav = !l(e).left_nav),
-            title: l(e).left_nav ? l(A)("隐藏左侧菜单") : l(A)("显示左侧菜单")
+            onClick: y[0] || (y[0] = (Z) => n(e).left_nav = !n(e).left_nav),
+            title: n(e).left_nav ? n(A)("隐藏左侧菜单") : n(A)("显示左侧菜单")
           }, {
-            default: h(() => [
-              l(e).left_nav ? (p(), H(fe, {
+            default: m(() => [
+              n(e).left_nav ? (u(), H(_e, {
                 key: 0,
                 name: "menu-unfold"
-              })) : (p(), H(fe, {
+              })) : (u(), H(_e, {
                 key: 1,
                 name: "menu-fold"
               }))
@@ -3061,157 +3061,157 @@ const He = (o) => (Lt("data-v-f76a5b46"), o = o(), Vt(), o), a6 = {
         ]),
         d("div", c6, [
           d("div", C6, [
-            r(ve, {
-              title: l(A)("撤销 ctrl+z"),
+            r(Ze, {
+              title: n(A)("撤销 ctrl+z"),
               size: 24,
-              class: Ge(`${l(n).getTopBtnUndoStatus ? "bt-Icon" : "icon-disable"} ml-20px`),
-              onClick: v[1] || (v[1] = () => l(n).topUndoBtnClick())
+              class: we(`${n(l).getTopBtnUndoStatus ? "bt-Icon" : "icon-disable"} ml-20px`),
+              onClick: y[1] || (y[1] = () => n(l).topUndoBtnClick())
             }, {
-              default: h(() => [
-                r(fe, {
-                  name: l(n).getTopBtnUndoStatus ? "undo" : "undo-gray"
+              default: m(() => [
+                r(_e, {
+                  name: n(l).getTopBtnUndoStatus ? "undo" : "undo-gray"
                 }, null, 8, ["name"])
               ]),
               _: 1
             }, 8, ["title", "class"]),
-            r(ve, {
-              title: l(A)("重做 ctrl+shift+z"),
-              class: Ge(`${l(n).getTopBtnRedoStatus ? "bt-Icon" : "icon-disable"} ml-5px`),
+            r(Ze, {
+              title: n(A)("重做 ctrl+shift+z"),
+              class: we(`${n(l).getTopBtnRedoStatus ? "bt-Icon" : "icon-disable"} ml-5px`),
               size: 24,
-              onClick: v[2] || (v[2] = () => l(n).topRedoBtnClick())
+              onClick: y[2] || (y[2] = () => n(l).topRedoBtnClick())
             }, {
-              default: h(() => [
-                r(fe, {
-                  name: l(n).getTopBtnRedoStatus ? "redo" : "redo-gray"
+              default: m(() => [
+                r(_e, {
+                  name: n(l).getTopBtnRedoStatus ? "redo" : "redo-gray"
                 }, null, 8, ["name"])
               ]),
               _: 1
             }, 8, ["title", "class"]),
             d6,
-            r(ve, {
-              title: l(A)("清空 ctrl+delete"),
-              class: Ge(l(i).done_json.length > 0 ? "bt-Icon" : "icon-disable"),
+            r(Ze, {
+              title: n(A)("清空 ctrl+delete"),
+              class: we(n(i).done_json.length > 0 ? "bt-Icon" : "icon-disable"),
               size: 24,
-              onClick: c
+              onClick: I
             }, {
-              default: h(() => [
-                r(fe, {
-                  name: l(i).done_json.length > 0 ? "delete" : "delete-gray"
+              default: m(() => [
+                r(_e, {
+                  name: n(i).done_json.length > 0 ? "delete" : "delete-gray"
                 }, null, 8, ["name"])
               ]),
               _: 1
             }, 8, ["title", "class"]),
             r6,
-            r(ve, {
-              title: l(A)("导入数据模型"),
+            r(Ze, {
+              title: n(A)("导入数据模型"),
               class: "bt-Icon",
               size: 24,
-              onClick: v[3] || (v[3] = (_) => a("changeVisible", l(v1).ImportJson, !0))
+              onClick: y[3] || (y[3] = (Z) => a("changeVisible", n(G1).ImportJson, !0))
             }, {
-              default: h(() => [
-                r(fe, { name: "import" })
+              default: m(() => [
+                r(_e, { name: "import" })
               ]),
               _: 1
             }, 8, ["title"]),
-            r(ve, {
-              title: l(A)("导出数据模型"),
+            r(Ze, {
+              title: n(A)("导出数据模型"),
               size: 24,
               class: "bt-Icon ml-5px",
-              onClick: v[4] || (v[4] = (_) => a("changeVisible", l(v1).ExportJson, !0))
+              onClick: y[4] || (y[4] = (Z) => a("changeVisible", n(G1).ExportJson, !0))
             }, {
-              default: h(() => [
-                r(fe, { name: "export" })
+              default: m(() => [
+                r(_e, { name: "export" })
               ]),
               _: 1
             }, 8, ["title"]),
-            r(ve, {
-              title: l(A)("保存为SVG文件"),
+            r(Ze, {
+              title: n(A)("保存为SVG文件"),
               size: 24,
               class: "bt-Icon ml-5px",
-              onClick: v[5] || (v[5] = (_) => a("onExportSvg"))
+              onClick: y[5] || (y[5] = (Z) => a("onExportSvg"))
             }, {
-              default: h(() => [
-                r(fe, { name: "svg-file" })
+              default: m(() => [
+                r(_e, { name: "svg-file" })
               ]),
               _: 1
             }, 8, ["title"]),
             A6,
-            r(ve, {
-              title: l(A)("创建连线"),
-              class: Ge(["bt-Icon", { active: l(m) }]),
+            r(Ze, {
+              title: n(A)("创建连线"),
+              class: we(["bt-Icon", { active: n(b) }]),
               size: 24,
-              onClick: v[6] || (v[6] = (_) => m.value = !l(m))
+              onClick: y[6] || (y[6] = (Z) => b.value = !n(b))
             }, {
-              default: h(() => [
-                r(fe, {
-                  name: l(m) ? "line-active" : "line"
+              default: m(() => [
+                r(_e, {
+                  name: n(b) ? "line-active" : "line"
                 }, null, 8, ["name"])
               ]),
               _: 1
             }, 8, ["title", "class"]),
             u6,
-            r(ve, {
-              title: l(A)("说明"),
+            r(Ze, {
+              title: n(A)("说明"),
               class: "bt-Icon",
               size: 24,
-              onClick: v[7] || (v[7] = (_) => C.value = !l(C))
+              onClick: y[7] || (y[7] = (Z) => c.value = !n(c))
             }, {
-              default: h(() => [
-                r(fe, { name: "question" })
+              default: m(() => [
+                r(_e, { name: "question" })
               ]),
               _: 1
             }, 8, ["title"])
           ]),
           d("div", p6, [
-            r(ve, {
-              title: l(A)("返回"),
+            r(Ze, {
+              title: n(A)("返回"),
               class: "bt-Icon",
               size: 24,
-              onClick: v[8] || (v[8] = (_) => s("onReturn"))
+              onClick: y[8] || (y[8] = (Z) => s("onReturn"))
             }, {
-              default: h(() => [
-                r(fe, { name: "return" })
+              default: m(() => [
+                r(_e, { name: "return" })
               ]),
               _: 1
             }, 8, ["title"]),
             b6,
-            r(ve, {
-              title: l(A)("保存"),
+            r(Ze, {
+              title: n(A)("保存"),
               class: "bt-Icon",
               size: 24,
-              onClick: v[9] || (v[9] = (_) => s("onSave"))
+              onClick: y[9] || (y[9] = (Z) => s("onSave"))
             }, {
-              default: h(() => [
-                r(fe, { name: "save" })
+              default: m(() => [
+                r(_e, { name: "save" })
               ]),
               _: 1
             }, 8, ["title"]),
             m6,
-            r(ve, {
-              title: l(A)("预览"),
+            r(Ze, {
+              title: n(A)("预览"),
               class: "bt-Icon",
               size: 22,
-              onClick: v[10] || (v[10] = (_) => s("onPreview"))
+              onClick: y[10] || (y[10] = (Z) => s("onPreview"))
             }, {
-              default: h(() => [
-                r(fe, { name: "preview" })
+              default: m(() => [
+                r(_e, { name: "preview" })
               ]),
               _: 1
             }, 8, ["title"])
           ])
         ]),
         d("div", h6, [
-          r(ve, {
+          r(Ze, {
             size: 24,
             class: "bt-Icon",
-            onClick: v[11] || (v[11] = (_) => l(e).right_nav = !l(e).right_nav),
-            title: l(e).right_nav ? l(A)("隐藏右侧菜单") : l(A)("显示右侧菜单")
+            onClick: y[11] || (y[11] = (Z) => n(e).right_nav = !n(e).right_nav),
+            title: n(e).right_nav ? n(A)("隐藏右侧菜单") : n(A)("显示右侧菜单")
           }, {
-            default: h(() => [
-              l(e).right_nav ? (p(), H(fe, {
+            default: m(() => [
+              n(e).right_nav ? (u(), H(_e, {
                 key: 0,
                 name: "menu-fold"
-              })) : (p(), H(fe, {
+              })) : (u(), H(_e, {
                 key: 1,
                 name: "menu-unfold"
               }))
@@ -3220,54 +3220,54 @@ const He = (o) => (Lt("data-v-f76a5b46"), o = o(), Vt(), o), a6 = {
           }, 8, ["title"])
         ])
       ]),
-      r(l(O1), {
-        modelValue: l(C),
-        "onUpdate:modelValue": v[12] || (v[12] = (_) => we(C) ? C.value = _ : null),
-        title: l(A)("使用说明"),
+      r(n(E1), {
+        modelValue: n(c),
+        "onUpdate:modelValue": y[12] || (y[12] = (Z) => He(c) ? c.value = Z : null),
+        title: n(A)("使用说明"),
         width: "60%"
       }, {
-        default: h(() => [
+        default: m(() => [
           d("div", f6, [
-            d("div", v6, S(l(A)("多选")), 1),
-            d("div", null, S(l(A)("在画布空白区域按住鼠标左键可以框选（图形中心点在框选区域即判定被选中），也可以按住ctrl+鼠标左键点图形进行多选")), 1),
+            d("div", v6, S(n(A)("多选")), 1),
+            d("div", null, S(n(A)("在画布空白区域按住鼠标左键可以框选（图形中心点在框选区域即判定被选中），也可以按住ctrl+鼠标左键点图形进行多选")), 1),
             y6,
-            d("div", _6, S(l(A)("拖动画布")), 1),
-            d("div", null, S(l(A)("在画布空白区域按住右键可拖动画布，右侧面板‘图纸’栏可微调或重置位置")), 1),
+            d("div", _6, S(n(A)("拖动画布")), 1),
+            d("div", null, S(n(A)("在画布空白区域按住右键可拖动画布，右侧面板‘图纸’栏可微调或重置位置")), 1),
             Z6,
-            d("div", G6, S(l(A)("画布缩放")), 1),
-            d("div", null, S(l(A)("在画布中使用鼠标滚轮或者右侧面板‘图纸’栏可控制画布缩放，鼠标滚轮以鼠标位置为缩放中心，图纸栏以图纸原点（默认在左上角）为缩放中心")), 1),
+            d("div", G6, S(n(A)("画布缩放")), 1),
+            d("div", null, S(n(A)("在画布中使用鼠标滚轮或者右侧面板‘图纸’栏可控制画布缩放，鼠标滚轮以鼠标位置为缩放中心，图纸栏以图纸原点（默认在左上角）为缩放中心")), 1),
             L6,
-            d("div", V6, S(l(A)("标尺辅助线")), 1),
-            d("div", null, S(l(A)("在标尺区域按住鼠标左键并拖动即可创建标尺辅助线，将标尺辅助线拖动到标尺区域即可删除标尺辅助线")), 1),
+            d("div", V6, S(n(A)("标尺辅助线")), 1),
+            d("div", null, S(n(A)("在标尺区域按住鼠标左键并拖动即可创建标尺辅助线，将标尺辅助线拖动到标尺区域即可删除标尺辅助线")), 1),
             w6,
-            d("div", B6, S(l(A)("组件尺寸")), 1),
+            d("div", B6, S(n(A)("组件尺寸")), 1),
             d("div", null, [
-              d("p", null, S(l(A)("大多数组件可以通过选中组件然后拖动交互点或在右侧‘外观’栏改变外形尺寸，或通过右侧‘数据’栏直接或间接改变外形尺寸；")), 1),
-              d("p", null, S(l(A)("少数特殊组件仅可通过右侧'数据'栏直接或间接改变外形尺寸")), 1)
+              d("p", null, S(n(A)("大多数组件可以通过选中组件然后拖动交互点或在右侧‘外观’栏改变外形尺寸，或通过右侧‘数据’栏直接或间接改变外形尺寸；")), 1),
+              d("p", null, S(n(A)("少数特殊组件仅可通过右侧'数据'栏直接或间接改变外形尺寸")), 1)
             ]),
             W6,
-            d("div", x6, S(l(A)("连线样式")), 1),
-            d("div", null, S(l(A)("在右侧‘连线’栏可以统一配置连线样式，配置后先增加的线会应用新样式，之前的线样式不变，如需改变，可选中线手动更改或删除重画")), 1),
+            d("div", x6, S(n(A)("连线样式")), 1),
+            d("div", null, S(n(A)("在右侧‘连线’栏可以统一配置连线样式，配置后先增加的线会应用新样式，之前的线样式不变，如需改变，可选中线手动更改或删除重画")), 1),
             H6,
-            d("div", R6, S(l(A)("横线和竖线")), 1),
+            d("div", R6, S(n(A)("横线和竖线")), 1),
             d("div", X6, [
-              d("p", null, S(l(A)("点击编辑器顶部连线按钮会进入连线状态，该状态下在画板点击鼠标左键即可开始画线，移动并再次点击左键创建新的节点，右键结束画线并退出连线状态；")), 1),
-              d("p", null, S(l(A)("画线的时候按住ctrl即可画竖线，按住shift即可画横线")), 1)
+              d("p", null, S(n(A)("点击编辑器顶部连线按钮会进入连线状态，该状态下在画板点击鼠标左键即可开始画线，移动并再次点击左键创建新的节点，右键结束画线并退出连线状态；")), 1),
+              d("p", null, S(n(A)("画线的时候按住ctrl即可画竖线，按住shift即可画横线")), 1)
             ]),
             S6,
-            d("div", k6, S(l(A)("绑定锚点")), 1),
+            d("div", k6, S(n(A)("绑定锚点")), 1),
             d("div", K6, [
-              d("p", null, S(l(A)("组件在未选中时，鼠标经过组件时会出现锚点，鼠标悬浮在锚点上时，会有交互样式，点击左键即可以锚点为起点创建连线；")), 1),
-              d("p", null, S(l(A)("同样，在连线时鼠标经过锚点时，会出现锚点交互样式，点击左键即可以锚点为连线终点结束连线；")), 1),
-              d("p", null, S(l(A)("这两种情况下的连线会绑定组件上的锚点，如需解绑，参考下面的‘锚点解绑’；")), 1),
-              d("p", null, S(l(A)("同样，也可先画线，再选中连线绑定想要绑定的组件锚点（连线只有首尾节点可以绑定锚点）")), 1)
+              d("p", null, S(n(A)("组件在未选中时，鼠标经过组件时会出现锚点，鼠标悬浮在锚点上时，会有交互样式，点击左键即可以锚点为起点创建连线；")), 1),
+              d("p", null, S(n(A)("同样，在连线时鼠标经过锚点时，会出现锚点交互样式，点击左键即可以锚点为连线终点结束连线；")), 1),
+              d("p", null, S(n(A)("这两种情况下的连线会绑定组件上的锚点，如需解绑，参考下面的‘锚点解绑’；")), 1),
+              d("p", null, S(n(A)("同样，也可先画线，再选中连线绑定想要绑定的组件锚点（连线只有首尾节点可以绑定锚点）")), 1)
             ]),
-            z6,
-            d("div", Y6, S(l(A)("线段选中")), 1),
-            d("div", null, S(l(A)("若线段绑定了锚点，移动线段，绑定的锚点不会移动。若是想将线段整体移动，需要先解绑，参考下面的‘锚点解绑’")), 1),
+            Y6,
+            d("div", z6, S(n(A)("线段选中")), 1),
+            d("div", null, S(n(A)("若线段绑定了锚点，移动线段，绑定的锚点不会移动。若是想将线段整体移动，需要先解绑，参考下面的‘锚点解绑’")), 1),
             M6,
-            d("div", F6, S(l(A)("锚点解绑")), 1),
-            d("div", J6, S(l(A)("选中线段，在右侧‘数据’栏里解除绑定；或者鼠标左键拖拽连线上需要解绑的节点")), 1)
+            d("div", F6, S(n(A)("锚点解绑")), 1),
+            d("div", J6, S(n(A)("选中线段，在右侧‘数据’栏里解除绑定；或者鼠标左键拖拽连线上需要解绑的节点")), 1)
           ])
         ]),
         _: 1
@@ -3275,15 +3275,15 @@ const He = (o) => (Lt("data-v-f76a5b46"), o = o(), Vt(), o), a6 = {
     ], 64));
   }
 });
-const U6 = /* @__PURE__ */ he(N6, [["__scopeId", "data-v-f76a5b46"]]), T6 = { class: "component-group flex flex-wrap" }, j6 = ["onDragstart", "title"], O6 = /* @__PURE__ */ D({
+const U6 = /* @__PURE__ */ ye(N6, [["__scopeId", "data-v-f76a5b46"]]), T6 = { class: "component-group flex flex-wrap" }, j6 = ["onDragstart", "title"], O6 = /* @__PURE__ */ $({
   __name: "left-panel",
   props: {
     customToolbar: {}
   },
   setup(o) {
-    const t = me(O), e = o, i = K(
+    const t = ve(Q), e = o, i = K(
       e.customToolbar && Object.keys(e.customToolbar).length > 0 ? e.customToolbar : t.config_center
-    ), n = K([
+    ), l = K([
       "stateful",
       "stateless",
       "have_animation",
@@ -3293,47 +3293,47 @@ const U6 = /* @__PURE__ */ he(N6, [["__scopeId", "data-v-f76a5b46"]]), T6 = { cl
       "echarts"
     ]), g = (s) => {
       t.setCreateInfo(a(s));
-    }, a = (s) => (s != null && s.props && !u3(s.props) && Object.keys(s.props).forEach((C, m) => {
-      s.props[C].sort = String(m);
-    }), s), c = (s) => {
-      var C;
-      if (((C = s.dataTransfer) == null ? void 0 : C.dropEffect) !== "copy") {
-        y1.warning(A("请将组件拖到画布中!")), t.intention = L.None;
+    }, a = (s) => (s != null && s.props && !u3(s.props) && Object.keys(s.props).forEach((c, b) => {
+      s.props[c].sort = String(b);
+    }), s), I = (s) => {
+      var c;
+      if (((c = s.dataTransfer) == null ? void 0 : c.dropEffect) !== "copy") {
+        L1.warning(A("请将组件拖到画布中!")), t.intention = L.None;
         return;
       }
     };
-    return (s, C) => (p(), w("div", null, [
-      r(l(pt), {
-        modelValue: l(n),
-        "onUpdate:modelValue": C[0] || (C[0] = (m) => we(n) ? n.value = m : null),
+    return (s, c) => (u(), B("div", null, [
+      r(n(pt), {
+        modelValue: n(l),
+        "onUpdate:modelValue": c[0] || (c[0] = (b) => He(l) ? l.value = b : null),
         style: { "border-top": "none" }
       }, {
-        default: h(() => [
-          (p(!0), w(ae, null, Ae(l(i), (m) => (p(), H(l(bt), {
-            name: m.groupType,
-            key: m.title
+        default: m(() => [
+          (u(!0), B(ce, null, pe(n(i), (b) => (u(), H(n(bt), {
+            name: b.groupType,
+            key: b.title
           }, {
-            title: h(() => [
-              d("div", null, S(l(A)(m.title)), 1)
+            title: m(() => [
+              d("div", null, S(n(A)(b.title)), 1)
             ]),
-            default: h(() => [
+            default: m(() => [
               d("div", T6, [
-                (p(!0), w(ae, null, Ae(m.list, (b) => (p(), w("div", {
+                (u(!0), B(ce, null, pe(b.list, (p) => (u(), B("div", {
                   class: "ideal",
-                  key: b.name,
+                  key: p.name,
                   draggable: "true",
-                  onDragstart: (v) => g(b),
-                  onDragend: c,
-                  title: l(A)(b.title)
+                  onDragstart: (y) => g(p),
+                  onDragend: I,
+                  title: n(A)(p.title)
                 }, [
-                  r(ve, {
+                  r(Ze, {
                     size: 35,
                     class: "flex items-center"
                   }, {
-                    default: h(() => [
-                      r(fe, {
-                        name: b.name,
-                        props: l(_1)(b, ["width", "height", "maxHeight"])
+                    default: m(() => [
+                      r(_e, {
+                        name: p.name,
+                        props: n(V1)(p, ["width", "height", "maxHeight"])
                       }, null, 8, ["name", "props"])
                     ]),
                     _: 2
@@ -3349,43 +3349,43 @@ const U6 = /* @__PURE__ */ he(N6, [["__scopeId", "data-v-f76a5b46"]]), T6 = { cl
     ]));
   }
 });
-const D6 = /* @__PURE__ */ he(O6, [["__scopeId", "data-v-45fd20d9"]]), E6 = (o, t, e) => {
-  const i = E1(o, t), n = re(o, i, -e), g = re(t, i, -e);
+const D6 = /* @__PURE__ */ ye(O6, [["__scopeId", "data-v-45fd20d9"]]), E6 = (o, t, e) => {
+  const i = Q1(o, t), l = ue(o, i, -e), g = ue(t, i, -e);
   return {
-    width: g.x - n.x,
-    height: g.y - n.y,
+    width: g.x - l.x,
+    height: g.y - l.y,
     is_old_width: !1,
     is_old_height: !1
   };
 }, P6 = (o, t, e) => {
-  const i = E1(o, t), n = re(o, i, -e), g = re(t, i, -e);
+  const i = Q1(o, t), l = ue(o, i, -e), g = ue(t, i, -e);
   return {
-    width: n.x - g.x,
-    height: g.y - n.y,
+    width: l.x - g.x,
+    height: g.y - l.y,
     is_old_width: !1,
     is_old_height: !1
   };
 }, Q6 = (o, t, e) => {
-  const i = E1(o, t), n = re(t, i, -e), g = re(o, i, -e);
+  const i = Q1(o, t), l = ue(t, i, -e), g = ue(o, i, -e);
   return {
-    width: g.x - n.x,
-    height: g.y - n.y,
+    width: g.x - l.x,
+    height: g.y - l.y,
     is_old_width: !1,
     is_old_height: !1
   };
 }, $6 = (o, t, e) => {
-  const i = E1(o, t), n = re(t, i, -e), g = re(o, i, -e);
+  const i = Q1(o, t), l = ue(t, i, -e), g = ue(o, i, -e);
   return {
-    width: n.x - g.x,
-    height: g.y - n.y,
+    width: l.x - g.x,
+    height: g.y - l.y,
     is_old_width: !1,
     is_old_height: !1
   };
 }, q6 = (o, t, e, i) => {
-  const n = re(o, i, -e), g = re(
+  const l = ue(o, i, -e), g = ue(
     {
       x: i.x,
-      y: n.y
+      y: l.y
     },
     i,
     e
@@ -3399,9 +3399,9 @@ const D6 = /* @__PURE__ */ he(O6, [["__scopeId", "data-v-45fd20d9"]]), E6 = (o, 
     is_old_height: !1
   };
 }, e0 = (o, t, e, i) => {
-  const n = re(o, i, -e), g = re(
+  const l = ue(o, i, -e), g = ue(
     {
-      x: n.x,
+      x: l.x,
       y: i.y
     },
     i,
@@ -3416,10 +3416,10 @@ const D6 = /* @__PURE__ */ he(O6, [["__scopeId", "data-v-45fd20d9"]]), E6 = (o, 
     is_old_height: !0
   };
 }, t0 = (o, t, e, i) => {
-  const n = re(o, i, -e), g = re(
+  const l = ue(o, i, -e), g = ue(
     {
       x: i.x,
-      y: n.y
+      y: l.y
     },
     i,
     e
@@ -3433,9 +3433,9 @@ const D6 = /* @__PURE__ */ he(O6, [["__scopeId", "data-v-45fd20d9"]]), E6 = (o, 
     is_old_height: !1
   };
 }, o0 = (o, t, e, i) => {
-  const n = re(o, i, -e), g = re(
+  const l = ue(o, i, -e), g = ue(
     {
-      x: n.x,
+      x: l.x,
       y: i.y
     },
     i,
@@ -3449,82 +3449,82 @@ const D6 = /* @__PURE__ */ he(O6, [["__scopeId", "data-v-45fd20d9"]]), E6 = (o, 
     is_old_width: !1,
     is_old_height: !0
   };
-}, l0 = { style: { "vector-effect": "non-scaling-stroke" } }, n0 = ["fill", "x", "y"], i0 = ["cx", "cy"], g0 = ["x1", "y1", "x2", "y2"], a0 = ["fill", "x", "y"], s0 = ["fill", "x", "y"], I0 = ["fill", "x", "y"], c0 = ["fill", "x", "y"], C0 = ["fill", "x", "y"], d0 = ["fill", "x", "y"], r0 = ["fill", "x", "y"], A0 = /* @__PURE__ */ D({
+}, n0 = { style: { "vector-effect": "non-scaling-stroke" } }, l0 = ["fill", "x", "y"], i0 = ["cx", "cy"], g0 = ["x1", "y1", "x2", "y2"], a0 = ["fill", "x", "y"], s0 = ["fill", "x", "y"], I0 = ["fill", "x", "y"], c0 = ["fill", "x", "y"], C0 = ["fill", "x", "y"], d0 = ["fill", "x", "y"], r0 = ["fill", "x", "y"], A0 = /* @__PURE__ */ $({
   __name: "handle-panel",
   props: {
     itemInfo: {}
   },
   setup(o) {
-    wt((v) => ({
-      f075dd6c: l(a)
+    wt((y) => ({
+      f075dd6c: n(a)
     }));
-    const t = o, e = me(O), i = n1(O), n = Pe(O), g = K(4), a = K("#ab712e"), c = [
+    const t = o, e = ve(Q), i = l1(Q), l = Pe(Q), g = K(4), a = K("#ab712e"), I = [
       {
         start: 338,
         end: 23,
         cursor: "nw",
-        type: ne.TopLeft
+        type: ae.TopLeft
       },
       {
         start: 23,
         end: 68,
         cursor: "n",
-        type: ne.TopCenter
+        type: ae.TopCenter
       },
       {
         start: 68,
         end: 113,
         cursor: "ne",
-        type: ne.TopRight
+        type: ae.TopRight
       },
       {
         start: 293,
         end: 338,
         cursor: "w",
-        type: ne.Left
+        type: ae.Left
       },
       {
         start: 113,
         end: 158,
         cursor: "e",
-        type: ne.Right
+        type: ae.Right
       },
       {
         start: 248,
         end: 293,
         cursor: "sw",
-        type: ne.BottomLeft
+        type: ae.BottomLeft
       },
       {
         start: 203,
         end: 248,
         cursor: "s",
-        type: ne.BottomCenter
+        type: ae.BottomCenter
       },
       {
         start: 158,
         end: 203,
         cursor: "se",
-        type: ne.BottomRight
+        type: ae.BottomRight
       }
-    ], s = Y(() => t.itemInfo.config.can_zoom), C = (v, _) => {
-      const { clientX: G, clientY: F } = _;
-      _.stopPropagation(), e.intention = L.Zoom;
-      const f = Math.round(
-        (G - n.canvasInfo.left) / i.svg.scale - n.center_offset.x
-      ), y = Math.round(
-        (F - n.canvasInfo.top) / i.svg.scale - n.center_offset.y
+    ], s = M(() => t.itemInfo.config.can_zoom), c = (y, Z) => {
+      const { clientX: G, clientY: N } = Z;
+      Z.stopPropagation(), e.intention = L.Zoom;
+      const v = Math.round(
+        (G - l.canvasInfo.left) / i.svg.scale - l.center_offset.x
+      ), _ = Math.round(
+        (N - l.canvasInfo.top) / i.svg.scale - l.center_offset.y
       );
       e.mouse_info = {
-        state: ye.Down,
-        position_x: f,
-        position_y: y,
-        now_position_x: f,
-        now_position_y: y,
+        state: Ae.Down,
+        position_x: v,
+        position_y: _,
+        now_position_x: v,
+        now_position_y: _,
         new_position_x: 0,
         new_position_y: 0
       }, e.scale_info = {
-        type: v,
+        type: y,
         scale_times: {
           x: t.itemInfo.scale_x,
           y: t.itemInfo.scale_y
@@ -3534,295 +3534,295 @@ const D6 = /* @__PURE__ */ he(O6, [["__scopeId", "data-v-45fd20d9"]]), E6 = (o, 
           y: t.itemInfo.y
         },
         symmetric_point: {
-          x: f + Math.abs(f - t.itemInfo.center_position.x) * 2 * (f > t.itemInfo.center_position.x ? -1 : 1),
-          y: y + Math.abs(y - t.itemInfo.center_position.y) * 2 * (y > t.itemInfo.center_position.y ? -1 : 1)
+          x: v + Math.abs(v - t.itemInfo.center_position.x) * 2 * (v > t.itemInfo.center_position.x ? -1 : 1),
+          y: _ + Math.abs(_ - t.itemInfo.center_position.y) * 2 * (_ > t.itemInfo.center_position.y ? -1 : 1)
         }
       };
-    }, m = (v) => {
-      const { clientX: _, clientY: G } = v, F = Math.round(
-        (_ - n.canvasInfo.left) / i.svg.scale - n.center_offset.x
-      ), f = Math.round(
-        (G - n.canvasInfo.top) / i.svg.scale - n.center_offset.y
+    }, b = (y) => {
+      const { clientX: Z, clientY: G } = y, N = Math.round(
+        (Z - l.canvasInfo.left) / i.svg.scale - l.center_offset.x
+      ), v = Math.round(
+        (G - l.canvasInfo.top) / i.svg.scale - l.center_offset.y
       );
-      v.stopPropagation(), e.intention = L.Rotate, e.rotate_info = {
+      y.stopPropagation(), e.intention = L.Rotate, e.rotate_info = {
         angle: t.itemInfo.rotate
       }, e.mouse_info = {
-        state: ye.Down,
-        position_x: F,
-        position_y: f,
-        now_position_x: F,
-        now_position_y: f,
+        state: Ae.Down,
+        position_x: N,
+        position_y: v,
+        now_position_x: N,
+        now_position_y: v,
         new_position_x: 0,
         new_position_y: 0
       };
-    }, b = (v) => {
-      const _ = (v + t.itemInfo.rotate) % 360, G = c.find((F) => F.start <= _ && F.end > _);
+    }, p = (y) => {
+      const Z = (y + t.itemInfo.rotate) % 360, G = I.find((N) => N.start <= Z && N.end > Z);
       return G ? {
         cursor: G.cursor + "-resize",
         type: G.type
       } : {
         cursor: "nw-resize",
-        type: ne.TopLeft
+        type: ae.TopLeft
       };
     };
-    return (v, _) => (p(), w("g", l0, [
-      Ze(d("rect", {
+    return (y, Z) => (u(), B("g", n0, [
+      Ve(d("rect", {
         id: "resize_tl",
         width: "8",
         height: "8",
-        fill: l(a),
-        style: ie({ cursor: b(0).cursor, "vector-effect": "non-scaling-stroke" }),
+        fill: n(a),
+        style: se({ cursor: p(0).cursor, "vector-effect": "non-scaling-stroke" }),
         "pointer-events": "all",
-        x: t.itemInfo.actual_bound.x - l(g) - l(be)(t.itemInfo.actual_bound.width, t.itemInfo.scale_x),
-        y: t.itemInfo.actual_bound.y - l(g) - l(be)(t.itemInfo.actual_bound.height, t.itemInfo.scale_y),
+        x: t.itemInfo.actual_bound.x - n(g) - n(be)(t.itemInfo.actual_bound.width, t.itemInfo.scale_x),
+        y: t.itemInfo.actual_bound.y - n(g) - n(be)(t.itemInfo.actual_bound.height, t.itemInfo.scale_y),
         stroke: "rgba(0,0,0,0)",
-        onMousedown: _[0] || (_[0] = (G) => C(l(ne).TopLeft, G))
-      }, null, 44, n0), [
-        [Le, l(s)]
+        onMousedown: Z[0] || (Z[0] = (G) => c(n(ae).TopLeft, G))
+      }, null, 44, l0), [
+        [We, n(s)]
       ]),
       d("circle", {
         cx: t.itemInfo.actual_bound.x + t.itemInfo.actual_bound.width / 2,
-        cy: t.itemInfo.actual_bound.y - l(g) - l(be)(t.itemInfo.actual_bound.height, t.itemInfo.scale_y) - 24,
+        cy: t.itemInfo.actual_bound.y - n(g) - n(be)(t.itemInfo.actual_bound.height, t.itemInfo.scale_y) - 24,
         r: 4,
         class: "rotate-circle",
-        onMousedown: m
+        onMousedown: b
       }, null, 40, i0),
       d("line", {
         x1: t.itemInfo.actual_bound.x + t.itemInfo.actual_bound.width / 2,
-        y1: t.itemInfo.actual_bound.y - l(g) - l(be)(t.itemInfo.actual_bound.height, t.itemInfo.scale_y),
+        y1: t.itemInfo.actual_bound.y - n(g) - n(be)(t.itemInfo.actual_bound.height, t.itemInfo.scale_y),
         x2: t.itemInfo.actual_bound.x + t.itemInfo.actual_bound.width / 2,
-        y2: t.itemInfo.actual_bound.y - l(g) - l(be)(t.itemInfo.actual_bound.height, t.itemInfo.scale_y) - 20,
-        style: ie({ stroke: l(a), "stroke-width": 2 })
+        y2: t.itemInfo.actual_bound.y - n(g) - n(be)(t.itemInfo.actual_bound.height, t.itemInfo.scale_y) - 20,
+        style: se({ stroke: n(a), "stroke-width": 2 })
       }, null, 12, g0),
-      Ze(d("rect", {
+      Ve(d("rect", {
         id: "resize_tc",
         width: "8",
         height: "8",
-        fill: l(a),
-        style: ie({ cursor: b(45).cursor, "vector-effect": "non-scaling-stroke" }),
+        fill: n(a),
+        style: se({ cursor: p(45).cursor, "vector-effect": "non-scaling-stroke" }),
         "pointer-events": "all",
-        x: t.itemInfo.actual_bound.x + t.itemInfo.actual_bound.width / 2 - l(g),
-        y: t.itemInfo.actual_bound.y - l(g) - l(be)(t.itemInfo.actual_bound.height, t.itemInfo.scale_y),
+        x: t.itemInfo.actual_bound.x + t.itemInfo.actual_bound.width / 2 - n(g),
+        y: t.itemInfo.actual_bound.y - n(g) - n(be)(t.itemInfo.actual_bound.height, t.itemInfo.scale_y),
         stroke: "rgba(0,0,0,0)",
-        onMousedown: _[1] || (_[1] = (G) => C(l(ne).TopCenter, G))
+        onMousedown: Z[1] || (Z[1] = (G) => c(n(ae).TopCenter, G))
       }, null, 44, a0), [
-        [Le, l(s)]
+        [We, n(s)]
       ]),
-      Ze(d("rect", {
+      Ve(d("rect", {
         id: "resize_tr",
         width: "8",
         height: "8",
-        fill: l(a),
-        style: ie({ cursor: b(90).cursor, "vector-effect": "non-scaling-stroke" }),
+        fill: n(a),
+        style: se({ cursor: p(90).cursor, "vector-effect": "non-scaling-stroke" }),
         "pointer-events": "all",
-        x: t.itemInfo.actual_bound.x + t.itemInfo.actual_bound.width - l(g) + l(be)(t.itemInfo.actual_bound.width, t.itemInfo.scale_x),
-        y: t.itemInfo.actual_bound.y - l(g) - l(be)(t.itemInfo.actual_bound.height, t.itemInfo.scale_y),
+        x: t.itemInfo.actual_bound.x + t.itemInfo.actual_bound.width - n(g) + n(be)(t.itemInfo.actual_bound.width, t.itemInfo.scale_x),
+        y: t.itemInfo.actual_bound.y - n(g) - n(be)(t.itemInfo.actual_bound.height, t.itemInfo.scale_y),
         stroke: "rgba(0,0,0,0)",
-        onMousedown: _[2] || (_[2] = (G) => C(l(ne).TopRight, G))
+        onMousedown: Z[2] || (Z[2] = (G) => c(n(ae).TopRight, G))
       }, null, 44, s0), [
-        [Le, l(s)]
+        [We, n(s)]
       ]),
-      Ze(d("rect", {
+      Ve(d("rect", {
         id: "resize_l",
         width: "8",
         height: "8",
-        fill: l(a),
-        style: ie({ cursor: b(315).cursor, "vector-effect": "non-scaling-stroke" }),
+        fill: n(a),
+        style: se({ cursor: p(315).cursor, "vector-effect": "non-scaling-stroke" }),
         "pointer-events": "all",
-        x: t.itemInfo.actual_bound.x - l(g) - l(be)(t.itemInfo.actual_bound.width, t.itemInfo.scale_x),
-        y: t.itemInfo.actual_bound.y - l(g) + t.itemInfo.actual_bound.height * t.itemInfo.scale_y / 2 - l(be)(t.itemInfo.actual_bound.height, t.itemInfo.scale_y),
+        x: t.itemInfo.actual_bound.x - n(g) - n(be)(t.itemInfo.actual_bound.width, t.itemInfo.scale_x),
+        y: t.itemInfo.actual_bound.y - n(g) + t.itemInfo.actual_bound.height * t.itemInfo.scale_y / 2 - n(be)(t.itemInfo.actual_bound.height, t.itemInfo.scale_y),
         stroke: "rgba(0,0,0,0)",
-        onMousedown: _[3] || (_[3] = (G) => C(l(ne).Left, G))
+        onMousedown: Z[3] || (Z[3] = (G) => c(n(ae).Left, G))
       }, null, 44, I0), [
-        [Le, l(s)]
+        [We, n(s)]
       ]),
-      Ze(d("rect", {
+      Ve(d("rect", {
         id: "resize_r",
         width: "8",
         height: "8",
-        fill: l(a),
-        style: ie({ cursor: b(135).cursor, "vector-effect": "non-scaling-stroke" }),
+        fill: n(a),
+        style: se({ cursor: p(135).cursor, "vector-effect": "non-scaling-stroke" }),
         "pointer-events": "all",
-        x: t.itemInfo.actual_bound.x - l(g) + t.itemInfo.actual_bound.width + l(be)(t.itemInfo.actual_bound.width, t.itemInfo.scale_x),
-        y: t.itemInfo.actual_bound.y - l(g) + t.itemInfo.actual_bound.height * t.itemInfo.scale_y / 2 - l(be)(t.itemInfo.actual_bound.height, t.itemInfo.scale_y),
+        x: t.itemInfo.actual_bound.x - n(g) + t.itemInfo.actual_bound.width + n(be)(t.itemInfo.actual_bound.width, t.itemInfo.scale_x),
+        y: t.itemInfo.actual_bound.y - n(g) + t.itemInfo.actual_bound.height * t.itemInfo.scale_y / 2 - n(be)(t.itemInfo.actual_bound.height, t.itemInfo.scale_y),
         stroke: "rgba(0,0,0,0)",
-        onMousedown: _[4] || (_[4] = (G) => C(l(ne).Right, G))
+        onMousedown: Z[4] || (Z[4] = (G) => c(n(ae).Right, G))
       }, null, 44, c0), [
-        [Le, l(s)]
+        [We, n(s)]
       ]),
-      Ze(d("rect", {
+      Ve(d("rect", {
         id: "resize_bl",
         width: "8",
         height: "8",
-        fill: l(a),
-        style: ie({ cursor: b(270).cursor, "vector-effect": "non-scaling-stroke" }),
+        fill: n(a),
+        style: se({ cursor: p(270).cursor, "vector-effect": "non-scaling-stroke" }),
         "pointer-events": "all",
-        x: t.itemInfo.actual_bound.x - l(g) - l(be)(t.itemInfo.actual_bound.width, t.itemInfo.scale_x),
-        y: t.itemInfo.actual_bound.y - l(g) + t.itemInfo.actual_bound.height * t.itemInfo.scale_y - l(be)(t.itemInfo.actual_bound.height, t.itemInfo.scale_y),
+        x: t.itemInfo.actual_bound.x - n(g) - n(be)(t.itemInfo.actual_bound.width, t.itemInfo.scale_x),
+        y: t.itemInfo.actual_bound.y - n(g) + t.itemInfo.actual_bound.height * t.itemInfo.scale_y - n(be)(t.itemInfo.actual_bound.height, t.itemInfo.scale_y),
         stroke: "rgba(0,0,0,0)",
-        onMousedown: _[5] || (_[5] = (G) => C(l(ne).BottomLeft, G))
+        onMousedown: Z[5] || (Z[5] = (G) => c(n(ae).BottomLeft, G))
       }, null, 44, C0), [
-        [Le, l(s)]
+        [We, n(s)]
       ]),
-      Ze(d("rect", {
+      Ve(d("rect", {
         id: "resize_bc",
         width: "8",
         height: "8",
-        fill: l(a),
-        style: ie({ cursor: b(225).cursor, "vector-effect": "non-scaling-stroke" }),
+        fill: n(a),
+        style: se({ cursor: p(225).cursor, "vector-effect": "non-scaling-stroke" }),
         "pointer-events": "all",
-        x: t.itemInfo.actual_bound.x - l(g) + t.itemInfo.actual_bound.width / 2,
-        y: t.itemInfo.actual_bound.y - l(g) + t.itemInfo.actual_bound.height + l(be)(t.itemInfo.actual_bound.height, t.itemInfo.scale_y),
+        x: t.itemInfo.actual_bound.x - n(g) + t.itemInfo.actual_bound.width / 2,
+        y: t.itemInfo.actual_bound.y - n(g) + t.itemInfo.actual_bound.height + n(be)(t.itemInfo.actual_bound.height, t.itemInfo.scale_y),
         stroke: "rgba(0,0,0,0)",
-        onMousedown: _[6] || (_[6] = (G) => C(l(ne).BottomCenter, G))
+        onMousedown: Z[6] || (Z[6] = (G) => c(n(ae).BottomCenter, G))
       }, null, 44, d0), [
-        [Le, l(s)]
+        [We, n(s)]
       ]),
-      Ze(d("rect", {
+      Ve(d("rect", {
         id: "resize_br",
         width: "8",
         height: "8",
-        fill: l(a),
-        style: ie({ cursor: b(180).cursor, "vector-effect": "non-scaling-stroke" }),
+        fill: n(a),
+        style: se({ cursor: p(180).cursor, "vector-effect": "non-scaling-stroke" }),
         "pointer-events": "all",
-        x: t.itemInfo.actual_bound.x - l(g) + t.itemInfo.actual_bound.width + l(be)(t.itemInfo.actual_bound.width, t.itemInfo.scale_x),
-        y: t.itemInfo.actual_bound.y - l(g) + t.itemInfo.actual_bound.height + l(be)(t.itemInfo.actual_bound.height, t.itemInfo.scale_y),
+        x: t.itemInfo.actual_bound.x - n(g) + t.itemInfo.actual_bound.width + n(be)(t.itemInfo.actual_bound.width, t.itemInfo.scale_x),
+        y: t.itemInfo.actual_bound.y - n(g) + t.itemInfo.actual_bound.height + n(be)(t.itemInfo.actual_bound.height, t.itemInfo.scale_y),
         stroke: "rgba(0,0,0,0)",
-        onMousedown: _[7] || (_[7] = (G) => C(l(ne).BottomRight, G))
+        onMousedown: Z[7] || (Z[7] = (G) => c(n(ae).BottomRight, G))
       }, null, 44, r0), [
-        [Le, l(s)]
+        [We, n(s)]
       ])
     ]));
   }
 });
-const u0 = /* @__PURE__ */ he(A0, [["__scopeId", "data-v-521db5d2"]]), p0 = ["fill"], b0 = ["cx", "cy", "r"], m0 = ["cx", "cy", "r"], h0 = ["cx", "cy", "r"], f0 = ["cx", "cy", "r"], v0 = ["cx", "cy", "r"], y0 = ["cx", "cy", "r"], _0 = ["cx", "cy", "r"], Z0 = ["cx", "cy", "r"], G0 = /* @__PURE__ */ D({
+const u0 = /* @__PURE__ */ ye(A0, [["__scopeId", "data-v-521db5d2"]]), p0 = ["fill"], b0 = ["cx", "cy", "r"], m0 = ["cx", "cy", "r"], h0 = ["cx", "cy", "r"], f0 = ["cx", "cy", "r"], v0 = ["cx", "cy", "r"], y0 = ["cx", "cy", "r"], _0 = ["cx", "cy", "r"], Z0 = ["cx", "cy", "r"], G0 = /* @__PURE__ */ $({
   __name: "connection-panel",
   props: {
     itemInfo: {}
   },
   setup(o) {
-    const t = o, e = K(4), i = K("#ab712e"), n = K(4), g = K(12), a = me(O), c = Pe(O), s = Y(
-      () => t.itemInfo.actual_bound.x + t.itemInfo.actual_bound.width / 2 - e.value + n.value
-    ), C = Y(
-      () => t.itemInfo.actual_bound.y - e.value - be(t.itemInfo.actual_bound.height, t.itemInfo.scale_y) + n.value
-    ), m = Y(
-      () => t.itemInfo.actual_bound.x - e.value + t.itemInfo.actual_bound.width + be(t.itemInfo.actual_bound.width, t.itemInfo.scale_x) + n.value
-    ), b = Y(
-      () => t.itemInfo.actual_bound.y - e.value + t.itemInfo.actual_bound.height * t.itemInfo.scale_y / 2 - be(t.itemInfo.actual_bound.height, t.itemInfo.scale_y) + n.value
-    ), v = Y(
-      () => t.itemInfo.actual_bound.x - e.value + t.itemInfo.actual_bound.width / 2 + n.value
-    ), _ = Y(
-      () => t.itemInfo.actual_bound.y - e.value + t.itemInfo.actual_bound.height + be(t.itemInfo.actual_bound.height, t.itemInfo.scale_y) + n.value
-    ), G = Y(
-      () => t.itemInfo.actual_bound.x - e.value - be(t.itemInfo.actual_bound.width, t.itemInfo.scale_x) + n.value
-    ), F = Y(
-      () => t.itemInfo.actual_bound.y - e.value + t.itemInfo.actual_bound.height * t.itemInfo.scale_y / 2 - be(t.itemInfo.actual_bound.height, t.itemInfo.scale_y) + n.value
-    ), f = (z, X) => {
-      var J;
-      a.intention === L.SetConnectionLineNode && (z.stopPropagation(), (J = a.handle_svg_info) != null && J.info.bind_anchors && a.connection_line_node_info && (a.connection_line_node_info.point_index === 0 ? a.handle_svg_info.info.bind_anchors.start = {
+    const t = o, e = K(4), i = K("#ab712e"), l = K(4), g = K(12), a = ve(Q), I = Pe(Q), s = M(
+      () => t.itemInfo.actual_bound.x + t.itemInfo.actual_bound.width / 2 - e.value + l.value
+    ), c = M(
+      () => t.itemInfo.actual_bound.y - e.value - be(t.itemInfo.actual_bound.height, t.itemInfo.scale_y) + l.value
+    ), b = M(
+      () => t.itemInfo.actual_bound.x - e.value + t.itemInfo.actual_bound.width + be(t.itemInfo.actual_bound.width, t.itemInfo.scale_x) + l.value
+    ), p = M(
+      () => t.itemInfo.actual_bound.y - e.value + t.itemInfo.actual_bound.height * t.itemInfo.scale_y / 2 - be(t.itemInfo.actual_bound.height, t.itemInfo.scale_y) + l.value
+    ), y = M(
+      () => t.itemInfo.actual_bound.x - e.value + t.itemInfo.actual_bound.width / 2 + l.value
+    ), Z = M(
+      () => t.itemInfo.actual_bound.y - e.value + t.itemInfo.actual_bound.height + be(t.itemInfo.actual_bound.height, t.itemInfo.scale_y) + l.value
+    ), G = M(
+      () => t.itemInfo.actual_bound.x - e.value - be(t.itemInfo.actual_bound.width, t.itemInfo.scale_x) + l.value
+    ), N = M(
+      () => t.itemInfo.actual_bound.y - e.value + t.itemInfo.actual_bound.height * t.itemInfo.scale_y / 2 - be(t.itemInfo.actual_bound.height, t.itemInfo.scale_y) + l.value
+    ), v = (Y, X) => {
+      var T;
+      a.intention === L.SetConnectionLineNode && (Y.stopPropagation(), (T = a.handle_svg_info) != null && T.info.bind_anchors && a.connection_line_node_info && (a.connection_line_node_info.point_index === 0 ? a.handle_svg_info.info.bind_anchors.start = {
         type: X,
         target_id: t.itemInfo.id
       } : a.connection_line_node_info.point_index === a.handle_svg_info.info.props.point_position.val.length - 1 && (a.handle_svg_info.info.bind_anchors.end = {
         type: X,
         target_id: t.itemInfo.id
-      }), a.intention = L.None, a.setHandleSvgInfo(null), l1(function() {
-        Se(t.itemInfo);
+      }), a.intention = L.None, a.setHandleSvgInfo(null), n1(function() {
+        Ye(t.itemInfo);
       })));
-    }, y = (z, X) => {
-      var J;
-      z.stopPropagation(), a.intention === L.None ? (ht(z, X, t.itemInfo), a.handle_svg_info && (a.handle_svg_info.info.props.point_position.val.length !== 1 ? a.handle_svg_info.info.props.point_position.val.push({
-        x: a.mouse_info.new_position_x - a.mouse_info.position_x - c.center_offset.x,
-        y: a.mouse_info.new_position_y - a.mouse_info.position_y - c.center_offset.y
+    }, _ = (Y, X) => {
+      var T;
+      Y.stopPropagation(), a.intention === L.None ? (ht(Y, X, t.itemInfo), a.handle_svg_info && (a.handle_svg_info.info.props.point_position.val.length !== 1 ? a.handle_svg_info.info.props.point_position.val.push({
+        x: a.mouse_info.new_position_x - a.mouse_info.position_x - I.center_offset.x,
+        y: a.mouse_info.new_position_y - a.mouse_info.position_y - I.center_offset.y
       }) : a.handle_svg_info.info.props.point_position.val.push({
         x: 0,
         y: 0
-      }))) : a.intention === L.Connection && (z.stopPropagation(), (J = a.handle_svg_info) != null && J.info.bind_anchors && (a.handle_svg_info.info.bind_anchors.end = {
+      }))) : a.intention === L.Connection && (Y.stopPropagation(), (T = a.handle_svg_info) != null && T.info.bind_anchors && (a.handle_svg_info.info.bind_anchors.end = {
         type: X,
         target_id: t.itemInfo.id
-      }, a.intention = L.None, a.setHandleSvgInfo(null), l1(function() {
-        Se(t.itemInfo);
+      }, a.intention = L.None, a.setHandleSvgInfo(null), n1(function() {
+        Ye(t.itemInfo);
       })));
     };
-    return (z, X) => (p(), w("g", {
+    return (Y, X) => (u(), B("g", {
       style: { "vector-effect": "non-scaling-stroke" },
       class: "connect-points",
-      fill: l(i),
+      fill: n(i),
       "stroke-width": "2",
       stroke: "rgba(0,0,0,0)"
     }, [
       d("g", {
-        onMousedown: X[0] || (X[0] = (J) => y(J, l(xe).TopCenter)),
-        onMouseup: X[1] || (X[1] = (J) => f(J, l(xe).TopCenter))
+        onMousedown: X[0] || (X[0] = (T) => _(T, n(Xe).TopCenter)),
+        onMouseup: X[1] || (X[1] = (T) => v(T, n(Xe).TopCenter))
       }, [
         d("circle", {
           class: "out-circle",
-          cx: l(s),
-          cy: l(C),
-          r: l(g),
+          cx: n(s),
+          cy: n(c),
+          r: n(g),
           "fill-opacity": ".3"
         }, null, 8, b0),
         d("circle", {
           id: "connection_tc",
-          cx: l(s),
-          cy: l(C),
-          r: l(n),
+          cx: n(s),
+          cy: n(c),
+          r: n(l),
           "pointer-events": "all"
         }, null, 8, m0)
       ], 32),
       d("g", {
-        onMousedown: X[2] || (X[2] = (J) => y(J, l(xe).Right)),
-        onMouseup: X[3] || (X[3] = (J) => f(J, l(xe).Right))
+        onMousedown: X[2] || (X[2] = (T) => _(T, n(Xe).Right)),
+        onMouseup: X[3] || (X[3] = (T) => v(T, n(Xe).Right))
       }, [
         d("circle", {
           class: "out-circle",
-          cx: l(m),
-          cy: l(b),
-          r: l(g),
+          cx: n(b),
+          cy: n(p),
+          r: n(g),
           "fill-opacity": ".3"
         }, null, 8, h0),
         d("circle", {
           id: "connection_r",
-          cx: l(m),
-          cy: l(b),
-          r: l(n),
+          cx: n(b),
+          cy: n(p),
+          r: n(l),
           "pointer-events": "all"
         }, null, 8, f0)
       ], 32),
       d("g", {
-        onMousedown: X[4] || (X[4] = (J) => y(J, l(xe).BottomCenter)),
-        onMouseup: X[5] || (X[5] = (J) => f(J, l(xe).BottomCenter))
+        onMousedown: X[4] || (X[4] = (T) => _(T, n(Xe).BottomCenter)),
+        onMouseup: X[5] || (X[5] = (T) => v(T, n(Xe).BottomCenter))
       }, [
         d("circle", {
           class: "out-circle",
-          cx: l(v),
-          cy: l(_),
-          r: l(g),
+          cx: n(y),
+          cy: n(Z),
+          r: n(g),
           "fill-opacity": ".3"
         }, null, 8, v0),
         d("circle", {
           id: "connection_bc",
-          cx: l(v),
-          cy: l(_),
-          r: l(n),
+          cx: n(y),
+          cy: n(Z),
+          r: n(l),
           "pointer-events": "all"
         }, null, 8, y0)
       ], 32),
       d("g", {
-        onMousedown: X[6] || (X[6] = (J) => y(J, l(xe).Left)),
-        onMouseup: X[7] || (X[7] = (J) => f(J, l(xe).Left))
+        onMousedown: X[6] || (X[6] = (T) => _(T, n(Xe).Left)),
+        onMouseup: X[7] || (X[7] = (T) => v(T, n(Xe).Left))
       }, [
         d("circle", {
           class: "out-circle",
-          cx: l(G),
-          cy: l(F),
-          r: l(g),
+          cx: n(G),
+          cy: n(N),
+          r: n(g),
           "fill-opacity": ".3"
         }, null, 8, _0),
         d("circle", {
           id: "connection_l",
-          cx: l(G),
-          cy: l(F),
-          r: l(n),
+          cx: n(G),
+          cy: n(N),
+          r: n(l),
           style: { cursor: "crosshair" },
           "pointer-events": "all"
         }, null, 8, Z0)
@@ -3830,42 +3830,42 @@ const u0 = /* @__PURE__ */ he(A0, [["__scopeId", "data-v-521db5d2"]]), p0 = ["fi
     ], 8, p0));
   }
 });
-const L0 = /* @__PURE__ */ he(G0, [["__scopeId", "data-v-065d9ea1"]]), V0 = ["d", "stroke-width"], w0 = ["d", "stroke-width"], B0 = ["id", "d", "stroke", "stroke-width", "stroke-dasharray"], W0 = ["from", "to", "dur", "repeatCount"], x0 = ["d", "stroke", "stroke-width", "stroke-dasharray"], H0 = ["from", "to", "dur", "repeatCount"], R0 = ["r", "fill"], X0 = ["path", "dur", "repeatCount"], S0 = { "data-editor-only": "" }, k0 = ["cx", "cy", "r", "stroke-width"], K0 = ["cx", "cy", "r", "stroke", "onMousedown"], L2 = /* @__PURE__ */ D({
+const L0 = /* @__PURE__ */ ye(G0, [["__scopeId", "data-v-065d9ea1"]]), V0 = ["d", "stroke-width"], w0 = ["d", "stroke-width"], B0 = ["id", "d", "stroke", "stroke-width", "stroke-dasharray"], W0 = ["from", "to", "dur", "repeatCount"], x0 = ["d", "stroke", "stroke-width", "stroke-dasharray"], H0 = ["from", "to", "dur", "repeatCount"], R0 = ["r", "fill"], X0 = ["path", "dur", "repeatCount"], S0 = { "data-editor-only": "" }, k0 = ["cx", "cy", "r", "stroke-width"], K0 = ["cx", "cy", "r", "stroke", "onMousedown"], L2 = /* @__PURE__ */ $({
   __name: "connection-line",
   props: {
     itemInfo: {},
     pointVisible: { type: Boolean, default: !1 }
   },
   setup(o) {
-    const t = o, e = me(O), i = n1(O), n = Pe(O), g = X1("editorPerf", null), a = X1("previewPerf", null), c = Y(() => g ? g.value.animations : a ? a.value.animations : !0), s = (C, m, b, v) => {
+    const t = o, e = ve(Q), i = l1(Q), l = Pe(Q), g = z1("editorPerf", null), a = z1("previewPerf", null), I = M(() => g ? g.value.animations : a ? a.value.animations : !0), s = (c, b, p, y) => {
       if (e.intention === L.Connection)
         return;
       e.setHandleSvgInfo(t.itemInfo);
-      const { clientX: _, clientY: G } = m;
-      m.stopPropagation(), e.connection_line_node_info = {
+      const { clientX: Z, clientY: G } = b;
+      b.stopPropagation(), e.connection_line_node_info = {
         init_pos: {
-          x: b,
-          y: v
+          x: p,
+          y
         },
-        point_index: C
+        point_index: c
       }, e.intention = L.SetConnectionLineNode, e.mouse_info = {
-        state: ye.Down,
-        position_x: Math.round((_ - n.canvasInfo.left) / i.svg.scale),
-        position_y: Math.round((G - n.canvasInfo.top) / i.svg.scale),
+        state: Ae.Down,
+        position_x: Math.round((Z - l.canvasInfo.left) / i.svg.scale),
+        position_y: Math.round((G - l.canvasInfo.top) / i.svg.scale),
         now_position_x: 0,
         now_position_y: 0,
         new_position_x: 0,
         new_position_y: 0
       };
     };
-    return (C, m) => {
-      var b, v, _, G, F, f;
-      return p(), w("g", {
-        style: ie({ cursor: l(e).intention === l(L).Connection ? "crosshair" : "move" })
+    return (c, b) => {
+      var p, y, Z, G, N, v;
+      return u(), B("g", {
+        style: se({ cursor: n(e).intention === n(L).Connection ? "crosshair" : "move" })
       }, [
-        Ze(d("path", {
+        Ve(d("path", {
           "data-editor-only": "",
-          d: l(Y1)(t.itemInfo.props.point_position.val),
+          d: n(J1)(t.itemInfo.props.point_position.val),
           fill: "none",
           "fill-opacity": "0",
           stroke: "#DE4517",
@@ -3873,11 +3873,11 @@ const L0 = /* @__PURE__ */ he(G0, [["__scopeId", "data-v-065d9ea1"]]), V0 = ["d"
           "stroke-linecap": "round",
           "stroke-linejoin": "round"
         }, null, 8, V0), [
-          [Le, t.itemInfo.selected || t.itemInfo.id === ((b = l(e).handle_svg_info) == null ? void 0 : b.info.id)]
+          [We, t.itemInfo.selected || t.itemInfo.id === ((p = n(e).handle_svg_info) == null ? void 0 : p.info.id)]
         ]),
         d("path", {
           "data-editor-only": "",
-          d: l(Y1)(t.itemInfo.props.point_position.val),
+          d: n(J1)(t.itemInfo.props.point_position.val),
           fill: "none",
           "fill-opacity": "0",
           stroke: "#fff",
@@ -3888,26 +3888,26 @@ const L0 = /* @__PURE__ */ he(G0, [["__scopeId", "data-v-065d9ea1"]]), V0 = ["d"
         }, null, 8, w0),
         d("path", {
           id: t.itemInfo.id,
-          d: l(Y1)(t.itemInfo.props.point_position.val),
+          d: n(J1)(t.itemInfo.props.point_position.val),
           fill: "none",
-          stroke: ((v = t.itemInfo.animations) == null ? void 0 : v.type.val) === l(Ee).Electricity ? t.itemInfo.animations.color.val : t.itemInfo.props.stroke.val,
+          stroke: ((y = t.itemInfo.animations) == null ? void 0 : y.type.val) === n(Ee).Electricity ? t.itemInfo.animations.color.val : t.itemInfo.props.stroke.val,
           "stroke-width": t.itemInfo.props["stroke-width"].val,
           "stroke-dashoffset": "0",
-          "stroke-dasharray": ((_ = t.itemInfo.animations) == null ? void 0 : _.type.val) === l(Ee).Electricity ? t.itemInfo.props["stroke-width"].val * 3 : 0,
+          "stroke-dasharray": ((Z = t.itemInfo.animations) == null ? void 0 : Z.type.val) === n(Ee).Electricity ? t.itemInfo.props["stroke-width"].val * 3 : 0,
           "stroke-linejoin": "round"
         }, [
-          l(c) && ((G = t.itemInfo.animations) == null ? void 0 : G.type.val) === l(Ee).Electricity ? (p(), w("animate", {
+          n(I) && ((G = t.itemInfo.animations) == null ? void 0 : G.type.val) === n(Ee).Electricity ? (u(), B("animate", {
             key: 0,
             attributeName: "stroke-dashoffset",
             from: t.itemInfo.animations.reverse.val ? 0 : 1e3,
             to: t.itemInfo.animations.reverse.val ? 1e3 : 0,
             dur: `${t.itemInfo.animations.dur.val}s`,
             repeatCount: t.itemInfo.animations.repeatCount.val
-          }, null, 8, W0)) : U("", !0)
+          }, null, 8, W0)) : D("", !0)
         ], 8, B0),
-        ((F = t.itemInfo.animations) == null ? void 0 : F.type.val) === l(Ee).WaterDrop ? (p(), w("path", {
+        ((N = t.itemInfo.animations) == null ? void 0 : N.type.val) === n(Ee).WaterDrop ? (u(), B("path", {
           key: 0,
-          d: l(Y1)(t.itemInfo.props.point_position.val),
+          d: n(J1)(t.itemInfo.props.point_position.val),
           fill: "none",
           "fill-opacity": "0",
           stroke: t.itemInfo.animations.color.val,
@@ -3917,7 +3917,7 @@ const L0 = /* @__PURE__ */ he(G0, [["__scopeId", "data-v-065d9ea1"]]), V0 = ["d"
           "stroke-linecap": "round",
           "stroke-linejoin": "round"
         }, [
-          l(c) ? (p(), w("animate", {
+          n(I) ? (u(), B("animate", {
             key: 0,
             attributeName: "stroke-dashoffset",
             from: t.itemInfo.animations.reverse.val ? 0 : 1e3,
@@ -3925,55 +3925,55 @@ const L0 = /* @__PURE__ */ he(G0, [["__scopeId", "data-v-065d9ea1"]]), V0 = ["d"
             dur: `${t.itemInfo.animations.dur.val}s`,
             repeatCount: t.itemInfo.animations.repeatCount.val,
             fill: "freeze"
-          }, null, 8, H0)) : U("", !0)
-        ], 8, x0)) : ((f = t.itemInfo.animations) == null ? void 0 : f.type.val) === l(Ee).Track ? (p(), w("circle", {
+          }, null, 8, H0)) : D("", !0)
+        ], 8, x0)) : ((v = t.itemInfo.animations) == null ? void 0 : v.type.val) === n(Ee).Track ? (u(), B("circle", {
           key: 1,
           cx: "0",
           cy: "0",
           r: Math.ceil(t.itemInfo.props["stroke-width"].val * 0.6) + 2,
           fill: t.itemInfo.animations.color.val
         }, [
-          l(c) ? (p(), w("animateMotion", {
+          n(I) ? (u(), B("animateMotion", {
             key: 0,
-            path: l(Y1)(
+            path: n(J1)(
               t.itemInfo.animations.reverse.val ? [...t.itemInfo.props.point_position.val].reverse() : t.itemInfo.props.point_position.val
             ),
             dur: `${t.itemInfo.animations.dur.val}s`,
             repeatCount: t.itemInfo.animations.repeatCount.val
-          }, null, 8, X0)) : U("", !0)
-        ], 8, R0)) : U("", !0),
+          }, null, 8, X0)) : D("", !0)
+        ], 8, R0)) : D("", !0),
         d("g", S0, [
-          (p(!0), w(ae, null, Ae(t.itemInfo.props.point_position.val, (y, z) => {
+          (u(!0), B(ce, null, pe(t.itemInfo.props.point_position.val, (_, Y) => {
             var X;
-            return Ze((p(), w("circle", {
-              key: z,
-              cx: y.x,
-              cy: y.y,
+            return Ve((u(), B("circle", {
+              key: Y,
+              cx: _.x,
+              cy: _.y,
               r: t.itemInfo.props.point_r.val + 1,
               fill: "none",
               "fill-opacity": "0",
               "stroke-width": Math.ceil(t.itemInfo.props.point_r.val * 0.2) + 1,
               stroke: "#DE4517"
             }, null, 8, k0)), [
-              [Le, t.itemInfo.selected || t.itemInfo.id === ((X = l(e).handle_svg_info) == null ? void 0 : X.info.id)]
+              [We, t.itemInfo.selected || t.itemInfo.id === ((X = n(e).handle_svg_info) == null ? void 0 : X.info.id)]
             ]);
           }), 128)),
-          (p(!0), w(ae, null, Ae(t.itemInfo.props.point_position.val, (y, z) => (p(), w("circle", {
-            key: z,
-            cx: y.x,
-            cy: y.y,
+          (u(!0), B(ce, null, pe(t.itemInfo.props.point_position.val, (_, Y) => (u(), B("circle", {
+            key: Y,
+            cx: _.x,
+            cy: _.y,
             r: t.itemInfo.props.point_r.val,
             "stroke-width": "1",
             stroke: t.itemInfo.props.stroke.val,
             fill: "#fff",
             style: { cursor: "pointer" },
-            onMousedown: (X) => s(z, X, y.x, y.y)
+            onMousedown: (X) => s(Y, X, _.x, _.y)
           }, null, 40, K0))), 128))
         ])
       ], 4);
     };
   }
-}), J1 = "http://www.w3.org/2000/svg", z0 = "http://www.w3.org/1999/xlink", Y0 = "http://www.w3.org/1999/xhtml", M0 = [
+}), T1 = "http://www.w3.org/2000/svg", Y0 = "http://www.w3.org/1999/xlink", z0 = "http://www.w3.org/1999/xhtml", M0 = [
   "display",
   "position",
   "top",
@@ -4083,31 +4083,31 @@ const L0 = /* @__PURE__ */ he(G0, [["__scopeId", "data-v-065d9ea1"]]), V0 = ["d"
   "will-change",
   "user-select"
 ]), V2 = (o, t) => {
-  if (o.namespaceURI !== J1) {
+  if (o.namespaceURI !== T1) {
     const g = window.getComputedStyle(o), a = t.style;
-    M0.forEach((c) => {
-      if (F0.has(c))
+    M0.forEach((I) => {
+      if (F0.has(I))
         return;
-      const s = g.getPropertyValue(c);
-      s && a.setProperty(c, s);
+      const s = g.getPropertyValue(I);
+      s && a.setProperty(I, s);
     });
   }
-  const e = o.children, i = t.children, n = Math.min(e.length, i.length);
-  for (let g = 0; g < n; g++)
+  const e = o.children, i = t.children, l = Math.min(e.length, i.length);
+  for (let g = 0; g < l; g++)
     V2(e[g], i[g]);
 }, J0 = (o, t) => {
-  const e = Array.from(o.querySelectorAll("foreignObject")), i = Array.from(t.querySelectorAll("foreignObject")), n = Math.min(e.length, i.length);
-  for (let g = 0; g < n; g++) {
-    const a = e[g].firstElementChild, c = i[g].firstElementChild;
-    a && c && V2(a, c);
+  const e = Array.from(o.querySelectorAll("foreignObject")), i = Array.from(t.querySelectorAll("foreignObject")), l = Math.min(e.length, i.length);
+  for (let g = 0; g < l; g++) {
+    const a = e[g].firstElementChild, I = i[g].firstElementChild;
+    a && I && V2(a, I);
   }
 }, N0 = (o, t) => {
-  const e = Array.from(o.querySelectorAll("foreignObject canvas")), i = Array.from(t.querySelectorAll("foreignObject canvas")), n = Math.min(e.length, i.length);
-  for (let g = 0; g < n; g++) {
-    const a = e[g], c = i[g];
+  const e = Array.from(o.querySelectorAll("foreignObject canvas")), i = Array.from(t.querySelectorAll("foreignObject canvas")), l = Math.min(e.length, i.length);
+  for (let g = 0; g < l; g++) {
+    const a = e[g], I = i[g];
     try {
-      const s = a.toDataURL("image/png"), C = window.getComputedStyle(a), m = document.createElementNS(Y0, "img");
-      m.setAttribute("src", s), m.setAttribute("style", `display:block;width:${C.width};height:${C.height};`), c.replaceWith(m);
+      const s = a.toDataURL("image/png"), c = window.getComputedStyle(a), b = document.createElementNS(z0, "img");
+      b.setAttribute("src", s), b.setAttribute("style", `display:block;width:${c.width};height:${c.height};`), I.replaceWith(b);
     } catch (s) {
       console.warn("export svg: canvas 转换失败", s);
     }
@@ -4125,18 +4125,18 @@ const L0 = /* @__PURE__ */ he(G0, [["__scopeId", "data-v-065d9ea1"]]), V0 = ["d"
     const a = g.getAttribute("id");
     a && i.add(a);
   });
-  const n = Array.from(e);
-  for (; n.length > 0; ) {
-    const g = n.shift();
+  const l = Array.from(e);
+  for (; l.length > 0; ) {
+    const g = l.shift();
     if (!g || i.has(g))
       continue;
     const a = document.getElementById(g);
     if (!a)
       continue;
     t.appendChild(a.cloneNode(!0)), i.add(g);
-    const c = /* @__PURE__ */ new Set();
-    Et(a, c), c.forEach((s) => {
-      !i.has(s) && n.indexOf(s) < 0 && n.push(s);
+    const I = /* @__PURE__ */ new Set();
+    Et(a, I), I.forEach((s) => {
+      !i.has(s) && l.indexOf(s) < 0 && l.push(s);
     });
   }
 }, T0 = (o) => {
@@ -4144,14 +4144,14 @@ const L0 = /* @__PURE__ */ he(G0, [["__scopeId", "data-v-065d9ea1"]]), V0 = ["d"
 }, j0 = (o) => {
   if (!o)
     return null;
-  const t = Array.from(o.querySelectorAll("[data-editor-only]")), e = t.map((n) => n.style.display);
+  const t = Array.from(o.querySelectorAll("[data-editor-only]")), e = t.map((l) => l.style.display);
   let i = null;
   try {
-    t.forEach((n) => n.style.display = "none"), i = o.getBBox();
-  } catch (n) {
-    console.warn("export svg: 计算画布内容边界失败", n);
+    t.forEach((l) => l.style.display = "none"), i = o.getBBox();
+  } catch (l) {
+    console.warn("export svg: 计算画布内容边界失败", l);
   } finally {
-    t.forEach((n, g) => n.style.display = e[g]);
+    t.forEach((l, g) => l.style.display = e[g]);
   }
   return i;
 }, O0 = (o) => {
@@ -4174,7 +4174,7 @@ const L0 = /* @__PURE__ */ he(G0, [["__scopeId", "data-v-065d9ea1"]]), V0 = ["d"
   const t = O0(o);
   if (t.size === 0)
     return "";
-  const e = [], i = /* @__PURE__ */ new Set(), n = [];
+  const e = [], i = /* @__PURE__ */ new Set(), l = [];
   return Array.from(document.styleSheets).forEach((g) => {
     let a = null;
     try {
@@ -4182,63 +4182,63 @@ const L0 = /* @__PURE__ */ he(G0, [["__scopeId", "data-v-065d9ea1"]]), V0 = ["d"
     } catch {
       a = null;
     }
-    a && (w2(a, (c) => {
-      if (!D0(c.selectorText, t))
+    a && (w2(a, (I) => {
+      if (!D0(I.selectorText, t))
         return;
-      e.push(c.cssText);
-      const s = c.style.getPropertyValue("animation-name");
-      s && s.split(",").forEach((C) => i.add(C.trim()));
-    }), Array.from(a).forEach((c) => {
-      c instanceof CSSKeyframesRule && i.has(c.name) && n.push(c.cssText);
+      e.push(I.cssText);
+      const s = I.style.getPropertyValue("animation-name");
+      s && s.split(",").forEach((c) => i.add(c.trim()));
+    }), Array.from(a).forEach((I) => {
+      I instanceof CSSKeyframesRule && i.has(I.name) && l.push(I.cssText);
     }));
   }), e.length === 0 ? "" : (i.forEach((g) => {
-    n.some((a) => a.indexOf(`@keyframes ${g}`) > -1) || Array.from(document.styleSheets).forEach((a) => {
-      let c = null;
+    l.some((a) => a.indexOf(`@keyframes ${g}`) > -1) || Array.from(document.styleSheets).forEach((a) => {
+      let I = null;
       try {
-        c = a.cssRules;
+        I = a.cssRules;
       } catch {
-        c = null;
+        I = null;
       }
-      c && Array.from(c).forEach((s) => {
-        s instanceof CSSKeyframesRule && s.name === g && n.push(s.cssText);
+      I && Array.from(I).forEach((s) => {
+        s instanceof CSSKeyframesRule && s.name === g && l.push(s.cssText);
       });
     });
-  }), [...e, ...n].join(`
+  }), [...e, ...l].join(`
 `));
 }, P0 = (o, t = {}) => {
   const e = t.padding ?? 20, i = o.querySelector("[data-canvas-content]");
-  let n = j0(i);
-  if (!n || !n.width || !n.height) {
-    const b = o.getBoundingClientRect();
-    n = {
+  let l = j0(i);
+  if (!l || !l.width || !l.height) {
+    const p = o.getBoundingClientRect();
+    l = {
       x: 0,
       y: 0,
-      width: b.width || 800,
-      height: b.height || 600
+      width: p.width || 800,
+      height: p.height || 600
     };
   }
   const g = {
-    x: n.x - e,
-    y: n.y - e,
-    width: n.width + e * 2,
-    height: n.height + e * 2
+    x: l.x - e,
+    y: l.y - e,
+    width: l.width + e * 2,
+    height: l.height + e * 2
   }, a = o.cloneNode(!0);
   T0(a);
-  const c = a.querySelector("[data-canvas-content]");
-  c && (c.removeAttribute("transform"), c.removeAttribute("data-canvas-content")), N0(o, a), J0(o, a), a.setAttribute("xmlns", J1), a.setAttribute("xmlns:xlink", z0), a.setAttribute("width", `${Math.ceil(g.width)}`), a.setAttribute("height", `${Math.ceil(g.height)}`), a.setAttribute("viewBox", `${g.x} ${g.y} ${g.width} ${g.height}`);
-  const s = a.querySelector("defs") || document.createElementNS(J1, "defs");
+  const I = a.querySelector("[data-canvas-content]");
+  I && (I.removeAttribute("transform"), I.removeAttribute("data-canvas-content")), N0(o, a), J0(o, a), a.setAttribute("xmlns", T1), a.setAttribute("xmlns:xlink", Y0), a.setAttribute("width", `${Math.ceil(g.width)}`), a.setAttribute("height", `${Math.ceil(g.height)}`), a.setAttribute("viewBox", `${g.x} ${g.y} ${g.width} ${g.height}`);
+  const s = a.querySelector("defs") || document.createElementNS(T1, "defs");
   s.parentNode || a.insertBefore(s, a.firstChild), U0(a, s);
-  const C = document.createElementNS(J1, "style"), m = E0(o);
-  if (C.textContent = `.common-ani{transform-box:fill-box;}${m ? `
-${m}` : ""}`, s.appendChild(C), t.background) {
-    const b = document.createElementNS(J1, "rect");
-    b.setAttribute("x", `${g.x}`), b.setAttribute("y", `${g.y}`), b.setAttribute("width", `${g.width}`), b.setAttribute("height", `${g.height}`), b.setAttribute("fill", t.background), a.insertBefore(b, a.firstChild);
+  const c = document.createElementNS(T1, "style"), b = E0(o);
+  if (c.textContent = `.common-ani{transform-box:fill-box;}${b ? `
+${b}` : ""}`, s.appendChild(c), t.background) {
+    const p = document.createElementNS(T1, "rect");
+    p.setAttribute("x", `${g.x}`), p.setAttribute("y", `${g.y}`), p.setAttribute("width", `${g.width}`), p.setAttribute("height", `${g.height}`), p.setAttribute("fill", t.background), a.insertBefore(p, a.firstChild);
   }
   return `<?xml version="1.0" encoding="UTF-8"?>
 ${new XMLSerializer().serializeToString(a)}`;
 }, Q0 = (o, t) => {
-  const e = (t || `svg-canvas-${Date.now()}`).replace(/\.svg$/i, ""), i = new Blob([o], { type: "image/svg+xml;charset=utf-8" }), n = URL.createObjectURL(i), g = document.createElement("a");
-  g.href = n, g.download = `${e}.svg`, g.style.display = "none", document.body.appendChild(g), g.click(), document.body.removeChild(g), setTimeout(() => URL.revokeObjectURL(n), 0);
+  const e = (t || `svg-canvas-${Date.now()}`).replace(/\.svg$/i, ""), i = new Blob([o], { type: "image/svg+xml;charset=utf-8" }), l = URL.createObjectURL(i), g = document.createElement("a");
+  g.href = l, g.download = `${e}.svg`, g.style.display = "none", document.body.appendChild(g), g.click(), document.body.removeChild(g), setTimeout(() => URL.revokeObjectURL(l), 0);
 }, $0 = (o, t = {}) => {
   const e = P0(o, t);
   Q0(e, t.filename);
@@ -4275,8 +4275,8 @@ const Pt = {
 }, W2 = () => {
   if (typeof window > "u" || typeof navigator > "u")
     return "medium";
-  const o = navigator, t = o.hardwareConcurrency || 2, e = typeof o.deviceMemory == "number", i = e ? o.deviceMemory : 4, n = window.devicePixelRatio || 1, g = /Android|iPhone|iPad|iPod|Mobile/i.test(o.userAgent || "");
-  return t <= 2 || e && i <= 2 || e && t <= 4 && i <= 4 || n <= 1 && t <= 4 ? "low" : t <= 4 || e && i <= 4 || g ? "medium" : "high";
+  const o = navigator, t = o.hardwareConcurrency || 2, e = typeof o.deviceMemory == "number", i = e ? o.deviceMemory : 4, l = window.devicePixelRatio || 1, g = /Android|iPhone|iPad|iPod|Mobile/i.test(o.userAgent || "");
+  return t <= 2 || e && i <= 2 || e && t <= 4 && i <= 4 || l <= 1 && t <= 4 ? "low" : t <= 4 || e && i <= 4 || g ? "medium" : "high";
 }, Qt = (o) => {
   const t = !(o != null && o.level) || o.level === "auto" ? W2() : o.level, e = Pt[t] ?? Pt.medium;
   return {
@@ -4315,23 +4315,23 @@ const Pt = {
     fpsLimit: (o == null ? void 0 : o.fpsLimit) ?? e.fpsLimit,
     clipThreshold: (o == null ? void 0 : o.clipThreshold) ?? e.clipThreshold
   };
-}, U1 = (o, t) => {
-  let e = null, i = 0, n = null;
+}, O1 = (o, t) => {
+  let e = null, i = 0, l = null;
   const g = t > 0 ? 1e3 / t : 0, a = () => {
     e = null;
-    const C = n;
-    n = null, C && (i = performance.now(), o(...C));
-  }, c = () => {
-    if (e = null, n && g > 0 && performance.now() - i < g) {
-      e = requestAnimationFrame(c);
+    const c = l;
+    l = null, c && (i = performance.now(), o(...c));
+  }, I = () => {
+    if (e = null, l && g > 0 && performance.now() - i < g) {
+      e = requestAnimationFrame(I);
       return;
     }
     a();
-  }, s = (...C) => {
-    n = C, e === null && (e = requestAnimationFrame(c));
+  }, s = (...c) => {
+    l = c, e === null && (e = requestAnimationFrame(I));
   };
   return s.cancel = () => {
-    e !== null && (cancelAnimationFrame(e), e = null), n = null;
+    e !== null && (cancelAnimationFrame(e), e = null), l = null;
   }, s.flush = () => {
     e !== null && (cancelAnimationFrame(e), e = null), a();
   }, s;
@@ -4339,34 +4339,34 @@ const Pt = {
   const t = o.actual_bound;
   if (!t || !t.width || !t.height)
     return { x: o.x, y: o.y, width: 0, height: 0 };
-  const e = Math.abs(o.scale_x || 1), i = Math.abs(o.scale_y || 1), n = o.rotate || 0, g = `${o.x}|${o.y}|${t.x}|${t.y}|${t.width}|${t.height}|${e}|${i}|${n}`, a = e2.get(o);
+  const e = Math.abs(o.scale_x || 1), i = Math.abs(o.scale_y || 1), l = o.rotate || 0, g = `${o.x}|${o.y}|${t.x}|${t.y}|${t.width}|${t.height}|${e}|${i}|${l}`, a = e2.get(o);
   if (a && a.signature === g)
     return a.value;
-  const c = t.x + t.width / 2, s = t.y + t.height / 2, C = t.width * e / 2, m = t.height * i / 2;
-  let b = C * 2, v = m * 2;
-  if (n) {
-    const G = n * Math.PI / 180, F = Math.abs(Math.cos(G)), f = Math.abs(Math.sin(G));
-    b = C * 2 * F + m * 2 * f, v = C * 2 * f + m * 2 * F;
+  const I = t.x + t.width / 2, s = t.y + t.height / 2, c = t.width * e / 2, b = t.height * i / 2;
+  let p = c * 2, y = b * 2;
+  if (l) {
+    const G = l * Math.PI / 180, N = Math.abs(Math.cos(G)), v = Math.abs(Math.sin(G));
+    p = c * 2 * N + b * 2 * v, y = c * 2 * v + b * 2 * N;
   }
-  const _ = {
-    x: o.x + c - b / 2,
-    y: o.y + s - v / 2,
-    width: b,
-    height: v
+  const Z = {
+    x: o.x + I - p / 2,
+    y: o.y + s - y / 2,
+    width: p,
+    height: y
   };
-  return e2.set(o, { signature: g, value: _ }), _;
+  return e2.set(o, { signature: g, value: Z }), Z;
 }, H2 = (o, t, e, i = 300) => {
   if (o.length <= e)
     return o;
-  const n = t.left - i, g = t.top - i, a = t.right + i, c = t.bottom + i;
+  const l = t.left - i, g = t.top - i, a = t.right + i, I = t.bottom + i;
   return o.filter((s) => {
-    var m, b;
-    if (!((m = s.actual_bound) != null && m.width) || !((b = s.actual_bound) != null && b.height))
+    var b, p;
+    if (!((b = s.actual_bound) != null && b.width) || !((p = s.actual_bound) != null && p.height))
       return !0;
-    const C = q0(s);
-    return C.x < a && C.x + C.width > n && C.y < c && C.y + C.height > g;
+    const c = q0(s);
+    return c.x < a && c.x + c.width > l && c.y < I && c.y + c.height > g;
   });
-}, el = { class: "coverLayer" }, tl = {
+}, en = { class: "coverLayer" }, tn = {
   id: "pattern_grid",
   "data-editor-only": "",
   patternUnits: "userSpaceOnUse",
@@ -4374,47 +4374,47 @@ const Pt = {
   y: "0",
   width: "20",
   height: "20"
-}, ol = ["stroke"], ll = ["stroke"], nl = ["stroke"], il = ["stroke"], gl = {
+}, on = ["stroke"], nn = ["stroke"], ln = ["stroke"], gn = ["stroke"], an = {
   key: 0,
   "data-editor-only": "",
   width: "100%",
   height: "100%",
   fill: "url(#pattern_grid)"
-}, al = ["transform"], sl = ["transform"], Il = ["transform", "onMousedown", "onMouseup", "onMouseenter", "onMouseleave", "onContextmenu"], cl = ["xlink:href", "width", "height", "id", "transform"], Cl = ["id"], dl = ["id", "x1", "y1", "x2", "y2"], rl = ["id"], Al = ["x", "y", "height", "width"], ul = ["onClick"], pl = { class: "shortcut" }, bl = 200, t2 = 0.5, o2 = 300, ml = /* @__PURE__ */ D({
+}, sn = ["transform"], In = ["transform"], cn = ["transform", "onMousedown", "onMouseup", "onMouseenter", "onMouseleave", "onContextmenu"], Cn = ["xlink:href", "width", "height", "id", "transform"], dn = ["id"], rn = ["id", "x1", "y1", "x2", "y2"], An = ["id"], un = ["x", "y", "height", "width"], pn = ["onClick"], bn = { class: "shortcut" }, mn = 200, t2 = 0.5, o2 = 300, hn = /* @__PURE__ */ $({
   __name: "center-panel",
   props: {
     vueComp: {}
   },
   setup(o, { expose: t }) {
-    wt((u) => ({
-      "71f11f7a": l(Me)
+    wt((h) => ({
+      "71f11f7a": n(Fe)
     }));
-    const e = me(O), i = n1(O), n = Pe(O), g = Ct(O), a = l6(O), c = o, s = X1("editorPerf", Y(() => ({
+    const e = ve(Q), i = l1(Q), l = Pe(Q), g = dt(Q), a = n6(Q), I = o, s = z1("editorPerf", M(() => ({
       level: B2.Medium,
       animations: !0,
       fpsLimit: 30,
       clipThreshold: 300
-    }))), C = Y(() => s.value.level === "low"), m = K(!1), b = K(0), v = K(0), _ = K(1), G = Y(
-      () => m.value ? b.value : n.center_offset.x
-    ), F = Y(
-      () => m.value ? v.value : n.center_offset.y
-    ), f = Y(
-      () => m.value ? _.value : i.svg.scale
+    }))), c = M(() => s.value.level === "low"), b = K(!1), p = K(0), y = K(0), Z = K(1), G = M(
+      () => b.value ? p.value : l.center_offset.x
+    ), N = M(
+      () => b.value ? y.value : l.center_offset.y
+    ), v = M(
+      () => b.value ? Z.value : i.svg.scale
     );
-    let y = null;
-    const z = () => {
-      !C.value || m.value || (b.value = n.center_offset.x, v.value = n.center_offset.y, _.value = i.svg.scale, m.value = !0);
+    let _ = null;
+    const Y = () => {
+      !c.value || b.value || (p.value = l.center_offset.x, y.value = l.center_offset.y, Z.value = i.svg.scale, b.value = !0);
     }, X = () => {
-      y && (clearTimeout(y), y = null), m.value = !1;
+      _ && (clearTimeout(_), _ = null), b.value = !1;
     };
-    y2(c.vueComp), S1(xt, Ht());
-    const J = K(), oe = K(), Ve = K(), ke = {
+    y2(I.vueComp), M1(xt, Ht());
+    const T = K(), ie = K(), Be = K(), ze = {
       MoveCanvas: "grab",
       Rotate: "url('/src/assets/icons/rotate.svg'), auto",
       Connection: "crosshair",
       SetConnectionLineNode: "crosshair"
-    }, Me = Y(() => Object.keys(ke).indexOf(e.intention) > -1 ? ke[e.intention] : "default"), de = a1({
-      handle_panel: Y(
+    }, Fe = M(() => Object.keys(ze).indexOf(e.intention) > -1 ? ze[e.intention] : "default"), de = u1({
+      handle_panel: M(
         () => e.intention === L.Select || e.intention === L.Zoom || e.intention === L.Rotate
       ),
       connection_panel: !1,
@@ -4423,7 +4423,7 @@ const Pt = {
         info: null,
         index: -1
       }
-    }), B = K({
+    }), W = K({
       a: {
         x: 0,
         y: 0
@@ -4432,75 +4432,75 @@ const Pt = {
         x: 0,
         y: 0
       }
-    }), E = Y(() => e.intention === L.SelectArea && B.value.b.x && B.value.b.y ? {
-      with: Math.abs(B.value.b.x - B.value.a.x),
-      height: Math.abs(B.value.b.y - B.value.a.y),
-      x: B.value.a.x < B.value.b.x ? B.value.a.x : B.value.b.x,
-      y: B.value.a.y < B.value.b.y ? B.value.a.y : B.value.b.y
+    }), j = M(() => e.intention === L.SelectArea && W.value.b.x && W.value.b.y ? {
+      with: Math.abs(W.value.b.x - W.value.a.x),
+      height: Math.abs(W.value.b.y - W.value.a.y),
+      x: W.value.a.x < W.value.b.x ? W.value.a.x : W.value.b.x,
+      y: W.value.a.y < W.value.b.y ? W.value.a.y : W.value.b.y
     } : {
       with: 0,
       height: 0,
       x: 0,
       y: 0
-    }), le = Y(() => {
-      let u = 0;
-      for (let V of e.done_json)
-        V.selected && u++;
-      return u > 0;
+    }), te = M(() => {
+      let h = 0;
+      for (let z of e.done_json)
+        z.selected && h++;
+      return h > 0;
     });
-    let ue = !1, Fe = !1;
-    const Re = a1({ left: 0, top: 0, scale: 1 }), je = o2 / 2, p1 = () => {
-      const u = i.svg.scale || 1;
-      Re.scale = u, Re.left = -n.center_offset.x, Re.top = -n.center_offset.y;
-    }, Qe = () => {
+    let re = !1, Je = !1;
+    const Re = u1({ left: 0, top: 0, scale: 1 }), i1 = o2 / 2, v1 = () => {
+      const h = i.svg.scale || 1;
+      Re.scale = h, Re.left = -l.center_offset.x, Re.top = -l.center_offset.y;
+    }, p1 = () => {
       if (e.done_json.length <= s.value.clipThreshold)
         return;
-      const V = i.svg.scale || 1, I = -n.center_offset.x, M = -n.center_offset.y;
-      if (V !== Re.scale) {
-        p1();
+      const z = i.svg.scale || 1, C = -l.center_offset.x, E = -l.center_offset.y;
+      if (z !== Re.scale) {
+        v1();
         return;
       }
-      const j = n.canvasInfo, q = Math.min(j.with / V * t2, je), se = Math.min(j.height / V * t2, je);
-      (Math.abs(I - Re.left) > q || Math.abs(M - Re.top) > se) && (Re.left = I, Re.top = M);
+      const ge = l.canvasInfo, he = Math.min(ge.with / z * t2, i1), fe = Math.min(ge.height / z * t2, i1);
+      (Math.abs(C - Re.left) > he || Math.abs(E - Re.top) > fe) && (Re.left = C, Re.top = E);
     };
-    Ue(
-      () => [n.center_offset.x, n.center_offset.y, i.svg.scale],
+    Te(
+      () => [l.center_offset.x, l.center_offset.y, i.svg.scale],
       () => {
-        Qe();
+        p1();
       }
     );
-    const G1 = Y(() => {
-      var r1, A1;
-      const u = s.value.clipThreshold, V = e.done_json, I = V.map((ze, f1) => ({ item: ze, index: f1 }));
-      if (V.length <= u)
-        return I;
-      const M = n.canvasInfo;
-      if (!M.with || !M.height)
-        return I;
-      const j = Re.scale || i.svg.scale || 1, q = Re.left, se = Re.top, qe = new Set(
+    const y1 = M(() => {
+      var V, w;
+      const h = s.value.clipThreshold, z = e.done_json, C = z.map((F, ee) => ({ item: F, index: ee }));
+      if (z.length <= h)
+        return C;
+      const E = l.canvasInfo;
+      if (!E.with || !E.height)
+        return C;
+      const ge = Re.scale || i.svg.scale || 1, he = Re.left, fe = Re.top, c1 = new Set(
         H2(
-          A2(V),
-          { left: q, top: se, right: q + M.with / j, bottom: se + M.height / j },
-          u,
+          A2(z),
+          { left: he, top: fe, right: he + E.with / ge, bottom: fe + E.height / ge },
+          h,
           o2
-        ).map((ze) => ze.id)
-      ), We = (A1 = (r1 = e.handle_svg_info) == null ? void 0 : r1.info) == null ? void 0 : A1.id, h1 = e.intention === L.Move || e.intention === L.Rotate || e.intention === L.Zoom || e.intention === L.GroupMove || e.intention === L.SetConnectionLineNode;
-      return I.filter(({ item: ze }) => ze.selected || h1 && We === ze.id ? !0 : qe.has(ze.id));
-    }), L1 = (u) => {
-      var V;
+        ).map((F) => F.id)
+      ), C1 = (w = (V = e.handle_svg_info) == null ? void 0 : V.info) == null ? void 0 : w.id, f = e.intention === L.Move || e.intention === L.Rotate || e.intention === L.Zoom || e.intention === L.GroupMove || e.intention === L.SetConnectionLineNode;
+      return C.filter(({ item: F }) => F.selected || f && C1 === F.id ? !0 : c1.has(F.id));
+    }), B1 = (h) => {
+      var z;
       if (e.intention != L.None) {
         if (e.intention == L.Create) {
           if (!e.create_svg_info) {
             console.error(A("要创建的数据获取失败"));
             return;
           }
-          const I = Math.floor(u.offsetX / i.svg.scale - n.center_offset.x), M = Math.floor(u.offsetY / i.svg.scale - n.center_offset.y), j = {
+          const C = Math.floor(h.offsetX / i.svg.scale - l.center_offset.x), E = Math.floor(h.offsetY / i.svg.scale - l.center_offset.y), ge = {
             id: Rt(),
-            x: I,
-            y: M,
+            x: C,
+            y: E,
             client: {
-              x: I,
-              y: M
+              x: C,
+              y: E
             },
             scale_x: 1,
             scale_y: 1,
@@ -4550,218 +4550,218 @@ const Pt = {
               }
             },
             selected: !1,
-            ...u1(e.create_svg_info)
+            ...f1(e.create_svg_info)
           };
-          e.setDoneJson(j), e.setHandleSvgInfo(j, e.done_json.length), e.intention = L.None;
+          e.setDoneJson(ge), e.setHandleSvgInfo(ge, e.done_json.length), e.intention = L.None;
         }
-        (V = oe.value) == null || V.focus();
+        (z = ie.value) == null || z.focus();
       }
-    }, s1 = (u) => {
-      u.preventDefault();
-    }, V1 = (u) => {
-      u.preventDefault();
-    }, b1 = (u, V, I) => {
-      var M, j, q;
-      if ((M = oe.value) == null || M.focus(), e.intention === L.Connection) {
-        if (I.stopPropagation(), e.handle_svg_info || ht(I), e.handle_svg_info)
-          if (I.button === 0) {
-            const se = e.handle_svg_info.info.props.point_position.val;
-            se.length !== 1 && (u == null ? void 0 : u.type) !== T.ConnectionLine ? se.push({
-              x: e.mouse_info.new_position_x - e.mouse_info.position_x - n.center_offset.x,
-              y: e.mouse_info.new_position_y - e.mouse_info.position_y - n.center_offset.y
+    }, Qe = (h) => {
+      h.preventDefault();
+    }, W1 = (h) => {
+      h.preventDefault();
+    }, g1 = (h, z, C) => {
+      var E, ge, he;
+      if ((E = ie.value) == null || E.focus(), e.intention === L.Connection) {
+        if (C.stopPropagation(), e.handle_svg_info || ht(C), e.handle_svg_info)
+          if (C.button === 0) {
+            const fe = e.handle_svg_info.info.props.point_position.val;
+            fe.length !== 1 && (h == null ? void 0 : h.type) !== P.ConnectionLine ? fe.push({
+              x: e.mouse_info.new_position_x - e.mouse_info.position_x - l.center_offset.x,
+              y: e.mouse_info.new_position_y - e.mouse_info.position_y - l.center_offset.y
             }) : e.handle_svg_info.info.props.point_position.val.push({
               x: 0,
               y: 0
             });
           } else
-            I.button === 2 && (e.intention = L.None, Ne(e.done_json[e.handle_svg_info.index]), e.setHandleSvgInfo(null));
+            C.button === 2 && (e.intention = L.None, Ue(e.done_json[e.handle_svg_info.index]), e.setHandleSvgInfo(null));
         return;
       }
-      if (I.preventDefault(), I.stopPropagation(), I.ctrlKey && I.button === 0)
-        ((j = e.handle_svg_info) != null && j.index || ((q = e.handle_svg_info) == null ? void 0 : q.index) === 0) && (e.done_json[e.handle_svg_info.index].selected = !0, e.setHandleSvgInfo(null), e.intention = L.None), u.selected = !u.selected;
-      else if (le.value) {
+      if (C.preventDefault(), C.stopPropagation(), C.ctrlKey && C.button === 0)
+        ((ge = e.handle_svg_info) != null && ge.index || ((he = e.handle_svg_info) == null ? void 0 : he.index) === 0) && (e.done_json[e.handle_svg_info.index].selected = !0, e.setHandleSvgInfo(null), e.intention = L.None), h.selected = !h.selected;
+      else if (te.value) {
         e.intention = L.GroupMove, e.mouse_info = {
-          state: ye.Down,
-          position_x: Math.round((I.clientX - n.canvasInfo.left) / i.svg.scale),
-          position_y: Math.round((I.clientY - n.canvasInfo.top) / i.svg.scale),
+          state: Ae.Down,
+          position_x: Math.round((C.clientX - l.canvasInfo.left) / i.svg.scale),
+          position_y: Math.round((C.clientY - l.canvasInfo.top) / i.svg.scale),
           now_position_x: 0,
           now_position_y: 0,
           new_position_x: 0,
           new_position_y: 0
         };
-        for (let se of e.done_json)
-          se.selected && (se.old_position = {
-            x: se.x,
-            y: se.y
-          }, se.point_coordinate_old = u1(se.point_coordinate));
+        for (let fe of e.done_json)
+          fe.selected && (fe.old_position = {
+            x: fe.x,
+            y: fe.y
+          }, fe.point_coordinate_old = f1(fe.point_coordinate));
       } else
-        e.intention = L.Select, e.setHandleSvgInfo(u, V), e.mouse_info = {
-          state: ye.Down,
-          position_x: Math.round((I.clientX - n.canvasInfo.left) / i.svg.scale),
-          position_y: Math.round((I.clientY - n.canvasInfo.top) / i.svg.scale),
-          now_position_x: u.x,
-          now_position_y: u.y,
+        e.intention = L.Select, e.setHandleSvgInfo(h, z), e.mouse_info = {
+          state: Ae.Down,
+          position_x: Math.round((C.clientX - l.canvasInfo.left) / i.svg.scale),
+          position_y: Math.round((C.clientY - l.canvasInfo.top) / i.svg.scale),
+          now_position_x: h.x,
+          now_position_y: h.y,
           new_position_x: 0,
           new_position_y: 0
-        }, u.point_coordinate_old = u1(u.point_coordinate);
-    }, K1 = (u, V, I) => {
-      if (!(e.intention === L.Connection || e.mouse_info.state != ye.Down) && le.value && !ue && ["SelectArea", "Move", "Select"].indexOf(e.intention) < 0) {
-        for (let M of e.done_json)
-          M.selected = !1, M.old_position = {
+        }, h.point_coordinate_old = f1(h.point_coordinate);
+    }, x1 = (h, z, C) => {
+      if (!(e.intention === L.Connection || e.mouse_info.state != Ae.Down) && te.value && !re && ["SelectArea", "Move", "Select"].indexOf(e.intention) < 0) {
+        for (let E of e.done_json)
+          E.selected = !1, E.old_position = {
             x: 0,
             y: 0
-          }, Eo(M);
-        e.intention = L.Select, e.setHandleSvgInfo(u, V), e.mouse_info = {
-          state: ye.Down,
-          position_x: Math.round((I.clientX - n.canvasInfo.left) / i.svg.scale),
-          position_y: Math.round((I.clientY - n.canvasInfo.top) / i.svg.scale),
-          now_position_x: u.x,
-          now_position_y: u.y,
+          }, Eo(E);
+        e.intention = L.Select, e.setHandleSvgInfo(h, z), e.mouse_info = {
+          state: Ae.Down,
+          position_x: Math.round((C.clientX - l.canvasInfo.left) / i.svg.scale),
+          position_y: Math.round((C.clientY - l.canvasInfo.top) / i.svg.scale),
+          now_position_x: h.x,
+          now_position_y: h.y,
           new_position_x: 0,
           new_position_y: 0
         };
       }
-    }, I1 = (u, V, I) => {
-      I.preventDefault(), I.stopPropagation(), de.connection_panel = !0, de.connection_line = !0, !((e.intention === L.Connection || e.intention === L.SetConnectionLineNode) && u.type === T.ConnectionLine) && (de.select_item.info = u, de.select_item.index = V);
-    }, w1 = (u, V, I) => {
-      I.preventDefault(), I.stopPropagation(), !((e.intention === L.Connection || e.intention === L.SetConnectionLineNode) && u.type === T.ConnectionLine) && (de.connection_panel = !1, de.connection_line = !1, de.select_item.info = null, de.select_item.index = -1);
-    }, B1 = (u) => {
-      if (e.mouse_info.state != ye.Down && e.intention !== L.Connection)
+    }, _1 = (h, z, C) => {
+      C.preventDefault(), C.stopPropagation(), de.connection_panel = !0, de.connection_line = !0, !((e.intention === L.Connection || e.intention === L.SetConnectionLineNode) && h.type === P.ConnectionLine) && (de.select_item.info = h, de.select_item.index = z);
+    }, Z1 = (h, z, C) => {
+      C.preventDefault(), C.stopPropagation(), !((e.intention === L.Connection || e.intention === L.SetConnectionLineNode) && h.type === P.ConnectionLine) && (de.connection_panel = !1, de.connection_line = !1, de.select_item.info = null, de.select_item.index = -1);
+    }, H1 = (h) => {
+      if (e.mouse_info.state != Ae.Down && e.intention !== L.Connection)
         return;
-      const { clientX: V, clientY: I } = u, M = Math.round((V - n.canvasInfo.left) / i.svg.scale), j = Math.round((I - n.canvasInfo.top) / i.svg.scale);
-      Be.x = M, Be.y = j, Be.ctrl = u.ctrlKey, Be.shift = u.shiftKey, Be.pending = !0, P();
-    }, Be = {
+      const { clientX: z, clientY: C } = h, E = Math.round((z - l.canvasInfo.left) / i.svg.scale), ge = Math.round((C - l.canvasInfo.top) / i.svg.scale);
+      Ge.x = E, Ge.y = ge, Ge.ctrl = h.ctrlKey, Ge.shift = h.shiftKey, Ge.pending = !0, ne();
+    }, Ge = {
       x: 0,
       y: 0,
       ctrl: !1,
       shift: !1,
       pending: !1
     };
-    let c1 = null, m1 = -1, C1 = {
+    let $e = null, b1 = -1, a1 = {
       list: [],
       byId: /* @__PURE__ */ new Map()
     };
-    const Je = () => {
-      const u = e.done_json;
-      if (c1 === u && m1 === u.length)
-        return C1;
-      const V = [], I = /* @__PURE__ */ new Map();
-      for (const M of u)
-        I.set(M.id, M), M.type === T.ConnectionLine && V.push(M);
-      return c1 = u, m1 = u.length, C1 = { list: V, byId: I }, C1;
-    }, Ke = () => {
-      Be.pending && (Be.pending = !1, Q());
+    const s1 = () => {
+      const h = e.done_json;
+      if ($e === h && b1 === h.length)
+        return a1;
+      const z = [], C = /* @__PURE__ */ new Map();
+      for (const E of h)
+        C.set(E.id, E), E.type === P.ConnectionLine && z.push(E);
+      return $e = h, b1 = h.length, a1 = { list: z, byId: C }, a1;
+    }, R1 = () => {
+      Ge.pending && (Ge.pending = !1, oe());
     }, k = () => {
-      Ke();
-    }, Q = () => {
-      var j, q, se, qe, We, h1, r1, A1, ze, f1;
-      const { x: u, y: V } = Be;
-      (e.mouse_info.new_position_x !== u || e.mouse_info.new_position_y !== V) && (e.mouse_info.new_position_x = u, e.mouse_info.new_position_y = V);
-      const I = Math.round(
+      R1();
+    }, oe = () => {
+      var ge, he, fe, c1, C1, f, V, w, F, ee;
+      const { x: h, y: z } = Ge;
+      (e.mouse_info.new_position_x !== h || e.mouse_info.new_position_y !== z) && (e.mouse_info.new_position_x = h, e.mouse_info.new_position_y = z);
+      const C = Math.round(
         e.mouse_info.new_position_x - e.mouse_info.position_x + e.mouse_info.now_position_x
-      ), M = Math.round(
+      ), E = Math.round(
         e.mouse_info.new_position_y - e.mouse_info.position_y + e.mouse_info.now_position_y
       );
-      if ((j = e.handle_svg_info) != null && j.info && (e.intention === L.Select || e.intention === L.Move)) {
-        const $ = e.handle_svg_info.info;
-        $.x = I, $.y = M, $.client = {
-          x: I,
-          y: M
-        }, e.intention = L.Move, x1($);
-        const { list: ee } = Je();
-        if (Se($, ee), $.type === T.ConnectionLine && ((q = $.bind_anchors) != null && q.start)) {
-          const te = Je().byId.get($.bind_anchors.start.target_id);
-          te && Se(te, ee);
+      if ((ge = e.handle_svg_info) != null && ge.info && (e.intention === L.Select || e.intention === L.Move)) {
+        const R = e.handle_svg_info.info;
+        R.x = C, R.y = E, R.client = {
+          x: C,
+          y: E
+        }, e.intention = L.Move, S1(R);
+        const { list: J } = s1();
+        if (Ye(R, J), R.type === P.ConnectionLine && ((he = R.bind_anchors) != null && he.start)) {
+          const U = s1().byId.get(R.bind_anchors.start.target_id);
+          U && Ye(U, J);
         }
-        if ($.type === T.ConnectionLine && ((se = $.bind_anchors) != null && se.end)) {
-          const te = Je().byId.get($.bind_anchors.end.target_id);
-          te && Se(te, ee);
+        if (R.type === P.ConnectionLine && ((fe = R.bind_anchors) != null && fe.end)) {
+          const U = s1().byId.get(R.bind_anchors.end.target_id);
+          U && Ye(U, J);
         }
       } else if (e.intention === L.MoveCanvas)
-        n.center_offset.x = I, n.center_offset.y = M, Qe();
+        l.center_offset.x = C, l.center_offset.y = E, p1();
       else if (e.intention === L.SelectArea)
-        B.value.b.x = e.mouse_info.new_position_x - n.center_offset.x, B.value.b.y = e.mouse_info.new_position_y - n.center_offset.y;
+        W.value.b.x = e.mouse_info.new_position_x - l.center_offset.x, W.value.b.y = e.mouse_info.new_position_y - l.center_offset.y;
       else if (e.intention === L.GroupMove) {
-        ue = !0;
-        const { list: $ } = Je(), ee = [];
-        for (let te of e.done_json)
-          if (te.selected && te.old_position) {
-            const pe = Math.round(
-              e.mouse_info.new_position_x - e.mouse_info.position_x + te.old_position.x
-            ), ce = Math.round(
-              e.mouse_info.new_position_y - e.mouse_info.position_y + te.old_position.y
+        re = !0;
+        const { list: R } = s1(), J = [];
+        for (let U of e.done_json)
+          if (U.selected && U.old_position) {
+            const q = Math.round(
+              e.mouse_info.new_position_x - e.mouse_info.position_x + U.old_position.x
+            ), le = Math.round(
+              e.mouse_info.new_position_y - e.mouse_info.position_y + U.old_position.y
             );
-            te.x = pe, te.y = ce, te.client = {
-              x: pe,
-              y: ce
-            }, x1(te), Se(te, $), ee.push(te);
+            U.x = q, U.y = le, U.client = {
+              x: q,
+              y: le
+            }, S1(U), Ye(U, R), J.push(U);
           }
-        for (const te of ee)
-          if (te.type === T.ConnectionLine && ((qe = te.bind_anchors) != null && qe.end)) {
-            const pe = Je().byId.get(te.bind_anchors.end.target_id);
-            pe && Se(pe, $);
+        for (const U of J)
+          if (U.type === P.ConnectionLine && ((c1 = U.bind_anchors) != null && c1.end)) {
+            const q = s1().byId.get(U.bind_anchors.end.target_id);
+            q && Ye(q, R);
           }
       } else if (e.intention === L.Zoom) {
         if (!e.handle_svg_info)
           return;
-        const $ = {
-          x: e.mouse_info.new_position_x - n.center_offset.x,
-          y: e.mouse_info.new_position_y - n.center_offset.y
+        const R = {
+          x: e.mouse_info.new_position_x - l.center_offset.x,
+          y: e.mouse_info.new_position_y - l.center_offset.y
         };
-        let ee = {
+        let J = {
           width: 0,
           height: 0,
           is_old_width: !1,
           is_old_height: !1
         };
-        if (e.scale_info.type === ne.TopLeft ? ee = E6(
-          $,
+        if (e.scale_info.type === ae.TopLeft ? J = E6(
+          R,
           e.scale_info.symmetric_point,
           e.handle_svg_info.info.rotate
-        ) : e.scale_info.type === ne.TopRight ? ee = P6(
-          $,
+        ) : e.scale_info.type === ae.TopRight ? J = P6(
+          R,
           e.scale_info.symmetric_point,
           e.handle_svg_info.info.rotate
-        ) : e.scale_info.type === ne.BottomRight ? ee = Q6(
-          $,
+        ) : e.scale_info.type === ae.BottomRight ? J = Q6(
+          R,
           e.scale_info.symmetric_point,
           e.handle_svg_info.info.rotate
-        ) : e.scale_info.type === ne.BottomLeft ? ee = $6(
-          $,
+        ) : e.scale_info.type === ae.BottomLeft ? J = $6(
+          R,
           e.scale_info.symmetric_point,
           e.handle_svg_info.info.rotate
-        ) : e.scale_info.type === ne.TopCenter ? ee = q6(
-          $,
+        ) : e.scale_info.type === ae.TopCenter ? J = q6(
+          R,
           e.scale_info.symmetric_point,
           e.handle_svg_info.info.rotate,
           e.handle_svg_info.info.client
-        ) : e.scale_info.type === ne.Right ? ee = e0(
-          $,
+        ) : e.scale_info.type === ae.Right ? J = e0(
+          R,
           e.scale_info.symmetric_point,
           e.handle_svg_info.info.rotate,
           e.handle_svg_info.info.client
-        ) : e.scale_info.type === ne.BottomCenter ? ee = t0(
-          $,
+        ) : e.scale_info.type === ae.BottomCenter ? J = t0(
+          R,
           e.scale_info.symmetric_point,
           e.handle_svg_info.info.rotate,
           e.handle_svg_info.info.client
-        ) : e.scale_info.type === ne.Left && (ee = o0(
-          $,
+        ) : e.scale_info.type === ae.Left && (J = o0(
+          R,
           e.scale_info.symmetric_point,
           e.handle_svg_info.info.rotate,
           e.handle_svg_info.info.client
-        )), e.handle_svg_info && ee.width > 0 && ee.height > 0) {
-          const te = ee.is_old_width ? 1 : Ce(ee.width / e.handle_svg_info.info.actual_bound.width, 3), pe = ee.is_old_height ? 1 : Ce(ee.height / e.handle_svg_info.info.actual_bound.height, 3), ce = E1($, e.scale_info.symmetric_point);
-          te > 0 && e.scale_info.type !== ne.TopCenter && e.scale_info.type !== ne.BottomCenter && (e.handle_svg_info.info.scale_x = te, e.handle_svg_info.info.x = Math.round(
-            et(
+        )), e.handle_svg_info && J.width > 0 && J.height > 0) {
+          const U = J.is_old_width ? 1 : Ce(J.width / e.handle_svg_info.info.actual_bound.width, 3), q = J.is_old_height ? 1 : Ce(J.height / e.handle_svg_info.info.actual_bound.height, 3), le = Q1(R, e.scale_info.symmetric_point);
+          U > 0 && e.scale_info.type !== ae.TopCenter && e.scale_info.type !== ae.BottomCenter && (e.handle_svg_info.info.scale_x = U, e.handle_svg_info.info.x = Math.round(
+            tt(
               e.handle_svg_info.info.center_position.x,
-              ce.x,
+              le.x,
               e.handle_svg_info.info.client.x
             )
-          )), pe > 0 && e.scale_info.type !== ne.Left && e.scale_info.type !== ne.Right && (e.handle_svg_info.info.scale_y = pe, e.handle_svg_info.info.y = Math.round(
-            et(
+          )), q > 0 && e.scale_info.type !== ae.Left && e.scale_info.type !== ae.Right && (e.handle_svg_info.info.scale_y = q, e.handle_svg_info.info.y = Math.round(
+            tt(
               e.handle_svg_info.info.center_position.y,
-              ce.y,
+              le.y,
               e.handle_svg_info.info.client.y
             )
           ));
@@ -4769,82 +4769,82 @@ const Pt = {
       } else if (e.intention === L.Rotate) {
         if (!e.handle_svg_info)
           return;
-        const $ = Math.atan2(
+        const R = Math.atan2(
           e.mouse_info.position_y - e.handle_svg_info.info.y,
           e.mouse_info.position_x - e.handle_svg_info.info.x
-        ) / (Math.PI / 180), ee = Math.atan2(
-          e.mouse_info.new_position_y - n.center_offset.y - e.handle_svg_info.info.y,
-          e.mouse_info.new_position_x - n.center_offset.x - e.handle_svg_info.info.x
+        ) / (Math.PI / 180), J = Math.atan2(
+          e.mouse_info.new_position_y - l.center_offset.y - e.handle_svg_info.info.y,
+          e.mouse_info.new_position_x - l.center_offset.x - e.handle_svg_info.info.x
         ) / (Math.PI / 180);
         e.handle_svg_info.info.rotate = Ce(
-          e.rotate_info.angle + ee - $,
+          e.rotate_info.angle + J - R,
           2
         );
       } else if (e.intention === L.Connection && e.handle_svg_info) {
-        const $ = (We = e.handle_svg_info) == null ? void 0 : We.info.props.point_position.val.length, ee = e.mouse_info.new_position_x - e.mouse_info.position_x - n.center_offset.x, te = e.mouse_info.new_position_y - e.mouse_info.position_y - n.center_offset.y, pe = e.handle_svg_info.info.props.point_position.val[$ - 2], ce = ((r1 = (h1 = e.handle_svg_info) == null ? void 0 : h1.info.props.point_r) == null ? void 0 : r1.val) + 2 || 4;
-        let Q1 = pe.x < ee ? -ce : pe.x > ee ? ce : 0, $1 = pe.y < te ? -ce : pe.y > te ? ce : 0;
-        Be.ctrl ? e.handle_svg_info.info.props.point_position.val[$ - 1] = {
-          x: pe.x,
-          y: te + $1
-        } : Be.shift ? e.handle_svg_info.info.props.point_position.val[$ - 1] = {
-          x: ee + Q1,
-          y: pe.y
-        } : e.handle_svg_info.info.props.point_position.val[$ - 1] = {
-          x: ee + Q1,
-          y: te + $1
+        const R = (C1 = e.handle_svg_info) == null ? void 0 : C1.info.props.point_position.val.length, J = e.mouse_info.new_position_x - e.mouse_info.position_x - l.center_offset.x, U = e.mouse_info.new_position_y - e.mouse_info.position_y - l.center_offset.y, q = e.handle_svg_info.info.props.point_position.val[R - 2], le = ((V = (f = e.handle_svg_info) == null ? void 0 : f.info.props.point_r) == null ? void 0 : V.val) + 2 || 4;
+        let d1 = q.x < J ? -le : q.x > J ? le : 0, xe = q.y < U ? -le : q.y > U ? le : 0;
+        Ge.ctrl ? e.handle_svg_info.info.props.point_position.val[R - 1] = {
+          x: q.x,
+          y: U + xe
+        } : Ge.shift ? e.handle_svg_info.info.props.point_position.val[R - 1] = {
+          x: J + d1,
+          y: q.y
+        } : e.handle_svg_info.info.props.point_position.val[R - 1] = {
+          x: J + d1,
+          y: U + xe
         };
       } else if (e.intention === L.SetConnectionLineNode && e.handle_svg_info) {
-        !Fe && (e.connection_line_node_info.point_index === e.handle_svg_info.info.props.point_position.val.length - 1 || e.connection_line_node_info.point_index === 0) && (Fe = !0);
-        const $ = (A1 = e.handle_svg_info) == null ? void 0 : A1.info.props.point_position.val.length, ee = et(
+        !Je && (e.connection_line_node_info.point_index === e.handle_svg_info.info.props.point_position.val.length - 1 || e.connection_line_node_info.point_index === 0) && (Je = !0);
+        const R = (w = e.handle_svg_info) == null ? void 0 : w.info.props.point_position.val.length, J = tt(
           e.mouse_info.position_x,
           e.mouse_info.new_position_x,
           e.connection_line_node_info.init_pos.x
-        ), te = et(
+        ), U = tt(
           e.mouse_info.position_y,
           e.mouse_info.new_position_y,
           e.connection_line_node_info.init_pos.y
-        ), pe = e.handle_svg_info.info.props.point_position.val[$ - 2], ce = ((f1 = (ze = e.handle_svg_info) == null ? void 0 : ze.info.props.point_r) == null ? void 0 : f1.val) + 2 || 4;
-        let Q1 = pe.x < ee ? -ce : pe.x > ee ? ce : 0, $1 = pe.y < te ? -ce : pe.y > te ? ce : 0;
+        ), q = e.handle_svg_info.info.props.point_position.val[R - 2], le = ((ee = (F = e.handle_svg_info) == null ? void 0 : F.info.props.point_r) == null ? void 0 : ee.val) + 2 || 4;
+        let d1 = q.x < J ? -le : q.x > J ? le : 0, xe = q.y < U ? -le : q.y > U ? le : 0;
         e.handle_svg_info.info.props.point_position.val[e.connection_line_node_info.point_index] = {
-          x: ee + Q1,
-          y: te + $1
+          x: J + d1,
+          y: U + xe
         };
       }
-    }, P = U1(Ke, s.value.fpsLimit), Ie = () => {
-      var u, V, I, M;
-      if (k(), X(), e.mouse_info.state == ye.Down) {
-        if ((u = e.handle_svg_info) != null && u.info && e.intention == L.Move)
-          Ne(e.done_json[e.handle_svg_info.index]), e.intention = L.None, e.setDoneJson(e.done_json);
+    }, ne = O1(R1, s.value.fpsLimit), me = () => {
+      var h, z, C, E;
+      if (k(), X(), e.mouse_info.state == Ae.Down) {
+        if ((h = e.handle_svg_info) != null && h.info && e.intention == L.Move)
+          Ue(e.done_json[e.handle_svg_info.index]), e.intention = L.None, e.setDoneJson(e.done_json);
         else if (e.intention == L.GroupMove) {
-          if (ue) {
-            for (let j of e.done_json)
-              j.selected && Ne(j);
-            ue = !1, e.intention = L.None, e.setDoneJson(e.done_json);
+          if (re) {
+            for (let ge of e.done_json)
+              ge.selected && Ue(ge);
+            re = !1, e.intention = L.None, e.setDoneJson(e.done_json);
           }
-        } else if ((V = e.handle_svg_info) != null && V.info && e.intention == L.Zoom)
+        } else if ((z = e.handle_svg_info) != null && z.info && e.intention == L.Zoom)
           e.handle_svg_info.info.client = {
             x: e.handle_svg_info.info.x,
             y: e.handle_svg_info.info.y
-          }, e.intention = L.None, Ne(e.done_json[e.handle_svg_info.index]), e.setDoneJson(e.done_json);
-        else if (e.intention === L.Rotate && ((I = e.handle_svg_info) != null && I.info))
-          Ne(e.done_json[e.handle_svg_info.index]), e.setDoneJson(e.done_json), e.intention = L.None;
+          }, e.intention = L.None, Ue(e.done_json[e.handle_svg_info.index]), e.setDoneJson(e.done_json);
+        else if (e.intention === L.Rotate && ((C = e.handle_svg_info) != null && C.info))
+          Ue(e.done_json[e.handle_svg_info.index]), e.setDoneJson(e.done_json), e.intention = L.None;
         else {
           if (e.intention === L.Connection)
             return;
           if (e.intention === L.SetConnectionLineNode)
-            Fe && ((M = e.handle_svg_info) != null && M.info.bind_anchors) && (e.connection_line_node_info.point_index === 0 ? e.handle_svg_info.info.bind_anchors.start = null : e.handle_svg_info.info.bind_anchors.end = null), e.intention = L.None, Fe = !1;
+            Je && ((E = e.handle_svg_info) != null && E.info.bind_anchors) && (e.connection_line_node_info.point_index === 0 ? e.handle_svg_info.info.bind_anchors.start = null : e.handle_svg_info.info.bind_anchors.end = null), e.intention = L.None, Je = !1;
           else if (e.intention === L.SelectArea) {
             e.setHandleSvgInfo(null);
-            for (let j of e.done_json) {
-              const q = E.value;
-              j.selected = j.center_position.x > q.x && j.center_position.x < q.x + q.with && j.center_position.y > q.y && j.center_position.y < q.y + q.height;
+            for (let ge of e.done_json) {
+              const he = j.value;
+              ge.selected = ge.center_position.x > he.x && ge.center_position.x < he.x + he.with && ge.center_position.y > he.y && ge.center_position.y < he.y + he.height;
             }
             e.intention = L.None;
           } else
             e.intention != L.Select && (e.intention = L.None);
         }
         e.mouse_info = {
-          state: ye.Up,
+          state: Ae.Up,
           position_x: 0,
           position_y: 0,
           now_position_x: 0,
@@ -4853,31 +4853,31 @@ const Pt = {
           new_position_y: 0
         }, a.display = !1;
       }
-    }, Oe = (u) => {
-      const { clientX: V, clientY: I } = u;
+    }, Oe = (h) => {
+      const { clientX: z, clientY: C } = h;
       if (e.intention === L.Connection) {
-        e.handle_svg_info || ht(u), e.handle_svg_info && (u.button === 0 ? e.handle_svg_info.info.props.point_position.val.length !== 1 ? e.handle_svg_info.info.props.point_position.val.push({
-          x: e.mouse_info.new_position_x - e.mouse_info.position_x - n.center_offset.x,
-          y: e.mouse_info.new_position_y - e.mouse_info.position_y - n.center_offset.y
+        e.handle_svg_info || ht(h), e.handle_svg_info && (h.button === 0 ? e.handle_svg_info.info.props.point_position.val.length !== 1 ? e.handle_svg_info.info.props.point_position.val.push({
+          x: e.mouse_info.new_position_x - e.mouse_info.position_x - l.center_offset.x,
+          y: e.mouse_info.new_position_y - e.mouse_info.position_y - l.center_offset.y
         }) : e.handle_svg_info.info.props.point_position.val.push({
           x: 0,
           y: 0
-        }) : u.button === 2 && (e.intention = L.None, Ne(e.done_json[e.handle_svg_info.index]), e.setHandleSvgInfo(null)));
+        }) : h.button === 2 && (e.intention = L.None, Ue(e.done_json[e.handle_svg_info.index]), e.setHandleSvgInfo(null)));
         return;
       }
-      u.button === 0 ? (e.intention = L.SelectArea, e.mouse_info = {
-        state: ye.Down,
+      h.button === 0 ? (e.intention = L.SelectArea, e.mouse_info = {
+        state: Ae.Down,
         position_x: Math.round(
-          (V - n.canvasInfo.left) / i.svg.scale - n.center_offset.x
+          (z - l.canvasInfo.left) / i.svg.scale - l.center_offset.x
         ),
         position_y: Math.round(
-          (I - n.canvasInfo.top) / i.svg.scale - n.center_offset.y
+          (C - l.canvasInfo.top) / i.svg.scale - l.center_offset.y
         ),
         now_position_x: 0,
         now_position_y: 0,
         new_position_x: 0,
         new_position_y: 0
-      }, B.value = {
+      }, W.value = {
         a: {
           x: e.mouse_info.position_x,
           y: e.mouse_info.position_y
@@ -4886,292 +4886,292 @@ const Pt = {
           x: 0,
           y: 0
         }
-      }) : u.button === 2 && (e.intention = L.MoveCanvas, e.mouse_info = {
-        state: ye.Down,
-        position_x: Math.round((V - n.canvasInfo.left) / i.svg.scale),
-        position_y: Math.round((I - n.canvasInfo.top) / i.svg.scale),
-        now_position_x: n.center_offset.x,
-        now_position_y: n.center_offset.y,
+      }) : h.button === 2 && (e.intention = L.MoveCanvas, e.mouse_info = {
+        state: Ae.Down,
+        position_x: Math.round((z - l.canvasInfo.left) / i.svg.scale),
+        position_y: Math.round((C - l.canvasInfo.top) / i.svg.scale),
+        now_position_x: l.center_offset.x,
+        now_position_y: l.center_offset.y,
         new_position_x: 0,
         new_position_y: 0
-      }, z());
-    }, $e = U1((u) => {
-      u != null && u.wheelDelta && (u.wheelDelta > 0 ? (i.svg.scale = Ce(i.svg.scale + 0.1, 1), gt(u, i.svg.scale, n.center_offset, !0)) : i.svg.scale > 0.1 && (i.svg.scale = Ce(i.svg.scale - 0.1, 1), gt(u, i.svg.scale, n.center_offset, !1)), C.value && (z(), y && clearTimeout(y), y = setTimeout(X, bl)), Qe());
-    }, s.value.fpsLimit), d1 = (u) => {
-      u.stopPropagation(), u.preventDefault();
-    }, z1 = (u, V, I) => {
-      e.intention !== L.Connection && J.value && (e.intention = L.ContextMenu, e.setHandleSvgInfo(u, V), J.value.style.left = I.pageX + "px", J.value.style.top = I.pageY + "px", a.info.MoveUpOneLevel.enable = a.info.MoveUpTopLevel.enable = a.info.MoveDownOneLevel.enable = a.info.MoveDownTopLevel.enable = !0, V === e.done_json.length - 1 && (a.info.MoveUpOneLevel.enable = a.info.MoveUpTopLevel.enable = !1), V === 0 && (a.info.MoveDownOneLevel.enable = a.info.MoveDownTopLevel.enable = !1), a.display = !0);
-    }, P1 = (u, V, I) => ({
-      x: Ce(u.x - u.width / 2 * V + u.width / 2, 1),
-      y: Ce(u.y - u.height / 2 * I + u.height / 2, 1),
-      width: Ce(u.width * V, 1),
-      height: Ce(u.height * I, 1)
-    }), rt = (u) => {
-      u.preventDefault();
-      let V = [];
-      if (!u.ctrlKey && ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].indexOf(u.key) > -1 && (le.value ? V = e.done_json.map((I, M) => ({
-        selected: I.selected,
-        i: M
-      })).filter((I) => I.selected).map((I) => I.i) : e.handle_svg_info && V.push(e.handle_svg_info.index)), !u.ctrlKey && u.key == "ArrowUp") {
-        for (let I of V)
-          e.done_json[I].y -= 1, e.done_json[I].client.y -= 1, x1(e.done_json[I], 0, -1), Se(e.done_json[I]);
+      }, Y());
+    }, Ne = O1((h) => {
+      h != null && h.wheelDelta && (h.wheelDelta > 0 ? (i.svg.scale = Ce(i.svg.scale + 0.1, 1), at(h, i.svg.scale, l.center_offset, !0)) : i.svg.scale > 0.1 && (i.svg.scale = Ce(i.svg.scale - 0.1, 1), at(h, i.svg.scale, l.center_offset, !1)), c.value && (Y(), _ && clearTimeout(_), _ = setTimeout(X, mn)), p1());
+    }, s.value.fpsLimit), m1 = (h) => {
+      h.stopPropagation(), h.preventDefault();
+    }, $1 = (h, z, C) => {
+      e.intention !== L.Connection && T.value && (e.intention = L.ContextMenu, e.setHandleSvgInfo(h, z), T.value.style.left = C.pageX + "px", T.value.style.top = C.pageY + "px", a.info.MoveUpOneLevel.enable = a.info.MoveUpTopLevel.enable = a.info.MoveDownOneLevel.enable = a.info.MoveDownTopLevel.enable = !0, z === e.done_json.length - 1 && (a.info.MoveUpOneLevel.enable = a.info.MoveUpTopLevel.enable = !1), z === 0 && (a.info.MoveDownOneLevel.enable = a.info.MoveDownTopLevel.enable = !1), a.display = !0);
+    }, q1 = (h, z, C) => ({
+      x: Ce(h.x - h.width / 2 * z + h.width / 2, 1),
+      y: Ce(h.y - h.height / 2 * C + h.height / 2, 1),
+      width: Ce(h.width * z, 1),
+      height: Ce(h.height * C, 1)
+    }), At = (h) => {
+      h.preventDefault();
+      let z = [];
+      if (!h.ctrlKey && ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].indexOf(h.key) > -1 && (te.value ? z = e.done_json.map((C, E) => ({
+        selected: C.selected,
+        i: E
+      })).filter((C) => C.selected).map((C) => C.i) : e.handle_svg_info && z.push(e.handle_svg_info.index)), !h.ctrlKey && h.key == "ArrowUp") {
+        for (let C of z)
+          e.done_json[C].y -= 1, e.done_json[C].client.y -= 1, S1(e.done_json[C], 0, -1), Ye(e.done_json[C]);
         t1(e.done_json);
-      } else if (!u.ctrlKey && u.key == "ArrowDown") {
-        for (let I of V)
-          e.done_json[I].y += 1, e.done_json[I].client.y += 1, x1(e.done_json[I], 0, 1), Se(e.done_json[I]);
+      } else if (!h.ctrlKey && h.key == "ArrowDown") {
+        for (let C of z)
+          e.done_json[C].y += 1, e.done_json[C].client.y += 1, S1(e.done_json[C], 0, 1), Ye(e.done_json[C]);
         t1(e.done_json);
-      } else if (!u.ctrlKey && u.key == "ArrowLeft") {
-        for (let I of V)
-          e.done_json[I].x -= 1, e.done_json[I].client.x -= 1, x1(e.done_json[I], -1, 0), Se(e.done_json[I]);
+      } else if (!h.ctrlKey && h.key == "ArrowLeft") {
+        for (let C of z)
+          e.done_json[C].x -= 1, e.done_json[C].client.x -= 1, S1(e.done_json[C], -1, 0), Ye(e.done_json[C]);
         t1(e.done_json);
-      } else if (!u.ctrlKey && u.key == "ArrowRight") {
-        for (let I of V)
-          e.done_json[I].x += 1, e.done_json[I].client.x += 1, x1(e.done_json[I], 1, 0), Se(e.done_json[I]);
+      } else if (!h.ctrlKey && h.key == "ArrowRight") {
+        for (let C of z)
+          e.done_json[C].x += 1, e.done_json[C].client.x += 1, S1(e.done_json[C], 1, 0), Ye(e.done_json[C]);
         t1(e.done_json);
       } else
-        u.ctrlKey && u.key.toLowerCase() == "c" ? (u.preventDefault(), a.onContextMenuClick(_e.Copy)) : !u.ctrlKey && u.key == "Delete" ? le.value ? (e.setDoneJson(e.done_json.filter((I) => !I.selected)), e.setHandleSvgInfo(
+        h.ctrlKey && h.key.toLowerCase() == "c" ? (h.preventDefault(), a.onContextMenuClick(Le.Copy)) : !h.ctrlKey && h.key == "Delete" ? te.value ? (e.setDoneJson(e.done_json.filter((C) => !C.selected)), e.setHandleSvgInfo(
           e.done_json[e.done_json.length - 1],
           e.done_json.length - 1
-        )) : a.onContextMenuClick(_e.Delete) : u.ctrlKey && u.key == "ArrowUp" ? a.onContextMenuClick(_e.MoveUpOneLevel) : u.ctrlKey && u.key == "ArrowDown" ? a.onContextMenuClick(_e.MoveDownOneLevel) : u.ctrlKey && u.key == "ArrowLeft" ? a.onContextMenuClick(_e.MoveDownTopLevel) : u.ctrlKey && u.key == "ArrowRight" ? a.onContextMenuClick(_e.MoveUpTopLevel) : u.ctrlKey && u.shiftKey && u.key.toLowerCase() == "z" ? g.topRedoBtnClick() : u.ctrlKey && u.key.toLowerCase() == "z" ? g.topUndoBtnClick() : u.ctrlKey && u.key.toLowerCase() == "delete" && (e.done_json.length <= 0 || e.setDoneJson([]));
-    }, At = (u) => {
-      const V = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
-      if (!u.ctrlKey && V.indexOf(u.key) > -1)
-        for (let I of e.done_json)
-          I.selected && Ne(I);
-    }, ut = () => {
-      Ne(e.done_json[e.handle_svg_info.index], !0);
-    }, Z = () => {
-      var V;
-      const u = (V = oe.value) == null ? void 0 : V.getBoundingClientRect();
-      u && (n.canvasInfo = {
-        height: u.height,
-        with: u.width,
-        top: u.top,
-        left: u.left
+        )) : a.onContextMenuClick(Le.Delete) : h.ctrlKey && h.key == "ArrowUp" ? a.onContextMenuClick(Le.MoveUpOneLevel) : h.ctrlKey && h.key == "ArrowDown" ? a.onContextMenuClick(Le.MoveDownOneLevel) : h.ctrlKey && h.key == "ArrowLeft" ? a.onContextMenuClick(Le.MoveDownTopLevel) : h.ctrlKey && h.key == "ArrowRight" ? a.onContextMenuClick(Le.MoveUpTopLevel) : h.ctrlKey && h.shiftKey && h.key.toLowerCase() == "z" ? g.topRedoBtnClick() : h.ctrlKey && h.key.toLowerCase() == "z" ? g.topUndoBtnClick() : h.ctrlKey && h.key.toLowerCase() == "delete" && (e.done_json.length <= 0 || e.setDoneJson([]));
+    }, ke = (h) => {
+      const z = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
+      if (!h.ctrlKey && z.indexOf(h.key) > -1)
+        for (let C of e.done_json)
+          C.selected && Ue(C);
+    }, qe = () => {
+      Ue(e.done_json[e.handle_svg_info.index], !0);
+    }, X1 = () => {
+      var z;
+      const h = (z = ie.value) == null ? void 0 : z.getBoundingClientRect();
+      h && (l.canvasInfo = {
+        height: h.height,
+        with: h.width,
+        top: h.top,
+        left: h.left
       });
     };
-    let R = null;
-    return Z1(() => {
-      var V;
-      (V = oe.value) == null || V.focus(), l1(() => {
-        Z(), p1();
+    let I1 = null;
+    return w1(() => {
+      var z;
+      (z = ie.value) == null || z.focus(), n1(() => {
+        X1(), v1();
       });
-      const u = oe.value;
-      u && typeof ResizeObserver < "u" && (R = new ResizeObserver(() => {
-        Z();
-      }), R.observe(u));
+      const h = ie.value;
+      h && typeof ResizeObserver < "u" && (I1 = new ResizeObserver(() => {
+        X1();
+      }), I1.observe(h));
     }), Bt(() => {
-      P.cancel(), $e.cancel(), Be.pending = !1, c1 = null, m1 = -1, C1 = { list: [], byId: /* @__PURE__ */ new Map() }, y && (clearTimeout(y), y = null), X(), R && (R.disconnect(), R = null);
-    }), t({ onCanvasMouseUp: Ie, exportSvg: (u) => Ve.value ? ($0(Ve.value, {
-      filename: u,
+      ne.cancel(), Ne.cancel(), Ge.pending = !1, $e = null, b1 = -1, a1 = { list: [], byId: /* @__PURE__ */ new Map() }, _ && (clearTimeout(_), _ = null), X(), I1 && (I1.disconnect(), I1 = null);
+    }), t({ onCanvasMouseUp: me, exportSvg: (h) => Be.value ? ($0(Be.value, {
+      filename: h,
       background: i.svg.background_color
-    }), !0) : !1 }), (u, V) => (p(), w(ae, null, [
+    }), !0) : !1 }), (h, z) => (u(), B(ce, null, [
       d("div", {
         ref_key: "canvasRef",
-        ref: oe,
+        ref: ie,
         class: "canvas",
-        style: ie({ backgroundColor: l(i).svg.background_color, position: "relative" }),
+        style: se({ backgroundColor: n(i).svg.background_color, position: "relative" }),
         tabindex: "0",
-        onDrop: L1,
-        onDragenter: s1,
-        onDragover: V1,
+        onDrop: B1,
+        onDragenter: Qe,
+        onDragover: W1,
         onMousedown: Oe,
-        onMousemove: B1,
-        onMouseup: Ie,
-        onContextmenu: d1,
-        onKeydown: rt,
-        onKeyup: At,
-        onMousewheel: V[0] || (V[0] = //@ts-ignore
-        (...I) => l($e) && l($e)(...I))
+        onMousemove: H1,
+        onMouseup: me,
+        onContextmenu: m1,
+        onKeydown: At,
+        onKeyup: ke,
+        onMousewheel: z[0] || (z[0] = //@ts-ignore
+        (...C) => n(Ne) && n(Ne)(...C))
       }, [
-        Te(u.$slots, "background", {}, void 0, !0),
-        d("div", el, [
-          (p(), w("svg", {
+        je(h.$slots, "background", {}, void 0, !0),
+        d("div", en, [
+          (u(), B("svg", {
             ref_key: "svgRef",
-            ref: Ve,
+            ref: Be,
             xmlns: "http://www.w3.org/2000/svg",
             width: "100%",
             height: "100%"
           }, [
             d("defs", null, [
-              d("pattern", tl, [
+              d("pattern", tn, [
                 d("line", {
                   x1: "0",
                   y1: "0",
                   x2: "0",
                   y2: "20",
-                  stroke: l(i).svg.grid_color
-                }, null, 8, ol),
+                  stroke: n(i).svg.grid_color
+                }, null, 8, on),
                 d("line", {
                   x1: "10",
                   y1: "0",
                   x2: "10",
                   y2: "20",
-                  stroke: l(i).svg.grid_color
-                }, null, 8, ll),
+                  stroke: n(i).svg.grid_color
+                }, null, 8, nn),
                 d("line", {
                   x1: "0",
                   y1: "0",
                   x2: "20",
                   y2: "0",
-                  stroke: l(i).svg.grid_color
-                }, null, 8, nl),
+                  stroke: n(i).svg.grid_color
+                }, null, 8, ln),
                 d("line", {
                   x1: "0",
                   y1: "10",
                   x2: "20",
                   y2: "10",
-                  stroke: l(i).svg.grid_color
-                }, null, 8, il)
+                  stroke: n(i).svg.grid_color
+                }, null, 8, gn)
               ])
             ]),
-            l(i).svg.grid ? (p(), w("rect", gl)) : U("", !0),
+            n(i).svg.grid ? (u(), B("rect", an)) : D("", !0),
             d("g", {
               "data-canvas-content": "",
-              transform: `translate(${l(G) * l(f)},${l(F) * l(f)})rotate(0)scale(${l(f)})`
+              transform: `translate(${n(G) * n(v)},${n(N) * n(v)})rotate(0)scale(${n(v)})`
             }, [
-              (p(!0), w(ae, null, Ae(l(G1), ({ item: I, index: M }) => {
-                var j, q, se, qe, We, h1, r1, A1, ze, f1, $, ee, te, pe;
-                return Ze((p(), w("g", {
-                  key: I.id,
-                  transform: `translate(${I.x},${I.y})rotate(0)scale(1)`
+              (u(!0), B(ce, null, pe(n(y1), ({ item: C, index: E }) => {
+                var ge, he, fe, c1, C1, f, V, w, F, ee, R, J, U, q;
+                return Ve((u(), B("g", {
+                  key: C.id,
+                  transform: `translate(${C.x},${C.y})rotate(0)scale(1)`
                 }, [
                   d("g", {
-                    class: Ge(`${l(Z2)(I)}`)
+                    class: we(`${n(Z2)(C)}`)
                   }, [
                     d("g", {
-                      transform: `translate(${I.actual_bound.x + I.actual_bound.width / 2},${I.actual_bound.y + I.actual_bound.height / 2})rotate(${I.rotate}) scale(1) translate(${-(I.actual_bound.x + I.actual_bound.width / 2)},${-(I.actual_bound.y + I.actual_bound.height / 2)})`,
-                      onMousedown: (ce) => b1(I, M, ce),
-                      onMouseup: (ce) => K1(I, M, ce),
-                      onMouseenter: (ce) => I1(I, M, ce),
-                      onMouseleave: (ce) => w1(I, M, ce),
-                      onContextmenu: (ce) => z1(I, M, ce)
+                      transform: `translate(${C.actual_bound.x + C.actual_bound.width / 2},${C.actual_bound.y + C.actual_bound.height / 2})rotate(${C.rotate}) scale(1) translate(${-(C.actual_bound.x + C.actual_bound.width / 2)},${-(C.actual_bound.y + C.actual_bound.height / 2)})`,
+                      onMousedown: (le) => g1(C, E, le),
+                      onMouseup: (le) => x1(C, E, le),
+                      onMouseenter: (le) => _1(C, E, le),
+                      onMouseleave: (le) => Z1(C, E, le),
+                      onContextmenu: (le) => $1(C, E, le)
                     }, [
-                      I.type === l(T).ConnectionLine ? (p(), H(L2, {
+                      C.type === n(P).ConnectionLine ? (u(), H(L2, {
                         key: 0,
-                        "item-info": I,
-                        "point-visible": l(de).connection_line && ((j = l(de).select_item.info) == null ? void 0 : j.id) == I.id
-                      }, null, 8, ["item-info", "point-visible"])) : I.type === l(T).File ? (p(), w("use", De({
+                        "item-info": C,
+                        "point-visible": n(de).connection_line && ((ge = n(de).select_item.info) == null ? void 0 : ge.id) == C.id
+                      }, null, 8, ["item-info", "point-visible"])) : C.type === n(P).File ? (u(), B("use", De({
                         key: 1,
-                        "xlink:href": `#svg-${I.name}`,
+                        "xlink:href": `#svg-${C.name}`,
                         ref_for: !0
-                      }, l(_1)(I, ["height", "width"]), {
-                        width: ((se = (q = I.props) == null ? void 0 : q.width) == null ? void 0 : se.val) ?? 100,
-                        height: ((We = (qe = I.props) == null ? void 0 : qe.height) == null ? void 0 : We.val) ?? 100,
-                        id: I.id,
-                        transform: `translate(${I.actual_bound.x + I.actual_bound.width / 2},${I.actual_bound.y + I.actual_bound.height / 2}) scale(${I.scale_x},${I.scale_y}) translate(${-(I.actual_bound.x + I.actual_bound.width / 2)},${-(I.actual_bound.y + I.actual_bound.height / 2)})`
-                      }), null, 16, cl)) : I.type === l(T).CustomSvg ? (p(), H(tt(l(nt)(I.tag, c.vueComp)), De({
+                      }, n(V1)(C, ["height", "width"]), {
+                        width: ((fe = (he = C.props) == null ? void 0 : he.width) == null ? void 0 : fe.val) ?? 100,
+                        height: ((C1 = (c1 = C.props) == null ? void 0 : c1.height) == null ? void 0 : C1.val) ?? 100,
+                        id: C.id,
+                        transform: `translate(${C.actual_bound.x + C.actual_bound.width / 2},${C.actual_bound.y + C.actual_bound.height / 2}) scale(${C.scale_x},${C.scale_y}) translate(${-(C.actual_bound.x + C.actual_bound.width / 2)},${-(C.actual_bound.y + C.actual_bound.height / 2)})`
+                      }), null, 16, Cn)) : C.type === n(P).CustomSvg ? (u(), H(ot(n(it)(C.tag, I.vueComp)), De({
                         key: 2,
                         ref_for: !0
-                      }, l(_1)(I, ["height", "width"]), {
-                        width: ((r1 = (h1 = I.props) == null ? void 0 : h1.width) == null ? void 0 : r1.val) ?? 100,
-                        height: ((ze = (A1 = I.props) == null ? void 0 : A1.height) == null ? void 0 : ze.val) ?? 100,
-                        id: I.id,
-                        onResize: ut,
-                        transform: `translate(${I.actual_bound.x + I.actual_bound.width / 2},${I.actual_bound.y + I.actual_bound.height / 2}) scale(${I.scale_x},${I.scale_y}) translate(${-(I.actual_bound.x + I.actual_bound.width / 2)},${-(I.actual_bound.y + I.actual_bound.height / 2)})`
-                      }), null, 16, ["width", "height", "id", "transform"])) : I.type === l(T).Vue ? (p(), w("foreignObject", De({
+                      }, n(V1)(C, ["height", "width"]), {
+                        width: ((V = (f = C.props) == null ? void 0 : f.width) == null ? void 0 : V.val) ?? 100,
+                        height: ((F = (w = C.props) == null ? void 0 : w.height) == null ? void 0 : F.val) ?? 100,
+                        id: C.id,
+                        onResize: qe,
+                        transform: `translate(${C.actual_bound.x + C.actual_bound.width / 2},${C.actual_bound.y + C.actual_bound.height / 2}) scale(${C.scale_x},${C.scale_y}) translate(${-(C.actual_bound.x + C.actual_bound.width / 2)},${-(C.actual_bound.y + C.actual_bound.height / 2)})`
+                      }), null, 16, ["width", "height", "id", "transform"])) : C.type === n(P).Vue ? (u(), B("foreignObject", De({
                         key: 3,
                         ref_for: !0
-                      }, P1(I.actual_bound, I.scale_x, I.scale_y), {
-                        id: `foreign-object${I.id}`,
+                      }, q1(C.actual_bound, C.scale_x, C.scale_y), {
+                        id: `foreign-object${C.id}`,
                         class: "foreignObject"
                       }), [
-                        (p(), H(tt(l(nt)(I.tag, c.vueComp)), De({ ref_for: !0 }, l(_1)(I), {
-                          id: I.id,
-                          transform: `translate(${I.actual_bound.x + I.actual_bound.width / 2},${I.actual_bound.y + I.actual_bound.height / 2}) scale(${I.scale_x},${I.scale_y}) translate(${-(I.actual_bound.x + I.actual_bound.width / 2)},${-(I.actual_bound.y + I.actual_bound.height / 2)})`
+                        (u(), H(ot(n(it)(C.tag, I.vueComp)), De({ ref_for: !0 }, n(V1)(C), {
+                          id: C.id,
+                          transform: `translate(${C.actual_bound.x + C.actual_bound.width / 2},${C.actual_bound.y + C.actual_bound.height / 2}) scale(${C.scale_x},${C.scale_y}) translate(${-(C.actual_bound.x + C.actual_bound.width / 2)},${-(C.actual_bound.y + C.actual_bound.height / 2)})`
                         }), {
-                          default: h(() => [
-                            o1(S(I.tag_slot), 1)
+                          default: m(() => [
+                            o1(S(C.tag_slot), 1)
                           ]),
                           _: 2
                         }, 1040, ["id", "transform"]))
-                      ], 16, Cl)) : I.type === l(T).StraightLine ? (p(), w("line", {
+                      ], 16, dn)) : C.type === n(P).StraightLine ? (u(), B("line", {
                         key: 4,
-                        id: I.id,
-                        x1: I.props.start_x.val,
-                        y1: I.props.start_y.val,
-                        x2: I.props.end_x.val,
-                        y2: I.props.end_y.val,
+                        id: C.id,
+                        x1: C.props.start_x.val,
+                        y1: C.props.start_y.val,
+                        x2: C.props.end_x.val,
+                        y2: C.props.end_y.val,
                         fill: "#FF0000",
                         stroke: "#FF0000",
                         "stroke-width": "2"
-                      }, null, 8, dl)) : U("", !0),
-                      I.config.actual_rect ? (p(), w("rect", De({
+                      }, null, 8, rn)) : D("", !0),
+                      C.config.actual_rect ? (u(), B("rect", De({
                         key: 5,
                         "data-editor-only": "",
-                        id: `rect${I.id}`,
+                        id: `rect${C.id}`,
                         fill: "black",
                         "fill-opacity": "0",
                         ref_for: !0
-                      }, P1(I.actual_bound, I.scale_x, I.scale_y), {
+                      }, q1(C.actual_bound, C.scale_x, C.scale_y), {
                         style: { stroke: "none", "stroke-width": "2", "stroke-miterlimit": "10" },
                         class: {
-                          "svg-item-none": !I.selected && (l(e).intention == l(L).None || l(e).intention == l(L).Select),
-                          "svg-item-move": l(e).intention == l(L).Move && ((f1 = l(e).handle_svg_info) == null ? void 0 : f1.info.id) == I.id,
-                          "svg-item-select": l(e).intention == l(L).Select && (($ = l(e).handle_svg_info) == null ? void 0 : $.info.id) == I.id,
-                          "svg-item-in-group": I.selected
+                          "svg-item-none": !C.selected && (n(e).intention == n(L).None || n(e).intention == n(L).Select),
+                          "svg-item-move": n(e).intention == n(L).Move && ((ee = n(e).handle_svg_info) == null ? void 0 : ee.info.id) == C.id,
+                          "svg-item-select": n(e).intention == n(L).Select && ((R = n(e).handle_svg_info) == null ? void 0 : R.info.id) == C.id,
+                          "svg-item-in-group": C.selected
                         }
-                      }), null, 16, rl)) : U("", !0),
-                      ((ee = l(e).handle_svg_info) == null ? void 0 : ee.info.id) === I.id && l(de).handle_panel && I.type !== l(T).ConnectionLine ? (p(), H(u0, {
+                      }), null, 16, An)) : D("", !0),
+                      ((J = n(e).handle_svg_info) == null ? void 0 : J.info.id) === C.id && n(de).handle_panel && C.type !== n(P).ConnectionLine ? (u(), H(u0, {
                         key: 6,
                         "data-editor-only": "",
-                        "item-info": I
-                      }, null, 8, ["item-info"])) : U("", !0),
-                      !I.selected && ((te = l(de).select_item.info) == null ? void 0 : te.id) == I.id && l(de).connection_panel && I.config.have_anchor && l(e).intention !== l(L).SelectArea && (l(e).intention !== l(L).Select || I.id !== ((pe = l(e).handle_svg_info) == null ? void 0 : pe.info.id)) ? (p(), H(L0, {
+                        "item-info": C
+                      }, null, 8, ["item-info"])) : D("", !0),
+                      !C.selected && ((U = n(de).select_item.info) == null ? void 0 : U.id) == C.id && n(de).connection_panel && C.config.have_anchor && n(e).intention !== n(L).SelectArea && (n(e).intention !== n(L).Select || C.id !== ((q = n(e).handle_svg_info) == null ? void 0 : q.info.id)) ? (u(), H(L0, {
                         key: 7,
-                        onContextmenu: d1,
+                        onContextmenu: m1,
                         "data-editor-only": "",
-                        "item-info": I
-                      }, null, 8, ["item-info"])) : U("", !0)
-                    ], 40, Il)
+                        "item-info": C
+                      }, null, 8, ["item-info"])) : D("", !0)
+                    ], 40, cn)
                   ], 2)
-                ], 8, sl)), [
-                  [Le, I.display]
+                ], 8, In)), [
+                  [We, C.display]
                 ]);
               }), 128)),
               d("rect", {
                 "data-editor-only": "",
-                x: l(E).x,
-                y: l(E).y,
-                height: l(E).height,
-                width: l(E).with,
+                x: n(j).x,
+                y: n(j).y,
+                height: n(j).height,
+                width: n(j).with,
                 stroke: "#107cec",
                 fill: "#107cec",
                 "fill-opacity": ".2"
-              }, null, 8, Al)
-            ], 8, al)
+              }, null, 8, un)
+            ], 8, sn)
           ], 512))
         ])
       ], 36),
-      Ze(d("ul", {
+      Ve(d("ul", {
         ref_key: "contextMenuRef",
-        ref: J,
+        ref: T,
         class: "contextMenu"
       }, [
-        (p(!0), w(ae, null, Ae(l(a).info, (I, M) => (p(), w("li", {
-          key: I.title,
-          onClick: (j) => l(a).onContextMenuClick(M)
+        (u(!0), B(ce, null, pe(n(a).info, (C, E) => (u(), B("li", {
+          key: C.title,
+          onClick: (ge) => n(a).onContextMenuClick(E)
         }, [
           d("p", {
-            class: Ge(I.enable ? "" : "disabled")
+            class: we(C.enable ? "" : "disabled")
           }, [
-            o1(S(l(A)(I.title)) + " ", 1),
-            d("span", pl, S(I.hot_key), 1)
+            o1(S(n(A)(C.title)) + " ", 1),
+            d("span", bn, S(C.hot_key), 1)
           ], 2)
-        ], 8, ul))), 128))
+        ], 8, pn))), 128))
       ], 512), [
-        [Le, l(a).display]
+        [We, n(a).display]
       ])
     ], 64));
   }
 });
-const hl = /* @__PURE__ */ he(ml, [["__scopeId", "data-v-eab1332c"]]);
+const fn = /* @__PURE__ */ ye(hn, [["__scopeId", "data-v-eab1332c"]]);
 /*! Element Plus Icons Vue v2.3.1 */
-var fl = /* @__PURE__ */ D({
+var vn = /* @__PURE__ */ $({
   name: "Aim",
   __name: "aim",
   setup(o) {
-    return (t, e) => (p(), w("svg", {
+    return (t, e) => (u(), B("svg", {
       xmlns: "http://www.w3.org/2000/svg",
       viewBox: "0 0 1024 1024"
     }, [
@@ -5185,8 +5185,8 @@ var fl = /* @__PURE__ */ D({
       })
     ]));
   }
-}), R2 = fl;
-const vl = /* @__PURE__ */ D({
+}), R2 = vn;
+const yn = /* @__PURE__ */ $({
   __name: "vgce-ellipsis",
   props: {
     text: { default: "" },
@@ -5195,31 +5195,31 @@ const vl = /* @__PURE__ */ D({
     placement: { default: "left" }
   },
   setup(o) {
-    const t = o, e = Y(() => String(t.text ?? "")), i = /* @__PURE__ */ new Map();
-    function n(a, c) {
-      const s = `${c}:${a}`;
-      let C = i.get(s);
-      return C === void 0 && (C = t6(a, c), i.set(s, C)), C;
+    const t = o, e = M(() => String(t.text ?? "")), i = /* @__PURE__ */ new Map();
+    function l(a, I) {
+      const s = `${I}:${a}`;
+      let c = i.get(s);
+      return c === void 0 && (c = t6(a, I), i.set(s, c)), c;
     }
-    const g = Y(() => n(e.value, t.fontSize) > t.width);
-    return (a, c) => (p(), H(l(e3), {
-      content: l(e),
-      disabled: !l(g),
+    const g = M(() => l(e.value, t.fontSize) > t.width);
+    return (a, I) => (u(), H(n(e3), {
+      content: n(e),
+      disabled: !n(g),
       placement: a.placement,
       "popper-class": "vgce-ellipsis-popper",
       persistent: !1
     }, {
-      default: h(() => [
+      default: m(() => [
         d("span", {
-          class: Ge(["vgce-ellipsis", { "vgce-ellipsis--clamp": l(g) }]),
-          style: ie(l(g) ? { maxWidth: `${a.width}px` } : void 0)
-        }, S(l(e)), 7)
+          class: we(["vgce-ellipsis", { "vgce-ellipsis--clamp": n(g) }]),
+          style: se(n(g) ? { maxWidth: `${a.width}px` } : void 0)
+        }, S(n(e)), 7)
       ]),
       _: 1
     }, 8, ["content", "disabled", "placement"]));
   }
 });
-const yt = /* @__PURE__ */ he(vl, [["__scopeId", "data-v-1fc14a95"]]), N = /* @__PURE__ */ D({
+const yt = /* @__PURE__ */ ye(yn, [["__scopeId", "data-v-1fc14a95"]]), O = /* @__PURE__ */ $({
   __name: "vgce-form-item",
   props: {
     label: { default: "" },
@@ -5227,15 +5227,15 @@ const yt = /* @__PURE__ */ he(vl, [["__scopeId", "data-v-1fc14a95"]]), N = /* @_
     labelFontSize: { default: 12 }
   },
   setup(o) {
-    return (t, e) => (p(), H(l(u2), null, T2({
-      default: h(() => [
-        Te(t.$slots, "default")
+    return (t, e) => (u(), H(n(u2), null, T2({
+      default: m(() => [
+        je(t.$slots, "default")
       ]),
       _: 2
     }, [
       t.label ? {
         name: "label",
-        fn: h(() => [
+        fn: m(() => [
           r(yt, {
             text: t.label,
             width: t.labelWidth,
@@ -5246,36 +5246,36 @@ const yt = /* @__PURE__ */ he(vl, [["__scopeId", "data-v-1fc14a95"]]), N = /* @_
       } : void 0,
       t.$slots.error ? {
         name: "error",
-        fn: h((i) => [
-          Te(t.$slots, "error", C2(d2(i)))
+        fn: m((i) => [
+          je(t.$slots, "error", C2(d2(i)))
         ]),
         key: "1"
       } : void 0
     ]), 1024));
   }
-}), yl = ["title"], _l = /* @__PURE__ */ D({
+}), _n = ["title"], Zn = /* @__PURE__ */ $({
   __name: "vgce-option",
   props: {
     value: { type: [String, Number, Boolean] },
     label: { default: "" }
   },
   setup(o) {
-    const t = o, e = Y(() => String(t.label ?? t.value));
-    return (i, n) => (p(), H(l(t3), {
+    const t = o, e = M(() => String(t.label ?? t.value));
+    return (i, l) => (u(), H(n(t3), {
       value: i.value,
-      label: l(e)
+      label: n(e)
     }, {
-      default: h(() => [
+      default: m(() => [
         d("span", {
           class: "vgce-option-text",
-          title: l(e)
-        }, S(l(e)), 9, yl)
+          title: n(e)
+        }, S(n(e)), 9, _n)
       ]),
       _: 1
     }, 8, ["value", "label"]));
   }
 });
-const ge = /* @__PURE__ */ he(_l, [["__scopeId", "data-v-f575276e"]]), Zl = ["value", "disabled"], Gl = ["value", "disabled"], Ll = /* @__PURE__ */ D({
+const Ie = /* @__PURE__ */ ye(Zn, [["__scopeId", "data-v-f575276e"]]), Gn = ["value", "disabled"], Ln = ["value", "disabled"], Vn = /* @__PURE__ */ $({
   __name: "vgce-color-picker",
   props: {
     modelValue: { default: "" },
@@ -5283,87 +5283,87 @@ const ge = /* @__PURE__ */ he(_l, [["__scopeId", "data-v-f575276e"]]), Zl = ["va
   },
   emits: ["update:modelValue", "change"],
   setup(o, { emit: t }) {
-    const e = o, i = t, n = (g) => {
+    const e = o, i = t, l = (g) => {
       if (e.disabled)
         return;
       const a = g.target.value;
       i("update:modelValue", a), i("change", a);
     };
-    return (g, a) => (p(), w("div", {
-      class: Ge(["vgce-color-picker", { "vgce-color-picker--disabled": e.disabled }])
+    return (g, a) => (u(), B("div", {
+      class: we(["vgce-color-picker", { "vgce-color-picker--disabled": e.disabled }])
     }, [
       d("input", {
         class: "vgce-color-picker__text",
         type: "text",
         value: e.modelValue,
         disabled: e.disabled,
-        onChange: n
-      }, null, 40, Zl),
+        onChange: l
+      }, null, 40, Gn),
       d("label", {
         class: "vgce-color-picker__swatch",
-        style: ie({ backgroundColor: e.modelValue || "transparent" })
+        style: se({ backgroundColor: e.modelValue || "transparent" })
       }, [
         d("input", {
           type: "color",
           value: e.modelValue || "#ffffff",
           disabled: e.disabled,
-          onInput: n
-        }, null, 40, Gl)
+          onInput: l
+        }, null, 40, Ln)
       ], 4)
     ], 2));
   }
 });
-const _t = /* @__PURE__ */ he(Ll, [["__scopeId", "data-v-4227b6ea"]]), Vl = { class: "vgce-tabs" }, wl = { class: "vgce-tabs__nav" }, Bl = ["onClick"], Wl = { class: "vgce-tabs__content" }, xl = /* @__PURE__ */ D({
+const _t = /* @__PURE__ */ ye(Vn, [["__scopeId", "data-v-4227b6ea"]]), wn = { class: "vgce-tabs" }, Bn = { class: "vgce-tabs__nav" }, Wn = ["onClick"], xn = { class: "vgce-tabs__content" }, Hn = /* @__PURE__ */ $({
   __name: "vgce-tabs",
   props: {
     modelValue: { default: "" }
   },
   emits: ["update:modelValue", "tabChange"],
   setup(o, { emit: t }) {
-    const e = o, i = t, n = K(e.modelValue), g = K([]);
+    const e = o, i = t, l = K(e.modelValue), g = K([]);
     let a = 0;
-    const c = (b) => {
-      const v = a++;
-      return g.value.push({ ...b, uid: v }), n.value || (n.value = b.name, i("update:modelValue", b.name)), v;
-    }, s = (b) => {
-      g.value = g.value.filter((v) => v.uid !== b);
-    }, C = (b, v) => {
-      const _ = g.value.find((G) => G.uid === b);
-      _ && (_.label = v);
-    }, m = (b) => {
-      b !== n.value && (n.value = b, i("update:modelValue", b), i("tabChange", b));
+    const I = (p) => {
+      const y = a++;
+      return g.value.push({ ...p, uid: y }), l.value || (l.value = p.name, i("update:modelValue", p.name)), y;
+    }, s = (p) => {
+      g.value = g.value.filter((y) => y.uid !== p);
+    }, c = (p, y) => {
+      const Z = g.value.find((G) => G.uid === p);
+      Z && (Z.label = y);
+    }, b = (p) => {
+      p !== l.value && (l.value = p, i("update:modelValue", p), i("tabChange", p));
     };
-    return Ue(
+    return Te(
       () => e.modelValue,
-      (b) => {
-        n.value = b;
+      (p) => {
+        l.value = p;
       }
-    ), S1("vgceTabs", { active: n, register: c, unregister: s, updateLabel: C }), (b, v) => (p(), w("div", Vl, [
-      d("div", wl, [
-        (p(!0), w(ae, null, Ae(l(g), (_) => (p(), w("div", {
-          key: _.uid,
-          class: Ge(["vgce-tabs__item", { "vgce-tabs__item--active": _.name === l(n) }]),
-          onClick: (G) => m(_.name)
-        }, S(_.label), 11, Bl))), 128))
+    ), M1("vgceTabs", { active: l, register: I, unregister: s, updateLabel: c }), (p, y) => (u(), B("div", wn, [
+      d("div", Bn, [
+        (u(!0), B(ce, null, pe(n(g), (Z) => (u(), B("div", {
+          key: Z.uid,
+          class: we(["vgce-tabs__item", { "vgce-tabs__item--active": Z.name === n(l) }]),
+          onClick: (G) => b(Z.name)
+        }, S(Z.label), 11, Wn))), 128))
       ]),
-      d("div", Wl, [
-        Te(b.$slots, "default", {}, void 0, !0)
+      d("div", xn, [
+        je(p.$slots, "default", {}, void 0, !0)
       ])
     ]));
   }
 });
-const Zt = /* @__PURE__ */ he(xl, [["__scopeId", "data-v-6fc1f05e"]]), Hl = {
+const Zt = /* @__PURE__ */ ye(Hn, [["__scopeId", "data-v-6fc1f05e"]]), Rn = {
   key: 0,
   class: "vgce-tab-pane"
-}, Rl = /* @__PURE__ */ D({
+}, Xn = /* @__PURE__ */ $({
   __name: "vgce-tab-pane",
   props: {
     label: {},
     name: {}
   },
   setup(o) {
-    const t = o, e = X1("vgceTabs"), i = e == null ? void 0 : e.register({ name: t.name, label: t.label });
-    Ue(
+    const t = o, e = z1("vgceTabs"), i = e == null ? void 0 : e.register({ name: t.name, label: t.label });
+    Te(
       () => t.label,
       (g) => {
         i !== void 0 && (e == null || e.updateLabel(i, g));
@@ -5371,20 +5371,20 @@ const Zt = /* @__PURE__ */ he(xl, [["__scopeId", "data-v-6fc1f05e"]]), Hl = {
     ), r2(() => {
       i !== void 0 && (e == null || e.unregister(i));
     });
-    const n = Y(() => (e == null ? void 0 : e.active.value) === t.name);
-    return (g, a) => l(n) ? (p(), w("div", Hl, [
-      Te(g.$slots, "default", {}, void 0, !0)
-    ])) : U("", !0);
+    const l = M(() => (e == null ? void 0 : e.active.value) === t.name);
+    return (g, a) => n(l) ? (u(), B("div", Rn, [
+      je(g.$slots, "default", {}, void 0, !0)
+    ])) : D("", !0);
   }
 });
-const e1 = /* @__PURE__ */ he(Rl, [["__scopeId", "data-v-1532f8b1"]]);
+const e1 = /* @__PURE__ */ ye(Xn, [["__scopeId", "data-v-1532f8b1"]]);
 var X2 = function() {
   if (typeof Map < "u")
     return Map;
   function o(t, e) {
     var i = -1;
-    return t.some(function(n, g) {
-      return n[0] === e ? (i = g, !0) : !1;
+    return t.some(function(l, g) {
+      return l[0] === e ? (i = g, !0) : !1;
     }), i;
   }
   return (
@@ -5403,61 +5403,61 @@ var X2 = function() {
         enumerable: !0,
         configurable: !0
       }), t.prototype.get = function(e) {
-        var i = o(this.__entries__, e), n = this.__entries__[i];
-        return n && n[1];
+        var i = o(this.__entries__, e), l = this.__entries__[i];
+        return l && l[1];
       }, t.prototype.set = function(e, i) {
-        var n = o(this.__entries__, e);
-        ~n ? this.__entries__[n][1] = i : this.__entries__.push([e, i]);
+        var l = o(this.__entries__, e);
+        ~l ? this.__entries__[l][1] = i : this.__entries__.push([e, i]);
       }, t.prototype.delete = function(e) {
-        var i = this.__entries__, n = o(i, e);
-        ~n && i.splice(n, 1);
+        var i = this.__entries__, l = o(i, e);
+        ~l && i.splice(l, 1);
       }, t.prototype.has = function(e) {
         return !!~o(this.__entries__, e);
       }, t.prototype.clear = function() {
         this.__entries__.splice(0);
       }, t.prototype.forEach = function(e, i) {
         i === void 0 && (i = null);
-        for (var n = 0, g = this.__entries__; n < g.length; n++) {
-          var a = g[n];
+        for (var l = 0, g = this.__entries__; l < g.length; l++) {
+          var a = g[l];
           e.call(i, a[1], a[0]);
         }
       }, t;
     }()
   );
-}(), Gt = typeof window < "u" && typeof document < "u" && window.document === document, at = function() {
+}(), Gt = typeof window < "u" && typeof document < "u" && window.document === document, st = function() {
   return typeof global < "u" && global.Math === Math ? global : typeof self < "u" && self.Math === Math ? self : typeof window < "u" && window.Math === Math ? window : Function("return this")();
-}(), Xl = function() {
-  return typeof requestAnimationFrame == "function" ? requestAnimationFrame.bind(at) : function(o) {
+}(), Sn = function() {
+  return typeof requestAnimationFrame == "function" ? requestAnimationFrame.bind(st) : function(o) {
     return setTimeout(function() {
       return o(Date.now());
     }, 1e3 / 60);
   };
-}(), Sl = 2;
-function kl(o, t) {
-  var e = !1, i = !1, n = 0;
+}(), kn = 2;
+function Kn(o, t) {
+  var e = !1, i = !1, l = 0;
   function g() {
-    e && (e = !1, o()), i && c();
+    e && (e = !1, o()), i && I();
   }
   function a() {
-    Xl(g);
+    Sn(g);
   }
-  function c() {
+  function I() {
     var s = Date.now();
     if (e) {
-      if (s - n < Sl)
+      if (s - l < kn)
         return;
       i = !0;
     } else
       e = !0, i = !1, setTimeout(a, t);
-    n = s;
+    l = s;
   }
-  return c;
+  return I;
 }
-var Kl = 20, zl = ["top", "right", "bottom", "left", "width", "height", "size", "weight"], Yl = typeof MutationObserver < "u", Ml = (
+var Yn = 20, zn = ["top", "right", "bottom", "left", "width", "height", "size", "weight"], Mn = typeof MutationObserver < "u", Fn = (
   /** @class */
   function() {
     function o() {
-      this.connected_ = !1, this.mutationEventsAdded_ = !1, this.mutationsObserver_ = null, this.observers_ = [], this.onTransitionEnd_ = this.onTransitionEnd_.bind(this), this.refresh = kl(this.refresh.bind(this), Kl);
+      this.connected_ = !1, this.mutationEventsAdded_ = !1, this.mutationsObserver_ = null, this.observers_ = [], this.onTransitionEnd_ = this.onTransitionEnd_.bind(this), this.refresh = Kn(this.refresh.bind(this), Yn);
     }
     return o.prototype.addObserver = function(t) {
       ~this.observers_.indexOf(t) || this.observers_.push(t), this.connected_ || this.connect_();
@@ -5475,7 +5475,7 @@ var Kl = 20, zl = ["top", "right", "bottom", "left", "width", "height", "size", 
         return e.broadcastActive();
       }), t.length > 0;
     }, o.prototype.connect_ = function() {
-      !Gt || this.connected_ || (document.addEventListener("transitionend", this.onTransitionEnd_), window.addEventListener("resize", this.refresh), Yl ? (this.mutationsObserver_ = new MutationObserver(this.refresh), this.mutationsObserver_.observe(document, {
+      !Gt || this.connected_ || (document.addEventListener("transitionend", this.onTransitionEnd_), window.addEventListener("resize", this.refresh), Mn ? (this.mutationsObserver_ = new MutationObserver(this.refresh), this.mutationsObserver_.observe(document, {
         attributes: !0,
         childList: !0,
         characterData: !0,
@@ -5484,115 +5484,115 @@ var Kl = 20, zl = ["top", "right", "bottom", "left", "width", "height", "size", 
     }, o.prototype.disconnect_ = function() {
       !Gt || !this.connected_ || (document.removeEventListener("transitionend", this.onTransitionEnd_), window.removeEventListener("resize", this.refresh), this.mutationsObserver_ && this.mutationsObserver_.disconnect(), this.mutationEventsAdded_ && document.removeEventListener("DOMSubtreeModified", this.refresh), this.mutationsObserver_ = null, this.mutationEventsAdded_ = !1, this.connected_ = !1);
     }, o.prototype.onTransitionEnd_ = function(t) {
-      var e = t.propertyName, i = e === void 0 ? "" : e, n = zl.some(function(g) {
+      var e = t.propertyName, i = e === void 0 ? "" : e, l = zn.some(function(g) {
         return !!~i.indexOf(g);
       });
-      n && this.refresh();
+      l && this.refresh();
     }, o.getInstance = function() {
       return this.instance_ || (this.instance_ = new o()), this.instance_;
     }, o.instance_ = null, o;
   }()
 ), S2 = function(o, t) {
   for (var e = 0, i = Object.keys(t); e < i.length; e++) {
-    var n = i[e];
-    Object.defineProperty(o, n, {
-      value: t[n],
+    var l = i[e];
+    Object.defineProperty(o, l, {
+      value: t[l],
       enumerable: !1,
       writable: !1,
       configurable: !0
     });
   }
   return o;
-}, k1 = function(o) {
+}, F1 = function(o) {
   var t = o && o.ownerDocument && o.ownerDocument.defaultView;
-  return t || at;
-}, k2 = dt(0, 0, 0, 0);
-function st(o) {
+  return t || st;
+}, k2 = rt(0, 0, 0, 0);
+function It(o) {
   return parseFloat(o) || 0;
 }
-function l2(o) {
+function n2(o) {
   for (var t = [], e = 1; e < arguments.length; e++)
     t[e - 1] = arguments[e];
-  return t.reduce(function(i, n) {
-    var g = o["border-" + n + "-width"];
-    return i + st(g);
+  return t.reduce(function(i, l) {
+    var g = o["border-" + l + "-width"];
+    return i + It(g);
   }, 0);
 }
-function Fl(o) {
-  for (var t = ["top", "right", "bottom", "left"], e = {}, i = 0, n = t; i < n.length; i++) {
-    var g = n[i], a = o["padding-" + g];
-    e[g] = st(a);
+function Jn(o) {
+  for (var t = ["top", "right", "bottom", "left"], e = {}, i = 0, l = t; i < l.length; i++) {
+    var g = l[i], a = o["padding-" + g];
+    e[g] = It(a);
   }
   return e;
 }
-function Jl(o) {
+function Nn(o) {
   var t = o.getBBox();
-  return dt(0, 0, t.width, t.height);
+  return rt(0, 0, t.width, t.height);
 }
-function Nl(o) {
+function Un(o) {
   var t = o.clientWidth, e = o.clientHeight;
   if (!t && !e)
     return k2;
-  var i = k1(o).getComputedStyle(o), n = Fl(i), g = n.left + n.right, a = n.top + n.bottom, c = st(i.width), s = st(i.height);
-  if (i.boxSizing === "border-box" && (Math.round(c + g) !== t && (c -= l2(i, "left", "right") + g), Math.round(s + a) !== e && (s -= l2(i, "top", "bottom") + a)), !Tl(o)) {
-    var C = Math.round(c + g) - t, m = Math.round(s + a) - e;
-    Math.abs(C) !== 1 && (c -= C), Math.abs(m) !== 1 && (s -= m);
+  var i = F1(o).getComputedStyle(o), l = Jn(i), g = l.left + l.right, a = l.top + l.bottom, I = It(i.width), s = It(i.height);
+  if (i.boxSizing === "border-box" && (Math.round(I + g) !== t && (I -= n2(i, "left", "right") + g), Math.round(s + a) !== e && (s -= n2(i, "top", "bottom") + a)), !jn(o)) {
+    var c = Math.round(I + g) - t, b = Math.round(s + a) - e;
+    Math.abs(c) !== 1 && (I -= c), Math.abs(b) !== 1 && (s -= b);
   }
-  return dt(n.left, n.top, c, s);
+  return rt(l.left, l.top, I, s);
 }
-var Ul = function() {
+var Tn = function() {
   return typeof SVGGraphicsElement < "u" ? function(o) {
-    return o instanceof k1(o).SVGGraphicsElement;
+    return o instanceof F1(o).SVGGraphicsElement;
   } : function(o) {
-    return o instanceof k1(o).SVGElement && typeof o.getBBox == "function";
+    return o instanceof F1(o).SVGElement && typeof o.getBBox == "function";
   };
 }();
-function Tl(o) {
-  return o === k1(o).document.documentElement;
+function jn(o) {
+  return o === F1(o).document.documentElement;
 }
-function jl(o) {
-  return Gt ? Ul(o) ? Jl(o) : Nl(o) : k2;
+function On(o) {
+  return Gt ? Tn(o) ? Nn(o) : Un(o) : k2;
 }
-function Ol(o) {
-  var t = o.x, e = o.y, i = o.width, n = o.height, g = typeof DOMRectReadOnly < "u" ? DOMRectReadOnly : Object, a = Object.create(g.prototype);
+function Dn(o) {
+  var t = o.x, e = o.y, i = o.width, l = o.height, g = typeof DOMRectReadOnly < "u" ? DOMRectReadOnly : Object, a = Object.create(g.prototype);
   return S2(a, {
     x: t,
     y: e,
     width: i,
-    height: n,
+    height: l,
     top: e,
     right: t + i,
-    bottom: n + e,
+    bottom: l + e,
     left: t
   }), a;
 }
-function dt(o, t, e, i) {
+function rt(o, t, e, i) {
   return { x: o, y: t, width: e, height: i };
 }
-var Dl = (
+var En = (
   /** @class */
   function() {
     function o(t) {
-      this.broadcastWidth = 0, this.broadcastHeight = 0, this.contentRect_ = dt(0, 0, 0, 0), this.target = t;
+      this.broadcastWidth = 0, this.broadcastHeight = 0, this.contentRect_ = rt(0, 0, 0, 0), this.target = t;
     }
     return o.prototype.isActive = function() {
-      var t = jl(this.target);
+      var t = On(this.target);
       return this.contentRect_ = t, t.width !== this.broadcastWidth || t.height !== this.broadcastHeight;
     }, o.prototype.broadcastRect = function() {
       var t = this.contentRect_;
       return this.broadcastWidth = t.width, this.broadcastHeight = t.height, t;
     }, o;
   }()
-), El = (
+), Pn = (
   /** @class */
   function() {
     function o(t, e) {
-      var i = Ol(e);
+      var i = Dn(e);
       S2(this, { target: t, contentRect: i });
     }
     return o;
   }()
-), Pl = (
+), Qn = (
   /** @class */
   function() {
     function o(t, e, i) {
@@ -5604,16 +5604,16 @@ var Dl = (
       if (!arguments.length)
         throw new TypeError("1 argument required, but only 0 present.");
       if (!(typeof Element > "u" || !(Element instanceof Object))) {
-        if (!(t instanceof k1(t).Element))
+        if (!(t instanceof F1(t).Element))
           throw new TypeError('parameter 1 is not of type "Element".');
         var e = this.observations_;
-        e.has(t) || (e.set(t, new Dl(t)), this.controller_.addObserver(this), this.controller_.refresh());
+        e.has(t) || (e.set(t, new En(t)), this.controller_.addObserver(this), this.controller_.refresh());
       }
     }, o.prototype.unobserve = function(t) {
       if (!arguments.length)
         throw new TypeError("1 argument required, but only 0 present.");
       if (!(typeof Element > "u" || !(Element instanceof Object))) {
-        if (!(t instanceof k1(t).Element))
+        if (!(t instanceof F1(t).Element))
           throw new TypeError('parameter 1 is not of type "Element".');
         var e = this.observations_;
         e.has(t) && (e.delete(t), e.size || this.controller_.removeObserver(this));
@@ -5628,7 +5628,7 @@ var Dl = (
     }, o.prototype.broadcastActive = function() {
       if (this.hasActive()) {
         var t = this.callbackCtx_, e = this.activeObservations_.map(function(i) {
-          return new El(i.target, i.broadcastRect());
+          return new Pn(i.target, i.broadcastRect());
         });
         this.callback_.call(t, e, t), this.clearActive();
       }
@@ -5638,7 +5638,7 @@ var Dl = (
       return this.activeObservations_.length > 0;
     }, o;
   }()
-), K2 = typeof WeakMap < "u" ? /* @__PURE__ */ new WeakMap() : new X2(), z2 = (
+), K2 = typeof WeakMap < "u" ? /* @__PURE__ */ new WeakMap() : new X2(), Y2 = (
   /** @class */
   function() {
     function o(t) {
@@ -5646,7 +5646,7 @@ var Dl = (
         throw new TypeError("Cannot call a class as a function.");
       if (!arguments.length)
         throw new TypeError("1 argument required, but only 0 present.");
-      var e = Ml.getInstance(), i = new Pl(t, e, this);
+      var e = Fn.getInstance(), i = new Qn(t, e, this);
       K2.set(this, i);
     }
     return o;
@@ -5657,15 +5657,15 @@ var Dl = (
   "unobserve",
   "disconnect"
 ].forEach(function(o) {
-  z2.prototype[o] = function() {
+  Y2.prototype[o] = function() {
     var t;
     return (t = K2.get(this))[o].apply(t, arguments);
   };
 });
-var Ql = function() {
-  return typeof at.ResizeObserver < "u" ? at.ResizeObserver : z2;
+var $n = function() {
+  return typeof st.ResizeObserver < "u" ? st.ResizeObserver : Y2;
 }();
-const n2 = [
+const l2 = [
   "blur",
   "input",
   "change",
@@ -5674,7 +5674,7 @@ const n2 = [
   "copy",
   "focus",
   "paste"
-], St = D({
+], St = $({
   name: "VAceEditor",
   props: {
     value: {
@@ -5700,12 +5700,12 @@ const n2 = [
     minLines: Number,
     maxLines: Number
   },
-  emits: ["update:value", "init", ...n2],
+  emits: ["update:value", "init", ...l2],
   render() {
     return j2("div");
   },
   mounted() {
-    const o = this._editor = O2(It.edit(this.$el, {
+    const o = this._editor = O2(ct.edit(this.$el, {
       placeholder: this.placeholder,
       readOnly: this.readonly,
       value: this.value,
@@ -5723,10 +5723,10 @@ const n2 = [
         return;
       const t = o.getValue();
       this._contentBackup = t, this.$emit("update:value", t);
-    }), n2.forEach((t) => {
+    }), l2.forEach((t) => {
       const e = "on" + D2(t);
       typeof this.$.vnode.props[e] == "function" && o.on(t, this.$emit.bind(this, t));
-    }), this._ro = new Ql(() => o.resize()), this._ro.observe(this.$el), this.$emit("init", o);
+    }), this._ro = new $n(() => o.resize()), this._ro.observe(this.$el), this.$emit("init", o);
   },
   beforeUnmount() {
     var o, t;
@@ -5785,11 +5785,11 @@ const n2 = [
       this._editor.setOption("maxLines", o);
     }
   }
-}), $l = "data:application/javascript;base64,YWNlLmRlZmluZSgiYWNlL3RoZW1lL2tyX3RoZW1lLmNzcyIsWyJyZXF1aXJlIiwiZXhwb3J0cyIsIm1vZHVsZSJdLCBmdW5jdGlvbihyZXF1aXJlLCBleHBvcnRzLCBtb2R1bGUpe21vZHVsZS5leHBvcnRzID0gIi5hY2Uta3ItdGhlbWUgLmFjZV9ndXR0ZXIge1xuICBiYWNrZ3JvdW5kOiAjMWMxOTE3O1xuICBjb2xvcjogI0ZDRkZFMFxufVxuXG4uYWNlLWtyLXRoZW1lIC5hY2VfcHJpbnQtbWFyZ2luIHtcbiAgd2lkdGg6IDFweDtcbiAgYmFja2dyb3VuZDogIzFjMTkxN1xufVxuXG4uYWNlLWtyLXRoZW1lIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzBCMEEwOTtcbiAgY29sb3I6ICNGQ0ZGRTBcbn1cblxuLmFjZS1rci10aGVtZSAuYWNlX2N1cnNvciB7XG4gIGNvbG9yOiAjRkY5OTAwXG59XG5cbi5hY2Uta3ItdGhlbWUgLmFjZV9tYXJrZXItbGF5ZXIgLmFjZV9zZWxlY3Rpb24ge1xuICBiYWNrZ3JvdW5kOiByZ2JhKDE3MCwgMCwgMjU1LCAwLjQ1KVxufVxuXG4uYWNlLWtyLXRoZW1lLmFjZV9tdWx0aXNlbGVjdCAuYWNlX3NlbGVjdGlvbi5hY2Vfc3RhcnQge1xuICBib3gtc2hhZG93OiAwIDAgM3B4IDBweCAjMEIwQTA5O1xufVxuXG4uYWNlLWtyLXRoZW1lIC5hY2VfbWFya2VyLWxheWVyIC5hY2Vfc3RlcCB7XG4gIGJhY2tncm91bmQ6IHJnYigxMDIsIDgyLCAwKVxufVxuXG4uYWNlLWtyLXRoZW1lIC5hY2VfbWFya2VyLWxheWVyIC5hY2VfYnJhY2tldCB7XG4gIG1hcmdpbjogLTFweCAwIDAgLTFweDtcbiAgYm9yZGVyOiAxcHggc29saWQgcmdiYSgyNTUsIDE3NywgMTExLCAwLjMyKVxufVxuXG4uYWNlLWtyLXRoZW1lIC5hY2VfbWFya2VyLWxheWVyIC5hY2VfYWN0aXZlLWxpbmUge1xuICBiYWNrZ3JvdW5kOiAjMzg0MDNEXG59XG5cbi5hY2Uta3ItdGhlbWUgLmFjZV9ndXR0ZXItYWN0aXZlLWxpbmUge1xuICBiYWNrZ3JvdW5kLWNvbG9yIDogIzM4NDAzRFxufVxuXG4uYWNlLWtyLXRoZW1lIC5hY2VfbWFya2VyLWxheWVyIC5hY2Vfc2VsZWN0ZWQtd29yZCB7XG4gIGJvcmRlcjogMXB4IHNvbGlkIHJnYmEoMTcwLCAwLCAyNTUsIDAuNDUpXG59XG5cbi5hY2Uta3ItdGhlbWUgLmFjZV9pbnZpc2libGUge1xuICBjb2xvcjogcmdiYSgyNTUsIDE3NywgMTExLCAwLjMyKVxufVxuXG4uYWNlLWtyLXRoZW1lIC5hY2Vfa2V5d29yZCxcbi5hY2Uta3ItdGhlbWUgLmFjZV9tZXRhIHtcbiAgY29sb3I6ICM5NDlDOEJcbn1cblxuLmFjZS1rci10aGVtZSAuYWNlX2NvbnN0YW50LFxuLmFjZS1rci10aGVtZSAuYWNlX2NvbnN0YW50LmFjZV9jaGFyYWN0ZXIsXG4uYWNlLWtyLXRoZW1lIC5hY2VfY29uc3RhbnQuYWNlX2NoYXJhY3Rlci5hY2VfZXNjYXBlLFxuLmFjZS1rci10aGVtZSAuYWNlX2NvbnN0YW50LmFjZV9vdGhlciB7XG4gIGNvbG9yOiByZ2JhKDIxMCwgMTE3LCAyNCwgMC43Nilcbn1cblxuLmFjZS1rci10aGVtZSAuYWNlX2ludmFsaWQge1xuICBjb2xvcjogI0Y4RjhGODtcbiAgYmFja2dyb3VuZC1jb2xvcjogI0E0MTMwMFxufVxuXG4uYWNlLWtyLXRoZW1lIC5hY2Vfc3VwcG9ydCB7XG4gIGNvbG9yOiAjOUZDMjhBXG59XG5cbi5hY2Uta3ItdGhlbWUgLmFjZV9zdXBwb3J0LmFjZV9jb25zdGFudCB7XG4gIGNvbG9yOiAjQzI3RTY2XG59XG5cbi5hY2Uta3ItdGhlbWUgLmFjZV9mb2xkIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzk0OUM4QjtcbiAgYm9yZGVyLWNvbG9yOiAjRkNGRkUwXG59XG5cbi5hY2Uta3ItdGhlbWUgLmFjZV9zdXBwb3J0LmFjZV9mdW5jdGlvbiB7XG4gIGNvbG9yOiAjODU4NzNBXG59XG5cbi5hY2Uta3ItdGhlbWUgLmFjZV9zdG9yYWdlIHtcbiAgY29sb3I6ICNGRkVFODBcbn1cblxuLmFjZS1rci10aGVtZSAuYWNlX3N0cmluZyB7XG4gIGNvbG9yOiByZ2JhKDE2NCwgMTYxLCAxODEsIDAuOClcbn1cblxuLmFjZS1rci10aGVtZSAuYWNlX3N0cmluZy5hY2VfcmVnZXhwIHtcbiAgY29sb3I6IHJnYmEoMTI1LCAyNTUsIDE5MiwgMC42NSlcbn1cblxuLmFjZS1rci10aGVtZSAuYWNlX2NvbW1lbnQge1xuICBmb250LXN0eWxlOiBpdGFsaWM7XG4gIGNvbG9yOiAjNzA2RDVCXG59XG5cbi5hY2Uta3ItdGhlbWUgLmFjZV92YXJpYWJsZSB7XG4gIGNvbG9yOiAjRDFBNzk2XG59XG5cbi5hY2Uta3ItdGhlbWUgLmFjZV9saXN0LFxuLmFjZS1rci10aGVtZSAuYWNlX21hcmt1cC5hY2VfbGlzdCB7XG4gIGJhY2tncm91bmQtY29sb3I6ICMwRjAwNDBcbn1cblxuLmFjZS1rci10aGVtZSAuYWNlX3ZhcmlhYmxlLmFjZV9sYW5ndWFnZSB7XG4gIGNvbG9yOiAjRkY4MEUxXG59XG5cbi5hY2Uta3ItdGhlbWUgLmFjZV9tZXRhLmFjZV90YWcge1xuICBjb2xvcjogI0JBQkQ5Q1xufVxuXG4uYWNlLWtyLXRoZW1lIC5hY2VfaW5kZW50LWd1aWRlIHtcbiAgYmFja2dyb3VuZDogdXJsKGRhdGE6aW1hZ2UvcG5nO2Jhc2U2NCxpVkJPUncwS0dnb0FBQUFOU1VoRVVnQUFBQUVBQUFBQ0NBWUFBQUNaZ2JZbkFBQUFFa2xFUVZRSW1XTmdZR0JnWUZCWFYvOFBBQUpvQVhYNGtUMkVBQUFBQUVsRlRrU3VRbUNDKSByaWdodCByZXBlYXQteVxufVxuXG4uYWNlLWtyLXRoZW1lIC5hY2VfaW5kZW50LWd1aWRlLWFjdGl2ZSB7XG4gIGJhY2tncm91bmQ6IHVybChcImRhdGE6aW1hZ2UvcG5nO2Jhc2U2NCxpVkJPUncwS0dnb0FBQUFOU1VoRVVnQUFBQUVBQUFBQ0NBWUFBQUNaZ2JZbkFBQUFDWEJJV1hNQUFBc1RBQUFMRXdFQW1wd1lBQUFBSUdOSVVrMEFBSG9sQUFDQWd3QUErZjhBQUlEcEFBQjFNQUFBNm1BQUFEcVlBQUFYYjVKZnhVWUFBQUFaU1VSQlZIamFZdmovLy85L2hpdkt5djhCQUFBQS8vOERBQ0xxQmhidmsrL2VBQUFBQUVsRlRrU3VRbUNDXCIpIHJpZ2h0IHJlcGVhdC15O1xufVxuIjsKCn0pOwoKYWNlLmRlZmluZSgiYWNlL3RoZW1lL2tyX3RoZW1lIixbInJlcXVpcmUiLCJleHBvcnRzIiwibW9kdWxlIiwiYWNlL3RoZW1lL2tyX3RoZW1lLmNzcyIsImFjZS9saWIvZG9tIl0sIGZ1bmN0aW9uKHJlcXVpcmUsIGV4cG9ydHMsIG1vZHVsZSl7ZXhwb3J0cy5pc0RhcmsgPSB0cnVlOwpleHBvcnRzLmNzc0NsYXNzID0gImFjZS1rci10aGVtZSI7CmV4cG9ydHMuY3NzVGV4dCA9IHJlcXVpcmUoIi4va3JfdGhlbWUuY3NzIik7CnZhciBkb20gPSByZXF1aXJlKCIuLi9saWIvZG9tIik7CmRvbS5pbXBvcnRDc3NTdHJpbmcoZXhwb3J0cy5jc3NUZXh0LCBleHBvcnRzLmNzc0NsYXNzLCBmYWxzZSk7Cgp9KTsgICAgICAgICAgICAgICAgKGZ1bmN0aW9uKCkgewogICAgICAgICAgICAgICAgICAgIGFjZS5yZXF1aXJlKFsiYWNlL3RoZW1lL2tyX3RoZW1lIl0sIGZ1bmN0aW9uKG0pIHsKICAgICAgICAgICAgICAgICAgICAgICAgaWYgKHR5cGVvZiBtb2R1bGUgPT0gIm9iamVjdCIgJiYgdHlwZW9mIGV4cG9ydHMgPT0gIm9iamVjdCIgJiYgbW9kdWxlKSB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBtb2R1bGUuZXhwb3J0cyA9IG07CiAgICAgICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgICB9KTsKICAgICAgICAgICAgICAgIH0pKCk7CiAgICAgICAgICAgIA==", ql = "data:application/javascript;base64,YWNlLmRlZmluZSgiYWNlL21vZGUvanNvbl9oaWdobGlnaHRfcnVsZXMiLFsicmVxdWlyZSIsImV4cG9ydHMiLCJtb2R1bGUiLCJhY2UvbGliL29vcCIsImFjZS9tb2RlL3RleHRfaGlnaGxpZ2h0X3J1bGVzIl0sIGZ1bmN0aW9uKHJlcXVpcmUsIGV4cG9ydHMsIG1vZHVsZSl7InVzZSBzdHJpY3QiOwp2YXIgb29wID0gcmVxdWlyZSgiLi4vbGliL29vcCIpOwp2YXIgVGV4dEhpZ2hsaWdodFJ1bGVzID0gcmVxdWlyZSgiLi90ZXh0X2hpZ2hsaWdodF9ydWxlcyIpLlRleHRIaWdobGlnaHRSdWxlczsKdmFyIEpzb25IaWdobGlnaHRSdWxlcyA9IGZ1bmN0aW9uICgpIHsKICAgIHRoaXMuJHJ1bGVzID0gewogICAgICAgICJzdGFydCI6IFsKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgdG9rZW46ICJ2YXJpYWJsZSIsCiAgICAgICAgICAgICAgICByZWdleDogJ1siXSg/Oig/OlxcXFwuKXwoPzpbXiJcXFxcXSkpKj9bIl1cXHMqKD89OiknCiAgICAgICAgICAgIH0sIHsKICAgICAgICAgICAgICAgIHRva2VuOiAic3RyaW5nIiwKICAgICAgICAgICAgICAgIHJlZ2V4OiAnIicsCiAgICAgICAgICAgICAgICBuZXh0OiAic3RyaW5nIgogICAgICAgICAgICB9LCB7CiAgICAgICAgICAgICAgICB0b2tlbjogImNvbnN0YW50Lm51bWVyaWMiLAogICAgICAgICAgICAgICAgcmVnZXg6ICIwW3hYXVswLTlhLWZBLUZdK1xcYiIKICAgICAgICAgICAgfSwgewogICAgICAgICAgICAgICAgdG9rZW46ICJjb25zdGFudC5udW1lcmljIiwKICAgICAgICAgICAgICAgIHJlZ2V4OiAiWystXT9cXGQrKD86KD86XFwuXFxkKik/KD86W2VFXVsrLV0/XFxkKyk/KT9cXGIiCiAgICAgICAgICAgIH0sIHsKICAgICAgICAgICAgICAgIHRva2VuOiAiY29uc3RhbnQubGFuZ3VhZ2UuYm9vbGVhbiIsCiAgICAgICAgICAgICAgICByZWdleDogIig/OnRydWV8ZmFsc2UpXFxiIgogICAgICAgICAgICB9LCB7CiAgICAgICAgICAgICAgICB0b2tlbjogInRleHQiLAogICAgICAgICAgICAgICAgcmVnZXg6ICJbJ10oPzooPzpcXFxcLil8KD86W14nXFxcXF0pKSo/WyddIgogICAgICAgICAgICB9LCB7CiAgICAgICAgICAgICAgICB0b2tlbjogImNvbW1lbnQiLAogICAgICAgICAgICAgICAgcmVnZXg6ICJcXC9cXC8uKiQiCiAgICAgICAgICAgIH0sIHsKICAgICAgICAgICAgICAgIHRva2VuOiAiY29tbWVudC5zdGFydCIsCiAgICAgICAgICAgICAgICByZWdleDogIlxcL1xcKiIsCiAgICAgICAgICAgICAgICBuZXh0OiAiY29tbWVudCIKICAgICAgICAgICAgfSwgewogICAgICAgICAgICAgICAgdG9rZW46ICJwYXJlbi5scGFyZW4iLAogICAgICAgICAgICAgICAgcmVnZXg6ICJbWyh7XSIKICAgICAgICAgICAgfSwgewogICAgICAgICAgICAgICAgdG9rZW46ICJwYXJlbi5ycGFyZW4iLAogICAgICAgICAgICAgICAgcmVnZXg6ICJbXFxdKX1dIgogICAgICAgICAgICB9LCB7CiAgICAgICAgICAgICAgICB0b2tlbjogInB1bmN0dWF0aW9uLm9wZXJhdG9yIiwKICAgICAgICAgICAgICAgIHJlZ2V4OiAvWyxdLwogICAgICAgICAgICB9LCB7CiAgICAgICAgICAgICAgICB0b2tlbjogInRleHQiLAogICAgICAgICAgICAgICAgcmVnZXg6ICJcXHMrIgogICAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAic3RyaW5nIjogWwogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICB0b2tlbjogImNvbnN0YW50Lmxhbmd1YWdlLmVzY2FwZSIsCiAgICAgICAgICAgICAgICByZWdleDogL1xcKD86eFswLTlhLWZBLUZdezJ9fHVbMC05YS1mQS1GXXs0fXxbIlxcXC9iZm5ydF0pLwogICAgICAgICAgICB9LCB7CiAgICAgICAgICAgICAgICB0b2tlbjogInN0cmluZyIsCiAgICAgICAgICAgICAgICByZWdleDogJyJ8JCcsCiAgICAgICAgICAgICAgICBuZXh0OiAic3RhcnQiCiAgICAgICAgICAgIH0sIHsKICAgICAgICAgICAgICAgIGRlZmF1bHRUb2tlbjogInN0cmluZyIKICAgICAgICAgICAgfQogICAgICAgIF0sCiAgICAgICAgImNvbW1lbnQiOiBbCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgIHRva2VuOiAiY29tbWVudC5lbmQiLAogICAgICAgICAgICAgICAgcmVnZXg6ICJcXCpcXC8iLAogICAgICAgICAgICAgICAgbmV4dDogInN0YXJ0IgogICAgICAgICAgICB9LCB7CiAgICAgICAgICAgICAgICBkZWZhdWx0VG9rZW46ICJjb21tZW50IgogICAgICAgICAgICB9CiAgICAgICAgXQogICAgfTsKfTsKb29wLmluaGVyaXRzKEpzb25IaWdobGlnaHRSdWxlcywgVGV4dEhpZ2hsaWdodFJ1bGVzKTsKZXhwb3J0cy5Kc29uSGlnaGxpZ2h0UnVsZXMgPSBKc29uSGlnaGxpZ2h0UnVsZXM7Cgp9KTsKCmFjZS5kZWZpbmUoImFjZS9tb2RlL21hdGNoaW5nX2JyYWNlX291dGRlbnQiLFsicmVxdWlyZSIsImV4cG9ydHMiLCJtb2R1bGUiLCJhY2UvcmFuZ2UiXSwgZnVuY3Rpb24ocmVxdWlyZSwgZXhwb3J0cywgbW9kdWxlKXsidXNlIHN0cmljdCI7CnZhciBSYW5nZSA9IHJlcXVpcmUoIi4uL3JhbmdlIikuUmFuZ2U7CnZhciBNYXRjaGluZ0JyYWNlT3V0ZGVudCA9IGZ1bmN0aW9uICgpIHsgfTsKKGZ1bmN0aW9uICgpIHsKICAgIHRoaXMuY2hlY2tPdXRkZW50ID0gZnVuY3Rpb24gKGxpbmUsIGlucHV0KSB7CiAgICAgICAgaWYgKCEvXlxzKyQvLnRlc3QobGluZSkpCiAgICAgICAgICAgIHJldHVybiBmYWxzZTsKICAgICAgICByZXR1cm4gL15ccypcfS8udGVzdChpbnB1dCk7CiAgICB9OwogICAgdGhpcy5hdXRvT3V0ZGVudCA9IGZ1bmN0aW9uIChkb2MsIHJvdykgewogICAgICAgIHZhciBsaW5lID0gZG9jLmdldExpbmUocm93KTsKICAgICAgICB2YXIgbWF0Y2ggPSBsaW5lLm1hdGNoKC9eKFxzKlx9KS8pOwogICAgICAgIGlmICghbWF0Y2gpCiAgICAgICAgICAgIHJldHVybiAwOwogICAgICAgIHZhciBjb2x1bW4gPSBtYXRjaFsxXS5sZW5ndGg7CiAgICAgICAgdmFyIG9wZW5CcmFjZVBvcyA9IGRvYy5maW5kTWF0Y2hpbmdCcmFja2V0KHsgcm93OiByb3csIGNvbHVtbjogY29sdW1uIH0pOwogICAgICAgIGlmICghb3BlbkJyYWNlUG9zIHx8IG9wZW5CcmFjZVBvcy5yb3cgPT0gcm93KQogICAgICAgICAgICByZXR1cm4gMDsKICAgICAgICB2YXIgaW5kZW50ID0gdGhpcy4kZ2V0SW5kZW50KGRvYy5nZXRMaW5lKG9wZW5CcmFjZVBvcy5yb3cpKTsKICAgICAgICBkb2MucmVwbGFjZShuZXcgUmFuZ2Uocm93LCAwLCByb3csIGNvbHVtbiAtIDEpLCBpbmRlbnQpOwogICAgfTsKICAgIHRoaXMuJGdldEluZGVudCA9IGZ1bmN0aW9uIChsaW5lKSB7CiAgICAgICAgcmV0dXJuIGxpbmUubWF0Y2goL15ccyovKVswXTsKICAgIH07Cn0pLmNhbGwoTWF0Y2hpbmdCcmFjZU91dGRlbnQucHJvdG90eXBlKTsKZXhwb3J0cy5NYXRjaGluZ0JyYWNlT3V0ZGVudCA9IE1hdGNoaW5nQnJhY2VPdXRkZW50OwoKfSk7CgphY2UuZGVmaW5lKCJhY2UvbW9kZS9mb2xkaW5nL2NzdHlsZSIsWyJyZXF1aXJlIiwiZXhwb3J0cyIsIm1vZHVsZSIsImFjZS9saWIvb29wIiwiYWNlL3JhbmdlIiwiYWNlL21vZGUvZm9sZGluZy9mb2xkX21vZGUiXSwgZnVuY3Rpb24ocmVxdWlyZSwgZXhwb3J0cywgbW9kdWxlKXsidXNlIHN0cmljdCI7CnZhciBvb3AgPSByZXF1aXJlKCIuLi8uLi9saWIvb29wIik7CnZhciBSYW5nZSA9IHJlcXVpcmUoIi4uLy4uL3JhbmdlIikuUmFuZ2U7CnZhciBCYXNlRm9sZE1vZGUgPSByZXF1aXJlKCIuL2ZvbGRfbW9kZSIpLkZvbGRNb2RlOwp2YXIgRm9sZE1vZGUgPSBleHBvcnRzLkZvbGRNb2RlID0gZnVuY3Rpb24gKGNvbW1lbnRSZWdleCkgewogICAgaWYgKGNvbW1lbnRSZWdleCkgewogICAgICAgIHRoaXMuZm9sZGluZ1N0YXJ0TWFya2VyID0gbmV3IFJlZ0V4cCh0aGlzLmZvbGRpbmdTdGFydE1hcmtlci5zb3VyY2UucmVwbGFjZSgvXHxbXnxdKj8kLywgInwiICsgY29tbWVudFJlZ2V4LnN0YXJ0KSk7CiAgICAgICAgdGhpcy5mb2xkaW5nU3RvcE1hcmtlciA9IG5ldyBSZWdFeHAodGhpcy5mb2xkaW5nU3RvcE1hcmtlci5zb3VyY2UucmVwbGFjZSgvXHxbXnxdKj8kLywgInwiICsgY29tbWVudFJlZ2V4LmVuZCkpOwogICAgfQp9Owpvb3AuaW5oZXJpdHMoRm9sZE1vZGUsIEJhc2VGb2xkTW9kZSk7CihmdW5jdGlvbiAoKSB7CiAgICB0aGlzLmZvbGRpbmdTdGFydE1hcmtlciA9IC8oW1x7XFtcKF0pW15cfVxdXCldKiR8XlxzKihcL1wqKS87CiAgICB0aGlzLmZvbGRpbmdTdG9wTWFya2VyID0gL15bXlxbXHtcKF0qKFtcfVxdXCldKXxeW1xzXCpdKihcKlwvKS87CiAgICB0aGlzLnNpbmdsZUxpbmVCbG9ja0NvbW1lbnRSZSA9IC9eXHMqKFwvXCopLipcKlwvXHMqJC87CiAgICB0aGlzLnRyaXBsZVN0YXJCbG9ja0NvbW1lbnRSZSA9IC9eXHMqKFwvXCpcKlwqKS4qXCpcL1xzKiQvOwogICAgdGhpcy5zdGFydFJlZ2lvblJlID0gL15ccyooXC9cKnxcL1wvKSM/cmVnaW9uXGIvOwogICAgdGhpcy5fZ2V0Rm9sZFdpZGdldEJhc2UgPSB0aGlzLmdldEZvbGRXaWRnZXQ7CiAgICB0aGlzLmdldEZvbGRXaWRnZXQgPSBmdW5jdGlvbiAoc2Vzc2lvbiwgZm9sZFN0eWxlLCByb3cpIHsKICAgICAgICB2YXIgbGluZSA9IHNlc3Npb24uZ2V0TGluZShyb3cpOwogICAgICAgIGlmICh0aGlzLnNpbmdsZUxpbmVCbG9ja0NvbW1lbnRSZS50ZXN0KGxpbmUpKSB7CiAgICAgICAgICAgIGlmICghdGhpcy5zdGFydFJlZ2lvblJlLnRlc3QobGluZSkgJiYgIXRoaXMudHJpcGxlU3RhckJsb2NrQ29tbWVudFJlLnRlc3QobGluZSkpCiAgICAgICAgICAgICAgICByZXR1cm4gIiI7CiAgICAgICAgfQogICAgICAgIHZhciBmdyA9IHRoaXMuX2dldEZvbGRXaWRnZXRCYXNlKHNlc3Npb24sIGZvbGRTdHlsZSwgcm93KTsKICAgICAgICBpZiAoIWZ3ICYmIHRoaXMuc3RhcnRSZWdpb25SZS50ZXN0KGxpbmUpKQogICAgICAgICAgICByZXR1cm4gInN0YXJ0IjsgLy8gbGluZUNvbW1lbnRSZWdpb25TdGFydAogICAgICAgIHJldHVybiBmdzsKICAgIH07CiAgICB0aGlzLmdldEZvbGRXaWRnZXRSYW5nZSA9IGZ1bmN0aW9uIChzZXNzaW9uLCBmb2xkU3R5bGUsIHJvdywgZm9yY2VNdWx0aWxpbmUpIHsKICAgICAgICB2YXIgbGluZSA9IHNlc3Npb24uZ2V0TGluZShyb3cpOwogICAgICAgIGlmICh0aGlzLnN0YXJ0UmVnaW9uUmUudGVzdChsaW5lKSkKICAgICAgICAgICAgcmV0dXJuIHRoaXMuZ2V0Q29tbWVudFJlZ2lvbkJsb2NrKHNlc3Npb24sIGxpbmUsIHJvdyk7CiAgICAgICAgdmFyIG1hdGNoID0gbGluZS5tYXRjaCh0aGlzLmZvbGRpbmdTdGFydE1hcmtlcik7CiAgICAgICAgaWYgKG1hdGNoKSB7CiAgICAgICAgICAgIHZhciBpID0gbWF0Y2guaW5kZXg7CiAgICAgICAgICAgIGlmIChtYXRjaFsxXSkKICAgICAgICAgICAgICAgIHJldHVybiB0aGlzLm9wZW5pbmdCcmFja2V0QmxvY2soc2Vzc2lvbiwgbWF0Y2hbMV0sIHJvdywgaSk7CiAgICAgICAgICAgIHZhciByYW5nZSA9IHNlc3Npb24uZ2V0Q29tbWVudEZvbGRSYW5nZShyb3csIGkgKyBtYXRjaFswXS5sZW5ndGgsIDEpOwogICAgICAgICAgICBpZiAocmFuZ2UgJiYgIXJhbmdlLmlzTXVsdGlMaW5lKCkpIHsKICAgICAgICAgICAgICAgIGlmIChmb3JjZU11bHRpbGluZSkgewogICAgICAgICAgICAgICAgICAgIHJhbmdlID0gdGhpcy5nZXRTZWN0aW9uUmFuZ2Uoc2Vzc2lvbiwgcm93KTsKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIGVsc2UgaWYgKGZvbGRTdHlsZSAhPSAiYWxsIikKICAgICAgICAgICAgICAgICAgICByYW5nZSA9IG51bGw7CiAgICAgICAgICAgIH0KICAgICAgICAgICAgcmV0dXJuIHJhbmdlOwogICAgICAgIH0KICAgICAgICBpZiAoZm9sZFN0eWxlID09PSAibWFya2JlZ2luIikKICAgICAgICAgICAgcmV0dXJuOwogICAgICAgIHZhciBtYXRjaCA9IGxpbmUubWF0Y2godGhpcy5mb2xkaW5nU3RvcE1hcmtlcik7CiAgICAgICAgaWYgKG1hdGNoKSB7CiAgICAgICAgICAgIHZhciBpID0gbWF0Y2guaW5kZXggKyBtYXRjaFswXS5sZW5ndGg7CiAgICAgICAgICAgIGlmIChtYXRjaFsxXSkKICAgICAgICAgICAgICAgIHJldHVybiB0aGlzLmNsb3NpbmdCcmFja2V0QmxvY2soc2Vzc2lvbiwgbWF0Y2hbMV0sIHJvdywgaSk7CiAgICAgICAgICAgIHJldHVybiBzZXNzaW9uLmdldENvbW1lbnRGb2xkUmFuZ2Uocm93LCBpLCAtMSk7CiAgICAgICAgfQogICAgfTsKICAgIHRoaXMuZ2V0U2VjdGlvblJhbmdlID0gZnVuY3Rpb24gKHNlc3Npb24sIHJvdykgewogICAgICAgIHZhciBsaW5lID0gc2Vzc2lvbi5nZXRMaW5lKHJvdyk7CiAgICAgICAgdmFyIHN0YXJ0SW5kZW50ID0gbGluZS5zZWFyY2goL1xTLyk7CiAgICAgICAgdmFyIHN0YXJ0Um93ID0gcm93OwogICAgICAgIHZhciBzdGFydENvbHVtbiA9IGxpbmUubGVuZ3RoOwogICAgICAgIHJvdyA9IHJvdyArIDE7CiAgICAgICAgdmFyIGVuZFJvdyA9IHJvdzsKICAgICAgICB2YXIgbWF4Um93ID0gc2Vzc2lvbi5nZXRMZW5ndGgoKTsKICAgICAgICB3aGlsZSAoKytyb3cgPCBtYXhSb3cpIHsKICAgICAgICAgICAgbGluZSA9IHNlc3Npb24uZ2V0TGluZShyb3cpOwogICAgICAgICAgICB2YXIgaW5kZW50ID0gbGluZS5zZWFyY2goL1xTLyk7CiAgICAgICAgICAgIGlmIChpbmRlbnQgPT09IC0xKQogICAgICAgICAgICAgICAgY29udGludWU7CiAgICAgICAgICAgIGlmIChzdGFydEluZGVudCA+IGluZGVudCkKICAgICAgICAgICAgICAgIGJyZWFrOwogICAgICAgICAgICB2YXIgc3ViUmFuZ2UgPSB0aGlzLmdldEZvbGRXaWRnZXRSYW5nZShzZXNzaW9uLCAiYWxsIiwgcm93KTsKICAgICAgICAgICAgaWYgKHN1YlJhbmdlKSB7CiAgICAgICAgICAgICAgICBpZiAoc3ViUmFuZ2Uuc3RhcnQucm93IDw9IHN0YXJ0Um93KSB7CiAgICAgICAgICAgICAgICAgICAgYnJlYWs7CiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICBlbHNlIGlmIChzdWJSYW5nZS5pc011bHRpTGluZSgpKSB7CiAgICAgICAgICAgICAgICAgICAgcm93ID0gc3ViUmFuZ2UuZW5kLnJvdzsKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIGVsc2UgaWYgKHN0YXJ0SW5kZW50ID09IGluZGVudCkgewogICAgICAgICAgICAgICAgICAgIGJyZWFrOwogICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9CiAgICAgICAgICAgIGVuZFJvdyA9IHJvdzsKICAgICAgICB9CiAgICAgICAgcmV0dXJuIG5ldyBSYW5nZShzdGFydFJvdywgc3RhcnRDb2x1bW4sIGVuZFJvdywgc2Vzc2lvbi5nZXRMaW5lKGVuZFJvdykubGVuZ3RoKTsKICAgIH07CiAgICB0aGlzLmdldENvbW1lbnRSZWdpb25CbG9jayA9IGZ1bmN0aW9uIChzZXNzaW9uLCBsaW5lLCByb3cpIHsKICAgICAgICB2YXIgc3RhcnRDb2x1bW4gPSBsaW5lLnNlYXJjaCgvXHMqJC8pOwogICAgICAgIHZhciBtYXhSb3cgPSBzZXNzaW9uLmdldExlbmd0aCgpOwogICAgICAgIHZhciBzdGFydFJvdyA9IHJvdzsKICAgICAgICB2YXIgcmUgPSAvXlxzKig/OlwvXCp8XC9cL3wtLSkjPyhlbmQpP3JlZ2lvblxiLzsKICAgICAgICB2YXIgZGVwdGggPSAxOwogICAgICAgIHdoaWxlICgrK3JvdyA8IG1heFJvdykgewogICAgICAgICAgICBsaW5lID0gc2Vzc2lvbi5nZXRMaW5lKHJvdyk7CiAgICAgICAgICAgIHZhciBtID0gcmUuZXhlYyhsaW5lKTsKICAgICAgICAgICAgaWYgKCFtKQogICAgICAgICAgICAgICAgY29udGludWU7CiAgICAgICAgICAgIGlmIChtWzFdKQogICAgICAgICAgICAgICAgZGVwdGgtLTsKICAgICAgICAgICAgZWxzZQogICAgICAgICAgICAgICAgZGVwdGgrKzsKICAgICAgICAgICAgaWYgKCFkZXB0aCkKICAgICAgICAgICAgICAgIGJyZWFrOwogICAgICAgIH0KICAgICAgICB2YXIgZW5kUm93ID0gcm93OwogICAgICAgIGlmIChlbmRSb3cgPiBzdGFydFJvdykgewogICAgICAgICAgICByZXR1cm4gbmV3IFJhbmdlKHN0YXJ0Um93LCBzdGFydENvbHVtbiwgZW5kUm93LCBsaW5lLmxlbmd0aCk7CiAgICAgICAgfQogICAgfTsKfSkuY2FsbChGb2xkTW9kZS5wcm90b3R5cGUpOwoKfSk7CgphY2UuZGVmaW5lKCJhY2UvbW9kZS9qc29uIixbInJlcXVpcmUiLCJleHBvcnRzIiwibW9kdWxlIiwiYWNlL2xpYi9vb3AiLCJhY2UvbW9kZS90ZXh0IiwiYWNlL21vZGUvanNvbl9oaWdobGlnaHRfcnVsZXMiLCJhY2UvbW9kZS9tYXRjaGluZ19icmFjZV9vdXRkZW50IiwiYWNlL21vZGUvYmVoYXZpb3VyL2NzdHlsZSIsImFjZS9tb2RlL2ZvbGRpbmcvY3N0eWxlIiwiYWNlL3dvcmtlci93b3JrZXJfY2xpZW50Il0sIGZ1bmN0aW9uKHJlcXVpcmUsIGV4cG9ydHMsIG1vZHVsZSl7InVzZSBzdHJpY3QiOwp2YXIgb29wID0gcmVxdWlyZSgiLi4vbGliL29vcCIpOwp2YXIgVGV4dE1vZGUgPSByZXF1aXJlKCIuL3RleHQiKS5Nb2RlOwp2YXIgSGlnaGxpZ2h0UnVsZXMgPSByZXF1aXJlKCIuL2pzb25faGlnaGxpZ2h0X3J1bGVzIikuSnNvbkhpZ2hsaWdodFJ1bGVzOwp2YXIgTWF0Y2hpbmdCcmFjZU91dGRlbnQgPSByZXF1aXJlKCIuL21hdGNoaW5nX2JyYWNlX291dGRlbnQiKS5NYXRjaGluZ0JyYWNlT3V0ZGVudDsKdmFyIENzdHlsZUJlaGF2aW91ciA9IHJlcXVpcmUoIi4vYmVoYXZpb3VyL2NzdHlsZSIpLkNzdHlsZUJlaGF2aW91cjsKdmFyIENTdHlsZUZvbGRNb2RlID0gcmVxdWlyZSgiLi9mb2xkaW5nL2NzdHlsZSIpLkZvbGRNb2RlOwp2YXIgV29ya2VyQ2xpZW50ID0gcmVxdWlyZSgiLi4vd29ya2VyL3dvcmtlcl9jbGllbnQiKS5Xb3JrZXJDbGllbnQ7CnZhciBNb2RlID0gZnVuY3Rpb24gKCkgewogICAgdGhpcy5IaWdobGlnaHRSdWxlcyA9IEhpZ2hsaWdodFJ1bGVzOwogICAgdGhpcy4kb3V0ZGVudCA9IG5ldyBNYXRjaGluZ0JyYWNlT3V0ZGVudCgpOwogICAgdGhpcy4kYmVoYXZpb3VyID0gbmV3IENzdHlsZUJlaGF2aW91cigpOwogICAgdGhpcy5mb2xkaW5nUnVsZXMgPSBuZXcgQ1N0eWxlRm9sZE1vZGUoKTsKfTsKb29wLmluaGVyaXRzKE1vZGUsIFRleHRNb2RlKTsKKGZ1bmN0aW9uICgpIHsKICAgIHRoaXMubGluZUNvbW1lbnRTdGFydCA9ICIvLyI7CiAgICB0aGlzLmJsb2NrQ29tbWVudCA9IHsgc3RhcnQ6ICIvKiIsIGVuZDogIiovIiB9OwogICAgdGhpcy5nZXROZXh0TGluZUluZGVudCA9IGZ1bmN0aW9uIChzdGF0ZSwgbGluZSwgdGFiKSB7CiAgICAgICAgdmFyIGluZGVudCA9IHRoaXMuJGdldEluZGVudChsaW5lKTsKICAgICAgICBpZiAoc3RhdGUgPT0gInN0YXJ0IikgewogICAgICAgICAgICB2YXIgbWF0Y2ggPSBsaW5lLm1hdGNoKC9eLipbXHtcKFxbXVxzKiQvKTsKICAgICAgICAgICAgaWYgKG1hdGNoKSB7CiAgICAgICAgICAgICAgICBpbmRlbnQgKz0gdGFiOwogICAgICAgICAgICB9CiAgICAgICAgfQogICAgICAgIHJldHVybiBpbmRlbnQ7CiAgICB9OwogICAgdGhpcy5jaGVja091dGRlbnQgPSBmdW5jdGlvbiAoc3RhdGUsIGxpbmUsIGlucHV0KSB7CiAgICAgICAgcmV0dXJuIHRoaXMuJG91dGRlbnQuY2hlY2tPdXRkZW50KGxpbmUsIGlucHV0KTsKICAgIH07CiAgICB0aGlzLmF1dG9PdXRkZW50ID0gZnVuY3Rpb24gKHN0YXRlLCBkb2MsIHJvdykgewogICAgICAgIHRoaXMuJG91dGRlbnQuYXV0b091dGRlbnQoZG9jLCByb3cpOwogICAgfTsKICAgIHRoaXMuY3JlYXRlV29ya2VyID0gZnVuY3Rpb24gKHNlc3Npb24pIHsKICAgICAgICB2YXIgd29ya2VyID0gbmV3IFdvcmtlckNsaWVudChbImFjZSJdLCAiYWNlL21vZGUvanNvbl93b3JrZXIiLCAiSnNvbldvcmtlciIpOwogICAgICAgIHdvcmtlci5hdHRhY2hUb0RvY3VtZW50KHNlc3Npb24uZ2V0RG9jdW1lbnQoKSk7CiAgICAgICAgd29ya2VyLm9uKCJhbm5vdGF0ZSIsIGZ1bmN0aW9uIChlKSB7CiAgICAgICAgICAgIHNlc3Npb24uc2V0QW5ub3RhdGlvbnMoZS5kYXRhKTsKICAgICAgICB9KTsKICAgICAgICB3b3JrZXIub24oInRlcm1pbmF0ZSIsIGZ1bmN0aW9uICgpIHsKICAgICAgICAgICAgc2Vzc2lvbi5jbGVhckFubm90YXRpb25zKCk7CiAgICAgICAgfSk7CiAgICAgICAgcmV0dXJuIHdvcmtlcjsKICAgIH07CiAgICB0aGlzLiRpZCA9ICJhY2UvbW9kZS9qc29uIjsKfSkuY2FsbChNb2RlLnByb3RvdHlwZSk7CmV4cG9ydHMuTW9kZSA9IE1vZGU7Cgp9KTsgICAgICAgICAgICAgICAgKGZ1bmN0aW9uKCkgewogICAgICAgICAgICAgICAgICAgIGFjZS5yZXF1aXJlKFsiYWNlL21vZGUvanNvbiJdLCBmdW5jdGlvbihtKSB7CiAgICAgICAgICAgICAgICAgICAgICAgIGlmICh0eXBlb2YgbW9kdWxlID09ICJvYmplY3QiICYmIHR5cGVvZiBleHBvcnRzID09ICJvYmplY3QiICYmIG1vZHVsZSkgewogICAgICAgICAgICAgICAgICAgICAgICAgICAgbW9kdWxlLmV4cG9ydHMgPSBtOwogICAgICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgICAgfSk7CiAgICAgICAgICAgICAgICB9KSgpOwogICAgICAgICAgICA=", en = "data:application/javascript;base64,Im5vIHVzZSBzdHJpY3QiOwohKGZ1bmN0aW9uKHdpbmRvdykgewppZiAodHlwZW9mIHdpbmRvdy53aW5kb3cgIT0gInVuZGVmaW5lZCIgJiYgd2luZG93LmRvY3VtZW50KQogICAgcmV0dXJuOwppZiAod2luZG93LnJlcXVpcmUgJiYgd2luZG93LmRlZmluZSkKICAgIHJldHVybjsKCmlmICghd2luZG93LmNvbnNvbGUpIHsKICAgIHdpbmRvdy5jb25zb2xlID0gZnVuY3Rpb24oKSB7CiAgICAgICAgdmFyIG1zZ3MgPSBBcnJheS5wcm90b3R5cGUuc2xpY2UuY2FsbChhcmd1bWVudHMsIDApOwogICAgICAgIHBvc3RNZXNzYWdlKHt0eXBlOiAibG9nIiwgZGF0YTogbXNnc30pOwogICAgfTsKICAgIHdpbmRvdy5jb25zb2xlLmVycm9yID0KICAgIHdpbmRvdy5jb25zb2xlLndhcm4gPSAKICAgIHdpbmRvdy5jb25zb2xlLmxvZyA9CiAgICB3aW5kb3cuY29uc29sZS50cmFjZSA9IHdpbmRvdy5jb25zb2xlOwp9CndpbmRvdy53aW5kb3cgPSB3aW5kb3c7CndpbmRvdy5hY2UgPSB3aW5kb3c7Cgp3aW5kb3cub25lcnJvciA9IGZ1bmN0aW9uKG1lc3NhZ2UsIGZpbGUsIGxpbmUsIGNvbCwgZXJyKSB7CiAgICBwb3N0TWVzc2FnZSh7dHlwZTogImVycm9yIiwgZGF0YTogewogICAgICAgIG1lc3NhZ2U6IG1lc3NhZ2UsCiAgICAgICAgZGF0YTogZXJyICYmIGVyci5kYXRhLAogICAgICAgIGZpbGU6IGZpbGUsCiAgICAgICAgbGluZTogbGluZSwgCiAgICAgICAgY29sOiBjb2wsCiAgICAgICAgc3RhY2s6IGVyciAmJiBlcnIuc3RhY2sKICAgIH19KTsKfTsKCndpbmRvdy5ub3JtYWxpemVNb2R1bGUgPSBmdW5jdGlvbihwYXJlbnRJZCwgbW9kdWxlTmFtZSkgewogICAgLy8gbm9ybWFsaXplIHBsdWdpbiByZXF1aXJlcwogICAgaWYgKG1vZHVsZU5hbWUuaW5kZXhPZigiISIpICE9PSAtMSkgewogICAgICAgIHZhciBjaHVua3MgPSBtb2R1bGVOYW1lLnNwbGl0KCIhIik7CiAgICAgICAgcmV0dXJuIHdpbmRvdy5ub3JtYWxpemVNb2R1bGUocGFyZW50SWQsIGNodW5rc1swXSkgKyAiISIgKyB3aW5kb3cubm9ybWFsaXplTW9kdWxlKHBhcmVudElkLCBjaHVua3NbMV0pOwogICAgfQogICAgLy8gbm9ybWFsaXplIHJlbGF0aXZlIHJlcXVpcmVzCiAgICBpZiAobW9kdWxlTmFtZS5jaGFyQXQoMCkgPT0gIi4iKSB7CiAgICAgICAgdmFyIGJhc2UgPSBwYXJlbnRJZC5zcGxpdCgiLyIpLnNsaWNlKDAsIC0xKS5qb2luKCIvIik7CiAgICAgICAgbW9kdWxlTmFtZSA9IChiYXNlID8gYmFzZSArICIvIiA6ICIiKSArIG1vZHVsZU5hbWU7CiAgICAgICAgCiAgICAgICAgd2hpbGUgKG1vZHVsZU5hbWUuaW5kZXhPZigiLiIpICE9PSAtMSAmJiBwcmV2aW91cyAhPSBtb2R1bGVOYW1lKSB7CiAgICAgICAgICAgIHZhciBwcmV2aW91cyA9IG1vZHVsZU5hbWU7CiAgICAgICAgICAgIG1vZHVsZU5hbWUgPSBtb2R1bGVOYW1lLnJlcGxhY2UoL15cLlwvLywgIiIpLnJlcGxhY2UoL1wvXC5cLy8sICIvIikucmVwbGFjZSgvW15cL10rXC9cLlwuXC8vLCAiIik7CiAgICAgICAgfQogICAgfQogICAgCiAgICByZXR1cm4gbW9kdWxlTmFtZTsKfTsKCndpbmRvdy5yZXF1aXJlID0gZnVuY3Rpb24gcmVxdWlyZShwYXJlbnRJZCwgaWQpIHsKICAgIGlmICghaWQpIHsKICAgICAgICBpZCA9IHBhcmVudElkOwogICAgICAgIHBhcmVudElkID0gbnVsbDsKICAgIH0KICAgIGlmICghaWQuY2hhckF0KQogICAgICAgIHRocm93IG5ldyBFcnJvcigid29ya2VyLmpzIHJlcXVpcmUoKSBhY2NlcHRzIG9ubHkgKHBhcmVudElkLCBpZCkgYXMgYXJndW1lbnRzIik7CgogICAgaWQgPSB3aW5kb3cubm9ybWFsaXplTW9kdWxlKHBhcmVudElkLCBpZCk7CgogICAgdmFyIG1vZHVsZSA9IHdpbmRvdy5yZXF1aXJlLm1vZHVsZXNbaWRdOwogICAgaWYgKG1vZHVsZSkgewogICAgICAgIGlmICghbW9kdWxlLmluaXRpYWxpemVkKSB7CiAgICAgICAgICAgIG1vZHVsZS5pbml0aWFsaXplZCA9IHRydWU7CiAgICAgICAgICAgIG1vZHVsZS5leHBvcnRzID0gbW9kdWxlLmZhY3RvcnkoKS5leHBvcnRzOwogICAgICAgIH0KICAgICAgICByZXR1cm4gbW9kdWxlLmV4cG9ydHM7CiAgICB9CiAgIAogICAgaWYgKCF3aW5kb3cucmVxdWlyZS50bG5zKQogICAgICAgIHJldHVybiBjb25zb2xlLmxvZygidW5hYmxlIHRvIGxvYWQgIiArIGlkKTsKICAgIAogICAgdmFyIHBhdGggPSByZXNvbHZlTW9kdWxlSWQoaWQsIHdpbmRvdy5yZXF1aXJlLnRsbnMpOwogICAgaWYgKHBhdGguc2xpY2UoLTMpICE9ICIuanMiKSBwYXRoICs9ICIuanMiOwogICAgCiAgICB3aW5kb3cucmVxdWlyZS5pZCA9IGlkOwogICAgd2luZG93LnJlcXVpcmUubW9kdWxlc1tpZF0gPSB7fTsgLy8gcHJldmVudCBpbmZpbml0ZSBsb29wIG9uIGJyb2tlbiBtb2R1bGVzCiAgICBpbXBvcnRTY3JpcHRzKHBhdGgpOwogICAgcmV0dXJuIHdpbmRvdy5yZXF1aXJlKHBhcmVudElkLCBpZCk7Cn07CmZ1bmN0aW9uIHJlc29sdmVNb2R1bGVJZChpZCwgcGF0aHMpIHsKICAgIHZhciB0ZXN0UGF0aCA9IGlkLCB0YWlsID0gIiI7CiAgICB3aGlsZSAodGVzdFBhdGgpIHsKICAgICAgICB2YXIgYWxpYXMgPSBwYXRoc1t0ZXN0UGF0aF07CiAgICAgICAgaWYgKHR5cGVvZiBhbGlhcyA9PSAic3RyaW5nIikgewogICAgICAgICAgICByZXR1cm4gYWxpYXMgKyB0YWlsOwogICAgICAgIH0gZWxzZSBpZiAoYWxpYXMpIHsKICAgICAgICAgICAgcmV0dXJuICBhbGlhcy5sb2NhdGlvbi5yZXBsYWNlKC9cLyokLywgIi8iKSArICh0YWlsIHx8IGFsaWFzLm1haW4gfHwgYWxpYXMubmFtZSk7CiAgICAgICAgfSBlbHNlIGlmIChhbGlhcyA9PT0gZmFsc2UpIHsKICAgICAgICAgICAgcmV0dXJuICIiOwogICAgICAgIH0KICAgICAgICB2YXIgaSA9IHRlc3RQYXRoLmxhc3RJbmRleE9mKCIvIik7CiAgICAgICAgaWYgKGkgPT09IC0xKSBicmVhazsKICAgICAgICB0YWlsID0gdGVzdFBhdGguc3Vic3RyKGkpICsgdGFpbDsKICAgICAgICB0ZXN0UGF0aCA9IHRlc3RQYXRoLnNsaWNlKDAsIGkpOwogICAgfQogICAgcmV0dXJuIGlkOwp9CndpbmRvdy5yZXF1aXJlLm1vZHVsZXMgPSB7fTsKd2luZG93LnJlcXVpcmUudGxucyA9IHt9OwoKd2luZG93LmRlZmluZSA9IGZ1bmN0aW9uKGlkLCBkZXBzLCBmYWN0b3J5KSB7CiAgICBpZiAoYXJndW1lbnRzLmxlbmd0aCA9PSAyKSB7CiAgICAgICAgZmFjdG9yeSA9IGRlcHM7CiAgICAgICAgaWYgKHR5cGVvZiBpZCAhPSAic3RyaW5nIikgewogICAgICAgICAgICBkZXBzID0gaWQ7CiAgICAgICAgICAgIGlkID0gd2luZG93LnJlcXVpcmUuaWQ7CiAgICAgICAgfQogICAgfSBlbHNlIGlmIChhcmd1bWVudHMubGVuZ3RoID09IDEpIHsKICAgICAgICBmYWN0b3J5ID0gaWQ7CiAgICAgICAgZGVwcyA9IFtdOwogICAgICAgIGlkID0gd2luZG93LnJlcXVpcmUuaWQ7CiAgICB9CiAgICAKICAgIGlmICh0eXBlb2YgZmFjdG9yeSAhPSAiZnVuY3Rpb24iKSB7CiAgICAgICAgd2luZG93LnJlcXVpcmUubW9kdWxlc1tpZF0gPSB7CiAgICAgICAgICAgIGV4cG9ydHM6IGZhY3RvcnksCiAgICAgICAgICAgIGluaXRpYWxpemVkOiB0cnVlCiAgICAgICAgfTsKICAgICAgICByZXR1cm47CiAgICB9CgogICAgaWYgKCFkZXBzLmxlbmd0aCkKICAgICAgICAvLyBJZiB0aGVyZSBpcyBubyBkZXBlbmRlbmNpZXMsIHdlIGluamVjdCAicmVxdWlyZSIsICJleHBvcnRzIiBhbmQKICAgICAgICAvLyAibW9kdWxlIiBhcyBkZXBlbmRlbmNpZXMsIHRvIHByb3ZpZGUgQ29tbW9uSlMgY29tcGF0aWJpbGl0eS4KICAgICAgICBkZXBzID0gWyJyZXF1aXJlIiwgImV4cG9ydHMiLCAibW9kdWxlIl07CgogICAgdmFyIHJlcSA9IGZ1bmN0aW9uKGNoaWxkSWQpIHsKICAgICAgICByZXR1cm4gd2luZG93LnJlcXVpcmUoaWQsIGNoaWxkSWQpOwogICAgfTsKCiAgICB3aW5kb3cucmVxdWlyZS5tb2R1bGVzW2lkXSA9IHsKICAgICAgICBleHBvcnRzOiB7fSwKICAgICAgICBmYWN0b3J5OiBmdW5jdGlvbigpIHsKICAgICAgICAgICAgdmFyIG1vZHVsZSA9IHRoaXM7CiAgICAgICAgICAgIHZhciByZXR1cm5FeHBvcnRzID0gZmFjdG9yeS5hcHBseSh0aGlzLCBkZXBzLnNsaWNlKDAsIGZhY3RvcnkubGVuZ3RoKS5tYXAoZnVuY3Rpb24oZGVwKSB7CiAgICAgICAgICAgICAgICBzd2l0Y2ggKGRlcCkgewogICAgICAgICAgICAgICAgICAgIC8vIEJlY2F1c2UgInJlcXVpcmUiLCAiZXhwb3J0cyIgYW5kICJtb2R1bGUiIGFyZW4ndCBhY3R1YWwKICAgICAgICAgICAgICAgICAgICAvLyBkZXBlbmRlbmNpZXMsIHdlIG11c3QgaGFuZGxlIHRoZW0gc2VwZXJhdGVseS4KICAgICAgICAgICAgICAgICAgICBjYXNlICJyZXF1aXJlIjogcmV0dXJuIHJlcTsKICAgICAgICAgICAgICAgICAgICBjYXNlICJleHBvcnRzIjogcmV0dXJuIG1vZHVsZS5leHBvcnRzOwogICAgICAgICAgICAgICAgICAgIGNhc2UgIm1vZHVsZSI6ICByZXR1cm4gbW9kdWxlOwogICAgICAgICAgICAgICAgICAgIC8vIEJ1dCBmb3IgYWxsIG90aGVyIGRlcGVuZGVuY2llcywgd2UgY2FuIGp1c3QgZ28gYWhlYWQgYW5kCiAgICAgICAgICAgICAgICAgICAgLy8gcmVxdWlyZSB0aGVtLgogICAgICAgICAgICAgICAgICAgIGRlZmF1bHQ6ICAgICAgICByZXR1cm4gcmVxKGRlcCk7CiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0pKTsKICAgICAgICAgICAgaWYgKHJldHVybkV4cG9ydHMpCiAgICAgICAgICAgICAgICBtb2R1bGUuZXhwb3J0cyA9IHJldHVybkV4cG9ydHM7CiAgICAgICAgICAgIHJldHVybiBtb2R1bGU7CiAgICAgICAgfQogICAgfTsKfTsKd2luZG93LmRlZmluZS5hbWQgPSB7fTsKd2luZG93LnJlcXVpcmUudGxucyA9IHt9Owp3aW5kb3cuaW5pdEJhc2VVcmxzICA9IGZ1bmN0aW9uIGluaXRCYXNlVXJscyh0b3BMZXZlbE5hbWVzcGFjZXMpIHsKICAgIGZvciAodmFyIGkgaW4gdG9wTGV2ZWxOYW1lc3BhY2VzKQogICAgICAgIHRoaXMucmVxdWlyZS50bG5zW2ldID0gdG9wTGV2ZWxOYW1lc3BhY2VzW2ldOwp9OwoKd2luZG93LmluaXRTZW5kZXIgPSBmdW5jdGlvbiBpbml0U2VuZGVyKCkgewoKICAgIHZhciBFdmVudEVtaXR0ZXIgPSB3aW5kb3cucmVxdWlyZSgiYWNlL2xpYi9ldmVudF9lbWl0dGVyIikuRXZlbnRFbWl0dGVyOwogICAgdmFyIG9vcCA9IHdpbmRvdy5yZXF1aXJlKCJhY2UvbGliL29vcCIpOwogICAgCiAgICB2YXIgU2VuZGVyID0gZnVuY3Rpb24oKSB7fTsKICAgIAogICAgKGZ1bmN0aW9uKCkgewogICAgICAgIAogICAgICAgIG9vcC5pbXBsZW1lbnQodGhpcywgRXZlbnRFbWl0dGVyKTsKICAgICAgICAgICAgICAgIAogICAgICAgIHRoaXMuY2FsbGJhY2sgPSBmdW5jdGlvbihkYXRhLCBjYWxsYmFja0lkKSB7CiAgICAgICAgICAgIHBvc3RNZXNzYWdlKHsKICAgICAgICAgICAgICAgIHR5cGU6ICJjYWxsIiwKICAgICAgICAgICAgICAgIGlkOiBjYWxsYmFja0lkLAogICAgICAgICAgICAgICAgZGF0YTogZGF0YQogICAgICAgICAgICB9KTsKICAgICAgICB9OwogICAgCiAgICAgICAgdGhpcy5lbWl0ID0gZnVuY3Rpb24obmFtZSwgZGF0YSkgewogICAgICAgICAgICBwb3N0TWVzc2FnZSh7CiAgICAgICAgICAgICAgICB0eXBlOiAiZXZlbnQiLAogICAgICAgICAgICAgICAgbmFtZTogbmFtZSwKICAgICAgICAgICAgICAgIGRhdGE6IGRhdGEKICAgICAgICAgICAgfSk7CiAgICAgICAgfTsKICAgICAgICAKICAgIH0pLmNhbGwoU2VuZGVyLnByb3RvdHlwZSk7CiAgICAKICAgIHJldHVybiBuZXcgU2VuZGVyKCk7Cn07Cgp2YXIgbWFpbiA9IHdpbmRvdy5tYWluID0gbnVsbDsKdmFyIHNlbmRlciA9IHdpbmRvdy5zZW5kZXIgPSBudWxsOwoKd2luZG93Lm9ubWVzc2FnZSA9IGZ1bmN0aW9uKGUpIHsKICAgIHZhciBtc2cgPSBlLmRhdGE7CiAgICBpZiAobXNnLmV2ZW50ICYmIHNlbmRlcikgewogICAgICAgIHNlbmRlci5fc2lnbmFsKG1zZy5ldmVudCwgbXNnLmRhdGEpOwogICAgfQogICAgZWxzZSBpZiAobXNnLmNvbW1hbmQpIHsKICAgICAgICBpZiAobWFpblttc2cuY29tbWFuZF0pCiAgICAgICAgICAgIG1haW5bbXNnLmNvbW1hbmRdLmFwcGx5KG1haW4sIG1zZy5hcmdzKTsKICAgICAgICBlbHNlIGlmICh3aW5kb3dbbXNnLmNvbW1hbmRdKQogICAgICAgICAgICB3aW5kb3dbbXNnLmNvbW1hbmRdLmFwcGx5KHdpbmRvdywgbXNnLmFyZ3MpOwogICAgICAgIGVsc2UKICAgICAgICAgICAgdGhyb3cgbmV3IEVycm9yKCJVbmtub3duIGNvbW1hbmQ6IiArIG1zZy5jb21tYW5kKTsKICAgIH0KICAgIGVsc2UgaWYgKG1zZy5pbml0KSB7CiAgICAgICAgd2luZG93LmluaXRCYXNlVXJscyhtc2cudGxucyk7CiAgICAgICAgc2VuZGVyID0gd2luZG93LnNlbmRlciA9IHdpbmRvdy5pbml0U2VuZGVyKCk7CiAgICAgICAgdmFyIGNsYXp6ID0gdGhpcy5yZXF1aXJlKG1zZy5tb2R1bGUpW21zZy5jbGFzc25hbWVdOwogICAgICAgIG1haW4gPSB3aW5kb3cubWFpbiA9IG5ldyBjbGF6eihzZW5kZXIpOwogICAgfQp9Owp9KSh0aGlzKTsKCmFjZS5kZWZpbmUoImFjZS9saWIvb29wIixbXSwgZnVuY3Rpb24ocmVxdWlyZSwgZXhwb3J0cywgbW9kdWxlKXsidXNlIHN0cmljdCI7CmV4cG9ydHMuaW5oZXJpdHMgPSBmdW5jdGlvbiAoY3Rvciwgc3VwZXJDdG9yKSB7CiAgICBjdG9yLnN1cGVyXyA9IHN1cGVyQ3RvcjsKICAgIGN0b3IucHJvdG90eXBlID0gT2JqZWN0LmNyZWF0ZShzdXBlckN0b3IucHJvdG90eXBlLCB7CiAgICAgICAgY29uc3RydWN0b3I6IHsKICAgICAgICAgICAgdmFsdWU6IGN0b3IsCiAgICAgICAgICAgIGVudW1lcmFibGU6IGZhbHNlLAogICAgICAgICAgICB3cml0YWJsZTogdHJ1ZSwKICAgICAgICAgICAgY29uZmlndXJhYmxlOiB0cnVlCiAgICAgICAgfQogICAgfSk7Cn07CmV4cG9ydHMubWl4aW4gPSBmdW5jdGlvbiAob2JqLCBtaXhpbikgewogICAgZm9yICh2YXIga2V5IGluIG1peGluKSB7CiAgICAgICAgb2JqW2tleV0gPSBtaXhpbltrZXldOwogICAgfQogICAgcmV0dXJuIG9iajsKfTsKZXhwb3J0cy5pbXBsZW1lbnQgPSBmdW5jdGlvbiAocHJvdG8sIG1peGluKSB7CiAgICBleHBvcnRzLm1peGluKHByb3RvLCBtaXhpbik7Cn07Cgp9KTsKCmFjZS5kZWZpbmUoImFjZS9hcHBseV9kZWx0YSIsW10sIGZ1bmN0aW9uKHJlcXVpcmUsIGV4cG9ydHMsIG1vZHVsZSl7InVzZSBzdHJpY3QiOwpmdW5jdGlvbiB0aHJvd0RlbHRhRXJyb3IoZGVsdGEsIGVycm9yVGV4dCkgewogICAgY29uc29sZS5sb2coIkludmFsaWQgRGVsdGE6IiwgZGVsdGEpOwogICAgdGhyb3cgIkludmFsaWQgRGVsdGE6ICIgKyBlcnJvclRleHQ7Cn0KZnVuY3Rpb24gcG9zaXRpb25JbkRvY3VtZW50KGRvY0xpbmVzLCBwb3NpdGlvbikgewogICAgcmV0dXJuIHBvc2l0aW9uLnJvdyA+PSAwICYmIHBvc2l0aW9uLnJvdyA8IGRvY0xpbmVzLmxlbmd0aCAmJgogICAgICAgIHBvc2l0aW9uLmNvbHVtbiA+PSAwICYmIHBvc2l0aW9uLmNvbHVtbiA8PSBkb2NMaW5lc1twb3NpdGlvbi5yb3ddLmxlbmd0aDsKfQpmdW5jdGlvbiB2YWxpZGF0ZURlbHRhKGRvY0xpbmVzLCBkZWx0YSkgewogICAgaWYgKGRlbHRhLmFjdGlvbiAhPSAiaW5zZXJ0IiAmJiBkZWx0YS5hY3Rpb24gIT0gInJlbW92ZSIpCiAgICAgICAgdGhyb3dEZWx0YUVycm9yKGRlbHRhLCAiZGVsdGEuYWN0aW9uIG11c3QgYmUgJ2luc2VydCcgb3IgJ3JlbW92ZSciKTsKICAgIGlmICghKGRlbHRhLmxpbmVzIGluc3RhbmNlb2YgQXJyYXkpKQogICAgICAgIHRocm93RGVsdGFFcnJvcihkZWx0YSwgImRlbHRhLmxpbmVzIG11c3QgYmUgYW4gQXJyYXkiKTsKICAgIGlmICghZGVsdGEuc3RhcnQgfHwgIWRlbHRhLmVuZCkKICAgICAgICB0aHJvd0RlbHRhRXJyb3IoZGVsdGEsICJkZWx0YS5zdGFydC9lbmQgbXVzdCBiZSBhbiBwcmVzZW50Iik7CiAgICB2YXIgc3RhcnQgPSBkZWx0YS5zdGFydDsKICAgIGlmICghcG9zaXRpb25JbkRvY3VtZW50KGRvY0xpbmVzLCBkZWx0YS5zdGFydCkpCiAgICAgICAgdGhyb3dEZWx0YUVycm9yKGRlbHRhLCAiZGVsdGEuc3RhcnQgbXVzdCBiZSBjb250YWluZWQgaW4gZG9jdW1lbnQiKTsKICAgIHZhciBlbmQgPSBkZWx0YS5lbmQ7CiAgICBpZiAoZGVsdGEuYWN0aW9uID09ICJyZW1vdmUiICYmICFwb3NpdGlvbkluRG9jdW1lbnQoZG9jTGluZXMsIGVuZCkpCiAgICAgICAgdGhyb3dEZWx0YUVycm9yKGRlbHRhLCAiZGVsdGEuZW5kIG11c3QgY29udGFpbmVkIGluIGRvY3VtZW50IGZvciAncmVtb3ZlJyBhY3Rpb25zIik7CiAgICB2YXIgbnVtUmFuZ2VSb3dzID0gZW5kLnJvdyAtIHN0YXJ0LnJvdzsKICAgIHZhciBudW1SYW5nZUxhc3RMaW5lQ2hhcnMgPSAoZW5kLmNvbHVtbiAtIChudW1SYW5nZVJvd3MgPT0gMCA/IHN0YXJ0LmNvbHVtbiA6IDApKTsKICAgIGlmIChudW1SYW5nZVJvd3MgIT0gZGVsdGEubGluZXMubGVuZ3RoIC0gMSB8fCBkZWx0YS5saW5lc1tudW1SYW5nZVJvd3NdLmxlbmd0aCAhPSBudW1SYW5nZUxhc3RMaW5lQ2hhcnMpCiAgICAgICAgdGhyb3dEZWx0YUVycm9yKGRlbHRhLCAiZGVsdGEucmFuZ2UgbXVzdCBtYXRjaCBkZWx0YSBsaW5lcyIpOwp9CmV4cG9ydHMuYXBwbHlEZWx0YSA9IGZ1bmN0aW9uIChkb2NMaW5lcywgZGVsdGEsIGRvTm90VmFsaWRhdGUpIHsKICAgIHZhciByb3cgPSBkZWx0YS5zdGFydC5yb3c7CiAgICB2YXIgc3RhcnRDb2x1bW4gPSBkZWx0YS5zdGFydC5jb2x1bW47CiAgICB2YXIgbGluZSA9IGRvY0xpbmVzW3Jvd10gfHwgIiI7CiAgICBzd2l0Y2ggKGRlbHRhLmFjdGlvbikgewogICAgICAgIGNhc2UgImluc2VydCI6CiAgICAgICAgICAgIHZhciBsaW5lcyA9IGRlbHRhLmxpbmVzOwogICAgICAgICAgICBpZiAobGluZXMubGVuZ3RoID09PSAxKSB7CiAgICAgICAgICAgICAgICBkb2NMaW5lc1tyb3ddID0gbGluZS5zdWJzdHJpbmcoMCwgc3RhcnRDb2x1bW4pICsgZGVsdGEubGluZXNbMF0gKyBsaW5lLnN1YnN0cmluZyhzdGFydENvbHVtbik7CiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxzZSB7CiAgICAgICAgICAgICAgICB2YXIgYXJncyA9IFtyb3csIDFdLmNvbmNhdChkZWx0YS5saW5lcyk7CiAgICAgICAgICAgICAgICBkb2NMaW5lcy5zcGxpY2UuYXBwbHkoZG9jTGluZXMsIGFyZ3MpOwogICAgICAgICAgICAgICAgZG9jTGluZXNbcm93XSA9IGxpbmUuc3Vic3RyaW5nKDAsIHN0YXJ0Q29sdW1uKSArIGRvY0xpbmVzW3Jvd107CiAgICAgICAgICAgICAgICBkb2NMaW5lc1tyb3cgKyBkZWx0YS5saW5lcy5sZW5ndGggLSAxXSArPSBsaW5lLnN1YnN0cmluZyhzdGFydENvbHVtbik7CiAgICAgICAgICAgIH0KICAgICAgICAgICAgYnJlYWs7CiAgICAgICAgY2FzZSAicmVtb3ZlIjoKICAgICAgICAgICAgdmFyIGVuZENvbHVtbiA9IGRlbHRhLmVuZC5jb2x1bW47CiAgICAgICAgICAgIHZhciBlbmRSb3cgPSBkZWx0YS5lbmQucm93OwogICAgICAgICAgICBpZiAocm93ID09PSBlbmRSb3cpIHsKICAgICAgICAgICAgICAgIGRvY0xpbmVzW3Jvd10gPSBsaW5lLnN1YnN0cmluZygwLCBzdGFydENvbHVtbikgKyBsaW5lLnN1YnN0cmluZyhlbmRDb2x1bW4pOwogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsc2UgewogICAgICAgICAgICAgICAgZG9jTGluZXMuc3BsaWNlKHJvdywgZW5kUm93IC0gcm93ICsgMSwgbGluZS5zdWJzdHJpbmcoMCwgc3RhcnRDb2x1bW4pICsgZG9jTGluZXNbZW5kUm93XS5zdWJzdHJpbmcoZW5kQ29sdW1uKSk7CiAgICAgICAgICAgIH0KICAgICAgICAgICAgYnJlYWs7CiAgICB9Cn07Cgp9KTsKCmFjZS5kZWZpbmUoImFjZS9saWIvZXZlbnRfZW1pdHRlciIsW10sIGZ1bmN0aW9uKHJlcXVpcmUsIGV4cG9ydHMsIG1vZHVsZSl7InVzZSBzdHJpY3QiOwp2YXIgRXZlbnRFbWl0dGVyID0ge307CnZhciBzdG9wUHJvcGFnYXRpb24gPSBmdW5jdGlvbiAoKSB7IHRoaXMucHJvcGFnYXRpb25TdG9wcGVkID0gdHJ1ZTsgfTsKdmFyIHByZXZlbnREZWZhdWx0ID0gZnVuY3Rpb24gKCkgeyB0aGlzLmRlZmF1bHRQcmV2ZW50ZWQgPSB0cnVlOyB9OwpFdmVudEVtaXR0ZXIuX2VtaXQgPQogICAgRXZlbnRFbWl0dGVyLl9kaXNwYXRjaEV2ZW50ID0gZnVuY3Rpb24gKGV2ZW50TmFtZSwgZSkgewogICAgICAgIHRoaXMuX2V2ZW50UmVnaXN0cnkgfHwgKHRoaXMuX2V2ZW50UmVnaXN0cnkgPSB7fSk7CiAgICAgICAgdGhpcy5fZGVmYXVsdEhhbmRsZXJzIHx8ICh0aGlzLl9kZWZhdWx0SGFuZGxlcnMgPSB7fSk7CiAgICAgICAgdmFyIGxpc3RlbmVycyA9IHRoaXMuX2V2ZW50UmVnaXN0cnlbZXZlbnROYW1lXSB8fCBbXTsKICAgICAgICB2YXIgZGVmYXVsdEhhbmRsZXIgPSB0aGlzLl9kZWZhdWx0SGFuZGxlcnNbZXZlbnROYW1lXTsKICAgICAgICBpZiAoIWxpc3RlbmVycy5sZW5ndGggJiYgIWRlZmF1bHRIYW5kbGVyKQogICAgICAgICAgICByZXR1cm47CiAgICAgICAgaWYgKHR5cGVvZiBlICE9ICJvYmplY3QiIHx8ICFlKQogICAgICAgICAgICBlID0ge307CiAgICAgICAgaWYgKCFlLnR5cGUpCiAgICAgICAgICAgIGUudHlwZSA9IGV2ZW50TmFtZTsKICAgICAgICBpZiAoIWUuc3RvcFByb3BhZ2F0aW9uKQogICAgICAgICAgICBlLnN0b3BQcm9wYWdhdGlvbiA9IHN0b3BQcm9wYWdhdGlvbjsKICAgICAgICBpZiAoIWUucHJldmVudERlZmF1bHQpCiAgICAgICAgICAgIGUucHJldmVudERlZmF1bHQgPSBwcmV2ZW50RGVmYXVsdDsKICAgICAgICBsaXN0ZW5lcnMgPSBsaXN0ZW5lcnMuc2xpY2UoKTsKICAgICAgICBmb3IgKHZhciBpID0gMDsgaSA8IGxpc3RlbmVycy5sZW5ndGg7IGkrKykgewogICAgICAgICAgICBsaXN0ZW5lcnNbaV0oZSwgdGhpcyk7CiAgICAgICAgICAgIGlmIChlLnByb3BhZ2F0aW9uU3RvcHBlZCkKICAgICAgICAgICAgICAgIGJyZWFrOwogICAgICAgIH0KICAgICAgICBpZiAoZGVmYXVsdEhhbmRsZXIgJiYgIWUuZGVmYXVsdFByZXZlbnRlZCkKICAgICAgICAgICAgcmV0dXJuIGRlZmF1bHRIYW5kbGVyKGUsIHRoaXMpOwogICAgfTsKRXZlbnRFbWl0dGVyLl9zaWduYWwgPSBmdW5jdGlvbiAoZXZlbnROYW1lLCBlKSB7CiAgICB2YXIgbGlzdGVuZXJzID0gKHRoaXMuX2V2ZW50UmVnaXN0cnkgfHwge30pW2V2ZW50TmFtZV07CiAgICBpZiAoIWxpc3RlbmVycykKICAgICAgICByZXR1cm47CiAgICBsaXN0ZW5lcnMgPSBsaXN0ZW5lcnMuc2xpY2UoKTsKICAgIGZvciAodmFyIGkgPSAwOyBpIDwgbGlzdGVuZXJzLmxlbmd0aDsgaSsrKQogICAgICAgIGxpc3RlbmVyc1tpXShlLCB0aGlzKTsKfTsKRXZlbnRFbWl0dGVyLm9uY2UgPSBmdW5jdGlvbiAoZXZlbnROYW1lLCBjYWxsYmFjaykgewogICAgdmFyIF9zZWxmID0gdGhpczsKICAgIHRoaXMub24oZXZlbnROYW1lLCBmdW5jdGlvbiBuZXdDYWxsYmFjaygpIHsKICAgICAgICBfc2VsZi5vZmYoZXZlbnROYW1lLCBuZXdDYWxsYmFjayk7CiAgICAgICAgY2FsbGJhY2suYXBwbHkobnVsbCwgYXJndW1lbnRzKTsKICAgIH0pOwogICAgaWYgKCFjYWxsYmFjaykgewogICAgICAgIHJldHVybiBuZXcgUHJvbWlzZShmdW5jdGlvbiAocmVzb2x2ZSkgewogICAgICAgICAgICBjYWxsYmFjayA9IHJlc29sdmU7CiAgICAgICAgfSk7CiAgICB9Cn07CkV2ZW50RW1pdHRlci5zZXREZWZhdWx0SGFuZGxlciA9IGZ1bmN0aW9uIChldmVudE5hbWUsIGNhbGxiYWNrKSB7CiAgICB2YXIgaGFuZGxlcnMgPSB0aGlzLl9kZWZhdWx0SGFuZGxlcnM7CiAgICBpZiAoIWhhbmRsZXJzKQogICAgICAgIGhhbmRsZXJzID0gdGhpcy5fZGVmYXVsdEhhbmRsZXJzID0geyBfZGlzYWJsZWRfOiB7fSB9OwogICAgaWYgKGhhbmRsZXJzW2V2ZW50TmFtZV0pIHsKICAgICAgICB2YXIgb2xkID0gaGFuZGxlcnNbZXZlbnROYW1lXTsKICAgICAgICB2YXIgZGlzYWJsZWQgPSBoYW5kbGVycy5fZGlzYWJsZWRfW2V2ZW50TmFtZV07CiAgICAgICAgaWYgKCFkaXNhYmxlZCkKICAgICAgICAgICAgaGFuZGxlcnMuX2Rpc2FibGVkX1tldmVudE5hbWVdID0gZGlzYWJsZWQgPSBbXTsKICAgICAgICBkaXNhYmxlZC5wdXNoKG9sZCk7CiAgICAgICAgdmFyIGkgPSBkaXNhYmxlZC5pbmRleE9mKGNhbGxiYWNrKTsKICAgICAgICBpZiAoaSAhPSAtMSkKICAgICAgICAgICAgZGlzYWJsZWQuc3BsaWNlKGksIDEpOwogICAgfQogICAgaGFuZGxlcnNbZXZlbnROYW1lXSA9IGNhbGxiYWNrOwp9OwpFdmVudEVtaXR0ZXIucmVtb3ZlRGVmYXVsdEhhbmRsZXIgPSBmdW5jdGlvbiAoZXZlbnROYW1lLCBjYWxsYmFjaykgewogICAgdmFyIGhhbmRsZXJzID0gdGhpcy5fZGVmYXVsdEhhbmRsZXJzOwogICAgaWYgKCFoYW5kbGVycykKICAgICAgICByZXR1cm47CiAgICB2YXIgZGlzYWJsZWQgPSBoYW5kbGVycy5fZGlzYWJsZWRfW2V2ZW50TmFtZV07CiAgICBpZiAoaGFuZGxlcnNbZXZlbnROYW1lXSA9PSBjYWxsYmFjaykgewogICAgICAgIGlmIChkaXNhYmxlZCkKICAgICAgICAgICAgdGhpcy5zZXREZWZhdWx0SGFuZGxlcihldmVudE5hbWUsIGRpc2FibGVkLnBvcCgpKTsKICAgIH0KICAgIGVsc2UgaWYgKGRpc2FibGVkKSB7CiAgICAgICAgdmFyIGkgPSBkaXNhYmxlZC5pbmRleE9mKGNhbGxiYWNrKTsKICAgICAgICBpZiAoaSAhPSAtMSkKICAgICAgICAgICAgZGlzYWJsZWQuc3BsaWNlKGksIDEpOwogICAgfQp9OwpFdmVudEVtaXR0ZXIub24gPQogICAgRXZlbnRFbWl0dGVyLmFkZEV2ZW50TGlzdGVuZXIgPSBmdW5jdGlvbiAoZXZlbnROYW1lLCBjYWxsYmFjaywgY2FwdHVyaW5nKSB7CiAgICAgICAgdGhpcy5fZXZlbnRSZWdpc3RyeSA9IHRoaXMuX2V2ZW50UmVnaXN0cnkgfHwge307CiAgICAgICAgdmFyIGxpc3RlbmVycyA9IHRoaXMuX2V2ZW50UmVnaXN0cnlbZXZlbnROYW1lXTsKICAgICAgICBpZiAoIWxpc3RlbmVycykKICAgICAgICAgICAgbGlzdGVuZXJzID0gdGhpcy5fZXZlbnRSZWdpc3RyeVtldmVudE5hbWVdID0gW107CiAgICAgICAgaWYgKGxpc3RlbmVycy5pbmRleE9mKGNhbGxiYWNrKSA9PSAtMSkKICAgICAgICAgICAgbGlzdGVuZXJzW2NhcHR1cmluZyA/ICJ1bnNoaWZ0IiA6ICJwdXNoIl0oY2FsbGJhY2spOwogICAgICAgIHJldHVybiBjYWxsYmFjazsKICAgIH07CkV2ZW50RW1pdHRlci5vZmYgPQogICAgRXZlbnRFbWl0dGVyLnJlbW92ZUxpc3RlbmVyID0KICAgICAgICBFdmVudEVtaXR0ZXIucmVtb3ZlRXZlbnRMaXN0ZW5lciA9IGZ1bmN0aW9uIChldmVudE5hbWUsIGNhbGxiYWNrKSB7CiAgICAgICAgICAgIHRoaXMuX2V2ZW50UmVnaXN0cnkgPSB0aGlzLl9ldmVudFJlZ2lzdHJ5IHx8IHt9OwogICAgICAgICAgICB2YXIgbGlzdGVuZXJzID0gdGhpcy5fZXZlbnRSZWdpc3RyeVtldmVudE5hbWVdOwogICAgICAgICAgICBpZiAoIWxpc3RlbmVycykKICAgICAgICAgICAgICAgIHJldHVybjsKICAgICAgICAgICAgdmFyIGluZGV4ID0gbGlzdGVuZXJzLmluZGV4T2YoY2FsbGJhY2spOwogICAgICAgICAgICBpZiAoaW5kZXggIT09IC0xKQogICAgICAgICAgICAgICAgbGlzdGVuZXJzLnNwbGljZShpbmRleCwgMSk7CiAgICAgICAgfTsKRXZlbnRFbWl0dGVyLnJlbW92ZUFsbExpc3RlbmVycyA9IGZ1bmN0aW9uIChldmVudE5hbWUpIHsKICAgIGlmICghZXZlbnROYW1lKQogICAgICAgIHRoaXMuX2V2ZW50UmVnaXN0cnkgPSB0aGlzLl9kZWZhdWx0SGFuZGxlcnMgPSB1bmRlZmluZWQ7CiAgICBpZiAodGhpcy5fZXZlbnRSZWdpc3RyeSkKICAgICAgICB0aGlzLl9ldmVudFJlZ2lzdHJ5W2V2ZW50TmFtZV0gPSB1bmRlZmluZWQ7CiAgICBpZiAodGhpcy5fZGVmYXVsdEhhbmRsZXJzKQogICAgICAgIHRoaXMuX2RlZmF1bHRIYW5kbGVyc1tldmVudE5hbWVdID0gdW5kZWZpbmVkOwp9OwpleHBvcnRzLkV2ZW50RW1pdHRlciA9IEV2ZW50RW1pdHRlcjsKCn0pOwoKYWNlLmRlZmluZSgiYWNlL3JhbmdlIixbXSwgZnVuY3Rpb24ocmVxdWlyZSwgZXhwb3J0cywgbW9kdWxlKXsidXNlIHN0cmljdCI7CnZhciBjb21wYXJlUG9pbnRzID0gZnVuY3Rpb24gKHAxLCBwMikgewogICAgcmV0dXJuIHAxLnJvdyAtIHAyLnJvdyB8fCBwMS5jb2x1bW4gLSBwMi5jb2x1bW47Cn07CnZhciBSYW5nZSA9IGZ1bmN0aW9uIChzdGFydFJvdywgc3RhcnRDb2x1bW4sIGVuZFJvdywgZW5kQ29sdW1uKSB7CiAgICB0aGlzLnN0YXJ0ID0gewogICAgICAgIHJvdzogc3RhcnRSb3csCiAgICAgICAgY29sdW1uOiBzdGFydENvbHVtbgogICAgfTsKICAgIHRoaXMuZW5kID0gewogICAgICAgIHJvdzogZW5kUm93LAogICAgICAgIGNvbHVtbjogZW5kQ29sdW1uCiAgICB9Owp9OwooZnVuY3Rpb24gKCkgewogICAgdGhpcy5pc0VxdWFsID0gZnVuY3Rpb24gKHJhbmdlKSB7CiAgICAgICAgcmV0dXJuIHRoaXMuc3RhcnQucm93ID09PSByYW5nZS5zdGFydC5yb3cgJiYKICAgICAgICAgICAgdGhpcy5lbmQucm93ID09PSByYW5nZS5lbmQucm93ICYmCiAgICAgICAgICAgIHRoaXMuc3RhcnQuY29sdW1uID09PSByYW5nZS5zdGFydC5jb2x1bW4gJiYKICAgICAgICAgICAgdGhpcy5lbmQuY29sdW1uID09PSByYW5nZS5lbmQuY29sdW1uOwogICAgfTsKICAgIHRoaXMudG9TdHJpbmcgPSBmdW5jdGlvbiAoKSB7CiAgICAgICAgcmV0dXJuICgiUmFuZ2U6IFsiICsgdGhpcy5zdGFydC5yb3cgKyAiLyIgKyB0aGlzLnN0YXJ0LmNvbHVtbiArCiAgICAgICAgICAgICJdIC0+IFsiICsgdGhpcy5lbmQucm93ICsgIi8iICsgdGhpcy5lbmQuY29sdW1uICsgIl0iKTsKICAgIH07CiAgICB0aGlzLmNvbnRhaW5zID0gZnVuY3Rpb24gKHJvdywgY29sdW1uKSB7CiAgICAgICAgcmV0dXJuIHRoaXMuY29tcGFyZShyb3csIGNvbHVtbikgPT0gMDsKICAgIH07CiAgICB0aGlzLmNvbXBhcmVSYW5nZSA9IGZ1bmN0aW9uIChyYW5nZSkgewogICAgICAgIHZhciBjbXAsIGVuZCA9IHJhbmdlLmVuZCwgc3RhcnQgPSByYW5nZS5zdGFydDsKICAgICAgICBjbXAgPSB0aGlzLmNvbXBhcmUoZW5kLnJvdywgZW5kLmNvbHVtbik7CiAgICAgICAgaWYgKGNtcCA9PSAxKSB7CiAgICAgICAgICAgIGNtcCA9IHRoaXMuY29tcGFyZShzdGFydC5yb3csIHN0YXJ0LmNvbHVtbik7CiAgICAgICAgICAgIGlmIChjbXAgPT0gMSkgewogICAgICAgICAgICAgICAgcmV0dXJuIDI7CiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxzZSBpZiAoY21wID09IDApIHsKICAgICAgICAgICAgICAgIHJldHVybiAxOwogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsc2UgewogICAgICAgICAgICAgICAgcmV0dXJuIDA7CiAgICAgICAgICAgIH0KICAgICAgICB9CiAgICAgICAgZWxzZSBpZiAoY21wID09IC0xKSB7CiAgICAgICAgICAgIHJldHVybiAtMjsKICAgICAgICB9CiAgICAgICAgZWxzZSB7CiAgICAgICAgICAgIGNtcCA9IHRoaXMuY29tcGFyZShzdGFydC5yb3csIHN0YXJ0LmNvbHVtbik7CiAgICAgICAgICAgIGlmIChjbXAgPT0gLTEpIHsKICAgICAgICAgICAgICAgIHJldHVybiAtMTsKICAgICAgICAgICAgfQogICAgICAgICAgICBlbHNlIGlmIChjbXAgPT0gMSkgewogICAgICAgICAgICAgICAgcmV0dXJuIDQyOwogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsc2UgewogICAgICAgICAgICAgICAgcmV0dXJuIDA7CiAgICAgICAgICAgIH0KICAgICAgICB9CiAgICB9OwogICAgdGhpcy5jb21wYXJlUG9pbnQgPSBmdW5jdGlvbiAocCkgewogICAgICAgIHJldHVybiB0aGlzLmNvbXBhcmUocC5yb3csIHAuY29sdW1uKTsKICAgIH07CiAgICB0aGlzLmNvbnRhaW5zUmFuZ2UgPSBmdW5jdGlvbiAocmFuZ2UpIHsKICAgICAgICByZXR1cm4gdGhpcy5jb21wYXJlUG9pbnQocmFuZ2Uuc3RhcnQpID09IDAgJiYgdGhpcy5jb21wYXJlUG9pbnQocmFuZ2UuZW5kKSA9PSAwOwogICAgfTsKICAgIHRoaXMuaW50ZXJzZWN0cyA9IGZ1bmN0aW9uIChyYW5nZSkgewogICAgICAgIHZhciBjbXAgPSB0aGlzLmNvbXBhcmVSYW5nZShyYW5nZSk7CiAgICAgICAgcmV0dXJuIChjbXAgPT0gLTEgfHwgY21wID09IDAgfHwgY21wID09IDEpOwogICAgfTsKICAgIHRoaXMuaXNFbmQgPSBmdW5jdGlvbiAocm93LCBjb2x1bW4pIHsKICAgICAgICByZXR1cm4gdGhpcy5lbmQucm93ID09IHJvdyAmJiB0aGlzLmVuZC5jb2x1bW4gPT0gY29sdW1uOwogICAgfTsKICAgIHRoaXMuaXNTdGFydCA9IGZ1bmN0aW9uIChyb3csIGNvbHVtbikgewogICAgICAgIHJldHVybiB0aGlzLnN0YXJ0LnJvdyA9PSByb3cgJiYgdGhpcy5zdGFydC5jb2x1bW4gPT0gY29sdW1uOwogICAgfTsKICAgIHRoaXMuc2V0U3RhcnQgPSBmdW5jdGlvbiAocm93LCBjb2x1bW4pIHsKICAgICAgICBpZiAodHlwZW9mIHJvdyA9PSAib2JqZWN0IikgewogICAgICAgICAgICB0aGlzLnN0YXJ0LmNvbHVtbiA9IHJvdy5jb2x1bW47CiAgICAgICAgICAgIHRoaXMuc3RhcnQucm93ID0gcm93LnJvdzsKICAgICAgICB9CiAgICAgICAgZWxzZSB7CiAgICAgICAgICAgIHRoaXMuc3RhcnQucm93ID0gcm93OwogICAgICAgICAgICB0aGlzLnN0YXJ0LmNvbHVtbiA9IGNvbHVtbjsKICAgICAgICB9CiAgICB9OwogICAgdGhpcy5zZXRFbmQgPSBmdW5jdGlvbiAocm93LCBjb2x1bW4pIHsKICAgICAgICBpZiAodHlwZW9mIHJvdyA9PSAib2JqZWN0IikgewogICAgICAgICAgICB0aGlzLmVuZC5jb2x1bW4gPSByb3cuY29sdW1uOwogICAgICAgICAgICB0aGlzLmVuZC5yb3cgPSByb3cucm93OwogICAgICAgIH0KICAgICAgICBlbHNlIHsKICAgICAgICAgICAgdGhpcy5lbmQucm93ID0gcm93OwogICAgICAgICAgICB0aGlzLmVuZC5jb2x1bW4gPSBjb2x1bW47CiAgICAgICAgfQogICAgfTsKICAgIHRoaXMuaW5zaWRlID0gZnVuY3Rpb24gKHJvdywgY29sdW1uKSB7CiAgICAgICAgaWYgKHRoaXMuY29tcGFyZShyb3csIGNvbHVtbikgPT0gMCkgewogICAgICAgICAgICBpZiAodGhpcy5pc0VuZChyb3csIGNvbHVtbikgfHwgdGhpcy5pc1N0YXJ0KHJvdywgY29sdW1uKSkgewogICAgICAgICAgICAgICAgcmV0dXJuIGZhbHNlOwogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsc2UgewogICAgICAgICAgICAgICAgcmV0dXJuIHRydWU7CiAgICAgICAgICAgIH0KICAgICAgICB9CiAgICAgICAgcmV0dXJuIGZhbHNlOwogICAgfTsKICAgIHRoaXMuaW5zaWRlU3RhcnQgPSBmdW5jdGlvbiAocm93LCBjb2x1bW4pIHsKICAgICAgICBpZiAodGhpcy5jb21wYXJlKHJvdywgY29sdW1uKSA9PSAwKSB7CiAgICAgICAgICAgIGlmICh0aGlzLmlzRW5kKHJvdywgY29sdW1uKSkgewogICAgICAgICAgICAgICAgcmV0dXJuIGZhbHNlOwogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsc2UgewogICAgICAgICAgICAgICAgcmV0dXJuIHRydWU7CiAgICAgICAgICAgIH0KICAgICAgICB9CiAgICAgICAgcmV0dXJuIGZhbHNlOwogICAgfTsKICAgIHRoaXMuaW5zaWRlRW5kID0gZnVuY3Rpb24gKHJvdywgY29sdW1uKSB7CiAgICAgICAgaWYgKHRoaXMuY29tcGFyZShyb3csIGNvbHVtbikgPT0gMCkgewogICAgICAgICAgICBpZiAodGhpcy5pc1N0YXJ0KHJvdywgY29sdW1uKSkgewogICAgICAgICAgICAgICAgcmV0dXJuIGZhbHNlOwogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsc2UgewogICAgICAgICAgICAgICAgcmV0dXJuIHRydWU7CiAgICAgICAgICAgIH0KICAgICAgICB9CiAgICAgICAgcmV0dXJuIGZhbHNlOwogICAgfTsKICAgIHRoaXMuY29tcGFyZSA9IGZ1bmN0aW9uIChyb3csIGNvbHVtbikgewogICAgICAgIGlmICghdGhpcy5pc011bHRpTGluZSgpKSB7CiAgICAgICAgICAgIGlmIChyb3cgPT09IHRoaXMuc3RhcnQucm93KSB7CiAgICAgICAgICAgICAgICByZXR1cm4gY29sdW1uIDwgdGhpcy5zdGFydC5jb2x1bW4gPyAtMSA6IChjb2x1bW4gPiB0aGlzLmVuZC5jb2x1bW4gPyAxIDogMCk7CiAgICAgICAgICAgIH0KICAgICAgICB9CiAgICAgICAgaWYgKHJvdyA8IHRoaXMuc3RhcnQucm93KQogICAgICAgICAgICByZXR1cm4gLTE7CiAgICAgICAgaWYgKHJvdyA+IHRoaXMuZW5kLnJvdykKICAgICAgICAgICAgcmV0dXJuIDE7CiAgICAgICAgaWYgKHRoaXMuc3RhcnQucm93ID09PSByb3cpCiAgICAgICAgICAgIHJldHVybiBjb2x1bW4gPj0gdGhpcy5zdGFydC5jb2x1bW4gPyAwIDogLTE7CiAgICAgICAgaWYgKHRoaXMuZW5kLnJvdyA9PT0gcm93KQogICAgICAgICAgICByZXR1cm4gY29sdW1uIDw9IHRoaXMuZW5kLmNvbHVtbiA/IDAgOiAxOwogICAgICAgIHJldHVybiAwOwogICAgfTsKICAgIHRoaXMuY29tcGFyZVN0YXJ0ID0gZnVuY3Rpb24gKHJvdywgY29sdW1uKSB7CiAgICAgICAgaWYgKHRoaXMuc3RhcnQucm93ID09IHJvdyAmJiB0aGlzLnN0YXJ0LmNvbHVtbiA9PSBjb2x1bW4pIHsKICAgICAgICAgICAgcmV0dXJuIC0xOwogICAgICAgIH0KICAgICAgICBlbHNlIHsKICAgICAgICAgICAgcmV0dXJuIHRoaXMuY29tcGFyZShyb3csIGNvbHVtbik7CiAgICAgICAgfQogICAgfTsKICAgIHRoaXMuY29tcGFyZUVuZCA9IGZ1bmN0aW9uIChyb3csIGNvbHVtbikgewogICAgICAgIGlmICh0aGlzLmVuZC5yb3cgPT0gcm93ICYmIHRoaXMuZW5kLmNvbHVtbiA9PSBjb2x1bW4pIHsKICAgICAgICAgICAgcmV0dXJuIDE7CiAgICAgICAgfQogICAgICAgIGVsc2UgewogICAgICAgICAgICByZXR1cm4gdGhpcy5jb21wYXJlKHJvdywgY29sdW1uKTsKICAgICAgICB9CiAgICB9OwogICAgdGhpcy5jb21wYXJlSW5zaWRlID0gZnVuY3Rpb24gKHJvdywgY29sdW1uKSB7CiAgICAgICAgaWYgKHRoaXMuZW5kLnJvdyA9PSByb3cgJiYgdGhpcy5lbmQuY29sdW1uID09IGNvbHVtbikgewogICAgICAgICAgICByZXR1cm4gMTsKICAgICAgICB9CiAgICAgICAgZWxzZSBpZiAodGhpcy5zdGFydC5yb3cgPT0gcm93ICYmIHRoaXMuc3RhcnQuY29sdW1uID09IGNvbHVtbikgewogICAgICAgICAgICByZXR1cm4gLTE7CiAgICAgICAgfQogICAgICAgIGVsc2UgewogICAgICAgICAgICByZXR1cm4gdGhpcy5jb21wYXJlKHJvdywgY29sdW1uKTsKICAgICAgICB9CiAgICB9OwogICAgdGhpcy5jbGlwUm93cyA9IGZ1bmN0aW9uIChmaXJzdFJvdywgbGFzdFJvdykgewogICAgICAgIGlmICh0aGlzLmVuZC5yb3cgPiBsYXN0Um93KQogICAgICAgICAgICB2YXIgZW5kID0geyByb3c6IGxhc3RSb3cgKyAxLCBjb2x1bW46IDAgfTsKICAgICAgICBlbHNlIGlmICh0aGlzLmVuZC5yb3cgPCBmaXJzdFJvdykKICAgICAgICAgICAgdmFyIGVuZCA9IHsgcm93OiBmaXJzdFJvdywgY29sdW1uOiAwIH07CiAgICAgICAgaWYgKHRoaXMuc3RhcnQucm93ID4gbGFzdFJvdykKICAgICAgICAgICAgdmFyIHN0YXJ0ID0geyByb3c6IGxhc3RSb3cgKyAxLCBjb2x1bW46IDAgfTsKICAgICAgICBlbHNlIGlmICh0aGlzLnN0YXJ0LnJvdyA8IGZpcnN0Um93KQogICAgICAgICAgICB2YXIgc3RhcnQgPSB7IHJvdzogZmlyc3RSb3csIGNvbHVtbjogMCB9OwogICAgICAgIHJldHVybiBSYW5nZS5mcm9tUG9pbnRzKHN0YXJ0IHx8IHRoaXMuc3RhcnQsIGVuZCB8fCB0aGlzLmVuZCk7CiAgICB9OwogICAgdGhpcy5leHRlbmQgPSBmdW5jdGlvbiAocm93LCBjb2x1bW4pIHsKICAgICAgICB2YXIgY21wID0gdGhpcy5jb21wYXJlKHJvdywgY29sdW1uKTsKICAgICAgICBpZiAoY21wID09IDApCiAgICAgICAgICAgIHJldHVybiB0aGlzOwogICAgICAgIGVsc2UgaWYgKGNtcCA9PSAtMSkKICAgICAgICAgICAgdmFyIHN0YXJ0ID0geyByb3c6IHJvdywgY29sdW1uOiBjb2x1bW4gfTsKICAgICAgICBlbHNlCiAgICAgICAgICAgIHZhciBlbmQgPSB7IHJvdzogcm93LCBjb2x1bW46IGNvbHVtbiB9OwogICAgICAgIHJldHVybiBSYW5nZS5mcm9tUG9pbnRzKHN0YXJ0IHx8IHRoaXMuc3RhcnQsIGVuZCB8fCB0aGlzLmVuZCk7CiAgICB9OwogICAgdGhpcy5pc0VtcHR5ID0gZnVuY3Rpb24gKCkgewogICAgICAgIHJldHVybiAodGhpcy5zdGFydC5yb3cgPT09IHRoaXMuZW5kLnJvdyAmJiB0aGlzLnN0YXJ0LmNvbHVtbiA9PT0gdGhpcy5lbmQuY29sdW1uKTsKICAgIH07CiAgICB0aGlzLmlzTXVsdGlMaW5lID0gZnVuY3Rpb24gKCkgewogICAgICAgIHJldHVybiAodGhpcy5zdGFydC5yb3cgIT09IHRoaXMuZW5kLnJvdyk7CiAgICB9OwogICAgdGhpcy5jbG9uZSA9IGZ1bmN0aW9uICgpIHsKICAgICAgICByZXR1cm4gUmFuZ2UuZnJvbVBvaW50cyh0aGlzLnN0YXJ0LCB0aGlzLmVuZCk7CiAgICB9OwogICAgdGhpcy5jb2xsYXBzZVJvd3MgPSBmdW5jdGlvbiAoKSB7CiAgICAgICAgaWYgKHRoaXMuZW5kLmNvbHVtbiA9PSAwKQogICAgICAgICAgICByZXR1cm4gbmV3IFJhbmdlKHRoaXMuc3RhcnQucm93LCAwLCBNYXRoLm1heCh0aGlzLnN0YXJ0LnJvdywgdGhpcy5lbmQucm93IC0gMSksIDApOwogICAgICAgIGVsc2UKICAgICAgICAgICAgcmV0dXJuIG5ldyBSYW5nZSh0aGlzLnN0YXJ0LnJvdywgMCwgdGhpcy5lbmQucm93LCAwKTsKICAgIH07CiAgICB0aGlzLnRvU2NyZWVuUmFuZ2UgPSBmdW5jdGlvbiAoc2Vzc2lvbikgewogICAgICAgIHZhciBzY3JlZW5Qb3NTdGFydCA9IHNlc3Npb24uZG9jdW1lbnRUb1NjcmVlblBvc2l0aW9uKHRoaXMuc3RhcnQpOwogICAgICAgIHZhciBzY3JlZW5Qb3NFbmQgPSBzZXNzaW9uLmRvY3VtZW50VG9TY3JlZW5Qb3NpdGlvbih0aGlzLmVuZCk7CiAgICAgICAgcmV0dXJuIG5ldyBSYW5nZShzY3JlZW5Qb3NTdGFydC5yb3csIHNjcmVlblBvc1N0YXJ0LmNvbHVtbiwgc2NyZWVuUG9zRW5kLnJvdywgc2NyZWVuUG9zRW5kLmNvbHVtbik7CiAgICB9OwogICAgdGhpcy5tb3ZlQnkgPSBmdW5jdGlvbiAocm93LCBjb2x1bW4pIHsKICAgICAgICB0aGlzLnN0YXJ0LnJvdyArPSByb3c7CiAgICAgICAgdGhpcy5zdGFydC5jb2x1bW4gKz0gY29sdW1uOwogICAgICAgIHRoaXMuZW5kLnJvdyArPSByb3c7CiAgICAgICAgdGhpcy5lbmQuY29sdW1uICs9IGNvbHVtbjsKICAgIH07Cn0pLmNhbGwoUmFuZ2UucHJvdG90eXBlKTsKUmFuZ2UuZnJvbVBvaW50cyA9IGZ1bmN0aW9uIChzdGFydCwgZW5kKSB7CiAgICByZXR1cm4gbmV3IFJhbmdlKHN0YXJ0LnJvdywgc3RhcnQuY29sdW1uLCBlbmQucm93LCBlbmQuY29sdW1uKTsKfTsKUmFuZ2UuY29tcGFyZVBvaW50cyA9IGNvbXBhcmVQb2ludHM7ClJhbmdlLmNvbXBhcmVQb2ludHMgPSBmdW5jdGlvbiAocDEsIHAyKSB7CiAgICByZXR1cm4gcDEucm93IC0gcDIucm93IHx8IHAxLmNvbHVtbiAtIHAyLmNvbHVtbjsKfTsKZXhwb3J0cy5SYW5nZSA9IFJhbmdlOwoKfSk7CgphY2UuZGVmaW5lKCJhY2UvYW5jaG9yIixbXSwgZnVuY3Rpb24ocmVxdWlyZSwgZXhwb3J0cywgbW9kdWxlKXsidXNlIHN0cmljdCI7CnZhciBvb3AgPSByZXF1aXJlKCIuL2xpYi9vb3AiKTsKdmFyIEV2ZW50RW1pdHRlciA9IHJlcXVpcmUoIi4vbGliL2V2ZW50X2VtaXR0ZXIiKS5FdmVudEVtaXR0ZXI7CnZhciBBbmNob3IgPSBleHBvcnRzLkFuY2hvciA9IGZ1bmN0aW9uIChkb2MsIHJvdywgY29sdW1uKSB7CiAgICB0aGlzLiRvbkNoYW5nZSA9IHRoaXMub25DaGFuZ2UuYmluZCh0aGlzKTsKICAgIHRoaXMuYXR0YWNoKGRvYyk7CiAgICBpZiAodHlwZW9mIGNvbHVtbiA9PSAidW5kZWZpbmVkIikKICAgICAgICB0aGlzLnNldFBvc2l0aW9uKHJvdy5yb3csIHJvdy5jb2x1bW4pOwogICAgZWxzZQogICAgICAgIHRoaXMuc2V0UG9zaXRpb24ocm93LCBjb2x1bW4pOwp9OwooZnVuY3Rpb24gKCkgewogICAgb29wLmltcGxlbWVudCh0aGlzLCBFdmVudEVtaXR0ZXIpOwogICAgdGhpcy5nZXRQb3NpdGlvbiA9IGZ1bmN0aW9uICgpIHsKICAgICAgICByZXR1cm4gdGhpcy4kY2xpcFBvc2l0aW9uVG9Eb2N1bWVudCh0aGlzLnJvdywgdGhpcy5jb2x1bW4pOwogICAgfTsKICAgIHRoaXMuZ2V0RG9jdW1lbnQgPSBmdW5jdGlvbiAoKSB7CiAgICAgICAgcmV0dXJuIHRoaXMuZG9jdW1lbnQ7CiAgICB9OwogICAgdGhpcy4kaW5zZXJ0UmlnaHQgPSBmYWxzZTsKICAgIHRoaXMub25DaGFuZ2UgPSBmdW5jdGlvbiAoZGVsdGEpIHsKICAgICAgICBpZiAoZGVsdGEuc3RhcnQucm93ID09IGRlbHRhLmVuZC5yb3cgJiYgZGVsdGEuc3RhcnQucm93ICE9IHRoaXMucm93KQogICAgICAgICAgICByZXR1cm47CiAgICAgICAgaWYgKGRlbHRhLnN0YXJ0LnJvdyA+IHRoaXMucm93KQogICAgICAgICAgICByZXR1cm47CiAgICAgICAgdmFyIHBvaW50ID0gJGdldFRyYW5zZm9ybWVkUG9pbnQoZGVsdGEsIHsgcm93OiB0aGlzLnJvdywgY29sdW1uOiB0aGlzLmNvbHVtbiB9LCB0aGlzLiRpbnNlcnRSaWdodCk7CiAgICAgICAgdGhpcy5zZXRQb3NpdGlvbihwb2ludC5yb3csIHBvaW50LmNvbHVtbiwgdHJ1ZSk7CiAgICB9OwogICAgZnVuY3Rpb24gJHBvaW50c0luT3JkZXIocG9pbnQxLCBwb2ludDIsIGVxdWFsUG9pbnRzSW5PcmRlcikgewogICAgICAgIHZhciBiQ29sSXNBZnRlciA9IGVxdWFsUG9pbnRzSW5PcmRlciA/IHBvaW50MS5jb2x1bW4gPD0gcG9pbnQyLmNvbHVtbiA6IHBvaW50MS5jb2x1bW4gPCBwb2ludDIuY29sdW1uOwogICAgICAgIHJldHVybiAocG9pbnQxLnJvdyA8IHBvaW50Mi5yb3cpIHx8IChwb2ludDEucm93ID09IHBvaW50Mi5yb3cgJiYgYkNvbElzQWZ0ZXIpOwogICAgfQogICAgZnVuY3Rpb24gJGdldFRyYW5zZm9ybWVkUG9pbnQoZGVsdGEsIHBvaW50LCBtb3ZlSWZFcXVhbCkgewogICAgICAgIHZhciBkZWx0YUlzSW5zZXJ0ID0gZGVsdGEuYWN0aW9uID09ICJpbnNlcnQiOwogICAgICAgIHZhciBkZWx0YVJvd1NoaWZ0ID0gKGRlbHRhSXNJbnNlcnQgPyAxIDogLTEpICogKGRlbHRhLmVuZC5yb3cgLSBkZWx0YS5zdGFydC5yb3cpOwogICAgICAgIHZhciBkZWx0YUNvbFNoaWZ0ID0gKGRlbHRhSXNJbnNlcnQgPyAxIDogLTEpICogKGRlbHRhLmVuZC5jb2x1bW4gLSBkZWx0YS5zdGFydC5jb2x1bW4pOwogICAgICAgIHZhciBkZWx0YVN0YXJ0ID0gZGVsdGEuc3RhcnQ7CiAgICAgICAgdmFyIGRlbHRhRW5kID0gZGVsdGFJc0luc2VydCA/IGRlbHRhU3RhcnQgOiBkZWx0YS5lbmQ7IC8vIENvbGxhcHNlIGluc2VydCByYW5nZS4KICAgICAgICBpZiAoJHBvaW50c0luT3JkZXIocG9pbnQsIGRlbHRhU3RhcnQsIG1vdmVJZkVxdWFsKSkgewogICAgICAgICAgICByZXR1cm4gewogICAgICAgICAgICAgICAgcm93OiBwb2ludC5yb3csCiAgICAgICAgICAgICAgICBjb2x1bW46IHBvaW50LmNvbHVtbgogICAgICAgICAgICB9OwogICAgICAgIH0KICAgICAgICBpZiAoJHBvaW50c0luT3JkZXIoZGVsdGFFbmQsIHBvaW50LCAhbW92ZUlmRXF1YWwpKSB7CiAgICAgICAgICAgIHJldHVybiB7CiAgICAgICAgICAgICAgICByb3c6IHBvaW50LnJvdyArIGRlbHRhUm93U2hpZnQsCiAgICAgICAgICAgICAgICBjb2x1bW46IHBvaW50LmNvbHVtbiArIChwb2ludC5yb3cgPT0gZGVsdGFFbmQucm93ID8gZGVsdGFDb2xTaGlmdCA6IDApCiAgICAgICAgICAgIH07CiAgICAgICAgfQogICAgICAgIHJldHVybiB7CiAgICAgICAgICAgIHJvdzogZGVsdGFTdGFydC5yb3csCiAgICAgICAgICAgIGNvbHVtbjogZGVsdGFTdGFydC5jb2x1bW4KICAgICAgICB9OwogICAgfQogICAgdGhpcy5zZXRQb3NpdGlvbiA9IGZ1bmN0aW9uIChyb3csIGNvbHVtbiwgbm9DbGlwKSB7CiAgICAgICAgdmFyIHBvczsKICAgICAgICBpZiAobm9DbGlwKSB7CiAgICAgICAgICAgIHBvcyA9IHsKICAgICAgICAgICAgICAgIHJvdzogcm93LAogICAgICAgICAgICAgICAgY29sdW1uOiBjb2x1bW4KICAgICAgICAgICAgfTsKICAgICAgICB9CiAgICAgICAgZWxzZSB7CiAgICAgICAgICAgIHBvcyA9IHRoaXMuJGNsaXBQb3NpdGlvblRvRG9jdW1lbnQocm93LCBjb2x1bW4pOwogICAgICAgIH0KICAgICAgICBpZiAodGhpcy5yb3cgPT0gcG9zLnJvdyAmJiB0aGlzLmNvbHVtbiA9PSBwb3MuY29sdW1uKQogICAgICAgICAgICByZXR1cm47CiAgICAgICAgdmFyIG9sZCA9IHsKICAgICAgICAgICAgcm93OiB0aGlzLnJvdywKICAgICAgICAgICAgY29sdW1uOiB0aGlzLmNvbHVtbgogICAgICAgIH07CiAgICAgICAgdGhpcy5yb3cgPSBwb3Mucm93OwogICAgICAgIHRoaXMuY29sdW1uID0gcG9zLmNvbHVtbjsKICAgICAgICB0aGlzLl9zaWduYWwoImNoYW5nZSIsIHsKICAgICAgICAgICAgb2xkOiBvbGQsCiAgICAgICAgICAgIHZhbHVlOiBwb3MKICAgICAgICB9KTsKICAgIH07CiAgICB0aGlzLmRldGFjaCA9IGZ1bmN0aW9uICgpIHsKICAgICAgICB0aGlzLmRvY3VtZW50Lm9mZigiY2hhbmdlIiwgdGhpcy4kb25DaGFuZ2UpOwogICAgfTsKICAgIHRoaXMuYXR0YWNoID0gZnVuY3Rpb24gKGRvYykgewogICAgICAgIHRoaXMuZG9jdW1lbnQgPSBkb2MgfHwgdGhpcy5kb2N1bWVudDsKICAgICAgICB0aGlzLmRvY3VtZW50Lm9uKCJjaGFuZ2UiLCB0aGlzLiRvbkNoYW5nZSk7CiAgICB9OwogICAgdGhpcy4kY2xpcFBvc2l0aW9uVG9Eb2N1bWVudCA9IGZ1bmN0aW9uIChyb3csIGNvbHVtbikgewogICAgICAgIHZhciBwb3MgPSB7fTsKICAgICAgICBpZiAocm93ID49IHRoaXMuZG9jdW1lbnQuZ2V0TGVuZ3RoKCkpIHsKICAgICAgICAgICAgcG9zLnJvdyA9IE1hdGgubWF4KDAsIHRoaXMuZG9jdW1lbnQuZ2V0TGVuZ3RoKCkgLSAxKTsKICAgICAgICAgICAgcG9zLmNvbHVtbiA9IHRoaXMuZG9jdW1lbnQuZ2V0TGluZShwb3Mucm93KS5sZW5ndGg7CiAgICAgICAgfQogICAgICAgIGVsc2UgaWYgKHJvdyA8IDApIHsKICAgICAgICAgICAgcG9zLnJvdyA9IDA7CiAgICAgICAgICAgIHBvcy5jb2x1bW4gPSAwOwogICAgICAgIH0KICAgICAgICBlbHNlIHsKICAgICAgICAgICAgcG9zLnJvdyA9IHJvdzsKICAgICAgICAgICAgcG9zLmNvbHVtbiA9IE1hdGgubWluKHRoaXMuZG9jdW1lbnQuZ2V0TGluZShwb3Mucm93KS5sZW5ndGgsIE1hdGgubWF4KDAsIGNvbHVtbikpOwogICAgICAgIH0KICAgICAgICBpZiAoY29sdW1uIDwgMCkKICAgICAgICAgICAgcG9zLmNvbHVtbiA9IDA7CiAgICAgICAgcmV0dXJuIHBvczsKICAgIH07Cn0pLmNhbGwoQW5jaG9yLnByb3RvdHlwZSk7Cgp9KTsKCmFjZS5kZWZpbmUoImFjZS9kb2N1bWVudCIsW10sIGZ1bmN0aW9uKHJlcXVpcmUsIGV4cG9ydHMsIG1vZHVsZSl7InVzZSBzdHJpY3QiOwp2YXIgb29wID0gcmVxdWlyZSgiLi9saWIvb29wIik7CnZhciBhcHBseURlbHRhID0gcmVxdWlyZSgiLi9hcHBseV9kZWx0YSIpLmFwcGx5RGVsdGE7CnZhciBFdmVudEVtaXR0ZXIgPSByZXF1aXJlKCIuL2xpYi9ldmVudF9lbWl0dGVyIikuRXZlbnRFbWl0dGVyOwp2YXIgUmFuZ2UgPSByZXF1aXJlKCIuL3JhbmdlIikuUmFuZ2U7CnZhciBBbmNob3IgPSByZXF1aXJlKCIuL2FuY2hvciIpLkFuY2hvcjsKdmFyIERvY3VtZW50ID0gZnVuY3Rpb24gKHRleHRPckxpbmVzKSB7CiAgICB0aGlzLiRsaW5lcyA9IFsiIl07CiAgICBpZiAodGV4dE9yTGluZXMubGVuZ3RoID09PSAwKSB7CiAgICAgICAgdGhpcy4kbGluZXMgPSBbIiJdOwogICAgfQogICAgZWxzZSBpZiAoQXJyYXkuaXNBcnJheSh0ZXh0T3JMaW5lcykpIHsKICAgICAgICB0aGlzLmluc2VydE1lcmdlZExpbmVzKHsgcm93OiAwLCBjb2x1bW46IDAgfSwgdGV4dE9yTGluZXMpOwogICAgfQogICAgZWxzZSB7CiAgICAgICAgdGhpcy5pbnNlcnQoeyByb3c6IDAsIGNvbHVtbjogMCB9LCB0ZXh0T3JMaW5lcyk7CiAgICB9Cn07CihmdW5jdGlvbiAoKSB7CiAgICBvb3AuaW1wbGVtZW50KHRoaXMsIEV2ZW50RW1pdHRlcik7CiAgICB0aGlzLnNldFZhbHVlID0gZnVuY3Rpb24gKHRleHQpIHsKICAgICAgICB2YXIgbGVuID0gdGhpcy5nZXRMZW5ndGgoKSAtIDE7CiAgICAgICAgdGhpcy5yZW1vdmUobmV3IFJhbmdlKDAsIDAsIGxlbiwgdGhpcy5nZXRMaW5lKGxlbikubGVuZ3RoKSk7CiAgICAgICAgdGhpcy5pbnNlcnQoeyByb3c6IDAsIGNvbHVtbjogMCB9LCB0ZXh0IHx8ICIiKTsKICAgIH07CiAgICB0aGlzLmdldFZhbHVlID0gZnVuY3Rpb24gKCkgewogICAgICAgIHJldHVybiB0aGlzLmdldEFsbExpbmVzKCkuam9pbih0aGlzLmdldE5ld0xpbmVDaGFyYWN0ZXIoKSk7CiAgICB9OwogICAgdGhpcy5jcmVhdGVBbmNob3IgPSBmdW5jdGlvbiAocm93LCBjb2x1bW4pIHsKICAgICAgICByZXR1cm4gbmV3IEFuY2hvcih0aGlzLCByb3csIGNvbHVtbik7CiAgICB9OwogICAgaWYgKCJhYWEiLnNwbGl0KC9hLykubGVuZ3RoID09PSAwKSB7CiAgICAgICAgdGhpcy4kc3BsaXQgPSBmdW5jdGlvbiAodGV4dCkgewogICAgICAgICAgICByZXR1cm4gdGV4dC5yZXBsYWNlKC9cclxufFxyL2csICJcbiIpLnNwbGl0KCJcbiIpOwogICAgICAgIH07CiAgICB9CiAgICBlbHNlIHsKICAgICAgICB0aGlzLiRzcGxpdCA9IGZ1bmN0aW9uICh0ZXh0KSB7CiAgICAgICAgICAgIHJldHVybiB0ZXh0LnNwbGl0KC9cclxufFxyfFxuLyk7CiAgICAgICAgfTsKICAgIH0KICAgIHRoaXMuJGRldGVjdE5ld0xpbmUgPSBmdW5jdGlvbiAodGV4dCkgewogICAgICAgIHZhciBtYXRjaCA9IHRleHQubWF0Y2goL14uKj8oXHJcbnxccnxcbikvbSk7CiAgICAgICAgdGhpcy4kYXV0b05ld0xpbmUgPSBtYXRjaCA/IG1hdGNoWzFdIDogIlxuIjsKICAgICAgICB0aGlzLl9zaWduYWwoImNoYW5nZU5ld0xpbmVNb2RlIik7CiAgICB9OwogICAgdGhpcy5nZXROZXdMaW5lQ2hhcmFjdGVyID0gZnVuY3Rpb24gKCkgewogICAgICAgIHN3aXRjaCAodGhpcy4kbmV3TGluZU1vZGUpIHsKICAgICAgICAgICAgY2FzZSAid2luZG93cyI6CiAgICAgICAgICAgICAgICByZXR1cm4gIlxyXG4iOwogICAgICAgICAgICBjYXNlICJ1bml4IjoKICAgICAgICAgICAgICAgIHJldHVybiAiXG4iOwogICAgICAgICAgICBkZWZhdWx0OgogICAgICAgICAgICAgICAgcmV0dXJuIHRoaXMuJGF1dG9OZXdMaW5lIHx8ICJcbiI7CiAgICAgICAgfQogICAgfTsKICAgIHRoaXMuJGF1dG9OZXdMaW5lID0gIiI7CiAgICB0aGlzLiRuZXdMaW5lTW9kZSA9ICJhdXRvIjsKICAgIHRoaXMuc2V0TmV3TGluZU1vZGUgPSBmdW5jdGlvbiAobmV3TGluZU1vZGUpIHsKICAgICAgICBpZiAodGhpcy4kbmV3TGluZU1vZGUgPT09IG5ld0xpbmVNb2RlKQogICAgICAgICAgICByZXR1cm47CiAgICAgICAgdGhpcy4kbmV3TGluZU1vZGUgPSBuZXdMaW5lTW9kZTsKICAgICAgICB0aGlzLl9zaWduYWwoImNoYW5nZU5ld0xpbmVNb2RlIik7CiAgICB9OwogICAgdGhpcy5nZXROZXdMaW5lTW9kZSA9IGZ1bmN0aW9uICgpIHsKICAgICAgICByZXR1cm4gdGhpcy4kbmV3TGluZU1vZGU7CiAgICB9OwogICAgdGhpcy5pc05ld0xpbmUgPSBmdW5jdGlvbiAodGV4dCkgewogICAgICAgIHJldHVybiAodGV4dCA9PSAiXHJcbiIgfHwgdGV4dCA9PSAiXHIiIHx8IHRleHQgPT0gIlxuIik7CiAgICB9OwogICAgdGhpcy5nZXRMaW5lID0gZnVuY3Rpb24gKHJvdykgewogICAgICAgIHJldHVybiB0aGlzLiRsaW5lc1tyb3ddIHx8ICIiOwogICAgfTsKICAgIHRoaXMuZ2V0TGluZXMgPSBmdW5jdGlvbiAoZmlyc3RSb3csIGxhc3RSb3cpIHsKICAgICAgICByZXR1cm4gdGhpcy4kbGluZXMuc2xpY2UoZmlyc3RSb3csIGxhc3RSb3cgKyAxKTsKICAgIH07CiAgICB0aGlzLmdldEFsbExpbmVzID0gZnVuY3Rpb24gKCkgewogICAgICAgIHJldHVybiB0aGlzLmdldExpbmVzKDAsIHRoaXMuZ2V0TGVuZ3RoKCkpOwogICAgfTsKICAgIHRoaXMuZ2V0TGVuZ3RoID0gZnVuY3Rpb24gKCkgewogICAgICAgIHJldHVybiB0aGlzLiRsaW5lcy5sZW5ndGg7CiAgICB9OwogICAgdGhpcy5nZXRUZXh0UmFuZ2UgPSBmdW5jdGlvbiAocmFuZ2UpIHsKICAgICAgICByZXR1cm4gdGhpcy5nZXRMaW5lc0ZvclJhbmdlKHJhbmdlKS5qb2luKHRoaXMuZ2V0TmV3TGluZUNoYXJhY3RlcigpKTsKICAgIH07CiAgICB0aGlzLmdldExpbmVzRm9yUmFuZ2UgPSBmdW5jdGlvbiAocmFuZ2UpIHsKICAgICAgICB2YXIgbGluZXM7CiAgICAgICAgaWYgKHJhbmdlLnN0YXJ0LnJvdyA9PT0gcmFuZ2UuZW5kLnJvdykgewogICAgICAgICAgICBsaW5lcyA9IFt0aGlzLmdldExpbmUocmFuZ2Uuc3RhcnQucm93KS5zdWJzdHJpbmcocmFuZ2Uuc3RhcnQuY29sdW1uLCByYW5nZS5lbmQuY29sdW1uKV07CiAgICAgICAgfQogICAgICAgIGVsc2UgewogICAgICAgICAgICBsaW5lcyA9IHRoaXMuZ2V0TGluZXMocmFuZ2Uuc3RhcnQucm93LCByYW5nZS5lbmQucm93KTsKICAgICAgICAgICAgbGluZXNbMF0gPSAobGluZXNbMF0gfHwgIiIpLnN1YnN0cmluZyhyYW5nZS5zdGFydC5jb2x1bW4pOwogICAgICAgICAgICB2YXIgbCA9IGxpbmVzLmxlbmd0aCAtIDE7CiAgICAgICAgICAgIGlmIChyYW5nZS5lbmQucm93IC0gcmFuZ2Uuc3RhcnQucm93ID09IGwpCiAgICAgICAgICAgICAgICBsaW5lc1tsXSA9IGxpbmVzW2xdLnN1YnN0cmluZygwLCByYW5nZS5lbmQuY29sdW1uKTsKICAgICAgICB9CiAgICAgICAgcmV0dXJuIGxpbmVzOwogICAgfTsKICAgIHRoaXMuaW5zZXJ0TGluZXMgPSBmdW5jdGlvbiAocm93LCBsaW5lcykgewogICAgICAgIGNvbnNvbGUud2FybigiVXNlIG9mIGRvY3VtZW50Lmluc2VydExpbmVzIGlzIGRlcHJlY2F0ZWQuIFVzZSB0aGUgaW5zZXJ0RnVsbExpbmVzIG1ldGhvZCBpbnN0ZWFkLiIpOwogICAgICAgIHJldHVybiB0aGlzLmluc2VydEZ1bGxMaW5lcyhyb3csIGxpbmVzKTsKICAgIH07CiAgICB0aGlzLnJlbW92ZUxpbmVzID0gZnVuY3Rpb24gKGZpcnN0Um93LCBsYXN0Um93KSB7CiAgICAgICAgY29uc29sZS53YXJuKCJVc2Ugb2YgZG9jdW1lbnQucmVtb3ZlTGluZXMgaXMgZGVwcmVjYXRlZC4gVXNlIHRoZSByZW1vdmVGdWxsTGluZXMgbWV0aG9kIGluc3RlYWQuIik7CiAgICAgICAgcmV0dXJuIHRoaXMucmVtb3ZlRnVsbExpbmVzKGZpcnN0Um93LCBsYXN0Um93KTsKICAgIH07CiAgICB0aGlzLmluc2VydE5ld0xpbmUgPSBmdW5jdGlvbiAocG9zaXRpb24pIHsKICAgICAgICBjb25zb2xlLndhcm4oIlVzZSBvZiBkb2N1bWVudC5pbnNlcnROZXdMaW5lIGlzIGRlcHJlY2F0ZWQuIFVzZSBpbnNlcnRNZXJnZWRMaW5lcyhwb3NpdGlvbiwgWycnLCAnJ10pIGluc3RlYWQuIik7CiAgICAgICAgcmV0dXJuIHRoaXMuaW5zZXJ0TWVyZ2VkTGluZXMocG9zaXRpb24sIFsiIiwgIiJdKTsKICAgIH07CiAgICB0aGlzLmluc2VydCA9IGZ1bmN0aW9uIChwb3NpdGlvbiwgdGV4dCkgewogICAgICAgIGlmICh0aGlzLmdldExlbmd0aCgpIDw9IDEpCiAgICAgICAgICAgIHRoaXMuJGRldGVjdE5ld0xpbmUodGV4dCk7CiAgICAgICAgcmV0dXJuIHRoaXMuaW5zZXJ0TWVyZ2VkTGluZXMocG9zaXRpb24sIHRoaXMuJHNwbGl0KHRleHQpKTsKICAgIH07CiAgICB0aGlzLmluc2VydEluTGluZSA9IGZ1bmN0aW9uIChwb3NpdGlvbiwgdGV4dCkgewogICAgICAgIHZhciBzdGFydCA9IHRoaXMuY2xpcHBlZFBvcyhwb3NpdGlvbi5yb3csIHBvc2l0aW9uLmNvbHVtbik7CiAgICAgICAgdmFyIGVuZCA9IHRoaXMucG9zKHBvc2l0aW9uLnJvdywgcG9zaXRpb24uY29sdW1uICsgdGV4dC5sZW5ndGgpOwogICAgICAgIHRoaXMuYXBwbHlEZWx0YSh7CiAgICAgICAgICAgIHN0YXJ0OiBzdGFydCwKICAgICAgICAgICAgZW5kOiBlbmQsCiAgICAgICAgICAgIGFjdGlvbjogImluc2VydCIsCiAgICAgICAgICAgIGxpbmVzOiBbdGV4dF0KICAgICAgICB9LCB0cnVlKTsKICAgICAgICByZXR1cm4gdGhpcy5jbG9uZVBvcyhlbmQpOwogICAgfTsKICAgIHRoaXMuY2xpcHBlZFBvcyA9IGZ1bmN0aW9uIChyb3csIGNvbHVtbikgewogICAgICAgIHZhciBsZW5ndGggPSB0aGlzLmdldExlbmd0aCgpOwogICAgICAgIGlmIChyb3cgPT09IHVuZGVmaW5lZCkgewogICAgICAgICAgICByb3cgPSBsZW5ndGg7CiAgICAgICAgfQogICAgICAgIGVsc2UgaWYgKHJvdyA8IDApIHsKICAgICAgICAgICAgcm93ID0gMDsKICAgICAgICB9CiAgICAgICAgZWxzZSBpZiAocm93ID49IGxlbmd0aCkgewogICAgICAgICAgICByb3cgPSBsZW5ndGggLSAxOwogICAgICAgICAgICBjb2x1bW4gPSB1bmRlZmluZWQ7CiAgICAgICAgfQogICAgICAgIHZhciBsaW5lID0gdGhpcy5nZXRMaW5lKHJvdyk7CiAgICAgICAgaWYgKGNvbHVtbiA9PSB1bmRlZmluZWQpCiAgICAgICAgICAgIGNvbHVtbiA9IGxpbmUubGVuZ3RoOwogICAgICAgIGNvbHVtbiA9IE1hdGgubWluKE1hdGgubWF4KGNvbHVtbiwgMCksIGxpbmUubGVuZ3RoKTsKICAgICAgICByZXR1cm4geyByb3c6IHJvdywgY29sdW1uOiBjb2x1bW4gfTsKICAgIH07CiAgICB0aGlzLmNsb25lUG9zID0gZnVuY3Rpb24gKHBvcykgewogICAgICAgIHJldHVybiB7IHJvdzogcG9zLnJvdywgY29sdW1uOiBwb3MuY29sdW1uIH07CiAgICB9OwogICAgdGhpcy5wb3MgPSBmdW5jdGlvbiAocm93LCBjb2x1bW4pIHsKICAgICAgICByZXR1cm4geyByb3c6IHJvdywgY29sdW1uOiBjb2x1bW4gfTsKICAgIH07CiAgICB0aGlzLiRjbGlwUG9zaXRpb24gPSBmdW5jdGlvbiAocG9zaXRpb24pIHsKICAgICAgICB2YXIgbGVuZ3RoID0gdGhpcy5nZXRMZW5ndGgoKTsKICAgICAgICBpZiAocG9zaXRpb24ucm93ID49IGxlbmd0aCkgewogICAgICAgICAgICBwb3NpdGlvbi5yb3cgPSBNYXRoLm1heCgwLCBsZW5ndGggLSAxKTsKICAgICAgICAgICAgcG9zaXRpb24uY29sdW1uID0gdGhpcy5nZXRMaW5lKGxlbmd0aCAtIDEpLmxlbmd0aDsKICAgICAgICB9CiAgICAgICAgZWxzZSB7CiAgICAgICAgICAgIHBvc2l0aW9uLnJvdyA9IE1hdGgubWF4KDAsIHBvc2l0aW9uLnJvdyk7CiAgICAgICAgICAgIHBvc2l0aW9uLmNvbHVtbiA9IE1hdGgubWluKE1hdGgubWF4KHBvc2l0aW9uLmNvbHVtbiwgMCksIHRoaXMuZ2V0TGluZShwb3NpdGlvbi5yb3cpLmxlbmd0aCk7CiAgICAgICAgfQogICAgICAgIHJldHVybiBwb3NpdGlvbjsKICAgIH07CiAgICB0aGlzLmluc2VydEZ1bGxMaW5lcyA9IGZ1bmN0aW9uIChyb3csIGxpbmVzKSB7CiAgICAgICAgcm93ID0gTWF0aC5taW4oTWF0aC5tYXgocm93LCAwKSwgdGhpcy5nZXRMZW5ndGgoKSk7CiAgICAgICAgdmFyIGNvbHVtbiA9IDA7CiAgICAgICAgaWYgKHJvdyA8IHRoaXMuZ2V0TGVuZ3RoKCkpIHsKICAgICAgICAgICAgbGluZXMgPSBsaW5lcy5jb25jYXQoWyIiXSk7CiAgICAgICAgICAgIGNvbHVtbiA9IDA7CiAgICAgICAgfQogICAgICAgIGVsc2UgewogICAgICAgICAgICBsaW5lcyA9IFsiIl0uY29uY2F0KGxpbmVzKTsKICAgICAgICAgICAgcm93LS07CiAgICAgICAgICAgIGNvbHVtbiA9IHRoaXMuJGxpbmVzW3Jvd10ubGVuZ3RoOwogICAgICAgIH0KICAgICAgICB0aGlzLmluc2VydE1lcmdlZExpbmVzKHsgcm93OiByb3csIGNvbHVtbjogY29sdW1uIH0sIGxpbmVzKTsKICAgIH07CiAgICB0aGlzLmluc2VydE1lcmdlZExpbmVzID0gZnVuY3Rpb24gKHBvc2l0aW9uLCBsaW5lcykgewogICAgICAgIHZhciBzdGFydCA9IHRoaXMuY2xpcHBlZFBvcyhwb3NpdGlvbi5yb3csIHBvc2l0aW9uLmNvbHVtbik7CiAgICAgICAgdmFyIGVuZCA9IHsKICAgICAgICAgICAgcm93OiBzdGFydC5yb3cgKyBsaW5lcy5sZW5ndGggLSAxLAogICAgICAgICAgICBjb2x1bW46IChsaW5lcy5sZW5ndGggPT0gMSA/IHN0YXJ0LmNvbHVtbiA6IDApICsgbGluZXNbbGluZXMubGVuZ3RoIC0gMV0ubGVuZ3RoCiAgICAgICAgfTsKICAgICAgICB0aGlzLmFwcGx5RGVsdGEoewogICAgICAgICAgICBzdGFydDogc3RhcnQsCiAgICAgICAgICAgIGVuZDogZW5kLAogICAgICAgICAgICBhY3Rpb246ICJpbnNlcnQiLAogICAgICAgICAgICBsaW5lczogbGluZXMKICAgICAgICB9KTsKICAgICAgICByZXR1cm4gdGhpcy5jbG9uZVBvcyhlbmQpOwogICAgfTsKICAgIHRoaXMucmVtb3ZlID0gZnVuY3Rpb24gKHJhbmdlKSB7CiAgICAgICAgdmFyIHN0YXJ0ID0gdGhpcy5jbGlwcGVkUG9zKHJhbmdlLnN0YXJ0LnJvdywgcmFuZ2Uuc3RhcnQuY29sdW1uKTsKICAgICAgICB2YXIgZW5kID0gdGhpcy5jbGlwcGVkUG9zKHJhbmdlLmVuZC5yb3csIHJhbmdlLmVuZC5jb2x1bW4pOwogICAgICAgIHRoaXMuYXBwbHlEZWx0YSh7CiAgICAgICAgICAgIHN0YXJ0OiBzdGFydCwKICAgICAgICAgICAgZW5kOiBlbmQsCiAgICAgICAgICAgIGFjdGlvbjogInJlbW92ZSIsCiAgICAgICAgICAgIGxpbmVzOiB0aGlzLmdldExpbmVzRm9yUmFuZ2UoeyBzdGFydDogc3RhcnQsIGVuZDogZW5kIH0pCiAgICAgICAgfSk7CiAgICAgICAgcmV0dXJuIHRoaXMuY2xvbmVQb3Moc3RhcnQpOwogICAgfTsKICAgIHRoaXMucmVtb3ZlSW5MaW5lID0gZnVuY3Rpb24gKHJvdywgc3RhcnRDb2x1bW4sIGVuZENvbHVtbikgewogICAgICAgIHZhciBzdGFydCA9IHRoaXMuY2xpcHBlZFBvcyhyb3csIHN0YXJ0Q29sdW1uKTsKICAgICAgICB2YXIgZW5kID0gdGhpcy5jbGlwcGVkUG9zKHJvdywgZW5kQ29sdW1uKTsKICAgICAgICB0aGlzLmFwcGx5RGVsdGEoewogICAgICAgICAgICBzdGFydDogc3RhcnQsCiAgICAgICAgICAgIGVuZDogZW5kLAogICAgICAgICAgICBhY3Rpb246ICJyZW1vdmUiLAogICAgICAgICAgICBsaW5lczogdGhpcy5nZXRMaW5lc0ZvclJhbmdlKHsgc3RhcnQ6IHN0YXJ0LCBlbmQ6IGVuZCB9KQogICAgICAgIH0sIHRydWUpOwogICAgICAgIHJldHVybiB0aGlzLmNsb25lUG9zKHN0YXJ0KTsKICAgIH07CiAgICB0aGlzLnJlbW92ZUZ1bGxMaW5lcyA9IGZ1bmN0aW9uIChmaXJzdFJvdywgbGFzdFJvdykgewogICAgICAgIGZpcnN0Um93ID0gTWF0aC5taW4oTWF0aC5tYXgoMCwgZmlyc3RSb3cpLCB0aGlzLmdldExlbmd0aCgpIC0gMSk7CiAgICAgICAgbGFzdFJvdyA9IE1hdGgubWluKE1hdGgubWF4KDAsIGxhc3RSb3cpLCB0aGlzLmdldExlbmd0aCgpIC0gMSk7CiAgICAgICAgdmFyIGRlbGV0ZUZpcnN0TmV3TGluZSA9IGxhc3RSb3cgPT0gdGhpcy5nZXRMZW5ndGgoKSAtIDEgJiYgZmlyc3RSb3cgPiAwOwogICAgICAgIHZhciBkZWxldGVMYXN0TmV3TGluZSA9IGxhc3RSb3cgPCB0aGlzLmdldExlbmd0aCgpIC0gMTsKICAgICAgICB2YXIgc3RhcnRSb3cgPSAoZGVsZXRlRmlyc3ROZXdMaW5lID8gZmlyc3RSb3cgLSAxIDogZmlyc3RSb3cpOwogICAgICAgIHZhciBzdGFydENvbCA9IChkZWxldGVGaXJzdE5ld0xpbmUgPyB0aGlzLmdldExpbmUoc3RhcnRSb3cpLmxlbmd0aCA6IDApOwogICAgICAgIHZhciBlbmRSb3cgPSAoZGVsZXRlTGFzdE5ld0xpbmUgPyBsYXN0Um93ICsgMSA6IGxhc3RSb3cpOwogICAgICAgIHZhciBlbmRDb2wgPSAoZGVsZXRlTGFzdE5ld0xpbmUgPyAwIDogdGhpcy5nZXRMaW5lKGVuZFJvdykubGVuZ3RoKTsKICAgICAgICB2YXIgcmFuZ2UgPSBuZXcgUmFuZ2Uoc3RhcnRSb3csIHN0YXJ0Q29sLCBlbmRSb3csIGVuZENvbCk7CiAgICAgICAgdmFyIGRlbGV0ZWRMaW5lcyA9IHRoaXMuJGxpbmVzLnNsaWNlKGZpcnN0Um93LCBsYXN0Um93ICsgMSk7CiAgICAgICAgdGhpcy5hcHBseURlbHRhKHsKICAgICAgICAgICAgc3RhcnQ6IHJhbmdlLnN0YXJ0LAogICAgICAgICAgICBlbmQ6IHJhbmdlLmVuZCwKICAgICAgICAgICAgYWN0aW9uOiAicmVtb3ZlIiwKICAgICAgICAgICAgbGluZXM6IHRoaXMuZ2V0TGluZXNGb3JSYW5nZShyYW5nZSkKICAgICAgICB9KTsKICAgICAgICByZXR1cm4gZGVsZXRlZExpbmVzOwogICAgfTsKICAgIHRoaXMucmVtb3ZlTmV3TGluZSA9IGZ1bmN0aW9uIChyb3cpIHsKICAgICAgICBpZiAocm93IDwgdGhpcy5nZXRMZW5ndGgoKSAtIDEgJiYgcm93ID49IDApIHsKICAgICAgICAgICAgdGhpcy5hcHBseURlbHRhKHsKICAgICAgICAgICAgICAgIHN0YXJ0OiB0aGlzLnBvcyhyb3csIHRoaXMuZ2V0TGluZShyb3cpLmxlbmd0aCksCiAgICAgICAgICAgICAgICBlbmQ6IHRoaXMucG9zKHJvdyArIDEsIDApLAogICAgICAgICAgICAgICAgYWN0aW9uOiAicmVtb3ZlIiwKICAgICAgICAgICAgICAgIGxpbmVzOiBbIiIsICIiXQogICAgICAgICAgICB9KTsKICAgICAgICB9CiAgICB9OwogICAgdGhpcy5yZXBsYWNlID0gZnVuY3Rpb24gKHJhbmdlLCB0ZXh0KSB7CiAgICAgICAgaWYgKCEocmFuZ2UgaW5zdGFuY2VvZiBSYW5nZSkpCiAgICAgICAgICAgIHJhbmdlID0gUmFuZ2UuZnJvbVBvaW50cyhyYW5nZS5zdGFydCwgcmFuZ2UuZW5kKTsKICAgICAgICBpZiAodGV4dC5sZW5ndGggPT09IDAgJiYgcmFuZ2UuaXNFbXB0eSgpKQogICAgICAgICAgICByZXR1cm4gcmFuZ2Uuc3RhcnQ7CiAgICAgICAgaWYgKHRleHQgPT0gdGhpcy5nZXRUZXh0UmFuZ2UocmFuZ2UpKQogICAgICAgICAgICByZXR1cm4gcmFuZ2UuZW5kOwogICAgICAgIHRoaXMucmVtb3ZlKHJhbmdlKTsKICAgICAgICB2YXIgZW5kOwogICAgICAgIGlmICh0ZXh0KSB7CiAgICAgICAgICAgIGVuZCA9IHRoaXMuaW5zZXJ0KHJhbmdlLnN0YXJ0LCB0ZXh0KTsKICAgICAgICB9CiAgICAgICAgZWxzZSB7CiAgICAgICAgICAgIGVuZCA9IHJhbmdlLnN0YXJ0OwogICAgICAgIH0KICAgICAgICByZXR1cm4gZW5kOwogICAgfTsKICAgIHRoaXMuYXBwbHlEZWx0YXMgPSBmdW5jdGlvbiAoZGVsdGFzKSB7CiAgICAgICAgZm9yICh2YXIgaSA9IDA7IGkgPCBkZWx0YXMubGVuZ3RoOyBpKyspIHsKICAgICAgICAgICAgdGhpcy5hcHBseURlbHRhKGRlbHRhc1tpXSk7CiAgICAgICAgfQogICAgfTsKICAgIHRoaXMucmV2ZXJ0RGVsdGFzID0gZnVuY3Rpb24gKGRlbHRhcykgewogICAgICAgIGZvciAodmFyIGkgPSBkZWx0YXMubGVuZ3RoIC0gMTsgaSA+PSAwOyBpLS0pIHsKICAgICAgICAgICAgdGhpcy5yZXZlcnREZWx0YShkZWx0YXNbaV0pOwogICAgICAgIH0KICAgIH07CiAgICB0aGlzLmFwcGx5RGVsdGEgPSBmdW5jdGlvbiAoZGVsdGEsIGRvTm90VmFsaWRhdGUpIHsKICAgICAgICB2YXIgaXNJbnNlcnQgPSBkZWx0YS5hY3Rpb24gPT0gImluc2VydCI7CiAgICAgICAgaWYgKGlzSW5zZXJ0ID8gZGVsdGEubGluZXMubGVuZ3RoIDw9IDEgJiYgIWRlbHRhLmxpbmVzWzBdCiAgICAgICAgICAgIDogIVJhbmdlLmNvbXBhcmVQb2ludHMoZGVsdGEuc3RhcnQsIGRlbHRhLmVuZCkpIHsKICAgICAgICAgICAgcmV0dXJuOwogICAgICAgIH0KICAgICAgICBpZiAoaXNJbnNlcnQgJiYgZGVsdGEubGluZXMubGVuZ3RoID4gMjAwMDApIHsKICAgICAgICAgICAgdGhpcy4kc3BsaXRBbmRhcHBseUxhcmdlRGVsdGEoZGVsdGEsIDIwMDAwKTsKICAgICAgICB9CiAgICAgICAgZWxzZSB7CiAgICAgICAgICAgIGFwcGx5RGVsdGEodGhpcy4kbGluZXMsIGRlbHRhLCBkb05vdFZhbGlkYXRlKTsKICAgICAgICAgICAgdGhpcy5fc2lnbmFsKCJjaGFuZ2UiLCBkZWx0YSk7CiAgICAgICAgfQogICAgfTsKICAgIHRoaXMuJHNhZmVBcHBseURlbHRhID0gZnVuY3Rpb24gKGRlbHRhKSB7CiAgICAgICAgdmFyIGRvY0xlbmd0aCA9IHRoaXMuJGxpbmVzLmxlbmd0aDsKICAgICAgICBpZiAoZGVsdGEuYWN0aW9uID09ICJyZW1vdmUiICYmIGRlbHRhLnN0YXJ0LnJvdyA8IGRvY0xlbmd0aCAmJiBkZWx0YS5lbmQucm93IDwgZG9jTGVuZ3RoCiAgICAgICAgICAgIHx8IGRlbHRhLmFjdGlvbiA9PSAiaW5zZXJ0IiAmJiBkZWx0YS5zdGFydC5yb3cgPD0gZG9jTGVuZ3RoKSB7CiAgICAgICAgICAgIHRoaXMuYXBwbHlEZWx0YShkZWx0YSk7CiAgICAgICAgfQogICAgfTsKICAgIHRoaXMuJHNwbGl0QW5kYXBwbHlMYXJnZURlbHRhID0gZnVuY3Rpb24gKGRlbHRhLCBNQVgpIHsKICAgICAgICB2YXIgbGluZXMgPSBkZWx0YS5saW5lczsKICAgICAgICB2YXIgbCA9IGxpbmVzLmxlbmd0aCAtIE1BWCArIDE7CiAgICAgICAgdmFyIHJvdyA9IGRlbHRhLnN0YXJ0LnJvdzsKICAgICAgICB2YXIgY29sdW1uID0gZGVsdGEuc3RhcnQuY29sdW1uOwogICAgICAgIGZvciAodmFyIGZyb20gPSAwLCB0byA9IDA7IGZyb20gPCBsOyBmcm9tID0gdG8pIHsKICAgICAgICAgICAgdG8gKz0gTUFYIC0gMTsKICAgICAgICAgICAgdmFyIGNodW5rID0gbGluZXMuc2xpY2UoZnJvbSwgdG8pOwogICAgICAgICAgICBjaHVuay5wdXNoKCIiKTsKICAgICAgICAgICAgdGhpcy5hcHBseURlbHRhKHsKICAgICAgICAgICAgICAgIHN0YXJ0OiB0aGlzLnBvcyhyb3cgKyBmcm9tLCBjb2x1bW4pLAogICAgICAgICAgICAgICAgZW5kOiB0aGlzLnBvcyhyb3cgKyB0bywgY29sdW1uID0gMCksCiAgICAgICAgICAgICAgICBhY3Rpb246IGRlbHRhLmFjdGlvbiwKICAgICAgICAgICAgICAgIGxpbmVzOiBjaHVuawogICAgICAgICAgICB9LCB0cnVlKTsKICAgICAgICB9CiAgICAgICAgZGVsdGEubGluZXMgPSBsaW5lcy5zbGljZShmcm9tKTsKICAgICAgICBkZWx0YS5zdGFydC5yb3cgPSByb3cgKyBmcm9tOwogICAgICAgIGRlbHRhLnN0YXJ0LmNvbHVtbiA9IGNvbHVtbjsKICAgICAgICB0aGlzLmFwcGx5RGVsdGEoZGVsdGEsIHRydWUpOwogICAgfTsKICAgIHRoaXMucmV2ZXJ0RGVsdGEgPSBmdW5jdGlvbiAoZGVsdGEpIHsKICAgICAgICB0aGlzLiRzYWZlQXBwbHlEZWx0YSh7CiAgICAgICAgICAgIHN0YXJ0OiB0aGlzLmNsb25lUG9zKGRlbHRhLnN0YXJ0KSwKICAgICAgICAgICAgZW5kOiB0aGlzLmNsb25lUG9zKGRlbHRhLmVuZCksCiAgICAgICAgICAgIGFjdGlvbjogKGRlbHRhLmFjdGlvbiA9PSAiaW5zZXJ0IiA/ICJyZW1vdmUiIDogImluc2VydCIpLAogICAgICAgICAgICBsaW5lczogZGVsdGEubGluZXMuc2xpY2UoKQogICAgICAgIH0pOwogICAgfTsKICAgIHRoaXMuaW5kZXhUb1Bvc2l0aW9uID0gZnVuY3Rpb24gKGluZGV4LCBzdGFydFJvdykgewogICAgICAgIHZhciBsaW5lcyA9IHRoaXMuJGxpbmVzIHx8IHRoaXMuZ2V0QWxsTGluZXMoKTsKICAgICAgICB2YXIgbmV3bGluZUxlbmd0aCA9IHRoaXMuZ2V0TmV3TGluZUNoYXJhY3RlcigpLmxlbmd0aDsKICAgICAgICBmb3IgKHZhciBpID0gc3RhcnRSb3cgfHwgMCwgbCA9IGxpbmVzLmxlbmd0aDsgaSA8IGw7IGkrKykgewogICAgICAgICAgICBpbmRleCAtPSBsaW5lc1tpXS5sZW5ndGggKyBuZXdsaW5lTGVuZ3RoOwogICAgICAgICAgICBpZiAoaW5kZXggPCAwKQogICAgICAgICAgICAgICAgcmV0dXJuIHsgcm93OiBpLCBjb2x1bW46IGluZGV4ICsgbGluZXNbaV0ubGVuZ3RoICsgbmV3bGluZUxlbmd0aCB9OwogICAgICAgIH0KICAgICAgICByZXR1cm4geyByb3c6IGwgLSAxLCBjb2x1bW46IGluZGV4ICsgbGluZXNbbCAtIDFdLmxlbmd0aCArIG5ld2xpbmVMZW5ndGggfTsKICAgIH07CiAgICB0aGlzLnBvc2l0aW9uVG9JbmRleCA9IGZ1bmN0aW9uIChwb3MsIHN0YXJ0Um93KSB7CiAgICAgICAgdmFyIGxpbmVzID0gdGhpcy4kbGluZXMgfHwgdGhpcy5nZXRBbGxMaW5lcygpOwogICAgICAgIHZhciBuZXdsaW5lTGVuZ3RoID0gdGhpcy5nZXROZXdMaW5lQ2hhcmFjdGVyKCkubGVuZ3RoOwogICAgICAgIHZhciBpbmRleCA9IDA7CiAgICAgICAgdmFyIHJvdyA9IE1hdGgubWluKHBvcy5yb3csIGxpbmVzLmxlbmd0aCk7CiAgICAgICAgZm9yICh2YXIgaSA9IHN0YXJ0Um93IHx8IDA7IGkgPCByb3c7ICsraSkKICAgICAgICAgICAgaW5kZXggKz0gbGluZXNbaV0ubGVuZ3RoICsgbmV3bGluZUxlbmd0aDsKICAgICAgICByZXR1cm4gaW5kZXggKyBwb3MuY29sdW1uOwogICAgfTsKfSkuY2FsbChEb2N1bWVudC5wcm90b3R5cGUpOwpleHBvcnRzLkRvY3VtZW50ID0gRG9jdW1lbnQ7Cgp9KTsKCmFjZS5kZWZpbmUoImFjZS9saWIvbGFuZyIsW10sIGZ1bmN0aW9uKHJlcXVpcmUsIGV4cG9ydHMsIG1vZHVsZSl7InVzZSBzdHJpY3QiOwpleHBvcnRzLmxhc3QgPSBmdW5jdGlvbiAoYSkgewogICAgcmV0dXJuIGFbYS5sZW5ndGggLSAxXTsKfTsKZXhwb3J0cy5zdHJpbmdSZXZlcnNlID0gZnVuY3Rpb24gKHN0cmluZykgewogICAgcmV0dXJuIHN0cmluZy5zcGxpdCgiIikucmV2ZXJzZSgpLmpvaW4oIiIpOwp9OwpleHBvcnRzLnN0cmluZ1JlcGVhdCA9IGZ1bmN0aW9uIChzdHJpbmcsIGNvdW50KSB7CiAgICB2YXIgcmVzdWx0ID0gJyc7CiAgICB3aGlsZSAoY291bnQgPiAwKSB7CiAgICAgICAgaWYgKGNvdW50ICYgMSkKICAgICAgICAgICAgcmVzdWx0ICs9IHN0cmluZzsKICAgICAgICBpZiAoY291bnQgPj49IDEpCiAgICAgICAgICAgIHN0cmluZyArPSBzdHJpbmc7CiAgICB9CiAgICByZXR1cm4gcmVzdWx0Owp9Owp2YXIgdHJpbUJlZ2luUmVnZXhwID0gL15cc1xzKi87CnZhciB0cmltRW5kUmVnZXhwID0gL1xzXHMqJC87CmV4cG9ydHMuc3RyaW5nVHJpbUxlZnQgPSBmdW5jdGlvbiAoc3RyaW5nKSB7CiAgICByZXR1cm4gc3RyaW5nLnJlcGxhY2UodHJpbUJlZ2luUmVnZXhwLCAnJyk7Cn07CmV4cG9ydHMuc3RyaW5nVHJpbVJpZ2h0ID0gZnVuY3Rpb24gKHN0cmluZykgewogICAgcmV0dXJuIHN0cmluZy5yZXBsYWNlKHRyaW1FbmRSZWdleHAsICcnKTsKfTsKZXhwb3J0cy5jb3B5T2JqZWN0ID0gZnVuY3Rpb24gKG9iaikgewogICAgdmFyIGNvcHkgPSB7fTsKICAgIGZvciAodmFyIGtleSBpbiBvYmopIHsKICAgICAgICBjb3B5W2tleV0gPSBvYmpba2V5XTsKICAgIH0KICAgIHJldHVybiBjb3B5Owp9OwpleHBvcnRzLmNvcHlBcnJheSA9IGZ1bmN0aW9uIChhcnJheSkgewogICAgdmFyIGNvcHkgPSBbXTsKICAgIGZvciAodmFyIGkgPSAwLCBsID0gYXJyYXkubGVuZ3RoOyBpIDwgbDsgaSsrKSB7CiAgICAgICAgaWYgKGFycmF5W2ldICYmIHR5cGVvZiBhcnJheVtpXSA9PSAib2JqZWN0IikKICAgICAgICAgICAgY29weVtpXSA9IHRoaXMuY29weU9iamVjdChhcnJheVtpXSk7CiAgICAgICAgZWxzZQogICAgICAgICAgICBjb3B5W2ldID0gYXJyYXlbaV07CiAgICB9CiAgICByZXR1cm4gY29weTsKfTsKZXhwb3J0cy5kZWVwQ29weSA9IGZ1bmN0aW9uIGRlZXBDb3B5KG9iaikgewogICAgaWYgKHR5cGVvZiBvYmogIT09ICJvYmplY3QiIHx8ICFvYmopCiAgICAgICAgcmV0dXJuIG9iajsKICAgIHZhciBjb3B5OwogICAgaWYgKEFycmF5LmlzQXJyYXkob2JqKSkgewogICAgICAgIGNvcHkgPSBbXTsKICAgICAgICBmb3IgKHZhciBrZXkgPSAwOyBrZXkgPCBvYmoubGVuZ3RoOyBrZXkrKykgewogICAgICAgICAgICBjb3B5W2tleV0gPSBkZWVwQ29weShvYmpba2V5XSk7CiAgICAgICAgfQogICAgICAgIHJldHVybiBjb3B5OwogICAgfQogICAgaWYgKE9iamVjdC5wcm90b3R5cGUudG9TdHJpbmcuY2FsbChvYmopICE9PSAiW29iamVjdCBPYmplY3RdIikKICAgICAgICByZXR1cm4gb2JqOwogICAgY29weSA9IHt9OwogICAgZm9yICh2YXIga2V5IGluIG9iaikKICAgICAgICBjb3B5W2tleV0gPSBkZWVwQ29weShvYmpba2V5XSk7CiAgICByZXR1cm4gY29weTsKfTsKZXhwb3J0cy5hcnJheVRvTWFwID0gZnVuY3Rpb24gKGFycikgewogICAgdmFyIG1hcCA9IHt9OwogICAgZm9yICh2YXIgaSA9IDA7IGkgPCBhcnIubGVuZ3RoOyBpKyspIHsKICAgICAgICBtYXBbYXJyW2ldXSA9IDE7CiAgICB9CiAgICByZXR1cm4gbWFwOwp9OwpleHBvcnRzLmNyZWF0ZU1hcCA9IGZ1bmN0aW9uIChwcm9wcykgewogICAgdmFyIG1hcCA9IE9iamVjdC5jcmVhdGUobnVsbCk7CiAgICBmb3IgKHZhciBpIGluIHByb3BzKSB7CiAgICAgICAgbWFwW2ldID0gcHJvcHNbaV07CiAgICB9CiAgICByZXR1cm4gbWFwOwp9OwpleHBvcnRzLmFycmF5UmVtb3ZlID0gZnVuY3Rpb24gKGFycmF5LCB2YWx1ZSkgewogICAgZm9yICh2YXIgaSA9IDA7IGkgPD0gYXJyYXkubGVuZ3RoOyBpKyspIHsKICAgICAgICBpZiAodmFsdWUgPT09IGFycmF5W2ldKSB7CiAgICAgICAgICAgIGFycmF5LnNwbGljZShpLCAxKTsKICAgICAgICB9CiAgICB9Cn07CmV4cG9ydHMuZXNjYXBlUmVnRXhwID0gZnVuY3Rpb24gKHN0cikgewogICAgcmV0dXJuIHN0ci5yZXBsYWNlKC8oWy4qKz9eJHt9KCl8W1xdXC9cXF0pL2csICdcXCQxJyk7Cn07CmV4cG9ydHMuZXNjYXBlSFRNTCA9IGZ1bmN0aW9uIChzdHIpIHsKICAgIHJldHVybiAoIiIgKyBzdHIpLnJlcGxhY2UoLyYvZywgIiYjMzg7IikucmVwbGFjZSgvIi9nLCAiJiMzNDsiKS5yZXBsYWNlKC8nL2csICImIzM5OyIpLnJlcGxhY2UoLzwvZywgIiYjNjA7Iik7Cn07CmV4cG9ydHMuZ2V0TWF0Y2hPZmZzZXRzID0gZnVuY3Rpb24gKHN0cmluZywgcmVnRXhwKSB7CiAgICB2YXIgbWF0Y2hlcyA9IFtdOwogICAgc3RyaW5nLnJlcGxhY2UocmVnRXhwLCBmdW5jdGlvbiAoc3RyKSB7CiAgICAgICAgbWF0Y2hlcy5wdXNoKHsKICAgICAgICAgICAgb2Zmc2V0OiBhcmd1bWVudHNbYXJndW1lbnRzLmxlbmd0aCAtIDJdLAogICAgICAgICAgICBsZW5ndGg6IHN0ci5sZW5ndGgKICAgICAgICB9KTsKICAgIH0pOwogICAgcmV0dXJuIG1hdGNoZXM7Cn07CmV4cG9ydHMuZGVmZXJyZWRDYWxsID0gZnVuY3Rpb24gKGZjbikgewogICAgdmFyIHRpbWVyID0gbnVsbDsKICAgIHZhciBjYWxsYmFjayA9IGZ1bmN0aW9uICgpIHsKICAgICAgICB0aW1lciA9IG51bGw7CiAgICAgICAgZmNuKCk7CiAgICB9OwogICAgdmFyIGRlZmVycmVkID0gZnVuY3Rpb24gKHRpbWVvdXQpIHsKICAgICAgICBkZWZlcnJlZC5jYW5jZWwoKTsKICAgICAgICB0aW1lciA9IHNldFRpbWVvdXQoY2FsbGJhY2ssIHRpbWVvdXQgfHwgMCk7CiAgICAgICAgcmV0dXJuIGRlZmVycmVkOwogICAgfTsKICAgIGRlZmVycmVkLnNjaGVkdWxlID0gZGVmZXJyZWQ7CiAgICBkZWZlcnJlZC5jYWxsID0gZnVuY3Rpb24gKCkgewogICAgICAgIHRoaXMuY2FuY2VsKCk7CiAgICAgICAgZmNuKCk7CiAgICAgICAgcmV0dXJuIGRlZmVycmVkOwogICAgfTsKICAgIGRlZmVycmVkLmNhbmNlbCA9IGZ1bmN0aW9uICgpIHsKICAgICAgICBjbGVhclRpbWVvdXQodGltZXIpOwogICAgICAgIHRpbWVyID0gbnVsbDsKICAgICAgICByZXR1cm4gZGVmZXJyZWQ7CiAgICB9OwogICAgZGVmZXJyZWQuaXNQZW5kaW5nID0gZnVuY3Rpb24gKCkgewogICAgICAgIHJldHVybiB0aW1lcjsKICAgIH07CiAgICByZXR1cm4gZGVmZXJyZWQ7Cn07CmV4cG9ydHMuZGVsYXllZENhbGwgPSBmdW5jdGlvbiAoZmNuLCBkZWZhdWx0VGltZW91dCkgewogICAgdmFyIHRpbWVyID0gbnVsbDsKICAgIHZhciBjYWxsYmFjayA9IGZ1bmN0aW9uICgpIHsKICAgICAgICB0aW1lciA9IG51bGw7CiAgICAgICAgZmNuKCk7CiAgICB9OwogICAgdmFyIF9zZWxmID0gZnVuY3Rpb24gKHRpbWVvdXQpIHsKICAgICAgICBpZiAodGltZXIgPT0gbnVsbCkKICAgICAgICAgICAgdGltZXIgPSBzZXRUaW1lb3V0KGNhbGxiYWNrLCB0aW1lb3V0IHx8IGRlZmF1bHRUaW1lb3V0KTsKICAgIH07CiAgICBfc2VsZi5kZWxheSA9IGZ1bmN0aW9uICh0aW1lb3V0KSB7CiAgICAgICAgdGltZXIgJiYgY2xlYXJUaW1lb3V0KHRpbWVyKTsKICAgICAgICB0aW1lciA9IHNldFRpbWVvdXQoY2FsbGJhY2ssIHRpbWVvdXQgfHwgZGVmYXVsdFRpbWVvdXQpOwogICAgfTsKICAgIF9zZWxmLnNjaGVkdWxlID0gX3NlbGY7CiAgICBfc2VsZi5jYWxsID0gZnVuY3Rpb24gKCkgewogICAgICAgIHRoaXMuY2FuY2VsKCk7CiAgICAgICAgZmNuKCk7CiAgICB9OwogICAgX3NlbGYuY2FuY2VsID0gZnVuY3Rpb24gKCkgewogICAgICAgIHRpbWVyICYmIGNsZWFyVGltZW91dCh0aW1lcik7CiAgICAgICAgdGltZXIgPSBudWxsOwogICAgfTsKICAgIF9zZWxmLmlzUGVuZGluZyA9IGZ1bmN0aW9uICgpIHsKICAgICAgICByZXR1cm4gdGltZXI7CiAgICB9OwogICAgcmV0dXJuIF9zZWxmOwp9OwoKfSk7CgphY2UuZGVmaW5lKCJhY2Uvd29ya2VyL21pcnJvciIsW10sIGZ1bmN0aW9uKHJlcXVpcmUsIGV4cG9ydHMsIG1vZHVsZSkgewoidXNlIHN0cmljdCI7Cgp2YXIgRG9jdW1lbnQgPSByZXF1aXJlKCIuLi9kb2N1bWVudCIpLkRvY3VtZW50Owp2YXIgbGFuZyA9IHJlcXVpcmUoIi4uL2xpYi9sYW5nIik7CiAgICAKdmFyIE1pcnJvciA9IGV4cG9ydHMuTWlycm9yID0gZnVuY3Rpb24oc2VuZGVyKSB7CiAgICB0aGlzLnNlbmRlciA9IHNlbmRlcjsKICAgIHZhciBkb2MgPSB0aGlzLmRvYyA9IG5ldyBEb2N1bWVudCgiIik7CiAgICAKICAgIHZhciBkZWZlcnJlZFVwZGF0ZSA9IHRoaXMuZGVmZXJyZWRVcGRhdGUgPSBsYW5nLmRlbGF5ZWRDYWxsKHRoaXMub25VcGRhdGUuYmluZCh0aGlzKSk7CiAgICAKICAgIHZhciBfc2VsZiA9IHRoaXM7CiAgICBzZW5kZXIub24oImNoYW5nZSIsIGZ1bmN0aW9uKGUpIHsKICAgICAgICB2YXIgZGF0YSA9IGUuZGF0YTsKICAgICAgICBpZiAoZGF0YVswXS5zdGFydCkgewogICAgICAgICAgICBkb2MuYXBwbHlEZWx0YXMoZGF0YSk7CiAgICAgICAgfSBlbHNlIHsKICAgICAgICAgICAgZm9yICh2YXIgaSA9IDA7IGkgPCBkYXRhLmxlbmd0aDsgaSArPSAyKSB7CiAgICAgICAgICAgICAgICB2YXIgZCwgZXJyOyAKICAgICAgICAgICAgICAgIGlmIChBcnJheS5pc0FycmF5KGRhdGFbaSsxXSkpIHsKICAgICAgICAgICAgICAgICAgICBkID0ge2FjdGlvbjogImluc2VydCIsIHN0YXJ0OiBkYXRhW2ldLCBsaW5lczogZGF0YVtpKzFdfTsKICAgICAgICAgICAgICAgIH0gZWxzZSB7CiAgICAgICAgICAgICAgICAgICAgZCA9IHthY3Rpb246ICJyZW1vdmUiLCBzdGFydDogZGF0YVtpXSwgZW5kOiBkYXRhW2krMV19OwogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICBpZiAoKGQuYWN0aW9uID09ICJpbnNlcnQiID8gZC5zdGFydCA6IGQuZW5kKS5yb3cgPj0gZG9jLiRsaW5lcy5sZW5ndGgpIHsKICAgICAgICAgICAgICAgICAgICBlcnIgPSBuZXcgRXJyb3IoIkludmFsaWQgZGVsdGEiKTsKICAgICAgICAgICAgICAgICAgICBlcnIuZGF0YSA9IHsKICAgICAgICAgICAgICAgICAgICAgICAgcGF0aDogX3NlbGYuJHBhdGgsCiAgICAgICAgICAgICAgICAgICAgICAgIGxpbmVzTGVuZ3RoOiBkb2MuJGxpbmVzLmxlbmd0aCwKICAgICAgICAgICAgICAgICAgICAgICAgc3RhcnQ6IGQuc3RhcnQsCiAgICAgICAgICAgICAgICAgICAgICAgIGVuZDogZC5lbmQKICAgICAgICAgICAgICAgICAgICB9OwogICAgICAgICAgICAgICAgICAgIHRocm93IGVycjsKICAgICAgICAgICAgICAgIH0KCiAgICAgICAgICAgICAgICBkb2MuYXBwbHlEZWx0YShkLCB0cnVlKTsKICAgICAgICAgICAgfQogICAgICAgIH0KICAgICAgICBpZiAoX3NlbGYuJHRpbWVvdXQpCiAgICAgICAgICAgIHJldHVybiBkZWZlcnJlZFVwZGF0ZS5zY2hlZHVsZShfc2VsZi4kdGltZW91dCk7CiAgICAgICAgX3NlbGYub25VcGRhdGUoKTsKICAgIH0pOwp9OwoKKGZ1bmN0aW9uKCkgewogICAgCiAgICB0aGlzLiR0aW1lb3V0ID0gNTAwOwogICAgCiAgICB0aGlzLnNldFRpbWVvdXQgPSBmdW5jdGlvbih0aW1lb3V0KSB7CiAgICAgICAgdGhpcy4kdGltZW91dCA9IHRpbWVvdXQ7CiAgICB9OwogICAgCiAgICB0aGlzLnNldFZhbHVlID0gZnVuY3Rpb24odmFsdWUpIHsKICAgICAgICB0aGlzLmRvYy5zZXRWYWx1ZSh2YWx1ZSk7CiAgICAgICAgdGhpcy5kZWZlcnJlZFVwZGF0ZS5zY2hlZHVsZSh0aGlzLiR0aW1lb3V0KTsKICAgIH07CiAgICAKICAgIHRoaXMuZ2V0VmFsdWUgPSBmdW5jdGlvbihjYWxsYmFja0lkKSB7CiAgICAgICAgdGhpcy5zZW5kZXIuY2FsbGJhY2sodGhpcy5kb2MuZ2V0VmFsdWUoKSwgY2FsbGJhY2tJZCk7CiAgICB9OwogICAgCiAgICB0aGlzLm9uVXBkYXRlID0gZnVuY3Rpb24oKSB7CiAgICB9OwogICAgCiAgICB0aGlzLmlzUGVuZGluZyA9IGZ1bmN0aW9uKCkgewogICAgICAgIHJldHVybiB0aGlzLmRlZmVycmVkVXBkYXRlLmlzUGVuZGluZygpOwogICAgfTsKICAgIAp9KS5jYWxsKE1pcnJvci5wcm90b3R5cGUpOwoKfSk7CgphY2UuZGVmaW5lKCJhY2UvbW9kZS9qc29uL2pzb25fcGFyc2UiLFtdLCBmdW5jdGlvbihyZXF1aXJlLCBleHBvcnRzLCBtb2R1bGUpIHsKInVzZSBzdHJpY3QiOwoKICAgIHZhciBhdCwgICAgIC8vIFRoZSBpbmRleCBvZiB0aGUgY3VycmVudCBjaGFyYWN0ZXIKICAgICAgICBjaCwgICAgIC8vIFRoZSBjdXJyZW50IGNoYXJhY3RlcgogICAgICAgIGVzY2FwZWUgPSB7CiAgICAgICAgICAgICciJzogICciJywKICAgICAgICAgICAgJ1xcJzogJ1xcJywKICAgICAgICAgICAgJy8nOiAgJy8nLAogICAgICAgICAgICBiOiAgICAnXGInLAogICAgICAgICAgICBmOiAgICAnXGYnLAogICAgICAgICAgICBuOiAgICAnXG4nLAogICAgICAgICAgICByOiAgICAnXHInLAogICAgICAgICAgICB0OiAgICAnXHQnCiAgICAgICAgfSwKICAgICAgICB0ZXh0LAoKICAgICAgICBlcnJvciA9IGZ1bmN0aW9uIChtKSB7CgogICAgICAgICAgICB0aHJvdyB7CiAgICAgICAgICAgICAgICBuYW1lOiAgICAnU3ludGF4RXJyb3InLAogICAgICAgICAgICAgICAgbWVzc2FnZTogbSwKICAgICAgICAgICAgICAgIGF0OiAgICAgIGF0LAogICAgICAgICAgICAgICAgdGV4dDogICAgdGV4dAogICAgICAgICAgICB9OwogICAgICAgIH0sCgogICAgICAgIG5leHQgPSBmdW5jdGlvbiAoYykgewoKICAgICAgICAgICAgaWYgKGMgJiYgYyAhPT0gY2gpIHsKICAgICAgICAgICAgICAgIGVycm9yKCJFeHBlY3RlZCAnIiArIGMgKyAiJyBpbnN0ZWFkIG9mICciICsgY2ggKyAiJyIpOwogICAgICAgICAgICB9CgogICAgICAgICAgICBjaCA9IHRleHQuY2hhckF0KGF0KTsKICAgICAgICAgICAgYXQgKz0gMTsKICAgICAgICAgICAgcmV0dXJuIGNoOwogICAgICAgIH0sCgogICAgICAgIG51bWJlciA9IGZ1bmN0aW9uICgpIHsKCiAgICAgICAgICAgIHZhciBudW1iZXIsCiAgICAgICAgICAgICAgICBzdHJpbmcgPSAnJzsKCiAgICAgICAgICAgIGlmIChjaCA9PT0gJy0nKSB7CiAgICAgICAgICAgICAgICBzdHJpbmcgPSAnLSc7CiAgICAgICAgICAgICAgICBuZXh0KCctJyk7CiAgICAgICAgICAgIH0KICAgICAgICAgICAgd2hpbGUgKGNoID49ICcwJyAmJiBjaCA8PSAnOScpIHsKICAgICAgICAgICAgICAgIHN0cmluZyArPSBjaDsKICAgICAgICAgICAgICAgIG5leHQoKTsKICAgICAgICAgICAgfQogICAgICAgICAgICBpZiAoY2ggPT09ICcuJykgewogICAgICAgICAgICAgICAgc3RyaW5nICs9ICcuJzsKICAgICAgICAgICAgICAgIHdoaWxlIChuZXh0KCkgJiYgY2ggPj0gJzAnICYmIGNoIDw9ICc5JykgewogICAgICAgICAgICAgICAgICAgIHN0cmluZyArPSBjaDsKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfQogICAgICAgICAgICBpZiAoY2ggPT09ICdlJyB8fCBjaCA9PT0gJ0UnKSB7CiAgICAgICAgICAgICAgICBzdHJpbmcgKz0gY2g7CiAgICAgICAgICAgICAgICBuZXh0KCk7CiAgICAgICAgICAgICAgICBpZiAoY2ggPT09ICctJyB8fCBjaCA9PT0gJysnKSB7CiAgICAgICAgICAgICAgICAgICAgc3RyaW5nICs9IGNoOwogICAgICAgICAgICAgICAgICAgIG5leHQoKTsKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIHdoaWxlIChjaCA+PSAnMCcgJiYgY2ggPD0gJzknKSB7CiAgICAgICAgICAgICAgICAgICAgc3RyaW5nICs9IGNoOwogICAgICAgICAgICAgICAgICAgIG5leHQoKTsKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfQogICAgICAgICAgICBudW1iZXIgPSArc3RyaW5nOwogICAgICAgICAgICBpZiAoaXNOYU4obnVtYmVyKSkgewogICAgICAgICAgICAgICAgZXJyb3IoIkJhZCBudW1iZXIiKTsKICAgICAgICAgICAgfSBlbHNlIHsKICAgICAgICAgICAgICAgIHJldHVybiBudW1iZXI7CiAgICAgICAgICAgIH0KICAgICAgICB9LAoKICAgICAgICBzdHJpbmcgPSBmdW5jdGlvbiAoKSB7CgogICAgICAgICAgICB2YXIgaGV4LAogICAgICAgICAgICAgICAgaSwKICAgICAgICAgICAgICAgIHN0cmluZyA9ICcnLAogICAgICAgICAgICAgICAgdWZmZmY7CgogICAgICAgICAgICBpZiAoY2ggPT09ICciJykgewogICAgICAgICAgICAgICAgd2hpbGUgKG5leHQoKSkgewogICAgICAgICAgICAgICAgICAgIGlmIChjaCA9PT0gJyInKSB7CiAgICAgICAgICAgICAgICAgICAgICAgIG5leHQoKTsKICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIHN0cmluZzsKICAgICAgICAgICAgICAgICAgICB9IGVsc2UgaWYgKGNoID09PSAnXFwnKSB7CiAgICAgICAgICAgICAgICAgICAgICAgIG5leHQoKTsKICAgICAgICAgICAgICAgICAgICAgICAgaWYgKGNoID09PSAndScpIHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHVmZmZmID0gMDsKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGZvciAoaSA9IDA7IGkgPCA0OyBpICs9IDEpIHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBoZXggPSBwYXJzZUludChuZXh0KCksIDE2KTsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBpZiAoIWlzRmluaXRlKGhleCkpIHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgYnJlYWs7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHVmZmZmID0gdWZmZmYgKiAxNiArIGhleDsKICAgICAgICAgICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIHN0cmluZyArPSBTdHJpbmcuZnJvbUNoYXJDb2RlKHVmZmZmKTsKICAgICAgICAgICAgICAgICAgICAgICAgfSBlbHNlIGlmICh0eXBlb2YgZXNjYXBlZVtjaF0gPT09ICdzdHJpbmcnKSB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBzdHJpbmcgKz0gZXNjYXBlZVtjaF07CiAgICAgICAgICAgICAgICAgICAgICAgIH0gZWxzZSB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBicmVhazsKICAgICAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICAgIH0gZWxzZSBpZiAoY2ggPT0gIlxuIiB8fCBjaCA9PSAiXHIiKSB7CiAgICAgICAgICAgICAgICAgICAgICAgIGJyZWFrOwogICAgICAgICAgICAgICAgICAgIH0gZWxzZSB7CiAgICAgICAgICAgICAgICAgICAgICAgIHN0cmluZyArPSBjaDsKICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0KICAgICAgICAgICAgZXJyb3IoIkJhZCBzdHJpbmciKTsKICAgICAgICB9LAoKICAgICAgICB3aGl0ZSA9IGZ1bmN0aW9uICgpIHsKCiAgICAgICAgICAgIHdoaWxlIChjaCAmJiBjaCA8PSAnICcpIHsKICAgICAgICAgICAgICAgIG5leHQoKTsKICAgICAgICAgICAgfQogICAgICAgIH0sCgogICAgICAgIHdvcmQgPSBmdW5jdGlvbiAoKSB7CgogICAgICAgICAgICBzd2l0Y2ggKGNoKSB7CiAgICAgICAgICAgIGNhc2UgJ3QnOgogICAgICAgICAgICAgICAgbmV4dCgndCcpOwogICAgICAgICAgICAgICAgbmV4dCgncicpOwogICAgICAgICAgICAgICAgbmV4dCgndScpOwogICAgICAgICAgICAgICAgbmV4dCgnZScpOwogICAgICAgICAgICAgICAgcmV0dXJuIHRydWU7CiAgICAgICAgICAgIGNhc2UgJ2YnOgogICAgICAgICAgICAgICAgbmV4dCgnZicpOwogICAgICAgICAgICAgICAgbmV4dCgnYScpOwogICAgICAgICAgICAgICAgbmV4dCgnbCcpOwogICAgICAgICAgICAgICAgbmV4dCgncycpOwogICAgICAgICAgICAgICAgbmV4dCgnZScpOwogICAgICAgICAgICAgICAgcmV0dXJuIGZhbHNlOwogICAgICAgICAgICBjYXNlICduJzoKICAgICAgICAgICAgICAgIG5leHQoJ24nKTsKICAgICAgICAgICAgICAgIG5leHQoJ3UnKTsKICAgICAgICAgICAgICAgIG5leHQoJ2wnKTsKICAgICAgICAgICAgICAgIG5leHQoJ2wnKTsKICAgICAgICAgICAgICAgIHJldHVybiBudWxsOwogICAgICAgICAgICB9CiAgICAgICAgICAgIGVycm9yKCJVbmV4cGVjdGVkICciICsgY2ggKyAiJyIpOwogICAgICAgIH0sCgogICAgICAgIHZhbHVlLCAgLy8gUGxhY2UgaG9sZGVyIGZvciB0aGUgdmFsdWUgZnVuY3Rpb24uCgogICAgICAgIGFycmF5ID0gZnVuY3Rpb24gKCkgewoKICAgICAgICAgICAgdmFyIGFycmF5ID0gW107CgogICAgICAgICAgICBpZiAoY2ggPT09ICdbJykgewogICAgICAgICAgICAgICAgbmV4dCgnWycpOwogICAgICAgICAgICAgICAgd2hpdGUoKTsKICAgICAgICAgICAgICAgIGlmIChjaCA9PT0gJ10nKSB7CiAgICAgICAgICAgICAgICAgICAgbmV4dCgnXScpOwogICAgICAgICAgICAgICAgICAgIHJldHVybiBhcnJheTsgICAvLyBlbXB0eSBhcnJheQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgd2hpbGUgKGNoKSB7CiAgICAgICAgICAgICAgICAgICAgYXJyYXkucHVzaCh2YWx1ZSgpKTsKICAgICAgICAgICAgICAgICAgICB3aGl0ZSgpOwogICAgICAgICAgICAgICAgICAgIGlmIChjaCA9PT0gJ10nKSB7CiAgICAgICAgICAgICAgICAgICAgICAgIG5leHQoJ10nKTsKICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIGFycmF5OwogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgICBuZXh0KCcsJyk7CiAgICAgICAgICAgICAgICAgICAgd2hpdGUoKTsKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfQogICAgICAgICAgICBlcnJvcigiQmFkIGFycmF5Iik7CiAgICAgICAgfSwKCiAgICAgICAgb2JqZWN0ID0gZnVuY3Rpb24gKCkgewoKICAgICAgICAgICAgdmFyIGtleSwKICAgICAgICAgICAgICAgIG9iamVjdCA9IHt9OwoKICAgICAgICAgICAgaWYgKGNoID09PSAneycpIHsKICAgICAgICAgICAgICAgIG5leHQoJ3snKTsKICAgICAgICAgICAgICAgIHdoaXRlKCk7CiAgICAgICAgICAgICAgICBpZiAoY2ggPT09ICd9JykgewogICAgICAgICAgICAgICAgICAgIG5leHQoJ30nKTsKICAgICAgICAgICAgICAgICAgICByZXR1cm4gb2JqZWN0OyAgIC8vIGVtcHR5IG9iamVjdAogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgd2hpbGUgKGNoKSB7CiAgICAgICAgICAgICAgICAgICAga2V5ID0gc3RyaW5nKCk7CiAgICAgICAgICAgICAgICAgICAgd2hpdGUoKTsKICAgICAgICAgICAgICAgICAgICBuZXh0KCc6Jyk7CiAgICAgICAgICAgICAgICAgICAgaWYgKE9iamVjdC5oYXNPd25Qcm9wZXJ0eS5jYWxsKG9iamVjdCwga2V5KSkgewogICAgICAgICAgICAgICAgICAgICAgICBlcnJvcignRHVwbGljYXRlIGtleSAiJyArIGtleSArICciJyk7CiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICAgIG9iamVjdFtrZXldID0gdmFsdWUoKTsKICAgICAgICAgICAgICAgICAgICB3aGl0ZSgpOwogICAgICAgICAgICAgICAgICAgIGlmIChjaCA9PT0gJ30nKSB7CiAgICAgICAgICAgICAgICAgICAgICAgIG5leHQoJ30nKTsKICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIG9iamVjdDsKICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgICAgbmV4dCgnLCcpOwogICAgICAgICAgICAgICAgICAgIHdoaXRlKCk7CiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0KICAgICAgICAgICAgZXJyb3IoIkJhZCBvYmplY3QiKTsKICAgICAgICB9OwoKICAgIHZhbHVlID0gZnVuY3Rpb24gKCkgewoKICAgICAgICB3aGl0ZSgpOwogICAgICAgIHN3aXRjaCAoY2gpIHsKICAgICAgICBjYXNlICd7JzoKICAgICAgICAgICAgcmV0dXJuIG9iamVjdCgpOwogICAgICAgIGNhc2UgJ1snOgogICAgICAgICAgICByZXR1cm4gYXJyYXkoKTsKICAgICAgICBjYXNlICciJzoKICAgICAgICAgICAgcmV0dXJuIHN0cmluZygpOwogICAgICAgIGNhc2UgJy0nOgogICAgICAgICAgICByZXR1cm4gbnVtYmVyKCk7CiAgICAgICAgZGVmYXVsdDoKICAgICAgICAgICAgcmV0dXJuIGNoID49ICcwJyAmJiBjaCA8PSAnOScgPyBudW1iZXIoKSA6IHdvcmQoKTsKICAgICAgICB9CiAgICB9OwoKICAgIHJldHVybiBmdW5jdGlvbiAoc291cmNlLCByZXZpdmVyKSB7CiAgICAgICAgdmFyIHJlc3VsdDsKCiAgICAgICAgdGV4dCA9IHNvdXJjZTsKICAgICAgICBhdCA9IDA7CiAgICAgICAgY2ggPSAnICc7CiAgICAgICAgcmVzdWx0ID0gdmFsdWUoKTsKICAgICAgICB3aGl0ZSgpOwogICAgICAgIGlmIChjaCkgewogICAgICAgICAgICBlcnJvcigiU3ludGF4IGVycm9yIik7CiAgICAgICAgfQoKICAgICAgICByZXR1cm4gdHlwZW9mIHJldml2ZXIgPT09ICdmdW5jdGlvbicgPyBmdW5jdGlvbiB3YWxrKGhvbGRlciwga2V5KSB7CiAgICAgICAgICAgIHZhciBrLCB2LCB2YWx1ZSA9IGhvbGRlcltrZXldOwogICAgICAgICAgICBpZiAodmFsdWUgJiYgdHlwZW9mIHZhbHVlID09PSAnb2JqZWN0JykgewogICAgICAgICAgICAgICAgZm9yIChrIGluIHZhbHVlKSB7CiAgICAgICAgICAgICAgICAgICAgaWYgKE9iamVjdC5oYXNPd25Qcm9wZXJ0eS5jYWxsKHZhbHVlLCBrKSkgewogICAgICAgICAgICAgICAgICAgICAgICB2ID0gd2Fsayh2YWx1ZSwgayk7CiAgICAgICAgICAgICAgICAgICAgICAgIGlmICh2ICE9PSB1bmRlZmluZWQpIHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZhbHVlW2tdID0gdjsKICAgICAgICAgICAgICAgICAgICAgICAgfSBlbHNlIHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRlbGV0ZSB2YWx1ZVtrXTsKICAgICAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfQogICAgICAgICAgICByZXR1cm4gcmV2aXZlci5jYWxsKGhvbGRlciwga2V5LCB2YWx1ZSk7CiAgICAgICAgfSh7Jyc6IHJlc3VsdH0sICcnKSA6IHJlc3VsdDsKICAgIH07Cn0pOwoKYWNlLmRlZmluZSgiYWNlL21vZGUvanNvbl93b3JrZXIiLFtdLCBmdW5jdGlvbihyZXF1aXJlLCBleHBvcnRzLCBtb2R1bGUpIHsKInVzZSBzdHJpY3QiOwoKdmFyIG9vcCA9IHJlcXVpcmUoIi4uL2xpYi9vb3AiKTsKdmFyIE1pcnJvciA9IHJlcXVpcmUoIi4uL3dvcmtlci9taXJyb3IiKS5NaXJyb3I7CnZhciBwYXJzZSA9IHJlcXVpcmUoIi4vanNvbi9qc29uX3BhcnNlIik7Cgp2YXIgSnNvbldvcmtlciA9IGV4cG9ydHMuSnNvbldvcmtlciA9IGZ1bmN0aW9uKHNlbmRlcikgewogICAgTWlycm9yLmNhbGwodGhpcywgc2VuZGVyKTsKICAgIHRoaXMuc2V0VGltZW91dCgyMDApOwp9OwoKb29wLmluaGVyaXRzKEpzb25Xb3JrZXIsIE1pcnJvcik7CgooZnVuY3Rpb24oKSB7CgogICAgdGhpcy5vblVwZGF0ZSA9IGZ1bmN0aW9uKCkgewogICAgICAgIHZhciB2YWx1ZSA9IHRoaXMuZG9jLmdldFZhbHVlKCk7CiAgICAgICAgdmFyIGVycm9ycyA9IFtdOwogICAgICAgIHRyeSB7CiAgICAgICAgICAgIGlmICh2YWx1ZSkKICAgICAgICAgICAgICAgIHBhcnNlKHZhbHVlKTsKICAgICAgICB9IGNhdGNoIChlKSB7CiAgICAgICAgICAgIHZhciBwb3MgPSB0aGlzLmRvYy5pbmRleFRvUG9zaXRpb24oZS5hdC0xKTsKICAgICAgICAgICAgZXJyb3JzLnB1c2goewogICAgICAgICAgICAgICAgcm93OiBwb3Mucm93LAogICAgICAgICAgICAgICAgY29sdW1uOiBwb3MuY29sdW1uLAogICAgICAgICAgICAgICAgdGV4dDogZS5tZXNzYWdlLAogICAgICAgICAgICAgICAgdHlwZTogImVycm9yIgogICAgICAgICAgICB9KTsKICAgICAgICB9CiAgICAgICAgdGhpcy5zZW5kZXIuZW1pdCgiYW5ub3RhdGUiLCBlcnJvcnMpOwogICAgfTsKCn0pLmNhbGwoSnNvbldvcmtlci5wcm90b3R5cGUpOwoKfSk7Cg==";
-It.config.setModuleUrl("ace/theme/kr_theme", $l);
-It.config.setModuleUrl("ace/mode/json", ql);
-It.config.setModuleUrl("ace/mode/json_worker", en);
-const Y2 = /* @__PURE__ */ D({
+}), qn = "data:application/javascript;base64,YWNlLmRlZmluZSgiYWNlL3RoZW1lL2tyX3RoZW1lLmNzcyIsWyJyZXF1aXJlIiwiZXhwb3J0cyIsIm1vZHVsZSJdLCBmdW5jdGlvbihyZXF1aXJlLCBleHBvcnRzLCBtb2R1bGUpe21vZHVsZS5leHBvcnRzID0gIi5hY2Uta3ItdGhlbWUgLmFjZV9ndXR0ZXIge1xuICBiYWNrZ3JvdW5kOiAjMWMxOTE3O1xuICBjb2xvcjogI0ZDRkZFMFxufVxuXG4uYWNlLWtyLXRoZW1lIC5hY2VfcHJpbnQtbWFyZ2luIHtcbiAgd2lkdGg6IDFweDtcbiAgYmFja2dyb3VuZDogIzFjMTkxN1xufVxuXG4uYWNlLWtyLXRoZW1lIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzBCMEEwOTtcbiAgY29sb3I6ICNGQ0ZGRTBcbn1cblxuLmFjZS1rci10aGVtZSAuYWNlX2N1cnNvciB7XG4gIGNvbG9yOiAjRkY5OTAwXG59XG5cbi5hY2Uta3ItdGhlbWUgLmFjZV9tYXJrZXItbGF5ZXIgLmFjZV9zZWxlY3Rpb24ge1xuICBiYWNrZ3JvdW5kOiByZ2JhKDE3MCwgMCwgMjU1LCAwLjQ1KVxufVxuXG4uYWNlLWtyLXRoZW1lLmFjZV9tdWx0aXNlbGVjdCAuYWNlX3NlbGVjdGlvbi5hY2Vfc3RhcnQge1xuICBib3gtc2hhZG93OiAwIDAgM3B4IDBweCAjMEIwQTA5O1xufVxuXG4uYWNlLWtyLXRoZW1lIC5hY2VfbWFya2VyLWxheWVyIC5hY2Vfc3RlcCB7XG4gIGJhY2tncm91bmQ6IHJnYigxMDIsIDgyLCAwKVxufVxuXG4uYWNlLWtyLXRoZW1lIC5hY2VfbWFya2VyLWxheWVyIC5hY2VfYnJhY2tldCB7XG4gIG1hcmdpbjogLTFweCAwIDAgLTFweDtcbiAgYm9yZGVyOiAxcHggc29saWQgcmdiYSgyNTUsIDE3NywgMTExLCAwLjMyKVxufVxuXG4uYWNlLWtyLXRoZW1lIC5hY2VfbWFya2VyLWxheWVyIC5hY2VfYWN0aXZlLWxpbmUge1xuICBiYWNrZ3JvdW5kOiAjMzg0MDNEXG59XG5cbi5hY2Uta3ItdGhlbWUgLmFjZV9ndXR0ZXItYWN0aXZlLWxpbmUge1xuICBiYWNrZ3JvdW5kLWNvbG9yIDogIzM4NDAzRFxufVxuXG4uYWNlLWtyLXRoZW1lIC5hY2VfbWFya2VyLWxheWVyIC5hY2Vfc2VsZWN0ZWQtd29yZCB7XG4gIGJvcmRlcjogMXB4IHNvbGlkIHJnYmEoMTcwLCAwLCAyNTUsIDAuNDUpXG59XG5cbi5hY2Uta3ItdGhlbWUgLmFjZV9pbnZpc2libGUge1xuICBjb2xvcjogcmdiYSgyNTUsIDE3NywgMTExLCAwLjMyKVxufVxuXG4uYWNlLWtyLXRoZW1lIC5hY2Vfa2V5d29yZCxcbi5hY2Uta3ItdGhlbWUgLmFjZV9tZXRhIHtcbiAgY29sb3I6ICM5NDlDOEJcbn1cblxuLmFjZS1rci10aGVtZSAuYWNlX2NvbnN0YW50LFxuLmFjZS1rci10aGVtZSAuYWNlX2NvbnN0YW50LmFjZV9jaGFyYWN0ZXIsXG4uYWNlLWtyLXRoZW1lIC5hY2VfY29uc3RhbnQuYWNlX2NoYXJhY3Rlci5hY2VfZXNjYXBlLFxuLmFjZS1rci10aGVtZSAuYWNlX2NvbnN0YW50LmFjZV9vdGhlciB7XG4gIGNvbG9yOiByZ2JhKDIxMCwgMTE3LCAyNCwgMC43Nilcbn1cblxuLmFjZS1rci10aGVtZSAuYWNlX2ludmFsaWQge1xuICBjb2xvcjogI0Y4RjhGODtcbiAgYmFja2dyb3VuZC1jb2xvcjogI0E0MTMwMFxufVxuXG4uYWNlLWtyLXRoZW1lIC5hY2Vfc3VwcG9ydCB7XG4gIGNvbG9yOiAjOUZDMjhBXG59XG5cbi5hY2Uta3ItdGhlbWUgLmFjZV9zdXBwb3J0LmFjZV9jb25zdGFudCB7XG4gIGNvbG9yOiAjQzI3RTY2XG59XG5cbi5hY2Uta3ItdGhlbWUgLmFjZV9mb2xkIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzk0OUM4QjtcbiAgYm9yZGVyLWNvbG9yOiAjRkNGRkUwXG59XG5cbi5hY2Uta3ItdGhlbWUgLmFjZV9zdXBwb3J0LmFjZV9mdW5jdGlvbiB7XG4gIGNvbG9yOiAjODU4NzNBXG59XG5cbi5hY2Uta3ItdGhlbWUgLmFjZV9zdG9yYWdlIHtcbiAgY29sb3I6ICNGRkVFODBcbn1cblxuLmFjZS1rci10aGVtZSAuYWNlX3N0cmluZyB7XG4gIGNvbG9yOiByZ2JhKDE2NCwgMTYxLCAxODEsIDAuOClcbn1cblxuLmFjZS1rci10aGVtZSAuYWNlX3N0cmluZy5hY2VfcmVnZXhwIHtcbiAgY29sb3I6IHJnYmEoMTI1LCAyNTUsIDE5MiwgMC42NSlcbn1cblxuLmFjZS1rci10aGVtZSAuYWNlX2NvbW1lbnQge1xuICBmb250LXN0eWxlOiBpdGFsaWM7XG4gIGNvbG9yOiAjNzA2RDVCXG59XG5cbi5hY2Uta3ItdGhlbWUgLmFjZV92YXJpYWJsZSB7XG4gIGNvbG9yOiAjRDFBNzk2XG59XG5cbi5hY2Uta3ItdGhlbWUgLmFjZV9saXN0LFxuLmFjZS1rci10aGVtZSAuYWNlX21hcmt1cC5hY2VfbGlzdCB7XG4gIGJhY2tncm91bmQtY29sb3I6ICMwRjAwNDBcbn1cblxuLmFjZS1rci10aGVtZSAuYWNlX3ZhcmlhYmxlLmFjZV9sYW5ndWFnZSB7XG4gIGNvbG9yOiAjRkY4MEUxXG59XG5cbi5hY2Uta3ItdGhlbWUgLmFjZV9tZXRhLmFjZV90YWcge1xuICBjb2xvcjogI0JBQkQ5Q1xufVxuXG4uYWNlLWtyLXRoZW1lIC5hY2VfaW5kZW50LWd1aWRlIHtcbiAgYmFja2dyb3VuZDogdXJsKGRhdGE6aW1hZ2UvcG5nO2Jhc2U2NCxpVkJPUncwS0dnb0FBQUFOU1VoRVVnQUFBQUVBQUFBQ0NBWUFBQUNaZ2JZbkFBQUFFa2xFUVZRSW1XTmdZR0JnWUZCWFYvOFBBQUpvQVhYNGtUMkVBQUFBQUVsRlRrU3VRbUNDKSByaWdodCByZXBlYXQteVxufVxuXG4uYWNlLWtyLXRoZW1lIC5hY2VfaW5kZW50LWd1aWRlLWFjdGl2ZSB7XG4gIGJhY2tncm91bmQ6IHVybChcImRhdGE6aW1hZ2UvcG5nO2Jhc2U2NCxpVkJPUncwS0dnb0FBQUFOU1VoRVVnQUFBQUVBQUFBQ0NBWUFBQUNaZ2JZbkFBQUFDWEJJV1hNQUFBc1RBQUFMRXdFQW1wd1lBQUFBSUdOSVVrMEFBSG9sQUFDQWd3QUErZjhBQUlEcEFBQjFNQUFBNm1BQUFEcVlBQUFYYjVKZnhVWUFBQUFaU1VSQlZIamFZdmovLy85L2hpdkt5djhCQUFBQS8vOERBQ0xxQmhidmsrL2VBQUFBQUVsRlRrU3VRbUNDXCIpIHJpZ2h0IHJlcGVhdC15O1xufVxuIjsKCn0pOwoKYWNlLmRlZmluZSgiYWNlL3RoZW1lL2tyX3RoZW1lIixbInJlcXVpcmUiLCJleHBvcnRzIiwibW9kdWxlIiwiYWNlL3RoZW1lL2tyX3RoZW1lLmNzcyIsImFjZS9saWIvZG9tIl0sIGZ1bmN0aW9uKHJlcXVpcmUsIGV4cG9ydHMsIG1vZHVsZSl7ZXhwb3J0cy5pc0RhcmsgPSB0cnVlOwpleHBvcnRzLmNzc0NsYXNzID0gImFjZS1rci10aGVtZSI7CmV4cG9ydHMuY3NzVGV4dCA9IHJlcXVpcmUoIi4va3JfdGhlbWUuY3NzIik7CnZhciBkb20gPSByZXF1aXJlKCIuLi9saWIvZG9tIik7CmRvbS5pbXBvcnRDc3NTdHJpbmcoZXhwb3J0cy5jc3NUZXh0LCBleHBvcnRzLmNzc0NsYXNzLCBmYWxzZSk7Cgp9KTsgICAgICAgICAgICAgICAgKGZ1bmN0aW9uKCkgewogICAgICAgICAgICAgICAgICAgIGFjZS5yZXF1aXJlKFsiYWNlL3RoZW1lL2tyX3RoZW1lIl0sIGZ1bmN0aW9uKG0pIHsKICAgICAgICAgICAgICAgICAgICAgICAgaWYgKHR5cGVvZiBtb2R1bGUgPT0gIm9iamVjdCIgJiYgdHlwZW9mIGV4cG9ydHMgPT0gIm9iamVjdCIgJiYgbW9kdWxlKSB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBtb2R1bGUuZXhwb3J0cyA9IG07CiAgICAgICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgICB9KTsKICAgICAgICAgICAgICAgIH0pKCk7CiAgICAgICAgICAgIA==", el = "data:application/javascript;base64,YWNlLmRlZmluZSgiYWNlL21vZGUvanNvbl9oaWdobGlnaHRfcnVsZXMiLFsicmVxdWlyZSIsImV4cG9ydHMiLCJtb2R1bGUiLCJhY2UvbGliL29vcCIsImFjZS9tb2RlL3RleHRfaGlnaGxpZ2h0X3J1bGVzIl0sIGZ1bmN0aW9uKHJlcXVpcmUsIGV4cG9ydHMsIG1vZHVsZSl7InVzZSBzdHJpY3QiOwp2YXIgb29wID0gcmVxdWlyZSgiLi4vbGliL29vcCIpOwp2YXIgVGV4dEhpZ2hsaWdodFJ1bGVzID0gcmVxdWlyZSgiLi90ZXh0X2hpZ2hsaWdodF9ydWxlcyIpLlRleHRIaWdobGlnaHRSdWxlczsKdmFyIEpzb25IaWdobGlnaHRSdWxlcyA9IGZ1bmN0aW9uICgpIHsKICAgIHRoaXMuJHJ1bGVzID0gewogICAgICAgICJzdGFydCI6IFsKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgdG9rZW46ICJ2YXJpYWJsZSIsCiAgICAgICAgICAgICAgICByZWdleDogJ1siXSg/Oig/OlxcXFwuKXwoPzpbXiJcXFxcXSkpKj9bIl1cXHMqKD89OiknCiAgICAgICAgICAgIH0sIHsKICAgICAgICAgICAgICAgIHRva2VuOiAic3RyaW5nIiwKICAgICAgICAgICAgICAgIHJlZ2V4OiAnIicsCiAgICAgICAgICAgICAgICBuZXh0OiAic3RyaW5nIgogICAgICAgICAgICB9LCB7CiAgICAgICAgICAgICAgICB0b2tlbjogImNvbnN0YW50Lm51bWVyaWMiLAogICAgICAgICAgICAgICAgcmVnZXg6ICIwW3hYXVswLTlhLWZBLUZdK1xcYiIKICAgICAgICAgICAgfSwgewogICAgICAgICAgICAgICAgdG9rZW46ICJjb25zdGFudC5udW1lcmljIiwKICAgICAgICAgICAgICAgIHJlZ2V4OiAiWystXT9cXGQrKD86KD86XFwuXFxkKik/KD86W2VFXVsrLV0/XFxkKyk/KT9cXGIiCiAgICAgICAgICAgIH0sIHsKICAgICAgICAgICAgICAgIHRva2VuOiAiY29uc3RhbnQubGFuZ3VhZ2UuYm9vbGVhbiIsCiAgICAgICAgICAgICAgICByZWdleDogIig/OnRydWV8ZmFsc2UpXFxiIgogICAgICAgICAgICB9LCB7CiAgICAgICAgICAgICAgICB0b2tlbjogInRleHQiLAogICAgICAgICAgICAgICAgcmVnZXg6ICJbJ10oPzooPzpcXFxcLil8KD86W14nXFxcXF0pKSo/WyddIgogICAgICAgICAgICB9LCB7CiAgICAgICAgICAgICAgICB0b2tlbjogImNvbW1lbnQiLAogICAgICAgICAgICAgICAgcmVnZXg6ICJcXC9cXC8uKiQiCiAgICAgICAgICAgIH0sIHsKICAgICAgICAgICAgICAgIHRva2VuOiAiY29tbWVudC5zdGFydCIsCiAgICAgICAgICAgICAgICByZWdleDogIlxcL1xcKiIsCiAgICAgICAgICAgICAgICBuZXh0OiAiY29tbWVudCIKICAgICAgICAgICAgfSwgewogICAgICAgICAgICAgICAgdG9rZW46ICJwYXJlbi5scGFyZW4iLAogICAgICAgICAgICAgICAgcmVnZXg6ICJbWyh7XSIKICAgICAgICAgICAgfSwgewogICAgICAgICAgICAgICAgdG9rZW46ICJwYXJlbi5ycGFyZW4iLAogICAgICAgICAgICAgICAgcmVnZXg6ICJbXFxdKX1dIgogICAgICAgICAgICB9LCB7CiAgICAgICAgICAgICAgICB0b2tlbjogInB1bmN0dWF0aW9uLm9wZXJhdG9yIiwKICAgICAgICAgICAgICAgIHJlZ2V4OiAvWyxdLwogICAgICAgICAgICB9LCB7CiAgICAgICAgICAgICAgICB0b2tlbjogInRleHQiLAogICAgICAgICAgICAgICAgcmVnZXg6ICJcXHMrIgogICAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAic3RyaW5nIjogWwogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICB0b2tlbjogImNvbnN0YW50Lmxhbmd1YWdlLmVzY2FwZSIsCiAgICAgICAgICAgICAgICByZWdleDogL1xcKD86eFswLTlhLWZBLUZdezJ9fHVbMC05YS1mQS1GXXs0fXxbIlxcXC9iZm5ydF0pLwogICAgICAgICAgICB9LCB7CiAgICAgICAgICAgICAgICB0b2tlbjogInN0cmluZyIsCiAgICAgICAgICAgICAgICByZWdleDogJyJ8JCcsCiAgICAgICAgICAgICAgICBuZXh0OiAic3RhcnQiCiAgICAgICAgICAgIH0sIHsKICAgICAgICAgICAgICAgIGRlZmF1bHRUb2tlbjogInN0cmluZyIKICAgICAgICAgICAgfQogICAgICAgIF0sCiAgICAgICAgImNvbW1lbnQiOiBbCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgIHRva2VuOiAiY29tbWVudC5lbmQiLAogICAgICAgICAgICAgICAgcmVnZXg6ICJcXCpcXC8iLAogICAgICAgICAgICAgICAgbmV4dDogInN0YXJ0IgogICAgICAgICAgICB9LCB7CiAgICAgICAgICAgICAgICBkZWZhdWx0VG9rZW46ICJjb21tZW50IgogICAgICAgICAgICB9CiAgICAgICAgXQogICAgfTsKfTsKb29wLmluaGVyaXRzKEpzb25IaWdobGlnaHRSdWxlcywgVGV4dEhpZ2hsaWdodFJ1bGVzKTsKZXhwb3J0cy5Kc29uSGlnaGxpZ2h0UnVsZXMgPSBKc29uSGlnaGxpZ2h0UnVsZXM7Cgp9KTsKCmFjZS5kZWZpbmUoImFjZS9tb2RlL21hdGNoaW5nX2JyYWNlX291dGRlbnQiLFsicmVxdWlyZSIsImV4cG9ydHMiLCJtb2R1bGUiLCJhY2UvcmFuZ2UiXSwgZnVuY3Rpb24ocmVxdWlyZSwgZXhwb3J0cywgbW9kdWxlKXsidXNlIHN0cmljdCI7CnZhciBSYW5nZSA9IHJlcXVpcmUoIi4uL3JhbmdlIikuUmFuZ2U7CnZhciBNYXRjaGluZ0JyYWNlT3V0ZGVudCA9IGZ1bmN0aW9uICgpIHsgfTsKKGZ1bmN0aW9uICgpIHsKICAgIHRoaXMuY2hlY2tPdXRkZW50ID0gZnVuY3Rpb24gKGxpbmUsIGlucHV0KSB7CiAgICAgICAgaWYgKCEvXlxzKyQvLnRlc3QobGluZSkpCiAgICAgICAgICAgIHJldHVybiBmYWxzZTsKICAgICAgICByZXR1cm4gL15ccypcfS8udGVzdChpbnB1dCk7CiAgICB9OwogICAgdGhpcy5hdXRvT3V0ZGVudCA9IGZ1bmN0aW9uIChkb2MsIHJvdykgewogICAgICAgIHZhciBsaW5lID0gZG9jLmdldExpbmUocm93KTsKICAgICAgICB2YXIgbWF0Y2ggPSBsaW5lLm1hdGNoKC9eKFxzKlx9KS8pOwogICAgICAgIGlmICghbWF0Y2gpCiAgICAgICAgICAgIHJldHVybiAwOwogICAgICAgIHZhciBjb2x1bW4gPSBtYXRjaFsxXS5sZW5ndGg7CiAgICAgICAgdmFyIG9wZW5CcmFjZVBvcyA9IGRvYy5maW5kTWF0Y2hpbmdCcmFja2V0KHsgcm93OiByb3csIGNvbHVtbjogY29sdW1uIH0pOwogICAgICAgIGlmICghb3BlbkJyYWNlUG9zIHx8IG9wZW5CcmFjZVBvcy5yb3cgPT0gcm93KQogICAgICAgICAgICByZXR1cm4gMDsKICAgICAgICB2YXIgaW5kZW50ID0gdGhpcy4kZ2V0SW5kZW50KGRvYy5nZXRMaW5lKG9wZW5CcmFjZVBvcy5yb3cpKTsKICAgICAgICBkb2MucmVwbGFjZShuZXcgUmFuZ2Uocm93LCAwLCByb3csIGNvbHVtbiAtIDEpLCBpbmRlbnQpOwogICAgfTsKICAgIHRoaXMuJGdldEluZGVudCA9IGZ1bmN0aW9uIChsaW5lKSB7CiAgICAgICAgcmV0dXJuIGxpbmUubWF0Y2goL15ccyovKVswXTsKICAgIH07Cn0pLmNhbGwoTWF0Y2hpbmdCcmFjZU91dGRlbnQucHJvdG90eXBlKTsKZXhwb3J0cy5NYXRjaGluZ0JyYWNlT3V0ZGVudCA9IE1hdGNoaW5nQnJhY2VPdXRkZW50OwoKfSk7CgphY2UuZGVmaW5lKCJhY2UvbW9kZS9mb2xkaW5nL2NzdHlsZSIsWyJyZXF1aXJlIiwiZXhwb3J0cyIsIm1vZHVsZSIsImFjZS9saWIvb29wIiwiYWNlL3JhbmdlIiwiYWNlL21vZGUvZm9sZGluZy9mb2xkX21vZGUiXSwgZnVuY3Rpb24ocmVxdWlyZSwgZXhwb3J0cywgbW9kdWxlKXsidXNlIHN0cmljdCI7CnZhciBvb3AgPSByZXF1aXJlKCIuLi8uLi9saWIvb29wIik7CnZhciBSYW5nZSA9IHJlcXVpcmUoIi4uLy4uL3JhbmdlIikuUmFuZ2U7CnZhciBCYXNlRm9sZE1vZGUgPSByZXF1aXJlKCIuL2ZvbGRfbW9kZSIpLkZvbGRNb2RlOwp2YXIgRm9sZE1vZGUgPSBleHBvcnRzLkZvbGRNb2RlID0gZnVuY3Rpb24gKGNvbW1lbnRSZWdleCkgewogICAgaWYgKGNvbW1lbnRSZWdleCkgewogICAgICAgIHRoaXMuZm9sZGluZ1N0YXJ0TWFya2VyID0gbmV3IFJlZ0V4cCh0aGlzLmZvbGRpbmdTdGFydE1hcmtlci5zb3VyY2UucmVwbGFjZSgvXHxbXnxdKj8kLywgInwiICsgY29tbWVudFJlZ2V4LnN0YXJ0KSk7CiAgICAgICAgdGhpcy5mb2xkaW5nU3RvcE1hcmtlciA9IG5ldyBSZWdFeHAodGhpcy5mb2xkaW5nU3RvcE1hcmtlci5zb3VyY2UucmVwbGFjZSgvXHxbXnxdKj8kLywgInwiICsgY29tbWVudFJlZ2V4LmVuZCkpOwogICAgfQp9Owpvb3AuaW5oZXJpdHMoRm9sZE1vZGUsIEJhc2VGb2xkTW9kZSk7CihmdW5jdGlvbiAoKSB7CiAgICB0aGlzLmZvbGRpbmdTdGFydE1hcmtlciA9IC8oW1x7XFtcKF0pW15cfVxdXCldKiR8XlxzKihcL1wqKS87CiAgICB0aGlzLmZvbGRpbmdTdG9wTWFya2VyID0gL15bXlxbXHtcKF0qKFtcfVxdXCldKXxeW1xzXCpdKihcKlwvKS87CiAgICB0aGlzLnNpbmdsZUxpbmVCbG9ja0NvbW1lbnRSZSA9IC9eXHMqKFwvXCopLipcKlwvXHMqJC87CiAgICB0aGlzLnRyaXBsZVN0YXJCbG9ja0NvbW1lbnRSZSA9IC9eXHMqKFwvXCpcKlwqKS4qXCpcL1xzKiQvOwogICAgdGhpcy5zdGFydFJlZ2lvblJlID0gL15ccyooXC9cKnxcL1wvKSM/cmVnaW9uXGIvOwogICAgdGhpcy5fZ2V0Rm9sZFdpZGdldEJhc2UgPSB0aGlzLmdldEZvbGRXaWRnZXQ7CiAgICB0aGlzLmdldEZvbGRXaWRnZXQgPSBmdW5jdGlvbiAoc2Vzc2lvbiwgZm9sZFN0eWxlLCByb3cpIHsKICAgICAgICB2YXIgbGluZSA9IHNlc3Npb24uZ2V0TGluZShyb3cpOwogICAgICAgIGlmICh0aGlzLnNpbmdsZUxpbmVCbG9ja0NvbW1lbnRSZS50ZXN0KGxpbmUpKSB7CiAgICAgICAgICAgIGlmICghdGhpcy5zdGFydFJlZ2lvblJlLnRlc3QobGluZSkgJiYgIXRoaXMudHJpcGxlU3RhckJsb2NrQ29tbWVudFJlLnRlc3QobGluZSkpCiAgICAgICAgICAgICAgICByZXR1cm4gIiI7CiAgICAgICAgfQogICAgICAgIHZhciBmdyA9IHRoaXMuX2dldEZvbGRXaWRnZXRCYXNlKHNlc3Npb24sIGZvbGRTdHlsZSwgcm93KTsKICAgICAgICBpZiAoIWZ3ICYmIHRoaXMuc3RhcnRSZWdpb25SZS50ZXN0KGxpbmUpKQogICAgICAgICAgICByZXR1cm4gInN0YXJ0IjsgLy8gbGluZUNvbW1lbnRSZWdpb25TdGFydAogICAgICAgIHJldHVybiBmdzsKICAgIH07CiAgICB0aGlzLmdldEZvbGRXaWRnZXRSYW5nZSA9IGZ1bmN0aW9uIChzZXNzaW9uLCBmb2xkU3R5bGUsIHJvdywgZm9yY2VNdWx0aWxpbmUpIHsKICAgICAgICB2YXIgbGluZSA9IHNlc3Npb24uZ2V0TGluZShyb3cpOwogICAgICAgIGlmICh0aGlzLnN0YXJ0UmVnaW9uUmUudGVzdChsaW5lKSkKICAgICAgICAgICAgcmV0dXJuIHRoaXMuZ2V0Q29tbWVudFJlZ2lvbkJsb2NrKHNlc3Npb24sIGxpbmUsIHJvdyk7CiAgICAgICAgdmFyIG1hdGNoID0gbGluZS5tYXRjaCh0aGlzLmZvbGRpbmdTdGFydE1hcmtlcik7CiAgICAgICAgaWYgKG1hdGNoKSB7CiAgICAgICAgICAgIHZhciBpID0gbWF0Y2guaW5kZXg7CiAgICAgICAgICAgIGlmIChtYXRjaFsxXSkKICAgICAgICAgICAgICAgIHJldHVybiB0aGlzLm9wZW5pbmdCcmFja2V0QmxvY2soc2Vzc2lvbiwgbWF0Y2hbMV0sIHJvdywgaSk7CiAgICAgICAgICAgIHZhciByYW5nZSA9IHNlc3Npb24uZ2V0Q29tbWVudEZvbGRSYW5nZShyb3csIGkgKyBtYXRjaFswXS5sZW5ndGgsIDEpOwogICAgICAgICAgICBpZiAocmFuZ2UgJiYgIXJhbmdlLmlzTXVsdGlMaW5lKCkpIHsKICAgICAgICAgICAgICAgIGlmIChmb3JjZU11bHRpbGluZSkgewogICAgICAgICAgICAgICAgICAgIHJhbmdlID0gdGhpcy5nZXRTZWN0aW9uUmFuZ2Uoc2Vzc2lvbiwgcm93KTsKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIGVsc2UgaWYgKGZvbGRTdHlsZSAhPSAiYWxsIikKICAgICAgICAgICAgICAgICAgICByYW5nZSA9IG51bGw7CiAgICAgICAgICAgIH0KICAgICAgICAgICAgcmV0dXJuIHJhbmdlOwogICAgICAgIH0KICAgICAgICBpZiAoZm9sZFN0eWxlID09PSAibWFya2JlZ2luIikKICAgICAgICAgICAgcmV0dXJuOwogICAgICAgIHZhciBtYXRjaCA9IGxpbmUubWF0Y2godGhpcy5mb2xkaW5nU3RvcE1hcmtlcik7CiAgICAgICAgaWYgKG1hdGNoKSB7CiAgICAgICAgICAgIHZhciBpID0gbWF0Y2guaW5kZXggKyBtYXRjaFswXS5sZW5ndGg7CiAgICAgICAgICAgIGlmIChtYXRjaFsxXSkKICAgICAgICAgICAgICAgIHJldHVybiB0aGlzLmNsb3NpbmdCcmFja2V0QmxvY2soc2Vzc2lvbiwgbWF0Y2hbMV0sIHJvdywgaSk7CiAgICAgICAgICAgIHJldHVybiBzZXNzaW9uLmdldENvbW1lbnRGb2xkUmFuZ2Uocm93LCBpLCAtMSk7CiAgICAgICAgfQogICAgfTsKICAgIHRoaXMuZ2V0U2VjdGlvblJhbmdlID0gZnVuY3Rpb24gKHNlc3Npb24sIHJvdykgewogICAgICAgIHZhciBsaW5lID0gc2Vzc2lvbi5nZXRMaW5lKHJvdyk7CiAgICAgICAgdmFyIHN0YXJ0SW5kZW50ID0gbGluZS5zZWFyY2goL1xTLyk7CiAgICAgICAgdmFyIHN0YXJ0Um93ID0gcm93OwogICAgICAgIHZhciBzdGFydENvbHVtbiA9IGxpbmUubGVuZ3RoOwogICAgICAgIHJvdyA9IHJvdyArIDE7CiAgICAgICAgdmFyIGVuZFJvdyA9IHJvdzsKICAgICAgICB2YXIgbWF4Um93ID0gc2Vzc2lvbi5nZXRMZW5ndGgoKTsKICAgICAgICB3aGlsZSAoKytyb3cgPCBtYXhSb3cpIHsKICAgICAgICAgICAgbGluZSA9IHNlc3Npb24uZ2V0TGluZShyb3cpOwogICAgICAgICAgICB2YXIgaW5kZW50ID0gbGluZS5zZWFyY2goL1xTLyk7CiAgICAgICAgICAgIGlmIChpbmRlbnQgPT09IC0xKQogICAgICAgICAgICAgICAgY29udGludWU7CiAgICAgICAgICAgIGlmIChzdGFydEluZGVudCA+IGluZGVudCkKICAgICAgICAgICAgICAgIGJyZWFrOwogICAgICAgICAgICB2YXIgc3ViUmFuZ2UgPSB0aGlzLmdldEZvbGRXaWRnZXRSYW5nZShzZXNzaW9uLCAiYWxsIiwgcm93KTsKICAgICAgICAgICAgaWYgKHN1YlJhbmdlKSB7CiAgICAgICAgICAgICAgICBpZiAoc3ViUmFuZ2Uuc3RhcnQucm93IDw9IHN0YXJ0Um93KSB7CiAgICAgICAgICAgICAgICAgICAgYnJlYWs7CiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICBlbHNlIGlmIChzdWJSYW5nZS5pc011bHRpTGluZSgpKSB7CiAgICAgICAgICAgICAgICAgICAgcm93ID0gc3ViUmFuZ2UuZW5kLnJvdzsKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIGVsc2UgaWYgKHN0YXJ0SW5kZW50ID09IGluZGVudCkgewogICAgICAgICAgICAgICAgICAgIGJyZWFrOwogICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9CiAgICAgICAgICAgIGVuZFJvdyA9IHJvdzsKICAgICAgICB9CiAgICAgICAgcmV0dXJuIG5ldyBSYW5nZShzdGFydFJvdywgc3RhcnRDb2x1bW4sIGVuZFJvdywgc2Vzc2lvbi5nZXRMaW5lKGVuZFJvdykubGVuZ3RoKTsKICAgIH07CiAgICB0aGlzLmdldENvbW1lbnRSZWdpb25CbG9jayA9IGZ1bmN0aW9uIChzZXNzaW9uLCBsaW5lLCByb3cpIHsKICAgICAgICB2YXIgc3RhcnRDb2x1bW4gPSBsaW5lLnNlYXJjaCgvXHMqJC8pOwogICAgICAgIHZhciBtYXhSb3cgPSBzZXNzaW9uLmdldExlbmd0aCgpOwogICAgICAgIHZhciBzdGFydFJvdyA9IHJvdzsKICAgICAgICB2YXIgcmUgPSAvXlxzKig/OlwvXCp8XC9cL3wtLSkjPyhlbmQpP3JlZ2lvblxiLzsKICAgICAgICB2YXIgZGVwdGggPSAxOwogICAgICAgIHdoaWxlICgrK3JvdyA8IG1heFJvdykgewogICAgICAgICAgICBsaW5lID0gc2Vzc2lvbi5nZXRMaW5lKHJvdyk7CiAgICAgICAgICAgIHZhciBtID0gcmUuZXhlYyhsaW5lKTsKICAgICAgICAgICAgaWYgKCFtKQogICAgICAgICAgICAgICAgY29udGludWU7CiAgICAgICAgICAgIGlmIChtWzFdKQogICAgICAgICAgICAgICAgZGVwdGgtLTsKICAgICAgICAgICAgZWxzZQogICAgICAgICAgICAgICAgZGVwdGgrKzsKICAgICAgICAgICAgaWYgKCFkZXB0aCkKICAgICAgICAgICAgICAgIGJyZWFrOwogICAgICAgIH0KICAgICAgICB2YXIgZW5kUm93ID0gcm93OwogICAgICAgIGlmIChlbmRSb3cgPiBzdGFydFJvdykgewogICAgICAgICAgICByZXR1cm4gbmV3IFJhbmdlKHN0YXJ0Um93LCBzdGFydENvbHVtbiwgZW5kUm93LCBsaW5lLmxlbmd0aCk7CiAgICAgICAgfQogICAgfTsKfSkuY2FsbChGb2xkTW9kZS5wcm90b3R5cGUpOwoKfSk7CgphY2UuZGVmaW5lKCJhY2UvbW9kZS9qc29uIixbInJlcXVpcmUiLCJleHBvcnRzIiwibW9kdWxlIiwiYWNlL2xpYi9vb3AiLCJhY2UvbW9kZS90ZXh0IiwiYWNlL21vZGUvanNvbl9oaWdobGlnaHRfcnVsZXMiLCJhY2UvbW9kZS9tYXRjaGluZ19icmFjZV9vdXRkZW50IiwiYWNlL21vZGUvYmVoYXZpb3VyL2NzdHlsZSIsImFjZS9tb2RlL2ZvbGRpbmcvY3N0eWxlIiwiYWNlL3dvcmtlci93b3JrZXJfY2xpZW50Il0sIGZ1bmN0aW9uKHJlcXVpcmUsIGV4cG9ydHMsIG1vZHVsZSl7InVzZSBzdHJpY3QiOwp2YXIgb29wID0gcmVxdWlyZSgiLi4vbGliL29vcCIpOwp2YXIgVGV4dE1vZGUgPSByZXF1aXJlKCIuL3RleHQiKS5Nb2RlOwp2YXIgSGlnaGxpZ2h0UnVsZXMgPSByZXF1aXJlKCIuL2pzb25faGlnaGxpZ2h0X3J1bGVzIikuSnNvbkhpZ2hsaWdodFJ1bGVzOwp2YXIgTWF0Y2hpbmdCcmFjZU91dGRlbnQgPSByZXF1aXJlKCIuL21hdGNoaW5nX2JyYWNlX291dGRlbnQiKS5NYXRjaGluZ0JyYWNlT3V0ZGVudDsKdmFyIENzdHlsZUJlaGF2aW91ciA9IHJlcXVpcmUoIi4vYmVoYXZpb3VyL2NzdHlsZSIpLkNzdHlsZUJlaGF2aW91cjsKdmFyIENTdHlsZUZvbGRNb2RlID0gcmVxdWlyZSgiLi9mb2xkaW5nL2NzdHlsZSIpLkZvbGRNb2RlOwp2YXIgV29ya2VyQ2xpZW50ID0gcmVxdWlyZSgiLi4vd29ya2VyL3dvcmtlcl9jbGllbnQiKS5Xb3JrZXJDbGllbnQ7CnZhciBNb2RlID0gZnVuY3Rpb24gKCkgewogICAgdGhpcy5IaWdobGlnaHRSdWxlcyA9IEhpZ2hsaWdodFJ1bGVzOwogICAgdGhpcy4kb3V0ZGVudCA9IG5ldyBNYXRjaGluZ0JyYWNlT3V0ZGVudCgpOwogICAgdGhpcy4kYmVoYXZpb3VyID0gbmV3IENzdHlsZUJlaGF2aW91cigpOwogICAgdGhpcy5mb2xkaW5nUnVsZXMgPSBuZXcgQ1N0eWxlRm9sZE1vZGUoKTsKfTsKb29wLmluaGVyaXRzKE1vZGUsIFRleHRNb2RlKTsKKGZ1bmN0aW9uICgpIHsKICAgIHRoaXMubGluZUNvbW1lbnRTdGFydCA9ICIvLyI7CiAgICB0aGlzLmJsb2NrQ29tbWVudCA9IHsgc3RhcnQ6ICIvKiIsIGVuZDogIiovIiB9OwogICAgdGhpcy5nZXROZXh0TGluZUluZGVudCA9IGZ1bmN0aW9uIChzdGF0ZSwgbGluZSwgdGFiKSB7CiAgICAgICAgdmFyIGluZGVudCA9IHRoaXMuJGdldEluZGVudChsaW5lKTsKICAgICAgICBpZiAoc3RhdGUgPT0gInN0YXJ0IikgewogICAgICAgICAgICB2YXIgbWF0Y2ggPSBsaW5lLm1hdGNoKC9eLipbXHtcKFxbXVxzKiQvKTsKICAgICAgICAgICAgaWYgKG1hdGNoKSB7CiAgICAgICAgICAgICAgICBpbmRlbnQgKz0gdGFiOwogICAgICAgICAgICB9CiAgICAgICAgfQogICAgICAgIHJldHVybiBpbmRlbnQ7CiAgICB9OwogICAgdGhpcy5jaGVja091dGRlbnQgPSBmdW5jdGlvbiAoc3RhdGUsIGxpbmUsIGlucHV0KSB7CiAgICAgICAgcmV0dXJuIHRoaXMuJG91dGRlbnQuY2hlY2tPdXRkZW50KGxpbmUsIGlucHV0KTsKICAgIH07CiAgICB0aGlzLmF1dG9PdXRkZW50ID0gZnVuY3Rpb24gKHN0YXRlLCBkb2MsIHJvdykgewogICAgICAgIHRoaXMuJG91dGRlbnQuYXV0b091dGRlbnQoZG9jLCByb3cpOwogICAgfTsKICAgIHRoaXMuY3JlYXRlV29ya2VyID0gZnVuY3Rpb24gKHNlc3Npb24pIHsKICAgICAgICB2YXIgd29ya2VyID0gbmV3IFdvcmtlckNsaWVudChbImFjZSJdLCAiYWNlL21vZGUvanNvbl93b3JrZXIiLCAiSnNvbldvcmtlciIpOwogICAgICAgIHdvcmtlci5hdHRhY2hUb0RvY3VtZW50KHNlc3Npb24uZ2V0RG9jdW1lbnQoKSk7CiAgICAgICAgd29ya2VyLm9uKCJhbm5vdGF0ZSIsIGZ1bmN0aW9uIChlKSB7CiAgICAgICAgICAgIHNlc3Npb24uc2V0QW5ub3RhdGlvbnMoZS5kYXRhKTsKICAgICAgICB9KTsKICAgICAgICB3b3JrZXIub24oInRlcm1pbmF0ZSIsIGZ1bmN0aW9uICgpIHsKICAgICAgICAgICAgc2Vzc2lvbi5jbGVhckFubm90YXRpb25zKCk7CiAgICAgICAgfSk7CiAgICAgICAgcmV0dXJuIHdvcmtlcjsKICAgIH07CiAgICB0aGlzLiRpZCA9ICJhY2UvbW9kZS9qc29uIjsKfSkuY2FsbChNb2RlLnByb3RvdHlwZSk7CmV4cG9ydHMuTW9kZSA9IE1vZGU7Cgp9KTsgICAgICAgICAgICAgICAgKGZ1bmN0aW9uKCkgewogICAgICAgICAgICAgICAgICAgIGFjZS5yZXF1aXJlKFsiYWNlL21vZGUvanNvbiJdLCBmdW5jdGlvbihtKSB7CiAgICAgICAgICAgICAgICAgICAgICAgIGlmICh0eXBlb2YgbW9kdWxlID09ICJvYmplY3QiICYmIHR5cGVvZiBleHBvcnRzID09ICJvYmplY3QiICYmIG1vZHVsZSkgewogICAgICAgICAgICAgICAgICAgICAgICAgICAgbW9kdWxlLmV4cG9ydHMgPSBtOwogICAgICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgICAgfSk7CiAgICAgICAgICAgICAgICB9KSgpOwogICAgICAgICAgICA=", tl = "data:application/javascript;base64,Im5vIHVzZSBzdHJpY3QiOwohKGZ1bmN0aW9uKHdpbmRvdykgewppZiAodHlwZW9mIHdpbmRvdy53aW5kb3cgIT0gInVuZGVmaW5lZCIgJiYgd2luZG93LmRvY3VtZW50KQogICAgcmV0dXJuOwppZiAod2luZG93LnJlcXVpcmUgJiYgd2luZG93LmRlZmluZSkKICAgIHJldHVybjsKCmlmICghd2luZG93LmNvbnNvbGUpIHsKICAgIHdpbmRvdy5jb25zb2xlID0gZnVuY3Rpb24oKSB7CiAgICAgICAgdmFyIG1zZ3MgPSBBcnJheS5wcm90b3R5cGUuc2xpY2UuY2FsbChhcmd1bWVudHMsIDApOwogICAgICAgIHBvc3RNZXNzYWdlKHt0eXBlOiAibG9nIiwgZGF0YTogbXNnc30pOwogICAgfTsKICAgIHdpbmRvdy5jb25zb2xlLmVycm9yID0KICAgIHdpbmRvdy5jb25zb2xlLndhcm4gPSAKICAgIHdpbmRvdy5jb25zb2xlLmxvZyA9CiAgICB3aW5kb3cuY29uc29sZS50cmFjZSA9IHdpbmRvdy5jb25zb2xlOwp9CndpbmRvdy53aW5kb3cgPSB3aW5kb3c7CndpbmRvdy5hY2UgPSB3aW5kb3c7Cgp3aW5kb3cub25lcnJvciA9IGZ1bmN0aW9uKG1lc3NhZ2UsIGZpbGUsIGxpbmUsIGNvbCwgZXJyKSB7CiAgICBwb3N0TWVzc2FnZSh7dHlwZTogImVycm9yIiwgZGF0YTogewogICAgICAgIG1lc3NhZ2U6IG1lc3NhZ2UsCiAgICAgICAgZGF0YTogZXJyICYmIGVyci5kYXRhLAogICAgICAgIGZpbGU6IGZpbGUsCiAgICAgICAgbGluZTogbGluZSwgCiAgICAgICAgY29sOiBjb2wsCiAgICAgICAgc3RhY2s6IGVyciAmJiBlcnIuc3RhY2sKICAgIH19KTsKfTsKCndpbmRvdy5ub3JtYWxpemVNb2R1bGUgPSBmdW5jdGlvbihwYXJlbnRJZCwgbW9kdWxlTmFtZSkgewogICAgLy8gbm9ybWFsaXplIHBsdWdpbiByZXF1aXJlcwogICAgaWYgKG1vZHVsZU5hbWUuaW5kZXhPZigiISIpICE9PSAtMSkgewogICAgICAgIHZhciBjaHVua3MgPSBtb2R1bGVOYW1lLnNwbGl0KCIhIik7CiAgICAgICAgcmV0dXJuIHdpbmRvdy5ub3JtYWxpemVNb2R1bGUocGFyZW50SWQsIGNodW5rc1swXSkgKyAiISIgKyB3aW5kb3cubm9ybWFsaXplTW9kdWxlKHBhcmVudElkLCBjaHVua3NbMV0pOwogICAgfQogICAgLy8gbm9ybWFsaXplIHJlbGF0aXZlIHJlcXVpcmVzCiAgICBpZiAobW9kdWxlTmFtZS5jaGFyQXQoMCkgPT0gIi4iKSB7CiAgICAgICAgdmFyIGJhc2UgPSBwYXJlbnRJZC5zcGxpdCgiLyIpLnNsaWNlKDAsIC0xKS5qb2luKCIvIik7CiAgICAgICAgbW9kdWxlTmFtZSA9IChiYXNlID8gYmFzZSArICIvIiA6ICIiKSArIG1vZHVsZU5hbWU7CiAgICAgICAgCiAgICAgICAgd2hpbGUgKG1vZHVsZU5hbWUuaW5kZXhPZigiLiIpICE9PSAtMSAmJiBwcmV2aW91cyAhPSBtb2R1bGVOYW1lKSB7CiAgICAgICAgICAgIHZhciBwcmV2aW91cyA9IG1vZHVsZU5hbWU7CiAgICAgICAgICAgIG1vZHVsZU5hbWUgPSBtb2R1bGVOYW1lLnJlcGxhY2UoL15cLlwvLywgIiIpLnJlcGxhY2UoL1wvXC5cLy8sICIvIikucmVwbGFjZSgvW15cL10rXC9cLlwuXC8vLCAiIik7CiAgICAgICAgfQogICAgfQogICAgCiAgICByZXR1cm4gbW9kdWxlTmFtZTsKfTsKCndpbmRvdy5yZXF1aXJlID0gZnVuY3Rpb24gcmVxdWlyZShwYXJlbnRJZCwgaWQpIHsKICAgIGlmICghaWQpIHsKICAgICAgICBpZCA9IHBhcmVudElkOwogICAgICAgIHBhcmVudElkID0gbnVsbDsKICAgIH0KICAgIGlmICghaWQuY2hhckF0KQogICAgICAgIHRocm93IG5ldyBFcnJvcigid29ya2VyLmpzIHJlcXVpcmUoKSBhY2NlcHRzIG9ubHkgKHBhcmVudElkLCBpZCkgYXMgYXJndW1lbnRzIik7CgogICAgaWQgPSB3aW5kb3cubm9ybWFsaXplTW9kdWxlKHBhcmVudElkLCBpZCk7CgogICAgdmFyIG1vZHVsZSA9IHdpbmRvdy5yZXF1aXJlLm1vZHVsZXNbaWRdOwogICAgaWYgKG1vZHVsZSkgewogICAgICAgIGlmICghbW9kdWxlLmluaXRpYWxpemVkKSB7CiAgICAgICAgICAgIG1vZHVsZS5pbml0aWFsaXplZCA9IHRydWU7CiAgICAgICAgICAgIG1vZHVsZS5leHBvcnRzID0gbW9kdWxlLmZhY3RvcnkoKS5leHBvcnRzOwogICAgICAgIH0KICAgICAgICByZXR1cm4gbW9kdWxlLmV4cG9ydHM7CiAgICB9CiAgIAogICAgaWYgKCF3aW5kb3cucmVxdWlyZS50bG5zKQogICAgICAgIHJldHVybiBjb25zb2xlLmxvZygidW5hYmxlIHRvIGxvYWQgIiArIGlkKTsKICAgIAogICAgdmFyIHBhdGggPSByZXNvbHZlTW9kdWxlSWQoaWQsIHdpbmRvdy5yZXF1aXJlLnRsbnMpOwogICAgaWYgKHBhdGguc2xpY2UoLTMpICE9ICIuanMiKSBwYXRoICs9ICIuanMiOwogICAgCiAgICB3aW5kb3cucmVxdWlyZS5pZCA9IGlkOwogICAgd2luZG93LnJlcXVpcmUubW9kdWxlc1tpZF0gPSB7fTsgLy8gcHJldmVudCBpbmZpbml0ZSBsb29wIG9uIGJyb2tlbiBtb2R1bGVzCiAgICBpbXBvcnRTY3JpcHRzKHBhdGgpOwogICAgcmV0dXJuIHdpbmRvdy5yZXF1aXJlKHBhcmVudElkLCBpZCk7Cn07CmZ1bmN0aW9uIHJlc29sdmVNb2R1bGVJZChpZCwgcGF0aHMpIHsKICAgIHZhciB0ZXN0UGF0aCA9IGlkLCB0YWlsID0gIiI7CiAgICB3aGlsZSAodGVzdFBhdGgpIHsKICAgICAgICB2YXIgYWxpYXMgPSBwYXRoc1t0ZXN0UGF0aF07CiAgICAgICAgaWYgKHR5cGVvZiBhbGlhcyA9PSAic3RyaW5nIikgewogICAgICAgICAgICByZXR1cm4gYWxpYXMgKyB0YWlsOwogICAgICAgIH0gZWxzZSBpZiAoYWxpYXMpIHsKICAgICAgICAgICAgcmV0dXJuICBhbGlhcy5sb2NhdGlvbi5yZXBsYWNlKC9cLyokLywgIi8iKSArICh0YWlsIHx8IGFsaWFzLm1haW4gfHwgYWxpYXMubmFtZSk7CiAgICAgICAgfSBlbHNlIGlmIChhbGlhcyA9PT0gZmFsc2UpIHsKICAgICAgICAgICAgcmV0dXJuICIiOwogICAgICAgIH0KICAgICAgICB2YXIgaSA9IHRlc3RQYXRoLmxhc3RJbmRleE9mKCIvIik7CiAgICAgICAgaWYgKGkgPT09IC0xKSBicmVhazsKICAgICAgICB0YWlsID0gdGVzdFBhdGguc3Vic3RyKGkpICsgdGFpbDsKICAgICAgICB0ZXN0UGF0aCA9IHRlc3RQYXRoLnNsaWNlKDAsIGkpOwogICAgfQogICAgcmV0dXJuIGlkOwp9CndpbmRvdy5yZXF1aXJlLm1vZHVsZXMgPSB7fTsKd2luZG93LnJlcXVpcmUudGxucyA9IHt9OwoKd2luZG93LmRlZmluZSA9IGZ1bmN0aW9uKGlkLCBkZXBzLCBmYWN0b3J5KSB7CiAgICBpZiAoYXJndW1lbnRzLmxlbmd0aCA9PSAyKSB7CiAgICAgICAgZmFjdG9yeSA9IGRlcHM7CiAgICAgICAgaWYgKHR5cGVvZiBpZCAhPSAic3RyaW5nIikgewogICAgICAgICAgICBkZXBzID0gaWQ7CiAgICAgICAgICAgIGlkID0gd2luZG93LnJlcXVpcmUuaWQ7CiAgICAgICAgfQogICAgfSBlbHNlIGlmIChhcmd1bWVudHMubGVuZ3RoID09IDEpIHsKICAgICAgICBmYWN0b3J5ID0gaWQ7CiAgICAgICAgZGVwcyA9IFtdOwogICAgICAgIGlkID0gd2luZG93LnJlcXVpcmUuaWQ7CiAgICB9CiAgICAKICAgIGlmICh0eXBlb2YgZmFjdG9yeSAhPSAiZnVuY3Rpb24iKSB7CiAgICAgICAgd2luZG93LnJlcXVpcmUubW9kdWxlc1tpZF0gPSB7CiAgICAgICAgICAgIGV4cG9ydHM6IGZhY3RvcnksCiAgICAgICAgICAgIGluaXRpYWxpemVkOiB0cnVlCiAgICAgICAgfTsKICAgICAgICByZXR1cm47CiAgICB9CgogICAgaWYgKCFkZXBzLmxlbmd0aCkKICAgICAgICAvLyBJZiB0aGVyZSBpcyBubyBkZXBlbmRlbmNpZXMsIHdlIGluamVjdCAicmVxdWlyZSIsICJleHBvcnRzIiBhbmQKICAgICAgICAvLyAibW9kdWxlIiBhcyBkZXBlbmRlbmNpZXMsIHRvIHByb3ZpZGUgQ29tbW9uSlMgY29tcGF0aWJpbGl0eS4KICAgICAgICBkZXBzID0gWyJyZXF1aXJlIiwgImV4cG9ydHMiLCAibW9kdWxlIl07CgogICAgdmFyIHJlcSA9IGZ1bmN0aW9uKGNoaWxkSWQpIHsKICAgICAgICByZXR1cm4gd2luZG93LnJlcXVpcmUoaWQsIGNoaWxkSWQpOwogICAgfTsKCiAgICB3aW5kb3cucmVxdWlyZS5tb2R1bGVzW2lkXSA9IHsKICAgICAgICBleHBvcnRzOiB7fSwKICAgICAgICBmYWN0b3J5OiBmdW5jdGlvbigpIHsKICAgICAgICAgICAgdmFyIG1vZHVsZSA9IHRoaXM7CiAgICAgICAgICAgIHZhciByZXR1cm5FeHBvcnRzID0gZmFjdG9yeS5hcHBseSh0aGlzLCBkZXBzLnNsaWNlKDAsIGZhY3RvcnkubGVuZ3RoKS5tYXAoZnVuY3Rpb24oZGVwKSB7CiAgICAgICAgICAgICAgICBzd2l0Y2ggKGRlcCkgewogICAgICAgICAgICAgICAgICAgIC8vIEJlY2F1c2UgInJlcXVpcmUiLCAiZXhwb3J0cyIgYW5kICJtb2R1bGUiIGFyZW4ndCBhY3R1YWwKICAgICAgICAgICAgICAgICAgICAvLyBkZXBlbmRlbmNpZXMsIHdlIG11c3QgaGFuZGxlIHRoZW0gc2VwZXJhdGVseS4KICAgICAgICAgICAgICAgICAgICBjYXNlICJyZXF1aXJlIjogcmV0dXJuIHJlcTsKICAgICAgICAgICAgICAgICAgICBjYXNlICJleHBvcnRzIjogcmV0dXJuIG1vZHVsZS5leHBvcnRzOwogICAgICAgICAgICAgICAgICAgIGNhc2UgIm1vZHVsZSI6ICByZXR1cm4gbW9kdWxlOwogICAgICAgICAgICAgICAgICAgIC8vIEJ1dCBmb3IgYWxsIG90aGVyIGRlcGVuZGVuY2llcywgd2UgY2FuIGp1c3QgZ28gYWhlYWQgYW5kCiAgICAgICAgICAgICAgICAgICAgLy8gcmVxdWlyZSB0aGVtLgogICAgICAgICAgICAgICAgICAgIGRlZmF1bHQ6ICAgICAgICByZXR1cm4gcmVxKGRlcCk7CiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0pKTsKICAgICAgICAgICAgaWYgKHJldHVybkV4cG9ydHMpCiAgICAgICAgICAgICAgICBtb2R1bGUuZXhwb3J0cyA9IHJldHVybkV4cG9ydHM7CiAgICAgICAgICAgIHJldHVybiBtb2R1bGU7CiAgICAgICAgfQogICAgfTsKfTsKd2luZG93LmRlZmluZS5hbWQgPSB7fTsKd2luZG93LnJlcXVpcmUudGxucyA9IHt9Owp3aW5kb3cuaW5pdEJhc2VVcmxzICA9IGZ1bmN0aW9uIGluaXRCYXNlVXJscyh0b3BMZXZlbE5hbWVzcGFjZXMpIHsKICAgIGZvciAodmFyIGkgaW4gdG9wTGV2ZWxOYW1lc3BhY2VzKQogICAgICAgIHRoaXMucmVxdWlyZS50bG5zW2ldID0gdG9wTGV2ZWxOYW1lc3BhY2VzW2ldOwp9OwoKd2luZG93LmluaXRTZW5kZXIgPSBmdW5jdGlvbiBpbml0U2VuZGVyKCkgewoKICAgIHZhciBFdmVudEVtaXR0ZXIgPSB3aW5kb3cucmVxdWlyZSgiYWNlL2xpYi9ldmVudF9lbWl0dGVyIikuRXZlbnRFbWl0dGVyOwogICAgdmFyIG9vcCA9IHdpbmRvdy5yZXF1aXJlKCJhY2UvbGliL29vcCIpOwogICAgCiAgICB2YXIgU2VuZGVyID0gZnVuY3Rpb24oKSB7fTsKICAgIAogICAgKGZ1bmN0aW9uKCkgewogICAgICAgIAogICAgICAgIG9vcC5pbXBsZW1lbnQodGhpcywgRXZlbnRFbWl0dGVyKTsKICAgICAgICAgICAgICAgIAogICAgICAgIHRoaXMuY2FsbGJhY2sgPSBmdW5jdGlvbihkYXRhLCBjYWxsYmFja0lkKSB7CiAgICAgICAgICAgIHBvc3RNZXNzYWdlKHsKICAgICAgICAgICAgICAgIHR5cGU6ICJjYWxsIiwKICAgICAgICAgICAgICAgIGlkOiBjYWxsYmFja0lkLAogICAgICAgICAgICAgICAgZGF0YTogZGF0YQogICAgICAgICAgICB9KTsKICAgICAgICB9OwogICAgCiAgICAgICAgdGhpcy5lbWl0ID0gZnVuY3Rpb24obmFtZSwgZGF0YSkgewogICAgICAgICAgICBwb3N0TWVzc2FnZSh7CiAgICAgICAgICAgICAgICB0eXBlOiAiZXZlbnQiLAogICAgICAgICAgICAgICAgbmFtZTogbmFtZSwKICAgICAgICAgICAgICAgIGRhdGE6IGRhdGEKICAgICAgICAgICAgfSk7CiAgICAgICAgfTsKICAgICAgICAKICAgIH0pLmNhbGwoU2VuZGVyLnByb3RvdHlwZSk7CiAgICAKICAgIHJldHVybiBuZXcgU2VuZGVyKCk7Cn07Cgp2YXIgbWFpbiA9IHdpbmRvdy5tYWluID0gbnVsbDsKdmFyIHNlbmRlciA9IHdpbmRvdy5zZW5kZXIgPSBudWxsOwoKd2luZG93Lm9ubWVzc2FnZSA9IGZ1bmN0aW9uKGUpIHsKICAgIHZhciBtc2cgPSBlLmRhdGE7CiAgICBpZiAobXNnLmV2ZW50ICYmIHNlbmRlcikgewogICAgICAgIHNlbmRlci5fc2lnbmFsKG1zZy5ldmVudCwgbXNnLmRhdGEpOwogICAgfQogICAgZWxzZSBpZiAobXNnLmNvbW1hbmQpIHsKICAgICAgICBpZiAobWFpblttc2cuY29tbWFuZF0pCiAgICAgICAgICAgIG1haW5bbXNnLmNvbW1hbmRdLmFwcGx5KG1haW4sIG1zZy5hcmdzKTsKICAgICAgICBlbHNlIGlmICh3aW5kb3dbbXNnLmNvbW1hbmRdKQogICAgICAgICAgICB3aW5kb3dbbXNnLmNvbW1hbmRdLmFwcGx5KHdpbmRvdywgbXNnLmFyZ3MpOwogICAgICAgIGVsc2UKICAgICAgICAgICAgdGhyb3cgbmV3IEVycm9yKCJVbmtub3duIGNvbW1hbmQ6IiArIG1zZy5jb21tYW5kKTsKICAgIH0KICAgIGVsc2UgaWYgKG1zZy5pbml0KSB7CiAgICAgICAgd2luZG93LmluaXRCYXNlVXJscyhtc2cudGxucyk7CiAgICAgICAgc2VuZGVyID0gd2luZG93LnNlbmRlciA9IHdpbmRvdy5pbml0U2VuZGVyKCk7CiAgICAgICAgdmFyIGNsYXp6ID0gdGhpcy5yZXF1aXJlKG1zZy5tb2R1bGUpW21zZy5jbGFzc25hbWVdOwogICAgICAgIG1haW4gPSB3aW5kb3cubWFpbiA9IG5ldyBjbGF6eihzZW5kZXIpOwogICAgfQp9Owp9KSh0aGlzKTsKCmFjZS5kZWZpbmUoImFjZS9saWIvb29wIixbXSwgZnVuY3Rpb24ocmVxdWlyZSwgZXhwb3J0cywgbW9kdWxlKXsidXNlIHN0cmljdCI7CmV4cG9ydHMuaW5oZXJpdHMgPSBmdW5jdGlvbiAoY3Rvciwgc3VwZXJDdG9yKSB7CiAgICBjdG9yLnN1cGVyXyA9IHN1cGVyQ3RvcjsKICAgIGN0b3IucHJvdG90eXBlID0gT2JqZWN0LmNyZWF0ZShzdXBlckN0b3IucHJvdG90eXBlLCB7CiAgICAgICAgY29uc3RydWN0b3I6IHsKICAgICAgICAgICAgdmFsdWU6IGN0b3IsCiAgICAgICAgICAgIGVudW1lcmFibGU6IGZhbHNlLAogICAgICAgICAgICB3cml0YWJsZTogdHJ1ZSwKICAgICAgICAgICAgY29uZmlndXJhYmxlOiB0cnVlCiAgICAgICAgfQogICAgfSk7Cn07CmV4cG9ydHMubWl4aW4gPSBmdW5jdGlvbiAob2JqLCBtaXhpbikgewogICAgZm9yICh2YXIga2V5IGluIG1peGluKSB7CiAgICAgICAgb2JqW2tleV0gPSBtaXhpbltrZXldOwogICAgfQogICAgcmV0dXJuIG9iajsKfTsKZXhwb3J0cy5pbXBsZW1lbnQgPSBmdW5jdGlvbiAocHJvdG8sIG1peGluKSB7CiAgICBleHBvcnRzLm1peGluKHByb3RvLCBtaXhpbik7Cn07Cgp9KTsKCmFjZS5kZWZpbmUoImFjZS9hcHBseV9kZWx0YSIsW10sIGZ1bmN0aW9uKHJlcXVpcmUsIGV4cG9ydHMsIG1vZHVsZSl7InVzZSBzdHJpY3QiOwpmdW5jdGlvbiB0aHJvd0RlbHRhRXJyb3IoZGVsdGEsIGVycm9yVGV4dCkgewogICAgY29uc29sZS5sb2coIkludmFsaWQgRGVsdGE6IiwgZGVsdGEpOwogICAgdGhyb3cgIkludmFsaWQgRGVsdGE6ICIgKyBlcnJvclRleHQ7Cn0KZnVuY3Rpb24gcG9zaXRpb25JbkRvY3VtZW50KGRvY0xpbmVzLCBwb3NpdGlvbikgewogICAgcmV0dXJuIHBvc2l0aW9uLnJvdyA+PSAwICYmIHBvc2l0aW9uLnJvdyA8IGRvY0xpbmVzLmxlbmd0aCAmJgogICAgICAgIHBvc2l0aW9uLmNvbHVtbiA+PSAwICYmIHBvc2l0aW9uLmNvbHVtbiA8PSBkb2NMaW5lc1twb3NpdGlvbi5yb3ddLmxlbmd0aDsKfQpmdW5jdGlvbiB2YWxpZGF0ZURlbHRhKGRvY0xpbmVzLCBkZWx0YSkgewogICAgaWYgKGRlbHRhLmFjdGlvbiAhPSAiaW5zZXJ0IiAmJiBkZWx0YS5hY3Rpb24gIT0gInJlbW92ZSIpCiAgICAgICAgdGhyb3dEZWx0YUVycm9yKGRlbHRhLCAiZGVsdGEuYWN0aW9uIG11c3QgYmUgJ2luc2VydCcgb3IgJ3JlbW92ZSciKTsKICAgIGlmICghKGRlbHRhLmxpbmVzIGluc3RhbmNlb2YgQXJyYXkpKQogICAgICAgIHRocm93RGVsdGFFcnJvcihkZWx0YSwgImRlbHRhLmxpbmVzIG11c3QgYmUgYW4gQXJyYXkiKTsKICAgIGlmICghZGVsdGEuc3RhcnQgfHwgIWRlbHRhLmVuZCkKICAgICAgICB0aHJvd0RlbHRhRXJyb3IoZGVsdGEsICJkZWx0YS5zdGFydC9lbmQgbXVzdCBiZSBhbiBwcmVzZW50Iik7CiAgICB2YXIgc3RhcnQgPSBkZWx0YS5zdGFydDsKICAgIGlmICghcG9zaXRpb25JbkRvY3VtZW50KGRvY0xpbmVzLCBkZWx0YS5zdGFydCkpCiAgICAgICAgdGhyb3dEZWx0YUVycm9yKGRlbHRhLCAiZGVsdGEuc3RhcnQgbXVzdCBiZSBjb250YWluZWQgaW4gZG9jdW1lbnQiKTsKICAgIHZhciBlbmQgPSBkZWx0YS5lbmQ7CiAgICBpZiAoZGVsdGEuYWN0aW9uID09ICJyZW1vdmUiICYmICFwb3NpdGlvbkluRG9jdW1lbnQoZG9jTGluZXMsIGVuZCkpCiAgICAgICAgdGhyb3dEZWx0YUVycm9yKGRlbHRhLCAiZGVsdGEuZW5kIG11c3QgY29udGFpbmVkIGluIGRvY3VtZW50IGZvciAncmVtb3ZlJyBhY3Rpb25zIik7CiAgICB2YXIgbnVtUmFuZ2VSb3dzID0gZW5kLnJvdyAtIHN0YXJ0LnJvdzsKICAgIHZhciBudW1SYW5nZUxhc3RMaW5lQ2hhcnMgPSAoZW5kLmNvbHVtbiAtIChudW1SYW5nZVJvd3MgPT0gMCA/IHN0YXJ0LmNvbHVtbiA6IDApKTsKICAgIGlmIChudW1SYW5nZVJvd3MgIT0gZGVsdGEubGluZXMubGVuZ3RoIC0gMSB8fCBkZWx0YS5saW5lc1tudW1SYW5nZVJvd3NdLmxlbmd0aCAhPSBudW1SYW5nZUxhc3RMaW5lQ2hhcnMpCiAgICAgICAgdGhyb3dEZWx0YUVycm9yKGRlbHRhLCAiZGVsdGEucmFuZ2UgbXVzdCBtYXRjaCBkZWx0YSBsaW5lcyIpOwp9CmV4cG9ydHMuYXBwbHlEZWx0YSA9IGZ1bmN0aW9uIChkb2NMaW5lcywgZGVsdGEsIGRvTm90VmFsaWRhdGUpIHsKICAgIHZhciByb3cgPSBkZWx0YS5zdGFydC5yb3c7CiAgICB2YXIgc3RhcnRDb2x1bW4gPSBkZWx0YS5zdGFydC5jb2x1bW47CiAgICB2YXIgbGluZSA9IGRvY0xpbmVzW3Jvd10gfHwgIiI7CiAgICBzd2l0Y2ggKGRlbHRhLmFjdGlvbikgewogICAgICAgIGNhc2UgImluc2VydCI6CiAgICAgICAgICAgIHZhciBsaW5lcyA9IGRlbHRhLmxpbmVzOwogICAgICAgICAgICBpZiAobGluZXMubGVuZ3RoID09PSAxKSB7CiAgICAgICAgICAgICAgICBkb2NMaW5lc1tyb3ddID0gbGluZS5zdWJzdHJpbmcoMCwgc3RhcnRDb2x1bW4pICsgZGVsdGEubGluZXNbMF0gKyBsaW5lLnN1YnN0cmluZyhzdGFydENvbHVtbik7CiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxzZSB7CiAgICAgICAgICAgICAgICB2YXIgYXJncyA9IFtyb3csIDFdLmNvbmNhdChkZWx0YS5saW5lcyk7CiAgICAgICAgICAgICAgICBkb2NMaW5lcy5zcGxpY2UuYXBwbHkoZG9jTGluZXMsIGFyZ3MpOwogICAgICAgICAgICAgICAgZG9jTGluZXNbcm93XSA9IGxpbmUuc3Vic3RyaW5nKDAsIHN0YXJ0Q29sdW1uKSArIGRvY0xpbmVzW3Jvd107CiAgICAgICAgICAgICAgICBkb2NMaW5lc1tyb3cgKyBkZWx0YS5saW5lcy5sZW5ndGggLSAxXSArPSBsaW5lLnN1YnN0cmluZyhzdGFydENvbHVtbik7CiAgICAgICAgICAgIH0KICAgICAgICAgICAgYnJlYWs7CiAgICAgICAgY2FzZSAicmVtb3ZlIjoKICAgICAgICAgICAgdmFyIGVuZENvbHVtbiA9IGRlbHRhLmVuZC5jb2x1bW47CiAgICAgICAgICAgIHZhciBlbmRSb3cgPSBkZWx0YS5lbmQucm93OwogICAgICAgICAgICBpZiAocm93ID09PSBlbmRSb3cpIHsKICAgICAgICAgICAgICAgIGRvY0xpbmVzW3Jvd10gPSBsaW5lLnN1YnN0cmluZygwLCBzdGFydENvbHVtbikgKyBsaW5lLnN1YnN0cmluZyhlbmRDb2x1bW4pOwogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsc2UgewogICAgICAgICAgICAgICAgZG9jTGluZXMuc3BsaWNlKHJvdywgZW5kUm93IC0gcm93ICsgMSwgbGluZS5zdWJzdHJpbmcoMCwgc3RhcnRDb2x1bW4pICsgZG9jTGluZXNbZW5kUm93XS5zdWJzdHJpbmcoZW5kQ29sdW1uKSk7CiAgICAgICAgICAgIH0KICAgICAgICAgICAgYnJlYWs7CiAgICB9Cn07Cgp9KTsKCmFjZS5kZWZpbmUoImFjZS9saWIvZXZlbnRfZW1pdHRlciIsW10sIGZ1bmN0aW9uKHJlcXVpcmUsIGV4cG9ydHMsIG1vZHVsZSl7InVzZSBzdHJpY3QiOwp2YXIgRXZlbnRFbWl0dGVyID0ge307CnZhciBzdG9wUHJvcGFnYXRpb24gPSBmdW5jdGlvbiAoKSB7IHRoaXMucHJvcGFnYXRpb25TdG9wcGVkID0gdHJ1ZTsgfTsKdmFyIHByZXZlbnREZWZhdWx0ID0gZnVuY3Rpb24gKCkgeyB0aGlzLmRlZmF1bHRQcmV2ZW50ZWQgPSB0cnVlOyB9OwpFdmVudEVtaXR0ZXIuX2VtaXQgPQogICAgRXZlbnRFbWl0dGVyLl9kaXNwYXRjaEV2ZW50ID0gZnVuY3Rpb24gKGV2ZW50TmFtZSwgZSkgewogICAgICAgIHRoaXMuX2V2ZW50UmVnaXN0cnkgfHwgKHRoaXMuX2V2ZW50UmVnaXN0cnkgPSB7fSk7CiAgICAgICAgdGhpcy5fZGVmYXVsdEhhbmRsZXJzIHx8ICh0aGlzLl9kZWZhdWx0SGFuZGxlcnMgPSB7fSk7CiAgICAgICAgdmFyIGxpc3RlbmVycyA9IHRoaXMuX2V2ZW50UmVnaXN0cnlbZXZlbnROYW1lXSB8fCBbXTsKICAgICAgICB2YXIgZGVmYXVsdEhhbmRsZXIgPSB0aGlzLl9kZWZhdWx0SGFuZGxlcnNbZXZlbnROYW1lXTsKICAgICAgICBpZiAoIWxpc3RlbmVycy5sZW5ndGggJiYgIWRlZmF1bHRIYW5kbGVyKQogICAgICAgICAgICByZXR1cm47CiAgICAgICAgaWYgKHR5cGVvZiBlICE9ICJvYmplY3QiIHx8ICFlKQogICAgICAgICAgICBlID0ge307CiAgICAgICAgaWYgKCFlLnR5cGUpCiAgICAgICAgICAgIGUudHlwZSA9IGV2ZW50TmFtZTsKICAgICAgICBpZiAoIWUuc3RvcFByb3BhZ2F0aW9uKQogICAgICAgICAgICBlLnN0b3BQcm9wYWdhdGlvbiA9IHN0b3BQcm9wYWdhdGlvbjsKICAgICAgICBpZiAoIWUucHJldmVudERlZmF1bHQpCiAgICAgICAgICAgIGUucHJldmVudERlZmF1bHQgPSBwcmV2ZW50RGVmYXVsdDsKICAgICAgICBsaXN0ZW5lcnMgPSBsaXN0ZW5lcnMuc2xpY2UoKTsKICAgICAgICBmb3IgKHZhciBpID0gMDsgaSA8IGxpc3RlbmVycy5sZW5ndGg7IGkrKykgewogICAgICAgICAgICBsaXN0ZW5lcnNbaV0oZSwgdGhpcyk7CiAgICAgICAgICAgIGlmIChlLnByb3BhZ2F0aW9uU3RvcHBlZCkKICAgICAgICAgICAgICAgIGJyZWFrOwogICAgICAgIH0KICAgICAgICBpZiAoZGVmYXVsdEhhbmRsZXIgJiYgIWUuZGVmYXVsdFByZXZlbnRlZCkKICAgICAgICAgICAgcmV0dXJuIGRlZmF1bHRIYW5kbGVyKGUsIHRoaXMpOwogICAgfTsKRXZlbnRFbWl0dGVyLl9zaWduYWwgPSBmdW5jdGlvbiAoZXZlbnROYW1lLCBlKSB7CiAgICB2YXIgbGlzdGVuZXJzID0gKHRoaXMuX2V2ZW50UmVnaXN0cnkgfHwge30pW2V2ZW50TmFtZV07CiAgICBpZiAoIWxpc3RlbmVycykKICAgICAgICByZXR1cm47CiAgICBsaXN0ZW5lcnMgPSBsaXN0ZW5lcnMuc2xpY2UoKTsKICAgIGZvciAodmFyIGkgPSAwOyBpIDwgbGlzdGVuZXJzLmxlbmd0aDsgaSsrKQogICAgICAgIGxpc3RlbmVyc1tpXShlLCB0aGlzKTsKfTsKRXZlbnRFbWl0dGVyLm9uY2UgPSBmdW5jdGlvbiAoZXZlbnROYW1lLCBjYWxsYmFjaykgewogICAgdmFyIF9zZWxmID0gdGhpczsKICAgIHRoaXMub24oZXZlbnROYW1lLCBmdW5jdGlvbiBuZXdDYWxsYmFjaygpIHsKICAgICAgICBfc2VsZi5vZmYoZXZlbnROYW1lLCBuZXdDYWxsYmFjayk7CiAgICAgICAgY2FsbGJhY2suYXBwbHkobnVsbCwgYXJndW1lbnRzKTsKICAgIH0pOwogICAgaWYgKCFjYWxsYmFjaykgewogICAgICAgIHJldHVybiBuZXcgUHJvbWlzZShmdW5jdGlvbiAocmVzb2x2ZSkgewogICAgICAgICAgICBjYWxsYmFjayA9IHJlc29sdmU7CiAgICAgICAgfSk7CiAgICB9Cn07CkV2ZW50RW1pdHRlci5zZXREZWZhdWx0SGFuZGxlciA9IGZ1bmN0aW9uIChldmVudE5hbWUsIGNhbGxiYWNrKSB7CiAgICB2YXIgaGFuZGxlcnMgPSB0aGlzLl9kZWZhdWx0SGFuZGxlcnM7CiAgICBpZiAoIWhhbmRsZXJzKQogICAgICAgIGhhbmRsZXJzID0gdGhpcy5fZGVmYXVsdEhhbmRsZXJzID0geyBfZGlzYWJsZWRfOiB7fSB9OwogICAgaWYgKGhhbmRsZXJzW2V2ZW50TmFtZV0pIHsKICAgICAgICB2YXIgb2xkID0gaGFuZGxlcnNbZXZlbnROYW1lXTsKICAgICAgICB2YXIgZGlzYWJsZWQgPSBoYW5kbGVycy5fZGlzYWJsZWRfW2V2ZW50TmFtZV07CiAgICAgICAgaWYgKCFkaXNhYmxlZCkKICAgICAgICAgICAgaGFuZGxlcnMuX2Rpc2FibGVkX1tldmVudE5hbWVdID0gZGlzYWJsZWQgPSBbXTsKICAgICAgICBkaXNhYmxlZC5wdXNoKG9sZCk7CiAgICAgICAgdmFyIGkgPSBkaXNhYmxlZC5pbmRleE9mKGNhbGxiYWNrKTsKICAgICAgICBpZiAoaSAhPSAtMSkKICAgICAgICAgICAgZGlzYWJsZWQuc3BsaWNlKGksIDEpOwogICAgfQogICAgaGFuZGxlcnNbZXZlbnROYW1lXSA9IGNhbGxiYWNrOwp9OwpFdmVudEVtaXR0ZXIucmVtb3ZlRGVmYXVsdEhhbmRsZXIgPSBmdW5jdGlvbiAoZXZlbnROYW1lLCBjYWxsYmFjaykgewogICAgdmFyIGhhbmRsZXJzID0gdGhpcy5fZGVmYXVsdEhhbmRsZXJzOwogICAgaWYgKCFoYW5kbGVycykKICAgICAgICByZXR1cm47CiAgICB2YXIgZGlzYWJsZWQgPSBoYW5kbGVycy5fZGlzYWJsZWRfW2V2ZW50TmFtZV07CiAgICBpZiAoaGFuZGxlcnNbZXZlbnROYW1lXSA9PSBjYWxsYmFjaykgewogICAgICAgIGlmIChkaXNhYmxlZCkKICAgICAgICAgICAgdGhpcy5zZXREZWZhdWx0SGFuZGxlcihldmVudE5hbWUsIGRpc2FibGVkLnBvcCgpKTsKICAgIH0KICAgIGVsc2UgaWYgKGRpc2FibGVkKSB7CiAgICAgICAgdmFyIGkgPSBkaXNhYmxlZC5pbmRleE9mKGNhbGxiYWNrKTsKICAgICAgICBpZiAoaSAhPSAtMSkKICAgICAgICAgICAgZGlzYWJsZWQuc3BsaWNlKGksIDEpOwogICAgfQp9OwpFdmVudEVtaXR0ZXIub24gPQogICAgRXZlbnRFbWl0dGVyLmFkZEV2ZW50TGlzdGVuZXIgPSBmdW5jdGlvbiAoZXZlbnROYW1lLCBjYWxsYmFjaywgY2FwdHVyaW5nKSB7CiAgICAgICAgdGhpcy5fZXZlbnRSZWdpc3RyeSA9IHRoaXMuX2V2ZW50UmVnaXN0cnkgfHwge307CiAgICAgICAgdmFyIGxpc3RlbmVycyA9IHRoaXMuX2V2ZW50UmVnaXN0cnlbZXZlbnROYW1lXTsKICAgICAgICBpZiAoIWxpc3RlbmVycykKICAgICAgICAgICAgbGlzdGVuZXJzID0gdGhpcy5fZXZlbnRSZWdpc3RyeVtldmVudE5hbWVdID0gW107CiAgICAgICAgaWYgKGxpc3RlbmVycy5pbmRleE9mKGNhbGxiYWNrKSA9PSAtMSkKICAgICAgICAgICAgbGlzdGVuZXJzW2NhcHR1cmluZyA/ICJ1bnNoaWZ0IiA6ICJwdXNoIl0oY2FsbGJhY2spOwogICAgICAgIHJldHVybiBjYWxsYmFjazsKICAgIH07CkV2ZW50RW1pdHRlci5vZmYgPQogICAgRXZlbnRFbWl0dGVyLnJlbW92ZUxpc3RlbmVyID0KICAgICAgICBFdmVudEVtaXR0ZXIucmVtb3ZlRXZlbnRMaXN0ZW5lciA9IGZ1bmN0aW9uIChldmVudE5hbWUsIGNhbGxiYWNrKSB7CiAgICAgICAgICAgIHRoaXMuX2V2ZW50UmVnaXN0cnkgPSB0aGlzLl9ldmVudFJlZ2lzdHJ5IHx8IHt9OwogICAgICAgICAgICB2YXIgbGlzdGVuZXJzID0gdGhpcy5fZXZlbnRSZWdpc3RyeVtldmVudE5hbWVdOwogICAgICAgICAgICBpZiAoIWxpc3RlbmVycykKICAgICAgICAgICAgICAgIHJldHVybjsKICAgICAgICAgICAgdmFyIGluZGV4ID0gbGlzdGVuZXJzLmluZGV4T2YoY2FsbGJhY2spOwogICAgICAgICAgICBpZiAoaW5kZXggIT09IC0xKQogICAgICAgICAgICAgICAgbGlzdGVuZXJzLnNwbGljZShpbmRleCwgMSk7CiAgICAgICAgfTsKRXZlbnRFbWl0dGVyLnJlbW92ZUFsbExpc3RlbmVycyA9IGZ1bmN0aW9uIChldmVudE5hbWUpIHsKICAgIGlmICghZXZlbnROYW1lKQogICAgICAgIHRoaXMuX2V2ZW50UmVnaXN0cnkgPSB0aGlzLl9kZWZhdWx0SGFuZGxlcnMgPSB1bmRlZmluZWQ7CiAgICBpZiAodGhpcy5fZXZlbnRSZWdpc3RyeSkKICAgICAgICB0aGlzLl9ldmVudFJlZ2lzdHJ5W2V2ZW50TmFtZV0gPSB1bmRlZmluZWQ7CiAgICBpZiAodGhpcy5fZGVmYXVsdEhhbmRsZXJzKQogICAgICAgIHRoaXMuX2RlZmF1bHRIYW5kbGVyc1tldmVudE5hbWVdID0gdW5kZWZpbmVkOwp9OwpleHBvcnRzLkV2ZW50RW1pdHRlciA9IEV2ZW50RW1pdHRlcjsKCn0pOwoKYWNlLmRlZmluZSgiYWNlL3JhbmdlIixbXSwgZnVuY3Rpb24ocmVxdWlyZSwgZXhwb3J0cywgbW9kdWxlKXsidXNlIHN0cmljdCI7CnZhciBjb21wYXJlUG9pbnRzID0gZnVuY3Rpb24gKHAxLCBwMikgewogICAgcmV0dXJuIHAxLnJvdyAtIHAyLnJvdyB8fCBwMS5jb2x1bW4gLSBwMi5jb2x1bW47Cn07CnZhciBSYW5nZSA9IGZ1bmN0aW9uIChzdGFydFJvdywgc3RhcnRDb2x1bW4sIGVuZFJvdywgZW5kQ29sdW1uKSB7CiAgICB0aGlzLnN0YXJ0ID0gewogICAgICAgIHJvdzogc3RhcnRSb3csCiAgICAgICAgY29sdW1uOiBzdGFydENvbHVtbgogICAgfTsKICAgIHRoaXMuZW5kID0gewogICAgICAgIHJvdzogZW5kUm93LAogICAgICAgIGNvbHVtbjogZW5kQ29sdW1uCiAgICB9Owp9OwooZnVuY3Rpb24gKCkgewogICAgdGhpcy5pc0VxdWFsID0gZnVuY3Rpb24gKHJhbmdlKSB7CiAgICAgICAgcmV0dXJuIHRoaXMuc3RhcnQucm93ID09PSByYW5nZS5zdGFydC5yb3cgJiYKICAgICAgICAgICAgdGhpcy5lbmQucm93ID09PSByYW5nZS5lbmQucm93ICYmCiAgICAgICAgICAgIHRoaXMuc3RhcnQuY29sdW1uID09PSByYW5nZS5zdGFydC5jb2x1bW4gJiYKICAgICAgICAgICAgdGhpcy5lbmQuY29sdW1uID09PSByYW5nZS5lbmQuY29sdW1uOwogICAgfTsKICAgIHRoaXMudG9TdHJpbmcgPSBmdW5jdGlvbiAoKSB7CiAgICAgICAgcmV0dXJuICgiUmFuZ2U6IFsiICsgdGhpcy5zdGFydC5yb3cgKyAiLyIgKyB0aGlzLnN0YXJ0LmNvbHVtbiArCiAgICAgICAgICAgICJdIC0+IFsiICsgdGhpcy5lbmQucm93ICsgIi8iICsgdGhpcy5lbmQuY29sdW1uICsgIl0iKTsKICAgIH07CiAgICB0aGlzLmNvbnRhaW5zID0gZnVuY3Rpb24gKHJvdywgY29sdW1uKSB7CiAgICAgICAgcmV0dXJuIHRoaXMuY29tcGFyZShyb3csIGNvbHVtbikgPT0gMDsKICAgIH07CiAgICB0aGlzLmNvbXBhcmVSYW5nZSA9IGZ1bmN0aW9uIChyYW5nZSkgewogICAgICAgIHZhciBjbXAsIGVuZCA9IHJhbmdlLmVuZCwgc3RhcnQgPSByYW5nZS5zdGFydDsKICAgICAgICBjbXAgPSB0aGlzLmNvbXBhcmUoZW5kLnJvdywgZW5kLmNvbHVtbik7CiAgICAgICAgaWYgKGNtcCA9PSAxKSB7CiAgICAgICAgICAgIGNtcCA9IHRoaXMuY29tcGFyZShzdGFydC5yb3csIHN0YXJ0LmNvbHVtbik7CiAgICAgICAgICAgIGlmIChjbXAgPT0gMSkgewogICAgICAgICAgICAgICAgcmV0dXJuIDI7CiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxzZSBpZiAoY21wID09IDApIHsKICAgICAgICAgICAgICAgIHJldHVybiAxOwogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsc2UgewogICAgICAgICAgICAgICAgcmV0dXJuIDA7CiAgICAgICAgICAgIH0KICAgICAgICB9CiAgICAgICAgZWxzZSBpZiAoY21wID09IC0xKSB7CiAgICAgICAgICAgIHJldHVybiAtMjsKICAgICAgICB9CiAgICAgICAgZWxzZSB7CiAgICAgICAgICAgIGNtcCA9IHRoaXMuY29tcGFyZShzdGFydC5yb3csIHN0YXJ0LmNvbHVtbik7CiAgICAgICAgICAgIGlmIChjbXAgPT0gLTEpIHsKICAgICAgICAgICAgICAgIHJldHVybiAtMTsKICAgICAgICAgICAgfQogICAgICAgICAgICBlbHNlIGlmIChjbXAgPT0gMSkgewogICAgICAgICAgICAgICAgcmV0dXJuIDQyOwogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsc2UgewogICAgICAgICAgICAgICAgcmV0dXJuIDA7CiAgICAgICAgICAgIH0KICAgICAgICB9CiAgICB9OwogICAgdGhpcy5jb21wYXJlUG9pbnQgPSBmdW5jdGlvbiAocCkgewogICAgICAgIHJldHVybiB0aGlzLmNvbXBhcmUocC5yb3csIHAuY29sdW1uKTsKICAgIH07CiAgICB0aGlzLmNvbnRhaW5zUmFuZ2UgPSBmdW5jdGlvbiAocmFuZ2UpIHsKICAgICAgICByZXR1cm4gdGhpcy5jb21wYXJlUG9pbnQocmFuZ2Uuc3RhcnQpID09IDAgJiYgdGhpcy5jb21wYXJlUG9pbnQocmFuZ2UuZW5kKSA9PSAwOwogICAgfTsKICAgIHRoaXMuaW50ZXJzZWN0cyA9IGZ1bmN0aW9uIChyYW5nZSkgewogICAgICAgIHZhciBjbXAgPSB0aGlzLmNvbXBhcmVSYW5nZShyYW5nZSk7CiAgICAgICAgcmV0dXJuIChjbXAgPT0gLTEgfHwgY21wID09IDAgfHwgY21wID09IDEpOwogICAgfTsKICAgIHRoaXMuaXNFbmQgPSBmdW5jdGlvbiAocm93LCBjb2x1bW4pIHsKICAgICAgICByZXR1cm4gdGhpcy5lbmQucm93ID09IHJvdyAmJiB0aGlzLmVuZC5jb2x1bW4gPT0gY29sdW1uOwogICAgfTsKICAgIHRoaXMuaXNTdGFydCA9IGZ1bmN0aW9uIChyb3csIGNvbHVtbikgewogICAgICAgIHJldHVybiB0aGlzLnN0YXJ0LnJvdyA9PSByb3cgJiYgdGhpcy5zdGFydC5jb2x1bW4gPT0gY29sdW1uOwogICAgfTsKICAgIHRoaXMuc2V0U3RhcnQgPSBmdW5jdGlvbiAocm93LCBjb2x1bW4pIHsKICAgICAgICBpZiAodHlwZW9mIHJvdyA9PSAib2JqZWN0IikgewogICAgICAgICAgICB0aGlzLnN0YXJ0LmNvbHVtbiA9IHJvdy5jb2x1bW47CiAgICAgICAgICAgIHRoaXMuc3RhcnQucm93ID0gcm93LnJvdzsKICAgICAgICB9CiAgICAgICAgZWxzZSB7CiAgICAgICAgICAgIHRoaXMuc3RhcnQucm93ID0gcm93OwogICAgICAgICAgICB0aGlzLnN0YXJ0LmNvbHVtbiA9IGNvbHVtbjsKICAgICAgICB9CiAgICB9OwogICAgdGhpcy5zZXRFbmQgPSBmdW5jdGlvbiAocm93LCBjb2x1bW4pIHsKICAgICAgICBpZiAodHlwZW9mIHJvdyA9PSAib2JqZWN0IikgewogICAgICAgICAgICB0aGlzLmVuZC5jb2x1bW4gPSByb3cuY29sdW1uOwogICAgICAgICAgICB0aGlzLmVuZC5yb3cgPSByb3cucm93OwogICAgICAgIH0KICAgICAgICBlbHNlIHsKICAgICAgICAgICAgdGhpcy5lbmQucm93ID0gcm93OwogICAgICAgICAgICB0aGlzLmVuZC5jb2x1bW4gPSBjb2x1bW47CiAgICAgICAgfQogICAgfTsKICAgIHRoaXMuaW5zaWRlID0gZnVuY3Rpb24gKHJvdywgY29sdW1uKSB7CiAgICAgICAgaWYgKHRoaXMuY29tcGFyZShyb3csIGNvbHVtbikgPT0gMCkgewogICAgICAgICAgICBpZiAodGhpcy5pc0VuZChyb3csIGNvbHVtbikgfHwgdGhpcy5pc1N0YXJ0KHJvdywgY29sdW1uKSkgewogICAgICAgICAgICAgICAgcmV0dXJuIGZhbHNlOwogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsc2UgewogICAgICAgICAgICAgICAgcmV0dXJuIHRydWU7CiAgICAgICAgICAgIH0KICAgICAgICB9CiAgICAgICAgcmV0dXJuIGZhbHNlOwogICAgfTsKICAgIHRoaXMuaW5zaWRlU3RhcnQgPSBmdW5jdGlvbiAocm93LCBjb2x1bW4pIHsKICAgICAgICBpZiAodGhpcy5jb21wYXJlKHJvdywgY29sdW1uKSA9PSAwKSB7CiAgICAgICAgICAgIGlmICh0aGlzLmlzRW5kKHJvdywgY29sdW1uKSkgewogICAgICAgICAgICAgICAgcmV0dXJuIGZhbHNlOwogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsc2UgewogICAgICAgICAgICAgICAgcmV0dXJuIHRydWU7CiAgICAgICAgICAgIH0KICAgICAgICB9CiAgICAgICAgcmV0dXJuIGZhbHNlOwogICAgfTsKICAgIHRoaXMuaW5zaWRlRW5kID0gZnVuY3Rpb24gKHJvdywgY29sdW1uKSB7CiAgICAgICAgaWYgKHRoaXMuY29tcGFyZShyb3csIGNvbHVtbikgPT0gMCkgewogICAgICAgICAgICBpZiAodGhpcy5pc1N0YXJ0KHJvdywgY29sdW1uKSkgewogICAgICAgICAgICAgICAgcmV0dXJuIGZhbHNlOwogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsc2UgewogICAgICAgICAgICAgICAgcmV0dXJuIHRydWU7CiAgICAgICAgICAgIH0KICAgICAgICB9CiAgICAgICAgcmV0dXJuIGZhbHNlOwogICAgfTsKICAgIHRoaXMuY29tcGFyZSA9IGZ1bmN0aW9uIChyb3csIGNvbHVtbikgewogICAgICAgIGlmICghdGhpcy5pc011bHRpTGluZSgpKSB7CiAgICAgICAgICAgIGlmIChyb3cgPT09IHRoaXMuc3RhcnQucm93KSB7CiAgICAgICAgICAgICAgICByZXR1cm4gY29sdW1uIDwgdGhpcy5zdGFydC5jb2x1bW4gPyAtMSA6IChjb2x1bW4gPiB0aGlzLmVuZC5jb2x1bW4gPyAxIDogMCk7CiAgICAgICAgICAgIH0KICAgICAgICB9CiAgICAgICAgaWYgKHJvdyA8IHRoaXMuc3RhcnQucm93KQogICAgICAgICAgICByZXR1cm4gLTE7CiAgICAgICAgaWYgKHJvdyA+IHRoaXMuZW5kLnJvdykKICAgICAgICAgICAgcmV0dXJuIDE7CiAgICAgICAgaWYgKHRoaXMuc3RhcnQucm93ID09PSByb3cpCiAgICAgICAgICAgIHJldHVybiBjb2x1bW4gPj0gdGhpcy5zdGFydC5jb2x1bW4gPyAwIDogLTE7CiAgICAgICAgaWYgKHRoaXMuZW5kLnJvdyA9PT0gcm93KQogICAgICAgICAgICByZXR1cm4gY29sdW1uIDw9IHRoaXMuZW5kLmNvbHVtbiA/IDAgOiAxOwogICAgICAgIHJldHVybiAwOwogICAgfTsKICAgIHRoaXMuY29tcGFyZVN0YXJ0ID0gZnVuY3Rpb24gKHJvdywgY29sdW1uKSB7CiAgICAgICAgaWYgKHRoaXMuc3RhcnQucm93ID09IHJvdyAmJiB0aGlzLnN0YXJ0LmNvbHVtbiA9PSBjb2x1bW4pIHsKICAgICAgICAgICAgcmV0dXJuIC0xOwogICAgICAgIH0KICAgICAgICBlbHNlIHsKICAgICAgICAgICAgcmV0dXJuIHRoaXMuY29tcGFyZShyb3csIGNvbHVtbik7CiAgICAgICAgfQogICAgfTsKICAgIHRoaXMuY29tcGFyZUVuZCA9IGZ1bmN0aW9uIChyb3csIGNvbHVtbikgewogICAgICAgIGlmICh0aGlzLmVuZC5yb3cgPT0gcm93ICYmIHRoaXMuZW5kLmNvbHVtbiA9PSBjb2x1bW4pIHsKICAgICAgICAgICAgcmV0dXJuIDE7CiAgICAgICAgfQogICAgICAgIGVsc2UgewogICAgICAgICAgICByZXR1cm4gdGhpcy5jb21wYXJlKHJvdywgY29sdW1uKTsKICAgICAgICB9CiAgICB9OwogICAgdGhpcy5jb21wYXJlSW5zaWRlID0gZnVuY3Rpb24gKHJvdywgY29sdW1uKSB7CiAgICAgICAgaWYgKHRoaXMuZW5kLnJvdyA9PSByb3cgJiYgdGhpcy5lbmQuY29sdW1uID09IGNvbHVtbikgewogICAgICAgICAgICByZXR1cm4gMTsKICAgICAgICB9CiAgICAgICAgZWxzZSBpZiAodGhpcy5zdGFydC5yb3cgPT0gcm93ICYmIHRoaXMuc3RhcnQuY29sdW1uID09IGNvbHVtbikgewogICAgICAgICAgICByZXR1cm4gLTE7CiAgICAgICAgfQogICAgICAgIGVsc2UgewogICAgICAgICAgICByZXR1cm4gdGhpcy5jb21wYXJlKHJvdywgY29sdW1uKTsKICAgICAgICB9CiAgICB9OwogICAgdGhpcy5jbGlwUm93cyA9IGZ1bmN0aW9uIChmaXJzdFJvdywgbGFzdFJvdykgewogICAgICAgIGlmICh0aGlzLmVuZC5yb3cgPiBsYXN0Um93KQogICAgICAgICAgICB2YXIgZW5kID0geyByb3c6IGxhc3RSb3cgKyAxLCBjb2x1bW46IDAgfTsKICAgICAgICBlbHNlIGlmICh0aGlzLmVuZC5yb3cgPCBmaXJzdFJvdykKICAgICAgICAgICAgdmFyIGVuZCA9IHsgcm93OiBmaXJzdFJvdywgY29sdW1uOiAwIH07CiAgICAgICAgaWYgKHRoaXMuc3RhcnQucm93ID4gbGFzdFJvdykKICAgICAgICAgICAgdmFyIHN0YXJ0ID0geyByb3c6IGxhc3RSb3cgKyAxLCBjb2x1bW46IDAgfTsKICAgICAgICBlbHNlIGlmICh0aGlzLnN0YXJ0LnJvdyA8IGZpcnN0Um93KQogICAgICAgICAgICB2YXIgc3RhcnQgPSB7IHJvdzogZmlyc3RSb3csIGNvbHVtbjogMCB9OwogICAgICAgIHJldHVybiBSYW5nZS5mcm9tUG9pbnRzKHN0YXJ0IHx8IHRoaXMuc3RhcnQsIGVuZCB8fCB0aGlzLmVuZCk7CiAgICB9OwogICAgdGhpcy5leHRlbmQgPSBmdW5jdGlvbiAocm93LCBjb2x1bW4pIHsKICAgICAgICB2YXIgY21wID0gdGhpcy5jb21wYXJlKHJvdywgY29sdW1uKTsKICAgICAgICBpZiAoY21wID09IDApCiAgICAgICAgICAgIHJldHVybiB0aGlzOwogICAgICAgIGVsc2UgaWYgKGNtcCA9PSAtMSkKICAgICAgICAgICAgdmFyIHN0YXJ0ID0geyByb3c6IHJvdywgY29sdW1uOiBjb2x1bW4gfTsKICAgICAgICBlbHNlCiAgICAgICAgICAgIHZhciBlbmQgPSB7IHJvdzogcm93LCBjb2x1bW46IGNvbHVtbiB9OwogICAgICAgIHJldHVybiBSYW5nZS5mcm9tUG9pbnRzKHN0YXJ0IHx8IHRoaXMuc3RhcnQsIGVuZCB8fCB0aGlzLmVuZCk7CiAgICB9OwogICAgdGhpcy5pc0VtcHR5ID0gZnVuY3Rpb24gKCkgewogICAgICAgIHJldHVybiAodGhpcy5zdGFydC5yb3cgPT09IHRoaXMuZW5kLnJvdyAmJiB0aGlzLnN0YXJ0LmNvbHVtbiA9PT0gdGhpcy5lbmQuY29sdW1uKTsKICAgIH07CiAgICB0aGlzLmlzTXVsdGlMaW5lID0gZnVuY3Rpb24gKCkgewogICAgICAgIHJldHVybiAodGhpcy5zdGFydC5yb3cgIT09IHRoaXMuZW5kLnJvdyk7CiAgICB9OwogICAgdGhpcy5jbG9uZSA9IGZ1bmN0aW9uICgpIHsKICAgICAgICByZXR1cm4gUmFuZ2UuZnJvbVBvaW50cyh0aGlzLnN0YXJ0LCB0aGlzLmVuZCk7CiAgICB9OwogICAgdGhpcy5jb2xsYXBzZVJvd3MgPSBmdW5jdGlvbiAoKSB7CiAgICAgICAgaWYgKHRoaXMuZW5kLmNvbHVtbiA9PSAwKQogICAgICAgICAgICByZXR1cm4gbmV3IFJhbmdlKHRoaXMuc3RhcnQucm93LCAwLCBNYXRoLm1heCh0aGlzLnN0YXJ0LnJvdywgdGhpcy5lbmQucm93IC0gMSksIDApOwogICAgICAgIGVsc2UKICAgICAgICAgICAgcmV0dXJuIG5ldyBSYW5nZSh0aGlzLnN0YXJ0LnJvdywgMCwgdGhpcy5lbmQucm93LCAwKTsKICAgIH07CiAgICB0aGlzLnRvU2NyZWVuUmFuZ2UgPSBmdW5jdGlvbiAoc2Vzc2lvbikgewogICAgICAgIHZhciBzY3JlZW5Qb3NTdGFydCA9IHNlc3Npb24uZG9jdW1lbnRUb1NjcmVlblBvc2l0aW9uKHRoaXMuc3RhcnQpOwogICAgICAgIHZhciBzY3JlZW5Qb3NFbmQgPSBzZXNzaW9uLmRvY3VtZW50VG9TY3JlZW5Qb3NpdGlvbih0aGlzLmVuZCk7CiAgICAgICAgcmV0dXJuIG5ldyBSYW5nZShzY3JlZW5Qb3NTdGFydC5yb3csIHNjcmVlblBvc1N0YXJ0LmNvbHVtbiwgc2NyZWVuUG9zRW5kLnJvdywgc2NyZWVuUG9zRW5kLmNvbHVtbik7CiAgICB9OwogICAgdGhpcy5tb3ZlQnkgPSBmdW5jdGlvbiAocm93LCBjb2x1bW4pIHsKICAgICAgICB0aGlzLnN0YXJ0LnJvdyArPSByb3c7CiAgICAgICAgdGhpcy5zdGFydC5jb2x1bW4gKz0gY29sdW1uOwogICAgICAgIHRoaXMuZW5kLnJvdyArPSByb3c7CiAgICAgICAgdGhpcy5lbmQuY29sdW1uICs9IGNvbHVtbjsKICAgIH07Cn0pLmNhbGwoUmFuZ2UucHJvdG90eXBlKTsKUmFuZ2UuZnJvbVBvaW50cyA9IGZ1bmN0aW9uIChzdGFydCwgZW5kKSB7CiAgICByZXR1cm4gbmV3IFJhbmdlKHN0YXJ0LnJvdywgc3RhcnQuY29sdW1uLCBlbmQucm93LCBlbmQuY29sdW1uKTsKfTsKUmFuZ2UuY29tcGFyZVBvaW50cyA9IGNvbXBhcmVQb2ludHM7ClJhbmdlLmNvbXBhcmVQb2ludHMgPSBmdW5jdGlvbiAocDEsIHAyKSB7CiAgICByZXR1cm4gcDEucm93IC0gcDIucm93IHx8IHAxLmNvbHVtbiAtIHAyLmNvbHVtbjsKfTsKZXhwb3J0cy5SYW5nZSA9IFJhbmdlOwoKfSk7CgphY2UuZGVmaW5lKCJhY2UvYW5jaG9yIixbXSwgZnVuY3Rpb24ocmVxdWlyZSwgZXhwb3J0cywgbW9kdWxlKXsidXNlIHN0cmljdCI7CnZhciBvb3AgPSByZXF1aXJlKCIuL2xpYi9vb3AiKTsKdmFyIEV2ZW50RW1pdHRlciA9IHJlcXVpcmUoIi4vbGliL2V2ZW50X2VtaXR0ZXIiKS5FdmVudEVtaXR0ZXI7CnZhciBBbmNob3IgPSBleHBvcnRzLkFuY2hvciA9IGZ1bmN0aW9uIChkb2MsIHJvdywgY29sdW1uKSB7CiAgICB0aGlzLiRvbkNoYW5nZSA9IHRoaXMub25DaGFuZ2UuYmluZCh0aGlzKTsKICAgIHRoaXMuYXR0YWNoKGRvYyk7CiAgICBpZiAodHlwZW9mIGNvbHVtbiA9PSAidW5kZWZpbmVkIikKICAgICAgICB0aGlzLnNldFBvc2l0aW9uKHJvdy5yb3csIHJvdy5jb2x1bW4pOwogICAgZWxzZQogICAgICAgIHRoaXMuc2V0UG9zaXRpb24ocm93LCBjb2x1bW4pOwp9OwooZnVuY3Rpb24gKCkgewogICAgb29wLmltcGxlbWVudCh0aGlzLCBFdmVudEVtaXR0ZXIpOwogICAgdGhpcy5nZXRQb3NpdGlvbiA9IGZ1bmN0aW9uICgpIHsKICAgICAgICByZXR1cm4gdGhpcy4kY2xpcFBvc2l0aW9uVG9Eb2N1bWVudCh0aGlzLnJvdywgdGhpcy5jb2x1bW4pOwogICAgfTsKICAgIHRoaXMuZ2V0RG9jdW1lbnQgPSBmdW5jdGlvbiAoKSB7CiAgICAgICAgcmV0dXJuIHRoaXMuZG9jdW1lbnQ7CiAgICB9OwogICAgdGhpcy4kaW5zZXJ0UmlnaHQgPSBmYWxzZTsKICAgIHRoaXMub25DaGFuZ2UgPSBmdW5jdGlvbiAoZGVsdGEpIHsKICAgICAgICBpZiAoZGVsdGEuc3RhcnQucm93ID09IGRlbHRhLmVuZC5yb3cgJiYgZGVsdGEuc3RhcnQucm93ICE9IHRoaXMucm93KQogICAgICAgICAgICByZXR1cm47CiAgICAgICAgaWYgKGRlbHRhLnN0YXJ0LnJvdyA+IHRoaXMucm93KQogICAgICAgICAgICByZXR1cm47CiAgICAgICAgdmFyIHBvaW50ID0gJGdldFRyYW5zZm9ybWVkUG9pbnQoZGVsdGEsIHsgcm93OiB0aGlzLnJvdywgY29sdW1uOiB0aGlzLmNvbHVtbiB9LCB0aGlzLiRpbnNlcnRSaWdodCk7CiAgICAgICAgdGhpcy5zZXRQb3NpdGlvbihwb2ludC5yb3csIHBvaW50LmNvbHVtbiwgdHJ1ZSk7CiAgICB9OwogICAgZnVuY3Rpb24gJHBvaW50c0luT3JkZXIocG9pbnQxLCBwb2ludDIsIGVxdWFsUG9pbnRzSW5PcmRlcikgewogICAgICAgIHZhciBiQ29sSXNBZnRlciA9IGVxdWFsUG9pbnRzSW5PcmRlciA/IHBvaW50MS5jb2x1bW4gPD0gcG9pbnQyLmNvbHVtbiA6IHBvaW50MS5jb2x1bW4gPCBwb2ludDIuY29sdW1uOwogICAgICAgIHJldHVybiAocG9pbnQxLnJvdyA8IHBvaW50Mi5yb3cpIHx8IChwb2ludDEucm93ID09IHBvaW50Mi5yb3cgJiYgYkNvbElzQWZ0ZXIpOwogICAgfQogICAgZnVuY3Rpb24gJGdldFRyYW5zZm9ybWVkUG9pbnQoZGVsdGEsIHBvaW50LCBtb3ZlSWZFcXVhbCkgewogICAgICAgIHZhciBkZWx0YUlzSW5zZXJ0ID0gZGVsdGEuYWN0aW9uID09ICJpbnNlcnQiOwogICAgICAgIHZhciBkZWx0YVJvd1NoaWZ0ID0gKGRlbHRhSXNJbnNlcnQgPyAxIDogLTEpICogKGRlbHRhLmVuZC5yb3cgLSBkZWx0YS5zdGFydC5yb3cpOwogICAgICAgIHZhciBkZWx0YUNvbFNoaWZ0ID0gKGRlbHRhSXNJbnNlcnQgPyAxIDogLTEpICogKGRlbHRhLmVuZC5jb2x1bW4gLSBkZWx0YS5zdGFydC5jb2x1bW4pOwogICAgICAgIHZhciBkZWx0YVN0YXJ0ID0gZGVsdGEuc3RhcnQ7CiAgICAgICAgdmFyIGRlbHRhRW5kID0gZGVsdGFJc0luc2VydCA/IGRlbHRhU3RhcnQgOiBkZWx0YS5lbmQ7IC8vIENvbGxhcHNlIGluc2VydCByYW5nZS4KICAgICAgICBpZiAoJHBvaW50c0luT3JkZXIocG9pbnQsIGRlbHRhU3RhcnQsIG1vdmVJZkVxdWFsKSkgewogICAgICAgICAgICByZXR1cm4gewogICAgICAgICAgICAgICAgcm93OiBwb2ludC5yb3csCiAgICAgICAgICAgICAgICBjb2x1bW46IHBvaW50LmNvbHVtbgogICAgICAgICAgICB9OwogICAgICAgIH0KICAgICAgICBpZiAoJHBvaW50c0luT3JkZXIoZGVsdGFFbmQsIHBvaW50LCAhbW92ZUlmRXF1YWwpKSB7CiAgICAgICAgICAgIHJldHVybiB7CiAgICAgICAgICAgICAgICByb3c6IHBvaW50LnJvdyArIGRlbHRhUm93U2hpZnQsCiAgICAgICAgICAgICAgICBjb2x1bW46IHBvaW50LmNvbHVtbiArIChwb2ludC5yb3cgPT0gZGVsdGFFbmQucm93ID8gZGVsdGFDb2xTaGlmdCA6IDApCiAgICAgICAgICAgIH07CiAgICAgICAgfQogICAgICAgIHJldHVybiB7CiAgICAgICAgICAgIHJvdzogZGVsdGFTdGFydC5yb3csCiAgICAgICAgICAgIGNvbHVtbjogZGVsdGFTdGFydC5jb2x1bW4KICAgICAgICB9OwogICAgfQogICAgdGhpcy5zZXRQb3NpdGlvbiA9IGZ1bmN0aW9uIChyb3csIGNvbHVtbiwgbm9DbGlwKSB7CiAgICAgICAgdmFyIHBvczsKICAgICAgICBpZiAobm9DbGlwKSB7CiAgICAgICAgICAgIHBvcyA9IHsKICAgICAgICAgICAgICAgIHJvdzogcm93LAogICAgICAgICAgICAgICAgY29sdW1uOiBjb2x1bW4KICAgICAgICAgICAgfTsKICAgICAgICB9CiAgICAgICAgZWxzZSB7CiAgICAgICAgICAgIHBvcyA9IHRoaXMuJGNsaXBQb3NpdGlvblRvRG9jdW1lbnQocm93LCBjb2x1bW4pOwogICAgICAgIH0KICAgICAgICBpZiAodGhpcy5yb3cgPT0gcG9zLnJvdyAmJiB0aGlzLmNvbHVtbiA9PSBwb3MuY29sdW1uKQogICAgICAgICAgICByZXR1cm47CiAgICAgICAgdmFyIG9sZCA9IHsKICAgICAgICAgICAgcm93OiB0aGlzLnJvdywKICAgICAgICAgICAgY29sdW1uOiB0aGlzLmNvbHVtbgogICAgICAgIH07CiAgICAgICAgdGhpcy5yb3cgPSBwb3Mucm93OwogICAgICAgIHRoaXMuY29sdW1uID0gcG9zLmNvbHVtbjsKICAgICAgICB0aGlzLl9zaWduYWwoImNoYW5nZSIsIHsKICAgICAgICAgICAgb2xkOiBvbGQsCiAgICAgICAgICAgIHZhbHVlOiBwb3MKICAgICAgICB9KTsKICAgIH07CiAgICB0aGlzLmRldGFjaCA9IGZ1bmN0aW9uICgpIHsKICAgICAgICB0aGlzLmRvY3VtZW50Lm9mZigiY2hhbmdlIiwgdGhpcy4kb25DaGFuZ2UpOwogICAgfTsKICAgIHRoaXMuYXR0YWNoID0gZnVuY3Rpb24gKGRvYykgewogICAgICAgIHRoaXMuZG9jdW1lbnQgPSBkb2MgfHwgdGhpcy5kb2N1bWVudDsKICAgICAgICB0aGlzLmRvY3VtZW50Lm9uKCJjaGFuZ2UiLCB0aGlzLiRvbkNoYW5nZSk7CiAgICB9OwogICAgdGhpcy4kY2xpcFBvc2l0aW9uVG9Eb2N1bWVudCA9IGZ1bmN0aW9uIChyb3csIGNvbHVtbikgewogICAgICAgIHZhciBwb3MgPSB7fTsKICAgICAgICBpZiAocm93ID49IHRoaXMuZG9jdW1lbnQuZ2V0TGVuZ3RoKCkpIHsKICAgICAgICAgICAgcG9zLnJvdyA9IE1hdGgubWF4KDAsIHRoaXMuZG9jdW1lbnQuZ2V0TGVuZ3RoKCkgLSAxKTsKICAgICAgICAgICAgcG9zLmNvbHVtbiA9IHRoaXMuZG9jdW1lbnQuZ2V0TGluZShwb3Mucm93KS5sZW5ndGg7CiAgICAgICAgfQogICAgICAgIGVsc2UgaWYgKHJvdyA8IDApIHsKICAgICAgICAgICAgcG9zLnJvdyA9IDA7CiAgICAgICAgICAgIHBvcy5jb2x1bW4gPSAwOwogICAgICAgIH0KICAgICAgICBlbHNlIHsKICAgICAgICAgICAgcG9zLnJvdyA9IHJvdzsKICAgICAgICAgICAgcG9zLmNvbHVtbiA9IE1hdGgubWluKHRoaXMuZG9jdW1lbnQuZ2V0TGluZShwb3Mucm93KS5sZW5ndGgsIE1hdGgubWF4KDAsIGNvbHVtbikpOwogICAgICAgIH0KICAgICAgICBpZiAoY29sdW1uIDwgMCkKICAgICAgICAgICAgcG9zLmNvbHVtbiA9IDA7CiAgICAgICAgcmV0dXJuIHBvczsKICAgIH07Cn0pLmNhbGwoQW5jaG9yLnByb3RvdHlwZSk7Cgp9KTsKCmFjZS5kZWZpbmUoImFjZS9kb2N1bWVudCIsW10sIGZ1bmN0aW9uKHJlcXVpcmUsIGV4cG9ydHMsIG1vZHVsZSl7InVzZSBzdHJpY3QiOwp2YXIgb29wID0gcmVxdWlyZSgiLi9saWIvb29wIik7CnZhciBhcHBseURlbHRhID0gcmVxdWlyZSgiLi9hcHBseV9kZWx0YSIpLmFwcGx5RGVsdGE7CnZhciBFdmVudEVtaXR0ZXIgPSByZXF1aXJlKCIuL2xpYi9ldmVudF9lbWl0dGVyIikuRXZlbnRFbWl0dGVyOwp2YXIgUmFuZ2UgPSByZXF1aXJlKCIuL3JhbmdlIikuUmFuZ2U7CnZhciBBbmNob3IgPSByZXF1aXJlKCIuL2FuY2hvciIpLkFuY2hvcjsKdmFyIERvY3VtZW50ID0gZnVuY3Rpb24gKHRleHRPckxpbmVzKSB7CiAgICB0aGlzLiRsaW5lcyA9IFsiIl07CiAgICBpZiAodGV4dE9yTGluZXMubGVuZ3RoID09PSAwKSB7CiAgICAgICAgdGhpcy4kbGluZXMgPSBbIiJdOwogICAgfQogICAgZWxzZSBpZiAoQXJyYXkuaXNBcnJheSh0ZXh0T3JMaW5lcykpIHsKICAgICAgICB0aGlzLmluc2VydE1lcmdlZExpbmVzKHsgcm93OiAwLCBjb2x1bW46IDAgfSwgdGV4dE9yTGluZXMpOwogICAgfQogICAgZWxzZSB7CiAgICAgICAgdGhpcy5pbnNlcnQoeyByb3c6IDAsIGNvbHVtbjogMCB9LCB0ZXh0T3JMaW5lcyk7CiAgICB9Cn07CihmdW5jdGlvbiAoKSB7CiAgICBvb3AuaW1wbGVtZW50KHRoaXMsIEV2ZW50RW1pdHRlcik7CiAgICB0aGlzLnNldFZhbHVlID0gZnVuY3Rpb24gKHRleHQpIHsKICAgICAgICB2YXIgbGVuID0gdGhpcy5nZXRMZW5ndGgoKSAtIDE7CiAgICAgICAgdGhpcy5yZW1vdmUobmV3IFJhbmdlKDAsIDAsIGxlbiwgdGhpcy5nZXRMaW5lKGxlbikubGVuZ3RoKSk7CiAgICAgICAgdGhpcy5pbnNlcnQoeyByb3c6IDAsIGNvbHVtbjogMCB9LCB0ZXh0IHx8ICIiKTsKICAgIH07CiAgICB0aGlzLmdldFZhbHVlID0gZnVuY3Rpb24gKCkgewogICAgICAgIHJldHVybiB0aGlzLmdldEFsbExpbmVzKCkuam9pbih0aGlzLmdldE5ld0xpbmVDaGFyYWN0ZXIoKSk7CiAgICB9OwogICAgdGhpcy5jcmVhdGVBbmNob3IgPSBmdW5jdGlvbiAocm93LCBjb2x1bW4pIHsKICAgICAgICByZXR1cm4gbmV3IEFuY2hvcih0aGlzLCByb3csIGNvbHVtbik7CiAgICB9OwogICAgaWYgKCJhYWEiLnNwbGl0KC9hLykubGVuZ3RoID09PSAwKSB7CiAgICAgICAgdGhpcy4kc3BsaXQgPSBmdW5jdGlvbiAodGV4dCkgewogICAgICAgICAgICByZXR1cm4gdGV4dC5yZXBsYWNlKC9cclxufFxyL2csICJcbiIpLnNwbGl0KCJcbiIpOwogICAgICAgIH07CiAgICB9CiAgICBlbHNlIHsKICAgICAgICB0aGlzLiRzcGxpdCA9IGZ1bmN0aW9uICh0ZXh0KSB7CiAgICAgICAgICAgIHJldHVybiB0ZXh0LnNwbGl0KC9cclxufFxyfFxuLyk7CiAgICAgICAgfTsKICAgIH0KICAgIHRoaXMuJGRldGVjdE5ld0xpbmUgPSBmdW5jdGlvbiAodGV4dCkgewogICAgICAgIHZhciBtYXRjaCA9IHRleHQubWF0Y2goL14uKj8oXHJcbnxccnxcbikvbSk7CiAgICAgICAgdGhpcy4kYXV0b05ld0xpbmUgPSBtYXRjaCA/IG1hdGNoWzFdIDogIlxuIjsKICAgICAgICB0aGlzLl9zaWduYWwoImNoYW5nZU5ld0xpbmVNb2RlIik7CiAgICB9OwogICAgdGhpcy5nZXROZXdMaW5lQ2hhcmFjdGVyID0gZnVuY3Rpb24gKCkgewogICAgICAgIHN3aXRjaCAodGhpcy4kbmV3TGluZU1vZGUpIHsKICAgICAgICAgICAgY2FzZSAid2luZG93cyI6CiAgICAgICAgICAgICAgICByZXR1cm4gIlxyXG4iOwogICAgICAgICAgICBjYXNlICJ1bml4IjoKICAgICAgICAgICAgICAgIHJldHVybiAiXG4iOwogICAgICAgICAgICBkZWZhdWx0OgogICAgICAgICAgICAgICAgcmV0dXJuIHRoaXMuJGF1dG9OZXdMaW5lIHx8ICJcbiI7CiAgICAgICAgfQogICAgfTsKICAgIHRoaXMuJGF1dG9OZXdMaW5lID0gIiI7CiAgICB0aGlzLiRuZXdMaW5lTW9kZSA9ICJhdXRvIjsKICAgIHRoaXMuc2V0TmV3TGluZU1vZGUgPSBmdW5jdGlvbiAobmV3TGluZU1vZGUpIHsKICAgICAgICBpZiAodGhpcy4kbmV3TGluZU1vZGUgPT09IG5ld0xpbmVNb2RlKQogICAgICAgICAgICByZXR1cm47CiAgICAgICAgdGhpcy4kbmV3TGluZU1vZGUgPSBuZXdMaW5lTW9kZTsKICAgICAgICB0aGlzLl9zaWduYWwoImNoYW5nZU5ld0xpbmVNb2RlIik7CiAgICB9OwogICAgdGhpcy5nZXROZXdMaW5lTW9kZSA9IGZ1bmN0aW9uICgpIHsKICAgICAgICByZXR1cm4gdGhpcy4kbmV3TGluZU1vZGU7CiAgICB9OwogICAgdGhpcy5pc05ld0xpbmUgPSBmdW5jdGlvbiAodGV4dCkgewogICAgICAgIHJldHVybiAodGV4dCA9PSAiXHJcbiIgfHwgdGV4dCA9PSAiXHIiIHx8IHRleHQgPT0gIlxuIik7CiAgICB9OwogICAgdGhpcy5nZXRMaW5lID0gZnVuY3Rpb24gKHJvdykgewogICAgICAgIHJldHVybiB0aGlzLiRsaW5lc1tyb3ddIHx8ICIiOwogICAgfTsKICAgIHRoaXMuZ2V0TGluZXMgPSBmdW5jdGlvbiAoZmlyc3RSb3csIGxhc3RSb3cpIHsKICAgICAgICByZXR1cm4gdGhpcy4kbGluZXMuc2xpY2UoZmlyc3RSb3csIGxhc3RSb3cgKyAxKTsKICAgIH07CiAgICB0aGlzLmdldEFsbExpbmVzID0gZnVuY3Rpb24gKCkgewogICAgICAgIHJldHVybiB0aGlzLmdldExpbmVzKDAsIHRoaXMuZ2V0TGVuZ3RoKCkpOwogICAgfTsKICAgIHRoaXMuZ2V0TGVuZ3RoID0gZnVuY3Rpb24gKCkgewogICAgICAgIHJldHVybiB0aGlzLiRsaW5lcy5sZW5ndGg7CiAgICB9OwogICAgdGhpcy5nZXRUZXh0UmFuZ2UgPSBmdW5jdGlvbiAocmFuZ2UpIHsKICAgICAgICByZXR1cm4gdGhpcy5nZXRMaW5lc0ZvclJhbmdlKHJhbmdlKS5qb2luKHRoaXMuZ2V0TmV3TGluZUNoYXJhY3RlcigpKTsKICAgIH07CiAgICB0aGlzLmdldExpbmVzRm9yUmFuZ2UgPSBmdW5jdGlvbiAocmFuZ2UpIHsKICAgICAgICB2YXIgbGluZXM7CiAgICAgICAgaWYgKHJhbmdlLnN0YXJ0LnJvdyA9PT0gcmFuZ2UuZW5kLnJvdykgewogICAgICAgICAgICBsaW5lcyA9IFt0aGlzLmdldExpbmUocmFuZ2Uuc3RhcnQucm93KS5zdWJzdHJpbmcocmFuZ2Uuc3RhcnQuY29sdW1uLCByYW5nZS5lbmQuY29sdW1uKV07CiAgICAgICAgfQogICAgICAgIGVsc2UgewogICAgICAgICAgICBsaW5lcyA9IHRoaXMuZ2V0TGluZXMocmFuZ2Uuc3RhcnQucm93LCByYW5nZS5lbmQucm93KTsKICAgICAgICAgICAgbGluZXNbMF0gPSAobGluZXNbMF0gfHwgIiIpLnN1YnN0cmluZyhyYW5nZS5zdGFydC5jb2x1bW4pOwogICAgICAgICAgICB2YXIgbCA9IGxpbmVzLmxlbmd0aCAtIDE7CiAgICAgICAgICAgIGlmIChyYW5nZS5lbmQucm93IC0gcmFuZ2Uuc3RhcnQucm93ID09IGwpCiAgICAgICAgICAgICAgICBsaW5lc1tsXSA9IGxpbmVzW2xdLnN1YnN0cmluZygwLCByYW5nZS5lbmQuY29sdW1uKTsKICAgICAgICB9CiAgICAgICAgcmV0dXJuIGxpbmVzOwogICAgfTsKICAgIHRoaXMuaW5zZXJ0TGluZXMgPSBmdW5jdGlvbiAocm93LCBsaW5lcykgewogICAgICAgIGNvbnNvbGUud2FybigiVXNlIG9mIGRvY3VtZW50Lmluc2VydExpbmVzIGlzIGRlcHJlY2F0ZWQuIFVzZSB0aGUgaW5zZXJ0RnVsbExpbmVzIG1ldGhvZCBpbnN0ZWFkLiIpOwogICAgICAgIHJldHVybiB0aGlzLmluc2VydEZ1bGxMaW5lcyhyb3csIGxpbmVzKTsKICAgIH07CiAgICB0aGlzLnJlbW92ZUxpbmVzID0gZnVuY3Rpb24gKGZpcnN0Um93LCBsYXN0Um93KSB7CiAgICAgICAgY29uc29sZS53YXJuKCJVc2Ugb2YgZG9jdW1lbnQucmVtb3ZlTGluZXMgaXMgZGVwcmVjYXRlZC4gVXNlIHRoZSByZW1vdmVGdWxsTGluZXMgbWV0aG9kIGluc3RlYWQuIik7CiAgICAgICAgcmV0dXJuIHRoaXMucmVtb3ZlRnVsbExpbmVzKGZpcnN0Um93LCBsYXN0Um93KTsKICAgIH07CiAgICB0aGlzLmluc2VydE5ld0xpbmUgPSBmdW5jdGlvbiAocG9zaXRpb24pIHsKICAgICAgICBjb25zb2xlLndhcm4oIlVzZSBvZiBkb2N1bWVudC5pbnNlcnROZXdMaW5lIGlzIGRlcHJlY2F0ZWQuIFVzZSBpbnNlcnRNZXJnZWRMaW5lcyhwb3NpdGlvbiwgWycnLCAnJ10pIGluc3RlYWQuIik7CiAgICAgICAgcmV0dXJuIHRoaXMuaW5zZXJ0TWVyZ2VkTGluZXMocG9zaXRpb24sIFsiIiwgIiJdKTsKICAgIH07CiAgICB0aGlzLmluc2VydCA9IGZ1bmN0aW9uIChwb3NpdGlvbiwgdGV4dCkgewogICAgICAgIGlmICh0aGlzLmdldExlbmd0aCgpIDw9IDEpCiAgICAgICAgICAgIHRoaXMuJGRldGVjdE5ld0xpbmUodGV4dCk7CiAgICAgICAgcmV0dXJuIHRoaXMuaW5zZXJ0TWVyZ2VkTGluZXMocG9zaXRpb24sIHRoaXMuJHNwbGl0KHRleHQpKTsKICAgIH07CiAgICB0aGlzLmluc2VydEluTGluZSA9IGZ1bmN0aW9uIChwb3NpdGlvbiwgdGV4dCkgewogICAgICAgIHZhciBzdGFydCA9IHRoaXMuY2xpcHBlZFBvcyhwb3NpdGlvbi5yb3csIHBvc2l0aW9uLmNvbHVtbik7CiAgICAgICAgdmFyIGVuZCA9IHRoaXMucG9zKHBvc2l0aW9uLnJvdywgcG9zaXRpb24uY29sdW1uICsgdGV4dC5sZW5ndGgpOwogICAgICAgIHRoaXMuYXBwbHlEZWx0YSh7CiAgICAgICAgICAgIHN0YXJ0OiBzdGFydCwKICAgICAgICAgICAgZW5kOiBlbmQsCiAgICAgICAgICAgIGFjdGlvbjogImluc2VydCIsCiAgICAgICAgICAgIGxpbmVzOiBbdGV4dF0KICAgICAgICB9LCB0cnVlKTsKICAgICAgICByZXR1cm4gdGhpcy5jbG9uZVBvcyhlbmQpOwogICAgfTsKICAgIHRoaXMuY2xpcHBlZFBvcyA9IGZ1bmN0aW9uIChyb3csIGNvbHVtbikgewogICAgICAgIHZhciBsZW5ndGggPSB0aGlzLmdldExlbmd0aCgpOwogICAgICAgIGlmIChyb3cgPT09IHVuZGVmaW5lZCkgewogICAgICAgICAgICByb3cgPSBsZW5ndGg7CiAgICAgICAgfQogICAgICAgIGVsc2UgaWYgKHJvdyA8IDApIHsKICAgICAgICAgICAgcm93ID0gMDsKICAgICAgICB9CiAgICAgICAgZWxzZSBpZiAocm93ID49IGxlbmd0aCkgewogICAgICAgICAgICByb3cgPSBsZW5ndGggLSAxOwogICAgICAgICAgICBjb2x1bW4gPSB1bmRlZmluZWQ7CiAgICAgICAgfQogICAgICAgIHZhciBsaW5lID0gdGhpcy5nZXRMaW5lKHJvdyk7CiAgICAgICAgaWYgKGNvbHVtbiA9PSB1bmRlZmluZWQpCiAgICAgICAgICAgIGNvbHVtbiA9IGxpbmUubGVuZ3RoOwogICAgICAgIGNvbHVtbiA9IE1hdGgubWluKE1hdGgubWF4KGNvbHVtbiwgMCksIGxpbmUubGVuZ3RoKTsKICAgICAgICByZXR1cm4geyByb3c6IHJvdywgY29sdW1uOiBjb2x1bW4gfTsKICAgIH07CiAgICB0aGlzLmNsb25lUG9zID0gZnVuY3Rpb24gKHBvcykgewogICAgICAgIHJldHVybiB7IHJvdzogcG9zLnJvdywgY29sdW1uOiBwb3MuY29sdW1uIH07CiAgICB9OwogICAgdGhpcy5wb3MgPSBmdW5jdGlvbiAocm93LCBjb2x1bW4pIHsKICAgICAgICByZXR1cm4geyByb3c6IHJvdywgY29sdW1uOiBjb2x1bW4gfTsKICAgIH07CiAgICB0aGlzLiRjbGlwUG9zaXRpb24gPSBmdW5jdGlvbiAocG9zaXRpb24pIHsKICAgICAgICB2YXIgbGVuZ3RoID0gdGhpcy5nZXRMZW5ndGgoKTsKICAgICAgICBpZiAocG9zaXRpb24ucm93ID49IGxlbmd0aCkgewogICAgICAgICAgICBwb3NpdGlvbi5yb3cgPSBNYXRoLm1heCgwLCBsZW5ndGggLSAxKTsKICAgICAgICAgICAgcG9zaXRpb24uY29sdW1uID0gdGhpcy5nZXRMaW5lKGxlbmd0aCAtIDEpLmxlbmd0aDsKICAgICAgICB9CiAgICAgICAgZWxzZSB7CiAgICAgICAgICAgIHBvc2l0aW9uLnJvdyA9IE1hdGgubWF4KDAsIHBvc2l0aW9uLnJvdyk7CiAgICAgICAgICAgIHBvc2l0aW9uLmNvbHVtbiA9IE1hdGgubWluKE1hdGgubWF4KHBvc2l0aW9uLmNvbHVtbiwgMCksIHRoaXMuZ2V0TGluZShwb3NpdGlvbi5yb3cpLmxlbmd0aCk7CiAgICAgICAgfQogICAgICAgIHJldHVybiBwb3NpdGlvbjsKICAgIH07CiAgICB0aGlzLmluc2VydEZ1bGxMaW5lcyA9IGZ1bmN0aW9uIChyb3csIGxpbmVzKSB7CiAgICAgICAgcm93ID0gTWF0aC5taW4oTWF0aC5tYXgocm93LCAwKSwgdGhpcy5nZXRMZW5ndGgoKSk7CiAgICAgICAgdmFyIGNvbHVtbiA9IDA7CiAgICAgICAgaWYgKHJvdyA8IHRoaXMuZ2V0TGVuZ3RoKCkpIHsKICAgICAgICAgICAgbGluZXMgPSBsaW5lcy5jb25jYXQoWyIiXSk7CiAgICAgICAgICAgIGNvbHVtbiA9IDA7CiAgICAgICAgfQogICAgICAgIGVsc2UgewogICAgICAgICAgICBsaW5lcyA9IFsiIl0uY29uY2F0KGxpbmVzKTsKICAgICAgICAgICAgcm93LS07CiAgICAgICAgICAgIGNvbHVtbiA9IHRoaXMuJGxpbmVzW3Jvd10ubGVuZ3RoOwogICAgICAgIH0KICAgICAgICB0aGlzLmluc2VydE1lcmdlZExpbmVzKHsgcm93OiByb3csIGNvbHVtbjogY29sdW1uIH0sIGxpbmVzKTsKICAgIH07CiAgICB0aGlzLmluc2VydE1lcmdlZExpbmVzID0gZnVuY3Rpb24gKHBvc2l0aW9uLCBsaW5lcykgewogICAgICAgIHZhciBzdGFydCA9IHRoaXMuY2xpcHBlZFBvcyhwb3NpdGlvbi5yb3csIHBvc2l0aW9uLmNvbHVtbik7CiAgICAgICAgdmFyIGVuZCA9IHsKICAgICAgICAgICAgcm93OiBzdGFydC5yb3cgKyBsaW5lcy5sZW5ndGggLSAxLAogICAgICAgICAgICBjb2x1bW46IChsaW5lcy5sZW5ndGggPT0gMSA/IHN0YXJ0LmNvbHVtbiA6IDApICsgbGluZXNbbGluZXMubGVuZ3RoIC0gMV0ubGVuZ3RoCiAgICAgICAgfTsKICAgICAgICB0aGlzLmFwcGx5RGVsdGEoewogICAgICAgICAgICBzdGFydDogc3RhcnQsCiAgICAgICAgICAgIGVuZDogZW5kLAogICAgICAgICAgICBhY3Rpb246ICJpbnNlcnQiLAogICAgICAgICAgICBsaW5lczogbGluZXMKICAgICAgICB9KTsKICAgICAgICByZXR1cm4gdGhpcy5jbG9uZVBvcyhlbmQpOwogICAgfTsKICAgIHRoaXMucmVtb3ZlID0gZnVuY3Rpb24gKHJhbmdlKSB7CiAgICAgICAgdmFyIHN0YXJ0ID0gdGhpcy5jbGlwcGVkUG9zKHJhbmdlLnN0YXJ0LnJvdywgcmFuZ2Uuc3RhcnQuY29sdW1uKTsKICAgICAgICB2YXIgZW5kID0gdGhpcy5jbGlwcGVkUG9zKHJhbmdlLmVuZC5yb3csIHJhbmdlLmVuZC5jb2x1bW4pOwogICAgICAgIHRoaXMuYXBwbHlEZWx0YSh7CiAgICAgICAgICAgIHN0YXJ0OiBzdGFydCwKICAgICAgICAgICAgZW5kOiBlbmQsCiAgICAgICAgICAgIGFjdGlvbjogInJlbW92ZSIsCiAgICAgICAgICAgIGxpbmVzOiB0aGlzLmdldExpbmVzRm9yUmFuZ2UoeyBzdGFydDogc3RhcnQsIGVuZDogZW5kIH0pCiAgICAgICAgfSk7CiAgICAgICAgcmV0dXJuIHRoaXMuY2xvbmVQb3Moc3RhcnQpOwogICAgfTsKICAgIHRoaXMucmVtb3ZlSW5MaW5lID0gZnVuY3Rpb24gKHJvdywgc3RhcnRDb2x1bW4sIGVuZENvbHVtbikgewogICAgICAgIHZhciBzdGFydCA9IHRoaXMuY2xpcHBlZFBvcyhyb3csIHN0YXJ0Q29sdW1uKTsKICAgICAgICB2YXIgZW5kID0gdGhpcy5jbGlwcGVkUG9zKHJvdywgZW5kQ29sdW1uKTsKICAgICAgICB0aGlzLmFwcGx5RGVsdGEoewogICAgICAgICAgICBzdGFydDogc3RhcnQsCiAgICAgICAgICAgIGVuZDogZW5kLAogICAgICAgICAgICBhY3Rpb246ICJyZW1vdmUiLAogICAgICAgICAgICBsaW5lczogdGhpcy5nZXRMaW5lc0ZvclJhbmdlKHsgc3RhcnQ6IHN0YXJ0LCBlbmQ6IGVuZCB9KQogICAgICAgIH0sIHRydWUpOwogICAgICAgIHJldHVybiB0aGlzLmNsb25lUG9zKHN0YXJ0KTsKICAgIH07CiAgICB0aGlzLnJlbW92ZUZ1bGxMaW5lcyA9IGZ1bmN0aW9uIChmaXJzdFJvdywgbGFzdFJvdykgewogICAgICAgIGZpcnN0Um93ID0gTWF0aC5taW4oTWF0aC5tYXgoMCwgZmlyc3RSb3cpLCB0aGlzLmdldExlbmd0aCgpIC0gMSk7CiAgICAgICAgbGFzdFJvdyA9IE1hdGgubWluKE1hdGgubWF4KDAsIGxhc3RSb3cpLCB0aGlzLmdldExlbmd0aCgpIC0gMSk7CiAgICAgICAgdmFyIGRlbGV0ZUZpcnN0TmV3TGluZSA9IGxhc3RSb3cgPT0gdGhpcy5nZXRMZW5ndGgoKSAtIDEgJiYgZmlyc3RSb3cgPiAwOwogICAgICAgIHZhciBkZWxldGVMYXN0TmV3TGluZSA9IGxhc3RSb3cgPCB0aGlzLmdldExlbmd0aCgpIC0gMTsKICAgICAgICB2YXIgc3RhcnRSb3cgPSAoZGVsZXRlRmlyc3ROZXdMaW5lID8gZmlyc3RSb3cgLSAxIDogZmlyc3RSb3cpOwogICAgICAgIHZhciBzdGFydENvbCA9IChkZWxldGVGaXJzdE5ld0xpbmUgPyB0aGlzLmdldExpbmUoc3RhcnRSb3cpLmxlbmd0aCA6IDApOwogICAgICAgIHZhciBlbmRSb3cgPSAoZGVsZXRlTGFzdE5ld0xpbmUgPyBsYXN0Um93ICsgMSA6IGxhc3RSb3cpOwogICAgICAgIHZhciBlbmRDb2wgPSAoZGVsZXRlTGFzdE5ld0xpbmUgPyAwIDogdGhpcy5nZXRMaW5lKGVuZFJvdykubGVuZ3RoKTsKICAgICAgICB2YXIgcmFuZ2UgPSBuZXcgUmFuZ2Uoc3RhcnRSb3csIHN0YXJ0Q29sLCBlbmRSb3csIGVuZENvbCk7CiAgICAgICAgdmFyIGRlbGV0ZWRMaW5lcyA9IHRoaXMuJGxpbmVzLnNsaWNlKGZpcnN0Um93LCBsYXN0Um93ICsgMSk7CiAgICAgICAgdGhpcy5hcHBseURlbHRhKHsKICAgICAgICAgICAgc3RhcnQ6IHJhbmdlLnN0YXJ0LAogICAgICAgICAgICBlbmQ6IHJhbmdlLmVuZCwKICAgICAgICAgICAgYWN0aW9uOiAicmVtb3ZlIiwKICAgICAgICAgICAgbGluZXM6IHRoaXMuZ2V0TGluZXNGb3JSYW5nZShyYW5nZSkKICAgICAgICB9KTsKICAgICAgICByZXR1cm4gZGVsZXRlZExpbmVzOwogICAgfTsKICAgIHRoaXMucmVtb3ZlTmV3TGluZSA9IGZ1bmN0aW9uIChyb3cpIHsKICAgICAgICBpZiAocm93IDwgdGhpcy5nZXRMZW5ndGgoKSAtIDEgJiYgcm93ID49IDApIHsKICAgICAgICAgICAgdGhpcy5hcHBseURlbHRhKHsKICAgICAgICAgICAgICAgIHN0YXJ0OiB0aGlzLnBvcyhyb3csIHRoaXMuZ2V0TGluZShyb3cpLmxlbmd0aCksCiAgICAgICAgICAgICAgICBlbmQ6IHRoaXMucG9zKHJvdyArIDEsIDApLAogICAgICAgICAgICAgICAgYWN0aW9uOiAicmVtb3ZlIiwKICAgICAgICAgICAgICAgIGxpbmVzOiBbIiIsICIiXQogICAgICAgICAgICB9KTsKICAgICAgICB9CiAgICB9OwogICAgdGhpcy5yZXBsYWNlID0gZnVuY3Rpb24gKHJhbmdlLCB0ZXh0KSB7CiAgICAgICAgaWYgKCEocmFuZ2UgaW5zdGFuY2VvZiBSYW5nZSkpCiAgICAgICAgICAgIHJhbmdlID0gUmFuZ2UuZnJvbVBvaW50cyhyYW5nZS5zdGFydCwgcmFuZ2UuZW5kKTsKICAgICAgICBpZiAodGV4dC5sZW5ndGggPT09IDAgJiYgcmFuZ2UuaXNFbXB0eSgpKQogICAgICAgICAgICByZXR1cm4gcmFuZ2Uuc3RhcnQ7CiAgICAgICAgaWYgKHRleHQgPT0gdGhpcy5nZXRUZXh0UmFuZ2UocmFuZ2UpKQogICAgICAgICAgICByZXR1cm4gcmFuZ2UuZW5kOwogICAgICAgIHRoaXMucmVtb3ZlKHJhbmdlKTsKICAgICAgICB2YXIgZW5kOwogICAgICAgIGlmICh0ZXh0KSB7CiAgICAgICAgICAgIGVuZCA9IHRoaXMuaW5zZXJ0KHJhbmdlLnN0YXJ0LCB0ZXh0KTsKICAgICAgICB9CiAgICAgICAgZWxzZSB7CiAgICAgICAgICAgIGVuZCA9IHJhbmdlLnN0YXJ0OwogICAgICAgIH0KICAgICAgICByZXR1cm4gZW5kOwogICAgfTsKICAgIHRoaXMuYXBwbHlEZWx0YXMgPSBmdW5jdGlvbiAoZGVsdGFzKSB7CiAgICAgICAgZm9yICh2YXIgaSA9IDA7IGkgPCBkZWx0YXMubGVuZ3RoOyBpKyspIHsKICAgICAgICAgICAgdGhpcy5hcHBseURlbHRhKGRlbHRhc1tpXSk7CiAgICAgICAgfQogICAgfTsKICAgIHRoaXMucmV2ZXJ0RGVsdGFzID0gZnVuY3Rpb24gKGRlbHRhcykgewogICAgICAgIGZvciAodmFyIGkgPSBkZWx0YXMubGVuZ3RoIC0gMTsgaSA+PSAwOyBpLS0pIHsKICAgICAgICAgICAgdGhpcy5yZXZlcnREZWx0YShkZWx0YXNbaV0pOwogICAgICAgIH0KICAgIH07CiAgICB0aGlzLmFwcGx5RGVsdGEgPSBmdW5jdGlvbiAoZGVsdGEsIGRvTm90VmFsaWRhdGUpIHsKICAgICAgICB2YXIgaXNJbnNlcnQgPSBkZWx0YS5hY3Rpb24gPT0gImluc2VydCI7CiAgICAgICAgaWYgKGlzSW5zZXJ0ID8gZGVsdGEubGluZXMubGVuZ3RoIDw9IDEgJiYgIWRlbHRhLmxpbmVzWzBdCiAgICAgICAgICAgIDogIVJhbmdlLmNvbXBhcmVQb2ludHMoZGVsdGEuc3RhcnQsIGRlbHRhLmVuZCkpIHsKICAgICAgICAgICAgcmV0dXJuOwogICAgICAgIH0KICAgICAgICBpZiAoaXNJbnNlcnQgJiYgZGVsdGEubGluZXMubGVuZ3RoID4gMjAwMDApIHsKICAgICAgICAgICAgdGhpcy4kc3BsaXRBbmRhcHBseUxhcmdlRGVsdGEoZGVsdGEsIDIwMDAwKTsKICAgICAgICB9CiAgICAgICAgZWxzZSB7CiAgICAgICAgICAgIGFwcGx5RGVsdGEodGhpcy4kbGluZXMsIGRlbHRhLCBkb05vdFZhbGlkYXRlKTsKICAgICAgICAgICAgdGhpcy5fc2lnbmFsKCJjaGFuZ2UiLCBkZWx0YSk7CiAgICAgICAgfQogICAgfTsKICAgIHRoaXMuJHNhZmVBcHBseURlbHRhID0gZnVuY3Rpb24gKGRlbHRhKSB7CiAgICAgICAgdmFyIGRvY0xlbmd0aCA9IHRoaXMuJGxpbmVzLmxlbmd0aDsKICAgICAgICBpZiAoZGVsdGEuYWN0aW9uID09ICJyZW1vdmUiICYmIGRlbHRhLnN0YXJ0LnJvdyA8IGRvY0xlbmd0aCAmJiBkZWx0YS5lbmQucm93IDwgZG9jTGVuZ3RoCiAgICAgICAgICAgIHx8IGRlbHRhLmFjdGlvbiA9PSAiaW5zZXJ0IiAmJiBkZWx0YS5zdGFydC5yb3cgPD0gZG9jTGVuZ3RoKSB7CiAgICAgICAgICAgIHRoaXMuYXBwbHlEZWx0YShkZWx0YSk7CiAgICAgICAgfQogICAgfTsKICAgIHRoaXMuJHNwbGl0QW5kYXBwbHlMYXJnZURlbHRhID0gZnVuY3Rpb24gKGRlbHRhLCBNQVgpIHsKICAgICAgICB2YXIgbGluZXMgPSBkZWx0YS5saW5lczsKICAgICAgICB2YXIgbCA9IGxpbmVzLmxlbmd0aCAtIE1BWCArIDE7CiAgICAgICAgdmFyIHJvdyA9IGRlbHRhLnN0YXJ0LnJvdzsKICAgICAgICB2YXIgY29sdW1uID0gZGVsdGEuc3RhcnQuY29sdW1uOwogICAgICAgIGZvciAodmFyIGZyb20gPSAwLCB0byA9IDA7IGZyb20gPCBsOyBmcm9tID0gdG8pIHsKICAgICAgICAgICAgdG8gKz0gTUFYIC0gMTsKICAgICAgICAgICAgdmFyIGNodW5rID0gbGluZXMuc2xpY2UoZnJvbSwgdG8pOwogICAgICAgICAgICBjaHVuay5wdXNoKCIiKTsKICAgICAgICAgICAgdGhpcy5hcHBseURlbHRhKHsKICAgICAgICAgICAgICAgIHN0YXJ0OiB0aGlzLnBvcyhyb3cgKyBmcm9tLCBjb2x1bW4pLAogICAgICAgICAgICAgICAgZW5kOiB0aGlzLnBvcyhyb3cgKyB0bywgY29sdW1uID0gMCksCiAgICAgICAgICAgICAgICBhY3Rpb246IGRlbHRhLmFjdGlvbiwKICAgICAgICAgICAgICAgIGxpbmVzOiBjaHVuawogICAgICAgICAgICB9LCB0cnVlKTsKICAgICAgICB9CiAgICAgICAgZGVsdGEubGluZXMgPSBsaW5lcy5zbGljZShmcm9tKTsKICAgICAgICBkZWx0YS5zdGFydC5yb3cgPSByb3cgKyBmcm9tOwogICAgICAgIGRlbHRhLnN0YXJ0LmNvbHVtbiA9IGNvbHVtbjsKICAgICAgICB0aGlzLmFwcGx5RGVsdGEoZGVsdGEsIHRydWUpOwogICAgfTsKICAgIHRoaXMucmV2ZXJ0RGVsdGEgPSBmdW5jdGlvbiAoZGVsdGEpIHsKICAgICAgICB0aGlzLiRzYWZlQXBwbHlEZWx0YSh7CiAgICAgICAgICAgIHN0YXJ0OiB0aGlzLmNsb25lUG9zKGRlbHRhLnN0YXJ0KSwKICAgICAgICAgICAgZW5kOiB0aGlzLmNsb25lUG9zKGRlbHRhLmVuZCksCiAgICAgICAgICAgIGFjdGlvbjogKGRlbHRhLmFjdGlvbiA9PSAiaW5zZXJ0IiA/ICJyZW1vdmUiIDogImluc2VydCIpLAogICAgICAgICAgICBsaW5lczogZGVsdGEubGluZXMuc2xpY2UoKQogICAgICAgIH0pOwogICAgfTsKICAgIHRoaXMuaW5kZXhUb1Bvc2l0aW9uID0gZnVuY3Rpb24gKGluZGV4LCBzdGFydFJvdykgewogICAgICAgIHZhciBsaW5lcyA9IHRoaXMuJGxpbmVzIHx8IHRoaXMuZ2V0QWxsTGluZXMoKTsKICAgICAgICB2YXIgbmV3bGluZUxlbmd0aCA9IHRoaXMuZ2V0TmV3TGluZUNoYXJhY3RlcigpLmxlbmd0aDsKICAgICAgICBmb3IgKHZhciBpID0gc3RhcnRSb3cgfHwgMCwgbCA9IGxpbmVzLmxlbmd0aDsgaSA8IGw7IGkrKykgewogICAgICAgICAgICBpbmRleCAtPSBsaW5lc1tpXS5sZW5ndGggKyBuZXdsaW5lTGVuZ3RoOwogICAgICAgICAgICBpZiAoaW5kZXggPCAwKQogICAgICAgICAgICAgICAgcmV0dXJuIHsgcm93OiBpLCBjb2x1bW46IGluZGV4ICsgbGluZXNbaV0ubGVuZ3RoICsgbmV3bGluZUxlbmd0aCB9OwogICAgICAgIH0KICAgICAgICByZXR1cm4geyByb3c6IGwgLSAxLCBjb2x1bW46IGluZGV4ICsgbGluZXNbbCAtIDFdLmxlbmd0aCArIG5ld2xpbmVMZW5ndGggfTsKICAgIH07CiAgICB0aGlzLnBvc2l0aW9uVG9JbmRleCA9IGZ1bmN0aW9uIChwb3MsIHN0YXJ0Um93KSB7CiAgICAgICAgdmFyIGxpbmVzID0gdGhpcy4kbGluZXMgfHwgdGhpcy5nZXRBbGxMaW5lcygpOwogICAgICAgIHZhciBuZXdsaW5lTGVuZ3RoID0gdGhpcy5nZXROZXdMaW5lQ2hhcmFjdGVyKCkubGVuZ3RoOwogICAgICAgIHZhciBpbmRleCA9IDA7CiAgICAgICAgdmFyIHJvdyA9IE1hdGgubWluKHBvcy5yb3csIGxpbmVzLmxlbmd0aCk7CiAgICAgICAgZm9yICh2YXIgaSA9IHN0YXJ0Um93IHx8IDA7IGkgPCByb3c7ICsraSkKICAgICAgICAgICAgaW5kZXggKz0gbGluZXNbaV0ubGVuZ3RoICsgbmV3bGluZUxlbmd0aDsKICAgICAgICByZXR1cm4gaW5kZXggKyBwb3MuY29sdW1uOwogICAgfTsKfSkuY2FsbChEb2N1bWVudC5wcm90b3R5cGUpOwpleHBvcnRzLkRvY3VtZW50ID0gRG9jdW1lbnQ7Cgp9KTsKCmFjZS5kZWZpbmUoImFjZS9saWIvbGFuZyIsW10sIGZ1bmN0aW9uKHJlcXVpcmUsIGV4cG9ydHMsIG1vZHVsZSl7InVzZSBzdHJpY3QiOwpleHBvcnRzLmxhc3QgPSBmdW5jdGlvbiAoYSkgewogICAgcmV0dXJuIGFbYS5sZW5ndGggLSAxXTsKfTsKZXhwb3J0cy5zdHJpbmdSZXZlcnNlID0gZnVuY3Rpb24gKHN0cmluZykgewogICAgcmV0dXJuIHN0cmluZy5zcGxpdCgiIikucmV2ZXJzZSgpLmpvaW4oIiIpOwp9OwpleHBvcnRzLnN0cmluZ1JlcGVhdCA9IGZ1bmN0aW9uIChzdHJpbmcsIGNvdW50KSB7CiAgICB2YXIgcmVzdWx0ID0gJyc7CiAgICB3aGlsZSAoY291bnQgPiAwKSB7CiAgICAgICAgaWYgKGNvdW50ICYgMSkKICAgICAgICAgICAgcmVzdWx0ICs9IHN0cmluZzsKICAgICAgICBpZiAoY291bnQgPj49IDEpCiAgICAgICAgICAgIHN0cmluZyArPSBzdHJpbmc7CiAgICB9CiAgICByZXR1cm4gcmVzdWx0Owp9Owp2YXIgdHJpbUJlZ2luUmVnZXhwID0gL15cc1xzKi87CnZhciB0cmltRW5kUmVnZXhwID0gL1xzXHMqJC87CmV4cG9ydHMuc3RyaW5nVHJpbUxlZnQgPSBmdW5jdGlvbiAoc3RyaW5nKSB7CiAgICByZXR1cm4gc3RyaW5nLnJlcGxhY2UodHJpbUJlZ2luUmVnZXhwLCAnJyk7Cn07CmV4cG9ydHMuc3RyaW5nVHJpbVJpZ2h0ID0gZnVuY3Rpb24gKHN0cmluZykgewogICAgcmV0dXJuIHN0cmluZy5yZXBsYWNlKHRyaW1FbmRSZWdleHAsICcnKTsKfTsKZXhwb3J0cy5jb3B5T2JqZWN0ID0gZnVuY3Rpb24gKG9iaikgewogICAgdmFyIGNvcHkgPSB7fTsKICAgIGZvciAodmFyIGtleSBpbiBvYmopIHsKICAgICAgICBjb3B5W2tleV0gPSBvYmpba2V5XTsKICAgIH0KICAgIHJldHVybiBjb3B5Owp9OwpleHBvcnRzLmNvcHlBcnJheSA9IGZ1bmN0aW9uIChhcnJheSkgewogICAgdmFyIGNvcHkgPSBbXTsKICAgIGZvciAodmFyIGkgPSAwLCBsID0gYXJyYXkubGVuZ3RoOyBpIDwgbDsgaSsrKSB7CiAgICAgICAgaWYgKGFycmF5W2ldICYmIHR5cGVvZiBhcnJheVtpXSA9PSAib2JqZWN0IikKICAgICAgICAgICAgY29weVtpXSA9IHRoaXMuY29weU9iamVjdChhcnJheVtpXSk7CiAgICAgICAgZWxzZQogICAgICAgICAgICBjb3B5W2ldID0gYXJyYXlbaV07CiAgICB9CiAgICByZXR1cm4gY29weTsKfTsKZXhwb3J0cy5kZWVwQ29weSA9IGZ1bmN0aW9uIGRlZXBDb3B5KG9iaikgewogICAgaWYgKHR5cGVvZiBvYmogIT09ICJvYmplY3QiIHx8ICFvYmopCiAgICAgICAgcmV0dXJuIG9iajsKICAgIHZhciBjb3B5OwogICAgaWYgKEFycmF5LmlzQXJyYXkob2JqKSkgewogICAgICAgIGNvcHkgPSBbXTsKICAgICAgICBmb3IgKHZhciBrZXkgPSAwOyBrZXkgPCBvYmoubGVuZ3RoOyBrZXkrKykgewogICAgICAgICAgICBjb3B5W2tleV0gPSBkZWVwQ29weShvYmpba2V5XSk7CiAgICAgICAgfQogICAgICAgIHJldHVybiBjb3B5OwogICAgfQogICAgaWYgKE9iamVjdC5wcm90b3R5cGUudG9TdHJpbmcuY2FsbChvYmopICE9PSAiW29iamVjdCBPYmplY3RdIikKICAgICAgICByZXR1cm4gb2JqOwogICAgY29weSA9IHt9OwogICAgZm9yICh2YXIga2V5IGluIG9iaikKICAgICAgICBjb3B5W2tleV0gPSBkZWVwQ29weShvYmpba2V5XSk7CiAgICByZXR1cm4gY29weTsKfTsKZXhwb3J0cy5hcnJheVRvTWFwID0gZnVuY3Rpb24gKGFycikgewogICAgdmFyIG1hcCA9IHt9OwogICAgZm9yICh2YXIgaSA9IDA7IGkgPCBhcnIubGVuZ3RoOyBpKyspIHsKICAgICAgICBtYXBbYXJyW2ldXSA9IDE7CiAgICB9CiAgICByZXR1cm4gbWFwOwp9OwpleHBvcnRzLmNyZWF0ZU1hcCA9IGZ1bmN0aW9uIChwcm9wcykgewogICAgdmFyIG1hcCA9IE9iamVjdC5jcmVhdGUobnVsbCk7CiAgICBmb3IgKHZhciBpIGluIHByb3BzKSB7CiAgICAgICAgbWFwW2ldID0gcHJvcHNbaV07CiAgICB9CiAgICByZXR1cm4gbWFwOwp9OwpleHBvcnRzLmFycmF5UmVtb3ZlID0gZnVuY3Rpb24gKGFycmF5LCB2YWx1ZSkgewogICAgZm9yICh2YXIgaSA9IDA7IGkgPD0gYXJyYXkubGVuZ3RoOyBpKyspIHsKICAgICAgICBpZiAodmFsdWUgPT09IGFycmF5W2ldKSB7CiAgICAgICAgICAgIGFycmF5LnNwbGljZShpLCAxKTsKICAgICAgICB9CiAgICB9Cn07CmV4cG9ydHMuZXNjYXBlUmVnRXhwID0gZnVuY3Rpb24gKHN0cikgewogICAgcmV0dXJuIHN0ci5yZXBsYWNlKC8oWy4qKz9eJHt9KCl8W1xdXC9cXF0pL2csICdcXCQxJyk7Cn07CmV4cG9ydHMuZXNjYXBlSFRNTCA9IGZ1bmN0aW9uIChzdHIpIHsKICAgIHJldHVybiAoIiIgKyBzdHIpLnJlcGxhY2UoLyYvZywgIiYjMzg7IikucmVwbGFjZSgvIi9nLCAiJiMzNDsiKS5yZXBsYWNlKC8nL2csICImIzM5OyIpLnJlcGxhY2UoLzwvZywgIiYjNjA7Iik7Cn07CmV4cG9ydHMuZ2V0TWF0Y2hPZmZzZXRzID0gZnVuY3Rpb24gKHN0cmluZywgcmVnRXhwKSB7CiAgICB2YXIgbWF0Y2hlcyA9IFtdOwogICAgc3RyaW5nLnJlcGxhY2UocmVnRXhwLCBmdW5jdGlvbiAoc3RyKSB7CiAgICAgICAgbWF0Y2hlcy5wdXNoKHsKICAgICAgICAgICAgb2Zmc2V0OiBhcmd1bWVudHNbYXJndW1lbnRzLmxlbmd0aCAtIDJdLAogICAgICAgICAgICBsZW5ndGg6IHN0ci5sZW5ndGgKICAgICAgICB9KTsKICAgIH0pOwogICAgcmV0dXJuIG1hdGNoZXM7Cn07CmV4cG9ydHMuZGVmZXJyZWRDYWxsID0gZnVuY3Rpb24gKGZjbikgewogICAgdmFyIHRpbWVyID0gbnVsbDsKICAgIHZhciBjYWxsYmFjayA9IGZ1bmN0aW9uICgpIHsKICAgICAgICB0aW1lciA9IG51bGw7CiAgICAgICAgZmNuKCk7CiAgICB9OwogICAgdmFyIGRlZmVycmVkID0gZnVuY3Rpb24gKHRpbWVvdXQpIHsKICAgICAgICBkZWZlcnJlZC5jYW5jZWwoKTsKICAgICAgICB0aW1lciA9IHNldFRpbWVvdXQoY2FsbGJhY2ssIHRpbWVvdXQgfHwgMCk7CiAgICAgICAgcmV0dXJuIGRlZmVycmVkOwogICAgfTsKICAgIGRlZmVycmVkLnNjaGVkdWxlID0gZGVmZXJyZWQ7CiAgICBkZWZlcnJlZC5jYWxsID0gZnVuY3Rpb24gKCkgewogICAgICAgIHRoaXMuY2FuY2VsKCk7CiAgICAgICAgZmNuKCk7CiAgICAgICAgcmV0dXJuIGRlZmVycmVkOwogICAgfTsKICAgIGRlZmVycmVkLmNhbmNlbCA9IGZ1bmN0aW9uICgpIHsKICAgICAgICBjbGVhclRpbWVvdXQodGltZXIpOwogICAgICAgIHRpbWVyID0gbnVsbDsKICAgICAgICByZXR1cm4gZGVmZXJyZWQ7CiAgICB9OwogICAgZGVmZXJyZWQuaXNQZW5kaW5nID0gZnVuY3Rpb24gKCkgewogICAgICAgIHJldHVybiB0aW1lcjsKICAgIH07CiAgICByZXR1cm4gZGVmZXJyZWQ7Cn07CmV4cG9ydHMuZGVsYXllZENhbGwgPSBmdW5jdGlvbiAoZmNuLCBkZWZhdWx0VGltZW91dCkgewogICAgdmFyIHRpbWVyID0gbnVsbDsKICAgIHZhciBjYWxsYmFjayA9IGZ1bmN0aW9uICgpIHsKICAgICAgICB0aW1lciA9IG51bGw7CiAgICAgICAgZmNuKCk7CiAgICB9OwogICAgdmFyIF9zZWxmID0gZnVuY3Rpb24gKHRpbWVvdXQpIHsKICAgICAgICBpZiAodGltZXIgPT0gbnVsbCkKICAgICAgICAgICAgdGltZXIgPSBzZXRUaW1lb3V0KGNhbGxiYWNrLCB0aW1lb3V0IHx8IGRlZmF1bHRUaW1lb3V0KTsKICAgIH07CiAgICBfc2VsZi5kZWxheSA9IGZ1bmN0aW9uICh0aW1lb3V0KSB7CiAgICAgICAgdGltZXIgJiYgY2xlYXJUaW1lb3V0KHRpbWVyKTsKICAgICAgICB0aW1lciA9IHNldFRpbWVvdXQoY2FsbGJhY2ssIHRpbWVvdXQgfHwgZGVmYXVsdFRpbWVvdXQpOwogICAgfTsKICAgIF9zZWxmLnNjaGVkdWxlID0gX3NlbGY7CiAgICBfc2VsZi5jYWxsID0gZnVuY3Rpb24gKCkgewogICAgICAgIHRoaXMuY2FuY2VsKCk7CiAgICAgICAgZmNuKCk7CiAgICB9OwogICAgX3NlbGYuY2FuY2VsID0gZnVuY3Rpb24gKCkgewogICAgICAgIHRpbWVyICYmIGNsZWFyVGltZW91dCh0aW1lcik7CiAgICAgICAgdGltZXIgPSBudWxsOwogICAgfTsKICAgIF9zZWxmLmlzUGVuZGluZyA9IGZ1bmN0aW9uICgpIHsKICAgICAgICByZXR1cm4gdGltZXI7CiAgICB9OwogICAgcmV0dXJuIF9zZWxmOwp9OwoKfSk7CgphY2UuZGVmaW5lKCJhY2Uvd29ya2VyL21pcnJvciIsW10sIGZ1bmN0aW9uKHJlcXVpcmUsIGV4cG9ydHMsIG1vZHVsZSkgewoidXNlIHN0cmljdCI7Cgp2YXIgRG9jdW1lbnQgPSByZXF1aXJlKCIuLi9kb2N1bWVudCIpLkRvY3VtZW50Owp2YXIgbGFuZyA9IHJlcXVpcmUoIi4uL2xpYi9sYW5nIik7CiAgICAKdmFyIE1pcnJvciA9IGV4cG9ydHMuTWlycm9yID0gZnVuY3Rpb24oc2VuZGVyKSB7CiAgICB0aGlzLnNlbmRlciA9IHNlbmRlcjsKICAgIHZhciBkb2MgPSB0aGlzLmRvYyA9IG5ldyBEb2N1bWVudCgiIik7CiAgICAKICAgIHZhciBkZWZlcnJlZFVwZGF0ZSA9IHRoaXMuZGVmZXJyZWRVcGRhdGUgPSBsYW5nLmRlbGF5ZWRDYWxsKHRoaXMub25VcGRhdGUuYmluZCh0aGlzKSk7CiAgICAKICAgIHZhciBfc2VsZiA9IHRoaXM7CiAgICBzZW5kZXIub24oImNoYW5nZSIsIGZ1bmN0aW9uKGUpIHsKICAgICAgICB2YXIgZGF0YSA9IGUuZGF0YTsKICAgICAgICBpZiAoZGF0YVswXS5zdGFydCkgewogICAgICAgICAgICBkb2MuYXBwbHlEZWx0YXMoZGF0YSk7CiAgICAgICAgfSBlbHNlIHsKICAgICAgICAgICAgZm9yICh2YXIgaSA9IDA7IGkgPCBkYXRhLmxlbmd0aDsgaSArPSAyKSB7CiAgICAgICAgICAgICAgICB2YXIgZCwgZXJyOyAKICAgICAgICAgICAgICAgIGlmIChBcnJheS5pc0FycmF5KGRhdGFbaSsxXSkpIHsKICAgICAgICAgICAgICAgICAgICBkID0ge2FjdGlvbjogImluc2VydCIsIHN0YXJ0OiBkYXRhW2ldLCBsaW5lczogZGF0YVtpKzFdfTsKICAgICAgICAgICAgICAgIH0gZWxzZSB7CiAgICAgICAgICAgICAgICAgICAgZCA9IHthY3Rpb246ICJyZW1vdmUiLCBzdGFydDogZGF0YVtpXSwgZW5kOiBkYXRhW2krMV19OwogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICBpZiAoKGQuYWN0aW9uID09ICJpbnNlcnQiID8gZC5zdGFydCA6IGQuZW5kKS5yb3cgPj0gZG9jLiRsaW5lcy5sZW5ndGgpIHsKICAgICAgICAgICAgICAgICAgICBlcnIgPSBuZXcgRXJyb3IoIkludmFsaWQgZGVsdGEiKTsKICAgICAgICAgICAgICAgICAgICBlcnIuZGF0YSA9IHsKICAgICAgICAgICAgICAgICAgICAgICAgcGF0aDogX3NlbGYuJHBhdGgsCiAgICAgICAgICAgICAgICAgICAgICAgIGxpbmVzTGVuZ3RoOiBkb2MuJGxpbmVzLmxlbmd0aCwKICAgICAgICAgICAgICAgICAgICAgICAgc3RhcnQ6IGQuc3RhcnQsCiAgICAgICAgICAgICAgICAgICAgICAgIGVuZDogZC5lbmQKICAgICAgICAgICAgICAgICAgICB9OwogICAgICAgICAgICAgICAgICAgIHRocm93IGVycjsKICAgICAgICAgICAgICAgIH0KCiAgICAgICAgICAgICAgICBkb2MuYXBwbHlEZWx0YShkLCB0cnVlKTsKICAgICAgICAgICAgfQogICAgICAgIH0KICAgICAgICBpZiAoX3NlbGYuJHRpbWVvdXQpCiAgICAgICAgICAgIHJldHVybiBkZWZlcnJlZFVwZGF0ZS5zY2hlZHVsZShfc2VsZi4kdGltZW91dCk7CiAgICAgICAgX3NlbGYub25VcGRhdGUoKTsKICAgIH0pOwp9OwoKKGZ1bmN0aW9uKCkgewogICAgCiAgICB0aGlzLiR0aW1lb3V0ID0gNTAwOwogICAgCiAgICB0aGlzLnNldFRpbWVvdXQgPSBmdW5jdGlvbih0aW1lb3V0KSB7CiAgICAgICAgdGhpcy4kdGltZW91dCA9IHRpbWVvdXQ7CiAgICB9OwogICAgCiAgICB0aGlzLnNldFZhbHVlID0gZnVuY3Rpb24odmFsdWUpIHsKICAgICAgICB0aGlzLmRvYy5zZXRWYWx1ZSh2YWx1ZSk7CiAgICAgICAgdGhpcy5kZWZlcnJlZFVwZGF0ZS5zY2hlZHVsZSh0aGlzLiR0aW1lb3V0KTsKICAgIH07CiAgICAKICAgIHRoaXMuZ2V0VmFsdWUgPSBmdW5jdGlvbihjYWxsYmFja0lkKSB7CiAgICAgICAgdGhpcy5zZW5kZXIuY2FsbGJhY2sodGhpcy5kb2MuZ2V0VmFsdWUoKSwgY2FsbGJhY2tJZCk7CiAgICB9OwogICAgCiAgICB0aGlzLm9uVXBkYXRlID0gZnVuY3Rpb24oKSB7CiAgICB9OwogICAgCiAgICB0aGlzLmlzUGVuZGluZyA9IGZ1bmN0aW9uKCkgewogICAgICAgIHJldHVybiB0aGlzLmRlZmVycmVkVXBkYXRlLmlzUGVuZGluZygpOwogICAgfTsKICAgIAp9KS5jYWxsKE1pcnJvci5wcm90b3R5cGUpOwoKfSk7CgphY2UuZGVmaW5lKCJhY2UvbW9kZS9qc29uL2pzb25fcGFyc2UiLFtdLCBmdW5jdGlvbihyZXF1aXJlLCBleHBvcnRzLCBtb2R1bGUpIHsKInVzZSBzdHJpY3QiOwoKICAgIHZhciBhdCwgICAgIC8vIFRoZSBpbmRleCBvZiB0aGUgY3VycmVudCBjaGFyYWN0ZXIKICAgICAgICBjaCwgICAgIC8vIFRoZSBjdXJyZW50IGNoYXJhY3RlcgogICAgICAgIGVzY2FwZWUgPSB7CiAgICAgICAgICAgICciJzogICciJywKICAgICAgICAgICAgJ1xcJzogJ1xcJywKICAgICAgICAgICAgJy8nOiAgJy8nLAogICAgICAgICAgICBiOiAgICAnXGInLAogICAgICAgICAgICBmOiAgICAnXGYnLAogICAgICAgICAgICBuOiAgICAnXG4nLAogICAgICAgICAgICByOiAgICAnXHInLAogICAgICAgICAgICB0OiAgICAnXHQnCiAgICAgICAgfSwKICAgICAgICB0ZXh0LAoKICAgICAgICBlcnJvciA9IGZ1bmN0aW9uIChtKSB7CgogICAgICAgICAgICB0aHJvdyB7CiAgICAgICAgICAgICAgICBuYW1lOiAgICAnU3ludGF4RXJyb3InLAogICAgICAgICAgICAgICAgbWVzc2FnZTogbSwKICAgICAgICAgICAgICAgIGF0OiAgICAgIGF0LAogICAgICAgICAgICAgICAgdGV4dDogICAgdGV4dAogICAgICAgICAgICB9OwogICAgICAgIH0sCgogICAgICAgIG5leHQgPSBmdW5jdGlvbiAoYykgewoKICAgICAgICAgICAgaWYgKGMgJiYgYyAhPT0gY2gpIHsKICAgICAgICAgICAgICAgIGVycm9yKCJFeHBlY3RlZCAnIiArIGMgKyAiJyBpbnN0ZWFkIG9mICciICsgY2ggKyAiJyIpOwogICAgICAgICAgICB9CgogICAgICAgICAgICBjaCA9IHRleHQuY2hhckF0KGF0KTsKICAgICAgICAgICAgYXQgKz0gMTsKICAgICAgICAgICAgcmV0dXJuIGNoOwogICAgICAgIH0sCgogICAgICAgIG51bWJlciA9IGZ1bmN0aW9uICgpIHsKCiAgICAgICAgICAgIHZhciBudW1iZXIsCiAgICAgICAgICAgICAgICBzdHJpbmcgPSAnJzsKCiAgICAgICAgICAgIGlmIChjaCA9PT0gJy0nKSB7CiAgICAgICAgICAgICAgICBzdHJpbmcgPSAnLSc7CiAgICAgICAgICAgICAgICBuZXh0KCctJyk7CiAgICAgICAgICAgIH0KICAgICAgICAgICAgd2hpbGUgKGNoID49ICcwJyAmJiBjaCA8PSAnOScpIHsKICAgICAgICAgICAgICAgIHN0cmluZyArPSBjaDsKICAgICAgICAgICAgICAgIG5leHQoKTsKICAgICAgICAgICAgfQogICAgICAgICAgICBpZiAoY2ggPT09ICcuJykgewogICAgICAgICAgICAgICAgc3RyaW5nICs9ICcuJzsKICAgICAgICAgICAgICAgIHdoaWxlIChuZXh0KCkgJiYgY2ggPj0gJzAnICYmIGNoIDw9ICc5JykgewogICAgICAgICAgICAgICAgICAgIHN0cmluZyArPSBjaDsKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfQogICAgICAgICAgICBpZiAoY2ggPT09ICdlJyB8fCBjaCA9PT0gJ0UnKSB7CiAgICAgICAgICAgICAgICBzdHJpbmcgKz0gY2g7CiAgICAgICAgICAgICAgICBuZXh0KCk7CiAgICAgICAgICAgICAgICBpZiAoY2ggPT09ICctJyB8fCBjaCA9PT0gJysnKSB7CiAgICAgICAgICAgICAgICAgICAgc3RyaW5nICs9IGNoOwogICAgICAgICAgICAgICAgICAgIG5leHQoKTsKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIHdoaWxlIChjaCA+PSAnMCcgJiYgY2ggPD0gJzknKSB7CiAgICAgICAgICAgICAgICAgICAgc3RyaW5nICs9IGNoOwogICAgICAgICAgICAgICAgICAgIG5leHQoKTsKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfQogICAgICAgICAgICBudW1iZXIgPSArc3RyaW5nOwogICAgICAgICAgICBpZiAoaXNOYU4obnVtYmVyKSkgewogICAgICAgICAgICAgICAgZXJyb3IoIkJhZCBudW1iZXIiKTsKICAgICAgICAgICAgfSBlbHNlIHsKICAgICAgICAgICAgICAgIHJldHVybiBudW1iZXI7CiAgICAgICAgICAgIH0KICAgICAgICB9LAoKICAgICAgICBzdHJpbmcgPSBmdW5jdGlvbiAoKSB7CgogICAgICAgICAgICB2YXIgaGV4LAogICAgICAgICAgICAgICAgaSwKICAgICAgICAgICAgICAgIHN0cmluZyA9ICcnLAogICAgICAgICAgICAgICAgdWZmZmY7CgogICAgICAgICAgICBpZiAoY2ggPT09ICciJykgewogICAgICAgICAgICAgICAgd2hpbGUgKG5leHQoKSkgewogICAgICAgICAgICAgICAgICAgIGlmIChjaCA9PT0gJyInKSB7CiAgICAgICAgICAgICAgICAgICAgICAgIG5leHQoKTsKICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIHN0cmluZzsKICAgICAgICAgICAgICAgICAgICB9IGVsc2UgaWYgKGNoID09PSAnXFwnKSB7CiAgICAgICAgICAgICAgICAgICAgICAgIG5leHQoKTsKICAgICAgICAgICAgICAgICAgICAgICAgaWYgKGNoID09PSAndScpIHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHVmZmZmID0gMDsKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGZvciAoaSA9IDA7IGkgPCA0OyBpICs9IDEpIHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBoZXggPSBwYXJzZUludChuZXh0KCksIDE2KTsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBpZiAoIWlzRmluaXRlKGhleCkpIHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgYnJlYWs7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHVmZmZmID0gdWZmZmYgKiAxNiArIGhleDsKICAgICAgICAgICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIHN0cmluZyArPSBTdHJpbmcuZnJvbUNoYXJDb2RlKHVmZmZmKTsKICAgICAgICAgICAgICAgICAgICAgICAgfSBlbHNlIGlmICh0eXBlb2YgZXNjYXBlZVtjaF0gPT09ICdzdHJpbmcnKSB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBzdHJpbmcgKz0gZXNjYXBlZVtjaF07CiAgICAgICAgICAgICAgICAgICAgICAgIH0gZWxzZSB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBicmVhazsKICAgICAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICAgIH0gZWxzZSBpZiAoY2ggPT0gIlxuIiB8fCBjaCA9PSAiXHIiKSB7CiAgICAgICAgICAgICAgICAgICAgICAgIGJyZWFrOwogICAgICAgICAgICAgICAgICAgIH0gZWxzZSB7CiAgICAgICAgICAgICAgICAgICAgICAgIHN0cmluZyArPSBjaDsKICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0KICAgICAgICAgICAgZXJyb3IoIkJhZCBzdHJpbmciKTsKICAgICAgICB9LAoKICAgICAgICB3aGl0ZSA9IGZ1bmN0aW9uICgpIHsKCiAgICAgICAgICAgIHdoaWxlIChjaCAmJiBjaCA8PSAnICcpIHsKICAgICAgICAgICAgICAgIG5leHQoKTsKICAgICAgICAgICAgfQogICAgICAgIH0sCgogICAgICAgIHdvcmQgPSBmdW5jdGlvbiAoKSB7CgogICAgICAgICAgICBzd2l0Y2ggKGNoKSB7CiAgICAgICAgICAgIGNhc2UgJ3QnOgogICAgICAgICAgICAgICAgbmV4dCgndCcpOwogICAgICAgICAgICAgICAgbmV4dCgncicpOwogICAgICAgICAgICAgICAgbmV4dCgndScpOwogICAgICAgICAgICAgICAgbmV4dCgnZScpOwogICAgICAgICAgICAgICAgcmV0dXJuIHRydWU7CiAgICAgICAgICAgIGNhc2UgJ2YnOgogICAgICAgICAgICAgICAgbmV4dCgnZicpOwogICAgICAgICAgICAgICAgbmV4dCgnYScpOwogICAgICAgICAgICAgICAgbmV4dCgnbCcpOwogICAgICAgICAgICAgICAgbmV4dCgncycpOwogICAgICAgICAgICAgICAgbmV4dCgnZScpOwogICAgICAgICAgICAgICAgcmV0dXJuIGZhbHNlOwogICAgICAgICAgICBjYXNlICduJzoKICAgICAgICAgICAgICAgIG5leHQoJ24nKTsKICAgICAgICAgICAgICAgIG5leHQoJ3UnKTsKICAgICAgICAgICAgICAgIG5leHQoJ2wnKTsKICAgICAgICAgICAgICAgIG5leHQoJ2wnKTsKICAgICAgICAgICAgICAgIHJldHVybiBudWxsOwogICAgICAgICAgICB9CiAgICAgICAgICAgIGVycm9yKCJVbmV4cGVjdGVkICciICsgY2ggKyAiJyIpOwogICAgICAgIH0sCgogICAgICAgIHZhbHVlLCAgLy8gUGxhY2UgaG9sZGVyIGZvciB0aGUgdmFsdWUgZnVuY3Rpb24uCgogICAgICAgIGFycmF5ID0gZnVuY3Rpb24gKCkgewoKICAgICAgICAgICAgdmFyIGFycmF5ID0gW107CgogICAgICAgICAgICBpZiAoY2ggPT09ICdbJykgewogICAgICAgICAgICAgICAgbmV4dCgnWycpOwogICAgICAgICAgICAgICAgd2hpdGUoKTsKICAgICAgICAgICAgICAgIGlmIChjaCA9PT0gJ10nKSB7CiAgICAgICAgICAgICAgICAgICAgbmV4dCgnXScpOwogICAgICAgICAgICAgICAgICAgIHJldHVybiBhcnJheTsgICAvLyBlbXB0eSBhcnJheQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgd2hpbGUgKGNoKSB7CiAgICAgICAgICAgICAgICAgICAgYXJyYXkucHVzaCh2YWx1ZSgpKTsKICAgICAgICAgICAgICAgICAgICB3aGl0ZSgpOwogICAgICAgICAgICAgICAgICAgIGlmIChjaCA9PT0gJ10nKSB7CiAgICAgICAgICAgICAgICAgICAgICAgIG5leHQoJ10nKTsKICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIGFycmF5OwogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgICBuZXh0KCcsJyk7CiAgICAgICAgICAgICAgICAgICAgd2hpdGUoKTsKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfQogICAgICAgICAgICBlcnJvcigiQmFkIGFycmF5Iik7CiAgICAgICAgfSwKCiAgICAgICAgb2JqZWN0ID0gZnVuY3Rpb24gKCkgewoKICAgICAgICAgICAgdmFyIGtleSwKICAgICAgICAgICAgICAgIG9iamVjdCA9IHt9OwoKICAgICAgICAgICAgaWYgKGNoID09PSAneycpIHsKICAgICAgICAgICAgICAgIG5leHQoJ3snKTsKICAgICAgICAgICAgICAgIHdoaXRlKCk7CiAgICAgICAgICAgICAgICBpZiAoY2ggPT09ICd9JykgewogICAgICAgICAgICAgICAgICAgIG5leHQoJ30nKTsKICAgICAgICAgICAgICAgICAgICByZXR1cm4gb2JqZWN0OyAgIC8vIGVtcHR5IG9iamVjdAogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgd2hpbGUgKGNoKSB7CiAgICAgICAgICAgICAgICAgICAga2V5ID0gc3RyaW5nKCk7CiAgICAgICAgICAgICAgICAgICAgd2hpdGUoKTsKICAgICAgICAgICAgICAgICAgICBuZXh0KCc6Jyk7CiAgICAgICAgICAgICAgICAgICAgaWYgKE9iamVjdC5oYXNPd25Qcm9wZXJ0eS5jYWxsKG9iamVjdCwga2V5KSkgewogICAgICAgICAgICAgICAgICAgICAgICBlcnJvcignRHVwbGljYXRlIGtleSAiJyArIGtleSArICciJyk7CiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICAgIG9iamVjdFtrZXldID0gdmFsdWUoKTsKICAgICAgICAgICAgICAgICAgICB3aGl0ZSgpOwogICAgICAgICAgICAgICAgICAgIGlmIChjaCA9PT0gJ30nKSB7CiAgICAgICAgICAgICAgICAgICAgICAgIG5leHQoJ30nKTsKICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIG9iamVjdDsKICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgICAgbmV4dCgnLCcpOwogICAgICAgICAgICAgICAgICAgIHdoaXRlKCk7CiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0KICAgICAgICAgICAgZXJyb3IoIkJhZCBvYmplY3QiKTsKICAgICAgICB9OwoKICAgIHZhbHVlID0gZnVuY3Rpb24gKCkgewoKICAgICAgICB3aGl0ZSgpOwogICAgICAgIHN3aXRjaCAoY2gpIHsKICAgICAgICBjYXNlICd7JzoKICAgICAgICAgICAgcmV0dXJuIG9iamVjdCgpOwogICAgICAgIGNhc2UgJ1snOgogICAgICAgICAgICByZXR1cm4gYXJyYXkoKTsKICAgICAgICBjYXNlICciJzoKICAgICAgICAgICAgcmV0dXJuIHN0cmluZygpOwogICAgICAgIGNhc2UgJy0nOgogICAgICAgICAgICByZXR1cm4gbnVtYmVyKCk7CiAgICAgICAgZGVmYXVsdDoKICAgICAgICAgICAgcmV0dXJuIGNoID49ICcwJyAmJiBjaCA8PSAnOScgPyBudW1iZXIoKSA6IHdvcmQoKTsKICAgICAgICB9CiAgICB9OwoKICAgIHJldHVybiBmdW5jdGlvbiAoc291cmNlLCByZXZpdmVyKSB7CiAgICAgICAgdmFyIHJlc3VsdDsKCiAgICAgICAgdGV4dCA9IHNvdXJjZTsKICAgICAgICBhdCA9IDA7CiAgICAgICAgY2ggPSAnICc7CiAgICAgICAgcmVzdWx0ID0gdmFsdWUoKTsKICAgICAgICB3aGl0ZSgpOwogICAgICAgIGlmIChjaCkgewogICAgICAgICAgICBlcnJvcigiU3ludGF4IGVycm9yIik7CiAgICAgICAgfQoKICAgICAgICByZXR1cm4gdHlwZW9mIHJldml2ZXIgPT09ICdmdW5jdGlvbicgPyBmdW5jdGlvbiB3YWxrKGhvbGRlciwga2V5KSB7CiAgICAgICAgICAgIHZhciBrLCB2LCB2YWx1ZSA9IGhvbGRlcltrZXldOwogICAgICAgICAgICBpZiAodmFsdWUgJiYgdHlwZW9mIHZhbHVlID09PSAnb2JqZWN0JykgewogICAgICAgICAgICAgICAgZm9yIChrIGluIHZhbHVlKSB7CiAgICAgICAgICAgICAgICAgICAgaWYgKE9iamVjdC5oYXNPd25Qcm9wZXJ0eS5jYWxsKHZhbHVlLCBrKSkgewogICAgICAgICAgICAgICAgICAgICAgICB2ID0gd2Fsayh2YWx1ZSwgayk7CiAgICAgICAgICAgICAgICAgICAgICAgIGlmICh2ICE9PSB1bmRlZmluZWQpIHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZhbHVlW2tdID0gdjsKICAgICAgICAgICAgICAgICAgICAgICAgfSBlbHNlIHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRlbGV0ZSB2YWx1ZVtrXTsKICAgICAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfQogICAgICAgICAgICByZXR1cm4gcmV2aXZlci5jYWxsKGhvbGRlciwga2V5LCB2YWx1ZSk7CiAgICAgICAgfSh7Jyc6IHJlc3VsdH0sICcnKSA6IHJlc3VsdDsKICAgIH07Cn0pOwoKYWNlLmRlZmluZSgiYWNlL21vZGUvanNvbl93b3JrZXIiLFtdLCBmdW5jdGlvbihyZXF1aXJlLCBleHBvcnRzLCBtb2R1bGUpIHsKInVzZSBzdHJpY3QiOwoKdmFyIG9vcCA9IHJlcXVpcmUoIi4uL2xpYi9vb3AiKTsKdmFyIE1pcnJvciA9IHJlcXVpcmUoIi4uL3dvcmtlci9taXJyb3IiKS5NaXJyb3I7CnZhciBwYXJzZSA9IHJlcXVpcmUoIi4vanNvbi9qc29uX3BhcnNlIik7Cgp2YXIgSnNvbldvcmtlciA9IGV4cG9ydHMuSnNvbldvcmtlciA9IGZ1bmN0aW9uKHNlbmRlcikgewogICAgTWlycm9yLmNhbGwodGhpcywgc2VuZGVyKTsKICAgIHRoaXMuc2V0VGltZW91dCgyMDApOwp9OwoKb29wLmluaGVyaXRzKEpzb25Xb3JrZXIsIE1pcnJvcik7CgooZnVuY3Rpb24oKSB7CgogICAgdGhpcy5vblVwZGF0ZSA9IGZ1bmN0aW9uKCkgewogICAgICAgIHZhciB2YWx1ZSA9IHRoaXMuZG9jLmdldFZhbHVlKCk7CiAgICAgICAgdmFyIGVycm9ycyA9IFtdOwogICAgICAgIHRyeSB7CiAgICAgICAgICAgIGlmICh2YWx1ZSkKICAgICAgICAgICAgICAgIHBhcnNlKHZhbHVlKTsKICAgICAgICB9IGNhdGNoIChlKSB7CiAgICAgICAgICAgIHZhciBwb3MgPSB0aGlzLmRvYy5pbmRleFRvUG9zaXRpb24oZS5hdC0xKTsKICAgICAgICAgICAgZXJyb3JzLnB1c2goewogICAgICAgICAgICAgICAgcm93OiBwb3Mucm93LAogICAgICAgICAgICAgICAgY29sdW1uOiBwb3MuY29sdW1uLAogICAgICAgICAgICAgICAgdGV4dDogZS5tZXNzYWdlLAogICAgICAgICAgICAgICAgdHlwZTogImVycm9yIgogICAgICAgICAgICB9KTsKICAgICAgICB9CiAgICAgICAgdGhpcy5zZW5kZXIuZW1pdCgiYW5ub3RhdGUiLCBlcnJvcnMpOwogICAgfTsKCn0pLmNhbGwoSnNvbldvcmtlci5wcm90b3R5cGUpOwoKfSk7Cg==";
+ct.config.setModuleUrl("ace/theme/kr_theme", qn);
+ct.config.setModuleUrl("ace/mode/json", el);
+ct.config.setModuleUrl("ace/mode/json_worker", tl);
+const z2 = /* @__PURE__ */ $({
   __name: "code-edit-modal",
   props: {
     modelValue: { default: () => ({}) },
@@ -5798,32 +5798,32 @@ const Y2 = /* @__PURE__ */ D({
   },
   emits: ["update:modelValue", "close"],
   setup(o, { emit: t }) {
-    const e = o, i = Y(() => e.title || A("编辑")), n = K(!1), g = t, a = Y({
+    const e = o, i = M(() => e.title || A("编辑")), l = K(!1), g = t, a = M({
       get() {
         return e.lang === "json" ? JSON.stringify(e.modelValue, null, 2) : e.modelValue;
       },
-      set(c) {
-        e.lang === "json" ? g("update:modelValue", JSON.parse(c)) : g("update:modelValue", c);
+      set(I) {
+        e.lang === "json" ? g("update:modelValue", JSON.parse(I)) : g("update:modelValue", I);
       }
     });
-    return (c, s) => (p(), w("div", null, [
+    return (I, s) => (u(), B("div", null, [
       d("button", {
         type: "button",
         class: "vgce-btn vgce-btn--sm",
-        onClick: s[0] || (s[0] = (C) => n.value = !0)
+        onClick: s[0] || (s[0] = (c) => l.value = !0)
       }, "···"),
-      r(l(O1), {
+      r(n(E1), {
         class: "modal-full",
-        modelValue: l(n),
-        "onUpdate:modelValue": s[2] || (s[2] = (C) => we(n) ? n.value = C : null),
-        title: l(i),
+        modelValue: n(l),
+        "onUpdate:modelValue": s[2] || (s[2] = (c) => He(l) ? l.value = c : null),
+        title: n(i),
         width: "60%",
-        onClose: s[3] || (s[3] = (C) => g("close"))
+        onClose: s[3] || (s[3] = (c) => g("close"))
       }, {
-        default: h(() => [
-          r(l(St), {
-            value: l(a),
-            "onUpdate:value": s[1] || (s[1] = (C) => we(a) ? a.value = C : null),
+        default: m(() => [
+          r(n(St), {
+            value: n(a),
+            "onUpdate:value": s[1] || (s[1] = (c) => He(a) ? a.value = c : null),
             lang: e.lang,
             theme: "kr_theme",
             style: { height: "400px" },
@@ -5836,7 +5836,7 @@ const Y2 = /* @__PURE__ */ D({
       }, 8, ["modelValue", "title"])
     ]));
   }
-}), F1 = /* @__PURE__ */ D({
+}), U1 = /* @__PURE__ */ $({
   __name: "dynamic-el-form-item",
   props: {
     objInfo: { default: () => ({}) },
@@ -5845,136 +5845,136 @@ const Y2 = /* @__PURE__ */ D({
   },
   emits: ["change"],
   setup(o, { emit: t }) {
-    const e = t, i = o, n = Y(() => {
-      var b;
-      const c = {};
-      let s = 0, C = [];
-      const m = Object.keys(i.objInfo);
-      if (!m.length)
+    const e = t, i = o, l = M(() => {
+      var p;
+      const I = {};
+      let s = 0, c = [];
+      const b = Object.keys(i.objInfo);
+      if (!b.length)
         return [];
-      for (let v of m) {
-        const _ = (b = i.objInfo[v]) == null ? void 0 : b.sort;
-        if (_) {
-          const G = Number(_);
+      for (let y of b) {
+        const Z = (p = i.objInfo[y]) == null ? void 0 : p.sort;
+        if (Z) {
+          const G = Number(Z);
           G > s && (s = G);
         }
-        if (_)
-          c[_] = v;
+        if (Z)
+          I[Z] = y;
         else
           return Object.keys(i.objInfo).map((G) => ({
             ...i.objInfo[G],
             _key: G
           }));
       }
-      for (let v = 0; v < s + 1; v++) {
-        const _ = String(v);
-        c[_] && C.push({
-          ...i.objInfo[c[_]],
-          _key: c[_]
+      for (let y = 0; y < s + 1; y++) {
+        const Z = String(y);
+        I[Z] && c.push({
+          ...i.objInfo[I[Z]],
+          _key: I[Z]
         });
       }
-      return C;
+      return c;
     });
-    function g(c) {
-      return c == null ? "" : typeof c == "object" ? JSON.stringify(c) : String(c);
+    function g(I) {
+      return I == null ? "" : typeof I == "object" ? JSON.stringify(I) : String(I);
     }
-    function a(c) {
+    function a(I) {
       let s = window.setTimeout(function() {
-        e("change", c), clearTimeout(s), s = null;
+        e("change", I), clearTimeout(s), s = null;
       }, 200);
     }
-    return (c, s) => (p(!0), w(ae, null, Ae(l(n), (C) => (p(), w("div", {
-      key: C._key
+    return (I, s) => (u(!0), B(ce, null, pe(n(l), (c) => (u(), B("div", {
+      key: c._key
     }, [
-      i.code ? (p(), H(l(u2), {
+      i.code ? (u(), H(n(u2), {
         key: 0,
         class: "props-row",
         size: "small"
       }, {
-        label: h(() => [
+        label: m(() => [
           r(yt, {
-            text: String(C._key),
+            text: String(c._key),
             width: 78,
             "font-size": 12
           }, null, 8, ["text"])
         ]),
-        default: h(() => [
+        default: m(() => [
           r(yt, {
-            text: g(C.val),
+            text: g(c.val),
             width: 145,
             "font-size": 12
           }, null, 8, ["text"])
         ]),
         _: 2
-      }, 1024)) : U("", !0),
-      i.hide.indexOf(String(C._key)) < 0 ? (p(), H(N, {
+      }, 1024)) : D("", !0),
+      i.hide.indexOf(String(c._key)) < 0 ? (u(), H(O, {
         key: 1,
-        label: l(A)(C.title),
+        label: n(A)(c.title),
         size: "small"
       }, {
-        default: h(() => [
-          C.type === l(x).Select ? (p(), H(l(Ye), {
+        default: m(() => [
+          c.type === n(x).Select ? (u(), H(n(Me), {
             key: 0,
-            modelValue: i.objInfo[C._key].val,
-            "onUpdate:modelValue": (m) => i.objInfo[C._key].val = m,
+            modelValue: i.objInfo[c._key].val,
+            "onUpdate:modelValue": (b) => i.objInfo[c._key].val = b,
             placeholder: "Select",
             size: "small",
-            disabled: !!(C != null && C.disabled),
+            disabled: !!(c != null && c.disabled),
             onChange: a
           }, {
-            default: h(() => [
-              (p(!0), w(ae, null, Ae(C.options, (m) => (p(), H(ge, {
-                key: m.value,
-                label: l(A)(m.label),
-                value: m.value
+            default: m(() => [
+              (u(!0), B(ce, null, pe(c.options, (b) => (u(), H(Ie, {
+                key: b.value,
+                label: n(A)(b.label),
+                value: b.value
               }, null, 8, ["label", "value"]))), 128))
             ]),
             _: 2
-          }, 1032, ["modelValue", "onUpdate:modelValue", "disabled"])) : C.type === l(x).InputNumber ? (p(), H(l(g1), {
+          }, 1032, ["modelValue", "onUpdate:modelValue", "disabled"])) : c.type === n(x).InputNumber ? (u(), H(n(A1), {
             key: 1,
-            modelValue: i.objInfo[C._key].val,
-            "onUpdate:modelValue": (m) => i.objInfo[C._key].val = m,
-            disabled: !!(C != null && C.disabled),
+            modelValue: i.objInfo[c._key].val,
+            "onUpdate:modelValue": (b) => i.objInfo[c._key].val = b,
+            disabled: !!(c != null && c.disabled),
             onChange: a
-          }, null, 8, ["modelValue", "onUpdate:modelValue", "disabled"])) : C.type === l(x).Input ? (p(), H(l(Xe), {
+          }, null, 8, ["modelValue", "onUpdate:modelValue", "disabled"])) : c.type === n(x).Input ? (u(), H(n(Ke), {
             key: 2,
-            modelValue: i.objInfo[C._key].val,
-            "onUpdate:modelValue": (m) => i.objInfo[C._key].val = m,
-            disabled: !!(C != null && C.disabled),
+            modelValue: i.objInfo[c._key].val,
+            "onUpdate:modelValue": (b) => i.objInfo[c._key].val = b,
+            disabled: !!(c != null && c.disabled),
             onChange: a
-          }, null, 8, ["modelValue", "onUpdate:modelValue", "disabled"])) : C.type === l(x).Textarea ? (p(), H(l(Xe), {
+          }, null, 8, ["modelValue", "onUpdate:modelValue", "disabled"])) : c.type === n(x).Textarea ? (u(), H(n(Ke), {
             key: 3,
-            modelValue: i.objInfo[C._key].val,
-            "onUpdate:modelValue": (m) => i.objInfo[C._key].val = m,
+            modelValue: i.objInfo[c._key].val,
+            "onUpdate:modelValue": (b) => i.objInfo[c._key].val = b,
             autosize: "",
             type: "textarea",
-            disabled: !!(C != null && C.disabled),
+            disabled: !!(c != null && c.disabled),
             onChange: a
-          }, null, 8, ["modelValue", "onUpdate:modelValue", "disabled"])) : C.type === l(x).Color ? (p(), H(_t, {
+          }, null, 8, ["modelValue", "onUpdate:modelValue", "disabled"])) : c.type === n(x).Color ? (u(), H(_t, {
             key: 4,
-            modelValue: i.objInfo[C._key].val,
-            "onUpdate:modelValue": (m) => i.objInfo[C._key].val = m,
-            disabled: !!(C != null && C.disabled),
+            modelValue: i.objInfo[c._key].val,
+            "onUpdate:modelValue": (b) => i.objInfo[c._key].val = b,
+            disabled: !!(c != null && c.disabled),
             onChange: a
-          }, null, 8, ["modelValue", "onUpdate:modelValue", "disabled"])) : C.type === l(x).Switch ? (p(), H(l(H1), {
+          }, null, 8, ["modelValue", "onUpdate:modelValue", "disabled"])) : c.type === n(x).Switch ? (u(), H(n(k1), {
             key: 5,
-            modelValue: i.objInfo[C._key].val,
-            "onUpdate:modelValue": (m) => i.objInfo[C._key].val = m,
-            disabled: !!(C != null && C.disabled),
+            modelValue: i.objInfo[c._key].val,
+            "onUpdate:modelValue": (b) => i.objInfo[c._key].val = b,
+            disabled: !!(c != null && c.disabled),
             onChange: a
-          }, null, 8, ["modelValue", "onUpdate:modelValue", "disabled"])) : C.type === l(x).JsonEdit ? (p(), H(Y2, {
+          }, null, 8, ["modelValue", "onUpdate:modelValue", "disabled"])) : c.type === n(x).JsonEdit ? (u(), H(z2, {
             key: 6,
-            modelValue: i.objInfo[C._key].val,
-            "onUpdate:modelValue": (m) => i.objInfo[C._key].val = m,
-            disabled: !!(C != null && C.disabled),
+            modelValue: i.objInfo[c._key].val,
+            "onUpdate:modelValue": (b) => i.objInfo[c._key].val = b,
+            disabled: !!(c != null && c.disabled),
             onClose: a
-          }, null, 8, ["modelValue", "onUpdate:modelValue", "disabled"])) : U("", !0)
+          }, null, 8, ["modelValue", "onUpdate:modelValue", "disabled"])) : D("", !0)
         ]),
         _: 2
-      }, 1032, ["label"])) : U("", !0)
+      }, 1032, ["label"])) : D("", !0)
     ]))), 128));
   }
-}), i2 = /* @__PURE__ */ D({
+}), i2 = /* @__PURE__ */ $({
   __name: "vgce-tag",
   props: {
     type: { default: "primary" },
@@ -5984,103 +5984,103 @@ const Y2 = /* @__PURE__ */ D({
   emits: ["close"],
   setup(o, { emit: t }) {
     const e = o, i = t;
-    return (n, g) => (p(), w("span", {
-      class: Ge(["vgce-tag", `vgce-tag--${e.type}`])
+    return (l, g) => (u(), B("span", {
+      class: we(["vgce-tag", `vgce-tag--${e.type}`])
     }, [
-      Te(n.$slots, "default"),
-      e.closable ? (p(), w("span", {
+      je(l.$slots, "default"),
+      e.closable ? (u(), B("span", {
         key: 0,
         class: "vgce-tag__close",
-        onClick: g[0] || (g[0] = T1((a) => i("close"), ["stop"]))
-      }, "×")) : U("", !0)
+        onClick: g[0] || (g[0] = Y1((a) => i("close"), ["stop"]))
+      }, "×")) : D("", !0)
     ], 2));
   }
-}), tn = { style: { height: "100%" } }, on = {
+}), ol = { style: { height: "100%" } }, nl = {
   class: "vgce-scrollbar",
   style: { height: "500px" }
-}, ln = { class: "flex flex-wrap" }, nn = ["title", "onMouseenter", "onClick"], gn = { class: "animate__text" }, an = /* @__PURE__ */ D({
+}, ll = { class: "flex flex-wrap" }, il = ["title", "onMouseenter", "onClick"], gl = { class: "animate__text" }, al = /* @__PURE__ */ $({
   __name: "common-animate",
   props: {
     val: {}
   },
   emits: ["updateCommonAniVal"],
   setup(o, { emit: t }) {
-    const e = o, i = t, n = K(e.val), g = K(!1), a = K("进入"), c = K(null), s = (C) => {
-      i("updateCommonAniVal", C), g.value = !1;
+    const e = o, i = t, l = K(e.val), g = K(!1), a = K("进入"), I = K(null), s = (c) => {
+      i("updateCommonAniVal", c), g.value = !1;
     };
-    return Ue(
+    return Te(
       () => e.val,
-      (C) => {
-        n.value = C;
+      (c) => {
+        l.value = c;
       }
-    ), (C, m) => (p(), w("div", tn, [
-      l(n) ? (p(), H(i2, {
+    ), (c, b) => (u(), B("div", ol, [
+      n(l) ? (u(), H(i2, {
         key: 0,
         closable: "",
-        onClose: m[0] || (m[0] = (b) => s("")),
-        onClick: m[1] || (m[1] = (b) => g.value = !0),
+        onClose: b[0] || (b[0] = (p) => s("")),
+        onClick: b[1] || (b[1] = (p) => g.value = !0),
         style: { cursor: "pointer" }
       }, {
-        default: h(() => {
-          var b;
+        default: m(() => {
+          var p;
           return [
-            o1(S(l(A)(
-              (b = l(Ot).map((v) => v.children).reduce((v, _) => v.concat(_)).find((v) => v.value == l(n))) == null ? void 0 : b.label
+            o1(S(n(A)(
+              (p = n(Ot).map((y) => y.children).reduce((y, Z) => y.concat(Z)).find((y) => y.value == n(l))) == null ? void 0 : p.label
             )) + " ", 1),
-            r(ve, { size: 10 }, {
-              default: h(() => [
-                r(fe, { name: "setting" })
+            r(Ze, { size: 10 }, {
+              default: m(() => [
+                r(_e, { name: "setting" })
               ]),
               _: 1
             })
           ];
         }),
         _: 1
-      })) : (p(), H(i2, {
+      })) : (u(), H(i2, {
         key: 1,
         type: "success",
         style: { cursor: "pointer" },
-        onClick: m[2] || (m[2] = (b) => g.value = !0)
+        onClick: b[2] || (b[2] = (p) => g.value = !0)
       }, {
-        default: h(() => [
-          o1(S(l(A)("新增")), 1)
+        default: m(() => [
+          o1(S(n(A)("新增")), 1)
         ]),
         _: 1
       })),
-      r(l(o3), {
-        modelValue: l(g),
-        "onUpdate:modelValue": m[5] || (m[5] = (b) => we(g) ? g.value = b : null),
-        title: l(A)("选择动画"),
+      r(n(o3), {
+        modelValue: n(g),
+        "onUpdate:modelValue": b[5] || (b[5] = (p) => He(g) ? g.value = p : null),
+        title: n(A)("选择动画"),
         direction: "ltr"
       }, {
-        default: h(() => [
+        default: m(() => [
           r(Zt, {
-            modelValue: l(a),
-            "onUpdate:modelValue": m[4] || (m[4] = (b) => we(a) ? a.value = b : null)
+            modelValue: n(a),
+            "onUpdate:modelValue": b[4] || (b[4] = (p) => He(a) ? a.value = p : null)
           }, {
-            default: h(() => [
-              (p(!0), w(ae, null, Ae(l(Ot), (b) => (p(), H(e1, {
-                label: l(A)(b.label),
-                name: b.label,
-                key: b.label
+            default: m(() => [
+              (u(!0), B(ce, null, pe(n(Ot), (p) => (u(), H(e1, {
+                label: n(A)(p.label),
+                name: p.label,
+                key: p.label
               }, {
-                default: h(() => [
-                  d("div", on, [
-                    d("div", ln, [
-                      (p(!0), w(ae, null, Ae(b.children, (v, _) => (p(), w("div", {
+                default: m(() => [
+                  d("div", nl, [
+                    d("div", ll, [
+                      (u(!0), B(ce, null, pe(p.children, (y, Z) => (u(), B("div", {
                         class: "animate",
-                        key: _,
-                        title: l(A)(v.label),
-                        onMouseenter: (G) => c.value = _,
-                        onMouseleave: m[3] || (m[3] = (G) => c.value = null),
-                        onClick: (G) => s(v.value)
+                        key: Z,
+                        title: n(A)(y.label),
+                        onMouseenter: (G) => I.value = Z,
+                        onMouseleave: b[3] || (b[3] = (G) => I.value = null),
+                        onClick: (G) => s(y.value)
                       }, [
                         d("div", {
-                          class: Ge(`animate__inner ${l(c) == _ ? `animate__animated animate__${v.value} animate__slow animate__infinite` : ""}`)
+                          class: we(`animate__inner ${n(I) == Z ? `animate__animated animate__${y.value} animate__slow animate__infinite` : ""}`)
                         }, [
-                          d("span", gn, S(l(A)(v.label)), 1)
+                          d("span", gl, S(n(A)(y.label)), 1)
                         ], 2)
-                      ], 40, nn))), 128))
+                      ], 40, il))), 128))
                     ])
                   ])
                 ]),
@@ -6095,38 +6095,38 @@ const Y2 = /* @__PURE__ */ D({
     ]));
   }
 });
-const sn = /* @__PURE__ */ he(an, [["__scopeId", "data-v-94f2d978"]]), g2 = /* @__PURE__ */ D({
+const sl = /* @__PURE__ */ ye(al, [["__scopeId", "data-v-94f2d978"]]), g2 = /* @__PURE__ */ $({
   __name: "component-tree",
   setup(o) {
-    const t = me(O), e = Y(() => {
+    const t = ve(Q), e = M(() => {
       var g;
       return ((g = t.handle_svg_info) == null ? void 0 : g.info.id) ?? "";
     }), i = (g) => {
       for (let a of t.done_json)
         a.selected = !1, a.old_position = { x: 0, y: 0 };
       t.intention = L.Select, t.setHandleSvgInfo(g);
-    }, n = {
+    }, l = {
       children: "children",
       label: "title"
     };
-    return (g, a) => (p(), H(l(l3), {
+    return (g, a) => (u(), H(n(n3), {
       class: "tree-v",
-      data: l(t).done_json,
-      props: n,
+      data: n(t).done_json,
+      props: l,
       onNodeClick: i,
       "default-expand-all": !0,
       "expand-on-click-node": !1,
-      "highlight-current": !!l(e),
+      "highlight-current": !!n(e),
       "node-key": "id",
-      "current-node-key": l(e)
+      "current-node-key": n(e)
     }, {
-      default: h(({ node: c }) => [
-        o1(S(c.data.title), 1)
+      default: m(({ node: I }) => [
+        o1(S(I.data.title), 1)
       ]),
       _: 1
     }, 8, ["data", "highlight-current", "current-node-key"]));
   }
-}), M2 = (o) => (Lt("data-v-eab000cf"), o = o(), Vt(), o), In = { class: "wall-l" }, cn = { class: "head-l" }, Cn = /* @__PURE__ */ M2(() => /* @__PURE__ */ d("span", null, "key", -1)), dn = /* @__PURE__ */ M2(() => /* @__PURE__ */ d("span", null, "value", -1)), rn = { class: "row-l" }, An = /* @__PURE__ */ D({
+}), M2 = (o) => (Lt("data-v-eab000cf"), o = o(), Vt(), o), Il = { class: "wall-l" }, cl = { class: "head-l" }, Cl = /* @__PURE__ */ M2(() => /* @__PURE__ */ d("span", null, "key", -1)), dl = /* @__PURE__ */ M2(() => /* @__PURE__ */ d("span", null, "value", -1)), rl = { class: "row-l" }, Al = /* @__PURE__ */ $({
   __name: "list",
   props: {
     modelValue: { default: () => [
@@ -6138,58 +6138,58 @@ const sn = /* @__PURE__ */ he(an, [["__scopeId", "data-v-94f2d978"]]), g2 = /* @
   },
   emits: ["update:modelValue"],
   setup(o, { emit: t }) {
-    const e = o, i = t, n = Y({
+    const e = o, i = t, l = M({
       get() {
         return e.modelValue;
       },
-      set(c) {
-        i("update:modelValue", c);
+      set(I) {
+        i("update:modelValue", I);
       }
     }), g = () => {
-      n.value.push({
+      l.value.push({
         key: "",
         val: ""
       });
-    }, a = (c) => {
-      n.value.splice(c, 1);
+    }, a = (I) => {
+      l.value.splice(I, 1);
     };
-    return (c, s) => (p(), w("div", In, [
-      d("div", cn, [
-        Cn,
-        dn,
-        r(ve, {
+    return (I, s) => (u(), B("div", Il, [
+      d("div", cl, [
+        Cl,
+        dl,
+        r(Ze, {
           size: 16,
           class: "bt-Icon",
           onClick: g
         }, {
-          default: h(() => [
-            r(fe, { name: "add" })
+          default: m(() => [
+            r(_e, { name: "add" })
           ]),
           _: 1
         })
       ]),
-      (p(!0), w(ae, null, Ae(l(n), (C, m) => (p(), w("div", rn, [
-        r(l(Xe), {
+      (u(!0), B(ce, null, pe(n(l), (c, b) => (u(), B("div", rl, [
+        r(n(Ke), {
           class: "content-l",
-          modelValue: C.key,
-          "onUpdate:modelValue": (b) => C.key = b,
+          modelValue: c.key,
+          "onUpdate:modelValue": (p) => c.key = p,
           size: "small",
           placeholder: "key"
         }, null, 8, ["modelValue", "onUpdate:modelValue"]),
-        r(l(Xe), {
+        r(n(Ke), {
           class: "content-l",
-          modelValue: C.val,
-          "onUpdate:modelValue": (b) => C.val = b,
+          modelValue: c.val,
+          "onUpdate:modelValue": (p) => c.val = p,
           size: "small",
           placeholder: "value"
         }, null, 8, ["modelValue", "onUpdate:modelValue"]),
-        r(ve, {
+        r(Ze, {
           size: 16,
           class: "bt-Icon",
-          onClick: (b) => a(m)
+          onClick: (p) => a(b)
         }, {
-          default: h(() => [
-            r(fe, { name: "delete" })
+          default: m(() => [
+            r(_e, { name: "delete" })
           ]),
           _: 2
         }, 1032, ["onClick"])
@@ -6197,19 +6197,19 @@ const sn = /* @__PURE__ */ he(an, [["__scopeId", "data-v-94f2d978"]]), g2 = /* @
     ]));
   }
 });
-const un = /* @__PURE__ */ he(An, [["__scopeId", "data-v-eab000cf"]]), pn = { class: "c-wall-d" }, bn = /* @__PURE__ */ D({
+const ul = /* @__PURE__ */ ye(Al, [["__scopeId", "data-v-eab000cf"]]), pl = { class: "c-wall-d" }, bl = /* @__PURE__ */ $({
   __name: "condition",
   props: {
     modelValue: { default: () => ({ type: Wt.None }) }
   },
   emits: ["update:modelValue"],
   setup(o, { emit: t }) {
-    const e = o, i = t, n = Y({
+    const e = o, i = t, l = M({
       get() {
         return e.modelValue;
       },
-      set(c) {
-        i("update:modelValue", c);
+      set(I) {
+        i("update:modelValue", I);
       }
     }), g = [
       {
@@ -6244,35 +6244,35 @@ const un = /* @__PURE__ */ he(An, [["__scopeId", "data-v-eab000cf"]]), pn = { cl
         label: "不介于",
         val: "<,>"
       }
-    ], a = (c) => {
-      c !== "None" && (n.value.Relation = {
+    ], a = (I) => {
+      I !== "None" && (l.value.Relation = {
         key: "",
         relation: "",
         val: "",
         val2: ""
-      }), i("update:modelValue", n);
+      }), i("update:modelValue", l);
     };
-    return (c, s) => {
-      var C, m;
-      return p(), w("div", pn, [
-        r(N, {
-          label: l(A)("条件"),
+    return (I, s) => {
+      var c, b;
+      return u(), B("div", pl, [
+        r(O, {
+          label: n(A)("条件"),
           size: "small"
         }, {
-          default: h(() => [
-            r(l(Ye), {
-              modelValue: l(n).type,
-              "onUpdate:modelValue": s[0] || (s[0] = (b) => l(n).type = b),
+          default: m(() => [
+            r(n(Me), {
+              modelValue: n(l).type,
+              "onUpdate:modelValue": s[0] || (s[0] = (p) => n(l).type = p),
               onChange: a
             }, {
-              default: h(() => [
-                r(ge, {
+              default: m(() => [
+                r(Ie, {
                   value: "None",
-                  label: l(A)("无")
+                  label: n(A)("无")
                 }, null, 8, ["label"]),
-                r(ge, {
+                r(Ie, {
                   value: "Relation",
-                  label: l(A)("关系运算")
+                  label: n(A)("关系运算")
                 }, null, 8, ["label"])
               ]),
               _: 1
@@ -6280,72 +6280,72 @@ const un = /* @__PURE__ */ he(An, [["__scopeId", "data-v-eab000cf"]]), pn = { cl
           ]),
           _: 1
         }, 8, ["label"]),
-        l(n).type === "Relation" ? (p(), H(N, {
+        n(l).type === "Relation" ? (u(), H(O, {
           key: 0,
-          label: l(A)("属性"),
+          label: n(A)("属性"),
           size: "small"
         }, {
-          default: h(() => [
-            r(l(Xe), {
-              modelValue: l(n).Relation.key,
-              "onUpdate:modelValue": s[1] || (s[1] = (b) => l(n).Relation.key = b)
+          default: m(() => [
+            r(n(Ke), {
+              modelValue: n(l).Relation.key,
+              "onUpdate:modelValue": s[1] || (s[1] = (p) => n(l).Relation.key = p)
             }, null, 8, ["modelValue"])
           ]),
           _: 1
-        }, 8, ["label"])) : U("", !0),
-        l(n).type === "Relation" ? (p(), H(N, {
+        }, 8, ["label"])) : D("", !0),
+        n(l).type === "Relation" ? (u(), H(O, {
           key: 1,
-          label: l(A)("关系"),
+          label: n(A)("关系"),
           size: "small"
         }, {
-          default: h(() => [
-            r(l(Ye), {
-              modelValue: l(n).Relation.relation,
-              "onUpdate:modelValue": s[2] || (s[2] = (b) => l(n).Relation.relation = b)
+          default: m(() => [
+            r(n(Me), {
+              modelValue: n(l).Relation.relation,
+              "onUpdate:modelValue": s[2] || (s[2] = (p) => n(l).Relation.relation = p)
             }, {
-              default: h(() => [
-                (p(), w(ae, null, Ae(g, (b, v) => r(ge, {
-                  value: b.val,
-                  label: l(A)(b.label),
-                  key: "rop" + v
+              default: m(() => [
+                (u(), B(ce, null, pe(g, (p, y) => r(Ie, {
+                  value: p.val,
+                  label: n(A)(p.label),
+                  key: "rop" + y
                 }, null, 8, ["value", "label"])), 64))
               ]),
               _: 1
             }, 8, ["modelValue"])
           ]),
           _: 1
-        }, 8, ["label"])) : U("", !0),
-        l(n).type === "Relation" ? (p(), H(N, {
+        }, 8, ["label"])) : D("", !0),
+        n(l).type === "Relation" ? (u(), H(O, {
           key: 2,
-          label: l(A)("值"),
+          label: n(A)("值"),
           size: "small"
         }, {
-          default: h(() => [
-            r(l(Xe), {
-              modelValue: l(n).Relation.val,
-              "onUpdate:modelValue": s[3] || (s[3] = (b) => l(n).Relation.val = b)
+          default: m(() => [
+            r(n(Ke), {
+              modelValue: n(l).Relation.val,
+              "onUpdate:modelValue": s[3] || (s[3] = (p) => n(l).Relation.val = p)
             }, null, 8, ["modelValue"])
           ]),
           _: 1
-        }, 8, ["label"])) : U("", !0),
-        l(n).type === "Relation" && (((C = l(n).Relation) == null ? void 0 : C.relation) === ">=,=<" || ((m = l(n).Relation) == null ? void 0 : m.relation) === "<,>") ? (p(), H(N, {
+        }, 8, ["label"])) : D("", !0),
+        n(l).type === "Relation" && (((c = n(l).Relation) == null ? void 0 : c.relation) === ">=,=<" || ((b = n(l).Relation) == null ? void 0 : b.relation) === "<,>") ? (u(), H(O, {
           key: 3,
-          label: l(A)("值2"),
+          label: n(A)("值2"),
           size: "small"
         }, {
-          default: h(() => [
-            r(l(Xe), {
-              modelValue: l(n).Relation.val2,
-              "onUpdate:modelValue": s[4] || (s[4] = (b) => l(n).Relation.val2 = b)
+          default: m(() => [
+            r(n(Ke), {
+              modelValue: n(l).Relation.val2,
+              "onUpdate:modelValue": s[4] || (s[4] = (p) => n(l).Relation.val2 = p)
             }, null, 8, ["modelValue"])
           ]),
           _: 1
-        }, 8, ["label"])) : U("", !0)
+        }, 8, ["label"])) : D("", !0)
       ]);
     };
   }
 });
-const mn = /* @__PURE__ */ he(bn, [["__scopeId", "data-v-ecff4190"]]), a2 = /* @__PURE__ */ D({
+const ml = /* @__PURE__ */ ye(bl, [["__scopeId", "data-v-ecff4190"]]), a2 = /* @__PURE__ */ $({
   __name: "bind-anchor",
   props: {
     modelValue: {},
@@ -6353,310 +6353,310 @@ const mn = /* @__PURE__ */ he(bn, [["__scopeId", "data-v-ecff4190"]]), a2 = /* @
   },
   emits: ["update:modelValue"],
   setup(o, { emit: t }) {
-    const e = me(O), i = t, n = o, g = Y({
+    const e = ve(Q), i = t, l = o, g = M({
       get() {
-        return n.modelValue !== null;
+        return l.modelValue !== null;
       },
-      set(b) {
-        let v = null;
-        b && (v = {
+      set(p) {
+        let y = null;
+        p && (y = {
           target_id: "",
           type: ""
-        }), i("update:modelValue", v);
+        }), i("update:modelValue", y);
       }
-    }), a = Y({
+    }), a = M({
       get() {
-        var b;
-        return ((b = n.modelValue) == null ? void 0 : b.target_id) ?? void 0;
+        var p;
+        return ((p = l.modelValue) == null ? void 0 : p.target_id) ?? void 0;
       },
-      set(b) {
-        let v = null;
-        g.value && (v = {
-          target_id: b,
-          type: c.value
-        }), i("update:modelValue", v);
+      set(p) {
+        let y = null;
+        g.value && (y = {
+          target_id: p,
+          type: I.value
+        }), i("update:modelValue", y);
       }
-    }), c = Y({
+    }), I = M({
       get() {
-        var b;
-        return ((b = n.modelValue) == null ? void 0 : b.type) ?? void 0;
+        var p;
+        return ((p = l.modelValue) == null ? void 0 : p.type) ?? void 0;
       },
-      set(b) {
-        let v = null;
-        g.value && (v = {
+      set(p) {
+        let y = null;
+        g.value && (y = {
           target_id: a.value,
-          type: b
-        }), i("update:modelValue", v);
+          type: p
+        }), i("update:modelValue", y);
       }
-    }), s = Y(
-      () => e.done_json.filter((b) => b.type !== T.ConnectionLine).map((b) => ({
-        label: b.title,
-        value: b.id
+    }), s = M(
+      () => e.done_json.filter((p) => p.type !== P.ConnectionLine).map((p) => ({
+        label: p.title,
+        value: p.id
       }))
-    ), C = [
+    ), c = [
       {
         label: "上锚点",
-        value: xe.TopCenter
+        value: Xe.TopCenter
       },
       {
         label: "右锚点",
-        value: xe.Right
+        value: Xe.Right
       },
       {
         label: "下锚点",
-        value: xe.BottomCenter
+        value: Xe.BottomCenter
       },
       {
         label: "左锚点",
-        value: xe.Left
+        value: Xe.Left
       }
     ];
-    function m() {
-      l1(function() {
-        var b, v;
-        if (g.value && ((b = n.modelValue) != null && b.target_id) && ((v = n.modelValue) != null && v.type) && e.handle_svg_info) {
-          let _ = null;
+    function b() {
+      n1(function() {
+        var p, y;
+        if (g.value && ((p = l.modelValue) != null && p.target_id) && ((y = l.modelValue) != null && y.type) && e.handle_svg_info) {
+          let Z = null;
           for (let G of e.done_json)
-            G.id === n.modelValue.target_id && (_ = G);
-          _ && (Ne(_), Se(_));
+            G.id === l.modelValue.target_id && (Z = G);
+          Z && (Ue(Z), Ye(Z));
         }
       });
     }
-    return (b, v) => (p(), w(ae, null, [
-      r(N, {
-        label: n.title,
+    return (p, y) => (u(), B(ce, null, [
+      r(O, {
+        label: l.title,
         size: "small"
       }, {
-        default: h(() => [
-          r(l(H1), {
-            modelValue: l(g),
-            "onUpdate:modelValue": v[0] || (v[0] = (_) => we(g) ? g.value = _ : null),
-            onChange: m
+        default: m(() => [
+          r(n(k1), {
+            modelValue: n(g),
+            "onUpdate:modelValue": y[0] || (y[0] = (Z) => He(g) ? g.value = Z : null),
+            onChange: b
           }, null, 8, ["modelValue"])
         ]),
         _: 1
       }, 8, ["label"]),
-      l(g) ? (p(), H(N, {
+      n(g) ? (u(), H(O, {
         key: 0,
-        label: l(A)("绑定对象"),
+        label: n(A)("绑定对象"),
         size: "small"
       }, {
-        default: h(() => [
-          r(l(Ye), {
-            modelValue: l(a),
-            "onUpdate:modelValue": v[1] || (v[1] = (_) => we(a) ? a.value = _ : null),
-            onChange: m
+        default: m(() => [
+          r(n(Me), {
+            modelValue: n(a),
+            "onUpdate:modelValue": y[1] || (y[1] = (Z) => He(a) ? a.value = Z : null),
+            onChange: b
           }, {
-            default: h(() => [
-              (p(!0), w(ae, null, Ae(l(s), (_) => (p(), H(ge, {
-                key: _.value,
-                label: _.label,
-                value: _.value
+            default: m(() => [
+              (u(!0), B(ce, null, pe(n(s), (Z) => (u(), H(Ie, {
+                key: Z.value,
+                label: Z.label,
+                value: Z.value
               }, null, 8, ["label", "value"]))), 128))
             ]),
             _: 1
           }, 8, ["modelValue"])
         ]),
         _: 1
-      }, 8, ["label"])) : U("", !0),
-      l(g) ? (p(), H(N, {
+      }, 8, ["label"])) : D("", !0),
+      n(g) ? (u(), H(O, {
         key: 1,
-        label: l(A)("绑定位置"),
+        label: n(A)("绑定位置"),
         size: "small"
       }, {
-        default: h(() => [
-          r(l(Ye), {
-            modelValue: l(c),
-            "onUpdate:modelValue": v[2] || (v[2] = (_) => we(c) ? c.value = _ : null),
-            onChange: m
+        default: m(() => [
+          r(n(Me), {
+            modelValue: n(I),
+            "onUpdate:modelValue": y[2] || (y[2] = (Z) => He(I) ? I.value = Z : null),
+            onChange: b
           }, {
-            default: h(() => [
-              (p(), w(ae, null, Ae(C, (_) => r(ge, {
-                key: _.value,
-                label: l(A)(_.label),
-                value: _.value
+            default: m(() => [
+              (u(), B(ce, null, pe(c, (Z) => r(Ie, {
+                key: Z.value,
+                label: n(A)(Z.label),
+                value: Z.value
               }, null, 8, ["label", "value"])), 64))
             ]),
             _: 1
           }, 8, ["modelValue"])
         ]),
         _: 1
-      }, 8, ["label"])) : U("", !0)
+      }, 8, ["label"])) : D("", !0)
     ], 64));
   }
-}), hn = (o) => (Lt("data-v-f05af9ce"), o = o(), Vt(), o), fn = /* @__PURE__ */ hn(() => /* @__PURE__ */ d("span", { style: { "font-weight": "bold" } }, "MQTT", -1)), vn = { style: { color: "#999" } }, yn = { key: 2 }, _n = { class: "events-title" }, Zn = /* @__PURE__ */ D({
+}), hl = (o) => (Lt("data-v-f05af9ce"), o = o(), Vt(), o), fl = /* @__PURE__ */ hl(() => /* @__PURE__ */ d("span", { style: { "font-weight": "bold" } }, "MQTT", -1)), vl = { style: { color: "#999" } }, yl = { key: 2 }, _l = { class: "events-title" }, Zl = /* @__PURE__ */ $({
   __name: "right-panel",
   props: {
     slotBackground: { type: Boolean }
   },
   setup(o) {
-    const t = n1(O), e = me(O), i = Pe(O), n = o, g = K("page"), a = K("style"), c = (F, f) => {
-      F != null && F.common_animations && (F.common_animations.val = f);
+    const t = l1(Q), e = ve(Q), i = Pe(Q), l = o, g = K("page"), a = K("style"), I = (N, v) => {
+      N != null && N.common_animations && (N.common_animations.val = v);
     };
-    t.$subscribe((F, f) => {
-      F.storeId === "config-store" && localStorage.setItem("svg-editor-config", JSON.stringify(f));
+    t.$subscribe((N, v) => {
+      N.storeId === "config-store" && localStorage.setItem("svg-editor-config", JSON.stringify(v));
     });
-    const s = K(e6(20)), C = K(["MQTT"]), m = K();
-    m.value = () => {
-      var f, y;
-      let F = {
-        type: R1.Null,
-        action: N1.Null,
+    const s = K(e6(20)), c = K(["MQTT"]), b = K();
+    b.value = () => {
+      var v, _;
+      let N = {
+        type: K1.Null,
+        action: j1.Null,
         target: "",
         scripts: "",
         condition: { type: Wt.None }
       };
-      (y = (f = e.handle_svg_info) == null ? void 0 : f.info) == null || y.events.push(F);
+      (_ = (v = e.handle_svg_info) == null ? void 0 : v.info) == null || _.events.push(N);
     };
-    const b = (F, f) => {
-      F === "ChangeAttr" ? f.attrs = [
+    const p = (N, v) => {
+      N === "ChangeAttr" ? v.attrs = [
         {
           key: "",
           val: ""
         }
-      ] : delete f.attrs;
-    }, v = (F) => {
-      var f, y;
-      (y = (f = e.handle_svg_info) == null ? void 0 : f.info) == null || y.events.splice(F, 1);
-    }, _ = () => {
+      ] : delete v.attrs;
+    }, y = (N) => {
+      var v, _;
+      (_ = (v = e.handle_svg_info) == null ? void 0 : v.info) == null || _.events.splice(N, 1);
+    }, Z = () => {
       i.center_offset = {
         x: 0,
         y: 0
       };
-    }, G = (F, f, y) => {
-      l1(function() {
+    }, G = (N, v, _) => {
+      n1(function() {
         if (e.handle_svg_info) {
-          const z = e.done_json[e.handle_svg_info.index];
-          y ? Ne(z, y) : Ne(z), Se(z);
+          const Y = e.done_json[e.handle_svg_info.index];
+          _ ? Ue(Y, _) : Ue(Y), Ye(Y);
         }
       });
     };
-    return (F, f) => l(e).intention != l(L).Select ? (p(), H(Zt, {
+    return (N, v) => n(e).intention != n(L).Select ? (u(), H(Zt, {
       key: 0,
       class: "mx-2 rightTabs",
-      modelValue: l(g),
-      "onUpdate:modelValue": f[14] || (f[14] = (y) => we(g) ? g.value = y : null)
+      modelValue: n(g),
+      "onUpdate:modelValue": v[14] || (v[14] = (_) => He(g) ? g.value = _ : null)
     }, {
-      default: h(() => [
+      default: m(() => [
         r(e1, {
-          label: l(A)("图纸"),
+          label: n(A)("图纸"),
           name: "page"
         }, {
-          default: h(() => [
-            r(l(i1), {
+          default: m(() => [
+            r(n(r1), {
               "label-width": "auto",
               "label-position": "left"
             }, {
-              default: h(() => [
-                n.slotBackground ? U("", !0) : (p(), H(N, {
+              default: m(() => [
+                l.slotBackground ? D("", !0) : (u(), H(O, {
                   key: 0,
-                  label: l(A)("背景色"),
+                  label: n(A)("背景色"),
                   size: "small"
                 }, {
-                  default: h(() => [
+                  default: m(() => [
                     r(_t, {
-                      modelValue: l(t).svg.background_color,
-                      "onUpdate:modelValue": f[0] || (f[0] = (y) => l(t).svg.background_color = y)
+                      modelValue: n(t).svg.background_color,
+                      "onUpdate:modelValue": v[0] || (v[0] = (_) => n(t).svg.background_color = _)
                     }, null, 8, ["modelValue"])
                   ]),
                   _: 1
                 }, 8, ["label"])),
-                r(N, {
-                  label: l(A)("画布"),
+                r(O, {
+                  label: n(A)("画布"),
                   size: "small"
                 }, {
-                  default: h(() => [
+                  default: m(() => [
                     d("button", {
                       type: "button",
                       class: "vgce-btn vgce-btn--sm",
-                      onClick: _
+                      onClick: Z
                     }, [
-                      r(ve, null, {
-                        default: h(() => [
-                          r(l(R2))
+                      r(Ze, null, {
+                        default: m(() => [
+                          r(n(R2))
                         ]),
                         _: 1
                       }),
-                      o1(S(l(A)("重置位置")), 1)
+                      o1(S(n(A)("重置位置")), 1)
                     ])
                   ]),
                   _: 1
                 }, 8, ["label"]),
-                r(N, {
-                  label: l(A)("X轴偏移"),
+                r(O, {
+                  label: n(A)("X轴偏移"),
                   size: "small"
                 }, {
-                  default: h(() => [
-                    r(l(g1), {
-                      modelValue: l(i).center_offset.x,
-                      "onUpdate:modelValue": f[1] || (f[1] = (y) => l(i).center_offset.x = y)
+                  default: m(() => [
+                    r(n(A1), {
+                      modelValue: n(i).center_offset.x,
+                      "onUpdate:modelValue": v[1] || (v[1] = (_) => n(i).center_offset.x = _)
                     }, null, 8, ["modelValue"])
                   ]),
                   _: 1
                 }, 8, ["label"]),
-                r(N, {
-                  label: l(A)("Y轴偏移"),
+                r(O, {
+                  label: n(A)("Y轴偏移"),
                   size: "small"
                 }, {
-                  default: h(() => [
-                    r(l(g1), {
-                      modelValue: l(i).center_offset.y,
-                      "onUpdate:modelValue": f[2] || (f[2] = (y) => l(i).center_offset.y = y)
+                  default: m(() => [
+                    r(n(A1), {
+                      modelValue: n(i).center_offset.y,
+                      "onUpdate:modelValue": v[2] || (v[2] = (_) => n(i).center_offset.y = _)
                     }, null, 8, ["modelValue"])
                   ]),
                   _: 1
                 }, 8, ["label"]),
-                r(N, {
-                  label: l(A)("缩放"),
+                r(O, {
+                  label: n(A)("缩放"),
                   size: "small"
                 }, {
-                  default: h(() => [
-                    r(l(g1), {
-                      modelValue: l(t).svg.scale,
-                      "onUpdate:modelValue": f[3] || (f[3] = (y) => l(t).svg.scale = y),
+                  default: m(() => [
+                    r(n(A1), {
+                      modelValue: n(t).svg.scale,
+                      "onUpdate:modelValue": v[3] || (v[3] = (_) => n(t).svg.scale = _),
                       step: 0.1,
                       "step-strictly": ""
                     }, null, 8, ["modelValue"])
                   ]),
                   _: 1
                 }, 8, ["label"]),
-                r(N, {
-                  label: l(A)("标尺"),
+                r(O, {
+                  label: n(A)("标尺"),
                   size: "small"
                 }, {
-                  default: h(() => [
-                    r(l(H1), {
-                      modelValue: l(t).svg.ruler,
-                      "onUpdate:modelValue": f[4] || (f[4] = (y) => l(t).svg.ruler = y)
+                  default: m(() => [
+                    r(n(k1), {
+                      modelValue: n(t).svg.ruler,
+                      "onUpdate:modelValue": v[4] || (v[4] = (_) => n(t).svg.ruler = _)
                     }, null, 8, ["modelValue"])
                   ]),
                   _: 1
                 }, 8, ["label"]),
-                r(N, {
-                  label: l(A)("网格"),
+                r(O, {
+                  label: n(A)("网格"),
                   size: "small"
                 }, {
-                  default: h(() => [
-                    r(l(H1), {
-                      modelValue: l(t).svg.grid,
-                      "onUpdate:modelValue": f[5] || (f[5] = (y) => l(t).svg.grid = y)
+                  default: m(() => [
+                    r(n(k1), {
+                      modelValue: n(t).svg.grid,
+                      "onUpdate:modelValue": v[5] || (v[5] = (_) => n(t).svg.grid = _)
                     }, null, 8, ["modelValue"])
                   ]),
                   _: 1
                 }, 8, ["label"]),
-                l(t).svg.grid ? (p(), H(N, {
+                n(t).svg.grid ? (u(), H(O, {
                   key: 1,
-                  label: l(A)("网格颜色"),
+                  label: n(A)("网格颜色"),
                   size: "small"
                 }, {
-                  default: h(() => [
+                  default: m(() => [
                     r(_t, {
-                      modelValue: l(t).svg.grid_color,
-                      "onUpdate:modelValue": f[6] || (f[6] = (y) => l(t).svg.grid_color = y)
+                      modelValue: n(t).svg.grid_color,
+                      "onUpdate:modelValue": v[6] || (v[6] = (_) => n(t).svg.grid_color = _)
                     }, null, 8, ["modelValue"])
                   ]),
                   _: 1
-                }, 8, ["label"])) : U("", !0)
+                }, 8, ["label"])) : D("", !0)
               ]),
               _: 1
             })
@@ -6664,45 +6664,45 @@ const mn = /* @__PURE__ */ he(bn, [["__scopeId", "data-v-ecff4190"]]), a2 = /* @
           _: 1
         }, 8, ["label"]),
         r(e1, {
-          label: l(A)("连线"),
+          label: n(A)("连线"),
           name: "line"
         }, {
-          default: h(() => [
-            l(t).connection_line.props ? (p(), H(l(i1), {
+          default: m(() => [
+            n(t).connection_line.props ? (u(), H(n(r1), {
               key: 0,
               "label-width": "auto",
               "label-position": "left"
             }, {
-              default: h(() => [
-                r(F1, {
-                  "obj-info": l(t).connection_line.props,
+              default: m(() => [
+                r(U1, {
+                  "obj-info": n(t).connection_line.props,
                   hide: ["point_position"]
                 }, null, 8, ["obj-info"])
               ]),
               _: 1
-            })) : U("", !0),
-            l(t).connection_line.animations ? (p(), H(l(i1), {
+            })) : D("", !0),
+            n(t).connection_line.animations ? (u(), H(n(r1), {
               key: 1,
               "label-width": "auto",
               "label-position": "left"
             }, {
-              default: h(() => [
-                r(N, {
-                  label: l(A)(l(t).connection_line.animations.type.title),
+              default: m(() => [
+                r(O, {
+                  label: n(A)(n(t).connection_line.animations.type.title),
                   size: "small"
                 }, {
-                  default: h(() => [
-                    r(l(Ye), {
-                      modelValue: l(t).connection_line.animations.type.val,
-                      "onUpdate:modelValue": f[7] || (f[7] = (y) => l(t).connection_line.animations.type.val = y),
+                  default: m(() => [
+                    r(n(Me), {
+                      modelValue: n(t).connection_line.animations.type.val,
+                      "onUpdate:modelValue": v[7] || (v[7] = (_) => n(t).connection_line.animations.type.val = _),
                       placeholder: "Select",
                       size: "small"
                     }, {
-                      default: h(() => [
-                        (p(!0), w(ae, null, Ae(l(t).connection_line.animations.type.options, (y) => (p(), H(ge, {
-                          key: y.value,
-                          label: l(A)(y.label),
-                          value: y.value
+                      default: m(() => [
+                        (u(!0), B(ce, null, pe(n(t).connection_line.animations.type.options, (_) => (u(), H(Ie, {
+                          key: _.value,
+                          label: n(A)(_.label),
+                          value: _.value
                         }, null, 8, ["label", "value"]))), 128))
                       ]),
                       _: 1
@@ -6710,101 +6710,101 @@ const mn = /* @__PURE__ */ he(bn, [["__scopeId", "data-v-ecff4190"]]), a2 = /* @
                   ]),
                   _: 1
                 }, 8, ["label"]),
-                l(t).connection_line.animations.type.val !== "None" ? (p(), H(F1, {
+                n(t).connection_line.animations.type.val !== "None" ? (u(), H(U1, {
                   key: 0,
-                  "obj-info": l(t).connection_line.animations,
+                  "obj-info": n(t).connection_line.animations,
                   hide: ["type", "repeatCount"]
-                }, null, 8, ["obj-info"])) : U("", !0)
+                }, null, 8, ["obj-info"])) : D("", !0)
               ]),
               _: 1
-            })) : U("", !0)
+            })) : D("", !0)
           ]),
           _: 1
         }, 8, ["label"]),
         r(e1, {
-          label: l(A)("通信"),
+          label: n(A)("通信"),
           name: "net"
         }, {
-          default: h(() => [
-            r(l(pt), {
-              modelValue: l(C),
-              "onUpdate:modelValue": f[13] || (f[13] = (y) => we(C) ? C.value = y : null)
+          default: m(() => [
+            r(n(pt), {
+              modelValue: n(c),
+              "onUpdate:modelValue": v[13] || (v[13] = (_) => He(c) ? c.value = _ : null)
             }, {
-              default: h(() => [
-                r(l(bt), { name: "MQTT" }, {
-                  title: h(() => [
-                    fn
+              default: m(() => [
+                r(n(bt), { name: "MQTT" }, {
+                  title: m(() => [
+                    fl
                   ]),
-                  default: h(() => [
-                    r(l(i1), {
+                  default: m(() => [
+                    r(n(r1), {
                       "label-width": "auto",
                       "label-position": "left"
                     }, {
-                      default: h(() => [
-                        r(N, {
-                          label: l(A)("外部配置"),
+                      default: m(() => [
+                        r(O, {
+                          label: n(A)("外部配置"),
                           size: "small"
                         }, {
-                          default: h(() => [
-                            r(l(H1), {
-                              modelValue: l(t).net.mqtt.useGlobalMqtt,
-                              "onUpdate:modelValue": f[8] || (f[8] = (y) => l(t).net.mqtt.useGlobalMqtt = y)
+                          default: m(() => [
+                            r(n(k1), {
+                              modelValue: n(t).net.mqtt.useGlobalMqtt,
+                              "onUpdate:modelValue": v[8] || (v[8] = (_) => n(t).net.mqtt.useGlobalMqtt = _)
                             }, null, 8, ["modelValue"]),
-                            d("span", vn, S(l(A)("（开启后这里无需配置）")), 1)
+                            d("span", vl, S(n(A)("（开启后这里无需配置）")), 1)
                           ]),
                           _: 1
                         }, 8, ["label"]),
-                        l(t).net.mqtt.useGlobalMqtt ? U("", !0) : (p(), H(N, {
+                        n(t).net.mqtt.useGlobalMqtt ? D("", !0) : (u(), H(O, {
                           key: 0,
                           label: "URL",
                           size: "small"
                         }, {
-                          default: h(() => [
-                            r(l(Xe), {
-                              modelValue: l(t).net.mqtt.url,
-                              "onUpdate:modelValue": f[9] || (f[9] = (y) => l(t).net.mqtt.url = y),
-                              placeholder: l(A)("如 ws://127.0.0.1:4500")
+                          default: m(() => [
+                            r(n(Ke), {
+                              modelValue: n(t).net.mqtt.url,
+                              "onUpdate:modelValue": v[9] || (v[9] = (_) => n(t).net.mqtt.url = _),
+                              placeholder: n(A)("如 ws://127.0.0.1:4500")
                             }, null, 8, ["modelValue", "placeholder"])
                           ]),
                           _: 1
                         })),
-                        l(t).net.mqtt.useGlobalMqtt ? U("", !0) : (p(), H(N, {
+                        n(t).net.mqtt.useGlobalMqtt ? D("", !0) : (u(), H(O, {
                           key: 1,
-                          label: l(A)("用户名"),
+                          label: n(A)("用户名"),
                           size: "small"
                         }, {
-                          default: h(() => [
-                            r(l(Xe), {
-                              modelValue: l(t).net.mqtt.user,
-                              "onUpdate:modelValue": f[10] || (f[10] = (y) => l(t).net.mqtt.user = y),
+                          default: m(() => [
+                            r(n(Ke), {
+                              modelValue: n(t).net.mqtt.user,
+                              "onUpdate:modelValue": v[10] || (v[10] = (_) => n(t).net.mqtt.user = _),
                               placeholder: "username"
                             }, null, 8, ["modelValue"])
                           ]),
                           _: 1
                         }, 8, ["label"])),
-                        l(t).net.mqtt.useGlobalMqtt ? U("", !0) : (p(), H(N, {
+                        n(t).net.mqtt.useGlobalMqtt ? D("", !0) : (u(), H(O, {
                           key: 2,
-                          label: l(A)("密码"),
+                          label: n(A)("密码"),
                           size: "small"
                         }, {
-                          default: h(() => [
-                            r(l(Xe), {
-                              modelValue: l(t).net.mqtt.pwd,
-                              "onUpdate:modelValue": f[11] || (f[11] = (y) => l(t).net.mqtt.pwd = y),
+                          default: m(() => [
+                            r(n(Ke), {
+                              modelValue: n(t).net.mqtt.pwd,
+                              "onUpdate:modelValue": v[11] || (v[11] = (_) => n(t).net.mqtt.pwd = _),
                               placeholder: "password"
                             }, null, 8, ["modelValue"])
                           ]),
                           _: 1
                         }, 8, ["label"])),
-                        l(t).net.mqtt.useGlobalMqtt ? U("", !0) : (p(), H(N, {
+                        n(t).net.mqtt.useGlobalMqtt ? D("", !0) : (u(), H(O, {
                           key: 3,
                           label: "Topics",
                           size: "small"
                         }, {
-                          default: h(() => [
-                            r(l(Xe), {
-                              modelValue: l(t).net.mqtt.topics,
-                              "onUpdate:modelValue": f[12] || (f[12] = (y) => l(t).net.mqtt.topics = y),
+                          default: m(() => [
+                            r(n(Ke), {
+                              modelValue: n(t).net.mqtt.topics,
+                              "onUpdate:modelValue": v[12] || (v[12] = (_) => n(t).net.mqtt.topics = _),
                               placeholder: "topics"
                             }, null, 8, ["modelValue"])
                           ]),
@@ -6823,124 +6823,124 @@ const mn = /* @__PURE__ */ he(bn, [["__scopeId", "data-v-ecff4190"]]), a2 = /* @
           _: 1
         }, 8, ["label"]),
         r(e1, {
-          label: l(A)("结构"),
+          label: n(A)("结构"),
           name: "tree"
         }, {
-          default: h(() => [
+          default: m(() => [
             r(g2)
           ]),
           _: 1
         }, 8, ["label"])
       ]),
       _: 1
-    }, 8, ["modelValue"])) : l(e).intention == l(L).Select && l(e).handle_svg_info ? (p(), H(Zt, {
+    }, 8, ["modelValue"])) : n(e).intention == n(L).Select && n(e).handle_svg_info ? (u(), H(Zt, {
       key: 1,
       class: "mx-2 rightTabs",
-      modelValue: l(a),
-      "onUpdate:modelValue": f[36] || (f[36] = (y) => we(a) ? a.value = y : null)
+      modelValue: n(a),
+      "onUpdate:modelValue": v[36] || (v[36] = (_) => He(a) ? a.value = _ : null)
     }, {
-      default: h(() => [
+      default: m(() => [
         r(e1, {
-          label: l(A)("外观"),
+          label: n(A)("外观"),
           name: "style"
         }, {
-          default: h(() => [
-            r(l(i1), {
+          default: m(() => [
+            r(n(r1), {
               "label-width": "auto",
               "label-position": "left"
             }, {
-              default: h(() => {
-                var y, z, X, J;
+              default: m(() => {
+                var _, Y, X, T;
                 return [
-                  r(N, {
-                    label: l(A)("标题"),
+                  r(O, {
+                    label: n(A)("标题"),
                     size: "small"
                   }, {
-                    default: h(() => [
-                      r(l(Xe), {
-                        modelValue: l(e).handle_svg_info.info.title,
-                        "onUpdate:modelValue": f[15] || (f[15] = (oe) => l(e).handle_svg_info.info.title = oe)
+                    default: m(() => [
+                      r(n(Ke), {
+                        modelValue: n(e).handle_svg_info.info.title,
+                        "onUpdate:modelValue": v[15] || (v[15] = (ie) => n(e).handle_svg_info.info.title = ie)
                       }, null, 8, ["modelValue"])
                     ]),
                     _: 1
                   }, 8, ["label"]),
-                  r(N, {
-                    label: l(A)("X坐标"),
+                  r(O, {
+                    label: n(A)("X坐标"),
                     size: "small"
                   }, {
-                    default: h(() => [
-                      r(l(g1), {
-                        modelValue: l(e).handle_svg_info.info.x,
-                        "onUpdate:modelValue": f[16] || (f[16] = (oe) => l(e).handle_svg_info.info.x = oe),
+                    default: m(() => [
+                      r(n(A1), {
+                        modelValue: n(e).handle_svg_info.info.x,
+                        "onUpdate:modelValue": v[16] || (v[16] = (ie) => n(e).handle_svg_info.info.x = ie),
                         onChange: G
                       }, null, 8, ["modelValue"])
                     ]),
                     _: 1
                   }, 8, ["label"]),
-                  r(N, {
-                    label: l(A)("Y坐标"),
+                  r(O, {
+                    label: n(A)("Y坐标"),
                     size: "small"
                   }, {
-                    default: h(() => [
-                      r(l(g1), {
-                        modelValue: l(e).handle_svg_info.info.y,
-                        "onUpdate:modelValue": f[17] || (f[17] = (oe) => l(e).handle_svg_info.info.y = oe),
+                    default: m(() => [
+                      r(n(A1), {
+                        modelValue: n(e).handle_svg_info.info.y,
+                        "onUpdate:modelValue": v[17] || (v[17] = (ie) => n(e).handle_svg_info.info.y = ie),
                         onChange: G
                       }, null, 8, ["modelValue"])
                     ]),
                     _: 1
                   }, 8, ["label"]),
-                  Ze(r(N, {
-                    label: l(A)("X缩放"),
+                  Ve(r(O, {
+                    label: n(A)("X缩放"),
                     size: "small"
                   }, {
-                    default: h(() => [
-                      r(l(g1), {
-                        modelValue: l(e).handle_svg_info.info.scale_x,
-                        "onUpdate:modelValue": f[18] || (f[18] = (oe) => l(e).handle_svg_info.info.scale_x = oe),
+                    default: m(() => [
+                      r(n(A1), {
+                        modelValue: n(e).handle_svg_info.info.scale_x,
+                        "onUpdate:modelValue": v[18] || (v[18] = (ie) => n(e).handle_svg_info.info.scale_x = ie),
                         onChange: G
                       }, null, 8, ["modelValue"])
                     ]),
                     _: 1
                   }, 8, ["label"]), [
-                    [Le, (z = (y = l(e).handle_svg_info) == null ? void 0 : y.info) == null ? void 0 : z.config.can_zoom]
+                    [We, (Y = (_ = n(e).handle_svg_info) == null ? void 0 : _.info) == null ? void 0 : Y.config.can_zoom]
                   ]),
-                  Ze(r(N, {
-                    label: l(A)("Y缩放"),
+                  Ve(r(O, {
+                    label: n(A)("Y缩放"),
                     size: "small"
                   }, {
-                    default: h(() => [
-                      r(l(g1), {
-                        modelValue: l(e).handle_svg_info.info.scale_y,
-                        "onUpdate:modelValue": f[19] || (f[19] = (oe) => l(e).handle_svg_info.info.scale_y = oe),
+                    default: m(() => [
+                      r(n(A1), {
+                        modelValue: n(e).handle_svg_info.info.scale_y,
+                        "onUpdate:modelValue": v[19] || (v[19] = (ie) => n(e).handle_svg_info.info.scale_y = ie),
                         onChange: G
                       }, null, 8, ["modelValue"])
                     ]),
                     _: 1
                   }, 8, ["label"]), [
-                    [Le, (J = (X = l(e).handle_svg_info) == null ? void 0 : X.info) == null ? void 0 : J.config.can_zoom]
+                    [We, (T = (X = n(e).handle_svg_info) == null ? void 0 : X.info) == null ? void 0 : T.config.can_zoom]
                   ]),
-                  r(N, {
-                    label: l(A)("旋转"),
+                  r(O, {
+                    label: n(A)("旋转"),
                     size: "small"
                   }, {
-                    default: h(() => [
-                      r(l(g1), {
-                        modelValue: l(e).handle_svg_info.info.rotate,
-                        "onUpdate:modelValue": f[20] || (f[20] = (oe) => l(e).handle_svg_info.info.rotate = oe),
+                    default: m(() => [
+                      r(n(A1), {
+                        modelValue: n(e).handle_svg_info.info.rotate,
+                        "onUpdate:modelValue": v[20] || (v[20] = (ie) => n(e).handle_svg_info.info.rotate = ie),
                         onChange: G
                       }, null, 8, ["modelValue"])
                     ]),
                     _: 1
                   }, 8, ["label"]),
-                  r(N, {
-                    label: l(A)("显示"),
+                  r(O, {
+                    label: n(A)("显示"),
                     size: "small"
                   }, {
-                    default: h(() => [
-                      r(l(H1), {
-                        modelValue: l(e).handle_svg_info.info.display,
-                        "onUpdate:modelValue": f[21] || (f[21] = (oe) => l(e).handle_svg_info.info.display = oe)
+                    default: m(() => [
+                      r(n(k1), {
+                        modelValue: n(e).handle_svg_info.info.display,
+                        "onUpdate:modelValue": v[21] || (v[21] = (ie) => n(e).handle_svg_info.info.display = ie)
                       }, null, 8, ["modelValue"])
                     ]),
                     _: 1
@@ -6953,135 +6953,135 @@ const mn = /* @__PURE__ */ he(bn, [["__scopeId", "data-v-ecff4190"]]), a2 = /* @
           _: 1
         }, 8, ["label"]),
         r(e1, {
-          label: l(A)("数据"),
+          label: n(A)("数据"),
           name: "data"
         }, {
-          default: h(() => [
-            r(l(i1), {
+          default: m(() => [
+            r(n(r1), {
               "label-width": "auto",
               "label-position": "left"
             }, {
-              default: h(() => {
-                var y, z, X, J, oe, Ve, ke, Me, de;
+              default: m(() => {
+                var _, Y, X, T, ie, Be, ze, Fe, de;
                 return [
-                  r(N, {
+                  r(O, {
                     label: "ID",
                     size: "small"
                   }, {
-                    default: h(() => [
-                      r(l(Xe), {
-                        modelValue: l(e).handle_svg_info.info.id,
-                        "onUpdate:modelValue": f[22] || (f[22] = (B) => l(e).handle_svg_info.info.id = B)
+                    default: m(() => [
+                      r(n(Ke), {
+                        modelValue: n(e).handle_svg_info.info.id,
+                        "onUpdate:modelValue": v[22] || (v[22] = (W) => n(e).handle_svg_info.info.id = W)
                       }, null, 8, ["modelValue"])
                     ]),
                     _: 1
                   }),
-                  (z = (y = l(e).handle_svg_info) == null ? void 0 : y.info) != null && z.state ? (p(), H(N, {
+                  (Y = (_ = n(e).handle_svg_info) == null ? void 0 : _.info) != null && Y.state ? (u(), H(O, {
                     key: 0,
                     class: "props-row",
                     label: "state",
                     size: "small"
                   }, {
-                    default: h(() => [
-                      o1(S(l(e).handle_svg_info.info.defaultState), 1)
+                    default: m(() => [
+                      o1(S(n(e).handle_svg_info.info.defaultState), 1)
                     ]),
                     _: 1
-                  })) : U("", !0),
-                  (J = (X = l(e).handle_svg_info) == null ? void 0 : X.info) != null && J.state ? (p(), H(N, {
+                  })) : D("", !0),
+                  (T = (X = n(e).handle_svg_info) == null ? void 0 : X.info) != null && T.state ? (u(), H(O, {
                     key: 1,
-                    label: l(A)("状态"),
+                    label: n(A)("状态"),
                     size: "small"
                   }, {
-                    default: h(() => [
-                      r(l(Ye), {
-                        modelValue: l(e).handle_svg_info.info.defaultState,
-                        "onUpdate:modelValue": f[23] || (f[23] = (B) => l(e).handle_svg_info.info.defaultState = B),
+                    default: m(() => [
+                      r(n(Me), {
+                        modelValue: n(e).handle_svg_info.info.defaultState,
+                        "onUpdate:modelValue": v[23] || (v[23] = (W) => n(e).handle_svg_info.info.defaultState = W),
                         placeholder: "Select",
                         size: "small"
                       }, {
-                        default: h(() => [
-                          (p(!0), w(ae, null, Ae(l(e).handle_svg_info.info.state, (B, E) => (p(), H(ge, {
-                            key: "state" + String(E),
-                            label: l(A)(B.label),
-                            value: E
+                        default: m(() => [
+                          (u(!0), B(ce, null, pe(n(e).handle_svg_info.info.state, (W, j) => (u(), H(Ie, {
+                            key: "state" + String(j),
+                            label: n(A)(W.label),
+                            value: j
                           }, null, 8, ["label", "value"]))), 128))
                         ]),
                         _: 1
                       }, 8, ["modelValue"])
                     ]),
                     _: 1
-                  }, 8, ["label"])) : U("", !0),
-                  (oe = l(e).handle_svg_info.info) != null && oe.hasOwnProperty("tag_slot") ? (p(), w("div", yn, [
-                    r(N, {
+                  }, 8, ["label"])) : D("", !0),
+                  (ie = n(e).handle_svg_info.info) != null && ie.hasOwnProperty("tag_slot") ? (u(), B("div", yl, [
+                    r(O, {
                       class: "props-row",
                       label: "tag_slot",
                       size: "small"
                     }, {
-                      default: h(() => [
-                        o1(S(l(e).handle_svg_info.info.tag_slot), 1)
+                      default: m(() => [
+                        o1(S(n(e).handle_svg_info.info.tag_slot), 1)
                       ]),
                       _: 1
                     }),
-                    r(N, {
-                      label: l(A)("文字插槽"),
+                    r(O, {
+                      label: n(A)("文字插槽"),
                       size: "small"
                     }, {
-                      default: h(() => [
-                        r(l(Xe), {
-                          modelValue: l(e).handle_svg_info.info.tag_slot,
-                          "onUpdate:modelValue": f[24] || (f[24] = (B) => l(e).handle_svg_info.info.tag_slot = B),
-                          onInput: f[25] || (f[25] = (B) => G(B, null, !0))
+                      default: m(() => [
+                        r(n(Ke), {
+                          modelValue: n(e).handle_svg_info.info.tag_slot,
+                          "onUpdate:modelValue": v[24] || (v[24] = (W) => n(e).handle_svg_info.info.tag_slot = W),
+                          onInput: v[25] || (v[25] = (W) => G(W, null, !0))
                         }, null, 8, ["modelValue"])
                       ]),
                       _: 1
                     }, 8, ["label"])
-                  ])) : U("", !0),
-                  r(F1, {
-                    "obj-info": l(e).handle_svg_info.info.props,
+                  ])) : D("", !0),
+                  r(U1, {
+                    "obj-info": n(e).handle_svg_info.info.props,
                     code: "",
-                    onChange: f[26] || (f[26] = (B) => G(B, null, !0))
+                    onChange: v[26] || (v[26] = (W) => G(W, null, !0))
                   }, null, 8, ["obj-info"]),
-                  l(e).handle_svg_info.info.animations ? (p(), H(N, {
+                  n(e).handle_svg_info.info.animations ? (u(), H(O, {
                     key: 3,
-                    label: l(A)(l(e).handle_svg_info.info.animations.type.title),
+                    label: n(A)(n(e).handle_svg_info.info.animations.type.title),
                     size: "small"
                   }, {
-                    default: h(() => [
-                      r(l(Ye), {
-                        modelValue: l(e).handle_svg_info.info.animations.type.val,
-                        "onUpdate:modelValue": f[27] || (f[27] = (B) => l(e).handle_svg_info.info.animations.type.val = B),
+                    default: m(() => [
+                      r(n(Me), {
+                        modelValue: n(e).handle_svg_info.info.animations.type.val,
+                        "onUpdate:modelValue": v[27] || (v[27] = (W) => n(e).handle_svg_info.info.animations.type.val = W),
                         placeholder: "Select",
                         size: "small"
                       }, {
-                        default: h(() => [
-                          (p(!0), w(ae, null, Ae(l(e).handle_svg_info.info.animations.type.options, (B) => (p(), H(ge, {
-                            key: B.value,
-                            label: l(A)(B.label),
-                            value: B.value
+                        default: m(() => [
+                          (u(!0), B(ce, null, pe(n(e).handle_svg_info.info.animations.type.options, (W) => (u(), H(Ie, {
+                            key: W.value,
+                            label: n(A)(W.label),
+                            value: W.value
                           }, null, 8, ["label", "value"]))), 128))
                         ]),
                         _: 1
                       }, 8, ["modelValue"])
                     ]),
                     _: 1
-                  }, 8, ["label"])) : U("", !0),
-                  ((ke = (Ve = l(e).handle_svg_info.info.animations) == null ? void 0 : Ve.type) == null ? void 0 : ke.val) !== "None" ? (p(), H(F1, {
+                  }, 8, ["label"])) : D("", !0),
+                  ((ze = (Be = n(e).handle_svg_info.info.animations) == null ? void 0 : Be.type) == null ? void 0 : ze.val) !== "None" ? (u(), H(U1, {
                     key: 4,
-                    "obj-info": l(e).handle_svg_info.info.animations,
+                    "obj-info": n(e).handle_svg_info.info.animations,
                     hide: ["type", "repeatCount"]
-                  }, null, 8, ["obj-info"])) : U("", !0),
-                  ((Me = l(e).handle_svg_info) == null ? void 0 : Me.info.type) === l(T).ConnectionLine ? (p(), H(a2, {
+                  }, null, 8, ["obj-info"])) : D("", !0),
+                  ((Fe = n(e).handle_svg_info) == null ? void 0 : Fe.info.type) === n(P).ConnectionLine ? (u(), H(a2, {
                     key: 5,
-                    modelValue: l(e).handle_svg_info.info.bind_anchors.start,
-                    "onUpdate:modelValue": f[28] || (f[28] = (B) => l(e).handle_svg_info.info.bind_anchors.start = B),
-                    title: l(A)("绑定起点")
-                  }, null, 8, ["modelValue", "title"])) : U("", !0),
-                  ((de = l(e).handle_svg_info) == null ? void 0 : de.info.type) === l(T).ConnectionLine ? (p(), H(a2, {
+                    modelValue: n(e).handle_svg_info.info.bind_anchors.start,
+                    "onUpdate:modelValue": v[28] || (v[28] = (W) => n(e).handle_svg_info.info.bind_anchors.start = W),
+                    title: n(A)("绑定起点")
+                  }, null, 8, ["modelValue", "title"])) : D("", !0),
+                  ((de = n(e).handle_svg_info) == null ? void 0 : de.info.type) === n(P).ConnectionLine ? (u(), H(a2, {
                     key: 6,
-                    modelValue: l(e).handle_svg_info.info.bind_anchors.end,
-                    "onUpdate:modelValue": f[29] || (f[29] = (B) => l(e).handle_svg_info.info.bind_anchors.end = B),
-                    title: l(A)("绑定终点")
-                  }, null, 8, ["modelValue", "title"])) : U("", !0)
+                    modelValue: n(e).handle_svg_info.info.bind_anchors.end,
+                    "onUpdate:modelValue": v[29] || (v[29] = (W) => n(e).handle_svg_info.info.bind_anchors.end = W),
+                    title: n(A)("绑定终点")
+                  }, null, 8, ["modelValue", "title"])) : D("", !0)
                 ];
               }),
               _: 1
@@ -7090,64 +7090,64 @@ const mn = /* @__PURE__ */ he(bn, [["__scopeId", "data-v-ecff4190"]]), a2 = /* @
           _: 1
         }, 8, ["label"]),
         r(e1, {
-          label: l(A)("事件"),
+          label: n(A)("事件"),
           name: "event"
         }, {
-          default: h(() => [
+          default: m(() => [
             d("button", {
               type: "button",
               class: "vgce-btn vgce-btn--primary",
               style: { width: "100%" },
-              onClick: f[30] || (f[30] = //@ts-ignore
-              (...y) => l(m) && l(m)(...y))
-            }, S(l(A)("添加事件")), 1),
-            r(l(pt), {
-              modelValue: l(s),
-              "onUpdate:modelValue": f[31] || (f[31] = (y) => we(s) ? s.value = y : null)
+              onClick: v[30] || (v[30] = //@ts-ignore
+              (..._) => n(b) && n(b)(..._))
+            }, S(n(A)("添加事件")), 1),
+            r(n(pt), {
+              modelValue: n(s),
+              "onUpdate:modelValue": v[31] || (v[31] = (_) => He(s) ? s.value = _ : null)
             }, {
-              default: h(() => [
-                (p(!0), w(ae, null, Ae(l(e).handle_svg_info.info.events, (y, z) => (p(), H(l(bt), {
-                  name: z,
-                  key: "event" + z
+              default: m(() => [
+                (u(!0), B(ce, null, pe(n(e).handle_svg_info.info.events, (_, Y) => (u(), H(n(bt), {
+                  name: Y,
+                  key: "event" + Y
                 }, {
-                  title: h(() => [
-                    d("div", _n, [
-                      d("span", null, S(l(A)("事件")) + S(z + 1), 1),
-                      r(ve, {
+                  title: m(() => [
+                    d("div", _l, [
+                      d("span", null, S(n(A)("事件")) + S(Y + 1), 1),
+                      r(Ze, {
                         size: 16,
                         class: "bt-Icon",
-                        onClick: T1((X) => v(z), ["stop"])
+                        onClick: Y1((X) => y(Y), ["stop"])
                       }, {
-                        default: h(() => [
-                          r(fe, { name: "delete" })
+                        default: m(() => [
+                          r(_e, { name: "delete" })
                         ]),
                         _: 2
                       }, 1032, ["onClick"])
                     ])
                   ]),
-                  default: h(() => [
-                    r(l(i1), {
+                  default: m(() => [
+                    r(n(r1), {
                       "label-width": "auto",
                       "label-position": "left"
                     }, {
-                      default: h(() => [
-                        r(N, {
-                          label: l(A)("类型"),
+                      default: m(() => [
+                        r(O, {
+                          label: n(A)("类型"),
                           size: "small"
                         }, {
-                          default: h(() => [
-                            r(l(Ye), {
-                              modelValue: y.type,
-                              "onUpdate:modelValue": (X) => y.type = X
+                          default: m(() => [
+                            r(n(Me), {
+                              modelValue: _.type,
+                              "onUpdate:modelValue": (X) => _.type = X
                             }, {
-                              default: h(() => [
-                                r(ge, {
+                              default: m(() => [
+                                r(Ie, {
                                   value: "Click",
-                                  label: l(A)("点击")
+                                  label: n(A)("点击")
                                 }, null, 8, ["label"]),
-                                r(ge, {
+                                r(Ie, {
                                   value: "Change",
-                                  label: l(A)("值改变")
+                                  label: n(A)("值改变")
                                 }, null, 8, ["label"])
                               ]),
                               _: 2
@@ -7155,28 +7155,28 @@ const mn = /* @__PURE__ */ he(bn, [["__scopeId", "data-v-ecff4190"]]), a2 = /* @
                           ]),
                           _: 2
                         }, 1032, ["label"]),
-                        r(N, {
-                          label: l(A)("行为"),
+                        r(O, {
+                          label: n(A)("行为"),
                           size: "small"
                         }, {
-                          default: h(() => [
-                            r(l(Ye), {
-                              modelValue: y.action,
-                              "onUpdate:modelValue": (X) => y.action = X,
-                              onChange: (X) => b(X, y)
+                          default: m(() => [
+                            r(n(Me), {
+                              modelValue: _.action,
+                              "onUpdate:modelValue": (X) => _.action = X,
+                              onChange: (X) => p(X, _)
                             }, {
-                              default: h(() => [
-                                r(ge, {
+                              default: m(() => [
+                                r(Ie, {
                                   value: "ChangeAttr",
-                                  label: l(A)("改变属性")
+                                  label: n(A)("改变属性")
                                 }, null, 8, ["label"]),
-                                r(ge, {
+                                r(Ie, {
                                   value: "JavaScript",
-                                  label: l(A)("执行 JavaScript")
+                                  label: n(A)("执行 JavaScript")
                                 }, null, 8, ["label"]),
-                                r(ge, {
+                                r(Ie, {
                                   value: "Emit",
-                                  label: l(A)("emit 事件")
+                                  label: n(A)("emit 事件")
                                 }, null, 8, ["label"])
                               ]),
                               _: 2
@@ -7184,42 +7184,42 @@ const mn = /* @__PURE__ */ he(bn, [["__scopeId", "data-v-ecff4190"]]), a2 = /* @
                           ]),
                           _: 2
                         }, 1032, ["label"]),
-                        y.action === "ChangeAttr" ? (p(), H(N, {
+                        _.action === "ChangeAttr" ? (u(), H(O, {
                           key: 0,
-                          label: l(A)("目标"),
+                          label: n(A)("目标"),
                           size: "small"
                         }, {
-                          default: h(() => [
-                            r(l(Xe), {
-                              modelValue: y.target,
-                              "onUpdate:modelValue": (X) => y.target = X,
-                              placeholder: l(A)("默认自身")
+                          default: m(() => [
+                            r(n(Ke), {
+                              modelValue: _.target,
+                              "onUpdate:modelValue": (X) => _.target = X,
+                              placeholder: n(A)("默认自身")
                             }, null, 8, ["modelValue", "onUpdate:modelValue", "placeholder"])
                           ]),
                           _: 2
-                        }, 1032, ["label"])) : U("", !0),
-                        y.action === "ChangeAttr" ? (p(), H(un, {
+                        }, 1032, ["label"])) : D("", !0),
+                        _.action === "ChangeAttr" ? (u(), H(ul, {
                           key: 1,
-                          modelValue: y.attrs,
-                          "onUpdate:modelValue": (X) => y.attrs = X
-                        }, null, 8, ["modelValue", "onUpdate:modelValue"])) : U("", !0),
-                        y.action === "JavaScript" ? (p(), H(N, {
+                          modelValue: _.attrs,
+                          "onUpdate:modelValue": (X) => _.attrs = X
+                        }, null, 8, ["modelValue", "onUpdate:modelValue"])) : D("", !0),
+                        _.action === "JavaScript" ? (u(), H(O, {
                           key: 2,
                           label: "JavaScript",
                           size: "small"
                         }, {
-                          default: h(() => [
-                            r(Y2, {
-                              modelValue: y.scripts,
-                              "onUpdate:modelValue": (X) => y.scripts = X,
+                          default: m(() => [
+                            r(z2, {
+                              modelValue: _.scripts,
+                              "onUpdate:modelValue": (X) => _.scripts = X,
                               lang: "text"
                             }, null, 8, ["modelValue", "onUpdate:modelValue"])
                           ]),
                           _: 2
-                        }, 1024)) : U("", !0),
-                        r(mn, {
-                          modelValue: y.condition,
-                          "onUpdate:modelValue": (X) => y.condition = X
+                        }, 1024)) : D("", !0),
+                        r(ml, {
+                          modelValue: _.condition,
+                          "onUpdate:modelValue": (X) => _.condition = X
                         }, null, 8, ["modelValue", "onUpdate:modelValue"])
                       ]),
                       _: 2
@@ -7234,77 +7234,77 @@ const mn = /* @__PURE__ */ he(bn, [["__scopeId", "data-v-ecff4190"]]), a2 = /* @
           _: 1
         }, 8, ["label"]),
         r(e1, {
-          label: l(A)("动效"),
+          label: n(A)("动效"),
           name: "animation"
         }, {
-          default: h(() => {
-            var y;
+          default: m(() => {
+            var _;
             return [
-              (y = l(e).handle_svg_info) != null && y.info.animations ? (p(), H(l(i1), {
+              (_ = n(e).handle_svg_info) != null && _.info.animations ? (u(), H(n(r1), {
                 key: 0,
                 "label-width": "auto",
                 "label-position": "left"
               }, {
-                default: h(() => [
-                  r(F1, {
-                    "obj-info": l(e).handle_svg_info.info.animations
+                default: m(() => [
+                  r(U1, {
+                    "obj-info": n(e).handle_svg_info.info.animations
                   }, null, 8, ["obj-info"])
                 ]),
                 _: 1
-              })) : l(e).handle_svg_info.info.common_animations ? (p(), H(l(i1), {
+              })) : n(e).handle_svg_info.info.common_animations ? (u(), H(n(r1), {
                 key: 1,
                 "label-width": "auto",
                 "label-position": "left"
               }, {
-                default: h(() => [
-                  r(N, {
-                    label: l(A)("动画效果"),
+                default: m(() => [
+                  r(O, {
+                    label: n(A)("动画效果"),
                     size: "small"
                   }, {
-                    default: h(() => [
-                      r(sn, {
-                        onUpdateCommonAniVal: f[32] || (f[32] = (z) => {
+                    default: m(() => [
+                      r(sl, {
+                        onUpdateCommonAniVal: v[32] || (v[32] = (Y) => {
                           var X;
-                          return c((X = l(e).handle_svg_info) == null ? void 0 : X.info, z);
+                          return I((X = n(e).handle_svg_info) == null ? void 0 : X.info, Y);
                         }),
-                        val: l(e).handle_svg_info.info.common_animations.val
+                        val: n(e).handle_svg_info.info.common_animations.val
                       }, null, 8, ["val"])
                     ]),
                     _: 1
                   }, 8, ["label"]),
-                  r(N, {
-                    label: l(A)("延迟"),
+                  r(O, {
+                    label: n(A)("延迟"),
                     size: "small"
                   }, {
-                    default: h(() => [
-                      r(l(Ye), {
-                        modelValue: l(e).handle_svg_info.info.common_animations.delay,
-                        "onUpdate:modelValue": f[33] || (f[33] = (z) => l(e).handle_svg_info.info.common_animations.delay = z)
+                    default: m(() => [
+                      r(n(Me), {
+                        modelValue: n(e).handle_svg_info.info.common_animations.delay,
+                        "onUpdate:modelValue": v[33] || (v[33] = (Y) => n(e).handle_svg_info.info.common_animations.delay = Y)
                       }, {
-                        default: h(() => [
-                          r(ge, {
+                        default: m(() => [
+                          r(Ie, {
                             value: "delay-0s",
-                            label: l(A)("无")
+                            label: n(A)("无")
                           }, null, 8, ["label"]),
-                          r(ge, {
+                          r(Ie, {
                             value: "delay-1s",
-                            label: l(A)("1秒")
+                            label: n(A)("1秒")
                           }, null, 8, ["label"]),
-                          r(ge, {
+                          r(Ie, {
                             value: "delay-2s",
-                            label: l(A)("2秒")
+                            label: n(A)("2秒")
                           }, null, 8, ["label"]),
-                          r(ge, {
+                          r(Ie, {
                             value: "delay-3s",
-                            label: l(A)("3秒")
+                            label: n(A)("3秒")
                           }, null, 8, ["label"]),
-                          r(ge, {
+                          r(Ie, {
                             value: "delay-4s",
-                            label: l(A)("4秒")
+                            label: n(A)("4秒")
                           }, null, 8, ["label"]),
-                          r(ge, {
+                          r(Ie, {
                             value: "delay-5s",
-                            label: l(A)("5秒")
+                            label: n(A)("5秒")
                           }, null, 8, ["label"])
                         ]),
                         _: 1
@@ -7312,31 +7312,31 @@ const mn = /* @__PURE__ */ he(bn, [["__scopeId", "data-v-ecff4190"]]), a2 = /* @
                     ]),
                     _: 1
                   }, 8, ["label"]),
-                  r(N, {
-                    label: l(A)("动画速度"),
+                  r(O, {
+                    label: n(A)("动画速度"),
                     size: "small"
                   }, {
-                    default: h(() => [
-                      r(l(Ye), {
-                        modelValue: l(e).handle_svg_info.info.common_animations.speed,
-                        "onUpdate:modelValue": f[34] || (f[34] = (z) => l(e).handle_svg_info.info.common_animations.speed = z)
+                    default: m(() => [
+                      r(n(Me), {
+                        modelValue: n(e).handle_svg_info.info.common_animations.speed,
+                        "onUpdate:modelValue": v[34] || (v[34] = (Y) => n(e).handle_svg_info.info.common_animations.speed = Y)
                       }, {
-                        default: h(() => [
-                          r(ge, {
+                        default: m(() => [
+                          r(Ie, {
                             value: "slow",
-                            label: l(A)("慢")
+                            label: n(A)("慢")
                           }, null, 8, ["label"]),
-                          r(ge, {
+                          r(Ie, {
                             value: "slower",
-                            label: l(A)("最慢")
+                            label: n(A)("最慢")
                           }, null, 8, ["label"]),
-                          r(ge, {
+                          r(Ie, {
                             value: "fast",
-                            label: l(A)("快")
+                            label: n(A)("快")
                           }, null, 8, ["label"]),
-                          r(ge, {
+                          r(Ie, {
                             value: "faster",
-                            label: l(A)("最快")
+                            label: n(A)("最快")
                           }, null, 8, ["label"])
                         ]),
                         _: 1
@@ -7344,31 +7344,31 @@ const mn = /* @__PURE__ */ he(bn, [["__scopeId", "data-v-ecff4190"]]), a2 = /* @
                     ]),
                     _: 1
                   }, 8, ["label"]),
-                  r(N, {
-                    label: l(A)("循环次数"),
+                  r(O, {
+                    label: n(A)("循环次数"),
                     size: "small"
                   }, {
-                    default: h(() => [
-                      r(l(Ye), {
-                        modelValue: l(e).handle_svg_info.info.common_animations.repeat,
-                        "onUpdate:modelValue": f[35] || (f[35] = (z) => l(e).handle_svg_info.info.common_animations.repeat = z)
+                    default: m(() => [
+                      r(n(Me), {
+                        modelValue: n(e).handle_svg_info.info.common_animations.repeat,
+                        "onUpdate:modelValue": v[35] || (v[35] = (Y) => n(e).handle_svg_info.info.common_animations.repeat = Y)
                       }, {
-                        default: h(() => [
-                          r(ge, {
+                        default: m(() => [
+                          r(Ie, {
                             value: "repeat-1",
-                            label: l(A)("一次")
+                            label: n(A)("一次")
                           }, null, 8, ["label"]),
-                          r(ge, {
+                          r(Ie, {
                             value: "repeat-2",
-                            label: l(A)("两次")
+                            label: n(A)("两次")
                           }, null, 8, ["label"]),
-                          r(ge, {
+                          r(Ie, {
                             value: "repeat-3",
-                            label: l(A)("三次")
+                            label: n(A)("三次")
                           }, null, 8, ["label"]),
-                          r(ge, {
+                          r(Ie, {
                             value: "infinite",
-                            label: l(A)("无限次")
+                            label: n(A)("无限次")
                           }, null, 8, ["label"])
                         ]),
                         _: 1
@@ -7378,39 +7378,39 @@ const mn = /* @__PURE__ */ he(bn, [["__scopeId", "data-v-ecff4190"]]), a2 = /* @
                   }, 8, ["label"])
                 ]),
                 _: 1
-              })) : U("", !0)
+              })) : D("", !0)
             ];
           }),
           _: 1
         }, 8, ["label"]),
         r(e1, {
-          label: l(A)("结构"),
+          label: n(A)("结构"),
           name: "tree"
         }, {
-          default: h(() => [
+          default: m(() => [
             r(g2)
           ]),
           _: 1
         }, 8, ["label"])
       ]),
       _: 1
-    }, 8, ["modelValue"])) : U("", !0);
+    }, 8, ["modelValue"])) : D("", !0);
   }
 });
-const Gn = /* @__PURE__ */ he(Zn, [["__scopeId", "data-v-f05af9ce"]]), Ln = /* @__PURE__ */ D({
+const Gl = /* @__PURE__ */ ye(Zl, [["__scopeId", "data-v-f05af9ce"]]), Ll = /* @__PURE__ */ $({
   __name: "export-json",
   setup(o) {
-    const t = K(""), e = me(O), i = Pe(O), n = n1(O);
-    return Z1(() => {
+    const t = K(""), e = ve(Q), i = Pe(Q), l = l1(Q);
+    return w1(() => {
       const g = {
         layout_center: i.center_offset,
-        config: n.$state,
+        config: l.$state,
         done_json: e.done_json
       };
       t.value = JSON.stringify(g, null, 2);
-    }), (g, a) => (p(), H(l(St), {
-      value: l(t),
-      "onUpdate:value": a[0] || (a[0] = (c) => we(t) ? t.value = c : null),
+    }), (g, a) => (u(), H(n(St), {
+      value: n(t),
+      "onUpdate:value": a[0] || (a[0] = (I) => He(t) ? t.value = I : null),
       lang: "json",
       theme: "kr_theme",
       style: { height: "400px" },
@@ -7419,7 +7419,7 @@ const Gn = /* @__PURE__ */ he(Zn, [["__scopeId", "data-v-f05af9ce"]]), Ln = /* @
       }
     }, null, 8, ["value"]));
   }
-}), Vn = /* @__PURE__ */ D({
+}), Vl = /* @__PURE__ */ $({
   __name: "import-json",
   setup(o, { expose: t }) {
     const e = K("");
@@ -7428,11 +7428,11 @@ const Gn = /* @__PURE__ */ he(Zn, [["__scopeId", "data-v-f05af9ce"]]), Ln = /* @
         e.value = g;
       },
       onImportJson: () => {
-        G2(e.value) && y1.success(A("导入成功"));
+        G2(e.value) && L1.success(A("导入成功"));
       }
-    }), (g, a) => (p(), H(l(St), {
-      value: l(e),
-      "onUpdate:value": a[0] || (a[0] = (c) => we(e) ? e.value = c : null),
+    }), (g, a) => (u(), H(n(St), {
+      value: n(e),
+      "onUpdate:value": a[0] || (a[0] = (I) => He(e) ? e.value = I : null),
       lang: "json",
       theme: "kr_theme",
       style: { height: "400px" },
@@ -7441,77 +7441,77 @@ const Gn = /* @__PURE__ */ he(Zn, [["__scopeId", "data-v-f05af9ce"]]), Ln = /* @
       }
     }, null, 8, ["value"]));
   }
-}), wn = { class: "vgce-prompt" }, Bn = { class: "vgce-prompt__message" }, Wn = {
+}), wl = { class: "vgce-prompt" }, Bl = { class: "vgce-prompt__message" }, Wl = {
   key: 0,
   class: "vgce-prompt__error"
-}, xn = /* @__PURE__ */ D({
+}, xl = /* @__PURE__ */ $({
   __name: "vgce-prompt",
   setup(o, { expose: t }) {
-    const e = K(!1), i = K({}), n = K(""), g = K(""), a = K();
-    let c = null, s = null;
-    const C = (_) => (i.value = _, n.value = _.inputValue ?? "", g.value = "", e.value = !0, l1(() => {
+    const e = K(!1), i = K({}), l = K(""), g = K(""), a = K();
+    let I = null, s = null;
+    const c = (Z) => (i.value = Z, l.value = Z.inputValue ?? "", g.value = "", e.value = !0, n1(() => {
       var G;
       return (G = a.value) == null ? void 0 : G.focus();
-    }), new Promise((G, F) => {
-      c = G, s = F;
-    })), m = () => {
-      e.value = !1, s == null || s("cancel"), c = null, s = null;
-    }, b = () => {
-      c && (s == null || s("close"), c = null, s = null);
-    }, v = () => {
-      const _ = n.value;
-      if (!_.trim()) {
+    }), new Promise((G, N) => {
+      I = G, s = N;
+    })), b = () => {
+      e.value = !1, s == null || s("cancel"), I = null, s = null;
+    }, p = () => {
+      I && (s == null || s("close"), I = null, s = null);
+    }, y = () => {
+      const Z = l.value;
+      if (!Z.trim()) {
         g.value = A("请输入内容");
         return;
       }
-      if (i.value.inputPattern && !i.value.inputPattern.test(_)) {
+      if (i.value.inputPattern && !i.value.inputPattern.test(Z)) {
         g.value = i.value.inputErrorMessage || A("输入内容格式不正确");
         return;
       }
-      e.value = !1, c == null || c({ value: _ }), c = null, s = null;
+      e.value = !1, I == null || I({ value: Z }), I = null, s = null;
     };
-    return t({ open: C }), (_, G) => (p(), H(l(O1), {
-      modelValue: l(e),
-      "onUpdate:modelValue": G[1] || (G[1] = (F) => we(e) ? e.value = F : null),
-      title: l(i).title,
+    return t({ open: c }), (Z, G) => (u(), H(n(E1), {
+      modelValue: n(e),
+      "onUpdate:modelValue": G[1] || (G[1] = (N) => He(e) ? e.value = N : null),
+      title: n(i).title,
       width: "420px",
       "append-to-body": "",
       class: "vgce-prompt-dialog",
-      onClose: b
+      onClose: p
     }, {
-      footer: h(() => [
+      footer: m(() => [
         d("button", {
           type: "button",
           class: "vgce-btn",
-          onClick: m
-        }, S(l(i).cancelButtonText || l(A)("取消")), 1),
+          onClick: b
+        }, S(n(i).cancelButtonText || n(A)("取消")), 1),
         d("button", {
           type: "button",
           class: "vgce-btn vgce-btn--primary",
-          onClick: v
-        }, S(l(i).confirmButtonText || l(A)("确定")), 1)
+          onClick: y
+        }, S(n(i).confirmButtonText || n(A)("确定")), 1)
       ]),
-      default: h(() => [
-        d("div", wn, [
-          d("div", Bn, S(l(i).message), 1),
-          Ze(d("input", {
+      default: m(() => [
+        d("div", wl, [
+          d("div", Bl, S(n(i).message), 1),
+          Ve(d("input", {
             ref_key: "inputRef",
             ref: a,
             class: "vgce-prompt__input",
             type: "text",
-            "onUpdate:modelValue": G[0] || (G[0] = (F) => we(n) ? n.value = F : null),
-            onKeyup: E2(v, ["enter"])
+            "onUpdate:modelValue": G[0] || (G[0] = (N) => He(l) ? l.value = N : null),
+            onKeyup: E2(y, ["enter"])
           }, null, 544), [
-            [P2, l(n)]
+            [P2, n(l)]
           ]),
-          l(g) ? (p(), w("div", Wn, S(l(g)), 1)) : U("", !0)
+          n(g) ? (u(), B("div", Wl, S(n(g)), 1)) : D("", !0)
         ])
       ]),
       _: 1
     }, 8, ["modelValue", "title"]));
   }
 });
-const Hn = /* @__PURE__ */ he(xn, [["__scopeId", "data-v-c4da285a"]]), Rn = ["title", "onMousedown"], Xn = { class: "vue-ruler-content-mask" }, Sn = /* @__PURE__ */ D({
+const Hl = /* @__PURE__ */ ye(xl, [["__scopeId", "data-v-c4da285a"]]), Rl = ["title", "onMousedown"], Xl = { class: "vue-ruler-content-mask" }, Sl = /* @__PURE__ */ $({
   __name: "vue3-ruler-tool",
   props: {
     visible: { type: Boolean, default: !0 },
@@ -7519,251 +7519,251 @@ const Hn = /* @__PURE__ */ he(xn, [["__scopeId", "data-v-c4da285a"]]), Rn = ["ti
   },
   emits: ["onLineMouseUp"],
   setup(o, { emit: t }) {
-    const e = t, i = o, n = Pe(O), g = n1(O), a = function() {
-      return function(k, Q, P) {
-        k && Q && P && k.addEventListener(Q, P, !1);
+    const e = t, i = o, l = Pe(Q), g = l1(Q), a = function() {
+      return function(k, oe, ne) {
+        k && oe && ne && k.addEventListener(oe, ne, !1);
       };
-    }(), c = function() {
-      return function(k, Q, P) {
-        k && Q && k.removeEventListener(Q, P, !1);
+    }(), I = function() {
+      return function(k, oe, ne) {
+        k && oe && k.removeEventListener(oe, ne, !1);
       };
     }();
-    let s = 18, C = K(0), m = K(0), b = K([]), v = K([]);
-    const _ = K([]);
-    let G = K(!1), F = "", f = K(-999), y = K(-999), z = 18, X = 18, J = "";
-    const oe = K(null), Ve = K(null), ke = K(null), Me = K(null), de = Y(() => ({
-      width: C.value + "px",
-      height: m.value + "px"
-    })), B = Y(() => ({
+    let s = 18, c = K(0), b = K(0), p = K([]), y = K([]);
+    const Z = K([]);
+    let G = K(!1), N = "", v = K(-999), _ = K(-999), Y = 18, X = 18, T = "";
+    const ie = K(null), Be = K(null), ze = K(null), Fe = K(null), de = M(() => ({
+      width: c.value + "px",
+      height: b.value + "px"
+    })), W = M(() => ({
       padding: s + "px 0px 0px " + s + "px"
-    })), E = Y(() => {
-      let k = 0, Q = 0;
-      return _.value.map((P) => {
-        const Ie = P.type === "h";
+    })), j = M(() => {
+      let k = 0, oe = 0;
+      return Z.value.map((ne) => {
+        const me = ne.type === "h";
         return {
-          id: `${P.type}_${Ie ? k++ : Q++}`,
-          type: P.type,
-          title: P.site.toFixed(0) + "px",
-          [Ie ? "top" : "left"]: P.site * g.svg.scale + s + n.center_offset[Ie ? "y" : "x"] * g.svg.scale
+          id: `${ne.type}_${me ? k++ : oe++}`,
+          type: ne.type,
+          title: ne.site.toFixed(0) + "px",
+          [me ? "top" : "left"]: ne.site * g.svg.scale + s + l.center_offset[me ? "y" : "x"] * g.svg.scale
         };
       });
     });
     g.$subscribe((k) => {
-      var Q, P;
-      (P = (Q = k.events) == null ? void 0 : Q.target) != null && P.hasOwnProperty("scale") && s1();
+      var oe, ne;
+      (ne = (oe = k.events) == null ? void 0 : oe.target) != null && ne.hasOwnProperty("scale") && Qe();
     });
-    let le = null, ue = 0;
-    const Fe = () => {
-      ue || (ue = window.requestAnimationFrame(() => {
-        ue = 0, je();
+    let te = null, re = 0;
+    const Je = () => {
+      re || (re = window.requestAnimationFrame(() => {
+        re = 0, i1();
       }));
     }, Re = () => {
-      var Q;
-      const k = (Q = Ve.value) == null ? void 0 : Q.parentNode;
-      !k || typeof ResizeObserver > "u" || (le = new ResizeObserver(Fe), le.observe(k));
+      var oe;
+      const k = (oe = Be.value) == null ? void 0 : oe.parentNode;
+      !k || typeof ResizeObserver > "u" || (te = new ResizeObserver(Je), te.observe(k));
     };
-    Z1(() => {
-      a(document, "mousemove", b1), a(document, "mouseup", w1), je(), Re(), a(window, "resize", p1);
+    w1(() => {
+      a(document, "mousemove", g1), a(document, "mouseup", Z1), i1(), Re(), a(window, "resize", v1);
     }), Bt(() => {
-      c(document, "mousemove", b1), c(document, "mouseup", w1), c(window, "resize", p1), le == null || le.disconnect(), le = null, ue && (window.cancelAnimationFrame(ue), ue = 0);
+      I(document, "mousemove", g1), I(document, "mouseup", Z1), I(window, "resize", v1), te == null || te.disconnect(), te = null, re && (window.cancelAnimationFrame(re), re = 0);
     });
-    const je = () => {
-      L1(), s1();
-    }, p1 = () => {
-      b.value = [], v.value = [], je();
-    }, Qe = ({ type: k, top: Q, left: P }) => k === "h" ? { top: Q + "px" } : { left: P + "px" }, G1 = ({ type: k, id: Q }) => k === "h" ? C1(Q) : Je(Q), L1 = () => {
-      const k = window.getComputedStyle(Ve.value.parentNode, null);
-      C.value = parseInt(k.getPropertyValue("width")), m.value = parseInt(k.getPropertyValue("height")), z = ke.value.clientWidth, X = Me.value.clientHeight;
-    }, s1 = () => {
-      V1(b.value, C.value, n.center_offset.x), V1(v.value, m.value, n.center_offset.y);
-    }, V1 = (k, Q, P) => {
-      const Ie = Q > 0 ? Math.ceil(Q / i.stepLength) : 0;
-      for (; k.length > Ie; )
+    const i1 = () => {
+      B1(), Qe();
+    }, v1 = () => {
+      p.value = [], y.value = [], i1();
+    }, p1 = ({ type: k, top: oe, left: ne }) => k === "h" ? { top: oe + "px" } : { left: ne + "px" }, y1 = ({ type: k, id: oe }) => k === "h" ? a1(oe) : s1(oe), B1 = () => {
+      const k = window.getComputedStyle(Be.value.parentNode, null);
+      c.value = parseInt(k.getPropertyValue("width")), b.value = parseInt(k.getPropertyValue("height")), Y = ze.value.clientWidth, X = Fe.value.clientHeight;
+    }, Qe = () => {
+      W1(p.value, c.value, l.center_offset.x), W1(y.value, b.value, l.center_offset.y);
+    }, W1 = (k, oe, ne) => {
+      const me = oe > 0 ? Math.ceil(oe / i.stepLength) : 0;
+      for (; k.length > me; )
         k.pop();
-      for (; k.length < Ie; )
+      for (; k.length < me; )
         k.push({ id: 0 });
-      k.forEach((Oe, $e) => {
-        Oe.id = Ce($e * i.stepLength / g.svg.scale - P, 0);
+      k.forEach((Oe, Ne) => {
+        Oe.id = Ce(Ne * i.stepLength / g.svg.scale - ne, 0);
       });
-    }, b1 = (k) => {
-      s1(), K1(k);
-    }, K1 = (k) => {
+    }, g1 = (k) => {
+      Qe(), x1(k);
+    }, x1 = (k) => {
       if (!(k.layerX === k.x || k.layerY === k.y))
-        switch (F) {
+        switch (N) {
           case "x":
-            G.value && (y.value = k.layerY);
+            G.value && (_.value = k.layerY);
             break;
           case "y":
-            G.value && (f.value = k.layerX);
+            G.value && (v.value = k.layerX);
             break;
           case "h":
-            G.value && (y.value = k.layerY);
+            G.value && (_.value = k.layerY);
             break;
           case "v":
-            G.value && (f.value = k.layerX);
+            G.value && (v.value = k.layerX);
             break;
         }
-    }, I1 = (k) => {
-      G.value = !0, F = k;
-    }, w1 = (k) => {
-      B1(k);
-    }, B1 = (k) => {
+    }, _1 = (k) => {
+      G.value = !0, N = k;
+    }, Z1 = (k) => {
+      H1(k);
+    }, H1 = (k) => {
       if (G.value) {
-        switch (G.value = !1, F) {
+        switch (G.value = !1, N) {
           case "x":
-            const Q = Math.round(
-              (k.layerY - s) / g.svg.scale - n.center_offset.y
+            const oe = Math.round(
+              (k.layerY - s) / g.svg.scale - l.center_offset.y
             );
-            if (Q <= 0) {
-              y.value = -999;
+            if (oe <= 0) {
+              _.value = -999;
               return;
             }
-            _.value.push({
+            Z.value.push({
               type: "h",
-              site: Q
+              site: oe
             });
             break;
           case "y":
-            const P = Math.round(
-              (k.layerX - s) / g.svg.scale - n.center_offset.x
+            const ne = Math.round(
+              (k.layerX - s) / g.svg.scale - l.center_offset.x
             );
-            if (P <= 0) {
-              f.value = -999;
+            if (ne <= 0) {
+              v.value = -999;
               return;
             }
-            _.value.push({
+            Z.value.push({
               type: "v",
-              site: P
+              site: ne
             });
             break;
           case "h":
-            Be(
-              _.value,
-              Math.round((k.layerY - s) / g.svg.scale - n.center_offset.y),
-              Math.round(X / g.svg.scale - n.center_offset.y),
+            Ge(
+              Z.value,
+              Math.round((k.layerY - s) / g.svg.scale - l.center_offset.y),
+              Math.round(X / g.svg.scale - l.center_offset.y),
               "h"
             );
             break;
           case "v":
-            Be(
-              _.value,
-              Math.round((k.layerX - s) / g.svg.scale - n.center_offset.x),
-              Math.round(z / g.svg.scale - n.center_offset.x),
+            Ge(
+              Z.value,
+              Math.round((k.layerX - s) / g.svg.scale - l.center_offset.x),
+              Math.round(Y / g.svg.scale - l.center_offset.x),
               "v"
             );
             break;
         }
-        y.value = f.value = -999;
+        _.value = v.value = -999;
       }
-    }, Be = (k, Q, P, Ie) => {
-      if (Q < P) {
+    }, Ge = (k, oe, ne, me) => {
+      if (oe < ne) {
         let Oe;
-        E.value.forEach(($e, d1) => {
-          $e.id === J && (Oe = d1);
+        j.value.forEach((Ne, m1) => {
+          Ne.id === T && (Oe = m1);
         }), k.splice(Oe, 1);
       } else {
         let Oe;
-        E.value.forEach(($e, d1) => {
-          $e.id === J && (Oe = d1);
+        j.value.forEach((Ne, m1) => {
+          Ne.id === T && (Oe = m1);
         }), k.splice(Oe, 1, {
-          type: Ie,
-          site: Q
+          type: me,
+          site: oe
         });
       }
-    }, c1 = () => {
-      I1("x");
-    }, m1 = () => {
-      I1("y");
-    }, C1 = (k) => {
-      G.value = !0, F = "h", J = k;
-    }, Je = (k) => {
-      G.value = !0, F = "v", J = k;
-    }, Ke = () => {
+    }, $e = () => {
+      _1("x");
+    }, b1 = () => {
+      _1("y");
+    }, a1 = (k) => {
+      G.value = !0, N = "h", T = k;
+    }, s1 = (k) => {
+      G.value = !0, N = "v", T = k;
+    }, R1 = () => {
       e("onLineMouseUp");
     };
-    return (k, Q) => (p(), w("div", {
-      style: ie(l(de)),
+    return (k, oe) => (u(), B("div", {
+      style: se(n(de)),
       class: "vue-ruler-wrapper",
       onselectStart: "return false;",
       ref_key: "el",
-      ref: Ve
+      ref: Be
     }, [
-      Ze(d("section", null, [
+      Ve(d("section", null, [
         d("div", {
           ref_key: "horizontalRuler",
-          ref: Me,
+          ref: Fe,
           class: "vue-ruler-h",
-          onMousedown: T1(c1, ["stop"])
+          onMousedown: Y1($e, ["stop"])
         }, [
-          (p(!0), w(ae, null, Ae(l(b), (P, Ie) => (p(), w("span", {
-            style: ie({ left: Ie * k.stepLength + "px" }),
+          (u(!0), B(ce, null, pe(n(p), (ne, me) => (u(), B("span", {
+            style: se({ left: me * k.stepLength + "px" }),
             class: "n"
-          }, S(P.id), 5))), 256))
+          }, S(ne.id), 5))), 256))
         ], 544),
         d("div", {
           ref_key: "verticalRuler",
-          ref: ke,
+          ref: ze,
           class: "vue-ruler-v",
-          onMousedown: T1(m1, ["stop"])
+          onMousedown: Y1(b1, ["stop"])
         }, [
-          (p(!0), w(ae, null, Ae(l(v), (P, Ie) => (p(), w("span", {
-            style: ie({ top: Ie * k.stepLength + "px" }),
+          (u(!0), B(ce, null, pe(n(y), (ne, me) => (u(), B("span", {
+            style: se({ top: me * k.stepLength + "px" }),
             class: "n"
-          }, S(P.id), 5))), 256))
+          }, S(ne.id), 5))), 256))
         ], 544),
         d("div", {
-          style: ie({ top: l(y) + "px" }),
+          style: se({ top: n(_) + "px" }),
           class: "vue-ruler-ref-dot-h"
         }, [
-          d("span", null, S(Math.round((l(y) - l(X)) / l(g).svg.scale - l(n).center_offset.y)), 1)
+          d("span", null, S(Math.round((n(_) - n(X)) / n(g).svg.scale - n(l).center_offset.y)), 1)
         ], 4),
         d("div", {
-          style: ie({ left: l(f) + "px" }),
+          style: se({ left: n(v) + "px" }),
           class: "vue-ruler-ref-dot-v"
         }, [
-          d("span", null, S(Math.round((l(f) - l(z)) / l(g).svg.scale - l(n).center_offset.x)), 1)
+          d("span", null, S(Math.round((n(v) - n(Y)) / n(g).svg.scale - n(l).center_offset.x)), 1)
         ], 4),
-        (p(!0), w(ae, null, Ae(l(E), (P) => (p(), w("div", {
-          title: P.title,
-          style: ie(Qe(P)),
-          key: P.id,
-          class: Ge(`vue-ruler-ref-line-${P.type}`),
-          onMousedown: (Ie) => G1(P),
-          onMouseup: Ke,
-          onContextmenu: Q[0] || (Q[0] = //@ts-ignore
-          (...Ie) => l(it) && l(it)(...Ie))
-        }, null, 46, Rn))), 128))
+        (u(!0), B(ce, null, pe(n(j), (ne) => (u(), B("div", {
+          title: ne.title,
+          style: se(p1(ne)),
+          key: ne.id,
+          class: we(`vue-ruler-ref-line-${ne.type}`),
+          onMousedown: (me) => y1(ne),
+          onMouseup: R1,
+          onContextmenu: oe[0] || (oe[0] = //@ts-ignore
+          (...me) => n(gt) && n(gt)(...me))
+        }, null, 46, Rl))), 128))
       ], 512), [
-        [Le, i.visible]
+        [We, i.visible]
       ]),
       d("div", {
         ref_key: "content",
-        ref: oe,
+        ref: ie,
         class: "vue-ruler-content",
-        style: ie(l(B))
+        style: se(n(W))
       }, [
-        Te(k.$slots, "default")
+        je(k.$slots, "default")
       ], 4),
-      Ze(d("div", Xn, null, 512), [
-        [Le, l(G)]
+      Ve(d("div", Xl, null, 512), [
+        [We, n(G)]
       ])
     ], 4));
   }
 });
-function kn(o, t = new Date(Date.now()).toLocaleString()) {
+function kl(o, t = new Date(Date.now()).toLocaleString()) {
   const e = JSON.stringify(o), i = new Blob([e]);
-  let n = document.createElement("a");
-  n.download = t + ".json", n.style.display = "none", n.href = URL.createObjectURL(i), document.body.appendChild(n), n.click(), document.body.removeChild(n), URL.revokeObjectURL(n.href);
+  let l = document.createElement("a");
+  l.download = t + ".json", l.style.display = "none", l.href = URL.createObjectURL(i), document.body.appendChild(l), l.click(), document.body.removeChild(l), URL.revokeObjectURL(l.href);
 }
-function Kn(o) {
+function Kl(o) {
   return new Promise((t, e) => {
     let i = new FileReader();
-    i.readAsText(o, "UTF-8"), i.onload = function(n) {
-      n && n.target ? t(n.target.result) : e(A("文件读取错误"));
+    i.readAsText(o, "UTF-8"), i.onload = function(l) {
+      l && l.target ? t(l.target.result) : e(A("文件读取错误"));
     };
   });
 }
-const zn = { class: "vgce-scrollbar el-scroll-pc" }, Yn = { class: "canvas-main-pc" }, Mn = { class: "vgce-scrollbar el-scroll-pc" }, Fn = /* @__PURE__ */ D({
+const Yl = { class: "vgce-scrollbar el-scroll-pc" }, zl = { class: "canvas-main-pc" }, Ml = { class: "vgce-scrollbar el-scroll-pc" }, Fl = /* @__PURE__ */ $({
   __name: "index",
   props: {
     customToolbar: {},
@@ -7786,65 +7786,65 @@ const zn = { class: "vgce-scrollbar el-scroll-pc" }, Yn = { class: "canvas-main-
   emits: ["onReturn", "onPreview", "onSave"],
   setup(o, { expose: t, emit: e }) {
     _2();
-    const i = e, n = o;
-    j1(() => {
-      n.locale && v2(n.locale);
-    }), j1(() => {
-      Oo(n.configMessages);
+    const i = e, l = o;
+    D1(() => {
+      l.locale && v2(l.locale);
+    }), D1(() => {
+      Oo(l.configMessages);
     });
-    const g = me(O), a = Pe(O), c = n1(O), s = Ct(O), C = Ht(), m = Y(() => C.value === "en-US"), b = Y(() => {
-      const B = qt(n.editorPerf);
-      return n.forceLevel && n.forceLevel !== B.level ? { ...qt({ ...n.editorPerf, level: n.forceLevel }), level: n.forceLevel } : B;
+    const g = ve(Q), a = Pe(Q), I = l1(Q), s = dt(Q), c = Ht(), b = M(() => c.value === "en-US"), p = M(() => {
+      const W = qt(l.editorPerf);
+      return l.forceLevel && l.forceLevel !== W.level ? { ...qt({ ...l.editorPerf, level: l.forceLevel }), level: l.forceLevel } : W;
     });
-    S1("editorPerf", b);
-    const v = K(), _ = K(), G = K(), F = K(), f = a1({
-      [v1.ExportJson]: !1,
-      [v1.ImportJson]: !1,
-      [v1.ImportFile]: !1
-    }), y = (B, E) => {
-      f[B] = E;
-    }, z = K();
-    z.value = () => {
-      _.value.onImportJson(), y(v1.ImportJson, !1);
+    M1("editorPerf", p);
+    const y = K(), Z = K(), G = K(), N = K(), v = u1({
+      [G1.ExportJson]: !1,
+      [G1.ImportJson]: !1,
+      [G1.ImportFile]: !1
+    }), _ = (W, j) => {
+      v[W] = j;
+    }, Y = K();
+    Y.value = () => {
+      Z.value.onImportJson(), _(G1.ImportJson, !1);
     };
-    const X = (B) => {
-      if (["text/plain", "application/json"].indexOf(B.type) < 0) {
-        y1.error(A("仅支持的格式：txt、json"));
+    const X = (W) => {
+      if (["text/plain", "application/json"].indexOf(W.type) < 0) {
+        L1.error(A("仅支持的格式：txt、json"));
         return;
       }
-      Kn(B).then((E) => {
-        _.value.setVal(E), y1.success(A("文件读取成功！"));
+      Kl(W).then((j) => {
+        Z.value.setVal(j), L1.success(A("文件读取成功！"));
       });
-    }, J = (B) => {
-      var ue;
-      const E = B.target, le = (ue = E.files) == null ? void 0 : ue[0];
-      le && X(le), E.value = "";
-    }, oe = (B) => {
-      g.setDoneJson(B);
+    }, T = (W) => {
+      var re;
+      const j = W.target, te = (re = j.files) == null ? void 0 : re[0];
+      te && X(te), j.value = "";
+    }, ie = (W) => {
+      g.setDoneJson(W);
     };
-    Z1(() => {
-      s.history_doneComponent = [], s.history_now_index = 0, n.data ? G2(n.data) : g.setDoneJson([]), g.intention = L.None;
+    w1(() => {
+      s.history_doneComponent = [], s.history_now_index = 0, l.data ? G2(l.data) : g.setDoneJson([]), g.intention = L.None;
     });
-    function Ve(B) {
+    function Be(W) {
       i("onReturn", {
-        data: B,
+        data: W,
         isChange: s.getTopBtnUndoStatus
       });
     }
-    function ke(B) {
-      n.saveFile ? G.value.open({
+    function ze(W) {
+      l.saveFile ? G.value.open({
         message: A("请输入文件名"),
         title: A("保存"),
         cancelButtonText: A("取消"),
         confirmButtonText: A("保存")
-      }).then((E) => {
-        kn(B, E.value.trim()), i("onSave", B);
-      }).catch((E) => {
-        console.log(E);
-      }) : i("onSave", B);
+      }).then((j) => {
+        kl(W, j.value.trim()), i("onSave", W);
+      }).catch((j) => {
+        console.log(j);
+      }) : i("onSave", W);
     }
-    function Me() {
-      v.value.onCanvasMouseUp();
+    function Fe() {
+      y.value.onCanvasMouseUp();
     }
     function de() {
       G.value.open({
@@ -7855,72 +7855,72 @@ const zn = { class: "vgce-scrollbar el-scroll-pc" }, Yn = { class: "canvas-main-
         inputValue: "svg-canvas",
         inputPattern: /^[^\\/:*?"<>|]+$/,
         inputErrorMessage: A('文件名不能包含 \\ / : * ? " < > |')
-      }).then((B) => {
-        var le;
-        ((le = v.value) == null ? void 0 : le.exportSvg(B.value.trim())) && y1.success(A("SVG文件已保存"));
-      }).catch((B) => {
-        console.log(B);
+      }).then((W) => {
+        var te;
+        ((te = y.value) == null ? void 0 : te.exportSvg(W.value.trim())) && L1.success(A("SVG文件已保存"));
+      }).catch((W) => {
+        console.log(W);
       });
     }
-    return Z1(() => {
-      var B, E, le, ue, Fe;
-      c.net.mqtt.useGlobalMqtt = !!((B = n.mqtt) != null && B.cover), c.net.mqtt.global || (c.net.mqtt.global = {
+    return w1(() => {
+      var W, j, te, re, Je;
+      I.net.mqtt.useGlobalMqtt = !!((W = l.mqtt) != null && W.cover), I.net.mqtt.global || (I.net.mqtt.global = {
         url: "",
         user: "",
         pwd: "",
         topics: ""
-      }), c.net.mqtt.global.url = ((E = n.mqtt) == null ? void 0 : E.url) || "", c.net.mqtt.global.user = ((le = n.mqtt) == null ? void 0 : le.user) || "", c.net.mqtt.global.pwd = ((ue = n.mqtt) == null ? void 0 : ue.pwd) || "", c.net.mqtt.global.topics = ((Fe = n.mqtt) == null ? void 0 : Fe.topics) || "";
+      }), I.net.mqtt.global.url = ((j = l.mqtt) == null ? void 0 : j.url) || "", I.net.mqtt.global.user = ((te = l.mqtt) == null ? void 0 : te.user) || "", I.net.mqtt.global.pwd = ((re = l.mqtt) == null ? void 0 : re.pwd) || "", I.net.mqtt.global.topics = ((Je = l.mqtt) == null ? void 0 : Je.topics) || "";
     }), t({
-      setGraphNodeJson: oe
-    }), (B, E) => (p(), w("div", {
-      class: Ge([l(x2)(l(b).level), { "vgce-editor--en": l(m) }])
+      setGraphNodeJson: ie
+    }), (W, j) => (u(), B("div", {
+      class: we([n(x2)(n(p).level), { "vgce-editor--en": n(b) }])
     }, [
-      r(l(Kt), null, {
-        default: h(() => [
-          r(l(n3), { class: "top-el-header" }, {
-            default: h(() => [
+      r(n(Kt), null, {
+        default: m(() => [
+          r(n(l3), { class: "top-el-header" }, {
+            default: m(() => [
               r(U6, {
-                onChangeVisible: y,
-                onOnReturn: Ve,
-                onOnPreview: E[0] || (E[0] = (le) => i("onPreview", le)),
-                onOnSave: ke,
+                onChangeVisible: _,
+                onOnReturn: Be,
+                onOnPreview: j[0] || (j[0] = (te) => i("onPreview", te)),
+                onOnSave: ze,
                 onOnExportSvg: de
               })
             ]),
             _: 1
           }),
-          r(l(Kt), { class: "middle" }, {
-            default: h(() => [
-              r(l(zt), {
-                class: Ge(["side-nav", l(a).left_nav ? "show-nav" : "hide-nav"]),
+          r(n(Kt), { class: "middle" }, {
+            default: m(() => [
+              r(n(Yt), {
+                class: we(["side-nav", n(a).left_nav ? "show-nav" : "hide-nav"]),
                 style: { "border-right": "1px solid #efefef" }
               }, {
-                default: h(() => [
-                  d("div", zn, [
+                default: m(() => [
+                  d("div", Yl, [
                     r(D6, {
                       class: "content-left",
-                      "custom-toolbar": n.customToolbar
+                      "custom-toolbar": l.customToolbar
                     }, null, 8, ["custom-toolbar"])
                   ])
                 ]),
                 _: 1
               }, 8, ["class"]),
-              r(l(i3), { class: "middle main" }, {
-                default: h(() => [
-                  d("div", Yn, [
-                    r(Sn, {
+              r(n(i3), { class: "middle main" }, {
+                default: m(() => [
+                  d("div", zl, [
+                    r(Sl, {
                       class: "canvas-main-pc",
-                      visible: l(c).svg.ruler,
-                      onOnLineMouseUp: Me
+                      visible: n(I).svg.ruler,
+                      onOnLineMouseUp: Fe
                     }, {
-                      default: h(() => [
-                        r(hl, {
+                      default: m(() => [
+                        r(fn, {
                           ref_key: "centerRef",
-                          ref: v,
-                          vueComp: n.vueComp
+                          ref: y,
+                          vueComp: l.vueComp
                         }, {
-                          background: h(() => [
-                            Te(B.$slots, "background", {}, void 0, !0)
+                          background: m(() => [
+                            je(W.$slots, "background", {}, void 0, !0)
                           ]),
                           _: 3
                         }, 8, ["vueComp"])
@@ -7931,14 +7931,14 @@ const zn = { class: "vgce-scrollbar el-scroll-pc" }, Yn = { class: "canvas-main-
                 ]),
                 _: 3
               }),
-              r(l(zt), {
-                class: Ge(["side-nav", l(a).right_nav ? "show-nav" : "hide-nav"]),
+              r(n(Yt), {
+                class: we(["side-nav", n(a).right_nav ? "show-nav" : "hide-nav"]),
                 style: { "border-left": "1px solid #efefef" }
               }, {
-                default: h(() => [
-                  d("div", Mn, [
-                    r(Gn, {
-                      slotBackground: n.slotBackground
+                default: m(() => [
+                  d("div", Ml, [
+                    r(Gl, {
+                      slotBackground: l.slotBackground
                     }, null, 8, ["slotBackground"])
                   ])
                 ]),
@@ -7950,75 +7950,75 @@ const zn = { class: "vgce-scrollbar el-scroll-pc" }, Yn = { class: "canvas-main-
         ]),
         _: 3
       }),
-      r(l(O1), {
+      r(n(E1), {
         class: "modal-full",
-        modelValue: l(f).ImportJson,
-        "onUpdate:modelValue": E[3] || (E[3] = (le) => l(f).ImportJson = le),
-        title: l(A)("导入数据"),
+        modelValue: n(v).ImportJson,
+        "onUpdate:modelValue": j[3] || (j[3] = (te) => n(v).ImportJson = te),
+        title: n(A)("导入数据"),
         width: "60%",
         "destroy-on-close": ""
       }, {
-        footer: h(() => [
+        footer: m(() => [
           d("button", {
             type: "button",
             class: "vgce-btn",
             style: { "margin-right": "12px" },
-            onClick: E[1] || (E[1] = (le) => {
-              var ue;
-              return (ue = l(F)) == null ? void 0 : ue.click();
+            onClick: j[1] || (j[1] = (te) => {
+              var re;
+              return (re = n(N)) == null ? void 0 : re.click();
             })
-          }, S(l(A)("读取文件")), 1),
+          }, S(n(A)("读取文件")), 1),
           d("input", {
             ref_key: "importFileRef",
-            ref: F,
+            ref: N,
             type: "file",
             accept: ".txt,.json,text/plain,application/json",
             style: { display: "none" },
-            onChange: J
+            onChange: T
           }, null, 544),
           d("button", {
             type: "button",
             class: "vgce-btn vgce-btn--primary",
-            onClick: E[2] || (E[2] = //@ts-ignore
-            (...le) => l(z) && l(z)(...le))
-          }, S(l(A)("导入数据")), 1)
+            onClick: j[2] || (j[2] = //@ts-ignore
+            (...te) => n(Y) && n(Y)(...te))
+          }, S(n(A)("导入数据")), 1)
         ]),
-        default: h(() => [
-          r(Vn, {
+        default: m(() => [
+          r(Vl, {
             ref_key: "importJsonRef",
-            ref: _
+            ref: Z
           }, null, 512)
         ]),
         _: 1
       }, 8, ["modelValue", "title"]),
-      r(l(O1), {
+      r(n(E1), {
         class: "modal-full",
-        modelValue: l(f).ExportJson,
-        "onUpdate:modelValue": E[4] || (E[4] = (le) => l(f).ExportJson = le),
-        title: l(A)("导出"),
+        modelValue: n(v).ExportJson,
+        "onUpdate:modelValue": j[4] || (j[4] = (te) => n(v).ExportJson = te),
+        title: n(A)("导出"),
         width: "60%",
         "destroy-on-close": ""
       }, {
-        default: h(() => [
-          r(Ln)
+        default: m(() => [
+          r(Ll)
         ]),
         _: 1
       }, 8, ["modelValue", "title"]),
-      r(Hn, {
+      r(Hl, {
         ref_key: "promptRef",
         ref: G
       }, null, 512)
     ], 2));
   }
 });
-const u4 = /* @__PURE__ */ he(Fn, [["__scopeId", "data-v-d34ad302"]]), Jn = Mt.default ?? Mt, s2 = Jn.connect;
-class Nn {
+const b4 = /* @__PURE__ */ ye(Fl, [["__scopeId", "data-v-d34ad302"]]), Jl = Mt.default ?? Mt, s2 = Jl.connect;
+class Nl {
   constructor() {
     kt(this, "client");
     this.client = null;
   }
-  sub(t, e, i, n, g) {
-    var c, s;
+  sub(t, e, i, l, g) {
+    var I, s;
     const a = t.trim();
     if (!/^wss?:\/\/.*$/.test(a))
       return console.error(A('编辑器MQTT通信只支持ws协议 (url必须以"ws://"开头)')), !1;
@@ -8027,23 +8027,23 @@ class Nn {
       password: i.trim(),
       reconnectPeriod: 12e4
       /*如果连不上，2分钟后重试*/
-    }), (c = this.client) == null || c.on("connect", () => {
-      var C, m;
-      console.log(A("MQTT服务器连接成功")), console.log((C = this.client) == null ? void 0 : C.options.clientId), (m = this.client) == null || m.subscribe(n, { qos: 1 });
+    }), (I = this.client) == null || I.on("connect", () => {
+      var c, b;
+      console.log(A("MQTT服务器连接成功")), console.log((c = this.client) == null ? void 0 : c.options.clientId), (b = this.client) == null || b.subscribe(l, { qos: 1 });
     }), (s = this.client) == null || s.on("message", g);
   }
-  pub(t, e, i, n, g, a) {
+  pub(t, e, i, l, g, a) {
     var s;
-    const c = t.trim();
-    if (!/^wss?:\/\/.*$/.test(c))
+    const I = t.trim();
+    if (!/^wss?:\/\/.*$/.test(I))
       return console.error(A('编辑器MQTT通信只支持ws协议 (url必须以"ws://"开头)')), !1;
-    this.client = s2(c, {
+    this.client = s2(I, {
       username: e.trim(),
       password: i.trim()
     }), (s = this.client) == null || s.on("connect", () => {
-      var C, m;
-      console.log(A("MQTT服务器连接成功")), console.log((C = this.client) == null ? void 0 : C.options.clientId), (m = this.client) == null || m.publish(
-        n,
+      var c, b;
+      console.log(A("MQTT服务器连接成功")), console.log((c = this.client) == null ? void 0 : c.options.clientId), (b = this.client) == null || b.publish(
+        l,
         JSON.stringify(g),
         {
           qos: 0,
@@ -8061,28 +8061,28 @@ class Nn {
     }
     e.removeAllListeners();
     let i = !1;
-    const n = () => {
+    const l = () => {
       i || (i = !0, console.log(A("MQTT服务连接关闭")), this.client = null, t == null || t());
     };
     try {
-      e.end(!0, {}, n);
+      e.end(!0, {}, l);
     } catch {
-      n();
+      l();
     }
-    setTimeout(n, 1e3);
+    setTimeout(l, 1e3);
   }
   destroy() {
     var t;
     (t = this.client) == null || t.removeAllListeners(), this.client = null;
   }
 }
-const Un = function() {
-  return new Nn();
-}, Tn = { class: "coverLayer" }, jn = {
+const Ul = function() {
+  return new Nl();
+}, Tl = { class: "coverLayer" }, jl = {
   xmlns: "http://www.w3.org/2000/svg",
   width: "100%",
   height: "100%"
-}, On = ["transform"], Dn = ["transform", "data-no-zoom", "onClick"], En = ["transform"], Pn = ["xlink:href", "width", "height", "id"], Qn = ["id"], $n = { class: "can-not-select canvasInfoTxt" }, qn = 200, I2 = 0.5, c2 = 300, e4 = 300, t4 = /* @__PURE__ */ D({
+}, Ol = ["transform"], Dl = ["transform", "data-no-zoom", "onClick"], El = ["transform"], Pl = ["xlink:href", "width", "height", "id"], Ql = ["id"], $l = { class: "can-not-select canvasInfoTxt" }, ql = 200, I2 = 0.5, c2 = 300, e4 = 300, t4 = 10, o4 = 0.1, n4 = /* @__PURE__ */ $({
   __name: "svg-viewer",
   props: {
     vueComp: {},
@@ -8096,30 +8096,30 @@ const Un = function() {
   },
   emits: ["onMessage", "onEvent"],
   setup(o, { expose: t, emit: e }) {
-    wt((Z) => ({
-      "02a9051b": l(C)
+    wt((f) => ({
+      "4dfcac9e": n(c)
     })), _2();
-    const i = e, n = o;
-    j1(() => {
-      n.locale && v2(n.locale);
+    const i = e, l = o;
+    D1(() => {
+      l.locale && v2(l.locale);
     });
-    const g = Y(() => {
-      const Z = Qt(n.previewPerf);
-      return n.forceLevel && n.forceLevel !== Z.level ? { ...Qt({ ...n.previewPerf, level: n.forceLevel }), level: n.forceLevel } : Z;
+    const g = M(() => {
+      const f = Qt(l.previewPerf);
+      return l.forceLevel && l.forceLevel !== f.level ? { ...Qt({ ...l.previewPerf, level: l.forceLevel }), level: l.forceLevel } : f;
     });
-    S1("previewPerf", g), j1(() => {
+    M1("previewPerf", g), D1(() => {
       console.log(
         "[VGCE] SvgViewer perf:",
         `auto=${g.value.level}`,
-        n.forceLevel ? `force=${n.forceLevel}` : "",
+        l.forceLevel ? `force=${l.forceLevel}` : "",
         g.value
       );
-    }), S1(xt, Ht());
-    let a = Un();
-    const c = me(O);
-    y2(n.vueComp);
-    const s = a1(
-      n.data ?? {
+    }), M1(xt, Ht());
+    let a = Ul();
+    const I = ve(Q);
+    y2(l.vueComp);
+    const s = u1(
+      l.data ?? {
         layout_center: {
           x: 0,
           y: 0
@@ -8148,73 +8148,78 @@ const Un = function() {
         },
         done_json: []
       }
-    ), C = Y(() => c.intention == L.MoveCanvas ? "grab" : "default"), m = Y(() => {
-      const Z = s.config.svg.scale, R = s.layout_center.x * Z, W = s.layout_center.y * Z;
-      return `translate(${R},${W}) scale(${Z})`;
-    }), b = Y(() => g.value.level === "low"), v = K(!1), _ = K("");
+    ), c = M(() => I.intention == L.MoveCanvas ? "grab" : "default"), b = M(() => {
+      const f = s.config.svg.scale, V = s.layout_center.x * f, w = s.layout_center.y * f;
+      return `translate(${V},${w}) scale(${f})`;
+    }), p = M(() => g.value.level === "low"), y = K(!1), Z = K("");
     let G = null;
-    const F = Y(() => v.value ? _.value : m.value), f = () => {
-      !b.value || v.value || (_.value = m.value, v.value = !0);
-    }, y = () => {
-      G && (clearTimeout(G), G = null), v.value = !1;
-    }, z = a1({ left: 0, top: 0, scale: 1 }), X = c2 / 2, J = a1({ x: 0, y: 0, scale: 1 });
-    let oe = 0;
-    const Ve = () => {
-      J.x = s.layout_center.x, J.y = s.layout_center.y, J.scale = s.config.svg.scale;
+    const N = M(() => y.value ? Z.value : b.value), v = () => {
+      !p.value || y.value || (Z.value = b.value, y.value = !0);
+    }, _ = () => {
+      G && (clearTimeout(G), G = null), y.value = !1;
+    }, Y = u1({ left: 0, top: 0, scale: 1 }), X = c2 / 2, T = u1({ x: 0, y: 0, scale: 1 });
+    let ie = 0;
+    const Be = () => {
+      T.x = s.layout_center.x, T.y = s.layout_center.y, T.scale = s.config.svg.scale;
     };
-    Ve(), Ue(
+    Be(), Te(
       () => [s.layout_center.x, s.layout_center.y, s.config.svg.scale],
       () => {
-        clearTimeout(oe), oe = setTimeout(Ve, e4);
+        clearTimeout(ie), ie = setTimeout(Be, e4);
       }
     );
-    const ke = () => ({
+    const ze = () => ({
       scale: s.config.svg.scale || 1,
       left: -s.layout_center.x,
       top: -s.layout_center.y
-    }), Me = () => {
-      const Z = ke();
-      z.left = Z.left, z.top = Z.top, z.scale = Z.scale;
+    }), Fe = () => {
+      const f = ze();
+      Y.left = f.left, Y.top = f.top, Y.scale = f.scale;
     }, de = () => {
       if (!g.value.nodeVirtual)
         return;
-      const R = ke();
-      if (R.scale !== z.scale) {
-        z.left = R.left, z.top = R.top, z.scale = R.scale;
+      const V = ze();
+      if (V.scale !== Y.scale) {
+        Y.left = V.left, Y.top = V.top, Y.scale = V.scale;
         return;
       }
-      const W = Math.min(Ke.width / R.scale * I2, X), u = Math.min(Ke.height / R.scale * I2, X);
-      (Math.abs(R.left - z.left) > W || Math.abs(R.top - z.top) > u) && (z.left = R.left, z.top = R.top);
+      const w = Math.min(qe.width / V.scale * I2, X), F = Math.min(qe.height / V.scale * I2, X);
+      (Math.abs(V.left - Y.left) > w || Math.abs(V.top - Y.top) > F) && (Y.left = V.left, Y.top = V.top);
     };
-    Ue(
+    Te(
       () => [s.layout_center.x, s.layout_center.y, s.config.svg.scale],
       () => {
         de();
       }
     );
-    const B = { x: 0, y: 0, pending: !1 }, E = () => {
-      B.pending && (B.pending = !1, le());
-    }, le = () => {
-      if (c.mouse_info.state != ye.Down && c.intention !== L.Connection || !n.canvasDrag)
+    const W = { x: 0, y: 0, pending: !1 };
+    let j = !1, te = !1, re = 0, Je = 1;
+    const Re = (f, V) => {
+      const w = f.clientX - V.clientX, F = f.clientY - V.clientY;
+      return Math.hypot(w, F);
+    }, i1 = () => {
+      W.pending && (W.pending = !1, v1());
+    }, v1 = () => {
+      if (I.mouse_info.state != Ae.Down && I.intention !== L.Connection || !l.canvasDrag)
         return;
-      c.mouse_info.new_position_x = B.x, c.mouse_info.new_position_y = B.y;
-      const Z = Math.round(
-        c.mouse_info.new_position_x - c.mouse_info.position_x + c.mouse_info.now_position_x
-      ), R = Math.round(
-        c.mouse_info.new_position_y - c.mouse_info.position_y + c.mouse_info.now_position_y
+      I.mouse_info.new_position_x = W.x, I.mouse_info.new_position_y = W.y;
+      const f = Math.round(
+        I.mouse_info.new_position_x - I.mouse_info.position_x + I.mouse_info.now_position_x
+      ), V = Math.round(
+        I.mouse_info.new_position_y - I.mouse_info.position_y + I.mouse_info.now_position_y
       );
-      c.intention == L.MoveCanvas && (s.layout_center.x = Z, s.layout_center.y = R, de());
-    }, ue = (Z) => {
-      if (c.mouse_info.state === ye.Down && Z.buttons === 0) {
-        je();
+      I.intention == L.MoveCanvas && (s.layout_center.x = f, s.layout_center.y = V, de());
+    }, p1 = (f) => {
+      if (I.mouse_info.state === Ae.Down && f.buttons === 0) {
+        Qe();
         return;
       }
-      B.x = Math.round(Z.clientX / s.config.svg.scale), B.y = Math.round(Z.clientY / s.config.svg.scale), B.pending = !0, Fe();
-    }, Fe = U1(E, g.value.fpsLimit), Re = () => {
-      E();
-    }, je = () => {
-      Re(), b1(), y(), clearTimeout(oe), Ve(), c.mouse_info.state == ye.Down && (c.intention != L.Select && (c.intention = L.None), c.mouse_info = {
-        state: ye.Up,
+      W.x = Math.round(f.clientX / s.config.svg.scale), W.y = Math.round(f.clientY / s.config.svg.scale), W.pending = !0, y1();
+    }, y1 = O1(i1, g.value.fpsLimit), B1 = () => {
+      i1();
+    }, Qe = () => {
+      B1(), Ge(), _(), clearTimeout(ie), Be(), I.mouse_info.state == Ae.Down && (I.intention != L.Select && (I.intention = L.None), I.mouse_info = {
+        state: Ae.Up,
         position_x: 0,
         position_y: 0,
         now_position_x: 0,
@@ -8222,128 +8227,202 @@ const Un = function() {
         new_position_x: 0,
         new_position_y: 0
       });
-    }, p1 = (Z) => {
-      const { clientX: R, clientY: W } = Z;
-      c.intention = L.MoveCanvas, c.mouse_info = {
-        state: ye.Down,
-        position_x: Math.round(R / s.config.svg.scale),
-        position_y: Math.round(W / s.config.svg.scale),
+    }, W1 = (f) => {
+      const { clientX: V, clientY: w } = f;
+      I.intention = L.MoveCanvas, I.mouse_info = {
+        state: Ae.Down,
+        position_x: Math.round(V / s.config.svg.scale),
+        position_y: Math.round(w / s.config.svg.scale),
         now_position_x: s.layout_center.x,
         now_position_y: s.layout_center.y,
         new_position_x: 0,
         new_position_y: 0
-      }, f(), V1();
+      }, v(), H1();
     };
-    let Qe = !1;
-    const G1 = (Z) => {
-      ue(Z);
-    }, L1 = () => {
-      je();
+    let g1 = !1;
+    const x1 = (f) => {
+      p1(f);
+    }, _1 = () => {
+      Qe();
+    }, Z1 = () => {
+      Qe();
+    }, H1 = () => {
+      g1 || (g1 = !0, window.addEventListener("mousemove", x1, !0), window.addEventListener("mouseup", _1, !0), window.addEventListener("blur", Z1));
+    }, Ge = () => {
+      g1 && (g1 = !1, window.removeEventListener("mousemove", x1, !0), window.removeEventListener("mouseup", _1, !0), window.removeEventListener("blur", Z1));
+    };
+    let $e = !1;
+    const b1 = () => {
+      $e || !ke.value || ($e = !0, ke.value.addEventListener("touchmove", k, { passive: !1 }), ke.value.addEventListener("touchend", oe), ke.value.addEventListener("touchcancel", oe));
+    }, a1 = () => {
+      !$e || !ke.value || ($e = !1, ke.value.removeEventListener("touchmove", k), ke.value.removeEventListener("touchend", oe), ke.value.removeEventListener("touchcancel", oe));
     }, s1 = () => {
-      je();
-    }, V1 = () => {
-      Qe || (Qe = !0, window.addEventListener("mousemove", G1, !0), window.addEventListener("mouseup", L1, !0), window.addEventListener("blur", s1));
-    }, b1 = () => {
-      Qe && (Qe = !1, window.removeEventListener("mousemove", G1, !0), window.removeEventListener("mouseup", L1, !0), window.removeEventListener("blur", s1));
-    }, K1 = (Z) => {
-      var W;
-      const R = Z;
-      return !!((W = R == null ? void 0 : R.closest) != null && W.call(R, "[data-no-zoom]"));
-    }, I1 = U1((Z) => {
-      n.canvasZoom && (K1(Z == null ? void 0 : Z.target) || Z != null && Z.wheelDelta && (Z.wheelDelta > 0 ? (s.config.svg.scale = Ce(s.config.svg.scale + 0.1, 1), gt(Z, s.config.svg.scale, s.layout_center, !0)) : s.config.svg.scale > 0.1 && (s.config.svg.scale = Ce(s.config.svg.scale - 0.1, 1), gt(Z, s.config.svg.scale, s.layout_center, !1)), b.value && (f(), G && clearTimeout(G), G = setTimeout(y, qn)), de()));
-    }, g.value.fpsLimit), w1 = (Z) => ({
-      x: Z.x,
-      y: Z.y,
-      width: Z.width,
-      height: Z.height
-    }), B1 = /* @__PURE__ */ new WeakMap(), Be = (Z) => {
-      const R = Z.actual_bound, W = Z.rotate || 0, u = Z.scale_x ?? 1, V = Z.scale_y ?? 1, I = `${R.x}|${R.y}|${R.width}|${R.height}|${W}|${u}|${V}`, M = B1.get(Z);
-      if (M && M.signature === I)
-        return M.value;
-      const j = R.x + R.width / 2, q = R.y + R.height / 2, se = `translate(${j},${q}) rotate(${W}) scale(${u},${V}) translate(${-j},${-q})`;
-      return B1.set(Z, { signature: I, value: se }), se;
-    }, c1 = /* @__PURE__ */ new WeakMap(), m1 = (Z) => {
-      var V;
-      const R = c1.get(Z);
-      if (R)
-        return R;
-      let W = !1;
-      if (((V = Z.events) == null ? void 0 : V.length) > 0) {
-        for (let I of Z.events)
-          if (I.type === R1.Click) {
-            W = !0;
+      B1(), a1(), Ge(), _(), clearTimeout(ie), Be(), G && (clearTimeout(G), G = null), I.mouse_info.state === Ae.Down && (I.mouse_info = {
+        state: Ae.Up,
+        position_x: 0,
+        position_y: 0,
+        now_position_x: 0,
+        now_position_y: 0,
+        new_position_x: 0,
+        new_position_y: 0
+      }), I.intention !== L.Select && (I.intention = L.None), j = !1, te = !1, re = 0;
+    }, R1 = (f) => {
+      if (!(!l.canvasDrag && !l.canvasZoom)) {
+        if (f.touches.length === 1 && !te) {
+          if (!l.canvasDrag)
+            return;
+          const V = f.touches[0];
+          j = !0, I.intention = L.MoveCanvas, I.mouse_info = {
+            state: Ae.Down,
+            position_x: Math.round(V.clientX / s.config.svg.scale),
+            position_y: Math.round(V.clientY / s.config.svg.scale),
+            now_position_x: s.layout_center.x,
+            now_position_y: s.layout_center.y,
+            new_position_x: 0,
+            new_position_y: 0
+          }, v(), b1(), H1();
+        } else if (f.touches.length >= 2) {
+          if (!l.canvasZoom)
+            return;
+          j = !1, te = !0;
+          const V = f.touches[0], w = f.touches[1];
+          re = Re(V, w), Je = s.config.svg.scale, v(), Ge(), b1();
+        }
+      }
+    }, k = (f) => {
+      if (f.preventDefault(), te && f.touches.length >= 2) {
+        const V = f.touches[0], w = f.touches[1], F = Re(V, w);
+        if (re <= 0)
+          return;
+        let ee = Je * (F / re);
+        ee = Ce(Math.max(o4, Math.min(t4, ee)), 2);
+        const R = s.config.svg.scale;
+        if (ee === R)
+          return;
+        const J = (V.clientX + w.clientX) / 2, U = (V.clientY + w.clientY) / 2, q = ke.value;
+        if (q) {
+          const le = q.getBoundingClientRect(), d1 = J - le.left, xe = U - le.top;
+          s.layout_center.x = s.layout_center.x + d1 * (1 / ee - 1 / R), s.layout_center.y = s.layout_center.y + xe * (1 / ee - 1 / R);
+        }
+        s.config.svg.scale = ee, p.value && v(), de();
+      } else if (j && f.touches.length === 1 && !te) {
+        const V = f.touches[0];
+        W.x = Math.round(V.clientX / s.config.svg.scale), W.y = Math.round(V.clientY / s.config.svg.scale), W.pending = !0, y1();
+      }
+    }, oe = (f) => {
+      if (f.touches.length === 0)
+        s1();
+      else if (f.touches.length === 1 && te && (te = !1, _(), G && (clearTimeout(G), G = null), l.canvasDrag)) {
+        const V = f.touches[0];
+        j = !0, I.intention = L.MoveCanvas, I.mouse_info = {
+          state: Ae.Down,
+          position_x: Math.round(V.clientX / s.config.svg.scale),
+          position_y: Math.round(V.clientY / s.config.svg.scale),
+          now_position_x: s.layout_center.x,
+          now_position_y: s.layout_center.y,
+          new_position_x: 0,
+          new_position_y: 0
+        };
+      }
+    }, ne = (f) => {
+      var w;
+      const V = f;
+      return !!((w = V == null ? void 0 : V.closest) != null && w.call(V, "[data-no-zoom]"));
+    }, me = O1((f) => {
+      l.canvasZoom && (ne(f == null ? void 0 : f.target) || f != null && f.wheelDelta && (f.wheelDelta > 0 ? (s.config.svg.scale = Ce(s.config.svg.scale + 0.1, 1), at(f, s.config.svg.scale, s.layout_center, !0)) : s.config.svg.scale > 0.1 && (s.config.svg.scale = Ce(s.config.svg.scale - 0.1, 1), at(f, s.config.svg.scale, s.layout_center, !1)), p.value && (v(), G && clearTimeout(G), G = setTimeout(_, ql)), de()));
+    }, g.value.fpsLimit), Oe = (f) => ({
+      x: f.x,
+      y: f.y,
+      width: f.width,
+      height: f.height
+    }), Ne = /* @__PURE__ */ new WeakMap(), m1 = (f) => {
+      const V = f.actual_bound, w = f.rotate || 0, F = f.scale_x ?? 1, ee = f.scale_y ?? 1, R = `${V.x}|${V.y}|${V.width}|${V.height}|${w}|${F}|${ee}`, J = Ne.get(f);
+      if (J && J.signature === R)
+        return J.value;
+      const U = V.x + V.width / 2, q = V.y + V.height / 2, le = `translate(${U},${q}) rotate(${w}) scale(${F},${ee}) translate(${-U},${-q})`;
+      return Ne.set(f, { signature: R, value: le }), le;
+    }, $1 = /* @__PURE__ */ new WeakMap(), q1 = (f) => {
+      var ee;
+      const V = $1.get(f);
+      if (V)
+        return V;
+      let w = !1;
+      if (((ee = f.events) == null ? void 0 : ee.length) > 0) {
+        for (let R of f.events)
+          if (R.type === K1.Click) {
+            w = !0;
             break;
           }
       }
-      const u = { cursor: W ? "pointer" : "default" };
-      return c1.set(Z, u), u;
-    }, C1 = (Z) => {
-      var W;
-      const R = (W = Z.config) == null ? void 0 : W.stop_wheel_zoom;
-      return typeof R == "boolean" ? R : To.has(Z.tag);
-    }, Je = K(), Ke = a1({ width: 0, height: 0 }), k = () => {
-      const Z = Je.value;
-      Z && (Ke.width = Z.clientWidth, Ke.height = Z.clientHeight);
-    }, Q = () => {
-      k();
-    }, P = U1(Q, 0);
-    let Ie = null;
-    const Oe = Y(() => {
-      let Z = "";
-      for (const R of s.done_json)
-        Z += R.display ? "1" : "0";
-      return Z;
-    }), d1 = Y(() => {
-      const Z = s.done_json, R = g.value;
-      if (Oe.value, !R.nodeVirtual || Z.length <= R.nodeVirtualThreshold || !Ke.width || !Ke.height)
-        return Z;
-      const W = z.scale || 1, u = z.left, V = z.top, I = {
-        left: u,
-        top: V,
-        right: u + Ke.width / W,
-        bottom: V + Ke.height / W
-      }, M = A2(Z), j = new Set(
+      const F = { cursor: w ? "pointer" : "default" };
+      return $1.set(f, F), F;
+    }, At = (f) => {
+      var w;
+      const V = (w = f.config) == null ? void 0 : w.stop_wheel_zoom;
+      return typeof V == "boolean" ? V : To.has(f.tag);
+    }, ke = K(), qe = u1({ width: 0, height: 0 }), X1 = () => {
+      const f = ke.value;
+      f && (qe.width = f.clientWidth, qe.height = f.clientHeight);
+    }, I1 = () => {
+      X1();
+    }, ut = O1(I1, 0);
+    let h = null;
+    const z = M(() => {
+      let f = "";
+      for (const V of s.done_json)
+        f += V.display ? "1" : "0";
+      return f;
+    }), E = M(() => {
+      const f = s.done_json, V = g.value;
+      if (z.value, !V.nodeVirtual || f.length <= V.nodeVirtualThreshold || !qe.width || !qe.height)
+        return f;
+      const w = Y.scale || 1, F = Y.left, ee = Y.top, R = {
+        left: F,
+        top: ee,
+        right: F + qe.width / w,
+        bottom: ee + qe.height / w
+      }, J = A2(f), U = new Set(
         H2(
-          M.filter((q) => q.display),
-          I,
-          R.nodeVirtualThreshold,
+          J.filter((q) => q.display),
+          R,
+          V.nodeVirtualThreshold,
           c2
         ).map((q) => q.id)
       );
-      return Z.filter((q) => q.display && j.has(q.id));
-    }), z1 = (Z, R) => {
-      var W;
-      if (((W = Z.events) == null ? void 0 : W.length) > 0) {
-        for (let u of Z.events)
-          if (u.type === R) {
-            if (u.condition && u.condition.type !== "None" && u.condition.type === "Relation" && u.condition.Relation && u.condition.Relation.relation) {
-              const V = u.condition.Relation.key, I = u.condition.Relation.relation, M = M1(u.condition.Relation.val), j = M1(u.condition.Relation.val2);
-              if (Z.props.hasOwnProperty(V)) {
-                const q = Z.props[V].val;
-                if (!P1(q, I, M, j))
+      return f.filter((q) => q.display && U.has(q.id));
+    }), ge = (f, V) => {
+      var w;
+      if (((w = f.events) == null ? void 0 : w.length) > 0) {
+        for (let F of f.events)
+          if (F.type === V) {
+            if (F.condition && F.condition.type !== "None" && F.condition.type === "Relation" && F.condition.Relation && F.condition.Relation.relation) {
+              const ee = F.condition.Relation.key, R = F.condition.Relation.relation, J = N1(F.condition.Relation.val), U = N1(F.condition.Relation.val2);
+              if (f.props.hasOwnProperty(ee)) {
+                const q = f.props[ee].val;
+                if (!he(q, R, J, U))
                   continue;
               }
             }
-            if (u.action === N1.ChangeAttr) {
-              if (u.attrs && u.attrs.length > 0) {
-                let V;
-                if (u.target) {
-                  for (let I of s.done_json)
-                    if (I.id === u.target) {
-                      V = I;
+            if (F.action === j1.ChangeAttr) {
+              if (F.attrs && F.attrs.length > 0) {
+                let ee;
+                if (F.target) {
+                  for (let R of s.done_json)
+                    if (R.id === F.target) {
+                      ee = R;
                       break;
                     }
                 } else
-                  V = Z;
-                if (!V)
+                  ee = f;
+                if (!ee)
                   continue;
-                for (let I of u.attrs)
-                  I.key === "state" ? V.defaultState = M1(I.val) : I.key === "display" ? V.display = M1(I.val) : V.props.hasOwnProperty(I.key) && (V.props[I.key].val = M1(I.val));
+                for (let R of F.attrs)
+                  R.key === "state" ? ee.defaultState = N1(R.val) : R.key === "display" ? ee.display = N1(R.val) : ee.props.hasOwnProperty(R.key) && (ee.props[R.key].val = N1(R.val));
               }
-            } else if (u.action === N1.JavaScript)
-              new Function(u.scripts)();
-            else if (u.action === N1.Emit) {
-              const V = [
+            } else if (F.action === j1.JavaScript)
+              new Function(F.scripts)();
+            else if (F.action === j1.Emit) {
+              const ee = [
                 "id",
                 "name",
                 "common_animations",
@@ -8353,182 +8432,185 @@ const Un = function() {
                 "type",
                 "x",
                 "y"
-              ], I = {};
-              V.forEach((M) => {
-                var j;
-                (j = Z == null ? void 0 : Z.hasOwnProperty) != null && j.call(Z, M) && (I[M] = Z[M]);
+              ], R = {};
+              ee.forEach((J) => {
+                var U;
+                (U = f == null ? void 0 : f.hasOwnProperty) != null && U.call(f, J) && (R[J] = f[J]);
               }), i("onEvent", {
-                event: u,
-                target: I
+                event: F,
+                target: R
               });
             }
           }
       }
-    }, P1 = (Z, R, W, u) => {
-      switch (R) {
+    }, he = (f, V, w, F) => {
+      switch (V) {
         case ">":
-          return Z > W;
+          return f > w;
         case ">=":
-          return Z >= W;
+          return f >= w;
         case "<":
-          return Z < W;
+          return f < w;
         case "<=":
-          return Z <= W;
+          return f <= w;
         case "==":
-          return Z == W;
+          return f == w;
         case "!=":
-          return Z != W;
+          return f != w;
         case ">=,=<":
-          return Z >= W && Z <= u;
+          return f >= w && f <= F;
         case "<,>":
-          return Z < W || Z > u;
+          return f < w || f > F;
       }
-    }, rt = () => {
-      y(), s.layout_center = {
+    }, fe = () => {
+      _(), s.layout_center = {
         x: 0,
         y: 0
-      }, Me(), clearTimeout(oe), Ve();
-    }, At = () => {
-      let Z;
-      s.config.net.mqtt.useGlobalMqtt ? Z = s.config.net.mqtt.global : Z = s.config.net.mqtt, Z && Z.url && Z.user && Z.pwd && Z.topics && a.sub(Z.url, Z.user, Z.pwd, Z.topics, (R, W) => {
+      }, Fe(), clearTimeout(ie), Be();
+    }, c1 = () => {
+      let f;
+      s.config.net.mqtt.useGlobalMqtt ? f = s.config.net.mqtt.global : f = s.config.net.mqtt, f && f.url && f.user && f.pwd && f.topics && a.sub(f.url, f.user, f.pwd, f.topics, (V, w) => {
         i("onMessage", {
-          topics: R,
-          message: W
+          topics: V,
+          message: w
         });
       });
-    }, ut = (Z, R, W) => qo(Z, R, W, s.done_json);
-    return Z1(() => {
-      At(), k(), Me(), typeof ResizeObserver < "u" && Je.value ? (Ie = new ResizeObserver(P), Ie.observe(Je.value)) : window.addEventListener("resize", Q);
+    }, C1 = (f, V, w) => qo(f, V, w, s.done_json);
+    return w1(() => {
+      c1(), X1(), Fe(), typeof ResizeObserver < "u" && ke.value ? (h = new ResizeObserver(ut), h.observe(ke.value)) : window.addEventListener("resize", I1);
     }), Bt(() => {
-      Fe.cancel(), I1.cancel(), P.cancel(), B.pending = !1, b1(), Ie == null || Ie.disconnect(), Ie = null, G && (clearTimeout(G), G = null), y(), window.removeEventListener("resize", Q), a.close(() => {
+      y1.cancel(), me.cancel(), ut.cancel(), W.pending = !1, Ge(), a1(), h == null || h.disconnect(), h = null, G && (clearTimeout(G), G = null), _(), window.removeEventListener("resize", I1), a.close(() => {
         a.destroy(), a = null;
       });
-    }), Ue(
+    }), Te(
       () => s.done_json.length,
       () => {
-        l1(k);
+        n1(X1);
       }
     ), t({
-      setNodeAttrByID: ut,
+      setNodeAttrByID: C1,
       getPerfLevel: () => g.value.level
-    }), (Z, R) => (p(), w("div", {
+    }), (f, V) => (u(), B("div", {
       ref_key: "canvasRef",
-      ref: Je,
-      class: Ge(["canvas", l(x2)(l(g).level)]),
-      style: ie({ backgroundColor: l(s).config.svg.background_color, position: "relative" }),
-      onMousedown: p1,
-      onMousemove: ue,
-      onMouseup: je,
-      onMousewheel: R[3] || (R[3] = //@ts-ignore
-      (...W) => l(I1) && l(I1)(...W)),
-      onContextmenu: R[4] || (R[4] = //@ts-ignore
-      (...W) => l(it) && l(it)(...W))
+      ref: ke,
+      class: we(["canvas", n(x2)(n(g).level)]),
+      style: se({ backgroundColor: n(s).config.svg.background_color, position: "relative" }),
+      onMousedown: W1,
+      onMousemove: p1,
+      onMouseup: Qe,
+      onMousewheel: V[4] || (V[4] = //@ts-ignore
+      (...w) => n(me) && n(me)(...w)),
+      onContextmenu: V[5] || (V[5] = //@ts-ignore
+      (...w) => n(gt) && n(gt)(...w)),
+      onTouchstart: Y1(R1, ["prevent"])
     }, [
-      Te(Z.$slots, "background", {}, void 0, !0),
-      d("div", Tn, [
-        (p(), w("svg", jn, [
+      je(f.$slots, "background", {}, void 0, !0),
+      d("div", Tl, [
+        (u(), B("svg", jl, [
           d("g", {
             class: "viewport-layer",
-            transform: l(F)
+            transform: n(N)
           }, [
-            (p(!0), w(ae, null, Ae(l(d1), (W) => {
-              var u, V, I, M, j, q, se, qe;
-              return Ze((p(), w("g", {
-                key: W.id,
-                transform: `translate(${W.x},${W.y})`,
-                style: ie(m1(W)),
-                "data-no-zoom": C1(W) ? "true" : void 0,
-                onClick: (We) => z1(W, l(R1).Click),
-                onMousedown: R[0] || (R[0] = //@ts-ignore
-                (...We) => l(W1) && l(W1)(...We)),
-                onMousemove: R[1] || (R[1] = //@ts-ignore
-                (...We) => l(W1) && l(W1)(...We)),
-                onMouseup: R[2] || (R[2] = //@ts-ignore
-                (...We) => l(W1) && l(W1)(...We))
+            (u(!0), B(ce, null, pe(n(E), (w) => {
+              var F, ee, R, J, U, q, le, d1;
+              return Ve((u(), B("g", {
+                key: w.id,
+                transform: `translate(${w.x},${w.y})`,
+                style: se(q1(w)),
+                "data-no-zoom": At(w) ? "true" : void 0,
+                onClick: (xe) => ge(w, n(K1).Click),
+                onMousedown: V[0] || (V[0] = //@ts-ignore
+                (...xe) => n(h1) && n(h1)(...xe)),
+                onMousemove: V[1] || (V[1] = //@ts-ignore
+                (...xe) => n(h1) && n(h1)(...xe)),
+                onMouseup: V[2] || (V[2] = //@ts-ignore
+                (...xe) => n(h1) && n(h1)(...xe)),
+                onTouchstart: V[3] || (V[3] = //@ts-ignore
+                (...xe) => n(h1) && n(h1)(...xe))
               }, [
                 d("g", {
-                  class: Ge(l(Z2)(W))
+                  class: we(n(Z2)(w))
                 }, [
                   d("g", {
-                    transform: Be(W)
+                    transform: m1(w)
                   }, [
-                    W.type === l(T).ConnectionLine ? (p(), H(L2, {
+                    w.type === n(P).ConnectionLine ? (u(), H(L2, {
                       key: 0,
-                      "item-info": W
-                    }, null, 8, ["item-info"])) : W.type === l(T).File ? (p(), w("use", De({
+                      "item-info": w
+                    }, null, 8, ["item-info"])) : w.type === n(P).File ? (u(), B("use", De({
                       key: 1,
-                      "xlink:href": `#svg-${W.name}`,
+                      "xlink:href": `#svg-${w.name}`,
                       ref_for: !0
-                    }, l(_1)(W, ["height", "width"]), {
-                      width: ((V = (u = W.props) == null ? void 0 : u.width) == null ? void 0 : V.val) ?? 100,
-                      height: ((M = (I = W.props) == null ? void 0 : I.height) == null ? void 0 : M.val) ?? 100,
-                      id: W.id
-                    }), null, 16, Pn)) : W.type === l(T).CustomSvg ? (p(), H(tt(l(nt)(W.tag, n.vueComp)), De({
+                    }, n(V1)(w, ["height", "width"]), {
+                      width: ((ee = (F = w.props) == null ? void 0 : F.width) == null ? void 0 : ee.val) ?? 100,
+                      height: ((J = (R = w.props) == null ? void 0 : R.height) == null ? void 0 : J.val) ?? 100,
+                      id: w.id
+                    }), null, 16, Pl)) : w.type === n(P).CustomSvg ? (u(), H(ot(n(it)(w.tag, l.vueComp)), De({
                       key: 2,
                       ref_for: !0
-                    }, l(_1)(W, ["height", "width"]), {
-                      width: ((q = (j = W.props) == null ? void 0 : j.width) == null ? void 0 : q.val) ?? 100,
-                      height: ((qe = (se = W.props) == null ? void 0 : se.height) == null ? void 0 : qe.val) ?? 100,
-                      id: W.id,
-                      onOnChange: (We) => z1(W, l(R1).Change)
-                    }), null, 16, ["width", "height", "id", "onOnChange"])) : W.type === l(T).Vue ? (p(), w("foreignObject", De({
+                    }, n(V1)(w, ["height", "width"]), {
+                      width: ((q = (U = w.props) == null ? void 0 : U.width) == null ? void 0 : q.val) ?? 100,
+                      height: ((d1 = (le = w.props) == null ? void 0 : le.height) == null ? void 0 : d1.val) ?? 100,
+                      id: w.id,
+                      onOnChange: (xe) => ge(w, n(K1).Change)
+                    }), null, 16, ["width", "height", "id", "onOnChange"])) : w.type === n(P).Vue ? (u(), B("foreignObject", De({
                       key: 3,
                       ref_for: !0
-                    }, w1(W.actual_bound), {
-                      id: `foreign-object${W.id}`,
+                    }, Oe(w.actual_bound), {
+                      id: `foreign-object${w.id}`,
                       class: "foreignObject"
                     }), [
-                      (p(), H(tt(l(nt)(W.tag, n.vueComp)), De({ ref_for: !0 }, l(_1)(W), {
-                        id: W.id,
-                        onOnChange: (We) => z1(W, l(R1).Change)
+                      (u(), H(ot(n(it)(w.tag, l.vueComp)), De({ ref_for: !0 }, n(V1)(w), {
+                        id: w.id,
+                        onOnChange: (xe) => ge(w, n(K1).Change)
                       }), {
-                        default: h(() => [
-                          o1(S(W.tag_slot), 1)
+                        default: m(() => [
+                          o1(S(w.tag_slot), 1)
                         ]),
                         _: 2
                       }, 1040, ["id", "onOnChange"]))
-                    ], 16, Qn)) : U("", !0)
-                  ], 8, En)
+                    ], 16, Ql)) : D("", !0)
+                  ], 8, El)
                 ], 2)
-              ], 44, Dn)), [
-                [Le, W.display]
+              ], 44, Dl)), [
+                [We, w.display]
               ]);
             }), 128))
-          ], 8, On)
+          ], 8, Ol)
         ]))
       ]),
-      Ze(d("div", $n, [
-        o1(S(l(A)("缩放倍数")) + ": " + S(l(J).scale) + S(l(A)("倍")) + ", " + S(l(A)("画布位置")) + ": " + S(l(Ce)(l(J).x, 2)) + ", " + S(l(Ce)(l(J).y, 2)) + " ", 1),
-        r(ve, {
+      Ve(d("div", $l, [
+        o1(S(n(A)("缩放倍数")) + ": " + S(n(T).scale) + S(n(A)("倍")) + ", " + S(n(A)("画布位置")) + ": " + S(n(Ce)(n(T).x, 2)) + ", " + S(n(Ce)(n(T).y, 2)) + " ", 1),
+        r(Ze, {
           class: "icoP",
           size: 14,
-          onClick: rt,
-          title: l(A)("重置位置")
+          onClick: fe,
+          title: n(A)("重置位置")
         }, {
-          default: h(() => [
-            r(l(R2))
+          default: m(() => [
+            r(n(R2))
           ]),
           _: 1
         }, 8, ["title"])
       ], 512), [
-        [Le, Z.showCanvasInfo]
+        [We, f.showCanvasInfo]
       ])
     ], 38));
   }
 });
-const p4 = /* @__PURE__ */ he(t4, [["__scopeId", "data-v-d11e2284"]]);
+const m4 = /* @__PURE__ */ ye(n4, [["__scopeId", "data-v-b20cdde5"]]);
 export {
   h2 as DEFAULT_LOCALE,
-  T as EDoneJsonType,
+  P as EDoneJsonType,
   B2 as EPreviewPerfLevel,
-  u4 as SvgEditor,
-  p4 as SvgViewer,
+  b4 as SvgEditor,
+  m4 as SvgViewer,
   W2 as detectPerfLevel,
-  r4 as getLocale,
+  u4 as getLocale,
   jo as normalizeLocale,
   Oo as registerMessages,
   v2 as setLocale,
-  A4 as t,
+  p4 as t,
   A as translate,
   Ht as useVgceLocale
 };

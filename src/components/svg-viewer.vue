@@ -253,6 +253,20 @@
 	//输入帧缓冲：输入阶段只记录指针坐标，渲染阶段统一做计算与提交
 	const pendingPointer = { x: 0, y: 0, pending: false }
 
+	//触摸手势状态
+	let touchIsPanning = false
+	let touchIsPinching = false
+	let touchInitialPinchDist = 0
+	let touchInitialPinchScale = 1
+	const MAX_SCALE = 10
+	const MIN_SCALE = 0.1
+
+	const getTouchDistance = (t1: Touch, t2: Touch) => {
+		const dx = t1.clientX - t2.clientX
+		const dy = t1.clientY - t2.clientY
+		return Math.hypot(dx, dy)
+	}
+
 	const renderInputFrame = () => {
 		if (!pendingPointer.pending) {
 			return
@@ -399,6 +413,164 @@
 		window.removeEventListener('mousemove', onWindowMouseMove, true)
 		window.removeEventListener('mouseup', onWindowMouseUp, true)
 		window.removeEventListener('blur', onWindowBlur)
+	}
+
+	//触摸事件监听器附加状态
+	let touchListenersAttached = false
+
+	const attachTouchListeners = () => {
+		if (touchListenersAttached || !canvasRef.value) {
+			return
+		}
+		touchListenersAttached = true
+		canvasRef.value.addEventListener('touchmove', onCanvasTouchMove, { passive: false })
+		canvasRef.value.addEventListener('touchend', onCanvasTouchEnd)
+		canvasRef.value.addEventListener('touchcancel', onCanvasTouchEnd)
+	}
+
+	const detachTouchListeners = () => {
+		if (!touchListenersAttached || !canvasRef.value) {
+			return
+		}
+		touchListenersAttached = false
+		canvasRef.value.removeEventListener('touchmove', onCanvasTouchMove)
+		canvasRef.value.removeEventListener('touchend', onCanvasTouchEnd)
+		canvasRef.value.removeEventListener('touchcancel', onCanvasTouchEnd)
+	}
+
+	const endTouchInteraction = () => {
+		flushInputFrame()
+		detachTouchListeners()
+		detachDragListeners()
+		unfreezeVisual()
+		clearTimeout(displayPosTimer)
+		flushDisplayPos()
+		if (zoomUnfreezeTimer) {
+			clearTimeout(zoomUnfreezeTimer)
+			zoomUnfreezeTimer = null
+		}
+		if (globalStore.mouse_info.state === EMouseInfoState.Down) {
+			globalStore.mouse_info = {
+				state: EMouseInfoState.Up,
+				position_x: 0,
+				position_y: 0,
+				now_position_x: 0,
+				now_position_y: 0,
+				new_position_x: 0,
+				new_position_y: 0
+			}
+		}
+		if (globalStore.intention !== EGlobalStoreIntention.Select) {
+			globalStore.intention = EGlobalStoreIntention.None
+		}
+		touchIsPanning = false
+		touchIsPinching = false
+		touchInitialPinchDist = 0
+	}
+
+	const onCanvasTouchStart = (e: TouchEvent) => {
+		if (!props.canvasDrag && !props.canvasZoom) {
+			return
+		}
+		if (e.touches.length === 1 && !touchIsPinching) {
+			if (!props.canvasDrag) {
+				return
+			}
+			const touch = e.touches[0]
+			touchIsPanning = true
+			globalStore.intention = EGlobalStoreIntention.MoveCanvas
+			globalStore.mouse_info = {
+				state: EMouseInfoState.Down,
+				position_x: Math.round(touch.clientX / preview_data.config.svg.scale),
+				position_y: Math.round(touch.clientY / preview_data.config.svg.scale),
+				now_position_x: preview_data.layout_center.x,
+				now_position_y: preview_data.layout_center.y,
+				new_position_x: 0,
+				new_position_y: 0
+			}
+			freezeVisual()
+			attachTouchListeners()
+			attachDragListeners()
+		} else if (e.touches.length >= 2) {
+			if (!props.canvasZoom) {
+				return
+			}
+			touchIsPanning = false
+			touchIsPinching = true
+			const t1 = e.touches[0]
+			const t2 = e.touches[1]
+			touchInitialPinchDist = getTouchDistance(t1, t2)
+			touchInitialPinchScale = preview_data.config.svg.scale
+			freezeVisual()
+			detachDragListeners()
+			attachTouchListeners()
+		}
+	}
+
+	const onCanvasTouchMove = (e: TouchEvent) => {
+		e.preventDefault()
+		if (touchIsPinching && e.touches.length >= 2) {
+			const t1 = e.touches[0]
+			const t2 = e.touches[1]
+			const dist = getTouchDistance(t1, t2)
+			if (touchInitialPinchDist <= 0) {
+				return
+			}
+			let newScale = touchInitialPinchScale * (dist / touchInitialPinchDist)
+			newScale = myFixed(Math.max(MIN_SCALE, Math.min(MAX_SCALE, newScale)), 2)
+			const oldScale = preview_data.config.svg.scale
+			if (newScale === oldScale) {
+				return
+			}
+			const midpointX = (t1.clientX + t2.clientX) / 2
+			const midpointY = (t1.clientY + t2.clientY) / 2
+			const canvasEl = canvasRef.value
+			if (canvasEl) {
+				const rect = canvasEl.getBoundingClientRect()
+				const offsetX = midpointX - rect.left
+				const offsetY = midpointY - rect.top
+				preview_data.layout_center.x = preview_data.layout_center.x + offsetX * (1 / newScale - 1 / oldScale)
+				preview_data.layout_center.y = preview_data.layout_center.y + offsetY * (1 / newScale - 1 / oldScale)
+			}
+			preview_data.config.svg.scale = newScale
+			if (isLowPerf.value) {
+				freezeVisual()
+			}
+			maybeRecalcClip()
+		} else if (touchIsPanning && e.touches.length === 1 && !touchIsPinching) {
+			const touch = e.touches[0]
+			pendingPointer.x = Math.round(touch.clientX / preview_data.config.svg.scale)
+			pendingPointer.y = Math.round(touch.clientY / preview_data.config.svg.scale)
+			pendingPointer.pending = true
+			onCanvasMouseMove()
+		}
+	}
+
+	const onCanvasTouchEnd = (e: TouchEvent) => {
+		if (e.touches.length === 0) {
+			endTouchInteraction()
+		} else if (e.touches.length === 1 && touchIsPinching) {
+			touchIsPinching = false
+			unfreezeVisual()
+			if (zoomUnfreezeTimer) {
+				clearTimeout(zoomUnfreezeTimer)
+				zoomUnfreezeTimer = null
+			}
+			if (props.canvasDrag) {
+				const touch = e.touches[0]
+				touchIsPanning = true
+				globalStore.intention = EGlobalStoreIntention.MoveCanvas
+				globalStore.mouse_info = {
+					state: EMouseInfoState.Down,
+					position_x: Math.round(touch.clientX / preview_data.config.svg.scale),
+					position_y: Math.round(touch.clientY / preview_data.config.svg.scale),
+					now_position_x: preview_data.layout_center.x,
+					now_position_y: preview_data.layout_center.y,
+					new_position_x: 0,
+					new_position_y: 0
+				}
+			}
+		}
 	}
 
 	/**
@@ -754,6 +926,8 @@
 		pendingPointer.pending = false
 		//移除拖拽期间挂在window上的监听
 		detachDragListeners()
+		//移除触摸事件监听
+		detachTouchListeners()
 		resizeObserver?.disconnect()
 		resizeObserver = null
 		//清理缩放解冻定时器
@@ -795,6 +969,7 @@
 		@mouseup="onCanvasMouseUp"
 		@mousewheel="onMousewheel"
 		@contextmenu="preventDefault"
+		@touchstart.prevent="onCanvasTouchStart"
 	>
 		<slot name="background" />
 		<div class="coverLayer">
@@ -811,6 +986,7 @@
 						@mousedown="stopEvent"
 						@mousemove="stopEvent"
 						@mouseup="stopEvent"
+						@touchstart="stopEvent"
 					>
 						<g :class="getCommonClass(item)">
 							<g :transform="getRotateAndScaleTransform(item)">

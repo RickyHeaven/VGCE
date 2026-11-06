@@ -43,7 +43,7 @@ Vector graphics configure editor. 矢量图组态编辑器。
 | 能力 | 说明 |
 | --- | --- |
 | 只读渲染 | 接收编辑器产出的 `data` 数据模型（`layout_center` + `config` + `done_json`），完整还原画布、组件、连线与动画 |
-| 交互开关 | `canvasDrag` / `canvasZoom` / `showCanvasInfo` 分别控制拖拽画布、滚轮缩放、画布信息显示 |
+| 交互开关 | `canvasDrag` / `canvasZoom` / `showCanvasInfo` 分别控制拖拽画布、滚轮缩放、画布信息显示；移动端支持单指拖拽平移画布、双指捏合缩放 |
 | 性能分级 | `previewPerf` / `forceLevel` 控制性能档位，`getPerfLevel()` 可读取当前生效档位（详见第 8 节） |
 | 实时通信 | 内置 MQTT 订阅，收到消息后通过 `onMessage` 抛出 `{ topics, message }`；调用 `setNodeAttrByID(id, attr, val)` 即可定点更新组件属性 |
 | 事件回调 | 组件事件触发时通过 `onEvent` 抛出 `{ event, target }`，可在宿主中执行跳转、弹窗等业务逻辑 |

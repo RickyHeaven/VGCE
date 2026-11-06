@@ -41,7 +41,7 @@ Vector graphics configuration editor.
 | Capability | Description |
 | --- | --- |
 | Read-only rendering | Receives the `data` model produced by the editor (`layout_center` + `config` + `done_json`) and fully restores the canvas, components, connections and animations |
-| Interaction switches | `canvasDrag` / `canvasZoom` / `showCanvasInfo` control canvas dragging, wheel zooming and canvas info display respectively |
+| Interaction switches | `canvasDrag` / `canvasZoom` / `showCanvasInfo` control canvas dragging, wheel zooming and canvas info display respectively; mobile touch gestures are supported: single-finger drag to pan, pinch-to-zoom |
 | Performance tiers | `previewPerf` / `forceLevel` control the performance tier; `getPerfLevel()` reads the currently effective tier (see section 8) |
 | Real-time communication | Built-in MQTT subscription; received messages are emitted through `onMessage` as `{ topics, message }`; call `setNodeAttrByID(id, attr, val)` to update a component's attributes at a specific target |
 | Event callbacks | When a component event fires, `onEvent` emits `{ event, target }`, so the host can run business logic such as navigation or dialogs |
